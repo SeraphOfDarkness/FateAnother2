@@ -1,0 +1,135 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf10:version{b5ef673d-0450-4fb0-a91b-bacae6864827} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 500
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_flStartFadeSize = 0.675
+			m_flEndFadeSize = 0.75
+			m_flMaxSize = 0.85
+			m_flOverbrightFactor = 1.5
+			m_flAddSelfAmount = 2.0
+			m_bBlendFramesSeq0 = false
+			m_bSaturateColorPreAlphaBlend = false
+			m_hTexture = resource:"materials/particle/spray1/spray1.vtex"
+			m_flAnimationRate = 2.0
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.15
+			m_Gravity = [ 0.0, 0.0, -800.0 ]
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.85
+			m_flEndScale = 4.0
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flStartTime_min = 0.0
+			m_flStartTime_max = 0.0
+			m_flEndTime_min = 0.1
+			m_nControlPointNumber = 3
+			m_flEndTime_max = 0.1
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 213, 225, 230, 255 ]
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.75
+		},
+		{
+			_class = "C_OP_Spin"
+			m_nSpinRateDegrees = 24
+			m_fSpinRateStopTime = 0.7
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 1.0
+			m_fLifetimeMin = 0.7
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 40.0
+			m_flRadiusMin = 24.0
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = [ 43, 106, 101, 255 ]
+			m_ColorMin = [ 42, 57, 64, 255 ]
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMax = 14
+			m_nAlphaMin = 8
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMax = 2
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RingWave"
+			m_flInitialRadius = 1.0
+			m_flThickness = 128.0
+			m_flInitialSpeedMin = 100.0
+			m_flInitialSpeedMax = 333.0
+			m_nOverrideCP = 5
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_flNoiseScale = 3.0
+			m_flNoiseScaleLoc = 4.0
+			m_vecOutputMin = [ -234.0, -234.0, 132.0 ]
+			m_vecOutputMax = [ 234.0, 234.0, 164.0 ]
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ -32.0, -32.0, 32.0 ]
+			m_OffsetMax = [ 32.0, 32.0, 48.0 ]
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 0.01, 0.01, 1.0 ]
+			m_flWarpTime = 0.75
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_vecOutputMin = [ 0.0, 0.0, 100.0 ]
+			m_vecOutputMax = [ 1.0, 1.0, 300.0 ]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmissionDuration = 0.9
+			m_flOpEndFadeInTime = 0.9
+			m_flOpStartFadeInTime = 0.01
+			m_flEmitRate = 640.0
+		},
+	]
+	m_PreEmissionOperators = [  ]
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 7
+}

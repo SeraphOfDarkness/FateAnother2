@@ -1,0 +1,59 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf19:version{aafc65d8-7a5a-4e01-bd8d-3ac118422503} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_Operators = [  ]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_m.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_l.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_h.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_j.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_k.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/semiramis/laser_beam_e.vpcf"
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 2
+			m_vecCP1Pos = [ 0.0, 0.0, 1000.0 ]
+			m_nHeadLocation = 1
+		},
+	]
+	m_nBehaviorVersion = 9
+}

@@ -1,0 +1,32 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf37:version{f9a1c8c4-159b-4786-b740-4d1a118c8f46} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_flConstantRadius = 2.0
+	m_nMaxParticles = 0
+	m_bShouldSort = false
+	m_nBehaviorVersion = 12
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_h.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/fa_quickdraw_trail_i.vpcf"
+		},
+	]
+}

@@ -1,0 +1,156 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_ConstantColor = [ 0, 0, 0, 255 ]
+	m_flConstantRadius = 50.0
+	m_nMaxParticles = 6
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/gilgamesh/gilgamesh_enkidu_body_anchor.vpcf"
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_MovementRotateParticleAroundAxis"
+			m_flRotRate = 4.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_SetPerChildControlPoint"
+			m_nFirstControlPoint = 2
+			m_nNumControlPoints = 6
+			m_bSetOrientation = true
+		},
+		{
+			_class = "C_OP_AlphaDecay"
+			m_flMinAlpha = 0.05
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -1.0
+			m_flEndTime = 999999986991104.0
+			m_nField = 16
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_Spin"
+			m_nSpinRateDegrees = 60
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = 2
+			m_bAdditive = true
+			m_hTexture = resource:"materials/particle/juggernaut/juggernaut_blade_fury.vtex"
+			VisibilityInputs = 
+			{
+				m_flInputMax = 0.0
+			}
+		},
+		{
+			_class = "C_OP_RenderSprites"
+			m_hTexture = resource:"materials/particle/particle_glow_02.vtex"
+			VisibilityInputs = 
+			{
+				m_flInputMax = 0.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.4
+			m_fLifetimeMax = 0.4
+		},
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 6.0
+			m_flInitialRadius = 300.0
+			m_bEvenDistribution = true
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 100.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 200.0 ]
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = [ 255, 243, 192, 255 ]
+			m_TintMax = [ 0, 0, 0, 255 ]
+			m_nTintBlendMode = "PARTICLEBLEND_MULTIPLY"
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 50
+			m_nAlphaMax = 100
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 50.0
+			m_flRadiusMax = 80.0
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 6
+		},
+	]
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

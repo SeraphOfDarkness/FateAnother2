@@ -1,0 +1,146 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf35:version{ec5bfcca-b89d-4591-9ef4-c8679487d623} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_ConstantColor = [ 170, 85, 255, 255 ]
+	m_flConstantRadius = 12.0
+	m_flMaxDrawDistance = 100000.0
+	m_flNoDrawTimeToGoToSleep = 999999.0
+	m_nMaxParticles = 32
+	m_bShouldSort = false
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 7
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 4
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 7
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 32.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.8
+			m_fLifetimeMax = 0.8
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 136
+			m_nAlphaMax = 195
+		},
+		{
+			_class = "C_INIT_InitFromCPSnapshot"
+			m_nControlPointNumber = 6
+			m_nAttributeToRead = 0
+			m_nLocalSpaceCP = 4
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMax = 3
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 139, 0, 0 ]
+			m_ColorMax = [ 178, 34, 34 ]
+			m_TintMin = [ 0, 0, 0, 0 ]
+			m_nTintBlendMode = "0"
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 4.0
+			m_flRadiusMax = 12.0
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 0.0, -50.0, 0.0 ]
+			m_vecWarpMax = [ 0.0, -50.0, 0.0 ]
+			m_nScaleControlPointNumber = 7
+			m_nControlPointNumber = 4
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_MovementRigidAttachToCP"
+			m_nControlPointNumber = 2
+		},
+		{
+			_class = "C_OP_FadeAndKill"
+			m_flStartAlpha = 0.0
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 4.0
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationControlPoint = 0
+			m_nRefractBlurType = "2"
+			m_flOverbrightFactor = 5.0
+			VisibilityInputs = 
+			{
+				m_flInputMax = 0.0
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/vistasmokev2/vistasmokev1_graydetail.vtex"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/lubu/lubu_lightning_drip_b.vpcf"
+			m_bPreventNameBasedLookup = false
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lubu/lubu_lightning_drip.vpcf"
+			m_bPreventNameBasedLookup = false
+		},
+	]
+}
