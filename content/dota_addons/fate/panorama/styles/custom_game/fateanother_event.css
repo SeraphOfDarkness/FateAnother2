@@ -1,0 +1,304 @@
+.FateEventRoot
+{
+    width: 100%;
+    height: 100%;
+}
+
+#EventsBackground
+{
+    width: 100%;
+    height: 100%;
+}
+
+.EventsBar
+{
+	margin-top: 50px;
+	margin-right: 20px;
+	vertical-align: top;
+    horizontal-align: right;
+    flow-children: right;
+    width: 200px;
+    height: 100px;
+    z-index: 5;
+}
+
+.EventsButton
+{
+    width: 160px;
+    height: 100px;
+    tooltip-position: bottom;
+    background-image: url('file://{images}/custom_game/event/closed.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 8px;
+    margin-left: 8px;
+    vertical-align: center;
+    horizontal-align: left;
+    background-position: center;
+    opacity: 0.8;
+    wash-color: #CDF;
+    background-color: blue;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    z-index: 5;
+}
+
+.EventMainContainer
+{
+    width: 400px;
+    height: 600px;
+    vertical-align: center;
+    horizontal-align: center;
+    perspective-origin: 62% 5% invert;
+    perspective: 1000;
+    visibility: visible;
+
+    transition-property: opacity, transform, pre-transform-scale2d, wash-color;
+    transition-duration: 0.4s;
+    transition-delay: 0.0s;
+    transition-timing-function: ease-in-out;
+
+    background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+    box-shadow: #00000099 -4px -4px 8px 8px;
+    border: 2px solid #32383677;
+    z-index: 5;
+}
+
+.BoardMainContainer
+{
+    width: 800px;
+    height: 800px;
+    vertical-align: center;
+    horizontal-align: center;
+    perspective-origin: 62% 5% invert;
+    perspective: 1000;
+    visibility: visible;
+
+    transition-property: opacity, transform, pre-transform-scale2d, wash-color;
+    transition-duration: 0.4s;
+    transition-delay: 0.0s;
+    transition-timing-function: ease-in-out;
+
+    background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+    box-shadow: #00000099 -4px -4px 8px 8px;
+    border: 2px solid #32383677;
+    
+    z-index: 5;
+}
+
+.BoardPanel
+{
+    margin-top: 150px;
+    overflow: squish scroll;
+    flow-children: down;
+}
+
+.BoardImage
+{
+    width: 700px;
+    height: 420px;
+    /*margin-top: 100px;*/
+    vertical-align: top;
+    horizontal-align: center;
+    background-image: url('file://{images}/custom_game/event/closed.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition-property: transform, pre-transform-scale2d, wash-color;
+    transition-duration: 1.0s;
+   /* margin-left: 240px;*/
+    transition-delay: 0.0s;
+    visibility: visible;
+    z-index: 5;
+}
+
+.BoardDetail
+{
+    width: 800px;
+    height: 1500px;
+    vertical-align: top;
+    horizontal-align: center;
+    visibility: visible;
+}
+
+.TourDetailPanel
+{
+    width: 700px;
+    height: 100px;
+    vertical-align: top;
+    horizontal-align: center;
+    visibility: visible;
+    flow-children: down;
+}
+
+.TourName
+{
+    width: 700px;
+    height: 80px;
+    vertical-align: top;
+    horizontal-align: center;
+}
+
+.TourJoinPanel
+{
+    width: 800px;
+    height: 100px;
+    vertical-align: top;
+    horizontal-align: center;
+    flow-children: right;
+    z-index: 9999;
+}
+
+.JoinButton
+{
+    width: 350px;
+    height: 70px;
+    margin-left:  25px;
+    margin-right:  25px;
+    vertical-align: center;
+    border: 1px solid #32383677;
+    border-color: grey;
+    z-index: 9999;
+}
+
+#TourDetailLabel
+{
+    vertical-align: top;
+    font-size: 30px;
+    horizontal-align: center;
+    color: white;
+}
+
+.EventContainerHidden
+{
+    opacity: 0.0;
+    transform: translateX( -120px ) translateY( -60px );
+    pre-transform-scale2d: 0.95;
+    wash-color: #33cccc;
+    visibility: collapse;
+}
+
+.EventCloseButton
+{
+    width: 40px;
+    height: 40px; 
+    background-color: blue;
+    background-size: 100%;
+    background-image: url('file://{images}/custom_game/event/closed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    horizontal-align: right;
+    vertical-align: top;
+    z-index: 10;
+}
+
+#EventCloseButtonLabel
+{
+    vertical-align: middle;
+    font-size: 20px;
+    horizontal-align: center;
+    color: white;
+}
+
+.SkinDetailPanel
+{
+    width: 400px;
+    height: 100px;
+    vertical-align: top;
+    horizontal-align: center;
+    visibility: visible;
+    flow-children: down;
+}
+
+.EventName
+{
+    width: 400px;
+    height: 80px;
+    vertical-align: top;
+    horizontal-align: center;
+    visibility: visible;
+}
+
+#EventNameLabel
+{
+    vertical-align: center;
+    font-size: 60px;
+    horizontal-align: center;
+    color: white;
+}
+
+.EventDate
+{
+    width: 400px;
+    height: 20px;
+    vertical-align: top;
+    horizontal-align: center;
+    visibility: visible;
+}
+
+#EventDateLabel
+{
+    vertical-align: center;
+    font-size: 20px;
+    horizontal-align: center;
+    color: white;
+}
+
+.SkinPanel
+{
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+    vertical-align: top;
+    flow-children: down;
+    transition-property: transform, pre-transform-scale2d, wash-color;
+    transition-duration: 1.0s;
+   /* margin-left: 240px;*/
+    transition-delay: 0.0s;
+    visibility: visible;
+    z-index: 5;
+}
+
+.SkinPortrait
+{
+    width: 210px;
+    height: 280px;
+    background-image: url('file://{images}/custom_game/event/closed.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    border: 5px solid #D4D48C;
+    vertical-align: top;
+    horizontal-align: center;
+    
+}
+
+.SkinPortraitName
+{
+    width: 400px;
+    height: 100px;
+    vertical-align: top;
+    horizontal-align: center;
+}
+#SkinPortraitNameLabel
+{
+    vertical-align: middle;
+    font-size: 25px;
+    horizontal-align: center;
+}
+
+.EventPanelStatus
+{
+    width: 400px;
+    height: 100px;
+    vertical-align: bottom;
+    horizontal-align: center;
+    z-index: 5;
+}
+
+#EventPanelStatusLabel
+{
+    vertical-align: middle;
+    font-size: 80px;
+    horizontal-align: center;
+    color: white;
+}

@@ -1,0 +1,26 @@
+<root> 
+	<Panel class="AddonLoadingRoot"> 
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/kirei3.png" /> 
+			<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/kirei2.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/kirei1.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_30_stat.png" /> 
+					<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_fate_setting.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_default.png" /> 		
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_fatepedia.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_fatepedia_saber.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_innate_change.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_master_1.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/tutorial_master_2.png" /> 	
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/seal1.png"/> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/Excalibur_tutorial.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/StatsTutor.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/MaxExcalb.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/Grail.png" /> 
+				<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/RevokedMaster.png" /> 
+	            <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/a_scroll.png" /> 
+	            <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/b_scroll.png" />
+	            <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/c_scroll.png" />
+	            <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/s_scroll.png" />
+	            <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/tutorial/spirit_link.png" />    				
+	</Panel> 
+</root>

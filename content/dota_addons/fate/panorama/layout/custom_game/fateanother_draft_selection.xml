@@ -1,0 +1,122 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/custom_game/fateanother_draft_selection.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_draft.vjs_c" />
+    </scripts>
+    <snippets>
+		<snippet name="PlayerbarRed">
+			<Panel class="PlayerBarRed">
+				<Panel class="portraitRed">
+					<Image  id="PortraitImage">
+
+					</Image>
+				</Panel>
+				<Panel class="playerNameRed">
+					<Label id="playerNameLabel" ></Label>
+				</Panel>
+				<Panel class="heroNameRed">
+					<Label id="heroNameLabel" ></Label>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="PlayerBarBlack">
+			<Panel class="PlayerBarBlack">
+				<Panel class="portraitBlack">
+					
+				</Panel>
+				<Panel class="playerNameBlack">
+					<Label id="playerNameLabel" ></Label>
+				</Panel>
+				<Panel class="heroNameBlack">
+					<Label id="heroNameLabel" ></Label>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="Draft" hittest="false">
+	    <Panel id="DraftSelection" class="DraftSelection">
+	    	<Panel id="Dummy" class="Draft">
+		    	<Panel id="TopBar" class="TopBar">
+		    		<Label id="status" class="statusLabel"></Label>
+		            <Panel id="timePanel" class="timePanel">
+		                <Label id="time" class="timeLabel"></Label>
+		                <Image class="timeRing" src="file://{images}/status_icons/timer_ring.psd"/>
+		            </Panel>
+		            <!--<Panel id="RedMana" >
+		            	<Panel id="RedManaGuage" >
+		    			</Panel>
+		    			<Label id="RedManaLabel" class="ManaLabel"></Label>
+		            </Panel>
+		            <Panel id="BlackMana">
+		            	<Panel id="BlackManaGuage" >
+		    			</Panel>
+		    			<Label id="BlackManaLabel" class="ManaLabel"></Label>
+		            </Panel>-->
+		    	</Panel>
+		    	<Panel id="LeftBar" class="LeftBar">
+		    		
+		    	</Panel>
+		    	<Panel id="RightBar" class="RightBar">
+		    		
+		    	</Panel>
+		    	<Panel id="BottomBar" class="BottomBar">
+		    		<Panel id="selectedbar" class="selectedbar">
+		    			<Label id="selectedbartext" text="BAN">	
+		    			</Label>
+		    		</Panel>
+		    		<Panel id="SkinNamePanel" class="SkinNamePanel">
+			    		<Label id="SelectedPlayerNameLabel">	
+			    		</Label>
+			    	</Panel>
+		    		<Panel id="Selected1" class="SelectedPanel">	
+		    			<Panel id="SelectedHero1" class="SelectedHero">	
+			    		</Panel>
+			    		<Panel id="SelectedPlayerName1" class="SelectedPlayerName">
+			    			<Label id="SelectedPlayerNameLabel" >
+			    			</Label>	
+			    		</Panel>
+		    		</Panel>
+		    		<Panel id="SelectedRight" class="SelectedRight">	
+		    			<Image class="timeRing" src="file://{images}/custom_game/draft/other/arrow_right.png"/>	
+		    		</Panel>
+		    		<Panel id="SelectedLeft" class="SelectedLeft">	
+		    			<Image class="timeRing" src="file://{images}/custom_game/draft/other/arrow_left.png"/>
+		    		</Panel>
+		    		<Panel id="SelectedPanel2" class="SelectedPanel2">	
+		    			<Panel id="Selected2" class="SelectedPanelL">	
+		    				<Panel id="SelectedHero2" class="SelectedHero">	
+			    			</Panel>
+			    			<Panel id="SelectedPlayerName2" class="SelectedPlayerName">
+			    				<Label id="SelectedPlayerNameLabel" >
+			    				</Label>	
+			    			</Panel>
+		    			</Panel>
+		    			<Panel id="Selected3" class="SelectedPanelR">	
+		    				<Panel id="SelectedHero3" class="SelectedHero">	
+			    			</Panel>
+			    			<Panel id="SelectedPlayerName3" class="SelectedPlayerName">
+			    				<Label id="SelectedPlayerNameLabel">
+			    				</Label>	
+			    			</Panel>
+		    			</Panel>
+		    		</Panel>
+		    	</Panel>
+		    	<Panel id="CenterBar" class="CenterBar">
+		    		<Panel id="heroes" class="heroes">
+		    		</Panel>
+		    		<!--<Panel id="twentyCost" class="twentyCost">
+		    			<Panel id="twentyheroes" class="heroes">
+		    			</Panel>
+		    		</Panel>
+		    		<Panel id="tenCost" class="tenCost">
+		    			<Panel id="tenheroes" class="heroes">
+		    			</Panel>
+		    		</Panel>-->
+		    	</Panel>
+		    </Panel>
+
+	    </Panel>
+	</Panel>
+</root>

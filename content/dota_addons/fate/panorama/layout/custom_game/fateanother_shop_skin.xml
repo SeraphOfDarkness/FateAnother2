@@ -1,0 +1,33 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/custom_game/fateanother_cp_shop.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_shop_skin.vjs_c" />
+    </scripts>
+    <snippets>
+        <snippet name="SkinInShop">
+            <Panel class="SkinMainContainer">
+                <Panel class="SkinPortrait">
+
+                </Panel>
+                <Panel class="SkinCostButton">
+                    <Label id="SkinCostLabel" ></Label>
+                </Panel>
+                <Panel class="SkinDetailPanels">
+                    <Panel class="SkinDetailPanel">
+                        <Label id="SkinPortraitNameLabel" ></Label>
+                    </Panel> 
+                </Panel>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="SkinShopContainer" hittest="false">
+        <Panel id="SkinShopTopPanel" class="SkinShopTopPanel" >
+
+        </Panel>
+        <Panel id="SkinShopBotPanel" class="SkinShopBotPanel" >
+            <Panel id="SkinShopBot" class="SkinShopBot" />
+        </Panel>        
+    </Panel>
+</root>

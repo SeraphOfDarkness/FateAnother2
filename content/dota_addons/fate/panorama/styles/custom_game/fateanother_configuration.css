@@ -1,0 +1,136 @@
+.ConfigRoot
+{
+    width: 100%;
+    height: 100%;
+    margin: 20px 20px 20px 20px;
+    flow-children: down-wrap;
+}
+
+.ConfigSection
+{
+    flow-children: down-wrap;
+    width: 330px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.SectionHeader
+{
+    font-size: 24px;
+    font-weight: thin;
+    color: #939da0;
+    text-transform: uppercase;
+}
+
+#ConfigCameraDist
+{
+    flow-children: down-wrap;
+    height: 140px;
+}
+
+#ConfigCameraSlider
+{
+    width: 280px;
+}
+
+#ConfigAudioSection
+{
+    height: 230px;
+}
+
+#FateConfigBGMList
+{
+    margin-top: 32px;
+    width: 250px;
+}
+
+#FateConfigBGMToggle
+{
+    horizontal-align: right;
+}
+
+#VolumeButton1
+{
+    margin-top: 20px;
+    horizontal-align: right;
+    z-index: 3;
+}
+
+#VolumeButton2
+{
+    margin-top: 20px;
+    horizontal-align: center;
+    z-index: 3;
+}
+
+#VolumeButton3
+{
+    margin-top: 20px;
+    horizontal-align: left;
+    z-index: 3;
+}
+
+#FateVolumeBar
+{
+    width: 270px;
+    height: 12px;
+    margin-top: 24px;
+    margin-left: 3px;
+    background-color: black;
+    horizontal-align: left;
+    z-index: 1;
+}
+
+#FateVolumeGuage {
+    width: 100%;
+    height: 50%;
+    vertical-align: center;
+    background-color: white;
+    horizontal-align: left;
+    z-index: 2;
+}
+
+#FateVolumePanel
+{
+    width: 280px;
+    height: 100px;
+}
+
+#FateVolumeNumber
+{
+    width: 30px;
+    height: 17px;
+    vertical-align: top;
+    horizontal-align: right;
+    margin-right: 3px;
+    z-index: 4;
+}
+
+@keyframes 'TeamsListAppear'
+{
+    0%
+    {
+        transform: translatex( 100% );
+    }
+
+    100%
+    {
+        transform: translatex( 0px );
+    }
+}
+
+#ConfigOptionsSection
+{
+    height: 100%;
+}
+
+.ConfigCmdText
+{
+    text-overflow: clip;
+}
+
+.ConfigCmdLabel
+{
+    text-overflow: clip;
+    color: white;
+}

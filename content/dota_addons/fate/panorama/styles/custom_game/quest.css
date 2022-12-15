@@ -1,0 +1,420 @@
+#Underlay {
+  width: 100%;
+  height: 100%;
+}
+#AllQuestsPanel {
+  width: 1000px;
+  height: 700px;
+  horizontal-align: center;
+  vertical-align: middle;
+  flow-children: down;
+}
+#AllQuestsPanel > .header {
+  width: 100%;
+  height: 10%;
+  border-style: solid;
+  border-width: 1.5px;
+  background-color: #263238;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  z-index: 1;
+}
+#AllQuestsPanel > .header > Label {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px 1 #3122225d;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 5px;
+  horizontal-align: center;
+  text-overflow: shrink;
+  font-family: KoreanFont, georgia, serif;
+  vertical-align: middle;
+}
+#AllQuestsPanel > .header > ToggleButton {
+  horizontal-align: right;
+  margin-right: 20px;
+  vertical-align: middle;
+  color: #00A4A4;
+}
+#AllQuestsPanel > .header > ToggleButton > Panel {
+  width: 30px;
+  height: 30px;
+}
+#AllQuestsPanel > .header > ToggleButton > Label {
+  font-size: 25px;
+}
+#AllQuestsPanel .all-quests-body {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  border-style: solid;
+  border-width: 1.5px;
+  background-color: #263238;
+  /*background-image: url("s2r://panorama/images/loadingscreens/basim_loadingscreen/loadingscreen_tga.vtex");*/
+  background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
+  horizontal-align: center;
+  margin-top: -50px;
+  padding-top: 50px;
+  background-size: 100% 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+#AllQuestsPanel .tabs {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: 50px;
+  margin-right: 50px;
+  flow-children: right;
+  width: 100%;
+}
+#AllQuestsPanel .tabs .selected {
+  margin-top: -5px;
+  margin-bottom: -2px;
+  background-color: #3e3e3e;
+}
+#AllQuestsPanel .tabs .selected > Label {
+  font-size: 24px;
+}
+#AllQuestsPanel .tabs .selected:hover {
+  background-color: #3e3e3e;
+}
+#AllQuestsPanel .tabs .right-side {
+  horizontal-align: right;
+}
+#AllQuestsPanel .tabs > Panel {
+  padding: 10px;
+  background-color: black;
+}
+#AllQuestsPanel .tabs > Panel:hover {
+  background-color: #303030;
+}
+#AllQuestsPanel .tabs > Panel > Label {
+  font-size: 20px;
+  color: #2E9AFE;
+}
+#AllQuestsPanel #SelectedQuestsHolder {
+  flow-children: down;
+  width: 100%;
+  height: 100%;
+  overflow: squish scroll;
+  margin: 25px;
+  margin-top: 0px;
+  background-color: rgba(0, 0, 0, 0.78);
+  box-shadow: -10px -10px 0 20 #000000;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert {
+  width: 100%;
+  padding: 15px;
+  height: fit-children;
+  flow-children: right;
+  border-bottom: 2px solid rgba(227, 255, 252, 0.02);
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert #ThePortraitImage {
+  width: 83px;
+  height: 112px;
+  border: 3px solid black;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel {
+  flow-children: down;
+  margin-left: 10px;
+  width: 100%;
+  height: fit-children;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .header {
+  padding-left: 22px;
+  width: 100%;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .header #TheQuestName {
+  horizontal-align: left;
+  font-size: 26px;
+  color: #2E9AFE;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .header > ToggleButton {
+  margin-top: -10px;
+  horizontal-align: right;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .header > ToggleButton > Label {
+  font-size: 20px;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .header > ToggleButton > Panel {
+  width: 25px;
+  height: 25px;
+  box-shadow: -1px -1px 3px 3px rgba(0, 191, 255, 0.3);
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .the-quest-description {
+  height: fit-children;
+  width: 820px;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel .the-quest-description > Label {
+  font-size: 22px;
+  color: #f0cdc2;
+}
+#AllQuestsPanel #SelectedQuestsHolder .main-quest-insert .quest-info-panel #StageDescriptions {
+  flow-children: down;
+  font-size: 16px;
+  color: #f0cdc2;
+}
+#MiniQuestPanel {
+  flow-children: down;
+  height: fit-children;
+  max-height: 650px;
+  width: 300px;
+  position: 1610px 10px 0px;
+  /*border: 3px solid #111111FF;*/
+  /*background-color: @mini-quest-panel-background-color;*/
+}
+#MiniQuestPanel .header {
+  border-top: 1px solid rgba(131, 121, 63, 0.24);
+  border-bottom: 1px solid rgba(51, 49, 36, 0.411);
+  width: 350px;
+  height: 25px;
+  border-left: 0px;
+  border-right: 0px;
+}
+#MiniQuestPanel .header > Panel {
+  width: 100%;
+  height: 100%;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(rgba(138, 141, 101, 0.259)), to(rgba(78, 90, 51, 0.404)));
+  background-size: 100% 100%;
+  opacity-mask: url("s2r://panorama/images/core/masks/opacity_mask_left_right_png.vtex") 1;
+}
+#MiniQuestPanel .header > Label {
+  color: #2E9AFE;
+  text-shadow: 0px 0px 3px 3 #000000ff;
+  font-size: 20px;
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 50px;
+}
+#MiniQuestPanel .header > Button {
+  horizontal-align: right;
+  vertical-align: middle;
+  height: 15px;
+  width: 15px;
+  background-size: 100% 100%;
+  wash-color: #CDF;
+}
+#MiniQuestPanel .header > Button.options {
+  background-image: url("s2r://panorama/images/control_icons/gear_png.vtex");
+  margin-right: 20px;
+}
+#MiniQuestPanel .header > Button.toggle {
+  background-image: url('file://{images}/core/icons/locked.png');
+  margin-right: 45px;
+}
+#MiniQuestPanel .header > Button.toggle.unlocked {
+  background-image: url('file://{images}/core/icons/unlocked.png');
+}
+#MiniQuestPanel #MiniQuestsHolder {
+  flow-children: down;
+  overflow: squish scroll;
+  height: fit-children;
+  width: 100%;
+  /*background-image: url("s2r://panorama/images/hud/reborn/bg_hud_inspect_psd.vtex");*/
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert {
+  flow-children: right;
+  overflow: squish scroll;
+  height: fit-children;
+  width: 100%;
+  /*background-color: @mini-quest-insert-background-gradient;*/
+  margin-bottom: -25px;
+  padding-bottom: 30px;
+  /*border-top: 3px solid black;*/
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert.main-story #QuestName {
+  color: #a37af1;
+  text-shadow: 0px 0px 3px 3 #1a0606;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .portrait-holder {
+  visibility: collapse;
+  margin-left: 5px;
+  margin-top: 8px;
+  width: 57px;
+  height: 77px;
+  margin-right: -5px;
+  /*background-color: @portrait-holder-background-color;*/
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .portrait-holder > Image {
+  width: 130px;
+  height: 175px;
+  background-repeat: no-repeat round;
+  background-size: 100% 100%;
+  border: 3px solid #111111FF;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder {
+  flow-children: down;
+  height: fit-children;
+  width: 290px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header {
+  flow-children: right;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-title {
+  width: fit-children;
+  flow-children: right;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-title > Label {
+  height: fit-children;
+  width: 230px;
+  color: #2E9AFE;
+  text-shadow: 0px 0px 3px 3 #000000ff;
+  font-size: 18px;
+  padding-left: 0px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-title > Image {
+  visibility: collapse;
+  vertical-align: middle;
+  horizontal-align: center;
+  width: 20px;
+  height: 20px;
+  border: 0px solid #111111FF;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-buttons {
+  visibility: collapse;
+  flow-children: right;
+  vertical-align: top;
+  horizontal-align: right;
+  height: fit-children;
+  width: fit-children;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-buttons > Button {
+  background-color: rgba(20, 20, 20, 0.4);
+  height: 25px;
+  width: 25px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-buttons > Button:hover {
+  background-color: #646464;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-buttons > Button:active {
+  background-color: #9b3d3f;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-header .quest-buttons > Button > Label {
+  vertical-align: center;
+  horizontal-align: center;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-stage {
+  width: 260px;
+  flow-children: right;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-stage > Label {
+  width: 260px;
+  flow-children: right;
+  text-shadow: 0px 0px 3px 3 #000000ff;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks {
+  margin: 15px;
+  margin-top: 0px;
+  height: fit-children;
+  flow-children: down;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks .task-frame {
+  height: fit-children;
+  width: 260px;
+  flow-children: right;
+  margin-left: 0px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks .task-frame #TaskObject {
+  text-align: left;
+  width: 150px;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks .task-frame #TaskObjectNumber {
+  text-align: right;
+  width: 60px;
+  horizontal-align: right;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks .task-frame .task-text {
+  font-size: 16px;
+  letter-spacing: 1px;
+  height: fit-children;
+  text-shadow: 0px 1px 3px 3 rgba(50, 3, 0, 0.93);
+  color: #bc241c;
+}
+#MiniQuestPanel #MiniQuestsHolder .mini-quest-insert .info-holder .quest-tasks .task-frame.completed Label {
+  color: #77ff69;
+}
+.AspectRatio4x3 #MiniQuestPanel {
+  position: 1135px 10px 0px;
+}
+#AbandonWarning {
+  flow-children: down;
+  horizontal-align: center;
+  vertical-align: middle;
+  background-color: rgba(45, 255, 103, 0.98), gradient(linear, 0% 0%, 0% 150%, from(#1d225c), color-stop(0.25, #4f75bf), to(#1d225c));
+  box-shadow: 0px 0px 2px 2px black;
+  height: fit-children;
+  width: fit-children;
+  padding: 20px;
+  max-width: 1200px;
+}
+#AbandonWarning > Label {
+  font-size: 26px;
+  font-weight: bold;
+  color: #5ecfda;
+  text-shadow: 0px 0px 5px 5 rgba(17, 12, 61, 0.86);
+  horizontal-align: center;
+}
+#AbandonWarning > Label#QuestName {
+  font-size: 40px;
+}
+#AbandonWarning > Panel {
+  flow-children: right;
+  horizontal-align: center;
+}
+#AbandonWarning > Panel #AbandonConfirm {
+  background-color: #000000;
+}
+#AbandonWarning > Panel #AbandonDeny {
+  background-color: #000000;
+}
+#AbandonWarning > Panel Button {
+  padding: 10px;
+  margin: 10px;
+}
+#AbandonWarning > Panel Button > Label {
+  font-size: 20px;
+}
+#AbandonWarning > Panel Button > Label:hover {
+  color: red;
+}
+.context {
+  width: 100%;
+  height: 100%;
+}
+.soft-hidden {
+  opacity: 0;
+}
+VerticalScrollBar .ScrollThumb {
+  width: 8px;
+  min-height: 32px;
+  /* need to get the scrollthumb to hit the bottom of the scrollbar*/
+  background-color: #062F30;
+  border-top: 1px solid #aaaaaa22;
+  border-right: 1px solid #000000aa;
+  transition-property: position;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#061f20), to(#1e3d1a));
+  transition-property: background-color, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+VerticalScrollBar:hover .ScrollThumb {
+  background-color: #0d1a0d;
+}
+VerticalScrollBar:active .ScrollThumb {
+  background-color: #4dbe71;
+}
+VerticalScrollBar.MouseDown .ScrollThumb {
+  transition-duration: 0s;
+}

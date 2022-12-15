@@ -1,0 +1,125 @@
+
+.MasterBar
+{
+    height: 70px;
+    vertical-align: bottom;
+    horizontal-align: left;
+    margin-bottom: 288px;
+    transition: transform 0.2s ease-in-out 0.0s;
+    /*background-color: red;*/
+}
+
+.MasterBar.closed
+{
+    transform: translateX(-320px);
+}
+
+.MasterBar.closedr
+{
+    transform: translateX(320px);
+}
+
+#MasterBarBacker
+{
+    width: 350px;
+    vertical-align: bottom;
+}
+
+#MasterBarBG
+{
+    width: 330px;
+    height: 65px;
+    z-index: -10;
+    horizontal-align: left;
+    vertical-align: bottom;
+    opacity: 0.9;
+    background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326ee ), to( #1c1d20ee ) );
+    box-shadow: #000000ff 0px 0px 8px 0px;
+}
+
+#MasterBarSeals
+{
+    flow-children: right;
+    horizontal-align: left;
+}
+
+#MasterBarButton
+{
+    height: 65px;
+    width: 20px;
+    vertical-align: bottom;
+    horizontal-align: right;
+    border-top-right-radius: 16px 16px;
+    border-bottom-right-radius: 16px 16px;
+    border-top-left-radius: 0px 0px;
+    border-bottom-left-radius: 0px 0px;
+    background-color: #171719fe;
+    box-shadow: #000000ff 0px 0px 3px 0px;
+    opacity: 0.9;
+    z-index: -2;
+}
+
+#MasterBarButtonLabel
+{
+    vertical-align: bottom;
+    horizontal-align: right;
+    width: 56px;
+    height: 50px;
+    pre-transform-rotate2d: 90deg;
+    z-index: 1000;
+    
+    font-size: 16;
+    text-transform: uppercase;
+    font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    color: #dbdbdb;
+}
+
+#MasterBarButton:hover
+{
+    box-shadow: #444444ff 0px 0px 3px 0px;
+}
+
+#MasterBarQuest
+{
+    vertical-align: bottom;
+    width: 330px;
+    height: 67px;
+    /*background-color: white;*/
+}
+
+.AbilityBorder
+{
+    width: 100px;
+    height: 100px;
+    border: 2px solid #D4D48C;
+    transition-property: transform, pre-transform-scale2d, wash-color;
+    transition-duration: 1.0s;
+   /* margin-left: 240px;*/
+    transition-delay: 0.0s;
+    visibility: visible;
+}
+
+.AbilityBorderLoopPing
+{
+    pre-transform-scale2d: 0.5, 0.68;
+    wash-color: #FF3399;
+    z-index: 9999;
+    visibility: visible;
+}
+
+.AbilityHotkey
+{
+    width: 20px;
+    height: 20px;
+    horizontal-align: left;
+    vertical-align: top;
+    background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619 ), to( #000000 ) );
+}
+
+.AbilityHotkeyText 
+{
+    vertical-align: top;
+    horizontal-align: left;
+    font-size: 10px;
+    color: white;
+}

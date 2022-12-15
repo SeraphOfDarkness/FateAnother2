@@ -1,0 +1,49 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/custom_game/fateanother_cp_shop.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_cp_shop.vjs_c" />
+    </scripts>
+    <Panel class="FateShopRoot" hittest="false">
+        <Panel id="ShopButton" class="ShopButton" >
+            <Label id="ShopCP" text=" " hittest="false"/>
+        </Panel>
+        <Panel id="ShopBackground" onactivate="BackgroundClose()"/>
+        <Panel id="ShopMainContainer" class="ShopMainContainer" onactivate="">
+            <Panel id="ShopCloseButton" class="ShopCloseButton" onmouseactivate="ShopClose()" >
+                <Label id="ShopCloseButton" text=" " hittest="false"/>
+            </Panel>
+            <Panel id="ShopTopPanel" class="ShopTopPanel">
+                <Panel id="ShopBanner" class="ShopBanner"/>
+            </Panel>
+            <Panel id="ShopLeftPanel" class="ShopLeftPanel">
+
+            </Panel>
+            <Panel id="ShopRightPanel" class="ShopRightPanel">
+                <Panel id="SkinShopContainer" class="SkinShopContainer">
+
+                </Panel>
+            </Panel>
+
+            <Panel id="PopupContainer" class="PopupContainer">
+                <Panel id="PopupDescribePanel" class="PopupDescribePanel">
+                    <Label id="PopupDescribeLabel" text="" /> 
+                </Panel>
+                <Panel id="PopupSkinPortrait" class="PopupSkinPortrait"/>
+                <Panel id="PopupCostPanel" class="PopupCostPanel">
+                    <Label id="PopupCostLabel" text=" " /> 
+                </Panel>
+                <Panel id="PopupButtonsPanel" class="PopupButtonsPanel">
+                    <Panel id="PopupButtonYes" class="PopupButton">
+                        <Label id="PopupButtonLabel" text="#fate_buy" /> 
+                    </Panel>
+                    <Panel id="PopupButtonNo" class="PopupButton">
+                        <Label id="PopupButtonLabel" text="#fate_cancel" /> 
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>
