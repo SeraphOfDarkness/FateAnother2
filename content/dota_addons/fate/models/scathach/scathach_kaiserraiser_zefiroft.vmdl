@@ -1,0 +1,2243 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_meshList = 
+	{
+		m_meshList = 
+		[
+			{
+				m_meshName = "scathach"
+				m_meshFile = "models/scathach/scathach.fbx"
+				m_materialSearchPath = ""
+				m_bSkinParentedObjects = true
+				m_bLegacySkinParentedTransforms = false
+				m_bExpensiveTangents = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
+				m_bIgnoreCloth = false
+				m_bGetSkinningFromLod0 = false
+				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
+				m_pMorphInfo = null
+			},
+		]
+	}
+	m_clothProxyMeshList = 
+	{
+		_class = "CVClothProxyMeshList"
+		m_flClothEnableThreshold = 0.05
+		m_bCreateStaticBone = false
+		m_nMaxBonesPerVertex = 4
+		m_bRemoveUnusedBonesEnabled = false
+		m_bDriveMeshesWithBacksolvedJointsOnly = true
+		m_flMatchProxiesToMeshes = 1.0
+		m_flFallbackEnvelope = 1.0
+		m_nReservedInt = 0
+		m_bSoftSkinAnimation = false
+		m_bReservedBool2 = false
+		m_bReservedBool3 = false
+		m_bReservedBool4 = false
+		m_clothProxyMeshList = [  ]
+	}
+	m_physicsMeshList = 
+	{
+		m_meshList = [  ]
+	}
+	m_pModelInfo = null
+	m_pBoneFlagList = 
+	{
+		m_pObject = null
+	}
+	m_pHitBoxSetLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_HitBoxSets = 
+				[
+					{
+						m_name = "default"
+						m_HitBoxes = 
+						[
+							{
+								m_name = "spine lower"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine lower"
+								m_vMinBounds = [ -13.379383, -4.944229, -8.68416 ]
+								m_vMaxBounds = [ 13.282875, 26.423889, 11.921274 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "spine middle"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine middle"
+								m_vMinBounds = [ -11.929894, -5.749657, -8.879641 ]
+								m_vMaxBounds = [ 11.929912, 17.442451, 11.832201 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "spine upper"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine upper"
+								m_vMinBounds = [ -15.72159, -8.302574, -9.793201 ]
+								m_vMaxBounds = [ 15.721619, 23.747421, 12.320251 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right shoulder 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right shoulder 1"
+								m_vMinBounds = [ -9.174008, -2.146408, -6.437927 ]
+								m_vMaxBounds = [ 6.292337, 11.981005, 6.042557 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left shoulder 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left shoulder 1"
+								m_vMinBounds = [ -6.292398, -2.14659, -6.437836 ]
+								m_vMaxBounds = [ 9.17395, 11.980888, 6.042404 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right shoulder 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right shoulder 2"
+								m_vMinBounds = [ -4.264049, 0.111235, -2.829926 ]
+								m_vMaxBounds = [ 4.779557, 23.915089, 5.171677 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left shoulder 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left shoulder 2"
+								m_vMinBounds = [ -4.779553, 0.111244, -2.82988 ]
+								m_vMaxBounds = [ 4.264051, 23.915028, 5.171707 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head neck lower"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head neck lower"
+								m_vMinBounds = [ -11.720288, -8.670898, -6.618787 ]
+								m_vMaxBounds = [ 11.720317, 10.237015, 5.675345 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right elbow"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right elbow"
+								m_vMinBounds = [ -3.552966, -5.785355, -3.238693 ]
+								m_vMaxBounds = [ 3.757735, 20.935953, 2.864807 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left elbow"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left elbow"
+								m_vMinBounds = [ -3.757711, -5.785618, -3.238708 ]
+								m_vMaxBounds = [ 3.553089, 20.93578, 2.864792 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "pelvis"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "pelvis"
+								m_vMinBounds = [ -23.216591, -17.577286, -20.272461 ]
+								m_vMaxBounds = [ 23.216507, 33.138966, 9.897533 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head neck upper"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head neck upper"
+								m_vMinBounds = [ -14.364972, -26.183601, -18.048965 ]
+								m_vMaxBounds = [ 14.693782, 15.029583, 20.688988 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right wrist"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right wrist"
+								m_vMinBounds = [ -5.455832, -1.620949, -2.718109 ]
+								m_vMaxBounds = [ 4.093202, 11.102371, 1.734085 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left wrist"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left wrist"
+								m_vMinBounds = [ -4.09318, -1.620632, -2.71814 ]
+								m_vMaxBounds = [ 5.455709, 11.102715, 1.734909 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg left thigh"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg left thigh"
+								m_vMinBounds = [ -12.943254, -8.366119, -7.749411 ]
+								m_vMaxBounds = [ 11.135118, 47.036495, 13.86928 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg right thigh"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg right thigh"
+								m_vMinBounds = [ -11.135172, -8.366112, -7.749416 ]
+								m_vMaxBounds = [ 12.943329, 47.036472, 13.513699 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair back 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair back 1"
+								m_vMinBounds = [ -30.664288, -0.918259, -8.138136 ]
+								m_vMaxBounds = [ 30.541531, 73.682983, 8.913136 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 1 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 1 1"
+								m_vMinBounds = [ -1.062885, -0.742365, -1.940399 ]
+								m_vMaxBounds = [ 3.351494, 5.08967, 2.477081 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 2 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 2 1"
+								m_vMinBounds = [ -0.589159, -0.947491, -1.118454 ]
+								m_vMaxBounds = [ 1.164142, 2.876205, 1.174545 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 3 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 3 1"
+								m_vMinBounds = [ -0.841259, -1.201427, -1.391953 ]
+								m_vMaxBounds = [ 1.227242, 2.950676, 0.928635 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 4 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 4 1"
+								m_vMinBounds = [ -0.972455, -1.119194, -1.600372 ]
+								m_vMaxBounds = [ 1.173945, 3.062202, 0.779526 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 5 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 5 1"
+								m_vMinBounds = [ -1.084363, -1.010422, -1.48996 ]
+								m_vMaxBounds = [ 0.801838, 2.674484, 0.781921 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 1 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 1 1"
+								m_vMinBounds = [ -3.35157, -0.742617, -1.940094 ]
+								m_vMaxBounds = [ 1.063133, 5.089415, 2.477005 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 2 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 2 1"
+								m_vMinBounds = [ -1.164002, -0.947319, -1.118164 ]
+								m_vMaxBounds = [ 0.589198, 2.876282, 1.174835 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 3 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 3 1"
+								m_vMinBounds = [ -1.227204, -1.201309, -1.391754 ]
+								m_vMaxBounds = [ 0.841296, 2.95079, 0.928833 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 4 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 4 1"
+								m_vMinBounds = [ -1.173904, -1.119118, -1.600052 ]
+								m_vMaxBounds = [ 0.972495, 3.062378, 0.779846 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 5 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 5 1"
+								m_vMinBounds = [ -0.801805, -1.010303, -1.489761 ]
+								m_vMaxBounds = [ 1.084396, 2.674599, 0.78212 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg left knee"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg left knee"
+								m_vMinBounds = [ -5.070494, -8.550999, -5.11641 ]
+								m_vMaxBounds = [ 5.423208, 40.3125, 7.124785 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg right knee"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg right knee"
+								m_vMinBounds = [ -5.423194, -8.550999, -5.116407 ]
+								m_vMaxBounds = [ 5.070502, 40.312397, 7.124786 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head jaw"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head jaw"
+								m_vMinBounds = [ -5.231287, -0.738537, -1.302338 ]
+								m_vMaxBounds = [ 5.231316, 5.501873, 3.474701 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair back 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair back 2"
+								m_vMinBounds = [ -34.019192, -14.723419, -7.637592 ]
+								m_vMaxBounds = [ 33.775921, 54.180222, 8.91312 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair side left 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair side left 1"
+								m_vMinBounds = [ -6.666011, -0.769363, -3.881825 ]
+								m_vMaxBounds = [ 3.673193, 14.753937, 6.264875 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair side right 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair side right 1"
+								m_vMinBounds = [ -3.575116, -0.769272, -5.97881 ]
+								m_vMaxBounds = [ 6.665984, 14.754028, 6.264995 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 1 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 1 2"
+								m_vMinBounds = [ -0.839224, -0.445314, -1.390671 ]
+								m_vMaxBounds = [ 2.42005, 3.37933, 2.202057 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 2 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 2 2"
+								m_vMinBounds = [ -0.585969, 0.018951, -0.715256 ]
+								m_vMaxBounds = [ 0.748551, 1.925659, 0.831985 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 3 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 3 2"
+								m_vMinBounds = [ -0.625957, -0.16037, -0.795563 ]
+								m_vMaxBounds = [ 0.831944, 1.950127, 0.783844 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 4 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 4 2"
+								m_vMinBounds = [ -0.766755, -0.328201, -0.849854 ]
+								m_vMaxBounds = [ 0.749247, 1.674103, 0.657852 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 5 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 5 2"
+								m_vMinBounds = [ -0.69276, -0.271805, -0.617554 ]
+								m_vMaxBounds = [ 0.720441, 1.491493, 0.687347 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 1 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 1 2"
+								m_vMinBounds = [ -2.419891, -0.445299, -1.390579 ]
+								m_vMaxBounds = [ 0.839382, 3.379339, 2.202286 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 2 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 2 2"
+								m_vMinBounds = [ -0.748507, 0.018951, -0.714996 ]
+								m_vMaxBounds = [ 0.586012, 1.925697, 0.83223 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 3 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 3 2"
+								m_vMinBounds = [ -0.831906, -0.160187, -0.79538 ]
+								m_vMaxBounds = [ 0.625995, 1.950211, 0.784027 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 4 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 4 2"
+								m_vMinBounds = [ -0.749205, -0.328094, -0.84967 ]
+								m_vMaxBounds = [ 0.766795, 1.67421, 0.658142 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 5 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 5 2"
+								m_vMinBounds = [ -0.720406, -0.271667, -0.617371 ]
+								m_vMaxBounds = [ 0.692794, 1.491531, 0.687531 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg left ankle"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg left ankle"
+								m_vMinBounds = [ -4.512788, -5.958908, -5.255791 ]
+								m_vMaxBounds = [ 5.369811, 18.358299, 11.49604 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg right ankle"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg right ankle"
+								m_vMinBounds = [ -5.36979, -5.958912, -5.255795 ]
+								m_vMaxBounds = [ 4.512708, 18.358288, 11.496033 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "skirt back 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "skirt back 1"
+								m_vMinBounds = [ -12.020596, 5.012352, -1.285218 ]
+								m_vMaxBounds = [ 14.101704, 27.21035, 4.430787 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "root 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "root 3"
+								m_vMinBounds = [ -28.742897, -92.49939, -4.044708 ]
+								m_vMaxBounds = [ 28.742897, 247.342468, 4.044693 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid right upper"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid right upper"
+								m_vMinBounds = [ -1.940212, -3.6049, -2.841736 ]
+								m_vMaxBounds = [ 2.816917, 2.052303, 1.053345 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid right lower"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid right lower"
+								m_vMinBounds = [ -0.50745, -2.181023, -0.762314 ]
+								m_vMaxBounds = [ 2.315582, 1.542662, 2.985428 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid right adj 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid right adj 1"
+								m_vMinBounds = [ -1.219266, -2.0924, -1.836258 ]
+								m_vMaxBounds = [ 2.054412, 0.775473, 1.564911 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyebrow right 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyebrow right 2"
+								m_vMinBounds = [ -1.896683, -5.241959, -3.874313 ]
+								m_vMaxBounds = [ 3.229591, 1.184082, 4.61866 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyebrow right 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyebrow right 1"
+								m_vMinBounds = [ -0.942162, -2.600021, -4.173195 ]
+								m_vMaxBounds = [ 3.874779, 2.702095, 4.479721 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head lip corner right"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head lip corner right"
+								m_vMinBounds = [ -2.029514, -2.047592, -1.454771 ]
+								m_vMaxBounds = [ 2.140137, 0.631958, 2.631156 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head lip corner left"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head lip corner left"
+								m_vMinBounds = [ -2.1399, -2.04747, -1.454781 ]
+								m_vMaxBounds = [ 2.02964, 0.631958, 2.631287 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head lip upper middle"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head lip upper middle"
+								m_vMinBounds = [ -3.121786, -1.862579, -0.932289 ]
+								m_vMaxBounds = [ 3.121816, -0.152008, 2.095802 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid left lower"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid left lower"
+								m_vMinBounds = [ -2.324818, -2.186401, -0.763184 ]
+								m_vMaxBounds = [ 0.508392, 1.538795, 2.982697 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid left adj 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid left adj 1"
+								m_vMinBounds = [ -2.054412, -2.092358, -1.836227 ]
+								m_vMaxBounds = [ 1.219266, 0.775499, 1.564926 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyebrow left 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyebrow left 2"
+								m_vMinBounds = [ -3.229446, -5.239044, -3.874306 ]
+								m_vMaxBounds = [ 1.893257, 1.184151, 4.618828 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyebrow left 1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyebrow left 1"
+								m_vMinBounds = [ -3.87468, -2.609856, -4.173767 ]
+								m_vMaxBounds = [ 0.941895, 2.702026, 4.485283 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyeball left"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyeball left"
+								m_vMinBounds = [ -0.325911, -1.746059, -2.56131 ]
+								m_vMaxBounds = [ 0.940048, 1.673126, 2.310608 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyeball right"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyeball right"
+								m_vMinBounds = [ -0.940042, -1.746088, -2.561325 ]
+								m_vMaxBounds = [ 0.325923, 1.673094, 2.310608 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head eyelid left upper"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head eyelid left upper"
+								m_vMinBounds = [ -2.816891, -3.604847, -2.870102 ]
+								m_vMaxBounds = [ 1.940361, 2.052193, 1.053345 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head lip lower middle"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head lip lower middle"
+								m_vMinBounds = [ -1.389988, -2.317379, -0.400726 ]
+								m_vMaxBounds = [ 1.390013, -0.388222, 1.493423 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair back 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair back 3"
+								m_vMinBounds = [ -35.114601, -17.011009, -13.934853 ]
+								m_vMaxBounds = [ 34.203621, 48.769096, 8.913116 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair front"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair front"
+								m_vMinBounds = [ -6.893337, -5.586823, -3.898354 ]
+								m_vMaxBounds = [ 6.90107, 1.786171, 3.057236 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair side left 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair side left 2"
+								m_vMinBounds = [ -6.666006, -5.00856, -6.500427 ]
+								m_vMaxBounds = [ 3.673197, 12.598633, 6.264883 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "hair side right 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "hair side right 2"
+								m_vMinBounds = [ -3.575125, -5.008469, -6.500422 ]
+								m_vMaxBounds = [ 6.665977, 12.598724, 6.26499 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "root ground"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "root ground"
+								m_vMinBounds = [ -30.458939, -94.721329, -9.608948 ]
+								m_vMaxBounds = [ 20.641426, 153.049057, 9.624176 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 1 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 1 3"
+								m_vMinBounds = [ -1.743477, -0.46526, -1.061768 ]
+								m_vMaxBounds = [ 0.568621, 2.943609, 0.80719 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 2 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 2 3"
+								m_vMinBounds = [ -0.598956, -0.315147, -0.584763 ]
+								m_vMaxBounds = [ 0.693533, 2.191414, 0.711365 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 3 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 3 3"
+								m_vMinBounds = [ -0.597656, -0.436111, -0.598862 ]
+								m_vMaxBounds = [ 0.795944, 2.521294, 0.700241 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 4 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 4 3"
+								m_vMinBounds = [ -0.699354, -0.202591, -0.666061 ]
+								m_vMaxBounds = [ 0.725047, 2.444702, 0.575439 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right finger 5 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right finger 5 3"
+								m_vMinBounds = [ -0.596958, -0.233864, -0.572662 ]
+								m_vMaxBounds = [ 0.711843, 2.063843, 0.550949 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right wrist adj"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right wrist adj"
+								m_vMinBounds = [ -3.258348, -3.159336, -2.935074 ]
+								m_vMaxBounds = [ 3.119055, 11.143566, 2.733826 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right shoulder adj"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right shoulder adj"
+								m_vMinBounds = [ -7.486076, -5.076797, -9.919596 ]
+								m_vMaxBounds = [ 13.163132, 10.643105, 4.993235 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm right shoulder pad"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm right shoulder pad"
+								m_vMinBounds = [ -6.015148, -4.255186, -1.494766 ]
+								m_vMaxBounds = [ 5.795118, 8.670586, 10.743484 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 1 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 1 3"
+								m_vMinBounds = [ -0.568535, -0.465118, -1.061462 ]
+								m_vMaxBounds = [ 1.743622, 2.943626, 0.807373 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 2 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 2 3"
+								m_vMinBounds = [ -0.693482, -0.315178, -0.58461 ]
+								m_vMaxBounds = [ 0.598996, 2.191544, 0.711563 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 3 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 3 3"
+								m_vMinBounds = [ -0.795905, -0.43602, -0.598785 ]
+								m_vMaxBounds = [ 0.597695, 2.521278, 0.700424 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 4 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 4 3"
+								m_vMinBounds = [ -0.725005, -0.202614, -0.665771 ]
+								m_vMaxBounds = [ 0.699396, 2.444786, 0.575638 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left finger 5 3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left finger 5 3"
+								m_vMinBounds = [ -0.711805, -0.233818, -0.572556 ]
+								m_vMaxBounds = [ 0.597095, 2.063881, 0.551132 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left wrist adj"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left wrist adj"
+								m_vMinBounds = [ -3.119192, -3.504742, -2.935104 ]
+								m_vMaxBounds = [ 3.258308, 11.143761, 2.733795 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left shoulder adj"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left shoulder adj"
+								m_vMinBounds = [ -13.157372, -5.080002, -9.923883 ]
+								m_vMaxBounds = [ 7.484634, 10.649887, 4.996284 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "arm left shoulder pad"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "arm left shoulder pad"
+								m_vMinBounds = [ -5.795116, -4.255041, -1.49472 ]
+								m_vMaxBounds = [ 6.015141, 8.670612, 10.743546 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "breast"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "breast"
+								m_vMinBounds = [ -11.929893, -8.841843, -5.670746 ]
+								m_vMaxBounds = [ 11.929913, 2.836349, 4.532936 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg left toe"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg left toe"
+								m_vMinBounds = [ -4.645887, -1.689818, -5.0089 ]
+								m_vMaxBounds = [ 5.474112, 4.963345, 5.357017 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "skirt left"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "skirt left"
+								m_vMinBounds = [ -2.88261, -18.089989, -8.459247 ]
+								m_vMaxBounds = [ 14.299873, 6.170731, 7.32994 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "leg right toe"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "leg right toe"
+								m_vMinBounds = [ -5.474091, -1.689805, -5.008913 ]
+								m_vMaxBounds = [ 4.645809, 4.963356, 5.357 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "skirt right"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "skirt right"
+								m_vMinBounds = [ -14.300013, -18.089897, -11.126555 ]
+								m_vMaxBounds = [ 2.882722, 6.17067, 7.329879 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "skirt back 2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "skirt back 2"
+								m_vMinBounds = [ -22.901896, -3.56852, -10.628319 ]
+								m_vMaxBounds = [ 22.901899, 21.043983, 4.430784 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
+	]
+	m_pAttachmentLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_name = ""
+				m_attachments = 
+				[
+					{
+						m_name = "attach_attack1"
+						m_influences = 
+						[
+							{
+								m_influenceName = "arm right finger 3 1"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_attack2"
+						m_influences = 
+						[
+							{
+								m_influenceName = "arm left finger 3 1"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_origin"
+						m_influences = 
+						[
+							{
+								m_influenceName = "root ground 2"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_hitloc"
+						m_influences = 
+						[
+							{
+								m_influenceName = "head neck lower"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_overhead"
+						m_influences = 
+						[
+							{
+								m_influenceName = "hair front"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+				]
+			}
+		},
+	]
+	m_pAnimGroup = 
+	{
+		m_pObject = 
+		{
+			m_Name = ""
+			m_pBoneFlagList = 
+			{
+				m_pObject = null
+			}
+			m_pSeqGroup = 
+			{
+				m_pObject = null
+			}
+			m_pAnimGroups = [  ]
+			m_Vanim = 
+			[
+				{
+					m_Animationname = "scathach_idle"
+					m_Filepath = "models/scathach/scathach_idle.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 80
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_IDLE"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_idle_rare"
+					m_Filepath = "models/scathach/scathach_idle_rare.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 89
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_IDLE_RARE"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack_trust"
+					m_Filepath = "models/scathach/scathach_attack_trust.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_1"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_run"
+					m_Filepath = "models/scathach/scathach_run.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 35.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_RUN"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_rune_cast"
+					m_Filepath = "models/scathach/scathach_rune_cast.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_5"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_pinningh"
+					m_Filepath = "models/scathach/scathach_pinningh.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_4"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack1"
+					m_Filepath = "models/scathach/scathach_attack1.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack2"
+					m_Filepath = "models/scathach/scathach_attack2.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK2"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_gae_jump"
+					m_Filepath = "models/scathach/scathach_gae_jump.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 10
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_6"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_gae_jump_double"
+					m_Filepath = "models/scathach/scathach_gae_jump_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 10
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_6"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_idle_double"
+					m_Filepath = "models/scathach/scathach_idle_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 79
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_IDLE"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack_thrust_double"
+					m_Filepath = "models/scathach/scathach_attack_thrust_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_1"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack_1_double"
+					m_Filepath = "models/scathach/scathach_attack_1_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack_2_double"
+					m_Filepath = "models/scathach/scathach_attack_2_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK2"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_attack_double"
+					m_Filepath = "models/scathach/scathach_attack_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 20
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK_EVENT"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_run_double"
+					m_Filepath = "models/scathach/scathach_run_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 5.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_RUN"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_rune_cast_double"
+					m_Filepath = "models/scathach/scathach_rune_cast_double.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 15
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_5"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "double"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "scathach_death"
+					m_Filepath = "models/scathach/scathach_death.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 14
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_DIE"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+			]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
+			m_sCompileScripts = [  ]
+			m_pActivityWhiteList = 
+			{
+				m_pObject = null
+			}
+		}
+	}
+	m_pMaterialGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pMeshGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pLodGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pPropBreakableList = 
+	{
+		m_pObject = null
+	}
+	m_pPropDataList = 
+	{
+		m_pObject = null
+	}
+	m_pConstraintLists = [  ]
+	m_collision = ""
+	m_softbody = ""
+	m_sMDLFilename = ""
+	m_sOffsetHitboxSets = [  ]
+	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
+	m_scriptFiles = [  ]
+	m_pMaterialRemapList = 
+	{
+		m_vMaterialRemapList = 
+		[
+			{
+				m_sSearchMaterial = "scathach_gae_bolg.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_gae.vmat"
+			},
+			{
+				m_sSearchMaterial = "scathach_gae_bolg_alter.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_gae_alternate.vmat"
+			},
+			{
+				m_sSearchMaterial = "scathach_hair.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_hair.vmat"
+			},
+			{
+				m_sSearchMaterial = "scathach_body.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_body.vmat"
+			},
+			{
+				m_sSearchMaterial = "scathach_eye.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_eye.vmat"
+			},
+			{
+				m_sSearchMaterial = "scathach_face.vmat"
+				m_sReplaceMaterial = "materials/scathach/scathach_face.vmat"
+			},
+		]
+	}
+	m_flFbxScale = 1.0
+	m_flQCScale = 1.0
+	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_bEmbedAnimsInAnimGroup = false
+	m_pPsfList = null
+	m_keyValueText = ""
+	m_bStaticProp = false
+	m_bEnableClothProcessing = true
+	m_flClothEnableThreshold = 0.05
+	m_nMaxClothVertsPerMesh = 2048
+	m_bBuildClothBoneHierarchy = false
+	m_nNavType = "AUTH_NAV_MESH"
+	m_bMakeUniqueVMeshes = false
+	m_bMakeImplicitBindPoseSequence = false
+	m_bAdjustSkeletonFromBoneFlags = false
+	m_bHiddenAssetFlag = false
+	m_pAnimGroups = [  ]
+}
