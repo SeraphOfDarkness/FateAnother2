@@ -1,0 +1,18 @@
+
+I am you, you are me
+- Reworked
+- Creates a doppleganger of Nursery Rhyme for 5/7/9/11/13 seconds which takes 300/275/250/225/200% damage
+- The doppleganger may use White Queen's Enigma, The Plains of Water, and items.
+- While the doppleganger persist, Nursery Rhyme may activate this ability again to switch place with the doppleganger. This effect has an unresettable cooldown of 2 seconds.
+- Cooldown 32 seconds
+Shapeshift
+- Removed
+Attribute: Together Forever
+- Nursery Rhyme's doppleganger is also affected by Queen's Glass Game's effect, as well as command seals.
+- Doppleganger may also activate I am you, you are me to switch places with Nursery Rhyme
+Attribute: Nightmare
+- Bonus bounces rescaled from 4 to 1/2/3/4/5 based on The Plains of Water level
+Attribute: A moment of Silence (new)
+- Allows Nursery Rhyme to render all enemies and allies within 1500 area of her stuned, silenced, revoked, and invulnerable for 4 seconds
+- Cooldown 60 seconds
+- Mana cost: 13
