@@ -1,0 +1,378 @@
+#base "gilles_prelati_spellbook.kv"
+#base "gilles_summon_jellyfish.kv"
+#base "gilles_rlyeh_text.kv"
+#base "gilles_cthulhu_favour.kv"
+#base "gilles_abyssal_contract.kv"
+
+"DOTAAbilities"
+{	
+	//=======================================
+	// Gilles De Rais Attribute : Eye for Art
+	//=======================================
+	"gilles_eye_for_art_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gille_attribute_eye_for_art"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"9"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Eye for Art Passive
+	//=================================================================================================================
+	"gilles_eye_for_art_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_eye_for_art"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/gille_attribute_eye_for_art"
+		"MaxLevel"						"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0"
+			}
+		}
+	}
+
+	//=======================================
+	// Gilles De Rais Attribute : Outer God Favour
+	//=======================================
+	"gilles_outer_god_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilles/gilles_outer_god_favour"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_pct"				"10"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"block_duration"		"5.0"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"20"
+			}
+		}
+	}
+
+	//=======================================
+	// Gilles De Rais Attribute : Demonic Horde
+	//=======================================
+	"gilles_demonic_horde_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilles/gilles_demonic_horde"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"summon_count"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+		}
+	}
+
+	//=======================================
+	// Gilles De Rais Attribute : Sunken City
+	//=======================================
+	"gilles_sunken_city_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilles/gilles_sunken_city"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_dur"				"2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_dur"				"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_red"				"-10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ms_red"				"-10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_damage"			"300"
+			}
+		}
+	}
+
+	//=======================================
+	// Gilles De Rais Attribute : Abyssal Connection
+	//=======================================
+	"gilles_abyssal_connection_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_attributes"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilles/gilles_abyssal_connection"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"800"
+			}				
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"700 900 1100 1300 1500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"10.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed"			"150"
+			}	
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attackspeed"		"50"
+			}	
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health"			"500"
+			}	
+		}
+	}
+
+
+	//===================================================
+	// Gilles De Rais : L'Arret de Mort
+	//===================================================
+	"gille_larret_de_mort"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/gille_larret_de_mort"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"AOERadius"						"%radius"		
+		
+		"precache"
+		{	
+			"particle"		"particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf"
+			"particle"		"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"150.0"
+
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1000"
+			}			
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockup_duration"			"0.5"
+			}		
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"			"1.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"initial_damage"			"50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"blood_duration"			"12.0"
+			}		
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_sec"			"10"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/gilles/gilles_attributes"
+				"Function"		"OnGilleComboStart"
+				"Damage"		"%initial_damage"
+				"KnockupDuration"	"%knockup_duration"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_larret_de_mort_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_gille_combo"
+			{
+		        "EffectName"    "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+		        "EffectAttachType"  "follow_origin"
+				"Duration"		"%blood_duration"
+				"IsDebuff"			"1"
+				"ThinkInterval"		"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/gilles/gilles_attributes"
+						"Function"		"OnGilleComboThink"
+						"DPS"			"%damage_per_sec"
+					}
+				}
+				"OnRespawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/gilles/gilles_attributes"
+						"Function"		"RemoveAllPoisons"
+					}
+				}
+			}
+			"modifier_gigantic_horror_freeze"
+			{
+				"EffectName"				"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"			"follow_overhead"
+				"Duration"		"1.5"
+				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"0.5"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}	
+}

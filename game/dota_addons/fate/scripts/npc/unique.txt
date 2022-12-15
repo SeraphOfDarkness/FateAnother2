@@ -1,0 +1,14 @@
+
+UniqueID
+{
+	"01" //muramasa
+	{
+		"hero"			"npc_dota_hero_ember_spirit"
+		"skin"			"5"
+		"owner"
+		{
+			"179419427"		"1" //Nerd
+			//"96116520" 		"1"
+		}
+	}
+}

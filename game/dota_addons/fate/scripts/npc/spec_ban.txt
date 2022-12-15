@@ -1,0 +1,12 @@
+
+"SpecificBan"
+{
+	"79643024"	//tyrant rikka
+	{
+		"npc_dota_hero_windrunner"		"1" //Nursery Rhyme
+	}	
+	//"155068590"	 //Ruri	
+	//{
+		//"npc_dota_hero_sven"		"1" //Lancelot
+	//}
+}
