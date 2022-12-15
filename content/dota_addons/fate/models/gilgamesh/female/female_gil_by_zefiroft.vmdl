@@ -1,0 +1,798 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "gilgameshfemale.vmat"
+								to = "materials/gilgamesh/female/gilgamesh_female.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "Plane01"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_higloc"
+						parent_bone = "Chest_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "Hand_Right_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "Hand_Left_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword"
+						parent_bone = "bone_new7"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Bone02"
+								parent_bone = "Bone02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new0"
+								parent_bone = "bone_new0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone03"
+								parent_bone = "Bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone08"
+								parent_bone = "Bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.832942, -24.358303, -5.574936 ]
+								hitbox_maxs = [ 4.76403, 0.584894, 3.985054 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone09"
+								parent_bone = "Bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone10"
+								parent_bone = "Bone10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.803703, -9.327818, -3.350952 ]
+								hitbox_maxs = [ 4.1337, 0.754889, 2.378052 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone12"
+								parent_bone = "Bone12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.900327, -2.328454, -1.160904 ]
+								hitbox_maxs = [ 1.008121, 0.5, 1.048088 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone13"
+								parent_bone = "Bone13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.925233, -2.359218, -0.846901 ]
+								hitbox_maxs = [ 0.757701, 0.5, 0.808098 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone17"
+								parent_bone = "Bone17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.074975, -2.769151, -1.276901 ]
+								hitbox_maxs = [ 0.819945, 0.5, 0.997093 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone18"
+								parent_bone = "Bone18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.850972, -2.496933, -1.413918 ]
+								hitbox_maxs = [ 0.749568, 0.5, 0.775078 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone22"
+								parent_bone = "Bone22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.984185, -2.179651, -1.223907 ]
+								hitbox_maxs = [ 0.810335, 0.5, 1.190086 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone23"
+								parent_bone = "Bone23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.744658, -2.385021, -1.611931 ]
+								hitbox_maxs = [ 0.775553, 0.5, 0.731064 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone24"
+								parent_bone = "Bone24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.028872, -2.120542, -1.693916 ]
+								hitbox_maxs = [ 0.705058, 0.5, 0.921089 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone25"
+								parent_bone = "Bone25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.715631, -1.5638, -1.778946 ]
+								hitbox_maxs = [ 0.716249, 0.5127, 0.533058 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new0_001"
+								parent_bone = "bone_new0_001"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.607151, -3.690794, -2.154991 ]
+								hitbox_maxs = [ 2.318309, 1.464308, 1.637009 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone58"
+								parent_bone = "Bone58"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.225291, -0.5, -3.925957 ]
+								hitbox_maxs = [ 3.994431, 19.672634, 4.787048 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone42"
+								parent_bone = "Bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.85809, -0.5, -3.947952 ]
+								hitbox_maxs = [ 3.60924, 19.560026, 3.389038 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone43"
+								parent_bone = "Bone43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.017107, -0.5, -2.456963 ]
+								hitbox_maxs = [ 4.245552, 7.724836, 1.586037 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone45"
+								parent_bone = "Bone45"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.855621, -0.5, -0.735962 ]
+								hitbox_maxs = [ 0.805609, 2.900639, 0.88504 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone46"
+								parent_bone = "Bone46"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.716203, -0.5, -0.628967 ]
+								hitbox_maxs = [ 0.661767, 1.875146, 0.72403 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone48"
+								parent_bone = "Bone48"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.979743, -0.5, -0.785965 ]
+								hitbox_maxs = [ 0.956707, 3.395687, 1.004036 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone49"
+								parent_bone = "Bone49"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.720943, -0.5, -0.669968 ]
+								hitbox_maxs = [ 0.659637, 2.143754, 0.68103 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone51"
+								parent_bone = "Bone51"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.841793, -0.5, -0.917969 ]
+								hitbox_maxs = [ 0.800407, 2.88704, 0.700035 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone52"
+								parent_bone = "Bone52"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.670176, -0.5, -0.736961 ]
+								hitbox_maxs = [ 0.706134, 2.044652, 0.592033 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone54"
+								parent_bone = "Bone54"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.762711, -0.5, -0.722969 ]
+								hitbox_maxs = [ 0.701559, 2.706017, 0.900032 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone55"
+								parent_bone = "Bone55"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.5, -0.61097 ]
+								hitbox_maxs = [ 0.662877, 1.614232, 0.610031 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new2_001"
+								parent_bone = "bone_new2_001"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.634218, -0.5, -1.15799 ]
+								hitbox_maxs = [ 1.480609, 3.556069, 0.824013 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone04"
+								parent_bone = "Bone04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone19"
+								parent_bone = "Bone19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.230141, -13.053097, -12.67794 ]
+								hitbox_maxs = [ 7.242908, 12.658302, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone20"
+								parent_bone = "Bone20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.699953, -17.237495, -14.884071 ]
+								hitbox_maxs = [ 6.70424, 16.842606, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone26"
+								parent_bone = "Bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone29"
+								parent_bone = "Bone29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.185631, -4.331699, -6.154846 ]
+								hitbox_maxs = [ 2.761689, 4.47496, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone33"
+								parent_bone = "Bone33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.455769, -0.72883, -11.290924 ]
+								hitbox_maxs = [ 1.31804, 1.22533, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone34"
+								parent_bone = "Bone34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.012612, -1.896697, -10.154068 ]
+								hitbox_maxs = [ 2.054369, 1.009933, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone59"
+								parent_bone = "Bone59"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.455739, -1.177391, -11.308922 ]
+								hitbox_maxs = [ 1.31901, 0.77575, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone60"
+								parent_bone = "Bone60"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.012634, -0.884477, -10.151062 ]
+								hitbox_maxs = [ 2.054429, 2.021775, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new0_002"
+								parent_bone = "bone_new0_002"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.202652, -10.853399, -6.198967 ]
+								hitbox_maxs = [ 7.869818, 10.539701, 5.491035 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bonea65"
+								parent_bone = "Bonea65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -33.216 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "BoneA66"
+								parent_bone = "BoneA66"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -45.992298 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone05"
+								parent_bone = "Bone05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -33.221901 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone06"
+								parent_bone = "Bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -45.8736 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Point09"
+								parent_bone = "Point09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Point10"
+								parent_bone = "Point10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Point11"
+								parent_bone = "Point11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.0, -30.0, -30.0 ]
+								hitbox_maxs = [ 30.0, 30.0, 30.0 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/gilgamesh/female/female_gil_by_zefiroft.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "female_gil_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_idle.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_run.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_die"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_die.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_attack1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_attack1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_attack2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_attack2.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_spell1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_spell1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 8.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_spell2"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_spell2.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_spell3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_spell3.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 19.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "female_gil_enuma"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilgamesh/female/female_gil_enuma.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

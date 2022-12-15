@@ -1,0 +1,939 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{66cd490f-437b-4d7d-b009-7907d45422e2} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "168_skin8.vmat"
+								to = "materials/hassan/illya_assassin/illya_assassin.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bip01_spine"
+								parent_bone = "bip01_spine"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.0, -20.0, -20.0 ]
+								hitbox_maxs = [ 20.0, 20.0, 20.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_spine1"
+								parent_bone = "bip01_spine1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.523705, -8.078522, -9.476776 ]
+								hitbox_maxs = [ 9.008339, 6.437277, 9.054493 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_spine2"
+								parent_bone = "bip01_spine2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.882195, -14.269911, -10.418643 ]
+								hitbox_maxs = [ 25.428665, 8.694935, 10.380006 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_neck"
+								parent_bone = "bip01_neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.011536, -5.257919, -5.656539 ]
+								hitbox_maxs = [ 9.978882, 6.498688, 6.5678 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_head"
+								parent_bone = "bip01_head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.87751, -14.14113, -15.231356 ]
+								hitbox_maxs = [ 23.359444, 11.068993, 15.230291 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone009_mirrored_"
+								parent_bone = "bone009_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.973259, -5.203693, -2.710442 ]
+								hitbox_maxs = [ 20.214542, 4.630304, 5.043571 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone010_mirrored_"
+								parent_bone = "bone010_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.205307, -5.586184, -0.836555 ]
+								hitbox_maxs = [ 20.19364, 5.2085, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone011_mirrored_"
+								parent_bone = "bone011_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.222507, -4.980211, -0.719208 ]
+								hitbox_maxs = [ 17.684757, 4.869961, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone012_mirrored_"
+								parent_bone = "bone012_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.0, -4.97593, -5.0 ]
+								hitbox_maxs = [ 16.6723, 5.0, 5.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone009"
+								parent_bone = "bone009"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.771057, -4.958381, -0.9505 ]
+								hitbox_maxs = [ 19.921196, 5.133931, 5.178246 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone010"
+								parent_bone = "bone010"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.134314, -5.197886, -1.007057 ]
+								hitbox_maxs = [ 19.610439, 5.773355, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone011"
+								parent_bone = "bone011"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.60956, -4.77485, -5.0 ]
+								hitbox_maxs = [ 35.0, 4.90348, 5.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone001_mirrored_"
+								parent_bone = "bone001_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -2.544186, -2.078667 ]
+								hitbox_maxs = [ 7.039154, 1.739134, 1.336151 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone002_mirrored_"
+								parent_bone = "bone002_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.474083, -1.662495, -2.058475 ]
+								hitbox_maxs = [ 15.33062, 2.113094, 1.334446 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone001_mirrored__mirrored_"
+								parent_bone = "bone001_mirrored__mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.551628, -1.544468, -2.028585 ]
+								hitbox_maxs = [ 7.059883, 2.382698, 1.31896 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone002_mirrored__mirrored_"
+								parent_bone = "bone002_mirrored__mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.641403, -2.261955, -2.151888 ]
+								hitbox_maxs = [ 15.232288, 1.653946, 1.288696 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone005"
+								parent_bone = "bone005"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -2.479294, -3.037129 ]
+								hitbox_maxs = [ 8.570999, 0.753281, 1.543612 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone006"
+								parent_bone = "bone006"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.267799, -2.378796, -3.323 ]
+								hitbox_maxs = [ 14.14782, 1.237713, 3.284419 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone005_mirrored_"
+								parent_bone = "bone005_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -2.791565, -3.95145 ]
+								hitbox_maxs = [ 8.559166, 2.495319, 1.544094 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone006_mirrored_"
+								parent_bone = "bone006_mirrored_"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.319344, -1.162491, -3.025356 ]
+								hitbox_maxs = [ 14.251266, 2.225025, 3.27113 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_clavicle"
+								parent_bone = "bip01_l_clavicle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.379598, -16.652756, -11.044693 ]
+								hitbox_maxs = [ 22.551163, 8.479877, 8.727341 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_hand"
+								parent_bone = "bip01_l_hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.0, -20.0, -20.0 ]
+								hitbox_maxs = [ 20.0, 20.0, 20.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger0"
+								parent_bone = "bip01_l_finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.881142, -1.045357 ]
+								hitbox_maxs = [ 4.644799, 1.506111, 1.884365 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger01"
+								parent_bone = "bip01_l_finger01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.152943, -0.848534, -1.045292 ]
+								hitbox_maxs = [ 4.348122, 1.476871, 1.805035 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger1"
+								parent_bone = "bip01_l_finger1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.15629, -0.937904, -0.838799 ]
+								hitbox_maxs = [ 4.423564, 1.283752, 0.793116 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger11"
+								parent_bone = "bip01_l_finger11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.377895, -0.599579, -0.712532 ]
+								hitbox_maxs = [ 3.783684, 0.900032, 0.604643 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger2"
+								parent_bone = "bip01_l_finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.079101, -1.133842, -1.076344 ]
+								hitbox_maxs = [ 4.660258, 1.480728, 0.922611 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger21"
+								parent_bone = "bip01_l_finger21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.810406, -0.651917 ]
+								hitbox_maxs = [ 4.289055, 1.108128, 0.602571 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger3"
+								parent_bone = "bip01_l_finger3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.05018, -1.010597, -0.787064 ]
+								hitbox_maxs = [ 4.289124, 1.159782, 0.989573 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger31"
+								parent_bone = "bip01_l_finger31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.685543, -0.568897 ]
+								hitbox_maxs = [ 3.611298, 1.141711, 0.609079 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger4"
+								parent_bone = "bip01_l_finger4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.248514, -0.822304, -0.999382 ]
+								hitbox_maxs = [ 3.247562, 0.751045, 0.650484 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_finger41"
+								parent_bone = "bip01_l_finger41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.571695, -0.549398 ]
+								hitbox_maxs = [ 1.874184, 0.639961, 0.596914 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_foretwist"
+								parent_bone = "bip01_l_foretwist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.042101, -2.01609, -2.289749 ]
+								hitbox_maxs = [ 13.198835, 2.548119, 2.45594 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_uparmtwist"
+								parent_bone = "bip01_l_uparmtwist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.443115, -4.065823, -3.69001 ]
+								hitbox_maxs = [ 18.096069, 3.043182, 2.882317 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_clavicle"
+								parent_bone = "bip01_r_clavicle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.267172, -11.599403, -10.771431 ]
+								hitbox_maxs = [ 33.472122, 6.014454, 17.731827 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_hand"
+								parent_bone = "bip01_r_hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.0, -15.0, -15.0 ]
+								hitbox_maxs = [ 15.0, 15.0, 15.0 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger0"
+								parent_bone = "bip01_r_finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.797668, -1.87299 ]
+								hitbox_maxs = [ 4.793644, 1.515894, 1.036976 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger01"
+								parent_bone = "bip01_r_finger01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.141209, -0.78203, -2.067307 ]
+								hitbox_maxs = [ 4.078285, 1.554615, 1.030857 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger1"
+								parent_bone = "bip01_r_finger1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.237083, -0.986988, -0.802034 ]
+								hitbox_maxs = [ 3.182358, 1.734184, 1.030855 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger11"
+								parent_bone = "bip01_r_finger11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.576576, -0.606134 ]
+								hitbox_maxs = [ 3.375881, 1.43853, 0.714016 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger2"
+								parent_bone = "bip01_r_finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.165543, -1.409595, -0.952147 ]
+								hitbox_maxs = [ 3.914703, 1.445911, 1.015713 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger21"
+								parent_bone = "bip01_r_finger21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.780579, -0.604051 ]
+								hitbox_maxs = [ 3.368019, 1.43882, 0.650541 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger3"
+								parent_bone = "bip01_r_finger3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.034431, -1.170818, -0.990881 ]
+								hitbox_maxs = [ 3.777805, 1.206856, 0.797207 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger31"
+								parent_bone = "bip01_r_finger31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.671242, -0.610397 ]
+								hitbox_maxs = [ 3.069359, 1.579681, 0.567575 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger4"
+								parent_bone = "bip01_r_finger4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.076912, -0.920975, -0.652001 ]
+								hitbox_maxs = [ 3.100052, 0.806667, 0.998023 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_finger41"
+								parent_bone = "bip01_r_finger41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.556179, -0.598218 ]
+								hitbox_maxs = [ 1.833096, 0.602291, 0.547792 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_foretwist"
+								parent_bone = "bip01_r_foretwist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.536255, -2.059322, -2.45607 ]
+								hitbox_maxs = [ 13.1992, 2.544469, 2.289879 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_uparmtwist"
+								parent_bone = "bip01_r_uparmtwist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.359097, -4.043167, -3.104088 ]
+								hitbox_maxs = [ 17.60111, 3.335148, 3.417725 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_thigh"
+								parent_bone = "bip01_l_thigh"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.737099, -9.015022, -8.098209 ]
+								hitbox_maxs = [ 42.629448, 7.066334, 10.995127 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_calf"
+								parent_bone = "bip01_l_calf"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.406773, -7.224342, -3.819281 ]
+								hitbox_maxs = [ 40.424675, 5.313618, 5.009893 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_l_foot"
+								parent_bone = "bip01_l_foot"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.987291, -2.953409, -3.138173 ]
+								hitbox_maxs = [ 8.633304, 10.329462, 4.246606 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_thigh"
+								parent_bone = "bip01_r_thigh"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.057007, -9.183138, -10.689623 ]
+								hitbox_maxs = [ 42.61618, 7.326347, 8.224621 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_calf"
+								parent_bone = "bip01_r_calf"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.395077, -7.22056, -5.009949 ]
+								hitbox_maxs = [ 40.53521, 5.316164, 3.819201 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bip01_r_foot"
+								parent_bone = "bip01_r_foot"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.093963, -2.953366, -4.246387 ]
+								hitbox_maxs = [ 8.633323, 10.329669, 3.138386 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/hassan/illya_assassin/illya_assassin_by_zefiroft.smd"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_attack1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_attack1.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_attack2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_attack2.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_attack3"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_attack3.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_die"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_die.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_idle.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_run.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_spell1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_spell1.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_spell2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_spell2.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_spell3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_spell3.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_spell4"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_spell4.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "illya_assassin_spell5"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/hassan/illya_assassin/illya_assassin_spell5.SMD"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "dummy001"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "bip01_r_hand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "bip01_l_hand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bip01_spine2"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}
