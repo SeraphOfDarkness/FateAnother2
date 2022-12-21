@@ -10,9 +10,6 @@ Layer0
 	//---- Masks ----
 	F_MASKS_1 1
 
-	//---- Translucency ----
-	F_ALPHA_TEST 1
-
 	//---- Blend To Full ----
 	g_flEnvMapBlendToFull "0.000"
 	g_flMetalnessBlendToFull "0.000"
@@ -45,7 +42,6 @@ Layer0
 	g_flAmbientScale "1.000"
 	g_flBloomScale "0.000"
 	g_flBloomShift "0.000"
-	g_flOverbrightFactor "1.000"
 	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Mask 1 ----
@@ -65,46 +61,4 @@ Layer0
 	g_flSpecularExponent "32.000"
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
-
-	//---- Translucency ----
-	g_flAlphaTestReference "0.010"
-	TextureTranslucency "materials/han/default/ats.png"
-
-
-	VariableState
-	{
-		"Blend To Full"
-		{
-		}
-		"Cloak"
-		{
-		}
-		"Color"
-		{
-		}
-		"Fresnel"
-		{
-		}
-		"Lighting"
-		{
-			"Ambient" 0
-			"Bloom" 0
-			"Overbright" 0
-		}
-		"Mask 1"
-		{
-		}
-		"Normal Map"
-		{
-		}
-		"Rim"
-		{
-		}
-		"Specular"
-		{
-		}
-		"Translucency"
-		{
-		}
-	}
 }

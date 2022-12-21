@@ -66,6 +66,8 @@ softdispellable = {
     "modifier_dirk_weakening_venom",
     "modifier_zhuge_liang_acid",
     "modifier_zhuge_liang_fire_arrow",
+    "modifier_robin_roots_slow",
+    "modifier_robin_hunter_rain_slow",
 }
 
 strongdispellable = {
@@ -121,6 +123,7 @@ strongdispellable = {
     "modifier_zhuge_liang_shield",
     "modifier_hans_territory_buff",
     "modifier_hans_observation",
+    "modifier_robin_poison_smoke",
 
     -- items
     "modifier_b_scroll",
@@ -208,6 +211,9 @@ cleansable = {
     "modifier_zhuge_liang_ambush_debuff",
     "modifier_hans_territory_debuff",
     "modifier_hans_red_shoes",
+    "modifier_robin_roots_slow",
+    "modifier_robin_hunter_rain_slow",
+    "modifier_robin_yew_bow",
 }
 
 slowmodifier = {
@@ -265,6 +271,8 @@ slowmodifier = {
     "modifier_edmond_flame_slow",
     "modifier_zhuge_liang_acid_slow",
     "modifier_hans_snow_queen",
+    "modifier_robin_roots_slow",
+    "modifier_robin_hunter_rain_slow",
 }
 
 revokes = {
@@ -528,6 +536,8 @@ tModifierCooldown = {
     "modifier_hans_territory_cooldown",
     "modifier_hans_naked_king_cooldown",
     "modifier_hans_combo_cooldown",
+    "modifier_faceless_king_cooldown",
+    "modifier_robin_combo_cooldown",
 }
 
 CannotReset = {
@@ -721,6 +731,9 @@ CannotReset = {
     "hans_naked_king",
     "hans_territory_upgrade",
     "hans_combo",
+    "robin_faceless_king",
+    "robin_faceless_king_upgrade",
+    "robin_combo",
 }
 
 femaleservant = {
@@ -757,6 +770,7 @@ tSpellBookHero = {
     "npc_dota_hero_tusk",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_necrolyte",
+    "npc_dota_hero_sniper",
 }
 
 tArrow = {
@@ -779,6 +793,7 @@ tArrow = {
     "iskandar_arrow_bombard",
     "lubu_combo_god_force",
     "lubu_combo_god_force_upgrade",
+    "robin_yew_bow",
 }
 
 tWind = {
@@ -860,6 +875,9 @@ tSpellBook = {
     "hans_masterpiece_open_observation",
     "hans_masterpiece_open_thumbelina",
     "hans_masterpiece_open_upgrade",
+    "robin_saboteur",
+    "robin_saboteur_upgrade",
+    "robin_saboteur_close",
 }
 --Assassin Class
 tCannotDetect = {
@@ -1095,7 +1113,6 @@ tHorsemanClass = {
     "npc_dota_hero_axe",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_necrolyte",
 }
 
 tSaberClass = {
@@ -1112,6 +1129,7 @@ tArcherClass = {
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_drow_ranger",
     "npc_dota_hero_naga_siren",
+    "npc_dota_hero_sniper",
 }
 
 tLancerClass = {
@@ -3362,6 +3380,7 @@ local heroNames = {
     ["npc_dota_hero_disruptor"] = "Zhuge Liang",
     ["npc_dota_hero_skeleton_king"] = "King Hassan",
     ["npc_dota_hero_necrolyte"] = "Hans Christian Andersen",
+    ["npc_dota_hero_sniper"] = "Robin Hood",
 }
 
 

@@ -1,0 +1,2980 @@
+"sniper_snip_spawn_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_spawn_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_spawn_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_spawn_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_spawn_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_spawn_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/spawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_09"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_10"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_11"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_12"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_13"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_14"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_15"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_16"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_17"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_18"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_19"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_20"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_21"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_22"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_23"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_move_24"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/move3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_attack_09"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/attack3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_level_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/lvlup2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_09"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_kill_10"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/kill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_09"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_death_10"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/dead2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_08"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_09"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_respawn_10"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/respawn3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_thanks_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/thanks.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_thanks_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/thanks.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_underattack_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_pain_07"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/hurt2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_02"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_03"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_04"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_05"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sniper_snip_laugh_06"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"                    "sos_reference_stack"
+                "reference_stack"            "dota_update_vo_switch"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/robin/robin-voicelines/laugh.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"                "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"                "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+

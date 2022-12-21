@@ -111,6 +111,7 @@ function OnRightHandStart(keys)
 		duration = duration + bonus_duration
 		max_stacks = max_stacks + bonus_stacks
 		caster.current_mana = 0
+		caster:SetMana(0)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_left_hand", {Duration = duration})
 	end
 

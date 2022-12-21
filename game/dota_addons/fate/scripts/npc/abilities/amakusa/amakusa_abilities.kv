@@ -1,4 +1,3 @@
-
 "DOTAAbilities"
 {
 	//=================================================================================================================
@@ -11,10 +10,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/amakusa/amakusa_abilities"
 		"MaxLevel"						"5"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/amakusa/amakusa_black_key"
-		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
-		"AnimationPlaybackRate" 		"1.5"
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
@@ -724,15 +721,6 @@
 				"IsPurgable"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				
-				"ThinkInterval"  	"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/amakusa/amakusa_abilities"
-						"Function"		"OnRIghtHandThink"
-					}
-				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -1034,7 +1022,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
 		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"240"
+		"AbilityCooldown"				"200"
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"				"0"
 		"AOERadius"						"%radius"
@@ -1184,7 +1172,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
 		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"240"
+		"AbilityCooldown"				"200"
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"				"0"
 		"AOERadius"						"%radius"
@@ -1334,7 +1322,7 @@
 		"AbilityTextureName"			"custom/amakusa/amakusa_baptism"
 		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"240"
+		"AbilityCooldown"				"200"
 		"AbilityManaCost"				"400"
 		"precache"
 		{

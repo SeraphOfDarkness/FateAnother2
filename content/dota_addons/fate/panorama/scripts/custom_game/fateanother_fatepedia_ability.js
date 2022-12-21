@@ -38,6 +38,7 @@ var heroes = [
 	"npc_dota_hero_disruptor",
 	"npc_dota_hero_skeleton_king",
 	"npc_dota_hero_necrolyte",
+	"npc_dota_hero_sniper",
 ]
 
 var names = [
@@ -80,6 +81,7 @@ var names = [
 	"Zhuge Liang",
 	"King Hassan",
 	"Hans Christian Andersen",
+	"Robin Hood",
 ]
 
 
@@ -122,7 +124,8 @@ var abilities = [
 	["edmond_dark_beam", "edmond_shadow_strike", "edmond_thunder", "edmond_lord_of_vengeance", "fate_empty1", "edmond_monte_cristo"],
 	["zhuge_liang_laser", "zhuge_liang_strat_command", "zhuge_liang_war_command", "zhuge_liang_alchemist", "zhuge_liang_discern_eye", "zhuge_liang_array"],
 	["kinghassan_death_approaching", "kinghassan_dreadful_slash", "kinghassan_evening_bell", "kinghassan_flames_of_gehenna", "fate_empty1", "kinghassan_azrael"],
-	["hans_incantation", "hans_nightingale", "hans_masterpiece_open", "fate_empty1", "hans_territory", "hans_biography"]
+	["hans_incantation", "hans_nightingale", "hans_masterpiece_open", "fate_empty1", "hans_territory", "hans_biography"],
+	["robin_saboteur_open", "robin_paralyzing_arrow", "robin_roots" , "robin_faceless_king" , "robin_clairvoyance", "robin_yew_bow"]
 ]
 
 var attributes = [
@@ -164,7 +167,8 @@ var attributes = [
 	["edmond_attribute_avenger", "edmond_attribute_determination", "edmond_attribute_wisdom", "edmond_attribute_esperer", "edmond_attribute_improve_monte"],
 	["zhuge_liang_attribute_territory", "zhuge_liang_attribute_alchemist", "zhuge_liang_attribute_stratagems", "zhuge_liang_attribute_letter", "zhuge_liang_attribute_discern_eye"],
 	["kinghassan_attribute_oldman", "kinghassan_attribute_presence", "kinghassan_attribute_abyss", "kinghassan_attribute_boundary", "kinghassan_attribute_body"],
-	["hans_attribute_territory", "hans_attribute_write_thumbelina", "hans_attribute_human_observation", "hans_attribute_refine_nightingale", "hans_attribute_love_letter"]
+	["hans_attribute_territory", "hans_attribute_write_thumbelina", "hans_attribute_human_observation", "hans_attribute_refine_nightingale", "hans_attribute_love_letter"],
+	["robin_attribute_subversive", "robin_attribute_righteous_thief", "robin_attribute_faceless", "robin_attribute_guerilla", "robin_attribute_taxine"]
 ]
 
 var comboes = [
@@ -206,7 +210,8 @@ var comboes = [
 	"edmond_chateau",
 	"zhuge_liang_combo",
 	"kinghassan_combo",
-	"hans_combo"
+	"hans_combo",
+	"robin_combo"
 ]
 
 var guidelinks = [

@@ -393,6 +393,16 @@ HansAttribute = {
 	attrCount = 5
 }
 
+RobinAttribute = {
+	"robin_attribute_subversive",
+	"robin_attribute_faceless",
+	"robin_attribute_righteous_thief",
+	"robin_attribute_taxine",
+	"robin_attribute_guerilla",
+	"robin_combo",
+	attrCount = 5
+}
+
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
 	"modifier_vortigern_ferocity",
@@ -923,6 +933,8 @@ function FindAttribute(name)
 		attributes = KingHassanAttribute
 	elseif name == "npc_dota_hero_necrolyte" then
 		attributes = HansAttribute
+	elseif name == "npc_dota_hero_sniper" then
+		attributes = RobinAttribute
     end
    
     return attributes

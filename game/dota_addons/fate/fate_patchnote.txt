@@ -1,4 +1,33 @@
+Robean
 
+Yew Bow
+Cast delay 0.6 -> 0.65
+Volume lowered a bit
+
+Yew Bow - Bow of Prayer (Combo)
+Cd 135 -> 145
+
+Bunch of tooltip fix.
+
+--------
+
+Amakuchad update, new hero, and some green frog bug fix
+
+Amakusadge 
+Combo cd 240 - > 200
+Innate - D Black keys
+No longer stops movement / action when cast
+-Attribute - Left hand (Xanadu Matrix)
+Evil eater no longer locks mana
+
+Hans
+Fix bug W, need level 3
+Fix pepe bug combo not levelling up target when duration ends after taking SA
+
+Robin Hood (The green fro... The green bowman)
+Test release / release, idk 
+
+--------
 
 Official Launch King Hassan (Again)
 Add MOD want to be friend with you

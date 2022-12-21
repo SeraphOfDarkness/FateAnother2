@@ -46,5 +46,5 @@
 	//"npc_dota_hero_void_spirit"		"1"
 	//"npc_dota_hero_sniper"				"1"		
 	"npc_dota_hero_skeleton_king"				"1"	
-	//"npc_dota_hero_necrolyte"				"1"
+	"npc_dota_hero_necrolyte"				"1"
 }

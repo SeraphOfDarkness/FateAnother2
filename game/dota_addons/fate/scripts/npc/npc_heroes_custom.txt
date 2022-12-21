@@ -42,6 +42,7 @@
 #base "heroes/npc_fate_hero_zhuge_liang.kv"
 #base "heroes/npc_fate_hero_king_hassan.kv"
 #base "heroes/npc_fate_hero_hans.kv"
+#base "heroes/npc_fate_hero_robin.kv"
 
 "DOTAHeroes"
 {
