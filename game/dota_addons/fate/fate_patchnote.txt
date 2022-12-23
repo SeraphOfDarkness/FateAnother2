@@ -1,3 +1,42 @@
+Robean 
+
+Forest Friend (Saboteur SA) Buffed
+Movespeed 260 300 340 380 420 -> 290 340 390 440 490
+Vision 400 450 500 550 600 -> 400 500 600 700 800
+
+Nirnroot Sommersault
+Range 800 -> 1000
+Arrow speed 1500 -> 1600
+
+Hunter Rain
+Arrow range 1200 -> 1400
+
+Sacrament of druid
+DPS 60 75 90 105 120 -> 40 50 60 70 80
+Cast delay 0.35 -> 0.45
+Cast point 0.2 -> 0.3
+
+Yew Bow 
+Cast time 0.65 -> 0.75
+
+-Attribute : Taxine of the yew tree
+Sacrament DPS per int 1 -> 0.5
+Yew Bow INT Scale 4 -> 3
+Combo DPS per int 3 -> 2
+
+-Attribute : Guerilla Warfare
+Hunter rain arrow range 1200 -> 1400
+Yew Bow AGI Scale 7 -> 6
+Yew Bow Ignore armor amount 50 -> 40
+
+Combo : Yew Bow - Bow of Prayer
+No longer cast when robin ded
+Cast delay 2.2 -> 2.4
+DPS 300 -> 250
+
+Also fix robin combo sometimes dealing 400 dps instead of 300
+And tooltips, ofc...
+--------
 Robean
 
 Yew Bow

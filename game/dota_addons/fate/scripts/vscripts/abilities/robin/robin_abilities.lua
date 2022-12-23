@@ -574,7 +574,7 @@ function OnYewBowStart(keys)
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 			end)
 		else
-		return
+				return
 		end
 	end)
 end
@@ -715,6 +715,7 @@ function OnComboCast(keys)
 
 		Timers:CreateTimer(cast_delay, function()
 
+		if caster:IsAlive() then
 			EmitGlobalSound("Robin.YewBowSFX")
 			EmitGlobalSound("Robin.YewBowSFX2")
 
@@ -733,8 +734,10 @@ function OnComboCast(keys)
 				bProvidesVision = true,                           -- Optional
 				iVisionRadius = 150,                              -- Optional
 				iVisionTeamNumber = caster:GetTeamNumber()        -- Optional
-	   		}
-	    	ProjectileManager:CreateTrackingProjectile(projectile)
+		   		}
+		    	ProjectileManager:CreateTrackingProjectile(projectile)
+		    end
+
 		end)		
 	end)
 end

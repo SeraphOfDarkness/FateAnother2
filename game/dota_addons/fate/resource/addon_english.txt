@@ -13380,13 +13380,14 @@
         "DOTA_Tooltip_ability_robin_attribute_guerilla_ignore_armor_amount"			"%ARMOR PIERCE:"
 
         "DOTA_Tooltip_Ability_robin_attribute_taxine"					"<font color='#9FFFCC'>Attribute: Taxine of the Yew Tree</font>"        
-        "DOTA_Tooltip_ability_robin_attribute_taxine_Description"		"<font color='#FFFFFF'>Yew Bow</font>: Gain extra magical damage and dps based on <font color='#00F7FF'>INT</font>. \n <font color='#FFFFFF'>Sacrament of the Druids</font>: Deal extra magical damage and dps based on <font color='#00F7FF'>INT</font>. \n <font color='#FFFFFF'>Nirnroot Sommersault</font>: Deal extra magical damage based on <font color='#00F7FF'>INT</font>. \n<font color='#FFFFFF'>Yew Bow - Bow of Prayer</font>: Deal extra dps based on <font color='#00F7FF'>INT</font>."
+        "DOTA_Tooltip_ability_robin_attribute_taxine_Description"		"<font color='#FFFFFF'>Yew Bow</font>: Gain extra magical damage and dps based on <font color='#00F7FF'>INT</font>. \n <font color='#FFFFFF'>Sacrament of the Druids</font>: Deal extra magical damage and dps based on <font color='#00F7FF'>INT</font>. \n <font color='#FFFFFF'>Nirnroot Sommersault</font>: Deal extra magical damage based on <font color='#00F7FF'>INT</font>. \n<font color='#FFFFFF'>Yew Bow - Bow of Prayer</font>: Increase daamge and deal extra dps based on <font color='#00F7FF'>INT</font>."
         "DOTA_Tooltip_ability_robin_attribute_taxine_paralyzing_damage_per_int"			"NIRNROOT BONUS DAMAGE PER INT:"
         "DOTA_Tooltip_ability_robin_attribute_taxine_roots_damage_per_int"			"SACRAMENT BONUS DAMAGE PER INT:"
         "DOTA_Tooltip_ability_robin_attribute_taxine_roots_dps_per_int"			"SACRAMENT BONUS DPS PER INT:"
         "DOTA_Tooltip_ability_robin_attribute_taxine_yew_damage_per_int"			"YEW BOW BONUS DAMAGE PER INT:"
         "DOTA_Tooltip_ability_robin_attribute_taxine_yew_dps_per_int"			"YEW BOW POISON BONUS DPS PER INT:"
         "DOTA_Tooltip_ability_robin_attribute_taxine_combo_dps_per_int"			"COMBO BONUS DPS PER INT:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_combo_bonus_damage"			"COMBO BONUS DAMAGE:"
 
         /////////////////// Modifier //////////////////////////
 
