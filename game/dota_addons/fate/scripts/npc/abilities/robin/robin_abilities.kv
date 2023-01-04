@@ -254,6 +254,26 @@
 		        "var_type"				  	"FIELD_INTEGER"
 		        "bonus_vision"				"200"
 		    }
+		    "02"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "goldpersecond"				"0"
+		    }		    
+		    "03"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "attack_speed"				"0"
+		    }
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "agi_scale_crit"			"0"
+		    }			   
+		    "05"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "crit_chance"				"0"
+		    }
 	    }
 
 		"Modifiers"
@@ -264,11 +284,31 @@
 				"Passive"			"1"
 				"IsHidden"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  		"1"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/robin/robin_abilities"
+						"Function"		"OnGoldGain"
+					}
+				}
+
+				"OnAttackLanded"
+				{					
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/robin/robin_abilities"
+						"Function"			"OnRighteousCrit"
+					}
+				}
 
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"%bonus_vision"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%bonus_vision"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
 				}
 			}
 		}

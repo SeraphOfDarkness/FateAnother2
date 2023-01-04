@@ -1,3 +1,72 @@
+function OnPoisonousBite(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local cast_delay = ability:GetSpecialValueFor("cast_delay")
+	local duration = ability:GetSpecialValueFor("duration")
+	local damage = ability:GetSpecialValueFor("damage")
+	local damage_burst = ability:GetSpecialValueFor("damage_burst")
+	local stay_range = ability:GetSpecialValueFor("stay_range")
+	local radius = ability:GetSpecialValueFor("radius")
+
+   	caster:EmitSound("Semi.AssassinR")
+
+	Timers:CreateTimer(cast_delay / 2, function()
+		if caster:IsAlive() then
+		   	target:EmitSound("Semi.AssassinRSFX")
+		   	target:EmitSound("Semi.AssassinRSFX2")
+
+			local particle = ParticleManager:CreateParticle("particles/semiramis/basmu_claw_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+			ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+
+			local particlewound = ParticleManager:CreateParticle("particles/custom/semiramis/open_wounds.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+			ParticleManager:SetParticleControl(particlewound, 0, target:GetAbsOrigin())
+
+		   	if caster.IsAbsoluteAcquired then
+		   		if IsFemaleServant(target) then
+		   		else
+		   			damage = damage + 300
+		   		end
+		   	end
+
+		   	if caster.IsCharmAcquired then
+				local damage_per_int = ability:GetSpecialValueFor("damage_per_int")
+				DoDamage(caster, target, damage + (damage_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			else
+				DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			end
+			target:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
+
+			Timers:CreateTimer(duration, function()
+
+				ParticleManager:DestroyParticle(particlewound, true )
+
+				if caster:IsAlive() then
+					local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+					if(distance < stay_range) then
+
+					   	target:EmitSound("Semi.AssassinRSFXPop")
+					   	target:EmitSound("Semi.AssassinRSFXPop2")
+
+						local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+						for k,v in pairs(enemies) do
+							if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
+								DoDamage(caster, v, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+								v:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
+							end	
+						end
+
+						local particle = ParticleManager:CreateParticle("particles/custom/semiramis/basmu_poison_d.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+						ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+						ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
+
+					end
+				end
+			end)
+		end
+	end)
+end
+
 function OnLevelupQCas(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -13,12 +82,6 @@ function OnLevelupWCas(keys)
 	else
 		caster:FindAbilityByName("semiramis_snek_spit_poison"):SetLevel(ability:GetLevel())
 	end
-end
-function OnLevelupECas(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-
-	caster:FindAbilityByName("semiramis_poisonous_cloud"):SetLevel(ability:GetLevel())
 end
 function OnLevelupRCas(keys)
 	local caster = keys.caster
@@ -289,6 +352,10 @@ function OnHangingGardensCast(keys)
 	local damage_radius = ability:GetSpecialValueFor("damage_radius")
 	local targetpoint = ability:GetCursorPosition()
 
+	local garden_health = ability:GetSpecialValueFor("garden_health")
+	local garden_damage = ability:GetSpecialValueFor("garden_damage")
+	local garden_movespeed = ability:GetSpecialValueFor("garden_movespeed")
+
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", cast_delay)
 
 	ScreenShake(caster:GetOrigin(), 3, 0.2, 3.5, 4000, 0, true)
@@ -325,22 +392,40 @@ function OnHangingGardensCast(keys)
 
 			local garden = nil
 
+			print("garden parameter")
+			print(garden_health)
+			print(garden_damage)
+
 			if IsValidEntity(caster.HangingGardens) and caster.HangingGardens:IsAlive() then
-				caster.HangingGardens:SetAbsOrigin(targetpoint)	
-				caster.HangingGardens:Heal(caster.HangingGardens:GetMaxHealth(), nil)	
 				garden = caster.HangingGardens
+				caster.HangingGardens:SetAbsOrigin(targetpoint)	
+
+				Timers:CreateTimer(0.05, function()
+					garden:SetMaxHealth(garden_health)
+					garden:SetHealth(garden_health)
+					garden:SetMana(garden:GetMaxMana() * 0.4)
+					garden:SetBaseDamageMin(garden_damage)
+					garden:SetBaseDamageMax(garden_damage)
+					garden:SetBaseMoveSpeed(garden_movespeed)
+				end)
+
 				if garden:HasModifier("modifier_semiramis_babylon_quake") then
 					garden:RemoveModifierByName("modifier_semiramis_babylon_quake")
 				end
 			else
-				garden = CreateUnitByName("semiramis_hanging_gardens", targetpoint, true, nil, caster, caster:GetTeamNumber())		
-			end	
+				garden = CreateUnitByName("semiramis_hanging_gardens", targetpoint, true, nil, caster, caster:GetTeamNumber())	
 
-			garden:SetMaxHealth(ability:GetSpecialValueFor("garden_health"))
-			garden:SetMana(garden:GetMaxMana() * 0.4)
-			garden:SetBaseDamageMin(ability:GetSpecialValueFor("garden_damage"))
-			garden:SetBaseDamageMax(ability:GetSpecialValueFor("garden_damage"))
-			garden:SetBaseMoveSpeed(ability:GetSpecialValueFor("garden_movespeed"))
+				Timers:CreateTimer(0.05, function()
+					garden:SetMaxHealth(garden_health)
+					garden:SetHealth(garden_health)
+					garden:SetMana(garden:GetMaxMana() * 0.4)
+					garden:SetBaseDamageMin(garden_damage)
+					garden:SetBaseDamageMax(garden_damage)
+					garden:SetBaseMoveSpeed(garden_movespeed)
+				end)
+
+				caster.HangingGardens = garden	
+			end	
 
 			if caster.IsTerritoryAcquired then
 				garden:FindAbilityByName("semiramis_summon_birds"):SetLevel(2)
@@ -350,11 +435,10 @@ function OnHangingGardensCast(keys)
 				garden:FindAbilityByName("hanging_garden_presence"):SetLevel(2)
 				garden:SwapAbilities("fate_empty1", "hanging_garden_presence", false, true)
 				garden:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetLevel(2)
-
-				garden:AddNewModifier(caster, nil, "modifier_kill", { Duration = ability:GetSpecialValueFor("duration") })
 			end	
 
-			caster.HangingGardens = garden
+			garden:AddNewModifier(caster, nil, "modifier_kill", { Duration = ability:GetSpecialValueFor("duration") })
+
 
 			local rocks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_build.vpcf", PATTACH_CUSTOMORIGIN, caster )
 			ParticleManager:SetParticleControl( rocks, 0, targetpoint)
@@ -535,7 +619,6 @@ function OnMountStart(keys)
 				ability:ApplyDataDrivenModifier(caster, hero, "modifier_semiramis_mounted", {})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_garden_mounted", {})  
 				caster:SwapAbilities("fate_empty3", "semiramis_hanging_garden_sikera_usum", false, true) 
-				caster:EmitSound("ZC.Tentacle1")
 				SendMountStatus(hero)
 				return 
 			end
@@ -647,6 +730,11 @@ function OnGardenPresenceThink(keys)
 	local damage = ability:GetSpecialValueFor("damage")
 	local mana_drain_per_second = ability:GetSpecialValueFor("mana_drain_per_second")
 
+	if caster:GetOwnerEntity():IsAlive() == false then
+		DoDamage(caster, caster, 9999, DAMAGE_TYPE_PURE, 0, ability, false)
+	end
+
+
 	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	if enemies == nil then return end
 
@@ -694,10 +782,10 @@ function OnTerritoryAcquired(keys)
 			hero:RemoveModifierByName("modifier_combo_window")
 		end
 
-		if hero:HasModifier("modifier_semiramis_class_caster") then
-			UpgradeAttribute(hero, "semiramis_hanging_gardens", "semiramis_hanging_gardens_upgrade" , true)
-		else
+		if hero:HasModifier("modifier_semiramis_class_assassin") then
 			UpgradeAttribute(hero, "semiramis_hanging_gardens", "semiramis_hanging_gardens_upgrade" , false)
+		else
+			UpgradeAttribute(hero, "semiramis_hanging_gardens", "semiramis_hanging_gardens_upgrade" , true)
 		end
 
 		hero.IsTerritoryAcquired= true

@@ -1,3 +1,13 @@
+Fix a buttload of semiramis bug
+Fixed robin not gaining gold per second from SA
+Fixed robin not doing crit
+Reworked semiramis R to prevent perma slow bug from old code.
+Fuckton of semiramis changes, too lazy to note coz there's quite a lot
+
+And, lastly obviously fixed tooltips
+Fuck you tooltips
+(I hope no more bug appears, coz I think semi is at "playable" state now)
+-------------
 Robean, again
 
 -Attribute Subversive Activities

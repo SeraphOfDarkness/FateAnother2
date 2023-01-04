@@ -8,6 +8,12 @@ function semiramis_beam_bombard:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
+function semiramis_beam_bombard:OnUpgrade()
+	local caster = self:GetCaster()
+	local ability = self
+	caster:FindAbilityByName("semiramis_poisonous_cloud"):SetLevel(ability:GetLevel())
+end
+
 function semiramis_beam_bombard:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()

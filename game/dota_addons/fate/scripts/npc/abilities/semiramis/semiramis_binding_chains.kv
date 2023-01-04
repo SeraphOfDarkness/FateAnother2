@@ -3,8 +3,7 @@
 	"semiramis_poisonous_bite"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/semiramis/semiramis_poisonous_bite"
+		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -17,10 +16,11 @@
 		"AnimationPlaybackRate" 		"1.25"
 
 		"AbilityCastPoint"				"0.4"
-		"AbilityCastRange"				"750"
+		"AbilityCastRange"				"%cast_range"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"34"
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"600"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -36,41 +36,67 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.5"
+				"duration"				"1.2"
 			}			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 550 700 850 1000"
+				"damage"				"400 500 600 700 800"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"100 125 150 175 200"
+				"damage_burst"			"400 525 650 775 900"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"390 405 430 445 460"
+				"radius"				"350"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow"					"-10 -13 -16 -19 -21"
+				"slow"					"-20 -25 -30 -35 -40"
 			}
-			"02"
+			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_inc"				"-5 -6 -7 -8 -9"
+				"var_type"				"FIELD_INTEGER"
+				"stay_range"			"250 275 300 325 350"
 			}
 		}		
+
+	   	"OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+		    	"Function"		"OnPoisonousBite"
+		    }
+		}
+
+		"Modifiers"
+		{				
+
+			"modifier_semiramis_poisonous_bite_debuff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Duration"			"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+				}	
+			}							
+		}
 	}
 
 	"semiramis_poisonous_bite_upgrade"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/semiramis/semiramis_poisonous_bite_upgrade"
+		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -83,10 +109,10 @@
 		"AnimationPlaybackRate" 		"1.25"
 
 		"AbilityCastPoint"				"0.4"
-		"AbilityCastRange"				"750"
+		"AbilityCastRange"				"%cast_range"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"34"
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"600"
 		"AbilitySpecial"
 		{
 			"01"
@@ -102,44 +128,71 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.5"
+				"duration"				"1.2"
 			}			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dps"					"100 125 150 175 200"
+				"damage"				"400 500 600 700 800"
 			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dps_per_int"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"390 405 430 445 460"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-10 -13 -16 -19 -21"
-			}
-			"02"
+			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow_inc"				"-5 -6 -7 -8 -9"
+				"damage_per_int"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_burst"			"600 725 850 975 1100"
+			}			
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"burst_per_int"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-20 -25 -30 -35 -40"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stay_range"			"250 275 300 325 350"
 			}
 		}		
+
+		"OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+		    	"Function"		"OnPoisonousBite"
+		    }
+		}
+
+		"Modifiers"
+		{				
+
+			"modifier_semiramis_poisonous_bite_debuff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Duration"			"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+				}	
+			}							
+		}
 	}
 
 	"semiramis_beam_bombard"
@@ -176,17 +229,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"beam_aoe"				"150"
+				"beam_aoe"				"170 175 180 185 190"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"250 275 300 325 350"
+				"damage"				"150 175 200 225 250"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"beam_numbers"			"6 7 8 9 10"
+				"beam_numbers"			"5 6 7 8 9"
 			}						
 			"05"
 			{
@@ -194,16 +247,6 @@
 				"cast_delay"			"0.4"
 			}	
 		}
-
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/semiramis/semiramis_abilities"
-				"Function"		"OnLevelupECas"
-			}
-		}
-
 	}
 
 	"semiramis_binding_chains"
@@ -348,7 +391,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aoe"					"170"
+				"aoe"					"220"
 			}			
 			"02"
 			{
@@ -407,7 +450,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aoe"					"170"
+				"aoe"					"220"
 			}			
 			"02"
 			{
@@ -617,12 +660,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_shield"			"200 275 350 425 500"
+				"max_shield"			"200 300 400 500 600"
 			}			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen"					"8 12 16 20 24"
+				"regen"					"10 15 20 25 30"
 			}
 		}		
 
@@ -1386,7 +1429,7 @@
 		"AbilityCooldown"				"11 9"
 
 		"AbilityCastPoint"				"0.15"
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"1500"
 		"AbilityManaCost"				"200"		
 
 		"AbilitySpecial"
@@ -1417,7 +1460,7 @@
 		"AbilityTextureName"			"custom/semiramis/semiramis_dove"
 		"MaxLevel"						"2"
 		"AbilityCooldown"				"16 14"
-		"AbilityCastRange"				"1400"
+		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0.25"
 		"AbilityManaCost"				"100"		
 
@@ -1635,7 +1678,7 @@
 		"AbilityCooldown"				"34 29"
 
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"1000"
 		"AbilityManaCost"				"600"		
 		"AOERadius"						"400"
 
@@ -1696,12 +1739,12 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "mana_drain_per_second"		"0 7"
+		        "mana_drain_per_second"		"0 10"
 		    }		   
 		     "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "radius"					"0 1100"
+		        "radius"					"0 1600"
 		    }
 	    }
 

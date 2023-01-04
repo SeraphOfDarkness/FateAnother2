@@ -8437,28 +8437,30 @@
         /////////////////////////// Innate ////////////////////////////////
 		
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite" 				"<font color='#FFFFFF'>Sikera Ušum - Arrogant King's Alcohol</font>"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. <font color='#FF3399'>Sikera Ušum</font>: Deal damage over duration, slowing them more and more over the duration. When this debuff ends, it pops and spread to all enemies around the target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. After a short duration, if target is still around Semiramis vicinity, he will burst dealing damage to all enemies in a small area. <font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Note0" 				"Burst damage can't be dispelled. The slow however is dispellable."
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_delay" 				"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_range" 				"CAST RANGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_duration" 				"DURATION:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_damage" 					"INITIAL DAMAGE:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_dps" 					"POISON DPS:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_radius" 					"POISON RADIUS:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow" 					"POISON INITIAL SLOW:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow_inc" 				"POISON INCREMENTAL SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_damage_burst" 				"BURST DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_radius" 					"BURST RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow" 					"SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_stay_range" 				"BURST RANGE CHECK:"
 
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade" 				"<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font>"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage based on her <font color='#00F7FF'>INT</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. <font color='#FF3399'>Sikera Ušum</font>: Deal damage over duration, slowing them more and more over the duration. When this debuff ends, it pops and spread to all enemies around the target."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage based on her <font color='#00F7FF'>INT</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. After a short duration, if target is still around Semiramis vicinity, he will burst dealing damage based on Semiramis <font color='#00F7FF'>INT</font> to all enemies in a small area. <font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Note0" 				"Burst damage can't be dispelled. The slow however is dispellable."
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_delay" 				"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_range" 				"CAST RANGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_duration" 				"DURATION:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage" 					"INITIAL DAMAGE:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_per_int" 			"BONUS DAMAGE PER INT:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_dps" 					"POISON DPS:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_dps_per_int" 			"BONUS DPS PER INT:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_radius" 					"POISON RADIUS:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow" 					"POISON INITIAL SLOW:"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow_inc" 				"POISON INCREMENTAL SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_per_int" 				"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_burst" 				"BURST DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_burst_per_int" 				"BURST DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_radius" 					"BURST RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow" 					"SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_stay_range" 				"BURST RANGE CHECK:"
 
 		"DOTA_Tooltip_ability_semiramis_beam_bombard" 				"<font color='#9FFFCC'>Beam Bombard</font>"
 		"DOTA_Tooltip_ability_semiramis_beam_bombard_Description" 			"Semiramis showers an area with beams, dealing damage."
@@ -8559,13 +8561,13 @@
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage_radius" 			"DEBRIS RADIUS:"
 
 		"DOTA_Tooltip_ability_semiramis_combo"					 						"<font color='#9FFFCC'>Hanging Gardens of Babylon - Tiatum Umu</font>"
-		"DOTA_Tooltip_ability_semiramis_combo_Description" 			"Semiramis teleports to her hanging garden, preparing to shoot the tiatum umu. During the preparation time semiramis and her garden will become invulnerable, when starting to prepare all heroes will be slowed for a few seconds. After the preparation finishes her garden will shoot a giant laser beam to the target location for a few seconds, dealing dps and preventing any heroes from using blink until the garden stops firing."
+		"DOTA_Tooltip_ability_semiramis_combo_Description" 			"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : R -> R in 5 seconds</font>. \n<font color='#FF04EF'>Semiramis must be in a certain range within the garden to cast</font>. \n<font color='#FF04EF'>Target point needs to be at least a certain range away from the garden to cast</font>. \nSemiramis teleports to her hanging garden, preparing to shoot the tiatum umu. During the preparation time semiramis and her garden will become invulnerable, when starting to prepare all heroes will be slowed for a few seconds. After the preparation finishes her garden will shoot a giant laser beam to the target location for a few seconds, dealing dps and preventing any heroes from using blink until the garden stops firing."
+		"DOTA_Tooltip_ability_semiramis_combo_minimum_range" 			"MINIMUM TARGET RANGE FROM GARDEN:"
+		"DOTA_Tooltip_ability_semiramis_combo_semi_range" 				"MAX GARDEN RANGE FROM SEMIRAMIS:"
 		"DOTA_Tooltip_ability_semiramis_combo_cast_delay" 				"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_combo_dps" 						"DPS:"
 		"DOTA_Tooltip_ability_semiramis_combo_duration" 				"DURATION:"
 		"DOTA_Tooltip_ability_semiramis_combo_radius" 					"RADIUS:"
-		"DOTA_Tooltip_ability_semiramis_combo_minimum_range" 			"MINIMUM TARGET RANGE:"
-		"DOTA_Tooltip_ability_semiramis_combo_semi_range" 				"MAX GARDEN RANGE:"
 		"DOTA_Tooltip_ability_semiramis_combo_slow" 					"GLOBAL SLOW:"
 
 		"DOTA_Tooltip_ability_semiramis_absolute_queen"				"<font color='#9FFFCC'>Absolute Monarchy of the Queen</font>"
@@ -8610,10 +8612,10 @@
 		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_duration" 			"POISON AREA DURATION:"
 		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_radius" 				"RADIUS:"
 
-		"DOTA_Tooltip_ability_hanging_gardens_presence"				"<font color='#9FFFCC'>Absolute Garden Authority</font>"
-		"DOTA_Tooltip_ability_hanging_gardens_presence_Description" 			"<font color='#58ACFA'>PASSIVE</font> : Hanging garden will absorb mana from nearby enemy heroes every second."
-		"DOTA_Tooltip_ability_hanging_gardens_presence_mana_drain_per_second" 				"MANA DRAIN PER SECOND:"
-		"DOTA_Tooltip_ability_hanging_gardens_presence_radius" 				"DRAIN RADIUS:"
+		"DOTA_Tooltip_ability_hanging_garden_presence"				"<font color='#9FFFCC'>Absolute Garden Authority</font>"
+		"DOTA_Tooltip_ability_hanging_garden_presence_Description" 			"<font color='#58ACFA'>PASSIVE</font> : Hanging garden will absorb mana from nearby enemy heroes every second."
+		"DOTA_Tooltip_ability_hanging_garden_presence_mana_drain_per_second" 				"MANA DRAIN PER SECOND:"
+		"DOTA_Tooltip_ability_hanging_garden_presence_radius" 				"DRAIN RADIUS:"
 
 		//====================================
 		//      ATTRIBUTES
@@ -8645,10 +8647,10 @@
 		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_damage_to_male"				"BONUS DAMAGE TO MALE HEROES:"
 
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer" 								"<font color='#9FFFCC'>Attribute: Charmer of Death</font>"
-		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font> : Gain bonus damage and dps. \n<font color='#FFB266'>Binding Chains</font> : Now deals damage. \n<font color='#FFB266'>Poisoned Wine</font> : Now scales from INT."
-		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_bonus"					"SIKERA USUM BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font> : Gain bonus damage, burst damage, and scales from Semiramis <font color='#00F7FF'>INT</font>. \n<font color='#FFB266'>Binding Chains</font> : Now deals damage. \n<font color='#FFB266'>Poisoned Wine</font> : Now scales from INT."
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_bonus"					"SIKERA USUM BONUS BURST DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_int"				"SIKERA USUM BONUS DAMAGE PER INT:"
-		"DOTA_Tooltip_ability_semiramis_attribute_charmer_dps_per_int"					"SIKERA USUM BONUS DPS PER INT:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_dps_per_int"					"SIKERA USUM BONUS BURST DAMAGE PER INT:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage"						"BINDING CHAINS DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_intt"				"POISONED WINE DAMAGE PER INT:"
 
@@ -13684,6 +13686,9 @@
 
         "DOTA_Tooltip_modifier_robin_clairvoyance_passive"                   "Clairvoyance"
 		"DOTA_Tooltip_modifier_robin_clairvoyance_passive_Description"                   "Gaining extra vision."
+
+        "DOTA_Tooltip_modifier_robin_clairvoyance_upgrade_passive"                   "Righteous Thief"
+		"DOTA_Tooltip_modifier_robin_clairvoyance_upgrade_passive_Description"                   "Gaining extra vision, ASPD, gold and crit"
 
         "DOTA_Tooltip_modifier_robin_scout_familliar"                   		"Scout Familliar"
 

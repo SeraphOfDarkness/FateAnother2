@@ -62,7 +62,7 @@ function OnRighteousCrit(keys)
     local rng = RandomInt(0, 100)
 
     if rng <= crit_chance then
-	    DoDamage(caster, target, caster:GetAgility() * agi_scale_crit , DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+	    DoDamage(caster, target, caster:GetAgility() * agi_scale_crit , DAMAGE_TYPE_MAGICAL, 0, ability, false)
     end
 end 
 
@@ -72,8 +72,7 @@ function OnGoldGain(keys)
 	local target = keys.target
 	local goldgain = ability:GetSpecialValueFor("goldpersecond")
 
-    if caster:IsAlive() and GameRules:GetGameTime() > 75 then 
-    	caster:SetGold(0, false)
+    if caster:IsAlive() then 
     	caster:SetGold(caster:GetGold() + goldgain, true) 
     end
 end

@@ -778,7 +778,7 @@
 	{
 		"BaseClass"				 "npc_dota_creature"
 		"Model"					"models/new_medeatower/newtower.vmdl"
-		"ModelScale"			"1.3"
+		"ModelScale"			"1.4"
 		"MinimapIcon"				"minimap_racks90"
 
 		"AbilityLayout"				"6"
@@ -822,8 +822,8 @@
 	"medea_territory_improved"
 	{
 		"BaseClass"				 "npc_dota_creature"
-		"Model"					"models/props_structures/tower_good.vmdl"
-		"ModelScale"			"2.0"
+		"Model"					"models/new_medeatower/newtower.vmdl"
+		"ModelScale"			"1.4"
 		"MinimapIcon"				"minimap_racks90"
 
 		"AbilityLayout"				"6"
