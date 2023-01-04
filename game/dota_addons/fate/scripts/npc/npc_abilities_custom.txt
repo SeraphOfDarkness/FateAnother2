@@ -26,6 +26,7 @@
 #base "abilities/saber/saber_abilities.kv"
 #base "abilities/saber_alter/saber_alter_abilities.kv"
 #base "abilities/semiramis/semiramis_abilities.kv"
+#base "abilities/semiramis/semiramis_binding_chains.kv"
 #base "abilities/tamamo/tamamo_abilities.kv"
 #base "abilities/true_assassin/hassan_abilities.kv"
 #base "abilities/vlad/vlad_abilities.kv"

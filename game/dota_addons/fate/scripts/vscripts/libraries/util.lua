@@ -42,6 +42,7 @@ softdispellable = {
     "modifier_zhuge_liang_accel_buff",
     "modifier_aspd_increase",
     "modifier_hans_invis",
+    "modifier_mass_recall",
 
     --items
     "modifier_berserk_scroll",
@@ -68,6 +69,8 @@ softdispellable = {
     "modifier_zhuge_liang_fire_arrow",
     "modifier_robin_roots_slow",
     "modifier_robin_hunter_rain_slow",
+    "modifier_binding_chains",
+    "modifier_poison_cloud_debuff",
 }
 
 strongdispellable = {
@@ -124,6 +127,7 @@ strongdispellable = {
     "modifier_hans_territory_buff",
     "modifier_hans_observation",
     "modifier_robin_poison_smoke",
+    "modifier_poisonous_bite_slow",
 
     -- items
     "modifier_b_scroll",
@@ -214,6 +218,11 @@ cleansable = {
     "modifier_robin_roots_slow",
     "modifier_robin_hunter_rain_slow",
     "modifier_robin_yew_bow",
+    "modifier_tiatum_umu_cast",
+    "modifier_semiramis_babylon_quake",
+    "modifier_binding_chains",
+    "modifier_poison_cloud_debuff",
+    "modifier_poisonous_bite_slow",
 }
 
 slowmodifier = {
@@ -273,6 +282,9 @@ slowmodifier = {
     "modifier_hans_snow_queen",
     "modifier_robin_roots_slow",
     "modifier_robin_hunter_rain_slow",
+    "modifier_tiatum_umu_cast",
+    "modifier_semiramis_babylon_quake",
+    "modifier_poisonous_bite_slow",
 }
 
 revokes = {
@@ -319,6 +331,7 @@ locks = {
     "modifier_zhuge_liang_wood_trap",
     "modifier_zhuge_liang_array_enemy",
     "modifier_kinghassan_death_announce",
+    "modifier_tiatum_umu_execute",
 }
 
 no_tp = {
@@ -332,6 +345,7 @@ no_tp = {
     "modifier_jtr_whitechapel_allies",
     "modifier_jtr_whitechapel_self",
     "modifier_zhuge_liang_array_enemy",
+    "modifier_tiatum_umu_execute",
 }
 
 goesthruB = {
@@ -365,6 +379,8 @@ invis = {
     "modifier_jtr_whitechapel_self",
     "modifier_jtr_the_mist_invis",
     "modifier_zhuge_liang_ambush",
+    "modifier_faceless_king_invis",
+    "modifier_semiramis_presence_concealment",
 }
 
 invulabil = {
@@ -538,6 +554,8 @@ tModifierCooldown = {
     "modifier_hans_combo_cooldown",
     "modifier_faceless_king_cooldown",
     "modifier_robin_combo_cooldown",
+    "modifier_dual_class_cooldown",
+    "modifier_tiatum_umu_cooldown",
 }
 
 CannotReset = {
@@ -734,6 +752,8 @@ CannotReset = {
     "robin_faceless_king",
     "robin_faceless_king_upgrade",
     "robin_combo",
+    "semiramis_dual_class",
+    "semiramis_combo",
 }
 
 femaleservant = {
@@ -771,6 +791,7 @@ tSpellBookHero = {
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_necrolyte",
     "npc_dota_hero_sniper",
+    "npc_dota_hero_phantom_assassin",
 }
 
 tArrow = {
@@ -1059,6 +1080,7 @@ donotmute = {
     "medea_ancient_dragon",
     "gille_gigantic_horror",
     "drake_golden_hind",
+    "semiramis_hanging_gardens",
 }
 
 tDragonHeroes = {
@@ -1155,6 +1177,7 @@ tCasterClass = {
     "npc_dota_hero_windrunner",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_necrolyte",
+    "npc_dota_hero_phantom_assassin",
 }
 
 tAssassinClass = {
@@ -3423,7 +3446,7 @@ local heroCombos = {
     ["npc_dota_hero_windrunner"] = "nursery_rhyme_story_for_somebodys_sake",
     ["npc_dota_hero_drow_ranger"] = "atalanta_phoebus_catastrophe_barrage",
     ["npc_dota_hero_tidehunter"] = "vlad_combo",
-    ["npc_dota_hero_phantom_assassin"] = "vlad_combo",
+    ["npc_dota_hero_phantom_assassin"] = "semiramis_combo",
     ["npc_dota_hero_beastmaster"] = "karna_combo_vasavi",
     ["npc_dota_hero_naga_siren"] = "kuro_crane_wings_combo",
     ["npc_dota_hero_riki"] = "jtr_whitechapel_murderer",

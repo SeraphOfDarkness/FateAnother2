@@ -236,13 +236,12 @@ VladAttribute = {
 }
 
 SemiramisAttribute = {
-	"semiramis_attribute_placeholder",
-	"semiramis_attribute_placeholder2",
-	"semiramis_attribute_placeholder3",
-	"semiramis_attribute_placeholder4",
-	"semiramis_attribute_placeholder5",
-	"semiramis_attribute_placeholder6",
-	attrCount = 5	
+	"semiramis_attribute_dual_class",
+	"semiramis_attribute_territory",
+	"semiramis_attribute_absolute",
+	"semiramis_attribute_charmer",
+	"semiramis_combo",
+	attrCount = 4	
 }
 
 KarnaAttribute = {

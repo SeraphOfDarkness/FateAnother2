@@ -293,6 +293,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_nursery_rhyme.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_kongming.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_hans.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_semiramis.vsndevts", context)
                         --============ Rider ==============--         
     PrecacheResource("soundfile", "soundevents/hero_rider.vsndevts", context)  
     PrecacheResource("soundfile", "soundevents/hero_iskander.vsndevts", context) 

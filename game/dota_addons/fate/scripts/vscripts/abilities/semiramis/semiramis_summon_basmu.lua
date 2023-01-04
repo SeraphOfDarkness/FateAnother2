@@ -19,10 +19,8 @@ function semiramis_summon_basmu:OnSpellStart()
 	snek:SetMaxHealth(self:GetSpecialValueFor("snek_health"))
 	snek:SetBaseDamageMin(self:GetSpecialValueFor("snek_damage"))
 	snek:SetBaseDamageMax(self:GetSpecialValueFor("snek_damage"))
-	snek:SetBaseMoveSpeed(self:GetSpecialValueFor("snek_movespeed"))
 
 	snek:FindAbilityByName("semiramis_snek_spit_poison"):SetLevel(self:GetLevel())
-	snek:FindAbilityByName("semiramis_snek_passive_poison"):SetLevel(self:GetLevel())
 
 	snek:AddNewModifier(caster, nil, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})
 

@@ -5,13 +5,16 @@ LinkLuaModifier("modifier_snek_poison", "abilities/semiramis/modifiers/modifier_
 function semiramis_snek_spit_poison:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_loc = self:GetCursorPosition()
-
 	local range = self:GetSpecialValueFor("range")
 	local aoe = self:GetSpecialValueFor("aoe")
 
+   	caster:EmitSound("Semi.AssassinW")
+   	caster:EmitSound("Semi.AssassinWSFX")
+   	caster:EmitSound("Semi.AssassinWSFX2")
+
 	local projectileTable = {
-		Ability = self,
 		EffectName = "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf",
+		Ability = self,
 		iMoveSpeed = 1500,
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		fDistance = range,
@@ -34,7 +37,22 @@ end
 function semiramis_snek_spit_poison:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
 
-	hTarget:AddNewModifier(self:GetCaster(), self, "modifier_snek_poison", { Duration = self:GetSpecialValueFor("duration"),
-																			 DamagePerSec = self:GetSpecialValueFor("damage"),
-																			 Slow = self:GetSpecialValueFor("slow")})
+	if self:GetCaster().IsCharmAcquired then
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	else
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("damage") + (self:GetSpecialValueFor("damage_per_int") * self:GetCaster():GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	end
+
+	Timers:CreateTimer(0.5, function()
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("dps") / 2, DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	end)	
+	Timers:CreateTimer(1, function()
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("dps") / 2, DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	end)	
+	Timers:CreateTimer(1.5, function()
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("dps") / 2, DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	end)	
+	Timers:CreateTimer(2, function()
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("dps") / 2, DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	end)
 end

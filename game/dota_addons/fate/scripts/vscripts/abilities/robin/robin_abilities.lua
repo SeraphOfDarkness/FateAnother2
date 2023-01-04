@@ -857,7 +857,7 @@ function OnSummonFamilliarStart(keys)
 	caster:EmitSound("Robin.FamilliarSFX")
 
 	-- Summon spooky skeletal 
-	local spooky = CreateUnitByName("medea_skeleton_warrior", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber()) 
+	local spooky = CreateUnitByName("robin_bird", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber()) 
 	spooky:SetControllableByPlayer(pid, true)
 	spooky:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
 	FindClearSpaceForUnit(spooky, spooky:GetAbsOrigin(), true)
@@ -865,15 +865,6 @@ function OnSummonFamilliarStart(keys)
 	ability:ApplyDataDrivenModifier(caster, spooky, "modifier_robin_scout_familliar", {})
 	spooky:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 	spooky:SetAbsOrigin(spooky:GetAbsOrigin() + Vector(0,0,40))
-
-	-- Set skeletal stat according to parameters
-	spooky:SetMaxHealth(50)
-	spooky:SetHealth(50)
-	spooky:SetMaxMana(0)
-	spooky:SetMana(0)
-	spooky:SetModel("models/heroes/beastmaster/beastmaster_bird.vmdl")
-	spooky:SetOriginalModel("models/heroes/beastmaster/beastmaster_bird.vmdl")
-	spooky:SetModelScale(1.25)	
 
 	Timers:CreateTimer(0.05, function()
 		spooky:MoveToPosition(caster:GetAbsOrigin() + Vector(2,2,0))
@@ -999,6 +990,10 @@ function OnGuerillaAcquired(keys)
 
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsGuerillaAcquired) then
 
+		if hero:HasModifier("modifier_combo_window") then
+			RemoveModifierByName("modifier_combo_window")
+		end
+		
 		hero.IsGuerillaAcquired = true
 
 		if hero.IsTaxineAcquired then
@@ -1023,6 +1018,10 @@ function OnTaxineAcquired(keys)
 	local hero = caster.HeroUnit
 
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsTaxineAcquired) then
+
+		if hero:HasModifier("modifier_combo_window") then
+			RemoveModifierByName("modifier_combo_window")
+		end
 
 		hero.IsTaxineAcquired = true
 		if hero:HasModifier("modifier_robin_saboteur_open") then

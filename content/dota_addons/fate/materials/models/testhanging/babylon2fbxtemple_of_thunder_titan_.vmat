@@ -1,0 +1,5 @@
+"Layer0"
+{
+	"Shader"		"global_lit_simple.vfx"
+	"TextureColor"		"materials/models\testhanging/babylon2fbxtemple_of_thunder_titan__color.dds"
+}

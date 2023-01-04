@@ -39,6 +39,7 @@ var heroes = [
 	"npc_dota_hero_skeleton_king",
 	"npc_dota_hero_necrolyte",
 	"npc_dota_hero_sniper",
+	"npc_dota_hero_phantom_assassin",
 ]
 
 var names = [
@@ -82,6 +83,7 @@ var names = [
 	"King Hassan",
 	"Hans Christian Andersen",
 	"Robin Hood",
+	"Semiramis",
 ]
 
 
@@ -125,7 +127,8 @@ var abilities = [
 	["zhuge_liang_laser", "zhuge_liang_strat_command", "zhuge_liang_war_command", "zhuge_liang_alchemist", "zhuge_liang_discern_eye", "zhuge_liang_array"],
 	["kinghassan_death_approaching", "kinghassan_dreadful_slash", "kinghassan_evening_bell", "kinghassan_flames_of_gehenna", "fate_empty1", "kinghassan_azrael"],
 	["hans_incantation", "hans_nightingale", "hans_masterpiece_open", "fate_empty1", "hans_territory", "hans_biography"],
-	["robin_saboteur_open", "robin_paralyzing_arrow", "robin_roots" , "robin_faceless_king" , "robin_clairvoyance", "robin_yew_bow"]
+	["robin_saboteur_open", "robin_paralyzing_arrow", "robin_roots" , "robin_faceless_king" , "robin_clairvoyance", "robin_yew_bow"],
+	["semiramis_binding_chains", "semiramis_barrier", "semiramis_beam_bombard" , "semiramis_dual_class" , "fate_empty1", "semiramis_hanging_gardens"]
 ]
 
 var attributes = [
@@ -168,7 +171,8 @@ var attributes = [
 	["zhuge_liang_attribute_territory", "zhuge_liang_attribute_alchemist", "zhuge_liang_attribute_stratagems", "zhuge_liang_attribute_letter", "zhuge_liang_attribute_discern_eye"],
 	["kinghassan_attribute_oldman", "kinghassan_attribute_presence", "kinghassan_attribute_abyss", "kinghassan_attribute_boundary", "kinghassan_attribute_body"],
 	["hans_attribute_territory", "hans_attribute_write_thumbelina", "hans_attribute_human_observation", "hans_attribute_refine_nightingale", "hans_attribute_love_letter"],
-	["robin_attribute_subversive", "robin_attribute_righteous_thief", "robin_attribute_faceless", "robin_attribute_guerilla", "robin_attribute_taxine"]
+	["robin_attribute_subversive", "robin_attribute_righteous_thief", "robin_attribute_faceless", "robin_attribute_guerilla", "robin_attribute_taxine"],
+	["semiramis_attribute_dual_class", "semiramis_attribute_territory", "semiramis_attribute_absolute", "semiramis_attribute_charmer"]
 ]
 
 var comboes = [
@@ -211,7 +215,8 @@ var comboes = [
 	"zhuge_liang_combo",
 	"kinghassan_combo",
 	"hans_combo",
-	"robin_combo"
+	"robin_combo",
+	"semiramis_combo"
 ]
 
 var guidelinks = [

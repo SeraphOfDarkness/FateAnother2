@@ -2,6 +2,8 @@
 #base "units/misc/sentry_familiar.kv"
 #base "units/okita/okita_units.kv"
 #base "units/drake/drake_units.kv"
+#base "units/semiramis/semiramis_units.kv"
+#base "units/robin/robin_units.kv"
 #base "units/scathach/scathach_units.kv"
 #base "units/bathory/bathory_unit.kv"
 
@@ -775,8 +777,8 @@
 	"medea_territory"
 	{
 		"BaseClass"				 "npc_dota_creature"
-		"Model"					"models/props_structures/tower_good.vmdl"
-		"ModelScale"			"2.0"
+		"Model"					"models/new_medeatower/newtower.vmdl"
+		"ModelScale"			"1.3"
 		"MinimapIcon"				"minimap_racks90"
 
 		"AbilityLayout"				"6"

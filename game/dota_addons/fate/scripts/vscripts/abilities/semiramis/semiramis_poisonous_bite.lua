@@ -16,14 +16,37 @@ end
 function semiramis_poisonous_bite:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
+	local cast_delay = self:GetSpecialValueFor("cast_delay")
+	local damage = self:GetSpecialValueFor("damage")
+	local damage_per_int = self:GetSpecialValueFor("damage_per_int")
 
-	target:AddNewModifier(caster, self, "modifier_poisonous_bite", { Duration = self:GetSpecialValueFor("duration"),
-																	 Damage = self:GetSpecialValueFor("damage"),
-																	 AOE = self:GetSpecialValueFor("radius") })
+   	caster:EmitSound("Semi.AssassinR")
 
-	if not IsImmuneToSlow(target) then
-		target:AddNewModifier(caster, self, "modifier_poisonous_bite_slow", { Duration = self:GetSpecialValueFor("duration"),																	 
-																			  Slow = self:GetSpecialValueFor("slow"),
-																			  SlowInc = self:GetSpecialValueFor("slow_inc")})
-	end
+	Timers:CreateTimer(cast_delay / 2, function()
+	   	target:EmitSound("Semi.AssassinRSFX")
+	   	target:EmitSound("Semi.AssassinRSFX2")
+
+	   	if caster.IsAbsoluteAcquired then
+	   		if IsFemaleServant(target) then
+	   		else
+	   			damage = damage + 300
+	   		end
+	   	end
+
+	   	if caster.IsCharmAcquired then
+			DoDamage(caster, target, damage + (damage_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, self, false)
+		else
+			DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		end
+
+		target:AddNewModifier(caster, self, "modifier_poisonous_bite", { Duration = self:GetSpecialValueFor("duration"),
+																		 Damage = self:GetSpecialValueFor("dps"),
+																		 AOE = self:GetSpecialValueFor("radius") })
+
+		if not IsImmuneToSlow(target) then
+			target:AddNewModifier(caster, self, "modifier_poisonous_bite_slow", { Duration = self:GetSpecialValueFor("duration"),																	 
+																				  Slow = self:GetSpecialValueFor("slow"),
+																				  SlowInc = self:GetSpecialValueFor("slow_inc")})
+		end
+	end)
 end

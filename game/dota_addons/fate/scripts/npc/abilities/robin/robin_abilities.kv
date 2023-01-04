@@ -68,6 +68,8 @@
 				"IsHidden"				"0"
 				"Duration"				"%invis_duration"
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"EffectName"			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"		"follow_overhead"
 
 				"States"
 			    {
@@ -144,6 +146,11 @@
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
 		        "passive_cooldown"			"30"
+		    }			    
+		    "05"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "bonus_mr"					"20"
 		    }		
 	    }
 
@@ -178,11 +185,14 @@
 				"IsHidden"				"0"
 				"Duration"				"%invis_duration"
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"EffectName"			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"		"follow_overhead"
 
 				"States"
 			    {
 				    "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
 				    "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
 			    }
 
 			    "OnAttackStart"
@@ -596,7 +606,15 @@
 				"IsHidden"				"0"
 				"IsDebuff"				"1"
 				"Duration"              "%lifetime"
+				"EffectName"			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"		"follow_overhead"
 
+				"States"
+			    {
+				    "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"	"%movespeed"
@@ -774,7 +792,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"500"
+				"dash_back"				"600"
 			}
 		}
 
@@ -864,7 +882,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"500"
+				"dash_back"				"600"
 			}
 			"08"
 			{
@@ -1060,7 +1078,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"40 50 60 70 80"
+				"dps"					"30 35 40 45 50"
 			}
 			"06"
 			{
@@ -1169,7 +1187,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"40 50 60 70 80"
+				"dps"					"30 35 40 45 50"
 			}
 			"06"
 			{
@@ -1261,7 +1279,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"1150"
+		"AbilityCastRange"				"1050"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
@@ -1281,17 +1299,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_physical"		"300 350 400 450 500"
+				"damage_physical"		"250 300 350 400 450"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"3500"
+				"speed"					"2500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
+				"radius"				"350"
 			}
 			"05"
 			{
@@ -1301,7 +1319,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"60 70 80 90 100"
+				"dps"					"40 50 60 70 80"
 			}			
 			"07"
 			{
@@ -1370,7 +1388,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"1150"
+		"AbilityCastRange"				"1050"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
@@ -1390,17 +1408,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_physical"		"300 350 400 450 500"
+				"damage_physical"		"250 300 350 400 450"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"3500"
+				"speed"					"2500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
+				"radius"				"350"
 			}
 			"05"
 			{
@@ -1410,7 +1428,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"60 70 80 90 100"
+				"dps"					"40 50 60 70 80"
 			}			
 			"07"
 			{
@@ -1419,8 +1437,8 @@
 			}
 			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"4"
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"09"
 			{
@@ -1489,7 +1507,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1350"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
@@ -1509,17 +1527,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_physical"		"300 350 400 450 500"
+				"damage_physical"		"250 300 350 400 450"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"3500"
+				"speed"					"2500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
+				"radius"				"350"
 			}
 			"05"
 			{
@@ -1529,7 +1547,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"60 70 80 90 100"
+				"dps"					"40 50 60 70 80"
 			}			
 			"07"
 			{
@@ -1539,17 +1557,17 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"6"
+				"damage_per_agi"		"5"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ignore_armor_amount"	"40"
+				"ignore_armor_amount"	"30"
 			}			
 			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"4"
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"09"
 			{
@@ -1618,7 +1636,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1350"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
@@ -1638,27 +1656,27 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_physical"		"300 350 400 450 500"
+				"damage_physical"		"250 300 350 400 450"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"3500"
+				"speed"					"2500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
+				"radius"				"350"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"poison_duration"		"2 2.75 3.5 4.25 5"
+				"poison_duration"		"2 2.5 3 3.5 4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"60 70 80 90 100"
+				"dps"					"40 50 60 70 80"
 			}			
 			"07"
 			{
@@ -1668,17 +1686,17 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"6"
+				"damage_per_agi"		"5"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ignore_armor_amount"	"40"
+				"ignore_armor_amount"	"30"
 			}
 			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"4"
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"09"
 			{
@@ -1796,7 +1814,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"6000"
+				"speed"					"5000"
 			}
 		}
 
@@ -1899,7 +1917,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"6000"
+				"speed"					"5000"
 			}
 			"04"
 			{
@@ -2012,7 +2030,7 @@
 		"AbilityTextureName"			"custom/robin/righteous"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
+		"AbilityManaCost"				"13"
 
 		"AbilitySpecial"
 		{
@@ -2139,6 +2157,11 @@
 		        "var_type"				  	"FIELD_INTEGER"
 		        "passive_cooldown"			"10"
 		    }	
+		    "05"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "bonus_mr"					"20"
+		    }	
 		}
 		
 		"OnSpellStart"
@@ -2163,24 +2186,24 @@
 		"AbilityTextureName"			"custom/robin/guerilla"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"11"
 
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_range"			"350"
+				"bonus_range"			"300"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"6"
+				"damage_per_agi"		"5"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ignore_armor_amount"	"40"
+				"ignore_armor_amount"	"30"
 			}	
 		}
 		

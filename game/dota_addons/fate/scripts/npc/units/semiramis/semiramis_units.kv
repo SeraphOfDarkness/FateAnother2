@@ -5,24 +5,23 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/props_structures/good_ancient001.vmdl"
-		"ModelScale"				"1.6"
+		"Model"						"models/hanging/stolenbabylon.vmdl"
+		"ModelScale"				"1.15"
 		"Level"						"1"
 		"HealthBarOffset"			"500"
-		"ConsideredHero"			"1"
+		"ConsideredHero"			"0"
 		"HasInventory"				"0"
 
 		
 		"AbilityLayout"				"6"
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"fate_empty1"	 
-		//"Ability2"					"gille_tentacle_wrap"
-		//"Ability3"					"gille_subterranean_skewer"
-		//"Ability4"					"gille_larret_de_mort"
-		//"Ability5"					"gille_gigantic_horror_passive"
-		//"Ability6"					"gille_tentacle_of_destruction"
-		
+		"Ability1"					"hanging_gardens_mount"	 
+		"Ability2"					"semiramis_summon_birds"
+		"Ability3"					"hanging_gardens_bombard"
+		"Ability4"					"hanging_gardens_mass_recall"
+		"Ability5"					"fate_empty1"
+		"Ability6"					"fate_empty3"
+		"Ability7"					"semiramis_hanging_garden_sikera_usum"
+		"Ability8"					"hanging_garden_presence"
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"25"
@@ -32,20 +31,20 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"50"								// Damage range min.
-		"AttackDamageMax"			"50"								// Damage range max.
+		"AttackDamageMax"			"100"								// Damage range max.
 		"AttackRate"				"2.0"								// Speed of attack.
 		"AttackAnimationPoint"		"0.5"								// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"1000"								// Range within a target can be acquired.
-		"AttackRange"				"700"								// Range within a target can be attacked.
-		"ProjectileModel"			""									// Particle system model for projectile.
-		"ProjectileSpeed"			"9999"	
+		"AttackRange"				"800"								// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_abaddon/abaddon_death_coil_d.vpcf"									// Particle system model for projectile.
+		"ProjectileSpeed"			"2000"	
 
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"300"			// Experience earn.
-		"BountyGoldMin"				"2000"			// Gold earned min.
-		"BountyGoldMax"				"2000"			// Gold earned max.
+		"BountyXP"					"150"			// Experience earn.
+		"BountyGoldMin"				"1000"			// Gold earned min.
+		"BountyGoldMax"				"1000"			// Gold earned max.
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -63,8 +62,8 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"1500"
 		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"5"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -79,90 +78,6 @@
 		"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		"ShouldDoFlyHeightVisual"	"0"
-	}
-
-	"semiramis_skeleton_warrior"
-	{
-		"Model"				"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-		"BaseClass"			"npc_dota_creature"
-		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
-		"SoundSet"					"Creep_Good_Melee"
-
-		"Ability1"					"caster_5th_skeleton_passive"			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
-
-		"ArmorPhysical"				"0"			// Physical protection.
-
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
-		"MovementSpeed"				"350"		// Speed.
-		"MovementTurnRate"			"0.3"		// Turning rate.
-
-		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackRange"					"100"
-		"AttackDamageMin"				"28"
-		"AttackDamageMax"				"40"
-		"AttackRate"					"0.7"
-		"AttackAnimationPoint"			"0.3"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"200"		// Base health.
-		"StatusHealthRegen"			"0"		// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.	
-
-		"BountyXP"					"1"			// Experience earn.
-		"BountyGoldMin"				"5"			// Gold earned min.
-		"BountyGoldMax"				"5"			// Gold earned max.
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"500"		// Range of vision during day light.
-		"VisionNighttimeRange"		"500"		// Range of vision at night time.
-	}
-
-	"semiramis_skeleton_warrior_upg"
-	{
-		"Model"				"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-		"BaseClass"			"npc_dota_creature"
-		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
-		"SoundSet"					"Creep_Good_Melee"
-
-		"Ability1"					""			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
-
-		"ArmorPhysical"				"0"			// Physical protection.
-
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
-		"MovementSpeed"				"400"		// Speed.
-		"MovementTurnRate"			"0.3"		// Turning rate.
-
-		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackRange"					"100"
-		"AttackDamageMin"				"28"
-		"AttackDamageMax"				"40"
-		"AttackRate"					"0.7"
-		"AttackAnimationPoint"			"0.3"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"300"		// Base health.
-		"StatusHealthRegen"			"0"		// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.	
-
-		"BountyXP"					"1"			// Experience earn.
-		"BountyGoldMin"				"5"			// Gold earned min.
-		"BountyGoldMax"				"5"			// Gold earned max.
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"500"		// Range of vision during day light.
-		"VisionNighttimeRange"		"500"		// Range of vision at night time.
 	}
 
 	"semiramis_snek"
@@ -217,22 +132,22 @@
 
 	"semiramis_bird"
 	{
-		"Model"						"models/items/courier/mighty_chicken/mighty_chicken_flying.vmdl"	// Model.
+		"Model"						"models/items/beastmaster/hawk/fotw_eagle/fotw_eagle.vmdl"	// Model.
 		"BaseClass"					"npc_dota_beastmaster_hawk"
 		"SoundSet"					"0"			// Name of sound set.
 		"Level"						"6"
 		"ModelScale"				"1.0"
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"ward_conversion"			// Ability 1
+		"Ability1"					""			// Ability 1
 		"Ability2"					""			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyGoldMin"				"100"		// Gold earned min.
-		"BountyGoldMax"				"100"		// Gold earned max.
+		"BountyGoldMin"				"30"		// Gold earned min.
+		"BountyGoldMax"				"30"		// Gold earned max.
 
 		// Armor
 		//----------------------------------------------------------------
@@ -249,18 +164,18 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
-		"MovementSpeed"				"450"		// Speed.
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementSpeed"				"400"		// Speed.
+		"MovementTurnRate"			"0.7"		// Turning rate.
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"200"		// Base health.
+		"StatusHealth"				"100"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"750"		// Range of vision during day light.
-		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+		"VisionDaytimeRange"		"700"		// Range of vision during day light.
+		"VisionNighttimeRange"		"700"		// Range of vision at night time.
 
 		// Team
 		//----------------------------------------------------------------

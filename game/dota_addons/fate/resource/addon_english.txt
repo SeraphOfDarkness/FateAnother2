@@ -8431,6 +8431,285 @@
         //====================================
 
 		"npc_dota_hero_phantom_assassin"				"Semiramis"
+        "npc_dota_hero_phantom_assassin_summon"		"Servant <font color='#58ACFA'>Semiramis</font> has been summoned."
+        "npc_dota_hero_phantom_assassin_enable_combo"	"Enable Combo: Hanging Gardens of Babylon - Tiatum Umu"
+
+        /////////////////////////// Innate ////////////////////////////////
+		
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite" 				"<font color='#FFFFFF'>Sikera Ušum - Arrogant King's Alcohol</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. <font color='#FF3399'>Sikera Ušum</font>: Deal damage over duration, slowing them more and more over the duration. When this debuff ends, it pops and spread to all enemies around the target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_range" 				"CAST RANGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_duration" 				"DURATION:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_damage" 					"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_dps" 					"POISON DPS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_radius" 					"POISON RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow" 					"POISON INITIAL SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow_inc" 				"POISON INCREMENTAL SLOW:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade" 				"<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 			"Semiramis poison her target with the help of basmu claw, dealing damage based on her <font color='#00F7FF'>INT</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the enemy. <font color='#FF3399'>Sikera Ušum</font>: Deal damage over duration, slowing them more and more over the duration. When this debuff ends, it pops and spread to all enemies around the target."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_range" 				"CAST RANGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_duration" 				"DURATION:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage" 					"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_per_int" 			"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_dps" 					"POISON DPS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_dps_per_int" 			"BONUS DPS PER INT:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_radius" 					"POISON RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow" 					"POISON INITIAL SLOW:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow_inc" 				"POISON INCREMENTAL SLOW:"
+
+		"DOTA_Tooltip_ability_semiramis_beam_bombard" 				"<font color='#9FFFCC'>Beam Bombard</font>"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_Description" 			"Semiramis showers an area with beams, dealing damage."
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_cast_range" 				"CAST RANGE:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_radius" 					"RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_beam_aoe" 					"BEAM AOE:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_damage" 					"DAMAGE PER BEAM:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_beam_numbers" 				"BEAM AMOUNT:"
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains" 				"<font color='#FFFFFF'>Binding Chains</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_Description" 			"Semiramis binds a target with chains, rooting them. Root durations gets reduced based on target magic resistance. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_binding_chains_duration" 				"DURATION:"
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade" 				"<font color='#9FFFCC'>Binding Chains</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_Description" 			"Semiramis binds a target with chains, rooting them and dealing damage. Root durations gets reduced based on target magic resistance."
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_duration" 				"DURATION:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_damage" 					"DAMAGE:"
+
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison" 								"<font color='#FFFFFF'>Conjure Poisoned Wine</font>"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_Description" 			"Semiramis conjures the famed poisoned wine, spilling it forward, dealing damage and damage over time to enemies hit. Damage over time from this ability is undispellable. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>."
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_damage" 					"DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_aoe"	 					"AOE:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_dps" 						"DPS:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_duration" 					"DOT DURATION:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_range" 					"RANGE:"
+
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade" 								"<font color='#9FFFCC'>Conjure Poisoned Wine</font>"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_Description" 			"Semiramis conjures the famed poisoned wine, spilling it forward, dealing damage based on her <font color='#00F7FF'>INT</font> and damage over time to enemies hit. Damage over time from this ability is undispellable."
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_damage" 					"DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_damage_per_int" 					"DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_aoe"	 					"AOE:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_dps" 						"DPS:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_duration" 					"DOT DURATION:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_range" 					"RANGE:"
+
+		"DOTA_Tooltip_ability_semiramis_dual_class" 								"<font color='#FFFFFF'>Dual Class</font>"
+		"DOTA_Tooltip_ability_semiramis_dual_class_Description" 					"Semiramis switch between her two class, assassin and caster allowing her to utilize abilities from both her class. \n<font color='#00F7FF'>Caster Abilities</font> : <font color='#FFB266'>Binding Chains</font>, <font color='#FFB266'>Mana Barrier</font> ,<font color='#FFB266'>Beam Bombard</font> , and <font color='#FFB266'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font>. \n<font color='#00F7FF'>Assassin Abilities</font> : <font color='#FFB266'>Presence Concealment</font>, <font color='#FFB266'>Conjure Poisoned Wine</font> ,<font color='#FFB266'>Poison Aura</font> , and <font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Double Summon</font>."
+		"DOTA_Tooltip_ability_semiramis_dual_class_Note0" 						"Cannot be reset."
+		"DOTA_Tooltip_ability_semiramis_dual_class_hard_cooldown" 				"COOLDOWN :"
+
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade" 								"<font color='#9FFFCC'>Dual Class</font>"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_Description" 					"Semiramis switch between her two class, assassin and caster allowing her to utilize abilities from both her class. She gains bonus movespeed in her assassin class, intelligence and mana regen in her caster class. \n<font color='#00F7FF'>Caster Abilities</font> : <font color='#FFB266'>Binding Chains</font>, <font color='#FFB266'>Mana Barrier</font> ,<font color='#FFB266'>Beam Bombard</font> , and <font color='#FFB266'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font> \n<font color='#00F7FF'>Assassin Abilities</font> : <font color='#FFB266'>Presence Concealment</font>, <font color='#FFB266'>Conjure Poisoned Wine</font> ,<font color='#FFB266'>Poison Aura</font> , and <font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font>."
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_Note0" 						"Cannot be reset."
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_hard_cooldown" 				"COOLDOWN :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_mana_regen" 			"CASTER CLASS BONUS MANA REGEN :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_int" 			"CASTER CLASS BONUS INT :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_spd" 			"ASSASSIN CLASS BONUS MOVESPEED :"
+
+		"DOTA_Tooltip_ability_semiramis_barrier" 								"<font color='#9FFFCC'>Mana Barrier</font>"
+		"DOTA_Tooltip_ability_semiramis_barrier_Description" 			"Semiramis forms a barrier out of pure mana which is capable of regenerating. Allowing her to block some damage."
+		"DOTA_Tooltip_ability_semiramis_barrier_shield_amount" 				"SHIELD AMOUNT:"
+		"DOTA_Tooltip_ability_semiramis_barrier_max_shield" 				"MAX SHIELD:"
+		"DOTA_Tooltip_ability_semiramis_barrier_regen" 						"REGENERATION RATE:"
+
+		"DOTA_Tooltip_ability_semiramis_presence_concealment" 								"<font color='#9FFFCC'>Presence Concealment</font>"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_Description" 			"Semiramis conceals her presence, going invisible and moving at a faster speed."
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_duration" 				"INVISIBLITY DURATION:"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_bonus_spd" 			"BONUS MOVESPEED:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud" 						"<font color='#9FFFCC'>Poison Aura</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_Description" 			"Semiramis poisons the air around her, dealing damage to the area around her every few ticks and applying <font color='#FF3399'>Poison Aura Debuff</font> to enemies hit. \n<font color='#FF3399'>Poison Aura Debuff</font> : Magic resistance lowered."
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_duration" 					"DURATION:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_damage" 					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_resist_reduct" 				"MAGIC RESIST REDUCTION:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_radius" 					"RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_debuff_duration" 			"DEBUFF DURATION:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens" 						"<font color='#FFFFFF'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_Description" 			"Semiramis prepares for a few seconds and then proceed to summon her aerial garden of vanity, the hanging gardens of babylon. After the first few seconds, the entire ground area will shake, slowing <font color='#9FFFCC'>ALL</font> units in range. Then after a few more seconds the garden will appear and fly in the sky, causing a small damage to enemies in a small area from the debris. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Territory Creation</font>."
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_Note0" 						"Semiramis is revoked while casting."
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_cast_point" 				"CAST POINT:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_health" 				"GARDEN HEALTH:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage" 				"GARDEN ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_movespeed" 			"GARDEN MOVE SPEED:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_duration" 			"GARDEN LIFETIME:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_slow" 			"GARDEN QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_radius" 			"GARDEN QUAKE RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_duration" 			"GARDEN QUAKE DURATION:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage" 					"DEBRIS DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage_radius" 			"DEBRIS RADIUS:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade" 						"<font color='#9FFFCC'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_Description" 			"Semiramis prepares for a few seconds and then proceed to summon her aerial garden of vanity, the hanging gardens of babylon. After the first few seconds, the entire ground area will shake, slowing <font color='#9FFFCC'>ALL</font> units in range. Then after a few more seconds the garden will appear and fly in the sky, causing a small damage to enemies in a small area from the debris."
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_Note0" 						"Semiramis is revoked while casting."
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_cast_point" 				"CAST POINT:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_health" 				"GARDEN HEALTH:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage" 				"GARDEN ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_movespeed" 			"GARDEN MOVE SPEED:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_duration" 			"GARDEN LIFETIME:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_slow" 			"GARDEN QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_radius" 			"GARDEN QUAKE RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_duration" 			"GARDEN QUAKE DURATION:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage" 					"DEBRIS DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage_radius" 			"DEBRIS RADIUS:"
+
+		"DOTA_Tooltip_ability_semiramis_combo"					 						"<font color='#9FFFCC'>Hanging Gardens of Babylon - Tiatum Umu</font>"
+		"DOTA_Tooltip_ability_semiramis_combo_Description" 			"Semiramis teleports to her hanging garden, preparing to shoot the tiatum umu. During the preparation time semiramis and her garden will become invulnerable, when starting to prepare all heroes will be slowed for a few seconds. After the preparation finishes her garden will shoot a giant laser beam to the target location for a few seconds, dealing dps and preventing any heroes from using blink until the garden stops firing."
+		"DOTA_Tooltip_ability_semiramis_combo_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_combo_dps" 						"DPS:"
+		"DOTA_Tooltip_ability_semiramis_combo_duration" 				"DURATION:"
+		"DOTA_Tooltip_ability_semiramis_combo_radius" 					"RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_combo_minimum_range" 			"MINIMUM TARGET RANGE:"
+		"DOTA_Tooltip_ability_semiramis_combo_semi_range" 				"MAX GARDEN RANGE:"
+		"DOTA_Tooltip_ability_semiramis_combo_slow" 					"GLOBAL SLOW:"
+
+		"DOTA_Tooltip_ability_semiramis_absolute_queen"				"<font color='#9FFFCC'>Absolute Monarchy of the Queen</font>"
+		"DOTA_Tooltip_ability_semiramis_absolute_queen_Description" 			"<font color='#58ACFA'>PASSIVE</font>: Semiramis gains magic resistance passively. \n<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font> : Now deals extra magical damage to male heroes."
+		"DOTA_Tooltip_ability_semiramis_absolute_queen_bonus_mr" 				"BONUS MAGIC RESIST:"
+		"DOTA_Tooltip_ability_semiramis_absolute_queen_bonus_damage_to_male" 						"BONUS DAMAGE TO MALE HEROES:"
+
+
+		//====================================
+		//      HANGING GARDEN SKILLS
+        //====================================
+
+		"DOTA_Tooltip_ability_hanging_gardens_bombard"				"<font color='#9FFFCC'>Orbital Bombard</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_Description" 			"Shoots a beam to target location, dealing damage."
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_damage" 				"DAMAGE:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_beam_aoe" 			"BEAM AOE:"
+
+		"DOTA_Tooltip_ability_semiramis_summon_birds"				"<font color='#9FFFCC'>Dove of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_summon_birds_Description" 			"Spawns a dove for a duration, sending it to target location to gain vision over the area."
+		"DOTA_Tooltip_ability_semiramis_summon_birds_Lore" 			"Semiramis was known to be fond of doves."
+		"DOTA_Tooltip_ability_semiramis_summon_birds_duration" 				"LIFETIME:"
+
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall"				"<font color='#9FFFCC'>Mass Recall</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_Description" 			"Give <font color='#FF3399'>Mass Recall</font> to all allies in the area, recalling them to the garden position after a few seconds. \n<font color='#FF3399'>Mass Recall</font> : This unit will teleport back to the garden if unit doesn't take any damage for the duration and is not over the max teleportation range. "
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_delay" 				"DELAY:"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_max_range" 			"MAXIMUM RANGE:"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_radius" 				"RADIUS:"
+
+		"DOTA_Tooltip_ability_hanging_gardens_mount"				"<font color='#9FFFCC'>Enter Garden</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_Description" 			"Allow Semiramis to enter the hanging garden, giving extra mana regen and health regen to the garden."
+		"DOTA_Tooltip_ability_hanging_gardens_mount_max_range" 				"MAXIMUM RANGE:"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_bonus_mana_regen" 				"BONUS MANA REGEN:"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_bonus_health_regen" 				"BONUS HEALTH REGEN:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum"				"<font color='#9FFFCC'>Sikera Ušum - Summon Basmu</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_Description" 			"Summon basmu and poison a target area, dealing instant damage and damage over time in the area."
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_Lore" 			"GUD BOI SNEK."
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_cast_delay" 				"CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_damage" 				"DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_dps" 				"DPS:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_duration" 			"POISON AREA DURATION:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_radius" 				"RADIUS:"
+
+		"DOTA_Tooltip_ability_hanging_gardens_presence"				"<font color='#9FFFCC'>Absolute Garden Authority</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_presence_Description" 			"<font color='#58ACFA'>PASSIVE</font> : Hanging garden will absorb mana from nearby enemy heroes every second."
+		"DOTA_Tooltip_ability_hanging_gardens_presence_mana_drain_per_second" 				"MANA DRAIN PER SECOND:"
+		"DOTA_Tooltip_ability_hanging_gardens_presence_radius" 				"DRAIN RADIUS:"
+
+		//====================================
+		//      ATTRIBUTES
+        //====================================
+
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class" 								"<font color='#9FFFCC'>Attribute: Double Summon</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_Description"					"<font color='#FFB266'>Dual Class</font> : Now gives bonus movespeed in assassin class, bonus intelligence and mana regen in caster class also reduced cooldown."
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_hard_cooldown"					"NEW COOLDOWN:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_mana_regen"				"BONUS MANA REGEN:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_int"						"BONUS INTELLIGENCE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_spd"						"BONUS MOVE SPEED:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_territory" 								"<font color='#9FFFCC'>Attribute: Improve Territory Creation</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_Description"					"<font color='#FFB266'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font> : All abilities in garden will be levelled up by 1, garden gains new ability <font color='#9FFFCC'>Absolute Garden Authority</font>. Cast time reduced, Gain bonuses. \n<font color='#9FFFCC'>Absolute Garden Authority</font> : Garden will now drain mana from nearby enemy heroes."
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_delay" 					"NEW CAST DELAY:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_point" 					"NEW CAST POINT:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_health" 					"NEW GARDEN HEALTH:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_damage" 					"NEW GARDEN DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_slow" 					"NEW QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_radius" 					"NEW QUAKE RADIUS:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_duration" 				"NEW QUAKE DURATION:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_duration" 						"NEW LIFETIME:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_mana_drain_per_second" 						"GARDEN AUTHORITY DRAIN:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_radius" 						"GARDEN AUTHORITY RADIUS:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute" 								"<font color='#9FFFCC'>Attribute: Absolute Monarchy of the Queen</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_Description"					"Enables <font color='#FFB266'>Absolute Monarchy of the Queen</font> : Semiramis gains magic resistance passively. \n<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font> : Now deals extra magical damage to male heroes."
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_mr"					"BONUS MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_damage_to_male"				"BONUS DAMAGE TO MALE HEROES:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer" 								"<font color='#9FFFCC'>Attribute: Charmer of Death</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font> : Gain bonus damage and dps. \n<font color='#FFB266'>Binding Chains</font> : Now deals damage. \n<font color='#FFB266'>Poisoned Wine</font> : Now scales from INT."
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_bonus"					"SIKERA USUM BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_int"				"SIKERA USUM BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_dps_per_int"					"SIKERA USUM BONUS DPS PER INT:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage"						"BINDING CHAINS DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_intt"				"POISONED WINE DAMAGE PER INT:"
+
+
+		//====================================
+		//      COOLDOWNS DEBUFFS BUFFS
+        //====================================
+
+		"DOTA_Tooltip_modifier_binding_chains"					"Binded"
+		"DOTA_Tooltip_modifier_binding_chains_Description"		"Chains binding your body."
+
+		"DOTA_Tooltip_modifier_poisonous_bite"					"Sikera Ušum Poison"
+		"DOTA_Tooltip_modifier_poisonous_bite_Description"		"Taking damage."
+
+		"DOTA_Tooltip_modifier_poisonous_bite_slow"					"Sikera Ušum Slow"
+		"DOTA_Tooltip_modifier_poisonous_bite_slow_Description"		"Slowed."
+
+		"DOTA_Tooltip_modifier_dual_class_cooldown"					"Dual Class CD"
+		"DOTA_Tooltip_modifier_dual_class_cooldown_Description"		"Skill on cooldown."
+
+		"DOTA_Tooltip_modifier_semiramis_shield"					"Mana Barrier"
+		"DOTA_Tooltip_modifier_semiramis_shield_Description"		"Protected."
+
+		"DOTA_Tooltip_modifier_semiramis_presence_concealment"					"Semiramis Presence Concealment"
+		"DOTA_Tooltip_modifier_semiramis_presence_concealment_Description"		"Invisible."
+
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_buff"					"Semiramis Poison Aura"
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_buff_Description"		"Emitting Poison."
+
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_debuff"					"Poison Aura Debuff"
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_debuff_Description"		"Magic resist reduced."
+
+		"DOTA_Tooltip_modifier_semiramis_babylon_quake"					"Earthquake"
+		"DOTA_Tooltip_modifier_semiramis_babylon_quake_Description"					"Wake of Babylon is Slowing you"
+
+		"DOTA_Tooltip_modifier_tiatum_umu_cast"					"Tiatum Umu Slow"
+		"DOTA_Tooltip_modifier_tiatum_umu_cast_Description"					"Hanging Garden is charging up, slowing everyone"
+
+		"DOTA_Tooltip_modifier_tiatum_umu_execute"					"Tiatum Umu Execute"
+		"DOTA_Tooltip_modifier_tiatum_umu_execute_Description"		"Huge laser beam of mana is causing spatial distortion, preventing blink."
+
+		"DOTA_Tooltip_modifier_tiatum_umu_cooldown"					"Tiatum Umu Cooldown"
+		"DOTA_Tooltip_modifier_tiatum_umu_cooldown_Description"		"Lazer beam cooldown."	
+
+		"DOTA_Tooltip_modifier_semiramis_mounted"					"Semiramis Throne"
+		"DOTA_Tooltip_modifier_semiramis_mounted_Description"		"Semiramis is in the garden."	
+			
+		"DOTA_Tooltip_modifier_semiramis_absolute_queen"					"Absolute Queen Buff"
+		"DOTA_Tooltip_modifier_semiramis_absolute_queen_Description"		"Bonus Magic Resistance."	
+
+		"DOTA_Tooltip_modifier_semiramis_mass_recall"					"Mass Recall Buff"
+		"DOTA_Tooltip_modifier_semiramis_mass_recall_Description"		"Prepare to teleport."	
+		
+		"DOTA_Tooltip_modifier_garden_mounted"					"Queen's Throne"
+		"DOTA_Tooltip_modifier_garden_mounted_Description"		"Bonus Mana and health regen."	
+
+		"DOTA_Tooltip_modifier_garden_presence"					"Hanging Garden's Authority"
+		"DOTA_Tooltip_modifier_garden_presence_Description"		"Draining Mana."	
+
+		"DOTA_Tooltip_modifier_garden_mana_drain_debuff"					"Hanging Garden's Authority Debuff"
+		"DOTA_Tooltipmodifier_garden_mana_drain_debuff_Description"		"Mana is being drained."	
 
 		//====================================
 		//      Karna
@@ -13147,6 +13426,8 @@
         //      Archer(Extra)
         //====================================
         "npc_dota_hero_sniper"             "Archer(Extra)"
+        "npc_dota_hero_sniper_summon"		"Servant <font color='#58ACFA'>Robin Hood</font> has been summoned."
+        "npc_dota_hero_sniper_enable_combo"	"Enable Combo: Yew Bow - Bow of Prayer"
 
         "DOTA_Tooltip_Ability_robin_faceless_king"				"<font color='#FFFFFF'>Faceless King</font>"
         "DOTA_Tooltip_ability_robin_faceless_king_Description"		"<font color='#58ACFA'>PASSIVE</font>: Give passive evasion also when taking damage, Robin can gain <font color='#FFFF28'>Faceless King</font> buff. Which will allow him to go invisible. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Faceless King</font>."
@@ -13158,12 +13439,13 @@
         "DOTA_Tooltip_ability_robin_faceless_king_passive_cooldown"		"COOLDOWN:"		
 
         "DOTA_Tooltip_Ability_robin_faceless_king_upgrade"				"<font color='#9FFFCC'>No Face May King</font>"
-        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Description"		"<font color='#58ACFA'>PASSIVE</font>: Give passive evasion also when taking damage, Robin can gain <font color='#FFFF28'>Faceless King</font> buff. Which will allow him to go invisible."
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Description"		"<font color='#58ACFA'>PASSIVE</font>: Give passive evasion also when taking damage, Robin can gain <font color='#FFFF28'>Faceless King</font> buff. Which will allow him to go invisible and gain bonus magic resistance."
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Lore"    			"Robin's primary weapon, ambush."
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Note0"    			"Cannot be reset."
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_evasion"			"%EVASION:"
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_chance"		"%PROC CHANCE:"		
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_invis_duration"		"INVIS DURATION:"	
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_bonus_mr"			"%BONUS MAGIC RESIST WHEN INVIS:"	
         "DOTA_Tooltip_ability_robin_faceless_king_upgrade_passive_cooldown"		"COOLDOWN:"		
 
         "DOTA_Tooltip_Ability_robin_clairvoyance"				"<font color='#FFFFFF'>Clairvoyance</font>"
@@ -13367,11 +13649,12 @@
         "DOTA_Tooltip_ability_robin_attribute_righteous_thief_arrow_amount"			"ARROW AMOUNT:"
 
         "DOTA_Tooltip_Ability_robin_attribute_faceless"					"<font color='#9FFFCC'>Attribute: No May Face King</font>"        
-        "DOTA_Tooltip_ability_robin_attribute_faceless_Description"		"<font color='#FFFFFF'>Faceless King</font>: Gain extra evasion, extra chance, extra duration, and reduced cooldown."
+        "DOTA_Tooltip_ability_robin_attribute_faceless_Description"		"<font color='#FFFFFF'>Faceless King</font>: Gain extra evasion, extra chance, extra duration, bonus magic resistance while invisible, and reduced cooldown."
         "DOTA_Tooltip_ability_robin_attribute_faceless_evasion"			"BONUS EVASION:"
         "DOTA_Tooltip_ability_robin_attribute_faceless_invis_chance"			"BONUS CHANCE:"
         "DOTA_Tooltip_ability_robin_attribute_faceless_invis_duration"			"BONUS DURATION:"
         "DOTA_Tooltip_ability_robin_attribute_faceless_passive_cooldown"			"COOLDOWN REDUCTION:"
+        "DOTA_Tooltip_ability_robin_attribute_faceless_bonus_mr"			"%BONUS MAGIC RESIST WHEN INVIS:"	
 
         "DOTA_Tooltip_Ability_robin_attribute_guerilla"					"<font color='#9FFFCC'>Attribute: Guerilla Warfare</font>"        
         "DOTA_Tooltip_ability_robin_attribute_guerilla_Description"		"<font color='#FFFFFF'>Yew Bow</font>: Gain extra physical damage based on <font color='#80FF00'>AGI</font>, bonus range, and a part of damage dealt gain armor piercing."

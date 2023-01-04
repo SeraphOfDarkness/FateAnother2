@@ -9,6 +9,17 @@ if IsServer() then
 		self.AOE = args.AOE
 		
 		--target:EmitSound(soundname)
+		local target = self:GetParent()
+		local particle = ParticleManager:CreateParticle("particles/semiramis/basmu_claw_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+
+		local particlewound = ParticleManager:CreateParticle("particles/custom/semiramis/open_wounds.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl(particlewound, 0, target:GetAbsOrigin())
+
+		Timers:CreateTimer(2.5, function()
+			ParticleManager:DestroyParticle( particlewound, false )
+		end)
+
 		self:StartIntervalThink(0.25)
 	end
 
@@ -17,16 +28,30 @@ if IsServer() then
 	end
 
 	function modifier_poisonous_bite:OnIntervalThink()
-		local damage = self.Damage / 0.25
+		local damage = self.Damage / (4*self:GetAbility():GetSpecialValueFor("duration"))
+		local dps_per_int  = self:GetAbility():GetSpecialValueFor("dps_per_int")
 
-		DoDamage(self:GetCaster(), self:GetParent(), damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	   	if  self:GetCaster().IsCharmAcquired then
+			DoDamage(self:GetCaster(), self:GetParent(), damage + dps_per_int * self:GetCaster():GetIntellect() , DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		else
+			DoDamage(self:GetCaster(), self:GetParent(), damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		end
+
 	end
 
 	function modifier_poisonous_bite:OnDestroy()
 		local parent = self:GetParent()
 		local enemies = FindUnitsInRadius(parent:GetTeam(), parent:GetAbsOrigin(), nil, self.AOE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
-		local ability = self:GetAbility()
+		local ability = self:GetAbility()		
+
+		local particle = ParticleManager:CreateParticle("particles/custom/semiramis/basmu_poison_d.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+		ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 1, Vector(ability:GetSpecialValueFor("radius") , 0, 0))
+
+
+	   	parent:EmitSound("Semi.AssassinRSFXPop")
+	   	parent:EmitSound("Semi.AssassinRSFXPop2")
 
 		for i = 1, #enemies do
 			if enemies[i] ~= self:GetParent() then
@@ -45,14 +70,10 @@ if IsServer() then
 	end
 
 	function modifier_poisonous_bite:CreatePoisonFx(target)
-		local particle = ParticleManager:CreateParticle("particles/custom/semiramis/semiramis_poison_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
-		
-		Timers:CreateTimer(1.0, function()
-			ParticleManager:DestroyParticle( particle, false )
-			ParticleManager:ReleaseParticleIndex( particle )
-			return nil
-		end)
+
+		local particle5 = ParticleManager:CreateParticle("particles/econ/events/diretide_2020/high_five/high_five_impact_burst.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl(particle5, 3, target:GetAbsOrigin())
+
 	end
 end
 

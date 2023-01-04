@@ -29,7 +29,7 @@
 	"npc_dota_hero_juggernaut"			"npc_dota_hero_false_assassin"		
 	"npc_dota_hero_bounty_hunter"		"npc_dota_hero_true_assassin"	
 	"npc_dota_hero_bloodseeker"			"npc_dota_hero_li"		
-	//"npc_dota_hero_phantom_assassin"	"npc_dota_hero_semiramis"
+	"npc_dota_hero_phantom_assassin"	"npc_dota_hero_semiramis"
 	"npc_dota_hero_riki"				"npc_dota_hero_jtr"
 	"npc_dota_hero_doom_bringer"		"npc_dota_hero_berserker_5th"		
 	"npc_dota_hero_sven"				"npc_dota_hero_lancelot"

@@ -7,24 +7,12 @@ end
 function hanging_gardens_bombard:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
-	local beam_numbers = self:GetSpecialValueFor("beam_numbers")
 	local beamAoE = self:GetSpecialValueFor("beam_aoe")
 	local damage = self:GetSpecialValueFor("damage")
-	local curBeam = 1
 
-	Timers:CreateTimer(function()
-		if curBeam <= beam_numbers then
-			curBeam = curBeam + 1
-
-			local beamLoc = RandomPointInCircle(targetPoint, self:GetAOERadius)
-
-			self:DropBeam(beamLoc, beamAoE, damage)
-
-			return 0.1
-		else
-			return
-		end			
-	end)
+	EmitSoundOnLocationWithCaster(targetPoint, "Semi.GardenBeamSFX", {})
+	EmitSoundOnLocationWithCaster(targetPoint, "Semi.GardenBeamSFX2", {})
+	self:DropBeam(targetPoint, beamAoE, damage)
 end
 
 function hanging_gardens_bombard:DropBeam(vLoc, fAoE, fDamage)
@@ -36,15 +24,8 @@ function hanging_gardens_bombard:DropBeam(vLoc, fAoE, fDamage)
 		DoDamage(caster, targets[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 
-	local beamFx = ParticleManager:CreateParticle("particles/custom/semiramis/beam/semiramis_beam.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local beamFx = ParticleManager:CreateParticle("particles/custom/semiramis/laser_beam.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(beamFx, 0, vLoc)
 	ParticleManager:SetParticleControl(beamFx, 1, vLoc)
 	ParticleManager:SetParticleControl(beamFx, 5, vLoc)
-	ParticleManager:SetParticleControl(beamFx, 6, vLoc)
-	
-	Timers:CreateTimer(0.5, function()
-		ParticleManager:DestroyParticle(beamFx, false)
-		ParticleManager:ReleaseParticleIndex(beamFx)
-		return
-	end)
 end

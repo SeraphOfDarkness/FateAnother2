@@ -8,8 +8,6 @@ if IsServer() then
 		self.AOE = args.AOE
 		self.PoisonDuration = args.PoisonDuration
 		self.ResistReduc = args.ResistReduc
-
-		
 	end
 
 	function modifier_poison_cloud_aura:OnRefresh(args)
@@ -18,7 +16,6 @@ if IsServer() then
 
 	function modifier_poison_cloud_aura:OnIntervalThink()
 		local parent = self:GetParent()
-		local caster = self:GetCaster()
 		local ability = self:GetAbility()
 
 		local enemies = FindUnitsInRadius(caster:GetTeam(), parent:GetAbsOrigin(), nil, self.AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
