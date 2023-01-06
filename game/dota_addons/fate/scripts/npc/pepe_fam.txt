@@ -30,6 +30,7 @@
 		"863517475"		"1" //Matthew K
 		"268487608"		"1" //Zyrake
 		"196713066"		"1" //Monte Count(Zyrake3)
+		"1000227220"	"1"	//Pantacle
 	}
 	"pepe_slayer"
 	{

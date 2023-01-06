@@ -293,7 +293,6 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_nursery_rhyme.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_kongming.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_hans.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/hero_semiramis.vsndevts", context)
                         --============ Rider ==============--         
     PrecacheResource("soundfile", "soundevents/hero_rider.vsndevts", context)  
     PrecacheResource("soundfile", "soundevents/hero_iskander.vsndevts", context) 
@@ -306,6 +305,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_lishuwen.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_jtr.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_king_hassan.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_semiramis.vsndevts", context)
 
                         --============ Berserker ==============--     
     PrecacheResource("soundfile", "soundevents/hero_berserker.vsndevts", context)                
@@ -364,6 +364,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_juggernaut.vsndevts", context ) 
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_riki.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_phantom_assassin.vsndevts", context )
 
                         --============ Berserker ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts", context )    
@@ -791,14 +792,48 @@ function FateGameMode:OnGameInProgress()
 end
 
 -- Cleanup a player when they leave
+--"userid"    "player_controller"     // user ID on server
+--"reason"    "short"     // see networkdisconnect enum protobuf
+--"name"      "string"    // player name
+--"networkid" "string"    // player network (i.e steam) id
+--"xuid"      "uint64"    // steam id
+--"PlayerID"  "short"
 function FateGameMode:OnDisconnect(keys)
   --  print('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
     --PrintTable(keys)
 
-    local name = keys.name
-    local networkid = keys.networkid
-    local reason = keys.reason
-    local userid = keys.userid
+    --local name = keys.name
+    --local networkid = keys.networkid
+    --local reason = keys.reason
+    local playerId = keys.PlayerID
+
+    local connection_data = PlayerTables:GetAllTableValues("connection", playerId)
+    local dc_time = 0
+    local quit_round = connection_data["qRound"]
+    --PlayerTables:CreateTable("connection", {cstate = "connect", dTime = 0, qRound = 1}, i)
+
+    Timers:CreateTimer(function()
+        local conn_state = PlayerResource:GetConnectionState(playerId)
+
+        --0 = No connection
+        --1 = Bot
+        --2 = Player
+        --3 = Disconnected
+
+        if conn_state == 3 then 
+            dc_time = dc_time + 1
+            PlayerTables:SetTableValue("connection", "cstate", "disconnect", playerId, true)
+            return 1
+        elseif conn_state == 0 then 
+            PlayerTables:SetTableValue("connection", "cstate", "rage_quit", playerId, true)
+            PlayerTables:SetTableValue("connection", "qRound", self.nCurrentRound, playerId, true)
+            return nil
+        else
+            PlayerTables:SetTableValue("connection", "dTime", dc_time + connection_data["dTime"], playerId, true)
+            PlayerTables:SetTableValue("connection", "cstate", "connect", playerId, true)
+            return nil
+        end
+    end)     
     --local playerID = self.vPlayerList[userid]
     --print(name .. " just got disconnected from game! Player ID: " .. playerID)
     --PlayerResource:GetSelectedHeroEntity(playerID):ForceKill(false)
@@ -1340,6 +1375,12 @@ function FateGameMode:OnPlayerChat(keys)
     if text == "-reconnect" then
         if GameRules:IsCheatMode() or IsInToolsMode() then
             self:OnPlayerReconnect({PlayerID=plyID})
+        end
+    end
+
+    if text == "-dc" then
+        if GameRules:IsCheatMode() or IsInToolsMode() then
+            self:OnDisconnect({PlayerID=plyID})
         end
     end
 
@@ -2186,6 +2227,9 @@ function FateGameMode:PlayTeamPickSound(hero)
                             playerHero:EmitSound("Amakusa_Ally_Jeanne")
                             break
                         end
+                    elseif hero:GetName() == "npc_dota_hero_phantom_assassin" then
+                        playerHero:EmitSound("Amakusa_Ally_Semiramis")
+                        break
                     end
                 elseif playerHero:GetName() == "npc_dota_hero_night_stalker" then
                     if hero:GetName() == "npc_dota_hero_vengefulspirit" then
@@ -3175,7 +3219,9 @@ function FateGameMode:OnEntityKilled( keys )
 
         -- if TK occured, do nothing and announce it
         if killerEntity:GetTeam() == killedUnit:GetTeam() then
-            killerEntity.ServStat:onTeamKill()
+            if killerEntity ~= killedUnit then
+                killerEntity.ServStat:onTeamKill()
+            end
             killedUnit.ServStat:onDeath()
             --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain friendly Servant <font color='#FF5050'>" .. killedUnit.name .. "</font>!", 0, 0)
             CustomGameEventManager:Send_ServerToAllClients( "fate_hero_killed", {killer=killerEntity:entindex(), victim=killedUnit:entindex(), assists=nil } )
@@ -3184,7 +3230,7 @@ function FateGameMode:OnEntityKilled( keys )
             killedUnit.ServStat:onDeath()
             -- Add to death count
             if killedUnit.DeathCount == nil then
-                killedUnit.DeathCount = 1
+                killedUnit.DeathCount = 0
             elseif killedUnit:GetName() == "npc_dota_hero_doom_bringer" then
                 if not killedUnit.bIsGHReady or IsTeamWiped(killedUnit) or killedUnit.GodHandStock == 0 then
                     killedUnit.DeathCount = killedUnit.DeathCount + 1
@@ -4540,6 +4586,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
     if self.nRadiantScore == VICTORY_CONDITION then
         ServerTables:SetTableValue("GameState", "state", "FATE_END_GAME", true)
         GameRules:SendCustomMessage("Red Faction Victory!",0,0)
+        kjlpluo1596:calcMVP()
         self:LoopOverPlayers(function(player, playerID, playerHero)
             local hero = playerHero
             if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -4564,6 +4611,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
     elseif self.nDireScore == VICTORY_CONDITION then
         ServerTables:SetTableValue("GameState", "state", "FATE_END_GAME", true)
         GameRules:SendCustomMessage("Black Faction Victory!",0,0)
+        kjlpluo1596:calcMVP()
         self:LoopOverPlayers(function(player, playerID, playerHero)
             local hero = playerHero
             if hero:GetTeam() == DOTA_TEAM_BADGUYS then

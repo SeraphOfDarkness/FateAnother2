@@ -21,15 +21,73 @@ Say = function(hEntity, StringMessage, bteamOnly)
     end
 end
 
+CCModifierStatic = {
+    modifier_stunned = true,
+    drag_pause = true,
+    rooted = true,
+    locked = true,
+    revoked = true,
+    disarmed = true,
+    modifier_silence = true,
+    modifier_disarmed = true, 
+    modifier_c_rule_breaker = true,
+    modifier_light_of_galatine_slow = true,
+    modifier_mordred_mb_silence = true,
+    modifier_enkidu_hold = true,
+    modifier_atalanta_calydonian_hunt_root = true,
+    modifier_atalanta_calydonian_hunt_slow = true,
+    modifier_phoebus_slow = true, 
+    modifier_kuro_rosa_slow = true,
+    modifier_ceremonial_purge_slow = true,
+    modifier_fly_slow = true,
+    modifier_bathory_slap_slow = true,
+    modifier_bathory_dragon_voice_slow = true,
+    modifier_bathory_dragon_voice_deaf = true,
+    modifier_bathory_cage_target = true,
+    modifier_bloodfort_slow = true,
+    modifier_mystic_eye_enemy_upgrade = true,
+    modifier_breaker_gorgon_stone = true,
+    modifier_breaker_gorgon = true,
+    modifier_bloodfort_seal = true,
+    modifier_golden_wild_hunt_slow = true,
+    modifier_blizzard_slow = true,
+    modifier_la_black_luna_silence = true,
+    modifier_gilles_jellyfish_slow = true,
+    modifier_white_queens_enigma_slow = true,
+    modifier_plains_of_water_slow = true,
+    modifier_doppelganger_lookaway_slow = true, 
+    modifier_nameless_forest = true, 
+    modifier_amaterasu_slow_enemy = true,
+    modifier_subterranean_grasp = true,
+    modifier_mystic_shackle = true,
+    modifier_tamamo_ice_debuff = true,
+    modifier_zhuge_liang_wood_trap = true,
+    modifier_zhuge_thunder_storm_slow = true,
+    modifier_zhuge_liang_acid_slow = true,
+    modifier_hans_red_shoes = true,
+    modifier_fissure_strike_slow = true,
+    modifier_courage_enemy_debuff_slow = true,
+    modifier_madmans_roar_slow_strong = true,
+    modifier_madmans_roar_slow_moderate = true,
+    modifier_fran_lightning_slow = true,
+    modifier_purge_the_unjust_slow = true,
+    modifier_gods_resolution_slow = true, 
+}
+
 local VALVE_AddNewModifier = CDOTA_BaseNPC.AddNewModifier
 CDOTA_BaseNPC.AddNewModifier = function(self, hCaster, hAbility, pszScriptName, hModifierTable)
     if self:IsNull() or self == nil then
     	print('add new modifier error: no target')
     	return nil
     else
+        local dur = hModifierTable["Duration"] or hModifierTable["duration"]
+        if self:IsRealHero() and hCaster:IsRealHero() and hCaster:GetTeam() ~= self:GetTeam() and CCModifierStatic[pszScriptName] == true then 
+            hCaster.ServStat:doControl(dur)
+        end
         if IsImmuneToCC(self) and pszScriptName == "modifier_stunned" then 
             for k,v in pairs(hModifierTable) do
                 if string.match(k, "uration") then 
+                    
                     hModifierTable[k] = v * 0.5
                 end
             end
@@ -86,8 +144,25 @@ CDOTABaseAbility.ApplyDataDrivenModifier = function(self, hCaster, hTarget, pszM
     	print('apply data driven modifier error: no target')
     	return nil
     else
+        local dur = hModifierTable["Duration"] or hModifierTable["duration"]
+        if hTarget:IsRealHero() and hCaster:IsRealHero() and hCaster:GetTeam() ~= hTarget:GetTeam() and CCModifierStatic[pszScriptName] == true then 
+            if dur == nil then 
+                dur = 0.5
+                print('CC no duration')
+            end
+            hCaster.ServStat:doControl(dur)
+        end
         return VALVE_ApplyDataDrivenModifier(self, hCaster, hTarget, pszModifierName, hModifierTable)
     end
+end
+
+CDOTA_BaseNPC.FateHeal = function(self, fHeal, hSource, bStatic)
+    if bStatic == true and self:IsRealHero() and hSource:IsRealHero() then 
+        local missing_hp = self:GetMaxHealth() - self:GetHealth()
+        hSource.ServStat:onHeal(math.min(fHeal, missing_hp))
+    end
+
+    self:Heal(fHeal, hSource)
 end
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 --[[CDOTABaseAbility.GetCastRangeBonus = function(self, hTarget) --Crashes normal addons, because gaben released new patch with error in 24.02.2022 pizdec, only for LUA ABILITY, For items i think all fne.... cringe

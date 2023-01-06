@@ -1017,7 +1017,7 @@ function HealingScroll(keys)
 	for k,v in pairs(targets) do
 		if v:GetName() ~= "npc_dota_ward_base" and not string.match(v:GetUnitName(), "dummy") then
 			ParticleManager:SetParticleControl(healFx, 1, v:GetAbsOrigin()) -- target effect location
-    	    v:ApplyHeal(heal_amount, caster)
+    	    v:FateHeal(heal_amount, caster, true)
        		ability:ApplyDataDrivenModifier(caster, v, "modifier_healing_scroll", {})
        	end
     end

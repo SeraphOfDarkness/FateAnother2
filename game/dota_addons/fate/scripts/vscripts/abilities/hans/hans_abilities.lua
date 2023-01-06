@@ -53,6 +53,10 @@ function OnNightingaleStart(keys)
 	local duration = ability:GetSpecialValueFor("buff_duration")
 
 	hprestore = hprestore + target:GetMaxHealth() * hppercrestore / 100
+	local stat = false 
+	if target == caster then 
+		stat = true 
+	end
 
 	if caster.IsNightingaleRefined then
 		local int_scale = ability:GetSpecialValueFor("int_scale")
@@ -63,7 +67,7 @@ function OnNightingaleStart(keys)
 		hprestore = hprestore * 2
 	end
 
-	target:Heal(hprestore, caster)
+	target:FateHeal(hprestore, caster, stat)
 
 	caster:EmitSound("Hans.Nightingale")
 	target:EmitSound("Hans.NightingaleSFX")

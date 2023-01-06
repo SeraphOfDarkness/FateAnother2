@@ -86,8 +86,11 @@ function yedped:start()
 		for i = 0, 13 do 
 			if PlayerTables:GetTableValue("database", "db", i) == true then 
 				self.MRN[i] = iupoasldm.jyiowe[i].STT.MRT
+				if iupoasldm.jyiowe[i].STT.mcs.tgn < 10 then 
+					self:smdetect(i)
+				end
 				--SendChatToPanorama('Player ' .. i .. ': MMR ' .. self.MRN[i])
-				if self.MRN[i] > 1000 then 
+				--[[if self.MRN[i] > 1000 then 
 					self:syipl(i, self.MRN[i])
 				else
 					if iupoasldm.jyiowe[i].STT.gmy.CDMR.tgn > 0 then 
@@ -95,7 +98,7 @@ function yedped:start()
 					else
 						self:syipl(i, self.MRN[i])
 					end
-				end
+				end]]
 			end
 		end
 
@@ -130,7 +133,7 @@ function yedped:jupa870(pId)
 end
 
 function yedped:smdetect(playerId)
-	local ssr = iupoasldm.jyiowe[playerId].STT.gmy.CDMR.stye
+	local ssr = iupoasldm.jyiowe[playerId].STT.mcs
 	local asdfi = tonumber(ssr.kd)
 	local kinpi = tonumber(ssr.kda)
 	local bonus = 0
@@ -152,9 +155,9 @@ function yedped:smdetect(playerId)
 		self.MRN[playerId] = 1000 + bonus
 	end
 
-	if --[[self.MRN[playerId] < 1500 and]] iupoasldm.jyiowe[playerId].STT.gmy.CDMR.tgn < 5 then 
-		self.MRN[playerId] = self.MRN[playerId] - 100 
-	end
+	--if --[[self.MRN[playerId] < 1500 and]] iupoasldm.jyiowe[playerId].STT.gmy.CDMR.tgn < 5 then 
+	--	self.MRN[playerId] = self.MRN[playerId] - 100 
+	--end
 
 	self:syipl(playerId, self.MRN[playerId])
 end

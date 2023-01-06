@@ -38,6 +38,7 @@ function HeroSelectioN:constructor()
         local skinList = LoadKeyValues("scripts/npc/skin.txt")
         local skinTier = LoadKeyValues("scripts/npc/skinaccess.txt")
         local testList = LoadKeyValues("scripts/npc/herotest.txt")
+        local roleList = LoadKeyValues("scripts/npc/hero_role.txt")
         self.SpecBan = LoadKeyValues("scripts/npc/spec_ban.txt")
         self.NewbieBan = LoadKeyValues("scripts/npc/newbie_ban.txt")
         self.Unique = LoadKeyValues("scripts/npc/unique.txt")
@@ -103,7 +104,7 @@ function HeroSelectioN:constructor()
 
 		for key, value in pairs (self.AllHeroes) do
 			if value ~= 1 then return end
-			local hero_info = GetHeroInfo(key, heroes[key])
+			local hero_info = GetHeroInfo(key, heroes[key], roleList)
 			self.HeroInfo[key] = hero_info
 		end
 
@@ -973,7 +974,7 @@ function HeroSelectioN:AssignHero(playerId, hero, skin)
 end
 
 
-function GetHeroInfo(D2hero, hero)
+function GetHeroInfo(D2hero, hero, roleList)
 			
 	local str = GetUnitKV(hero, "AttributeStrengthGain") 
 	if str ~= math.floor(str) then
@@ -1011,12 +1012,12 @@ function GetHeroInfo(D2hero, hero)
 		STR = str,
 		AGI = agi,
 		INT = int,
-		Class = CheckClass(D2hero), 
-		Sex = CheckSex(D2hero),
+		Class = roleList[D2hero]["Class"], --CheckClass(D2hero), 
+		Sex = roleList[D2hero]["Sex"], --CheckSex(D2hero),
 		NP = GetUnitKV(hero, "NP"),
 		DIF = GetUnitKV(hero, "Difficult"),
-		Ty = GetUnitKV(hero, "SType"),
-		Tr = GetUnitKV(hero, "Trait")
+		Ty = roleList[D2hero]["Roles"], --GetUnitKV(hero, "SType"),
+		Tr = roleList[D2hero]["Trait"], --GetUnitKV(hero, "Trait")
 	}
 
 	--if GetUnitKV(hero, "AttributeNumber") == 5 then 

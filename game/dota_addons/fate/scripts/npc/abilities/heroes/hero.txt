@@ -41,4 +41,5 @@ HeroesID
 	"38"		"npc_dota_hero_skeleton_king"
 	"39"		"npc_dota_hero_necrolyte"
 	"40"		"npc_dota_hero_sniper"
+	"41"		"npc_dota_hero_phantom_assassin"
 }

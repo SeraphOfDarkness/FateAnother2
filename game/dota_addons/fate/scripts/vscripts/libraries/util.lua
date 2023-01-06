@@ -3542,8 +3542,8 @@ function OnHeroTakeDamage(keys)
             hero.ServStat:takeDamageBeforeReduction(damageTaken * 1/(1-GetPhysicalDamageReduction(hero:GetPhysicalArmorValue(false))))
         end
         --print("Actual damage from KV:", damageTaken)
-        attackerHero.ServStat:doActualDamage(damageTaken)
-        hero.ServStat:takeActualDamage(damageTaken)
+        attackerHero.ServStat:doActualDamage(math.min(damageTaken,hero:GetMaxHealth()))
+        hero.ServStat:takeActualDamage(math.min(damageTaken,hero:GetMaxHealth()))
     end
 end
 

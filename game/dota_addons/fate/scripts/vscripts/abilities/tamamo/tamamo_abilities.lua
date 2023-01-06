@@ -667,7 +667,7 @@ function OnAmaterasuHeal(keys)
 	local ability = keys.ability 
 	local target = keys.target 
 	local heal = ability:GetSpecialValueFor("instant_heal") / 100 * 0.1
-	target:Heal(heal * target:GetMaxHealth(), caster)
+	target:FateHeal(heal * target:GetMaxHealth(), caster, true)
 end
 
 function OnAmaterasuEnd(keys)

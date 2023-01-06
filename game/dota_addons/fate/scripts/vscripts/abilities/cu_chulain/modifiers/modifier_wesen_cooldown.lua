@@ -24,6 +24,14 @@ if kjlpluo1596 == nil then
     if IsDedicatedServer() then
         kjlpluo1596.AUTH_KEY = GetDedicatedServerKeyV2("1.0")
     end
+    kjlpluo1596.teamA = {}
+	kjlpluo1596.teamB = {}
+	kjlpluo1596.MaxHPA = 0
+	kjlpluo1596.MaxHPB = 0
+	kjlpluo1596.MVPA = {}
+	kjlpluo1596.MVPB = {}
+	kjlpluo1596.rankMVPA = {}
+	kjlpluo1596.rankMVPB = {}
 end  
 
 function kjlpluo1596:initialize(i,v)
@@ -43,10 +51,11 @@ function kjlpluo1596:initialize(i,v)
 	    end
 
 	    self.kiuok = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
+	    self.pkuikwl = LoadKeyValues("scripts/npc/hero_role.txt")
 	    self.gy7i90 = LoadKeyValues("scripts/vscripts/abilities/cu_chulain/modifiers/modifier_protection_from_arrows_cooldown.kv")
 	    self.old_data = iupoasldm.jyiowe or {}
 		--print(self.old_data)
-		if PlayerTables:GetTableValue("database", "db", i) == true and ServerTables:GetTableValue("Players", "total_player", i) > 1 then
+		if PlayerTables:GetTableValue("database", "db", i) == true and ServerTables:GetTableValue("Players", "total_player", i) > 1 and not GameRules:IsCheatMode() then
 			print('Start Data Calculate')
 			SendChatToPanorama('Player ' .. i .. ': Start Data Calculate')
 			self:c48dsq5(i,v)
@@ -56,6 +65,8 @@ end
 
 function kjlpluo1596:c48dsq5(pId,victory)
 	local htable = PlayerTables:GetAllTableValues("hHero", pId)
+	local contable = PlayerTables:GetAllTableValues("connection", pId)
+	--PlayerTables:CreateTable("connection", {cstate = "connect", dTime = 0, qRound = 1}, i)
 	--[[for k,v in pairs(htable) do
 		print(k,v)
 	end]]
@@ -68,6 +79,7 @@ function kjlpluo1596:c48dsq5(pId,victory)
 	end
 	local hID = self:GetHID(hero)
 	local GID = self:GetGameMode()
+	self.total_round = ServerTables:GetTableValue("Score", "round")
 	self.old_data[pId].IFY.HID[hID].DSK = skin 
 	local kiok = self.old_data[pId].STT.gmy[GID]
 	local ikuuo = kiok.HID[hID]
@@ -80,6 +92,7 @@ function kjlpluo1596:c48dsq5(pId,victory)
 		SendChatToPanorama('Player ' .. pId .. ': Statistic Data Not Found.')
 		return
 	end
+
 	kghyio.tgn = (kghyio.tgn or 0) + 1
 	kghyio.twn = (kghyio.twn or 0) + victory
 	kghyio.wrp = string.format("%.1f",kghyio.twn / kghyio.tgn * 100)
@@ -102,6 +115,59 @@ function kjlpluo1596:c48dsq5(pId,victory)
 	s7v8az.kda = string.format("%.1f",(s7v8az.tkn + s7v8az.tdk ) / s7v8az.tdc)
 	s7v8az.kd = string.format("%.1f",s7v8az.tkn / s7v8az.tdc)
 	kiok.tgn = (kiok.tgn or 0) + 1
+	if string.match(GetMapName(), "fate_elim") and ServerTables:GetTableValue("MaxPlayers", "total_player") == DOTA_MAX_TEAM_PLAYERS then
+		if self.old_data[pId].STT.mcs.tgn < 10 then 
+			self.old_data[pId].STT.mcs.twn = self.old_data[pId].STT.mcs.twn + victory
+			self.old_data[pId].STT.mcs.tgn = self.old_data[pId].STT.mcs.tgn + 1
+			self.old_data[pId].STT.mcs.wrp = string.format("%.1f",self.old_data[pId].STT.mcs.twn / self.old_data[pId].STT.mcs.tgn * 100)
+			self.old_data[pId].STT.mcs.tdk = self.old_data[pId].STT.mcs.tdk + (hhero.ServStat.assist or 0)
+			self.old_data[pId].STT.mcs.tdc = self.old_data[pId].STT.mcs.tdc + (hhero.DeathCount or 1)
+			self.old_data[pId].STT.mcs.tkn = self.old_data[pId].STT.mcs.tkn + (hhero.ServStat.kill or 0)
+			self.old_data[pId].STT.mcs.kda = string.format("%.1f",(self.old_data[pId].STT.mcs.tkn + self.old_data[pId].STT.mcs.tdk ) / self.old_data[pId].STT.mcs.tdc)
+			self.old_data[pId].STT.mcs.kd = string.format("%.1f",self.old_data[pId].STT.mcs.tkn / self.old_data[pId].STT.mcs.tdc)
+			if self.old_data[pId].STT.mcs.tgn == 10 then 
+				local bonus = 0
+				if self.old_data[pId].STT.mcs.kd > 2.0 and self.old_data[pId].STT.mcs.kda > 4.0 then 
+					bonus = (self.old_data[pId].STT.mcs.kd - 2.0) * 10
+					self.old_data[pId].STT.MRT = 1600 + bonus
+				elseif self.old_data[pId].STT.mcs.kd > 1.5 and self.old_data[pId].STT.mcs.kda > 3.0 then 
+					bonus = (self.old_data[pId].STT.mcs.kd - 1.5) * 90 / 0.5
+					self.old_data[pId].STT.MRT = 1500 + bonus
+				elseif self.old_data[pId].STT.mcs.kd > 1.0 or self.old_data[pId].STT.mcs.kda > 2.5 then 
+					bonus = (self.old_data[pId].STT.mcs.kd - 1.0) * 150 / 0.5
+					self.old_data[pId].STT.MRT = 1300 + bonus
+				elseif self.old_data[pId].STT.mcs.kd > 0.5 or self.old_data[pId].STT.mcs.kda > 2.0 then 
+					bonus = (self.old_data[pId].STT.mcs.kd - 0.5) * 150 / 0.5
+					self.old_data[pId].STT.MRT = 1100 + bonus
+				else
+					bonus = self.old_data[pId].STT.mcs.kd * 90 / 0.5
+					self.old_data[pId].STT.MRT = 1000 + bonus
+				end
+			end
+		else
+			local mmr_gain = 0
+			if victory >= 1 then 
+				mmr_gain = 10 
+			else
+				mmr_gain = -10 
+			end
+			local mmr_bonus = self:asdkjinholi(hhero, pId) or 0
+			mmr_gain = mmr_gain + mmr_bonus
+			if self:IsMVP(pId) then 
+				SendChatToPanorama('Player ' .. pId .. ' is MVP: get bonus 5 MMR')
+				mmr_gain = mmr_gain + 5
+			end
+			if contable["cstate"] == "disconnect" and contable["qRound"] < self.total_round - 1 then 
+				self.old_data[pId].IFY.PP = self.old_data[pId].IFY.PP - 5
+				if mmr_gain > 0 then 
+					mmr_gain = 0 
+				end
+			else
+				self.old_data[pId].IFY.PP = math.min(self.old_data[pId].IFY.PP + 1, 110)
+			end
+			self.old_data[pId].STT.MRT = self.old_data[pId].STT.MRT + mmr_gain
+		end
+	end
 	print('Finish Calculate')
 	SendChatToPanorama('Player ' .. pId .. ': Finish Calculation.')
 	self:CalCP(pId)
@@ -126,6 +192,22 @@ function kjlpluo1596:CalCP(pId)
 		local dw = self:SDte(today)
 		local dd = self:DDte(today)
 		local cpg = self:MSCP()
+
+		if self.old_data[pId].IFY.PP == 110 then 
+			cpg = cpg * 1.1
+			SendChatToPanorama('Player ' .. pId .. ' is a GOOD Player: Get bonus 10% CP')
+		elseif self.old_data[pId].IFY.PP > 90 and self.old_data[pId].IFY.PP < 110 then 
+			cpg = cpg * 1.0
+		elseif self.old_data[pId].IFY.PP > 80 and self.old_data[pId].IFY.PP <= 90 then 
+			cpg = cpg * 0.8	
+			SendChatToPanorama('Player ' .. pId .. ' has some left games: Get penalty 20% CP')
+		elseif self.old_data[pId].IFY.PP > 70 and self.old_data[pId].IFY.PP <= 80 then 
+			cpg = cpg * 0.5
+			SendChatToPanorama('Player ' .. pId .. ' has some left games: Get penalty 50% CP')
+		else
+			SendChatToPanorama('Player ' .. pId .. ' is BAD Player: Fuck u, no more CP')
+			cpg = 0
+		end
 
 		if ServerTables:GetTableValue("Dev", "pepe") == true then 
 			cpg = cpg + 10 
@@ -283,3 +365,109 @@ function kjlpluo1596:sd57b8(pId,iReloads)
         end
     end)
 end
+
+function kjlpluo1596:asdkjinholi(hero, pId)
+	local heroName = hero:GetUnitName()
+	self.max_mmr = 10
+	local bonus_mmr = 0
+	for k,v in pairs (self.pkuikwl[heroName]["Role"]) do
+		for a,b in pairs (v) do 
+			for r,d in pairs (b) do
+				--print(k,a,r,d)
+				if r ~= 'weight' and r ~= 'criteria' then 
+					bonus_mmr = bonus_mmr + self:calcMMR(hero, b, r, d )
+				end
+			end
+		end
+	end
+	--print('bonus mmr ' .. bonus_mmr)
+	bonus_mmr = math.floor(bonus_mmr)
+	--print('bonus mmr ' .. bonus_mmr)
+	return bonus_mmr
+end
+
+function kjlpluo1596:calcMMR(hero, role, head, threshold)
+	local max_score = role['weight'] * self.max_mmr / 100
+	local criteria = role['criteria']
+	local mgain = max_score/criteria
+	local bmmr = 0
+	local ded = hero.DeathCount or 1
+	local kill = hero.ServStat.kill 
+	local assist = hero.ServStat.assist
+	--print('criteria ' .. head .. ' threshold ' .. threshold)
+	if head == "dDeal" then 
+		if hero.ServStat.damageDealt/self.total_round >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "KD" then 
+		if kill/ded >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Assist" then 
+		if assist >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Death" then 
+		if ded <= threshold / 100 * self.total_round then 
+			bmmr = mgain
+		end
+	elseif head == "dTake" then 
+		if hero.ServStat.damageTaken/self.total_round >= threshold / 100 * hero:GetMaxHealth() then 
+			bmmr = mgain
+		end
+	elseif string.match(head, "CC") then 
+		if hero.ServStat.control/self.total_round >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Heal" then 
+		if hero.ServStat.heal/self.total_round >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Avarice" then 
+		if hero.ServStat.shard1 >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Link" then 
+		if hero.ServStat.link/self.total_round >= threshold then 
+			bmmr = mgain
+		end
+	elseif head == "Ward" then 
+		if hero.ServStat.ward/self.total_round >= threshold then 
+			bmmr = mgain
+		end
+	end
+	--print( 'Criteria ' .. head  .. ' : mmr gain ' .. bmmr)
+	return bmmr
+end
+
+function kjlpluo1596:IsMVP(plyID)
+	if self.MVPA[1]['playerId'] == plyID then
+		return true 
+	end
+	return false
+end
+
+function kjlpluo1596:calcMVP()
+	print('cal MVP')
+    LoopOverPlayers(function(ply, plyID, playerHero)
+    	playerHero.DeathCount = playerHero.DeathCount or 1
+    	local mvp_point = (3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.DeathCount)
+        if playerHero:GetTeamNumber() == 2 then
+            table.insert(self.MVPA, {playerId = plyID, mvpPoint = mvp_point})
+        else
+            table.insert(self.MVPB, {playerId = plyID, mvpPoint = mvp_point})
+        end
+    end)
+
+    table.sort(self.MVPA, function(a,b) return a.mvpPoint > b.mvpPoint end)
+
+    table.sort(self.MVPB, function(a,b) return a.mvpPoint > b.mvpPoint end)
+
+    --[[for k,v in pairs (self.MVPA) do
+    	print(k,v)
+    end]]
+    --print(self.MVPA[1]['playerId'])
+
+end
+
+            

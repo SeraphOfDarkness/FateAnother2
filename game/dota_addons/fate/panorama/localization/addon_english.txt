@@ -184,7 +184,7 @@
 
 		"control"			"Control"
 		"assassin"			"Assassin"
-		"mobility"			"Agility"
+		"mobility"			"Mobility"
 		"snipe"				"Snipe"
 		"reality_marble"	"Reality Marble"
 		"carry"				"Carry"
@@ -192,6 +192,7 @@
 		"jumper"			"Jumper"
 		"beamer"			"Beamer"
 		"burst"				"Burst"
+		"dps"				"DPS"
 		"tank"				"Tank"
 		"counter"			"Counter"
 		"manaless"			"Manaless"
@@ -201,9 +202,11 @@
 		"arthur"			"Arthur"
 		"shinsengumi"		"Shinsengumi"
 		"human"				"Human"
+		"vampire"			"Vampire"
 		"female_slayer"		"Female Slayer"
 		"human_slayer"		"Human Slayer"
 		"god_slayer"		"God Slayer"
+		"anti_ruler"		"Ruler Slayer"
 
 		"enable_"			"Enable "
 

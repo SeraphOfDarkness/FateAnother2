@@ -248,6 +248,17 @@ function iupoasldm:ngk1125(pId)
 		TRM = {},
 		TRO = {},
 	}
+	hData.STT.mcs = {
+		MRC = 1,
+		kda = 0, 
+		tdc = 0, 
+		tdk = 0, 
+		tkn = 0, 
+		kd = 0,
+		tgn = 0,
+		twn = 0, 
+		wrp = 0
+	}
 	hData.LD = {
 		ACD = 0,
 		LST = 0,
@@ -373,6 +384,23 @@ function iupoasldm:checkupdate(pId)
 					SendChatToPanorama('Player ' .. pId .. ': Set up New Hero Data: ' .. a)
 				end
 			end
+		end
+	end
+	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 1 then
+		self.jyiowe[pId].STT.mcs = {
+			MRC = 1,
+			kda = 0, 
+			tdc = 0, 
+			tdk = 0, 
+			tkn = 0, 
+			kd = 0,
+			tgn = 0,
+			twn = 0, 
+			wrp = 0
+		}
+		self.jyiowe[pId].STT.MRT = 1000
+		for k,v in pairs (self.jyiowe[pId].STT.gmy) do
+			self:aonmh99(v)
 		end
 	end
 end

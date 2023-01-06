@@ -692,8 +692,7 @@ if IsServer() then
 				--ParticleManager:SetParticleControl(iParticleIndex, 1, tEnemies[i]:GetAbsOrigin())
 
 				giveUnitDataDrivenModifier(hCaster, tEnemies[i], "silenced", fSilence)
-				tEnemies[i]:AddNewModifier(hTarget, self:GetAbility(), "modifier_tamamo_wind_particle", { Duration = fSilence,
-																										  ParticleIndex = iParticleIndex })
+				--tEnemies[i]:AddNewModifier(hTarget, self:GetAbility(), "modifier_tamamo_wind_particle", { Duration = fSilence, ParticleIndex = iParticleIndex })
 				
 				DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 				return
