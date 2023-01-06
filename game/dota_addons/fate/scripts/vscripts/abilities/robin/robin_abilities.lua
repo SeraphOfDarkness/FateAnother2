@@ -283,8 +283,9 @@ function OnRootsCast(keys)
     	caster:EmitSound("Robin.RootsSFX")
     	caster:EmitSound("Robin.RootsSFX2")
 
-		local root = ParticleManager:CreateParticle("particles/robin/thorn/robin_root.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		local root = ParticleManager:CreateParticle("particles/robin/thorn/robin_root.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(root, 0, targetpoint)
+		
 		Timers:CreateTimer(duration + 0.5, function()
 			ParticleManager:DestroyParticle(root, false)
 		end)
@@ -594,15 +595,15 @@ function OnYewBowHit(keys)
 
 	target:EmitSound("Robin.YewBowHitSFX")
 	target:EmitSound("Robin.YewBowHitSFX2")
-	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/dragon_knight_transform_green_smoke03.vpcf", PATTACH_ABSORIGIN, caster)
+	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/dragon_knight_transform_green_smoke03.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pot_hit, 0, target:GetAbsOrigin())	
-	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewboweffxplode.vpcf", PATTACH_ABSORIGIN, caster)
+	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewboweffxplode.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pot_hit, 0, target:GetAbsOrigin())	
-	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbowshine.vpcf", PATTACH_ABSORIGIN, caster)
+	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbowshine.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pot_hit, 0, target:GetAbsOrigin())		
-	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbowgrass.vpcf", PATTACH_ABSORIGIN, caster)
+	local pot_hit = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbowgrass.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pot_hit, 0, target:GetAbsOrigin())	
-	local pot_hit = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest_k.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pot_hit = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest_k.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pot_hit, 0, target:GetAbsOrigin())	
 
 	if caster.IsGuerillaAcquired then
@@ -616,7 +617,7 @@ function OnYewBowHit(keys)
 	end
 	giveUnitDataDrivenModifier(caster, target, "modifier_stunned", 0.4)
 
-	local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for k,v in pairs(enemies) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
 				if caster.IsTaxineAcquired then
@@ -761,7 +762,7 @@ function OnComboHit(keys)
 	targetdummy:AddNewModifier(caster, nil, "modifier_phased", {duration=3})
 	targetdummy:AddNewModifier(caster, nil, "modifier_kill", {duration=3})
 
-	local root = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbow-combo-explode.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local root = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbow-combo-explode.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(root, 0, target:GetAbsOrigin())
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

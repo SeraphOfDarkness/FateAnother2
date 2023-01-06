@@ -38,9 +38,9 @@ function semiramis_snek_spit_poison_upgrade:OnProjectileHit_ExtraData(hTarget, v
 	if hTarget == nil then return end
 
 	if self:GetCaster().IsCharmAcquired then
-		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false) 
-	else
 		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("damage") + (self:GetSpecialValueFor("damage_per_int") * self:GetCaster():GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, self, false) 
+	else
+		DoDamage(self:GetCaster(), hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false) 
 	end
 
 	Timers:CreateTimer(0.5, function()

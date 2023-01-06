@@ -753,6 +753,7 @@ CannotReset = {
     "robin_faceless_king_upgrade",
     "robin_combo",
     "semiramis_dual_class",
+    "semiramis_dual_class_upgrade",
     "semiramis_combo",
 }
 
@@ -2097,6 +2098,8 @@ function SendMountStatus(hero)
     elseif hero:GetName() == "npc_dota_hero_crystal_maiden" then 
         bMounted = hero.IsMounted
     elseif hero:GetName() == "npc_dota_hero_troll_warlord" then 
+        bMounted = hero.IsOnBoarded
+    elseif hero:GetName() == "npc_dota_hero_phantom_assassin" then 
         bMounted = hero.IsOnBoarded
     end
 

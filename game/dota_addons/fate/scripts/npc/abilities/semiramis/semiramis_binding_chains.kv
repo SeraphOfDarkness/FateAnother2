@@ -15,7 +15,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
 		"AnimationPlaybackRate" 		"1.25"
 
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastRange"				"%cast_range"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"34"
@@ -26,17 +26,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.8"
+				"cast_delay"			"0.6"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"175 225 275 325 375"
+				"cast_range"			"175 200 225 250 300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"0.8"
 			}			
 			"05"
 			{
@@ -61,7 +61,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"250 275 300 325 350"
+				"stay_range"			"250 300 350 400 350"
 			}
 		}		
 
@@ -108,7 +108,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
 		"AnimationPlaybackRate" 		"1.25"
 
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastRange"				"%cast_range"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"34"
@@ -118,17 +118,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.8"
+				"cast_delay"			"0.6"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"175 225 275 325 375"
+				"cast_range"			"175 200 225 250 300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"0.8"
 			}			
 			"05"
 			{
@@ -219,7 +219,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"700 725 750 775 800"
+				"cast_range"			"700 750 800 850 900"
 			}
 			"02"
 			{
@@ -440,7 +440,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"1"
+				"damage_per_int"		"2"
 			}	
 			"02"
 			{
@@ -472,10 +472,10 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"AbilityTextureName"			"custom/semiramis/semiramis_dualclass"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"20"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
@@ -485,7 +485,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "hard_cooldown"					"20"
+		        "hard_cooldown"					"10"
 		    }		    
 		    "01"
 		    {
@@ -557,10 +557,10 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"AbilityTextureName"			"custom/semiramis/semiramis_dualclass"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"2"
 		"AbilityManaCost"				"0"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
@@ -570,7 +570,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "hard_cooldown"					"4"
+		        "hard_cooldown"					"2"
 		    }		    
 		    "01"
 		    {
@@ -580,7 +580,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_spd"					"40"
+		        "bonus_spd"					"60"
 		    }
 		    "01"
 		    {
@@ -621,7 +621,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_spd"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_spd"
 				}	
 			}						
 
@@ -742,12 +742,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4 4.5 5 5.5 6"
+				"duration"				"4 5 6 7 8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_spd"				"5 10 15 20 25"
+				"bonus_spd"				"10 14 18 22 26"
 			}
 		}
 
@@ -1227,7 +1227,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"dps"					"2000"
+				"dps"					"3000"
 			}		
 			"02"
 			{
@@ -1293,7 +1293,7 @@
 			"modifier_tiatum_umu_execute"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Duration"			"2.5"
@@ -1739,8 +1739,13 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "mana_drain_per_second"		"0 10"
-		    }		   
+		        "health_and_mana_drain_per_second"		"0 10"
+		    }		   		   
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "slow"						"0 -20"
+		    }
 		     "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
@@ -1774,6 +1779,11 @@
 				"IsDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Duration"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%_slow"
+				}
 			}			
 		}
 	}

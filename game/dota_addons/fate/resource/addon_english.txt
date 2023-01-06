@@ -8519,7 +8519,7 @@
 		"DOTA_Tooltip_ability_semiramis_presence_concealment" 								"<font color='#9FFFCC'>Presence Concealment</font>"
 		"DOTA_Tooltip_ability_semiramis_presence_concealment_Description" 			"Semiramis conceals her presence, going invisible and moving at a faster speed."
 		"DOTA_Tooltip_ability_semiramis_presence_concealment_duration" 				"INVISIBLITY DURATION:"
-		"DOTA_Tooltip_ability_semiramis_presence_concealment_bonus_spd" 			"BONUS MOVESPEED:"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_bonus_spd" 			"%BONUS MOVESPEED:"
 
 		"DOTA_Tooltip_ability_semiramis_poisonous_cloud" 						"<font color='#9FFFCC'>Poison Aura</font>"
 		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_Description" 			"Semiramis poisons the air around her, dealing damage to the area around her every few ticks and applying <font color='#FF3399'>Poison Aura Debuff</font> to enemies hit. \n<font color='#FF3399'>Poison Aura Debuff</font> : Magic resistance lowered."
@@ -8539,7 +8539,7 @@
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage" 				"GARDEN ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_movespeed" 			"GARDEN MOVE SPEED:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_duration" 			"GARDEN LIFETIME:"
-		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_slow" 			"GARDEN QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_slow" 			"%GARDEN QUAKE SLOW:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_radius" 			"GARDEN QUAKE RADIUS:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_quake_duration" 			"GARDEN QUAKE DURATION:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage" 					"DEBRIS DAMAGE:"
@@ -8554,7 +8554,7 @@
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage" 				"GARDEN ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_movespeed" 			"GARDEN MOVE SPEED:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_duration" 			"GARDEN LIFETIME:"
-		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_slow" 			"GARDEN QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_slow" 			"%GARDEN QUAKE SLOW:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_radius" 			"GARDEN QUAKE RADIUS:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_quake_duration" 			"GARDEN QUAKE DURATION:"
 		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage" 					"DEBRIS DAMAGE:"
@@ -8613,8 +8613,9 @@
 		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_radius" 				"RADIUS:"
 
 		"DOTA_Tooltip_ability_hanging_garden_presence"				"<font color='#9FFFCC'>Absolute Garden Authority</font>"
-		"DOTA_Tooltip_ability_hanging_garden_presence_Description" 			"<font color='#58ACFA'>PASSIVE</font> : Hanging garden will absorb mana from nearby enemy heroes every second."
-		"DOTA_Tooltip_ability_hanging_garden_presence_mana_drain_per_second" 				"MANA DRAIN PER SECOND:"
+		"DOTA_Tooltip_ability_hanging_garden_presence_Description" 			"<font color='#58ACFA'>PASSIVE</font> : Hanging garden will slow and absorb mana from nearby enemy heroes every second."
+		"DOTA_Tooltip_ability_hanging_garden_presence_mana_drain_per_second" 				"HEALTH AND MANA DRAIN PER SECOND:"
+		"DOTA_Tooltip_ability_hanging_garden_presence_slow" 								"%SLOW:"
 		"DOTA_Tooltip_ability_hanging_garden_presence_radius" 				"DRAIN RADIUS:"
 
 		//====================================
@@ -8629,12 +8630,12 @@
 		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_spd"						"BONUS MOVE SPEED:"
 
 		"DOTA_Tooltip_ability_semiramis_attribute_territory" 								"<font color='#9FFFCC'>Attribute: Improve Territory Creation</font>"
-		"DOTA_Tooltip_ability_semiramis_attribute_territory_Description"					"<font color='#FFB266'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font> : All abilities in garden will be levelled up by 1, garden gains new ability <font color='#9FFFCC'>Absolute Garden Authority</font>. Cast time reduced, Gain bonuses. \n<font color='#9FFFCC'>Absolute Garden Authority</font> : Garden will now drain mana from nearby enemy heroes."
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_Description"					"<font color='#FFB266'>Aerial Garden of Vanity - Hanging Gardens of Babylon</font> : All abilities in garden will be levelled up by 1, garden gains new ability <font color='#9FFFCC'>Absolute Garden Authority</font>. Cast time reduced, Gain bonuses. \n<font color='#9FFFCC'>Absolute Garden Authority</font> : Garden will now slow and drain mana from nearby enemy heroes."
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_delay" 					"NEW CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_point" 					"NEW CAST POINT:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_health" 					"NEW GARDEN HEALTH:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_damage" 					"NEW GARDEN DAMAGE:"
-		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_slow" 					"NEW QUAKE SLOW:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_slow" 					"%NEW QUAKE SLOW:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_radius" 					"NEW QUAKE RADIUS:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_duration" 				"NEW QUAKE DURATION:"
 		"DOTA_Tooltip_ability_semiramis_attribute_territory_duration" 						"NEW LIFETIME:"
@@ -8650,7 +8651,7 @@
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#FFB266'>Sikera Ušum - Arrogant King's Alcohol</font> : Gain bonus damage, burst damage, and scales from Semiramis <font color='#00F7FF'>INT</font>. \n<font color='#FFB266'>Binding Chains</font> : Now deals damage. \n<font color='#FFB266'>Poisoned Wine</font> : Now scales from INT."
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_bonus"					"SIKERA USUM BONUS BURST DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_int"				"SIKERA USUM BONUS DAMAGE PER INT:"
-		"DOTA_Tooltip_ability_semiramis_attribute_charmer_dps_per_int"					"SIKERA USUM BONUS BURST DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_burst_per_int"					"SIKERA USUM BONUS BURST DAMAGE PER INT:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage"						"BINDING CHAINS DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer_damage_per_intt"				"POISONED WINE DAMAGE PER INT:"
 

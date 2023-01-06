@@ -1,3 +1,11 @@
+Fix endless rounds
+Fix attempt robin particle invis, yay (I think)
+Fix attempt semiramis particle invis, yay (I think)
+Fix bugs, semiramis, obviously, again
+Fix tooltips
+
+Small changes to semiramis abilities, minor buffs.
+-------------
 Fix a buttload of semiramis bug
 Fixed robin not gaining gold per second from SA
 Fixed robin not doing crit

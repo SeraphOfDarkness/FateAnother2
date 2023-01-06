@@ -51,7 +51,12 @@ function OnPoisonousBite(keys)
 						local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 						for k,v in pairs(enemies) do
 							if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
-								DoDamage(caster, v, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+							   	if caster.IsCharmAcquired then
+									local burst_per_int = ability:GetSpecialValueFor("burst_per_int")
+									DoDamage(caster, target, damage + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+								else
+									DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+								end
 								v:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
 							end	
 						end
@@ -282,6 +287,10 @@ function OnClassSwap(keys)
 	else
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dual_class_cooldown", {})
 
+		if caster:HasModifier("modifier_combo_window") then 
+			caster:RemoveModifierByName("modifier_combo_window")
+		end
+
 		if caster:HasModifier("modifier_semiramis_class_assassin")  then
 			caster:RemoveModifierByName("modifier_semiramis_class_assassin")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_class_caster", {})
@@ -360,7 +369,7 @@ function OnHangingGardensCast(keys)
 
 	ScreenShake(caster:GetOrigin(), 3, 0.2, 3.5, 4000, 0, true)
 
-	local cracks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_crack.vpcf", PATTACH_CUSTOMORIGIN, caster )
+	local cracks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_crack.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl(cracks, 0, targetpoint)
 
 	EmitGlobalSound("Semi.CasterR1")
@@ -402,7 +411,8 @@ function OnHangingGardensCast(keys)
 
 				Timers:CreateTimer(0.05, function()
 					garden:SetMaxHealth(garden_health)
-					garden:SetHealth(garden_health)
+					garden:SetBaseMaxHealth(garden_health)
+					garden:SetHealth(garden_health - 1)
 					garden:SetMana(garden:GetMaxMana() * 0.4)
 					garden:SetBaseDamageMin(garden_damage)
 					garden:SetBaseDamageMax(garden_damage)
@@ -417,7 +427,8 @@ function OnHangingGardensCast(keys)
 
 				Timers:CreateTimer(0.05, function()
 					garden:SetMaxHealth(garden_health)
-					garden:SetHealth(garden_health)
+					garden:SetBaseMaxHealth(garden_health)
+					garden:SetHealth(garden_health - 1)
 					garden:SetMana(garden:GetMaxMana() * 0.4)
 					garden:SetBaseDamageMin(garden_damage)
 					garden:SetBaseDamageMax(garden_damage)
@@ -440,7 +451,7 @@ function OnHangingGardensCast(keys)
 			garden:AddNewModifier(caster, nil, "modifier_kill", { Duration = ability:GetSpecialValueFor("duration") })
 
 
-			local rocks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_build.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			local rocks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_build.vpcf", PATTACH_CUSTOMORIGIN, nil )
 			ParticleManager:SetParticleControl( rocks, 0, targetpoint)
 
 			garden:SetControllableByPlayer(caster:GetPlayerID(), true)
@@ -516,6 +527,7 @@ function OnTiatumUmuCast(keys)
 	local ult = caster:FindAbilityByName(caster.RSkill)
 	ult:StartCooldown(ult:GetCooldown(ult:GetLevel()))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tiatum_umu_cooldown", {})	
+	caster:RemoveModifierByName("modifier_combo_window")
 
    	EmitGlobalSound("Semi.Combo")
 
@@ -544,11 +556,11 @@ function OnTiatumUmuCast(keys)
 		end
 	end
 
-	local charge = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_channel.vpcf", PATTACH_CUSTOMORIGIN, caster )
+	local charge = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_channel.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl( charge, 0, garden:GetAbsOrigin() + Vector(0,0,200))
 
 	Timers:CreateTimer(cast_delay - 0.8, function()
-		local Shine = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_shine.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		local Shine = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_shine.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl( Shine, 0, garden:GetAbsOrigin() + Vector(0,0,200))
 
 
@@ -561,12 +573,12 @@ function OnTiatumUmuCast(keys)
 	end)
 
 	Timers:CreateTimer(cast_delay + 0.1, function()
-		local laser = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_laser.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		local laser = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_laser.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl( laser, 0, garden:GetAbsOrigin() + Vector(0,0,200))
 		ParticleManager:SetParticleControl( laser, 1, targetpoint)
 
 		Timers:CreateTimer(duration, function()
-			local flek = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_ground_flek.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			local flek = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_ground_flek.vpcf", PATTACH_CUSTOMORIGIN, nil )
 			ParticleManager:SetParticleControl(flek, 0, targetpoint)
 			ParticleManager:DestroyParticle(laser,true)
 		end)
@@ -584,12 +596,12 @@ function OnTiatumUmuCast(keys)
 	end)
 
 	Timers:CreateTimer(cast_delay + 0.05, function()
-		local explosion = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_explosion_area.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		local explosion = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_explosion_area.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl( explosion, 0, targetpoint)
 	end)
 
 	Timers:CreateTimer(cast_delay + duration, function()
-		local scorch = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_scorch.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		local scorch = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_scorch.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl(scorch, 0, targetpoint)
 	end)
 end
@@ -600,12 +612,19 @@ function OnMountStart(keys)
 	local max_range = ability:GetSpecialValueFor("max_range")
 	local hero = caster:GetOwnerEntity()
 
+	local maxhealth = caster:GetMaxHealth()
+	local curhealth = caster:GetHealth()
+
 	Timers:CreateTimer(0, function()
 		if caster:IsAlive() and not hero:HasModifier("jump_pause") then
 			if hero.IsMounted then
 				if GridNav:IsBlocked(caster:GetAbsOrigin()) or not GridNav:IsTraversable(caster:GetAbsOrigin()) then
 					keys.ability:EndCooldown()
 					SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Unmount")
+
+						caster:SetMaxHealth(maxhealth)
+						caster:SetBaseMaxHealth(maxhealth)
+						caster:SetHealth(curhealth)
 					return			
 				else
 					hero:RemoveModifierByName("modifier_semiramis_mounted")
@@ -613,6 +632,10 @@ function OnMountStart(keys)
 					caster:SwapAbilities("semiramis_hanging_garden_sikera_usum", "fate_empty3", false, true) 
 					hero.IsMounted = false
 					SendMountStatus(hero)
+
+					caster:SetMaxHealth(maxhealth)
+					caster:SetBaseMaxHealth(maxhealth)
+					caster:SetHealth(curhealth)
 				end
 			elseif (caster:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < max_range and not hero:HasModifier("stunned") and not hero:HasModifier("modifier_stunned") then 
 				hero.IsMounted = true
@@ -620,6 +643,10 @@ function OnMountStart(keys)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_garden_mounted", {})  
 				caster:SwapAbilities("fate_empty3", "semiramis_hanging_garden_sikera_usum", false, true) 
 				SendMountStatus(hero)
+
+					caster:SetMaxHealth(maxhealth)
+					caster:SetBaseMaxHealth(maxhealth)
+					caster:SetHealth(curhealth)
 				return 
 			end
 		end
