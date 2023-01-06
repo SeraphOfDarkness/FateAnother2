@@ -35,6 +35,7 @@ function OnPoisonousBite(keys)
 			else
 				DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			end
+
 			target:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
 
 			Timers:CreateTimer(duration, function()
@@ -53,9 +54,9 @@ function OnPoisonousBite(keys)
 							if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
 							   	if caster.IsCharmAcquired then
 									local burst_per_int = ability:GetSpecialValueFor("burst_per_int")
-									DoDamage(caster, target, damage + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+									DoDamage(caster, target, damage_burst + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								else
-									DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+									DoDamage(caster, target, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								end
 								v:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
 							end	
