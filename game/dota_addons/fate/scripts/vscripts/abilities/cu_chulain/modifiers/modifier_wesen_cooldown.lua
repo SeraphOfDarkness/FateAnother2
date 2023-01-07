@@ -109,13 +109,13 @@ function kjlpluo1596:c48dsq5(pId,victory)
 	a778v.tgn = (a778v.tgn or 0) + 1
 	a778v.twn = (a778v.twn or 0) + victory
 	a778v.wrp = string.format("%.1f",a778v.twn / a778v.tgn * 100)
-	s7v8az.tdc = (s7v8az.tdc or 0) + (hhero.DeathCount or 0)
+	s7v8az.tdc = (s7v8az.tdc or 1) + (hhero.DeathCount or 0)
 	s7v8az.tdk = (s7v8az.tdk or 0) + (hhero.ServStat.assist or 0)
 	s7v8az.tkn = (s7v8az.tkn or 0) + (hhero.ServStat.kill or 0)
 	s7v8az.kda = string.format("%.1f",(s7v8az.tkn + s7v8az.tdk ) / s7v8az.tdc)
 	s7v8az.kd = string.format("%.1f",s7v8az.tkn / s7v8az.tdc)
 	kiok.tgn = (kiok.tgn or 0) + 1
-	if string.match(GetMapName(), "fate_elim") and ServerTables:GetTableValue("MaxPlayers", "total_player") == DOTA_MAX_TEAM_PLAYERS then
+	if string.match(GetMapName(), "fate_elim") and ServerTables:GetTableValue("Players", "total_player") == ServerTables:GetTableValue("MaxPlayers", "total_player") then
 		if self.old_data[pId].STT.mcs.tgn < 10 then 
 			self.old_data[pId].STT.mcs.twn = self.old_data[pId].STT.mcs.twn + victory
 			self.old_data[pId].STT.mcs.tgn = self.old_data[pId].STT.mcs.tgn + 1

@@ -908,6 +908,7 @@ tCannotDetect = {
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_phantom_assassin",
 }
 --before revive
 tDangerousBuffs = {
@@ -1178,7 +1179,6 @@ tCasterClass = {
     "npc_dota_hero_windrunner",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_necrolyte",
-    "npc_dota_hero_phantom_assassin",
 }
 
 tAssassinClass = {
@@ -1187,6 +1187,7 @@ tAssassinClass = {
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_phantom_assassin",
 }
 
 tBerserkerClass = {

@@ -3230,7 +3230,7 @@ function FateGameMode:OnEntityKilled( keys )
             killedUnit.ServStat:onDeath()
             -- Add to death count
             if killedUnit.DeathCount == nil then
-                killedUnit.DeathCount = 0
+                killedUnit.DeathCount = 1
             elseif killedUnit:GetName() == "npc_dota_hero_doom_bringer" then
                 if not killedUnit.bIsGHReady or IsTeamWiped(killedUnit) or killedUnit.GodHandStock == 0 then
                     killedUnit.DeathCount = killedUnit.DeathCount + 1
