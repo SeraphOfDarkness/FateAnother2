@@ -430,7 +430,7 @@ function OnElectricFieldStart(keys)
 		       	end
 		    end
 		    print('Lightning Damage ' .. dmg_per_charge * charge_use)
-		    caster:Heal(heal_per_charge * charge_use, caster)
+		    caster:FateHeal(heal_per_charge * charge_use, caster,true)
 		    print('Heal ' .. heal_per_charge * charge_use)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_fran_mana_burst", {Duration = duration_per_charge * charge_use})
         	caster:SetModifierStackCount("modifier_fran_mana_burst", caster, charge_use)
@@ -507,7 +507,7 @@ function BlastedLightning(caster, ability, point, damage, aoe, particle)
  	for _,thundertarget in pairs (thunder) do
  		if IsValidEntity(thundertarget) and not thundertarget:IsNull() and thundertarget:IsAlive() then
 	 		if thundertarget == caster then 
-	 			caster:Heal(damage, caster)
+	 			caster:FateHeal(damage, caster,true)
 	 			local keys = {
 	 				caster = caster,
 	 			}

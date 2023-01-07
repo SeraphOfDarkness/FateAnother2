@@ -965,7 +965,7 @@
 				"Aura"					"modifier_la_black_luna_slow_dummy"
 				"Aura_Radius"			"%slow_radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+				"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
 				"ThinkInterval"					"0.1"
 				"OnIntervalThink"
 				{
@@ -995,8 +995,9 @@
 			"modifier_la_black_luna_slow_dummy"
 			{
 				"IsHidden"		"1"
-				"ThinkInterval"					"0.1"
-				"OnIntervalThink"
+				"IsBuff"		"1"
+				//"ThinkInterval"					"0.1"
+				"OnCreated"
 				{
 					"RunScript"
 					{
@@ -1033,6 +1034,7 @@
 			"modifier_la_black_luna_silence_dummy"
 			{
 				"IsHidden"		"1"
+				"IsBuff"		"1"
 				"ThinkInterval"					"0.1"
 				"OnIntervalThink"
 				{

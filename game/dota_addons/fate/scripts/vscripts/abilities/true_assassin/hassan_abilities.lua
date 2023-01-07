@@ -435,7 +435,7 @@ function OnSelfModStart (keys)
 		return nil
 	end)
 
-	caster:Heal(heal_amount, caster)
+	caster:FateHeal(heal_amount, caster, true)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ta_self_mod", {})
 
 	if str > agi and str > int then 
@@ -474,7 +474,7 @@ function OnSelfModStart (keys)
 			local allies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for k,v in pairs(allies) do 
 				if IsValidEntity(v) and not v:IsNull() then
-					v:Heal(mod_int_heal * int, caster)
+					v:FateHeal(mod_int_heal * int, caster, true)
 					local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
 					ParticleManager:SetParticleControl(particle1, 1, v:GetAbsOrigin())
 					-- Destroy particle after delay

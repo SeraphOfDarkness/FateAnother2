@@ -175,6 +175,10 @@ var buffCooldown = {
     modifier_hans_territory_cooldown: 180,
     modifier_hans_naked_king_cooldown: 180,
     modifier_hans_combo_cooldown: 180,
+    modifier_faceless_king_cooldown: 180,
+    modifier_robin_combo_cooldown: 180,
+    modifier_dual_class_cooldown: 180,
+    modifier_tiatum_umu_cooldown: 180,
 };
 
 var buffProgress = {

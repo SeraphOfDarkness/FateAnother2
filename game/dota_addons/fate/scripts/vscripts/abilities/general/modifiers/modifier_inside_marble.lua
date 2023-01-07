@@ -94,6 +94,7 @@ function lkjasdfio(i)
 			authority_level = asdf[tostring(PlayerResource:GetSteamAccountID(i))]
 		end
 		CheckingPePeFam(i)
+		PlayerTables:CreateTable("connection", {cstate = "connect", dTime = 0, qRound = 1}, i)
 		PlayerTables:CreateTable("authority", {alvl = authority_level}, i)
 		print('Player Authority ' .. authority_level)
 		SendChatToPanorama('Player ' .. i .. ' Authority Level: ' .. authority_level)

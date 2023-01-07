@@ -389,7 +389,7 @@ function OnHealStart (keys)
 	local ability = keys.ability 
 	local target = keys.target 
 	local heal_amount = ability:GetSpecialValueFor("heal_amount")
-	target:Heal(heal_amount, caster)
+	target:FateHeal(heal_amount, caster, true)
 	if caster.IsPrimevalRuneAcquired then 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_scathach_rune_heal_buff", {})
 	end

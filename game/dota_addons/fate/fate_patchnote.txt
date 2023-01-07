@@ -1,11 +1,33 @@
-Fix endless rounds
-Fix attempt robin particle invis, yay (I think)
-Fix attempt semiramis particle invis, yay (I think)
-Fix bugs, semiramis, obviously, again
-Fix tooltips
 
-Small changes to semiramis abilities, minor buffs.
--------------
+Revert to no bush MAP
+Add Semiramis to Fate Pedia
+Reset all MMR
+Complete MMR System
+Add Player Point(PP) System
+
+MMR System
+- everyone start with MMR 1000
+1.Calibrate MMR for 10 games
+2.MMR gain base on win-lose, role and MVP
+Win +10, lose -10, MVP +5, role +(0 - 10)
+
+PP System
+- everyone has 100 PP
+- left game before game end will get -5 PP
+- Finish game +1 PP
+- PP will affect CP gain per game (exclude 1st game per day CP and other effect CP)
+110 PP get 110% CP
+91 - 109 PP get 100% CP
+81 - 90 PP get 80% CP
+70 - 80 PP get 50% CP
+<70 PP get 0 CP
+
+Semiramis
+-Combo
+Total Manacost: 1800 >> 1200
+
+------------
+
 Fix a buttload of semiramis bug
 Fixed robin not gaining gold per second from SA
 Fixed robin not doing crit
