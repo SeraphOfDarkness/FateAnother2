@@ -1,8 +1,10 @@
-Semiramis MS 
-290 -> 330
+Semiramis MS 290 -> 330
 
-Combo AOE
-500 -> 550 (To fit particle properly)
+Combo AOE 500 -> 550 (To fit particle properly)
+
+Garden mana 1000 -> 1500
+Garden health regen 0 -> 5
+Starting mana 500 -> 750
 
 Fix semiramis R not slowing enemy
 -------------
