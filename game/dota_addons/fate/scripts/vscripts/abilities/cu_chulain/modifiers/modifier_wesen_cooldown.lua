@@ -55,7 +55,7 @@ function kjlpluo1596:initialize(i,v)
 	    self.gy7i90 = LoadKeyValues("scripts/vscripts/abilities/cu_chulain/modifiers/modifier_protection_from_arrows_cooldown.kv")
 	    self.old_data = iupoasldm.jyiowe or {}
 		--print(self.old_data)
-		if PlayerTables:GetTableValue("database", "db", i) == true and ServerTables:GetTableValue("Players", "total_player", i) > 1 and not GameRules:IsCheatMode() then
+		if PlayerTables:GetTableValue("database", "db", i) == true and ServerTables:GetTableValue("Players", "total_player") > 1 and not GameRules:IsCheatMode() then
 			print('Start Data Calculate')
 			SendChatToPanorama('Player ' .. i .. ': Start Data Calculate')
 			self:c48dsq5(i,v)
@@ -96,11 +96,11 @@ function kjlpluo1596:c48dsq5(pId,victory)
 	kghyio.tgn = (kghyio.tgn or 0) + 1
 	kghyio.twn = (kghyio.twn or 0) + victory
 	kghyio.wrp = string.format("%.1f",kghyio.twn / kghyio.tgn * 100)
-	uiopqwe.tdc = (uiopqwe.tdc or 0) + (hhero.DeathCount or 0)
+	uiopqwe.tdc = (uiopqwe.tdc or 0) + (hhero.ServStat.death or 0)
 	uiopqwe.tdk = (uiopqwe.tdk or 0) + (hhero.ServStat.assist or 0)
 	uiopqwe.tkn = (uiopqwe.tkn or 0) + (hhero.ServStat.kill or 0)
-	uiopqwe.kda = string.format("%.1f",(uiopqwe.tkn + uiopqwe.tdk ) / uiopqwe.tdc)
-	uiopqwe.kd = string.format("%.1f",uiopqwe.tkn / uiopqwe.tdc)
+	uiopqwe.kda = string.format("%.1f",(uiopqwe.tkn + uiopqwe.tdk ) / math.max(uiopqwe.tdc,1) )
+	uiopqwe.kd = string.format("%.1f",uiopqwe.tkn / math.max(uiopqwe.tdc,1))
 	ku890.tdm = (ku890.tdm or 0) + (hhero.ServStat.damageDealt or 0)
 	ku890.tdn = (ku890.tdn or 0) + (hhero.ServStat.tkill or 0)
 	ku890.tga = (ku890.tga or 0) + (hhero.ServStat.itemValue or 0)
@@ -109,22 +109,25 @@ function kjlpluo1596:c48dsq5(pId,victory)
 	a778v.tgn = (a778v.tgn or 0) + 1
 	a778v.twn = (a778v.twn or 0) + victory
 	a778v.wrp = string.format("%.1f",a778v.twn / a778v.tgn * 100)
-	s7v8az.tdc = (s7v8az.tdc or 1) + (hhero.DeathCount or 0)
+	s7v8az.tdc = (s7v8az.tdc or 1) + (hhero.ServStat.death or 0)
 	s7v8az.tdk = (s7v8az.tdk or 0) + (hhero.ServStat.assist or 0)
 	s7v8az.tkn = (s7v8az.tkn or 0) + (hhero.ServStat.kill or 0)
-	s7v8az.kda = string.format("%.1f",(s7v8az.tkn + s7v8az.tdk ) / s7v8az.tdc)
-	s7v8az.kd = string.format("%.1f",s7v8az.tkn / s7v8az.tdc)
+	s7v8az.kda = string.format("%.1f",(s7v8az.tkn + s7v8az.tdk ) / math.max(s7v8az.tdc,1))
+	s7v8az.kd = string.format("%.1f",s7v8az.tkn / math.max(s7v8az.tdc,1))
 	kiok.tgn = (kiok.tgn or 0) + 1
-	if string.match(GetMapName(), "fate_elim") and ServerTables:GetTableValue("Players", "total_player") == ServerTables:GetTableValue("MaxPlayers", "total_player") then
+	local total_players = ServerTables:GetTableValue("Players", "total_player")
+	local max_players = ServerTables:GetTableValue("MaxPlayers", "total_player")
+	--print('total players: ' .. total_players .. ', max players: ' .. max_players)
+	if string.match(GetMapName(), "fate_elim") and total_players == max_players then
 		if self.old_data[pId].STT.mcs.tgn < 10 then 
 			self.old_data[pId].STT.mcs.twn = self.old_data[pId].STT.mcs.twn + victory
 			self.old_data[pId].STT.mcs.tgn = self.old_data[pId].STT.mcs.tgn + 1
 			self.old_data[pId].STT.mcs.wrp = string.format("%.1f",self.old_data[pId].STT.mcs.twn / self.old_data[pId].STT.mcs.tgn * 100)
 			self.old_data[pId].STT.mcs.tdk = self.old_data[pId].STT.mcs.tdk + (hhero.ServStat.assist or 0)
-			self.old_data[pId].STT.mcs.tdc = self.old_data[pId].STT.mcs.tdc + (hhero.DeathCount or 1)
+			self.old_data[pId].STT.mcs.tdc = self.old_data[pId].STT.mcs.tdc + (hhero.ServStat.death or 1)
 			self.old_data[pId].STT.mcs.tkn = self.old_data[pId].STT.mcs.tkn + (hhero.ServStat.kill or 0)
-			self.old_data[pId].STT.mcs.kda = string.format("%.1f",(self.old_data[pId].STT.mcs.tkn + self.old_data[pId].STT.mcs.tdk ) / self.old_data[pId].STT.mcs.tdc)
-			self.old_data[pId].STT.mcs.kd = string.format("%.1f",self.old_data[pId].STT.mcs.tkn / self.old_data[pId].STT.mcs.tdc)
+			self.old_data[pId].STT.mcs.kda = string.format("%.1f",(self.old_data[pId].STT.mcs.tkn + self.old_data[pId].STT.mcs.tdk ) / math.max(self.old_data[pId].STT.mcs.tdc,1) )
+			self.old_data[pId].STT.mcs.kd = string.format("%.1f",self.old_data[pId].STT.mcs.tkn / math.max(self.old_data[pId].STT.mcs.tdc,1))
 			if self.old_data[pId].STT.mcs.tgn == 10 then 
 				local bonus = 0
 				if self.old_data[pId].STT.mcs.kd > 2.0 and self.old_data[pId].STT.mcs.kda > 4.0 then 
@@ -391,7 +394,7 @@ function kjlpluo1596:calcMMR(hero, role, head, threshold)
 	local criteria = role['criteria']
 	local mgain = max_score/criteria
 	local bmmr = 0
-	local ded = hero.DeathCount or 1
+	local ded = hero.ServStat.death or 1
 	local kill = hero.ServStat.kill 
 	local assist = hero.ServStat.assist
 	--print('criteria ' .. head .. ' threshold ' .. threshold)
@@ -450,8 +453,8 @@ end
 function kjlpluo1596:calcMVP()
 	print('cal MVP')
     LoopOverPlayers(function(ply, plyID, playerHero)
-    	playerHero.DeathCount = playerHero.DeathCount or 1
-    	local mvp_point = (3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.DeathCount)
+    	playerHero.ServStat.death = playerHero.ServStat.death or 1
+    	local mvp_point = (3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.ServStat.death) - (2 * playerHero.ServStat.tkill)
         if playerHero:GetTeamNumber() == 2 then
             table.insert(self.MVPA, {playerId = plyID, mvpPoint = mvp_point})
         else

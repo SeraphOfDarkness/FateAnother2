@@ -1,4 +1,7 @@
 
+Fix Lancelot Gatling bullet
+Fix MMR not collect
+----------
 Fix Grail ded
 Fix MMR not collect
 Fix Semiramis can be pinged
