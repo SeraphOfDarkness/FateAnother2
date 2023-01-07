@@ -1,4 +1,11 @@
+Semiramis MS 
+290 -> 330
 
+Combo AOE
+500 -> 550 (To fit particle properly)
+
+Fix semiramis R not slowing enemy
+-------------
 Revert to no bush MAP
 Add Semiramis to Fate Pedia
 Reset all MMR
@@ -26,6 +33,14 @@ Semiramis
 -Combo
 Total Manacost: 1800 >> 1200
 
+------------
+Fix endless rounds
+Fix attempt robin particle invis, yay (I think)
+Fix attempt semiramis particle invis, yay (I think)
+Fix bugs, semiramis, obviously, again
+Fix tooltips
+
+Small changes to semiramis abilities, minor buffs.
 ------------
 
 Fix a buttload of semiramis bug
