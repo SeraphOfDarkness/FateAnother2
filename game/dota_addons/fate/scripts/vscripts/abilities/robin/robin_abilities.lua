@@ -73,6 +73,7 @@ function OnGoldGain(keys)
 	local goldgain = ability:GetSpecialValueFor("goldpersecond")
 
     if caster:IsAlive() then 
+    	caster:SetGold(0, false)
     	caster:SetGold(caster:GetGold() + goldgain, true) 
     end
 end

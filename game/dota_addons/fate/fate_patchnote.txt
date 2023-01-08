@@ -3,9 +3,12 @@
 
 
 
+Fix Astolfo's silence
+Fix Hassan's dirk
+Fix Robin's gold
+Add Command "-heal"
 
-
-
+---------
 
 Fix MMR
 Now Seal 2 also reset Dirk and Vortigern's stacks

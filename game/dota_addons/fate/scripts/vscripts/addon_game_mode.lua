@@ -1344,6 +1344,28 @@ function FateGameMode:OnPlayerChat(keys)
         end
     end
 
+    if text == "-heal" then
+        if hero.AntiSpamCooldown7 ~= true then
+            local teamHeroes = {}
+            local values = {}
+            local rank = {}
+            LoopOverPlayers(function(ply, plyID, playerHero)
+                if playerHero:GetTeamNumber() == hero:GetTeamNumber() then
+                    table.insert(teamHeroes, FindName(playerHero:GetName()))
+                    table.insert(values, round(playerHero.ServStat.heal/playerHero.ServStat.round,2))
+                end
+            end)
+            for index,value in spairs(values, function(values,a,b) return values[b] < values[a] end) do
+                table.insert(rank, index)
+            end
+            hero.AntiSpamCooldown7 = true
+            Timers:CreateTimer(20, function()
+                hero.AntiSpamCooldown7 = false
+            end)
+            Say(hero:GetPlayerOwner(), "Average heal per round: ".."Top: "..tostring(teamHeroes[rank[1]])..", "..tostring(values[rank[1]])..". 2nd: "..tostring(teamHeroes[rank[2]])..", "..tostring(values[rank[2]])..". 3rd: "..tostring(teamHeroes[rank[3]])..", "..tostring(values[rank[3]])..".", true) 
+        end
+    end
+
     -- distribute excess gold above specified amount
     if limit then
         DistributeGoldV2(hero, tonumber(limit))

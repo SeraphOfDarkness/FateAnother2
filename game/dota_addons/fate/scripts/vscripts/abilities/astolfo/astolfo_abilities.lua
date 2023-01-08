@@ -284,7 +284,7 @@ function OnHornStart(keys)
 	AstolfoCheckCombo(caster, ability)
 	caster.currentHornManaCost = ability:GetManaCost(ability:GetLevel())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna_slow_aura", {})
-	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna_silence_aura", {})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna_silence_aura", {})
 
     if caster.IsDeafeningBlastAcquired then
     	ProjectileManager:ProjectileDodge(caster)

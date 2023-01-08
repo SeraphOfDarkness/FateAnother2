@@ -3551,6 +3551,11 @@ function OnHeroTakeDamage(keys)
     end
 end
 
+function CCTime(keys)
+    local hero = keys.caster
+    hero.ServStat:doControl(0.1)
+end
+
 function FxDestroyer(PIndex,instant)
   if PIndex ~= nil and type(PIndex) == "table" then
     --PrintTable(PIndex)

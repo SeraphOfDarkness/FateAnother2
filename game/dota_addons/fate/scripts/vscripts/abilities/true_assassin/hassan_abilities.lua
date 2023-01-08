@@ -106,13 +106,13 @@ function OnDirkStart(keys)
 		caster:Stop()
 		ability:EndCooldown()
 		caster:SetMana(caster:GetMana() + ability:GetManaCost(1))
-		ability:SetCurrentAbilityCharges(stacks + 1)
+		AddDaggerStackNEW(caster, 1)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Target")
 		return
 	end
 	if stacks == 0 then 
 		caster:Stop()
-		ability:EndCooldown()
+		--ability:EndCooldown()
 		caster:SetMana(caster:GetMana() + ability:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#No_Daggers_Available")
 		return
@@ -174,7 +174,7 @@ function OnDirkAttack(keys)
 
 	if caster.IsWeakeningVenomAcquired and stacks > 0 and caster:GetMana() >= ability:GetManaCost(1) then 
 		--AddDaggerStack(keys, -1)
-		ability:SetCurrentAbilityCharges(stacks - 1)
+		AddDaggerStackNEW(caster, -1)
 		caster:SpendMana(ability:GetManaCost(1), ability)
 
 		local weak_stacks = target:GetModifierStackCount("modifier_dirk_weakening_venom", caster) or 0 
@@ -239,9 +239,29 @@ function OnDaggerRespawn(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local max_daggers = ability:GetSpecialValueFor("max_daggers")
-	ability:SetCurrentAbilityCharges(max_daggers)
+	AddDaggerStackNEW(caster, max_daggers)
     --[[caster.DaggerStack = max_daggers
 	AddDaggerStack(keys, max_daggers)]]
+end
+
+function AddDaggerStackNEW(caster, modifier)
+	local ability = caster:FindAbilityByName("hassan_dirk")
+	if ability == nil then 
+		ability = caster:FindAbilityByName("hassan_dirk_upgrade")
+	end
+	local maxStack = ability:GetSpecialValueFor("max_daggers")
+
+	local current_stack = ability:GetCurrentAbilityCharges()
+
+	local newStack = math.max(math.min(current_stack + modifier, maxStack), 0)
+
+	if newStack == 0 then 
+		ability:StartCooldown(ability:GetCooldown(1))
+	else
+		ability:EndCooldown()
+	end
+
+	ability:SetCurrentAbilityCharges(newStack)
 end
 
 function AddDaggerStack(keys, modifier)
@@ -361,9 +381,7 @@ function OnAmbushStart(keys)
 	if caster.IsWeakeningVenomAcquired then 
 
 		local recover_dagger = ability:GetSpecialValueFor("recover_dagger")
-		local dirk = caster:GetAbilityByIndex(3)
-		local stack = dirk:GetCurrentAbilityCharges()
-		dirk:SetCurrentAbilityCharges(stack + recover_dagger)
+		AddDaggerStackNEW(caster, recover_dagger)
 		--AddDaggerStack(keys, recover_dagger)
 	end
 
