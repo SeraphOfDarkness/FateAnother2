@@ -93,39 +93,39 @@ function kjlpluo1596:c48dsq5(pId,victory)
 		return
 	end
 
-	kghyio.tgn = (kghyio.tgn or 0) + 1
-	kghyio.twn = (kghyio.twn or 0) + victory
+	kghyio.tgn = kghyio.tgn + 1
+	kghyio.twn = kghyio.twn + victory
 	kghyio.wrp = string.format("%.1f",kghyio.twn / kghyio.tgn * 100)
-	uiopqwe.tdc = (uiopqwe.tdc or 0) + (hhero.ServStat.death or 0)
-	uiopqwe.tdk = (uiopqwe.tdk or 0) + (hhero.ServStat.assist or 0)
-	uiopqwe.tkn = (uiopqwe.tkn or 0) + (hhero.ServStat.kill or 0)
+	uiopqwe.tdc = uiopqwe.tdc + hhero.ServStat.death
+	uiopqwe.tdk = uiopqwe.tdk + hhero.ServStat.assist
+	uiopqwe.tkn = uiopqwe.tkn + hhero.ServStat.kill
 	uiopqwe.kda = string.format("%.1f",(uiopqwe.tkn + uiopqwe.tdk ) / math.max(uiopqwe.tdc,1) )
 	uiopqwe.kd = string.format("%.1f",uiopqwe.tkn / math.max(uiopqwe.tdc,1))
-	ku890.tdm = (ku890.tdm or 0) + (hhero.ServStat.damageDealt or 0)
-	ku890.tdn = (ku890.tdn or 0) + (hhero.ServStat.tkill or 0)
-	ku890.tga = (ku890.tga or 0) + (hhero.ServStat.itemValue or 0)
-	ku890.ttk = (ku890.ttk or 0) + (hhero.ServStat.damageTaken or 0)
-	ku890.thl = (ku890.thl or 0) + 0
-	a778v.tgn = (a778v.tgn or 0) + 1
-	a778v.twn = (a778v.twn or 0) + victory
+	ku890.tdm = ku890.tdm + hhero.ServStat.damageDealt
+	ku890.tdn = ku890.tdn + hhero.ServStat.tkill
+	ku890.tga = ku890.tga + hhero.ServStat.itemValue
+	ku890.ttk = ku890.ttk + hhero.ServStat.damageTaken
+	ku890.thl = ku890.thl + 0
+	a778v.tgn = a778v.tgn + 1
+	a778v.twn = a778v.twn + victory
 	a778v.wrp = string.format("%.1f",a778v.twn / a778v.tgn * 100)
-	s7v8az.tdc = (s7v8az.tdc or 1) + (hhero.ServStat.death or 0)
-	s7v8az.tdk = (s7v8az.tdk or 0) + (hhero.ServStat.assist or 0)
-	s7v8az.tkn = (s7v8az.tkn or 0) + (hhero.ServStat.kill or 0)
+	s7v8az.tdc = s7v8az.tdc + hhero.ServStat.death
+	s7v8az.tdk = s7v8az.tdk + hhero.ServStat.assist
+	s7v8az.tkn = s7v8az.tkn + hhero.ServStat.kill
 	s7v8az.kda = string.format("%.1f",(s7v8az.tkn + s7v8az.tdk ) / math.max(s7v8az.tdc,1))
 	s7v8az.kd = string.format("%.1f",s7v8az.tkn / math.max(s7v8az.tdc,1))
-	kiok.tgn = (kiok.tgn or 0) + 1
+	kiok.tgn = kiok.tgn + 1
 	local total_players = ServerTables:GetTableValue("Players", "total_player")
 	local max_players = ServerTables:GetTableValue("MaxPlayers", "total_player")
-	--print('total players: ' .. total_players .. ', max players: ' .. max_players)
-	if string.match(GetMapName(), "fate_elim") and total_players == max_players then
+	print('total players: ' .. total_players .. ', max players: ' .. max_players)
+	if string.match(GetMapName(), "fate_elim") and total_players >= max_players then
 		if self.old_data[pId].STT.mcs.tgn < 10 then 
 			self.old_data[pId].STT.mcs.twn = self.old_data[pId].STT.mcs.twn + victory
 			self.old_data[pId].STT.mcs.tgn = self.old_data[pId].STT.mcs.tgn + 1
 			self.old_data[pId].STT.mcs.wrp = string.format("%.1f",self.old_data[pId].STT.mcs.twn / self.old_data[pId].STT.mcs.tgn * 100)
-			self.old_data[pId].STT.mcs.tdk = self.old_data[pId].STT.mcs.tdk + (hhero.ServStat.assist or 0)
-			self.old_data[pId].STT.mcs.tdc = self.old_data[pId].STT.mcs.tdc + (hhero.ServStat.death or 1)
-			self.old_data[pId].STT.mcs.tkn = self.old_data[pId].STT.mcs.tkn + (hhero.ServStat.kill or 0)
+			self.old_data[pId].STT.mcs.tdk = self.old_data[pId].STT.mcs.tdk + hhero.ServStat.assist
+			self.old_data[pId].STT.mcs.tdc = self.old_data[pId].STT.mcs.tdc + hhero.ServStat.death
+			self.old_data[pId].STT.mcs.tkn = self.old_data[pId].STT.mcs.tkn + hhero.ServStat.kill
 			self.old_data[pId].STT.mcs.kda = string.format("%.1f",(self.old_data[pId].STT.mcs.tkn + self.old_data[pId].STT.mcs.tdk ) / math.max(self.old_data[pId].STT.mcs.tdc,1) )
 			self.old_data[pId].STT.mcs.kd = string.format("%.1f",self.old_data[pId].STT.mcs.tkn / math.max(self.old_data[pId].STT.mcs.tdc,1))
 			if self.old_data[pId].STT.mcs.tgn == 10 then 
@@ -160,16 +160,17 @@ function kjlpluo1596:c48dsq5(pId,victory)
 				SendChatToPanorama('Player ' .. pId .. ' is MVP: get bonus 5 MMR')
 				mmr_gain = mmr_gain + 5
 			end
-			if contable["cstate"] == "disconnect" and contable["qRound"] < self.total_round - 1 then 
-				self.old_data[pId].IFY.PP = self.old_data[pId].IFY.PP - 5
-				if mmr_gain > 0 then 
-					mmr_gain = 0 
-				end
-			else
-				self.old_data[pId].IFY.PP = math.min(self.old_data[pId].IFY.PP + 1, 110)
-			end
+			
 			self.old_data[pId].STT.MRT = self.old_data[pId].STT.MRT + mmr_gain
 		end
+	end
+	if contable["cstate"] == "disconnect" and contable["qRound"] < self.total_round - 1 then 
+		self.old_data[pId].IFY.PP = self.old_data[pId].IFY.PP - 5
+		if mmr_gain > 0 then 
+			mmr_gain = 0 
+		end
+	else
+		self.old_data[pId].IFY.PP = math.min(self.old_data[pId].IFY.PP + 1, 110)
 	end
 	print('Finish Calculate')
 	SendChatToPanorama('Player ' .. pId .. ': Finish Calculation.')

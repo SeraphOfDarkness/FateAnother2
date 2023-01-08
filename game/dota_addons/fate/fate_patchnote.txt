@@ -1,4 +1,16 @@
 
+
+
+
+
+
+
+
+
+Fix MMR
+Now Seal 2 also reset Dirk and Vortigern's stacks
+
+---------
 Fix Lancelot Gatling bullet
 Fix MMR not collect
 ----------

@@ -155,7 +155,7 @@
 		"quest16"			"Kill the enemy."
 
 		"Class"				"Servant Class:"
-		"Type"				"Type:"
+		"Type"				"Role:"
 		"Trait"				"Trait:"
 		"Hp"				"HP:"
 		"MR"				"MR:"

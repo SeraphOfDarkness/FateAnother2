@@ -3853,7 +3853,7 @@ function FateGameMode:InitGameMode()
 
     ServerTables:CreateTable("GameMap", {map = _G.GameMap})
     ServerTables:CreateTable("GameState", {state = "FATE_PRE_GAME"})
-    ServerTables:CreateTable("Players", {total_player = 1})
+    ServerTables:CreateTable("Players", {total_player = 0})
     ServerTables:CreateTable("LaPucelle", {active = false})
     ServerTables:CreateTable("GameMode", {mode = 'classic'})
     ServerTables:CreateTable("Condition", {dbhruntproh = false, female = 0, divine = 0})
@@ -4885,7 +4885,7 @@ function FateGameMode:OnConnectFull(keys)
     self.vUserIds = self.vUserIds or {}
     self.vUserIds[userID] = ply
 
-    ServerTables:SetTableValue("Players", "total_player", entIndex, true)
+    --ServerTables:SetTableValue("Players", "total_player", entIndex, true)
 
     CustomNetTables:SetTableValue("mode", "balance_mode", {mode = true}) 
     ServerTables:SetTableValue("GameModeChoice", "balance", "auto", true)

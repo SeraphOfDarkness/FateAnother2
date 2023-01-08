@@ -410,6 +410,13 @@ ChargeBasedBuffs = {
 	"modifier_doublespear_dearg",
 	"modifier_quickdraw_cooldown"
 }
+ 
+ChargeBuffReset = {
+	saber_alter_vortigern_upgrade = 3,
+	hassan_dirk = 4,
+	hassan_dirk_upgrade = 7,
+}
+
 
 function OnSeal1Start(keys)
 	local caster = keys.caster
@@ -469,6 +476,12 @@ function OnSeal1Start(keys)
 	})
 end
 
+function ResetCharge(ability)
+	if ChargeBuffReset[ability:GetAbilityName()] then 
+		ability:SetCurrentAbilityCharges(ChargeBuffReset[ability:GetAbilityName()])
+	end
+end
+
 function ResetAbilities(hero)
 	-- Reset all resetable abilities
 	RemoveChargeModifiers(hero)
@@ -476,6 +489,7 @@ function ResetAbilities(hero)
 		local ability = hero:GetAbilityByIndex(i)
 		if ability ~= nil then
 			if ability.IsResetable ~= false then
+				ResetCharge(ability)
 				ability:EndCooldown()
 			end
 		end
