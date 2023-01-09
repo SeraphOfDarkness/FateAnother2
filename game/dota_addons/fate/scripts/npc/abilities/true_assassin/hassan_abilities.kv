@@ -238,8 +238,6 @@
 		"AbilityCastRange"				"700"
 		"AbilityCooldown"				"4"
 		"AbilityManaCost"				"100"
-		"AbilityCharges"				"4"
-		"AbilityChargeRestoreTime"		"4.0"
 
 		"precache"
 		{
@@ -325,45 +323,29 @@
 		}
 		"Modifiers"
 		{
-	    	//"modifier_dirk_daggers_progress"
-	    	//{
-	    	//	"Passive"			"1"
-	    	//	"IsHidden"			"1"
-	    	//	"IsDebuff"			"0"
-	    	//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-	    	//	"OnCreated"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerStart"
-			//		}
-			//	}
-			//	"ThinkInterval"		"0.05"
-			//	"OnIntervalThink"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerThink"
-			//		}
-			//	}
-			//	"OnRespawn"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerRespawn"
-			//		}
-			//	}
-	    	//}
-			"modifier_dirk_daggers_show"
-			{
-				"IsHidden"		"1"
-				"IsBuff"		"1"
-				"Passive"		"1"
-				"IsPurgable"	"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	    	"modifier_dirk_daggers_progress"
+	    	{
+	    		"Passive"			"1"
+	    		"IsHidden"			"1"
+	    		"IsDebuff"			"0"
+	    		"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	    		"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/true_assassin/hassan_abilities"
+						"Function"		"OnDaggerStart"
+					}
+				}
+				"ThinkInterval"		"0.05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/true_assassin/hassan_abilities"
+						"Function"		"OnDaggerThink"
+					}
+				}
 				"OnRespawn"
 				{
 					"RunScript"
@@ -372,14 +354,14 @@
 						"Function"		"OnDaggerRespawn"
 					}
 				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-						"Function"		"OnDirkAttack"
-					}
-				}
+	    	}
+			"modifier_dirk_daggers_show"
+			{
+				"IsHidden"		"0"
+				"IsBuff"		"1"
+				"Passive"		"1"
+				"IsPurgable"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
 			
 			"modifier_dirk_poison"
@@ -436,8 +418,6 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"2"
 		"AbilityManaCost"				"50"
-		"AbilityCharges"				"7"
-		"AbilityChargeRestoreTime"		"2.0"
 
 		"precache"
 		{
@@ -544,53 +524,29 @@
 
 		"Modifiers"
 		{
-			//"modifier_dirk_daggers_progress"
-	    	//{
-	    	//	"Passive"			"1"
-	    	//	"IsHidden"			"1"
-	    	//	"IsDebuff"			"0"
-	    	//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-	    	//	"OnCreated"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerStart"
-			//		}
-			//	}
-			//	"ThinkInterval"		"0.05"
-			//	"OnIntervalThink"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerThink"
-			//		}
-			//	}
-			//	"OnRespawn"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDaggerRespawn"
-			//		}
-			//	}
-			//	"OnAttackLanded"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/true_assassin/hassan_abilities"
-			//			"Function"		"OnDirkAttack"
-			//		}
-			//	}
-	    	//}
-			"modifier_dirk_daggers_show"
-			{
-				"IsHidden"		"1"
-				"IsBuff"		"1"
-				"Passive"		"1"
-				"IsPurgable"	"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			"modifier_dirk_daggers_progress"
+	    	{
+	    		"Passive"			"1"
+	    		"IsHidden"			"1"
+	    		"IsDebuff"			"0"
+	    		"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	    		"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/true_assassin/hassan_abilities"
+						"Function"		"OnDaggerStart"
+					}
+				}
+				"ThinkInterval"		"0.05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/true_assassin/hassan_abilities"
+						"Function"		"OnDaggerThink"
+					}
+				}
 				"OnRespawn"
 				{
 					"RunScript"
@@ -607,6 +563,14 @@
 						"Function"		"OnDirkAttack"
 					}
 				}
+	    	}
+			"modifier_dirk_daggers_show"
+			{
+				"IsHidden"		"0"
+				"IsBuff"		"1"
+				"Passive"		"1"
+				"IsPurgable"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
 			
 			"modifier_dirk_poison"

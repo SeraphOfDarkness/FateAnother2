@@ -908,7 +908,6 @@ tCannotDetect = {
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_phantom_assassin",
 }
 --before revive
 tDangerousBuffs = {
@@ -1179,6 +1178,7 @@ tCasterClass = {
     "npc_dota_hero_windrunner",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_necrolyte",
+    "npc_dota_hero_phantom_assassin",
 }
 
 tAssassinClass = {
@@ -1187,7 +1187,6 @@ tAssassinClass = {
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_phantom_assassin",
 }
 
 tBerserkerClass = {
@@ -3549,11 +3548,6 @@ function OnHeroTakeDamage(keys)
         attackerHero.ServStat:doActualDamage(math.min(damageTaken,hero:GetMaxHealth()))
         hero.ServStat:takeActualDamage(math.min(damageTaken,hero:GetMaxHealth()))
     end
-end
-
-function CCTime(keys)
-    local hero = keys.caster
-    hero.ServStat:doControl(0.1)
 end
 
 function FxDestroyer(PIndex,instant)

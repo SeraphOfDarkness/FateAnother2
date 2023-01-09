@@ -1618,8 +1618,6 @@
 		"AbilityCooldown"				"27"
 		"AbilityManaCost"				"200"
 		"AbilityCastRange"				"600"
-		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"5"
 		
 		"AbilitySpecial"
 		{
@@ -1687,47 +1685,48 @@
 		
 		"Modifiers"
 		{
-			//"modifier_vortigern_ferocity_base"
-			//{
-			//	"IsHidden"		"1"
-			//	"IsBuff"		"1"
-			//	"Passive"		"1"
-			//	"IsPurgable"	"0"
-			//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			//}
-			//"modifier_vortigern_ferocity_show"
-			//{
-			//	"IsHidden"		"0"
-			//	"IsBuff"		"1"
-			//	"Passive"		"1"
-			//	"IsPurgable"	"0"
-			//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			//	"OnRespawn"
-			//	{
-			//		"RunScript"
-					//{
-			//			"ScriptFile"	"abilities/artoria_alter/saber_alter_abilities"
-			//			"Function"		"OnVortigernStackRespawn"
-			//		}
-			//	}
-			//}
-			//"modifier_vortigern_ferocity_progress"
-			//{
-			//	"IsHidden"		"0"
-			//	"IsBuff"		"1"
-			//	"Passive"		"0"
-			//	"IsPurgable"	"0"
-			//	"Duration"		"%recharge_time"
-			//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			//	"OnDestroy"
-			//	{
-			//		"RunScript"
-			//		{
-			//			"ScriptFile"	"abilities/artoria_alter/saber_alter_abilities"
-			//			"Function"		"OnVortigernStackGain"
-			//		}
-			//	}
-			//}
+			"modifier_vortigern_ferocity_base"
+			{
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Passive"		"1"
+				"IsPurgable"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_vortigern_ferocity_show"
+			{
+				"IsHidden"		"0"
+				"IsBuff"		"1"
+				"Passive"		"1"
+				"IsPurgable"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnRespawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/artoria_alter/saber_alter_abilities"
+						"Function"		"OnVortigernStackRespawn"
+					}
+				}
+			}
+			"modifier_vortigern_ferocity_progress"
+			{
+				"IsHidden"		"0"
+				"IsBuff"		"1"
+				"Passive"		"0"
+				"IsPurgable"	"0"
+				"Duration"		"%recharge_time"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/artoria_alter/saber_alter_abilities"
+						"Function"		"OnVortigernStackGain"
+					}
+				}
+			}
 		}
 	}
 	

@@ -42,4 +42,5 @@
 	"npc_dota_hero_skeleton_king"		"npc_dota_hero_kinghassan"	
 	"npc_dota_hero_necrolyte"			"npc_dota_hero_hans"
 	"npc_dota_hero_sniper"			"npc_dota_hero_robin"
+	//"npc_dota_hero_gyrocopter"		"npc_dota_hero_nobu"
 }

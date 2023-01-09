@@ -45,19 +45,19 @@ CCModifierStatic = {
     modifier_bathory_dragon_voice_deaf = true,
     modifier_bathory_cage_target = true,
     modifier_bloodfort_slow = true,
-    --modifier_mystic_eye_enemy_upgrade = true,
+    modifier_mystic_eye_enemy_upgrade = true,
     modifier_breaker_gorgon_stone = true,
     modifier_breaker_gorgon = true,
     modifier_bloodfort_seal = true,
     modifier_golden_wild_hunt_slow = true,
     modifier_blizzard_slow = true,
-    --modifier_la_black_luna_silence = true,
+    modifier_la_black_luna_silence = true,
     modifier_gilles_jellyfish_slow = true,
     modifier_white_queens_enigma_slow = true,
     modifier_plains_of_water_slow = true,
     modifier_doppelganger_lookaway_slow = true, 
     modifier_nameless_forest = true, 
-    --modifier_amaterasu_slow_enemy = true,
+    modifier_amaterasu_slow_enemy = true,
     modifier_subterranean_grasp = true,
     modifier_mystic_shackle = true,
     modifier_tamamo_ice_debuff = true,
@@ -81,7 +81,7 @@ CDOTA_BaseNPC.AddNewModifier = function(self, hCaster, hAbility, pszScriptName, 
     	return nil
     else
         local dur = hModifierTable["Duration"] or hModifierTable["duration"]
-        if self:IsRealHero() and hCaster:IsRealHero() and dur ~= nil and hCaster:GetTeam() ~= self:GetTeam() and CCModifierStatic[pszScriptName] == true then 
+        if self:IsRealHero() and hCaster:IsRealHero() and hCaster:GetTeam() ~= self:GetTeam() and CCModifierStatic[pszScriptName] == true then 
             hCaster.ServStat:doControl(dur)
         end
         if IsImmuneToCC(self) and pszScriptName == "modifier_stunned" then 
@@ -145,7 +145,11 @@ CDOTABaseAbility.ApplyDataDrivenModifier = function(self, hCaster, hTarget, pszM
     	return nil
     else
         local dur = hModifierTable["Duration"] or hModifierTable["duration"]
-        if hTarget:IsRealHero() and hCaster:IsRealHero() and dur ~= nil and hCaster:GetTeam() ~= hTarget:GetTeam() and CCModifierStatic[pszScriptName] == true then 
+        if hTarget:IsRealHero() and hCaster:IsRealHero() and hCaster:GetTeam() ~= hTarget:GetTeam() and CCModifierStatic[pszScriptName] == true then 
+            if dur == nil then 
+                dur = 0.5
+                print('CC no duration')
+            end
             hCaster.ServStat:doControl(dur)
         end
         return VALVE_ApplyDataDrivenModifier(self, hCaster, hTarget, pszModifierName, hModifierTable)

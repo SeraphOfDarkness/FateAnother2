@@ -639,8 +639,8 @@ HeroRoles  							// role for calculate: carry(reality marble/AA), assassin(snip
 				{
 					"weight"	"20"	// weight to calculate
 					"criteria"	"2"
-					"CC1"		"35"	// > avg CC duration per round
-					"CC2"		"70"	// > avg CC duration per round
+					"CC1"		"30"	// > avg CC duration per round
+					"CC2"		"40"	// > avg CC duration per round
 				}
 			}
 		}
@@ -734,10 +734,10 @@ HeroRoles  							// role for calculate: carry(reality marble/AA), assassin(snip
 				{
 					"weight"	"40"	// weight to calculate
 					"criteria"	"4"
-					"CC1"		"30"	// > avg CC duration per round
-					"CC2"		"45"	// > avg CC duration per round
-					"CC3"		"60"	// > avg CC duration per round
-					"CC4"		"75"	// > avg CC duration per round
+					"CC1"		"20"	// > avg CC duration per round
+					"CC2"		"30"	// > avg CC duration per round
+					"CC3"		"40"	// > avg CC duration per round
+					"CC4"		"50"	// > avg CC duration per round
 				}		
 			}
 			"2"	
@@ -895,8 +895,8 @@ HeroRoles  							// role for calculate: carry(reality marble/AA), assassin(snip
 					"weight"	"30"	// weight to calculate
 					"criteria"	"3"
 					"CC1"		"30"	// > avg CC duration per round
-					"CC2"		"50"	// > avg CC duration per round
-					"CC3"		"70"	// > avg CC duration per round
+					"CC2"		"45"	// > avg CC duration per round
+					"CC3"		"60"	// > avg CC duration per round
 				}
 			}
 		}

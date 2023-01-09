@@ -386,9 +386,9 @@ function iupoasldm:checkupdate(pId)
 			end
 		end
 	end
-	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 2 then
+	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 1 then
 		self.jyiowe[pId].STT.mcs = {
-			MRC = 2,
+			MRC = 1,
 			kda = 0, 
 			tdc = 0, 
 			tdk = 0, 

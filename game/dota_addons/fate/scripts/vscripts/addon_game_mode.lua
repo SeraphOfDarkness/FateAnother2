@@ -278,6 +278,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_gilg.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_atalanta.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource("soundfile", "soundevents/hero_lancer.vsndevts", context)                
@@ -336,6 +337,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_drowranger.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_naga_siren.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_sniper.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_beastmaster.vsndevts", context )
@@ -1341,28 +1343,6 @@ function FateGameMode:OnPlayerChat(keys)
             end)
             if hero.AvariceCount == nil then hero.AvariceCount = 0 end
             Say(hero:GetPlayerOwner(), "Total Avarice: " .. hero.AvariceCount, true) 
-        end
-    end
-
-    if text == "-heal" then
-        if hero.AntiSpamCooldown7 ~= true then
-            local teamHeroes = {}
-            local values = {}
-            local rank = {}
-            LoopOverPlayers(function(ply, plyID, playerHero)
-                if playerHero:GetTeamNumber() == hero:GetTeamNumber() then
-                    table.insert(teamHeroes, FindName(playerHero:GetName()))
-                    table.insert(values, round(playerHero.ServStat.heal/playerHero.ServStat.round,2))
-                end
-            end)
-            for index,value in spairs(values, function(values,a,b) return values[b] < values[a] end) do
-                table.insert(rank, index)
-            end
-            hero.AntiSpamCooldown7 = true
-            Timers:CreateTimer(20, function()
-                hero.AntiSpamCooldown7 = false
-            end)
-            Say(hero:GetPlayerOwner(), "Average heal per round: ".."Top: "..tostring(teamHeroes[rank[1]])..", "..tostring(values[rank[1]])..". 2nd: "..tostring(teamHeroes[rank[2]])..", "..tostring(values[rank[2]])..". 3rd: "..tostring(teamHeroes[rank[3]])..", "..tostring(values[rank[3]])..".", true) 
         end
     end
 
@@ -3252,7 +3232,7 @@ function FateGameMode:OnEntityKilled( keys )
             killedUnit.ServStat:onDeath()
             -- Add to death count
             if killedUnit.DeathCount == nil then
-                killedUnit.DeathCount = 1
+                killedUnit.DeathCount = 0
             elseif killedUnit:GetName() == "npc_dota_hero_doom_bringer" then
                 if not killedUnit.bIsGHReady or IsTeamWiped(killedUnit) or killedUnit.GodHandStock == 0 then
                     killedUnit.DeathCount = killedUnit.DeathCount + 1
@@ -3875,7 +3855,7 @@ function FateGameMode:InitGameMode()
 
     ServerTables:CreateTable("GameMap", {map = _G.GameMap})
     ServerTables:CreateTable("GameState", {state = "FATE_PRE_GAME"})
-    ServerTables:CreateTable("Players", {total_player = 0})
+    ServerTables:CreateTable("Players", {total_player = 1})
     ServerTables:CreateTable("LaPucelle", {active = false})
     ServerTables:CreateTable("GameMode", {mode = 'classic'})
     ServerTables:CreateTable("Condition", {dbhruntproh = false, female = 0, divine = 0})
@@ -4907,7 +4887,7 @@ function FateGameMode:OnConnectFull(keys)
     self.vUserIds = self.vUserIds or {}
     self.vUserIds[userID] = ply
 
-    --ServerTables:SetTableValue("Players", "total_player", entIndex, true)
+    ServerTables:SetTableValue("Players", "total_player", entIndex, true)
 
     CustomNetTables:SetTableValue("mode", "balance_mode", {mode = true}) 
     ServerTables:SetTableValue("GameModeChoice", "balance", "auto", true)
