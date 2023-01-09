@@ -47,5 +47,4 @@
 	//"npc_dota_hero_phantom_assassin"	"1"	
 	"npc_dota_hero_skeleton_king"				"1"	
 	"npc_dota_hero_necrolyte"				"1"
-	//"npc_dota_hero_gyrocopter"				"1"	
 }

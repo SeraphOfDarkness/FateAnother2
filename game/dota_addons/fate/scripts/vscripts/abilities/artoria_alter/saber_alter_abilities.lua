@@ -273,8 +273,13 @@ function OnVortigernStart(keys)
 		bDeleteOnHit = false,
 		vVelocity = 0,
 	}
+	if caster.IsFerocityImproved then 
+		if (ability:GetCurrentAbilityCharges() > 0) then
+			ability:EndCooldown()
+		end
+	end
 
-	if caster.IsFerocityImproved then
+	--[[if caster.IsFerocityImproved then
 		local stacks = caster:GetModifierStackCount("modifier_vortigern_ferocity_base", caster)
 		if stacks > 1 then
 			ability:EndCooldown()
@@ -287,7 +292,7 @@ function OnVortigernStart(keys)
 		end
 		caster:SetModifierStackCount("modifier_vortigern_ferocity_progress", caster, stacks - 1)
 		caster:RemoveModifierByName("modifier_vortigern_ferocity_show")
-	end
+	end]]
 
 	
 	--[[local casterAngle = QAngle(0, 120 ,0)

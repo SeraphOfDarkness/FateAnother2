@@ -1,3 +1,24 @@
+
+Fix Astolfo's silence
+Fix Hassan's dirk
+Fix Robin's gold
+Add Command "-heal"
+
+---------
+
+Fix MMR
+Now Seal 2 also reset Dirk and Vortigern's stacks
+
+---------
+Fix Lancelot Gatling bullet
+Fix MMR not collect
+----------
+Fix Grail ded
+Fix MMR not collect
+Fix Semiramis can be pinged
+
+---------
+
 Semiramis MS 290 -> 330
 
 Combo AOE 500 -> 550 (To fit particle properly)

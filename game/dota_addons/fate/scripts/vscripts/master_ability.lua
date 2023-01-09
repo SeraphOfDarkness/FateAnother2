@@ -402,16 +402,6 @@ RobinAttribute = {
 	attrCount = 5
 }
 
-NobuAttribute = {
-	"nobu_strategy_attribute",
-	"nobu_expanding_attribute",
-	"nobu_3000_attribute",
-	"nobu_unifying_attribute",
-	"nobu_independent_action",
-	"nobu_combo",
-	attrCount = 5
-}
-
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
 	"modifier_vortigern_ferocity",
@@ -420,6 +410,13 @@ ChargeBasedBuffs = {
 	"modifier_doublespear_dearg",
 	"modifier_quickdraw_cooldown"
 }
+ 
+ChargeBuffReset = {
+	saber_alter_vortigern_upgrade = 3,
+	hassan_dirk = 4,
+	hassan_dirk_upgrade = 7,
+}
+
 
 function OnSeal1Start(keys)
 	local caster = keys.caster
@@ -479,6 +476,12 @@ function OnSeal1Start(keys)
 	})
 end
 
+function ResetCharge(ability)
+	if ChargeBuffReset[ability:GetAbilityName()] then 
+		ability:SetCurrentAbilityCharges(ChargeBuffReset[ability:GetAbilityName()])
+	end
+end
+
 function ResetAbilities(hero)
 	-- Reset all resetable abilities
 	RemoveChargeModifiers(hero)
@@ -486,6 +489,7 @@ function ResetAbilities(hero)
 		local ability = hero:GetAbilityByIndex(i)
 		if ability ~= nil then
 			if ability.IsResetable ~= false then
+				ResetCharge(ability)
 				ability:EndCooldown()
 			end
 		end
@@ -944,8 +948,6 @@ function FindAttribute(name)
 		attributes = HansAttribute
 	elseif name == "npc_dota_hero_sniper" then
 		attributes = RobinAttribute
-	elseif name == "npc_dota_hero_gyrocopter" then
-		attributes = NobuAttribute
     end
    
     return attributes

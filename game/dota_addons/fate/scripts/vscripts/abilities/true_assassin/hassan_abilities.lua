@@ -99,24 +99,28 @@ function OnDirkStart(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local target = keys.target 
-	local stacks = caster:GetModifierStackCount("modifier_dirk_daggers_show", caster) or 0 
+	local stacks = ability:GetCurrentAbilityCharges()
+	--local stacks = caster:GetModifierStackCount("modifier_dirk_daggers_show", caster) or 0 
 	local speed = ability:GetSpecialValueFor("speed")
 	if target:GetName() == "npc_dota_ward_base" then 
 		caster:Stop()
 		ability:EndCooldown()
 		caster:SetMana(caster:GetMana() + ability:GetManaCost(1))
+		AddDaggerStackNEW(caster, 1)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Target")
 		return
 	end
 	if stacks == 0 then 
 		caster:Stop()
-		ability:EndCooldown()
+		--ability:EndCooldown()
 		caster:SetMana(caster:GetMana() + ability:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#No_Daggers_Available")
 		return
+	else
+		ability:EndCooldown()
 	end
 
-	AddDaggerStack(keys, -1)
+	--AddDaggerStack(keys, -1)
 
 	local info = {
 		Target = target,
@@ -165,11 +169,12 @@ function OnDirkAttack(keys)
 	local target = keys.target 
 
 	if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
-
-	local stacks = caster:GetModifierStackCount("modifier_dirk_daggers_show", caster) or 0 
+	local stacks = ability:GetCurrentAbilityCharges()
+	--local stacks = caster:GetModifierStackCount("modifier_dirk_daggers_show", caster) or 0 
 
 	if caster.IsWeakeningVenomAcquired and stacks > 0 and caster:GetMana() >= ability:GetManaCost(1) then 
-		AddDaggerStack(keys, -1)
+		--AddDaggerStack(keys, -1)
+		AddDaggerStackNEW(caster, -1)
 		caster:SpendMana(ability:GetManaCost(1), ability)
 
 		local weak_stacks = target:GetModifierStackCount("modifier_dirk_weakening_venom", caster) or 0 
@@ -234,8 +239,29 @@ function OnDaggerRespawn(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local max_daggers = ability:GetSpecialValueFor("max_daggers")
-    caster.DaggerStack = max_daggers
-	AddDaggerStack(keys, max_daggers)
+	AddDaggerStackNEW(caster, max_daggers)
+    --[[caster.DaggerStack = max_daggers
+	AddDaggerStack(keys, max_daggers)]]
+end
+
+function AddDaggerStackNEW(caster, modifier)
+	local ability = caster:FindAbilityByName("hassan_dirk")
+	if ability == nil then 
+		ability = caster:FindAbilityByName("hassan_dirk_upgrade")
+	end
+	local maxStack = ability:GetSpecialValueFor("max_daggers")
+
+	local current_stack = ability:GetCurrentAbilityCharges()
+
+	local newStack = math.max(math.min(current_stack + modifier, maxStack), 0)
+
+	if newStack == 0 then 
+		ability:StartCooldown(ability:GetCooldown(1))
+	else
+		ability:EndCooldown()
+	end
+
+	ability:SetCurrentAbilityCharges(newStack)
 end
 
 function AddDaggerStack(keys, modifier)
@@ -353,8 +379,10 @@ function OnAmbushStart(keys)
 	end
 
 	if caster.IsWeakeningVenomAcquired then 
+
 		local recover_dagger = ability:GetSpecialValueFor("recover_dagger")
-		AddDaggerStack(keys, recover_dagger)
+		AddDaggerStackNEW(caster, recover_dagger)
+		--AddDaggerStack(keys, recover_dagger)
 	end
 
 	Timers:CreateTimer(fade_delay, function()
@@ -1217,28 +1245,13 @@ function OnImprovePresenceConcealmentAcquired(keys)
 
 		hero.IsPCImproved = true
 
-		hero:AddAbility("hassan_presence_concealment_upgrade")
-		hero:FindAbilityByName("hassan_presence_concealment_upgrade"):SetLevel(1)
-		hero:SwapAbilities("hassan_presence_concealment_upgrade", "hassan_presence_concealment", true, false)
-		hero:RemoveAbility("hassan_presence_concealment") 
+		UpgradeAttribute(hero, 'hassan_presence_concealment', 'hassan_presence_concealment_upgrade', true)
 		hero:RemoveModifierByName("modifier_ta_invis_passive")
 
 		if hero.IsWeakeningVenomAcquired then 
-			hero:AddAbility("hassan_ambush_upgrade_3")
-			hero:FindAbilityByName("hassan_ambush_upgrade_3"):SetLevel(hero:FindAbilityByName("hassan_ambush_upgrade_2"):GetLevel())
-			hero:SwapAbilities("hassan_ambush_upgrade_3", "hassan_ambush_upgrade_2", true, false) 
-			if not hero:FindAbilityByName("hassan_ambush_upgrade_2"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_ambush_upgrade_3"):StartCooldown(hero:FindAbilityByName("hassan_ambush_upgrade_2"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_ambush_upgrade_2")
+			UpgradeAttribute(hero, 'hassan_ambush_upgrade_2', 'hassan_ambush_upgrade_3', true)
 		else
-			hero:AddAbility("hassan_ambush_upgrade_1")
-			hero:FindAbilityByName("hassan_ambush_upgrade_1"):SetLevel(hero:FindAbilityByName("hassan_ambush"):GetLevel())
-			hero:SwapAbilities("hassan_ambush_upgrade_1", "hassan_ambush", true, false) 
-			if not hero:FindAbilityByName("hassan_ambush"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_ambush_upgrade_1"):StartCooldown(hero:FindAbilityByName("hassan_ambush"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_ambush")
+			UpgradeAttribute(hero, 'hassan_ambush', 'hassan_ambush_upgrade_1', true)
 		end
 
 		NonResetAbility(hero)
@@ -1282,37 +1295,19 @@ function OnWeakeningVenomAcquired(keys)
 
 		hero.IsWeakeningVenomAcquired = true
 
-		hero:AddAbility("hassan_dirk_upgrade")
-		hero:FindAbilityByName("hassan_dirk_upgrade"):SetLevel(1)
-		if not hero:FindAbilityByName("hassan_dirk"):IsCooldownReady() then 
-			hero:FindAbilityByName("hassan_dirk_upgrade"):StartCooldown(hero:FindAbilityByName("hassan_dirk"):GetCooldownTimeRemaining())
-		end
-		hero:SwapAbilities("hassan_dirk_upgrade", "hassan_dirk", true, false) 
-		hero:RemoveAbility("hassan_dirk")
+		UpgradeAttribute(hero, 'hassan_dirk', 'hassan_dirk_upgrade', true)
 
-		local stacks = hero:GetModifierStackCount("modifier_dirk_daggers_base", hero)
+		--[[local stacks = hero:GetModifierStackCount("modifier_dirk_daggers_base", hero)
 		hero:RemoveModifierByName("modifier_dirk_daggers_show")
 		hero:RemoveModifierByName("modifier_dirk_daggers_progress")
 		hero:FindAbilityByName("hassan_dirk_upgrade"):ApplyDataDrivenModifier(hero, hero, "modifier_dirk_daggers_progress", {})
 		hero:FindAbilityByName("hassan_dirk_upgrade"):ApplyDataDrivenModifier(hero, hero, "modifier_dirk_daggers_show", {})
-		hero:SetModifierStackCount("modifier_dirk_daggers_show", hero, stacks)
+		hero:SetModifierStackCount("modifier_dirk_daggers_show", hero, stacks)]]
 
 		if hero.IsPCImproved then 
-			hero:AddAbility("hassan_ambush_upgrade_3")
-			hero:FindAbilityByName("hassan_ambush_upgrade_3"):SetLevel(hero:FindAbilityByName("hassan_ambush_upgrade_1"):GetLevel())
-			hero:SwapAbilities("hassan_ambush_upgrade_3", "hassan_ambush_upgrade_1", true, false) 
-			if not hero:FindAbilityByName("hassan_ambush_upgrade_1"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_ambush_upgrade_3"):StartCooldown(hero:FindAbilityByName("hassan_ambush_upgrade_1"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_ambush_upgrade_1")
+			UpgradeAttribute(hero, 'hassan_ambush_upgrade_1', 'hassan_ambush_upgrade_3', true)
 		else
-			hero:AddAbility("hassan_ambush_upgrade_2")
-			hero:FindAbilityByName("hassan_ambush_upgrade_2"):SetLevel(hero:FindAbilityByName("hassan_ambush"):GetLevel())
-			hero:SwapAbilities("hassan_ambush_upgrade_2", "hassan_ambush", true, false) 
-			if not hero:FindAbilityByName("hassan_ambush"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_ambush_upgrade_2"):StartCooldown(hero:FindAbilityByName("hassan_ambush"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_ambush")
+			UpgradeAttribute(hero, 'hassan_ambush', 'hassan_ambush_upgrade_2', true)
 		end
 
 		NonResetAbility(hero)
@@ -1369,21 +1364,9 @@ function OnShaytanArmAcquired(keys)
 		hero:RemoveAbility("hassan_self_modification_agi")
 
 		if hero.IsShadowStrikeAcquired then 
-			hero:AddAbility("hassan_snatch_strike_upgrade_3")
-			hero:FindAbilityByName("hassan_snatch_strike_upgrade_3"):SetLevel(hero:FindAbilityByName("hassan_snatch_strike_upgrade_1"):GetLevel())
-			hero:SwapAbilities("hassan_snatch_strike_upgrade_3", "hassan_snatch_strike_upgrade_1", true, false) 
-			if not hero:FindAbilityByName("hassan_snatch_strike_upgrade_1"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_snatch_strike_upgrade_3"):StartCooldown(hero:FindAbilityByName("hassan_snatch_strike_upgrade_1"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_snatch_strike_upgrade_1")
+			UpgradeAttribute(hero, 'hassan_snatch_strike_upgrade_1', 'hassan_snatch_strike_upgrade_3', true)
 		else
-			hero:AddAbility("hassan_snatch_strike_upgrade_2")
-			hero:FindAbilityByName("hassan_snatch_strike_upgrade_2"):SetLevel(hero:FindAbilityByName("hassan_snatch_strike"):GetLevel())
-			hero:SwapAbilities("hassan_snatch_strike_upgrade_2", "hassan_snatch_strike", true, false) 
-			if not hero:FindAbilityByName("hassan_snatch_strike"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_snatch_strike_upgrade_2"):StartCooldown(hero:FindAbilityByName("hassan_snatch_strike"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_snatch_strike")
+			UpgradeAttribute(hero, 'hassan_snatch_strike', 'hassan_snatch_strike_upgrade_2', true)
 		end
 
 		NonResetAbility(hero)
@@ -1407,37 +1390,13 @@ function OnShadowStrikeAcquired(keys)
 
 		hero.IsShadowStrikeAcquired = true
 
-		hero:AddAbility("hassan_zabaniya_upgrade")
-		hero:FindAbilityByName("hassan_zabaniya_upgrade"):SetLevel(hero:FindAbilityByName("hassan_zabaniya"):GetLevel())
-		hero:SwapAbilities("hassan_zabaniya_upgrade", "hassan_zabaniya", true, false) 
-		if not hero:FindAbilityByName("hassan_zabaniya"):IsCooldownReady() then 
-			hero:FindAbilityByName("hassan_zabaniya_upgrade"):StartCooldown(hero:FindAbilityByName("hassan_zabaniya"):GetCooldownTimeRemaining())
-		end
-		hero:RemoveAbility("hassan_zabaniya")
-
-		hero:AddAbility("hassan_combo_upgrade")
-		hero:FindAbilityByName("hassan_combo_upgrade"):SetLevel(1)
-		if not hero:FindAbilityByName("hassan_combo"):IsCooldownReady() then 
-			hero:FindAbilityByName("hassan_combo_upgrade"):StartCooldown(hero:FindAbilityByName("hassan_combo"):GetCooldownTimeRemaining())
-		end
-		hero:RemoveAbility("hassan_combo")
+		UpgradeAttribute(hero, 'hassan_zabaniya', 'hassan_zabaniya_upgrade', true)
+		UpgradeAttribute(hero, 'hassan_combo', 'hassan_combo_upgrade', false)
 
 		if hero.IsShaytanArmAcquired then 
-			hero:AddAbility("hassan_snatch_strike_upgrade_3")
-			hero:FindAbilityByName("hassan_snatch_strike_upgrade_3"):SetLevel(hero:FindAbilityByName("hassan_snatch_strike_upgrade_2"):GetLevel())
-			hero:SwapAbilities("hassan_snatch_strike_upgrade_3", "hassan_snatch_strike_upgrade_2", true, false) 
-			if not hero:FindAbilityByName("hassan_snatch_strike_upgrade_2"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_snatch_strike_upgrade_3"):StartCooldown(hero:FindAbilityByName("hassan_snatch_strike_upgrade_2"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_snatch_strike_upgrade_2")
+			UpgradeAttribute(hero, 'hassan_snatch_strike_upgrade_2', 'hassan_snatch_strike_upgrade_3', true)
 		else
-			hero:AddAbility("hassan_snatch_strike_upgrade_1")
-			hero:FindAbilityByName("hassan_snatch_strike_upgrade_1"):SetLevel(hero:FindAbilityByName("hassan_snatch_strike"):GetLevel())
-			hero:SwapAbilities("hassan_snatch_strike_upgrade_1", "hassan_snatch_strike", true, false) 
-			if not hero:FindAbilityByName("hassan_snatch_strike"):IsCooldownReady() then 
-				hero:FindAbilityByName("hassan_snatch_strike_upgrade_1"):StartCooldown(hero:FindAbilityByName("hassan_snatch_strike"):GetCooldownTimeRemaining())
-			end
-			hero:RemoveAbility("hassan_snatch_strike")
+			UpgradeAttribute(hero, 'hassan_snatch_strike', 'hassan_snatch_strike_upgrade_1', true)
 		end
 
 		NonResetAbility(hero)

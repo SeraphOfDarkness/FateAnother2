@@ -419,13 +419,6 @@ function OnRampantWarriorStart(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_rampant_warrior_cooldown", {duration = ability:GetCooldown(1)})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_rampant_warrior", {})
 
-    local particle = ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_ti6/invoker_ti6_quas_orb.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_attack2",caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_attack2",caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_attack2",caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 3, caster, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_attack2",caster:GetAbsOrigin(), true)
-
-
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(ability:GetCooldown(1))
