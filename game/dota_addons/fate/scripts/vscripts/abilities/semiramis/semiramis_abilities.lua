@@ -1,3 +1,50 @@
+function OnBirdSummon(keys)
+	local caster = keys.caster
+	local targetpoint = keys.ability:GetCursorPosition()
+	local duration = keys.ability:GetSpecialValueFor("duration")
+
+	local bird = CreateUnitByName("semiramis_bird", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())	
+	bird:SetControllableByPlayer(caster:GetOwner():GetPlayerID(), true)
+	bird:AddNewModifier(caster, nil, "modifier_kill", {duration = 14})
+	bird:SetOwner(caster)
+	FindClearSpaceForUnit(bird, bird:GetAbsOrigin(), true)
+
+   	caster:EmitSound("Semi.GardenDove")
+   	
+	Timers:CreateTimer(0.05, function()
+		bird:MoveToPosition(targetpoint)
+	end)
+end
+
+function OnLaserThink(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local damage = ability:GetSpecialValueFor("damage")
+	local targets = ability:GetSpecialValueFor("targets")
+	local radius = ability:GetSpecialValueFor("radius")
+
+	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if enemies == nil then return end
+
+	local count = 1
+	for k,v in pairs(enemies) do
+		if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
+			if count <= targets then
+				DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
+				local beamFx = ParticleManager:CreateParticle("particles/semiramis/beam_barrage.vpcf", PATTACH_WORLDORIGIN, caster)
+				ParticleManager:SetParticleControl(beamFx, 9, caster:GetAbsOrigin())
+				ParticleManager:SetParticleControl(beamFx, 1, v:GetAbsOrigin())
+
+		   		v:EmitSound("Semi.CasterESFX")
+
+				count = count + 1
+			end
+		end	
+	end
+
+end
+
 function OnPoisonousBite(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -31,7 +78,7 @@ function OnPoisonousBite(keys)
 
 		   	if caster.IsCharmAcquired then
 				local damage_per_int = ability:GetSpecialValueFor("damage_per_int")
-				DoDamage(caster, target, damage + (damage_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				DoDamage(caster, target, damage + (damage_per_int * caster:GetIntellect()) , DAMAGE_TYPE_PURE, 0, ability, false)
 			else
 				DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			end
@@ -54,9 +101,9 @@ function OnPoisonousBite(keys)
 							if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
 							   	if caster.IsCharmAcquired then
 									local burst_per_int = ability:GetSpecialValueFor("burst_per_int")
-									DoDamage(caster, target, damage_burst + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+									DoDamage(caster, v, damage_burst + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								else
-									DoDamage(caster, target, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+									DoDamage(caster, v, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								end
 								v:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
 							end	
@@ -99,6 +146,8 @@ function OnLevelupRCas(keys)
 		caster:FindAbilityByName("semiramis_poisonous_bite"):SetLevel(ability:GetLevel())
 	end
 end
+
+
 
 function SemiramisChainsCast(keys)
 
@@ -205,8 +254,10 @@ function OnRecallTakeDamage(keys)
 	local target = keys.unit 
 	local ability = keys.ability 
 
-	target.IsRecallCanceled = true
-	target:RemoveModifierByName("modifier_semiramis_mass_recall")
+	if target:GetHealth() <= target:GetMaxHealth() / 2 then
+		target.IsRecallCanceled = true
+		target:RemoveModifierByName("modifier_semiramis_mass_recall")
+	end
 end
 
 function OnRecallDestroy(keys)
@@ -386,7 +437,7 @@ function OnHangingGardensCast(keys)
 			ParticleManager:DestroyParticle(cracks, true)
 			ScreenShake(caster:GetOrigin(), 7, 0.3, 2.5, 4000, 0, true)
 
-			local tEnemies = FindUnitsInRadius(caster:GetTeam(), targetpoint, nil, quake_radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local tEnemies = FindUnitsInRadius(caster:GetTeam(), targetpoint, nil, quake_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(tEnemies) do
 				if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
 					ability:ApplyDataDrivenModifier(caster,v, "modifier_semiramis_babylon_quake",{})
@@ -418,6 +469,7 @@ function OnHangingGardensCast(keys)
 					garden:SetBaseDamageMin(garden_damage)
 					garden:SetBaseDamageMax(garden_damage)
 					garden:SetBaseMoveSpeed(garden_movespeed)
+					garden:AddItem(CreateItem("item_hanging_garden_dove" , nil, nil))
 				end)
 
 				if garden:HasModifier("modifier_semiramis_babylon_quake") then
@@ -434,17 +486,19 @@ function OnHangingGardensCast(keys)
 					garden:SetBaseDamageMin(garden_damage)
 					garden:SetBaseDamageMax(garden_damage)
 					garden:SetBaseMoveSpeed(garden_movespeed)
+					garden:AddItem(CreateItem("item_hanging_garden_dove" , nil, nil))
 				end)
 
 				caster.HangingGardens = garden	
 			end	
 
 			if caster.IsTerritoryAcquired then
-				garden:FindAbilityByName("semiramis_summon_birds"):SetLevel(2)
+				--garden:FindAbilityByName("semiramis_summon_birds"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_mass_recall"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_bombard"):SetLevel(2)
+				garden:FindAbilityByName("hanging_gardens_bombard"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_mount"):SetLevel(2)
-				garden:FindAbilityByName("hanging_garden_presence"):SetLevel(2)
+				garden:FindAbilityByName("hanging_garden_passive_laser"):SetLevel(2)
 				garden:SwapAbilities("fate_empty1", "hanging_garden_presence", false, true)
 				garden:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetLevel(2)
 			end	

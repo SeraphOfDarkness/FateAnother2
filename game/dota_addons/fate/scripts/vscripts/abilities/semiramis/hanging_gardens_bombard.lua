@@ -8,11 +8,25 @@ function hanging_gardens_bombard:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
 	local beamAoE = self:GetSpecialValueFor("beam_aoe")
+	local extra_beam = self:GetSpecialValueFor("extra_beam")
+	local extra_beam_range = self:GetSpecialValueFor("extra_beam_range")
+	local cast_delay = self:GetSpecialValueFor("cast_delay")
 	local damage = self:GetSpecialValueFor("damage")
 
-	EmitSoundOnLocationWithCaster(targetPoint, "Semi.GardenBeamSFX", {})
-	EmitSoundOnLocationWithCaster(targetPoint, "Semi.GardenBeamSFX2", {})
-	self:DropBeam(targetPoint, beamAoE, damage)
+
+	Timers:CreateTimer(cast_delay, function()
+		if caster:HasModifier("modifier_garden_mounted") then
+			self:DropBeam(targetPoint, beamAoE, damage)
+			for i = extra_beam,0,-1 do	
+				Timers:CreateTimer(RandomFloat(0.3 , 1.3), function()
+					local vecran = RandomVector(extra_beam_range)
+					self:DropBeam(targetPoint + vecran, beamAoE, damage)
+				end)
+			end
+		else
+			self:DropBeam(targetPoint, beamAoE, damage)
+		end
+	end)
 end
 
 function hanging_gardens_bombard:DropBeam(vLoc, fAoE, fDamage)
@@ -22,8 +36,11 @@ function hanging_gardens_bombard:DropBeam(vLoc, fAoE, fDamage)
 
 	for i = 1, #targets do
 		DoDamage(caster, targets[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		ApplyDataDrivenModifier(caster, targets[i], "modifier_stunned", {Duration = 0.4})
+		ApplyDataDrivenModifier(caster, targets[i], "modifier_stunned", {Duration = 0.3})
 	end
+
+	EmitSoundOnLocationWithCaster(vLoc, "Semi.GardenBeamSFX", {})
+	EmitSoundOnLocationWithCaster(vLoc, "Semi.GardenBeamSFX2", {})
 
 	local beamFx = ParticleManager:CreateParticle("particles/custom/semiramis/laser_beam.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(beamFx, 0, vLoc)

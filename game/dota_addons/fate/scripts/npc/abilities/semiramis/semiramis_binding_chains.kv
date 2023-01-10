@@ -31,12 +31,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"175 200 225 250 300"
+				"cast_range"			"200 250 300 350 400"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
+				"duration"				"0.7"
 			}			
 			"05"
 			{
@@ -61,7 +61,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"250 300 350 400 350"
+				"stay_range"			"450 500 550 600 650"
 			}
 		}		
 
@@ -123,12 +123,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"175 200 225 250 300"
+				"cast_range"			"200 250 300 350 400"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
+				"duration"				"0.7"
 			}			
 			"05"
 			{
@@ -163,7 +163,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"250 275 300 325 350"
+				"stay_range"			"450 500 550 600 650"
 			}
 		}		
 
@@ -211,7 +211,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK_EVENT"
 		"AnimationPlaybackRate" 		"2"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"18"
 		"AbilityManaCost"				"400"
 		
 		"AbilitySpecial"
@@ -472,7 +472,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/semiramis/semiramis_dualclass"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"10"
@@ -557,7 +557,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/semiramis/semiramis_dualclass"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"2"
@@ -853,7 +853,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"resist_reduct"			"-5 -8 -11 -14 -17"
+				"resist_reduct"			"-14 -18 -22 -26 -30"
 			}				
 			"03"
 			{
@@ -1215,7 +1215,7 @@
 		"AbilityCastPoint"				"0.6"
 		"AbilityCastRange"				"6000"
 		"AbilityManaCost"				"400"		
-		"AOERadius"						"500"
+		"AOERadius"						"600"
 
 		"AbilitySpecial"
 		{			
@@ -1237,7 +1237,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"550"
+				"radius"				"600"
 			}					
 			"02"
 			{
@@ -1252,7 +1252,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow"					"-50"
+				"slow"					"-60"
 			}	
 		}
 
@@ -1282,7 +1282,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Duration"			"6.5"
+				"Duration"			"8"
 
 				"Properties"
 				{
@@ -1296,7 +1296,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Duration"			"2.5"
+				"Duration"			"3"
 			}
 
 			"modifier_tiatum_umu_cooldown"
@@ -1448,7 +1448,17 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"beam_aoe"				"300"
-			}						
+			}		
+			"02"
+			{
+				"var_type"				"FIELD_INT"
+				"extra_beam"			"2 3"
+			}		
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"extra_beam_range"		"250"
+			}									
 		}
 	}
 
@@ -1487,10 +1497,10 @@
 
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK_EVENT"
 		"AnimationPlaybackRate" 		"2"
-		"AbilityCastPoint"				"1.5"
+		"AbilityCastPoint"				"0.5"
 		"AbilityCastRange"				"1500"
 		"AbilityCooldown"				"48 35"
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"300"
 		"AOERadius"						"350"
 
 
@@ -1499,12 +1509,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"delay"					"4"
+				"delay"					"3.5"
 			}		
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_range"				"2000 2500"
+				"max_range"				"2250 2750"
 			}			
 			"02"
 			{
@@ -1541,14 +1551,6 @@
 					{
 						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
 						"Function"		"OnRecallCreate"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"abilities/semiramis/semiramis_abilities"
-						"Function"			"OnRecallTakeDamage"
 					}
 				}
 				"OnDestroy"
@@ -1739,7 +1741,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "health_and_mana_drain_per_second"		"0 10"
+		        "mana_drain_per_second"		"0 10"
 		    }		   		   
 		    "01"
 		    {
@@ -1787,4 +1789,57 @@
 			}			
 		}
 	}
+
+	"hanging_garden_passive_laser"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/semiramis/placeholder"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"1.0"
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "damage"					"100 150"
+		    }		   		   
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "targets"					"2 3"
+		    }
+		     "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "radius"					"750 900"
+		    }
+	    }
+
+		"Modifiers"
+		{	
+			"modifier_garden_passive_laser"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"ThinkInterval"  		"0.9"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+						"Function"		"OnLaserThink"
+					}
+				}
+			}						
+		}
+	}	
 }
