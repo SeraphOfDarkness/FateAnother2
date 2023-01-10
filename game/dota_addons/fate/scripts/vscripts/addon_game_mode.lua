@@ -278,6 +278,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_gilg.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_atalanta.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource("soundfile", "soundevents/hero_lancer.vsndevts", context)                
@@ -336,6 +337,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_drowranger.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_naga_siren.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_sniper.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_beastmaster.vsndevts", context )
@@ -811,6 +813,7 @@ function FateGameMode:OnDisconnect(keys)
     local dc_time = 0
     local quit_round = connection_data["qRound"]
     --PlayerTables:CreateTable("connection", {cstate = "connect", dTime = 0, qRound = 1}, i)
+    PlayerTables:SetTableValue("connection", "qRound", self.nCurrentRound, playerId, true)
 
     Timers:CreateTimer(function()
         local conn_state = PlayerResource:GetConnectionState(playerId)
@@ -3277,19 +3280,14 @@ function FateGameMode:OnEntityKilled( keys )
             -- check if unit can receive a shard
             if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
                 if killedUnit.DeathCount == 7 then
-                    killedUnit.ShardAmount = 1
+                    killedUnit.ShardAmount = (killedUnit.ShardAmount or 0) + 1
                     local statTable = CreateTemporaryStatTable(killedUnit)
                     CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end
             else
-                if killedUnit.DeathCount == 7 then
-                    if killedUnit.ShardAmount == nil then
-                        killedUnit.ShardAmount = 1
-                        killedUnit.DeathCount = 0
-                    else
-                        killedUnit.ShardAmount = killedUnit.ShardAmount + 1
-                        killedUnit.DeathCount = 0
-                    end
+                if killedUnit.DeathCount % 7 == 0 then
+                    killedUnit.ShardAmount = (killedUnit.ShardAmount or 0) + 1
+
                     local statTable = CreateTemporaryStatTable(killedUnit)
                     CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end

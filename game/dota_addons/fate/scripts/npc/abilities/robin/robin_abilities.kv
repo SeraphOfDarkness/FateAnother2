@@ -13,6 +13,11 @@
 	    "AbilityCooldown"				   	"40"
 	    "AbilityManaCost"				   	"100"
 
+	    "precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+	    }
+
 	    "AbilitySpecial"
 	    {
 		    "01"
@@ -125,6 +130,11 @@
 	    "LevelsBetweenUpgrades"		 		"1"
 	    "AbilityCooldown"				   	"30"
 
+	    "precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+	    }
+
 	    "AbilitySpecial"
 	    {
 		    "01"
@@ -192,8 +202,12 @@
 			    {
 				    "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
 				    "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
 			    }
+
+			    "Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
+				}
 
 			    "OnAttackStart"
 				{
@@ -344,16 +358,16 @@
 		        "var_type"				  	"FIELD_INTEGER"
 		        "attack_speed"				"40"
 		    }
-		    "04"
-		    {
-		        "var_type"				  	"FIELD_INTEGER"
-		        "agi_scale_crit"			"2"
-		    }			   
 		    "05"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
 		        "crit_chance"				"40"
 		    }
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "agi_scale_crit"			"2"
+		    }			   
 	    }
 
 	   	"OnSpellStart"
@@ -692,12 +706,22 @@
 		"AbilityManaCost"				"100"
 		"AOERadius"						"%radius"
 
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_viper/viper_corrosive_debuff.vpcf"
+		}
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.3"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"750"
 			}
 			"02"
 			{
@@ -822,7 +846,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"				"1000"
+				"length"				"900"
 			}
 			"06"
 			{
@@ -1100,30 +1124,35 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.45"
 			}
-			"02"
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"380 450 520 590 660"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-35 -40 -45 -50 -55"
+				"cast_range"			"750"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"400 425 450 475 500"
 			}
-			"05"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"30 35 40 45 50"
+				"damage"				"380 450 520 590 660"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"				"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dps"					"30 35 40 45 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-35 -40 -45 -50 -55"
 			}
 		}
 		"OnSpellStart"
@@ -1209,40 +1238,45 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.45"
 			}
-			"02"
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"380 450 520 590 660"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-35 -40 -45 -50 -55"
+				"cast_range"			"750"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"400 425 450 475 500"
 			}
-			"05"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dps"					"30 35 40 45 50"
+				"damage"				"380 450 520 590 660"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"				"8"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dps"					"30 35 40 45 50"
+			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"int_scale_dps"			"0.5"
-			}			
-			"08"
+			}
+			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_int"		"2.5"
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-35 -40 -45 -50 -55"
 			}
 		}
 		"OnSpellStart"
@@ -1323,6 +1357,11 @@
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
+
+		"precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf"
+	    }
 		
 		"AbilitySpecial"
 		{
@@ -1331,21 +1370,32 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.75"
 			}
-			"02"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_magical"		"400 500 600 700 800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_physical"		"250 300 350 400 450"
+				"cast_range"			"1050"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"2500"
 			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_back"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_physical"		"250 300 350 400 450"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_magical"		"400 500 600 700 800"
+			}
+			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -1361,11 +1411,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"dps"					"40 50 60 70 80"
 			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"300"
-			}
 		}
 
 		"OnSpellStart"
@@ -1432,6 +1477,11 @@
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
+
+		"precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf"
+	    }
 		
 		"AbilitySpecial"
 		{
@@ -1440,20 +1490,35 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.75"
 			}
-			"02"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_magical"		"400 500 600 700 800"
+				"cast_range"			"1050"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2500"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_back"				"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_physical"		"250 300 350 400 450"
 			}
-			"03"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"2500"
+				"damage_magical"		"400 500 600 700 800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"04"
 			{
@@ -1469,22 +1534,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"dps"					"40 50 60 70 80"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_int"		"2.5"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"dps_per_int"			"1"
-			}			
+			}						
 		}
 
 		"OnSpellStart"
@@ -1551,6 +1606,11 @@
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
+
+		"precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf"
+	    }
 		
 		"AbilitySpecial"
 		{
@@ -1559,20 +1619,45 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.75"
 			}
-			"02"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_magical"		"400 500 600 700 800"
+				"cast_range"			"1350"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2500"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_back"				"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_physical"		"250 300 350 400 450"
 			}
-			"03"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"2500"
+				"damage_per_agi"		"5"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ignore_armor_amount"	"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_magical"		"400 500 600 700 800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"04"
 			{
@@ -1588,27 +1673,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"dps"					"40 50 60 70 80"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ignore_armor_amount"	"30"
-			}			
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_int"		"2.5"
-			}
+			}						
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -1680,6 +1745,11 @@
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"36"
 		"AbilityManaCost"				"600"
+
+		"precache"
+	    {
+	    	"particle"  "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf"
+	    }
 		
 		"AbilitySpecial"
 		{
@@ -1688,20 +1758,45 @@
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"0.75"
 			}
-			"02"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_magical"		"400 500 600 700 800"
+				"cast_range"			"1350"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2500"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_back"				"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_physical"		"250 300 350 400 450"
 			}
-			"03"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"2500"
+				"damage_per_agi"		"5"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ignore_armor_amount"	"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_magical"		"400 500 600 700 800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_int"		"2.5"
 			}
 			"04"
 			{
@@ -1718,26 +1813,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"dps"					"40 50 60 70 80"
 			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_back"				"300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ignore_armor_amount"	"30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_int"		"2.5"
-			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -1790,7 +1865,7 @@
 	"robin_combo"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/robin/combo"
@@ -1803,6 +1878,7 @@
 		"AnimationPlaybackRate"			"1"
 		"AbilityCooldown"				"145"
 		"AbilityManaCost"				"600"
+		"AOERadius"						"%radius"
 
 		"AbilitySpecial"
 		{
@@ -1810,6 +1886,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"2.4"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"2600"
 			}
 			"02"
 			{
@@ -1893,7 +1974,7 @@
 	"robin_combo_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/robin/combo"
@@ -1906,6 +1987,7 @@
 		"AnimationPlaybackRate"			"1"
 		"AbilityCooldown"				"145"
 		"AbilityManaCost"				"600"
+		"AOERadius"						"%radius"
 
 		"AbilitySpecial"
 		{
@@ -1913,6 +1995,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"cast_delay"			"2.4"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"2600"
 			}
 			"02"
 			{
@@ -1971,7 +2058,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"abilities/robin/robin_abilities"
-				"Function"		"OnRootsCast"
+				"Function"		"OnComboCast"
 			}
 		}		
 
@@ -2280,7 +2367,7 @@
 			}			
 			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"roots_damage_per_int"		"2.5"
 			}			
 			"08"
@@ -2290,8 +2377,8 @@
 			}			
 			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"yew_damage_per_int"	"3"
+				"var_type"				"FIELD_FLOAT"
+				"yew_damage_per_int"	"2.5"
 			}			
 			"08"
 			{

@@ -401,6 +401,15 @@ RobinAttribute = {
 	"robin_combo",
 	attrCount = 5
 }
+NobuAttribute = {
+	"nobu_strategy_attribute",
+	"nobu_expanding_attribute",
+	"nobu_3000_attribute",
+	"nobu_unifying_attribute",
+	"nobu_independent_action",
+	"nobu_combo",
+	attrCount = 5
+}
 
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
@@ -948,6 +957,8 @@ function FindAttribute(name)
 		attributes = HansAttribute
 	elseif name == "npc_dota_hero_sniper" then
 		attributes = RobinAttribute
+	elseif name == "npc_dota_hero_gyrocopter" then
+		attributes = NobuAttribute
     end
    
     return attributes
