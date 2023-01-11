@@ -33,7 +33,7 @@ function OnLaserThink(keys)
 				DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 
 				local beamFx = ParticleManager:CreateParticle("particles/semiramis/beam_barrage.vpcf", PATTACH_WORLDORIGIN, caster)
-				ParticleManager:SetParticleControl(beamFx, 9, caster:GetAbsOrigin())
+				ParticleManager:SetParticleControl(beamFx, 9, caster:GetAbsOrigin() + Vector(0,0,200))
 				ParticleManager:SetParticleControl(beamFx, 1, v:GetAbsOrigin())
 
 		   		v:EmitSound("Semi.CasterESFX")
@@ -83,7 +83,7 @@ function OnPoisonousBite(keys)
 				DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			end
 
-			target:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_semiramis_poisonous_bite_debuff", {})
 
 			Timers:CreateTimer(duration, function()
 
@@ -105,7 +105,7 @@ function OnPoisonousBite(keys)
 								else
 									DoDamage(caster, v, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								end
-								v:AddNewModifier(caster, ability, "modifier_semiramis_poisonous_bite_debuff", {Duration = duration})
+								ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_bite_debuff", {})
 							end	
 						end
 

@@ -1,3 +1,4 @@
+
 Semiramis 
 
 Dual class no longer has cast point
@@ -30,7 +31,36 @@ Delay 4 -> 3.5
 Combo Minor buffs
 +10% slow, longer slow duration 
 Aoe 550 -> 600
--------------
+---------
+Fix MMR and post game bug
+Fix Tooltips
+Fix Robin's hunter rain dmg, F no bonus MR, dps, CC bypass CC Immune, combo not upgrade
+
+Robin
+-Combo
+Now Chain reaction deal bonus damage per sec instead
+
+----------
+Fix Astolfo's silence
+Fix Hassan's dirk
+Fix Robin's gold
+Add Command "-heal"
+
+---------
+
+Fix MMR
+Now Seal 2 also reset Dirk and Vortigern's stacks
+
+---------
+Fix Lancelot Gatling bullet
+Fix MMR not collect
+----------
+Fix Grail ded
+Fix MMR not collect
+Fix Semiramis can be pinged
+
+---------
+
 Semiramis MS 290 -> 330
 
 Combo AOE 500 -> 550 (To fit particle properly)

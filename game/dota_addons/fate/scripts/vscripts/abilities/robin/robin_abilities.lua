@@ -173,13 +173,15 @@ function PitfallCheck(keys,activated,point,trapparticle)
 	for k,v in pairs(enemies) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
 	       	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-			v:AddNewModifier(caster, ability, "modifier_stunned", { Duration = stun_duration })
+	       	if not IsImmuneToCC(v) then
+				v:AddNewModifier(caster, ability, "modifier_stunned", { Duration = stun_duration })
+			end
 
 			ParticleManager:DestroyParticle(trap, true)
 
-			local trap = ParticleManager:CreateParticle("particles/dev/library/base_dust_hit_smoke.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			local trap = ParticleManager:CreateParticle("particles/dev/library/base_dust_hit_smoke.vpcf", PATTACH_WORLDORIGIN, caster)
 			ParticleManager:SetParticleControl(trap, 0, point)			
-			local trapglobalfx = ParticleManager:CreateParticle("particles/robin/pitfall/robin_pitfall.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			local trapglobalfx = ParticleManager:CreateParticle("particles/robin/pitfall/robin_pitfall.vpcf", PATTACH_WORLDORIGIN, caster)
 			ParticleManager:SetParticleControl(trap, 0, point)
 
     		v:EmitSound("Robin.PitfallTriggerSFX")
@@ -238,7 +240,7 @@ function BarrelCheck(keys,activated,point,trapparticle)
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
 			ParticleManager:DestroyParticle(trap, true)
 
-			local trapglobalfx = ParticleManager:CreateParticle("particles/robin/barrel/robin_barrel.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			local trapglobalfx = ParticleManager:CreateParticle("particles/robin/barrel/robin_barrel.vpcf", PATTACH_WORLDORIGIN, caster)
 			ParticleManager:SetParticleControl(trap, 0, point)
 
 			v:EmitSound("Robin.BarrelTrapExplodeSFX")
@@ -311,13 +313,16 @@ function OnRootsCast(keys)
 
 				for k,v in pairs(enemies) do
 					if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-							if caster.IsTaxineAcquired then
-								local scale = ability:GetSpecialValueFor("int_scale_dps") * caster:GetIntellect()
-							    DoDamage(caster, v, dps + scale / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-							else
-						       	DoDamage(caster, v, dps / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-					        end
-		        		ability:ApplyDataDrivenModifier(caster, v, "modifier_robin_roots_slow", {})
+						if caster.IsTaxineAcquired then
+							local scale = ability:GetSpecialValueFor("int_scale_dps") * caster:GetIntellect()
+						    DoDamage(caster, v, (dps + scale) / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+						else
+						    DoDamage(caster, v, dps / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					    end
+
+					    if not IsImmuneToSlow(v) then
+		        			ability:ApplyDataDrivenModifier(caster, v, "modifier_robin_roots_slow", {})
+		        		end
 				    end
 				end
 			end)
@@ -413,9 +418,12 @@ function OnParalyzingArrowHit(keys)
 		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	end
 
+	if not IsImmuneToCC(target) then
+		target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
+	end
+
     target:EmitSound("Robin.ParalyzingArrowHitSFX")
 
-	giveUnitDataDrivenModifier(caster, target, "modifier_stunned", stun_duration)
 	local particle = ParticleManager:CreateParticle("particles/econ/items/dazzle/dazzle_ti6_gold/dazzle_ti6_shallow_grave_gold_flash.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())		
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock_impact_b.vpcf", PATTACH_ABSORIGIN, caster)
@@ -483,22 +491,18 @@ function OnHunterRainHit(keys)
 	local ability = keys.ability 
 	local target = keys.target 
 	local damage = ability:GetSpecialValueFor("damage")
-
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+	local scale = ability:GetSpecialValueFor("damage_per_agi") * caster:GetAgility()
 
 	target:EmitSound("Robin.HunterRainHitSFX")
 
-	if caster.IsGuerillaAcquired then
-		local scale = ability:GetSpecialValueFor("damage_per_agi") * caster:GetAgility()
-		DoDamage(caster, target, damage + scale, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-	else		
-		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-	end
+	DoDamage(caster, target, damage + scale, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 
 	local particle = ParticleManager:CreateParticle("particles/econ/items/drow/drow_ti9_immortal/drow_ti9_marksman_gem_flash.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin() + Vector(0,0,50))		
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_robin_hunter_rain_slow", {})
+	if not IsImmuneToSlow(target) then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_robin_hunter_rain_slow", {})
+	end
 end
 
 function OnSkillWLevelup(keys)
@@ -515,6 +519,7 @@ function OnYewBowStart(keys)
 	local speed = ability:GetSpecialValueFor("speed")
 	local cast_delay = ability:GetSpecialValueFor("cast_delay")
 	local dash_back = ability:GetSpecialValueFor("dash_back")
+	local dash_time = 0.15
 
 	if IsSpellBlocked(target) then return end -- Linken effect checker
 
@@ -566,16 +571,16 @@ function OnYewBowStart(keys)
 
 			caster:PreventDI()
 			caster:SetPhysicsFriction(0)
-			caster:SetPhysicsVelocity(backward * dash_back * 2.5)
+			caster:SetPhysicsVelocity(backward * dash_back / dash_time)
 		   	caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 			
-			Timers:CreateTimer(0.15, function() 
+			Timers:CreateTimer(dash_time, function() 
 				caster:PreventDI(false)
 				caster:SetPhysicsVelocity(Vector(0,0,0))
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 			end)
 		else
-				return
+			return
 		end
 	end)
 end
@@ -640,7 +645,7 @@ function OnYewBowThink(keys)
 
 	if caster.IsTaxineAcquired then
 		local scale = ability:GetSpecialValueFor("dps_per_int") * caster:GetIntellect()
-		DoDamage(caster, target, dps + scale /4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		DoDamage(caster, target, (dps + scale) /4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	else
 		DoDamage(caster, target, dps /4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	end
@@ -656,12 +661,20 @@ end
 
 function OnComboWindow(keys)
 	local caster = keys.caster
-	caster:SwapAbilities(caster.RSkill, "robin_combo", false, true)
+	if caster.IsTaxineAcquired then
+		caster:SwapAbilities(caster.RSkill, "robin_combo_upgrade", false, true)
+	else
+		caster:SwapAbilities(caster.RSkill, "robin_combo", false, true)
+	end
 end
 
 function OnComboWindowBroken(keys)
 	local caster = keys.caster
-	caster:SwapAbilities("robin_combo", caster.RSkill, false, true)
+	if caster.IsTaxineAcquired then
+		caster:SwapAbilities(caster.RSkill, "robin_combo_upgrade", true, false)
+	else
+		caster:SwapAbilities(caster.RSkill, "robin_combo", true, false)
+	end
 end
 
 function OnComboWindowDeath(keys)
@@ -763,34 +776,20 @@ function OnComboHit(keys)
 	targetdummy:AddNewModifier(caster, nil, "modifier_phased", {duration=3})
 	targetdummy:AddNewModifier(caster, nil, "modifier_kill", {duration=3})
 
-	local root = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbow-combo-explode.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local root = ParticleManager:CreateParticle("particles/robin/yewbow-combo/yewbow-combo-explode.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(root, 0, target:GetAbsOrigin())
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 
 	for k,v in pairs(targets) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-	       	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-
-	       	if v:HasModifier("modifier_robin_yew_bow") then
-	       		local targets = FindUnitsInRadius(caster:GetTeam(), v:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	       		DoDamage(caster, v, damage_chain_yew, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	       	end
-
-	       	if v:HasModifier("modifier_robin_roots_slow") then
-	       		local targets = FindUnitsInRadius(caster:GetTeam(), v:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	       		DoDamage(caster, v, damage_chain_roots, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	       	end
-
-	       	if v:HasModifier("modifier_robin_poison_smoke") then
-	       		local targets = FindUnitsInRadius(caster:GetTeam(), v:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	       		DoDamage(caster, v, damage_chain_smoke, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	       	end
+	       	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)	       	
        	end
     end
 
 	local duration = ability:GetSpecialValueFor("duration")
 	local dps = ability:GetSpecialValueFor("dps")
+	local chain_dmg = 0
 
 	for i=duration,0,-0.25 do	
 		Timers:CreateTimer(i, function()
@@ -799,12 +798,28 @@ function OnComboHit(keys)
 
 			for k,v in pairs(enemies) do
 				if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-						if caster.IsTaxineAcquired then
-							local scale = ability:GetSpecialValueFor("dps_per_int") * caster:GetIntellect()
-						    DoDamage(caster, v, dps + scale / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-						else
-					       	DoDamage(caster, v, dps / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				        end
+					if v:HasModifier("modifier_robin_yew_bow") or v:HasModifier("modifier_robin_roots_slow") or v:HasModifier("modifier_robin_poison_smoke") then
+			       		local chain_targets = FindUnitsInRadius(caster:GetTeam(), v:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+			       		if v:HasModifier("modifier_robin_yew_bow") then 
+			       			chain_dmg = chain_dmg + damage_chain_yew
+			       		end
+			       		if v:HasModifier("modifier_robin_roots_slow") then 
+			       			chain_dmg = chain_dmg + damage_chain_roots
+			       		end
+			       		if v:HasModifier("modifier_robin_poison_smoke") then 
+			       			chain_dmg = chain_dmg + damage_chain_smoke
+			       		end
+			       		for _,j in pairs (chain_targets) do
+			       			DoDamage(caster, v, chain_dmg / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			       		end
+			       	end
+
+					if caster.IsTaxineAcquired then
+						local scale = ability:GetSpecialValueFor("dps_per_int") * caster:GetIntellect()
+					    DoDamage(caster, v, (dps + scale) / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					else
+					    DoDamage(caster, v, dps / 4, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				    end
 			    end
 			end
 		end)
@@ -1027,23 +1042,18 @@ function OnTaxineAcquired(keys)
 		hero.IsTaxineAcquired = true
 		if hero:HasModifier("modifier_robin_saboteur_open") then
 			UpgradeAttribute(hero, "robin_paralyzing_arrow", "robin_paralyzing_arrow_upgrade" , false)
-			hero.WSkill = "robin_paralyzing_arrow_upgrade"
-
-			UpgradeAttribute(hero, "robin_roots", "robin_roots_upgrade" , false)
-			hero.ESkill = "robin_roots_upgrade"
+			UpgradeAttribute(hero, "robin_roots", "robin_roots_upgrade" , false)		
 		else
-
 			if hero:HasModifier("modifier_robin_hunter_rain") then	
 				UpgradeAttribute(hero, "robin_paralyzing_arrow", "robin_paralyzing_arrow_upgrade" , false)
-				hero.WSkill = "robin_paralyzing_arrow_upgrade"
 			else
-				UpgradeAttribute(hero, "robin_paralyzing_arrow", "robin_paralyzing_arrow_upgrade" , true)
-				hero.WSkill = "robin_paralyzing_arrow_upgrade"
+				UpgradeAttribute(hero, "robin_paralyzing_arrow", "robin_paralyzing_arrow_upgrade" , true)	
 			end
-
 			UpgradeAttribute(hero, "robin_roots", "robin_roots_upgrade" , true)
-			hero.ESkill = "robin_roots_upgrade"
 		end
+
+		hero.WSkill = "robin_paralyzing_arrow_upgrade"
+		hero.ESkill = "robin_roots_upgrade"
 
 		if hero.IsGuerillaAcquired then
 			UpgradeAttribute(hero, "robin_yew_bow_guerilla", "robin_yew_bow_upgrade" , true)
@@ -1052,6 +1062,8 @@ function OnTaxineAcquired(keys)
 			UpgradeAttribute(hero, "robin_yew_bow", "robin_yew_bow_taxine" , true)
 			hero.RSkill = "robin_yew_bow_taxine"
 		end
+
+		UpgradeAttribute(hero, "robin_combo", "robin_combo_upgrade" , false)
 
 		NonResetAbility(hero)
 		-- UpgradeAttribute(hero, "kinghassan_azrael", "kinghassan_azrael_upgraded", true)

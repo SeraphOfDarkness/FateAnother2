@@ -1154,6 +1154,7 @@ tArcherClass = {
     "npc_dota_hero_drow_ranger",
     "npc_dota_hero_naga_siren",
     "npc_dota_hero_sniper",
+    "npc_dota_hero_gyrocopter",
 }
 
 tLancerClass = {

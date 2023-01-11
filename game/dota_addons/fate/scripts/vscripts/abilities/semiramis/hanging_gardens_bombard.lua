@@ -36,7 +36,6 @@ function hanging_gardens_bombard:DropBeam(vLoc, fAoE, fDamage)
 
 	for i = 1, #targets do
 		DoDamage(caster, targets[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		ApplyDataDrivenModifier(caster, targets[i], "modifier_stunned", {Duration = 0.3})
 	end
 
 	EmitSoundOnLocationWithCaster(vLoc, "Semi.GardenBeamSFX", {})

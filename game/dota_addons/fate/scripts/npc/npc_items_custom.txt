@@ -3227,4 +3227,42 @@
 	    	}
 	    }
 	}	
+
+	"item_hanging_garden_dove" 
+	{
+	    "ID"           "1142"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityTextureName" "custom/semiramis_dove"
+	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemQuality"  "consumable"
+
+	    "ItemCost"     "99999"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "0"
+	    "ItemPurchasable" "0"
+	    "ItemDroppable" "0"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE_STACKING"
+
+
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	    "AbilityCooldown"		"18"
+	    "AbilityCastRange"				"1400"
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+			{
+				"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+				"Function"		"OnBirdSummon"
+			}
+	    }
+	}
 }
