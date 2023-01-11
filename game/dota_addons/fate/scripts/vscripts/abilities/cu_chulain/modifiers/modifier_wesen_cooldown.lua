@@ -130,20 +130,22 @@ function kjlpluo1596:c48dsq5(pId,victory)
 			self.old_data[pId].STT.mcs.kd = string.format("%.1f",self.old_data[pId].STT.mcs.tkn / math.max(self.old_data[pId].STT.mcs.tdc,1))
 			if self.old_data[pId].STT.mcs.tgn == 10 then 
 				local bonus = 0
-				if self.old_data[pId].STT.mcs.kd > 2.0 and self.old_data[pId].STT.mcs.kda > 4.0 then 
-					bonus = (self.old_data[pId].STT.mcs.kd - 2.0) * 10
+				local kda = tonumber(self.old_data[pId].STT.mcs.kda)
+				local kd = tonumber(self.old_data[pId].STT.mcs.kd)
+				if kd > 2.0 and kda > 4.0 then 
+					bonus = (kd - 2.0) * 10
 					self.old_data[pId].STT.MRT = 1600 + bonus
-				elseif self.old_data[pId].STT.mcs.kd > 1.5 and self.old_data[pId].STT.mcs.kda > 3.0 then 
-					bonus = (self.old_data[pId].STT.mcs.kd - 1.5) * 90 / 0.5
+				elseif kd > 1.5 and kda > 3.0 then 
+					bonus = (kd - 1.5) * 90 / 0.5
 					self.old_data[pId].STT.MRT = 1500 + bonus
-				elseif self.old_data[pId].STT.mcs.kd > 1.0 or self.old_data[pId].STT.mcs.kda > 2.5 then 
-					bonus = (self.old_data[pId].STT.mcs.kd - 1.0) * 150 / 0.5
+				elseif kd > 1.0 or kda > 2.5 then 
+					bonus = (kd - 1.0) * 150 / 0.5
 					self.old_data[pId].STT.MRT = 1300 + bonus
-				elseif self.old_data[pId].STT.mcs.kd > 0.5 or self.old_data[pId].STT.mcs.kda > 2.0 then 
-					bonus = (self.old_data[pId].STT.mcs.kd - 0.5) * 150 / 0.5
+				elseif kd > 0.5 or kda > 2.0 then 
+					bonus = (kd - 0.5) * 150 / 0.5
 					self.old_data[pId].STT.MRT = 1100 + bonus
 				else
-					bonus = self.old_data[pId].STT.mcs.kd * 90 / 0.5
+					bonus = kd * 90 / 0.5
 					self.old_data[pId].STT.MRT = 1000 + bonus
 				end
 			end
