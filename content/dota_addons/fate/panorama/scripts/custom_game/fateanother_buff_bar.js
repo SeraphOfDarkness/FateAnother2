@@ -196,6 +196,7 @@ var buffProgress = {
 
 var buffCanBeRemoved = {
     modifier_rho_aias: true,
+    modifier_semiramis_mass_recall: true,
     //modifier_nameless_forest_ally: true,
 };
 
@@ -267,6 +268,7 @@ AltClickBuffs.prototype.OnRightClick = function(index, isDebuff){
             GameEvents.SendCustomGameEventToServer("player_remove_buff",{iUnit: unit, sModifier: buffName});
             return;
         }
+
     }
 }
 

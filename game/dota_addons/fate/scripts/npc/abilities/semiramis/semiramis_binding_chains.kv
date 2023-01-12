@@ -1429,7 +1429,7 @@
 		"AbilityCooldown"				"11 9"
 
 		"AbilityCastPoint"				"0.15"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1200"
 		"AbilityManaCost"				"200"		
 
 		"AbilitySpecial"
@@ -1497,7 +1497,7 @@
 
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK_EVENT"
 		"AnimationPlaybackRate" 		"2"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"1"
 		"AbilityCastRange"				"1500"
 		"AbilityCooldown"				"48 35"
 		"AbilityManaCost"				"300"
@@ -1509,7 +1509,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"delay"					"3.5"
+				"delay"					"4"
 			}		
 			"02"
 			{
@@ -1545,6 +1545,15 @@
 				"EffectAttachType"	"follow_origin"	
 				"Duration"			"%delay"
 
+				"ThinkInterval"  "0.95"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+						"Function"		"MassRecallThink"
+					}				
+				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -1807,7 +1816,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "damage"					"100 150"
+		        "damage"					"60 100"
 		    }		   		   
 		    "01"
 		    {
@@ -1817,7 +1826,7 @@
 		     "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "radius"					"750 900"
+		        "radius"					"675 825"
 		    }
 	    }
 
@@ -1829,7 +1838,7 @@
 				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
-				"ThinkInterval"  		"0.9"
+				"ThinkInterval"  		"1.35"
 
 				"OnIntervalThink"
 				{

@@ -243,11 +243,20 @@ end
 function OnRecallCreate(keys)
 	local target = keys.target 
 	local ability = keys.ability 
-	target.IsRecallCanceled = false
+
+	target.RecallTimer = 0
+	target.IsMRecallCanceled = false
 
 	for k,v in pairs(keys) do
 		print(k,v)
 	end
+end
+
+function MassRecallThink(keys)
+	local caster = keys.target
+	local ability = keys.ability 
+
+	caster.RecallTimer = caster.RecallTimer + 1
 end
 
 function OnRecallTakeDamage(keys)
@@ -255,7 +264,7 @@ function OnRecallTakeDamage(keys)
 	local ability = keys.ability 
 
 	if target:GetHealth() <= target:GetMaxHealth() / 2 then
-		target.IsRecallCanceled = true
+		target.IsMRecallCanceled = true
 		target:RemoveModifierByName("modifier_semiramis_mass_recall")
 	end
 end
@@ -266,7 +275,11 @@ function OnRecallDestroy(keys)
 	local ability = keys.ability 
 	local max_range = keys.MaxRange
 
-	if target.IsRecallCanceled then
+	if target.IsMRecallCanceled then
+		return
+	end
+
+	if target.RecallTimer < 4 then
 		return
 	end
 
@@ -274,7 +287,7 @@ function OnRecallDestroy(keys)
 	if distance <= max_range then
 		target:EmitSound("Semi.GardenMassTeleportPull")
 		if caster:IsAlive() then
-			target:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(100))
+			target:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(200))
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 		end
 	end
@@ -292,7 +305,10 @@ function OnMassRecallCast(keys)
 	local enemies = FindUnitsInRadius(caster:GetTeam(), targetLoc, nil, aoe, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for k,v in pairs(enemies) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-    		ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_mass_recall", {Duration = delay})
+			if v == caster then
+			else
+    			ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_mass_recall", {Duration = delay})
+	    	end
 	    end
 	end
 end
@@ -496,7 +512,7 @@ function OnHangingGardensCast(keys)
 				--garden:FindAbilityByName("semiramis_summon_birds"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_mass_recall"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_bombard"):SetLevel(2)
-				garden:FindAbilityByName("hanging_gardens_bombard"):SetLevel(2)
+				garden:FindAbilityByName("hanging_garden_presence"):SetLevel(2)
 				garden:FindAbilityByName("hanging_gardens_mount"):SetLevel(2)
 				garden:FindAbilityByName("hanging_garden_passive_laser"):SetLevel(2)
 				garden:SwapAbilities("fate_empty1", "hanging_garden_presence", false, true)

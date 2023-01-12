@@ -1,4 +1,21 @@
+Semiramis
 
+Garden
+-Hanging garden defense system
+Damage 100 150 -> 75 100
+Range 750 900 -> 675 825
+Shoots way slower now
+
+Mass recall
+MASS RECALL BUFF CAN NOW BE RIGHT CLICKED BY TARGET OWNER TO DISPEL.
+Fixed minor bug mass recall casted on self garden.
+Delay 3.5 -> 4
+Cast point 0.5 -> 1
+
+Orbital cannon
+Range 1500 -> 1200
+Fixed bug bonus beam when semiramis is in garden becomes 3 4 instead of 2 3
+--------------
 Semiramis 
 
 Dual class no longer has cast point
