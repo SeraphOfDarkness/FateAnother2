@@ -3,7 +3,6 @@ nobu_combo = class({})
 LinkLuaModifier("modifier_nobu_combo_self","abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_mark", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_stun", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_cd", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 
 function nobu_combo:CastFilterResultLocation(vLocation)
@@ -19,11 +18,14 @@ function nobu_combo:GetCustomCastErrorLocation(vLocation)
     return "Can not be used while shooting"
 end
 
+function PointOnCircle(origin, radius, angle)
+    return Vector(radius*math.cos(angle), radius*math.sin(angle),0) + origin
+end
 
 function nobu_combo:OnSpellStart()
     local hCaster = self:GetCaster()
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
-    hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1.5}) 
+    giveUnitDataDrivenModifier(self.caster, self.caster, "pause_sealdisabled", 1.5)
     hCaster.target_enemy = self:GetCursorTarget()
     self.target_enemy = self:GetCursorTarget()
     StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
@@ -67,7 +69,6 @@ function nobu_combo:AttackEnemy()
         target:SetPhysicsVelocity(Vector(0,0,0))
         target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-        hCaster:EmitSound("merlin_staff")
         self.target = target:GetAbsOrigin()
         for i=1,25 do 
             local gun_spawn =   PointOnCircle(GetGroundPosition(target:GetAbsOrigin(), caster), 450,i*10)
@@ -167,19 +168,34 @@ function nobu_combo:OnProjectileHit(target, location )
         return
     end
     local hCaster = self:GetCaster()
-    local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+    local damage = 0
+
+    if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+    elseif hCaster.NobuActionAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+    elseif hCaster.UnifyingAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+    else
+        damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+    end
+
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 
         damage= damage*1.2
     end
+
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
      if hCaster.is3000Acquired then
-        DoDamage(hCaster, target, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        DoDamage(hCaster, target, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage(hCaster, target, damage * 0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        DoDamage(hCaster, target, damage * 0.15, DAMAGE_TYPE_PURE, 0, self, false)
     else
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     end
     if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        if hCaster.is3000Acquired then
+            DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        else
+        end
     end
     return true 
 end
@@ -200,7 +216,7 @@ function modifier_nobu_combo_self:OnIntervalThink()
         StopGlobalSound("nobu_combo_cast") 
         self:Destroy() return
      end
-    if(self.caster.target_enemy:GetAbsOrigin()- self.caster:GetAbsOrigin()):Length2D() < 250 and not self.caster:HasModifier("modifier_merlin_self_pause") then
+    if(self.caster.target_enemy:GetAbsOrigin()- self.caster:GetAbsOrigin()):Length2D() < 250 and not self.caster:HasModifier("pause_sealdisabled") then
         self:GetAbility():AttackEnemy()
         self:Destroy()
     end

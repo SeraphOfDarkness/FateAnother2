@@ -1,5 +1,18 @@
 Semiramis
 
+Poison Aura
+MR Reduction -14 -18 -22 -26 -30 -> -9 -13 -17 -21 -25
+
+Hanging garden presence
+No longer absorb mana from gilles
+
+New hero Nobunaga (Zlodemon)
+*SPECIAL THANKS TO ZLODEMON FOR ALLOWING ME TO PORT NOBU TO FATE*
+Who is Zlodemon? A very respectable, kind person, and also the developer of Fate/Balance!
+Thanks again, Zlodemon! 
+-------------
+Semiramis
+
 Garden
 -Hanging garden defense system
 Damage 100 150 -> 75 100

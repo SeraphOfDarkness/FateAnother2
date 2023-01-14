@@ -71,6 +71,8 @@ softdispellable = {
     "modifier_robin_hunter_rain_slow",
     "modifier_binding_chains",
     "modifier_poison_cloud_debuff",
+    "modifier_nobu_innovation_ms",
+    "modifier_nobu_slow",
 }
 
 strongdispellable = {
@@ -128,6 +130,7 @@ strongdispellable = {
     "modifier_hans_observation",
     "modifier_robin_poison_smoke",
     "modifier_poisonous_bite_slow",
+    "modifier_nobu_innovation_aura",
 
     -- items
     "modifier_b_scroll",
@@ -223,6 +226,7 @@ cleansable = {
     "modifier_binding_chains",
     "modifier_poison_cloud_debuff",
     "modifier_poisonous_bite_slow",
+    "modifier_nobu_divinity_mark_activated",
 }
 
 slowmodifier = {
@@ -285,6 +289,7 @@ slowmodifier = {
     "modifier_tiatum_umu_cast",
     "modifier_semiramis_babylon_quake",
     "modifier_poisonous_bite_slow",
+    "modifier_nobu_slow",
 }
 
 revokes = {
@@ -556,6 +561,7 @@ tModifierCooldown = {
     "modifier_robin_combo_cooldown",
     "modifier_dual_class_cooldown",
     "modifier_tiatum_umu_cooldown",
+    "modifier_nobu_combo_cd",
 }
 
 CannotReset = {
@@ -755,6 +761,10 @@ CannotReset = {
     "semiramis_dual_class",
     "semiramis_dual_class_upgrade",
     "semiramis_combo",
+    "nobu_combo",
+    "nobu_leader_of_innovation",
+    "nobu_divinity_mark",
+    "nobu_demon_king_open",
 }
 
 femaleservant = {
@@ -776,6 +786,7 @@ femaleservant = {
     "npc_dota_hero_tusk",
     "npc_dota_hero_zuus",
     "npc_dota_hero_death_prophet",
+    "npc_dota_hero_gyrocopter",
 }
 
 tSpellBookHero = {
@@ -950,6 +961,7 @@ tMount = {
     "modifier_board_drake",
     "modifier_mount_caster",
     "modifier_integrate_gille",
+    "modifier_semiramis_mounted",
 }
 
 tModifierKBImmune = {
@@ -1037,6 +1049,7 @@ tBeamAbilities = {
     "gawain_excalibur_galatine_light_upgrade_1",
     "gawain_excalibur_galatine_light_upgrade_2",
     "gawain_excalibur_galatine_light_upgrade_3",
+    "nobu_3000_upgrade",
 }
 
 tDivineHeroes = {

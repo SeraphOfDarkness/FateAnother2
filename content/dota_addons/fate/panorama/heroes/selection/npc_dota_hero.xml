@@ -1,7 +1,7 @@
 <root> 
 	<Panel class="AddonLoadingRoot"> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/event/Xmas.png" />
-		<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_void_spirit.png" />
+		<!--<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_void_spirit.png" />
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Portrait/npc_dota_hero_void_spirit.png" /> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Draft/npc_dota_hero_void_spirit.png" />
 		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/other/Saintquartz.png" />
@@ -217,12 +217,8 @@
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Portrait/npc_dota_hero_windrunner.png" /> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_windrunner.png" /> 
 
-		<Image id="gamemode" class="SeqImg" src="file://{images}/Draft/npc_dota_hero_gyrocopter.png" /> 
-		<Image id="gamemode" class="SeqImg" src="file://{images}/Portrait/npc_dota_hero_gyrocopter.png" /> 
-		<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_gyrocopter.png" /> 
-		
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Draft/npc_dota_hero_zuus.png" /> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/Portrait/npc_dota_hero_zuus.png" /> 
-		<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_zuus.png" /> 
+		<Image id="gamemode" class="SeqImg" src="file://{images}/Selection/npc_dota_hero_zuus.png" /> -->
 	</Panel> 
 </root>

@@ -40,6 +40,7 @@ var heroes = [
 	"npc_dota_hero_necrolyte",
 	"npc_dota_hero_sniper",
 	"npc_dota_hero_phantom_assassin",
+	"npc_dota_hero_gyrocopter",
 ]
 
 var names = [
@@ -84,6 +85,7 @@ var names = [
 	"Hans Christian Andersen",
 	"Robin Hood",
 	"Semiramis",
+	"Oda Nobunaga",
 ]
 
 
@@ -128,7 +130,8 @@ var abilities = [
 	["kinghassan_death_approaching", "kinghassan_dreadful_slash", "kinghassan_evening_bell", "kinghassan_flames_of_gehenna", "fate_empty1", "kinghassan_azrael"],
 	["hans_incantation", "hans_nightingale", "hans_masterpiece_open", "fate_empty1", "hans_territory", "hans_biography"],
 	["robin_saboteur_open", "robin_paralyzing_arrow", "robin_roots" , "robin_faceless_king" , "robin_clairvoyance", "robin_yew_bow"],
-	["semiramis_binding_chains", "semiramis_barrier", "semiramis_beam_bombard" , "semiramis_dual_class" , "fate_empty1", "semiramis_hanging_gardens"]
+	["semiramis_binding_chains", "semiramis_barrier", "semiramis_beam_bombard" , "semiramis_dual_class" , "fate_empty1", "semiramis_hanging_gardens"],
+	["nobu_shot", "nobu_dash", "nobu_double_shots" , "nobu_guns" , "nobu_demon_king_open", "nobu_3000"]
 ]
 
 var attributes = [
@@ -172,7 +175,8 @@ var attributes = [
 	["kinghassan_attribute_oldman", "kinghassan_attribute_presence", "kinghassan_attribute_abyss", "kinghassan_attribute_boundary", "kinghassan_attribute_body"],
 	["hans_attribute_territory", "hans_attribute_write_thumbelina", "hans_attribute_human_observation", "hans_attribute_refine_nightingale", "hans_attribute_love_letter"],
 	["robin_attribute_subversive", "robin_attribute_righteous_thief", "robin_attribute_faceless", "robin_attribute_guerilla", "robin_attribute_taxine"],
-	["semiramis_attribute_dual_class", "semiramis_attribute_territory", "semiramis_attribute_absolute", "semiramis_attribute_charmer"]
+	["semiramis_attribute_dual_class", "semiramis_attribute_territory", "semiramis_attribute_absolute", "semiramis_attribute_charmer"],
+	["nobu_strategy_attribute", "nobu_expanding_attribute", "nobu_3000_attribute", "nobu_unifying_attribute","nobu_independent_action"]
 ]
 
 var comboes = [
@@ -216,7 +220,8 @@ var comboes = [
 	"kinghassan_combo",
 	"hans_combo",
 	"robin_combo",
-	"semiramis_combo"
+	"semiramis_combo",
+	"nobu_combo"
 ]
 
 var guidelinks = [
@@ -255,6 +260,7 @@ var guidelinks = [
 	"http://fa-d2.wikia.com/wiki/Rider_of_Black#Gameplay",   //placeholder for atalanta's page
 	"t.ly/hSQa",   //placeholder for atalanta's page
 	"t.ly/hSQa",   //placeholder for atalanta's page
+	"http://fa-d2.wikia.com/wiki/Rider_of_Black#Gameplay",   //placeholder for atalanta's page
 	"http://fa-d2.wikia.com/wiki/Rider_of_Black#Gameplay",   //placeholder for atalanta's page
 	"http://fa-d2.wikia.com/wiki/Rider_of_Black#Gameplay",   //placeholder for atalanta's page
 ]

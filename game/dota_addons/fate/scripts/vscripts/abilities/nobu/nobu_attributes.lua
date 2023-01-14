@@ -4,7 +4,6 @@ function nobu_strategy_attribute:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
- 
 
 	hero.StrategyAcquired = true
 	hero.IsStrategyReady = true
@@ -38,19 +37,24 @@ end
 function nobu_expanding_attribute:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.Expanded = true
- 	local master = hero.MasterUnit
-	 Timers:CreateTimer(function()
-		if hero:IsAlive() then 
-			hero:AddNewModifier(hero, self, "modifier_nobu_expanding_attribute", {})
-			return nil
-		else
-			return 1
-		end
-	end)
+	local hero = caster.HeroUnit
 
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	if not MasterCannotUpgrade(hero, caster, self, hero.Expanded) then
+		hero.Expanded = true
+	 	local master = hero.MasterUnit
+		 Timers:CreateTimer(function()
+			if hero:IsAlive() then 
+				hero:AddNewModifier(hero, self, "modifier_nobu_expanding_attribute", {})
+				return nil
+			else
+				return 1
+			end
+		end)
+
+		NonResetAbility(hero)
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	end
 end
 
 
@@ -59,12 +63,18 @@ nobu_3000_attribute = class({})
 function nobu_3000_attribute:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	local hero = caster.HeroUnit
 
-	hero.is3000Acquired = true
- 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	if not MasterCannotUpgrade(hero, caster, self, hero.is3000Acquired) then
+		hero.is3000Acquired = true
+	 
+		UpgradeAttribute(hero, 'nobu_dash', 'nobu_dash_upgrade', true)
+		UpgradeAttribute(hero, 'nobu_3000', 'nobu_3000_upgrade', true)
+
+		NonResetAbility(hero)
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	end
 end
 
 
@@ -73,15 +83,21 @@ nobu_unifying_attribute = class({})
 function nobu_unifying_attribute:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	local hero = caster.HeroUnit
 
+	if not MasterCannotUpgrade(hero, caster, self, hero.UnifyingAcquired) then
 	hero.UnifyingAcquired = true
  
+	if hero.NobuActionAcquired then
+	UpgradeAttribute(hero, 'nobu_guns_action', 'nobu_guns_upgrade', true)
+	else
+	UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_unifying', true)
+	end
+
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+		end
 end
-
-
 
 
 nobu_independent_action = class({})
@@ -89,9 +105,20 @@ nobu_independent_action = class({})
 function nobu_independent_action:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	local hero = caster.HeroUnit
 
+	if not MasterCannotUpgrade(hero, caster, self, hero.NobuActionAcquired) then
 	hero.NobuActionAcquired = true
+
+	UpgradeAttribute(hero, 'nobu_shot', 'nobu_shot_upgrade', true)
+
+	if hero.UnifyingAcquired then
+	UpgradeAttribute(hero, 'nobu_guns_unifying', 'nobu_guns_upgrade', true)
+	else
+	UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_action', true)
+	end
+
+	--[[
 	if hero:GetLevel() < 8 then
 		hero:FindAbilityByName("nobu_guns"):SetLevel(2)
 	elseif hero:GetLevel() >= 8 and hero:GetLevel() < 16 then
@@ -99,8 +126,11 @@ function nobu_independent_action:OnSpellStart()
 	elseif hero:GetLevel() >= 16 then
 		hero:FindAbilityByName("nobu_guns"):SetLevel(4)
 	end
+	]]--
+
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	end
 end
 
  

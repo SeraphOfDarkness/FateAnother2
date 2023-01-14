@@ -42,8 +42,8 @@ function modifier_nobu_divinity_mark:OnTakeDamage(args)
     local parent =self:GetParent()
     local caster = self:GetCaster()
     if(  args.attacker == caster  and args.damage_category == 0 )then
-        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_double_shots" 
-        and args.inflictor:GetName() ~= "nobu_combo" and args.inflictor:GetName() ~= "nobu_dash" ) then return end
+        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_shot_upgrade" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_3000_upgrade" and args.inflictor:GetName() ~= "nobu_double_shots" 
+        and args.inflictor:GetName() ~= "nobu_combo" and args.inflictor:GetName() ~= "nobu_dash" and args.inflictor:GetName() ~= "nobu_dash_upgrade" ) then return end
         if( args.inflictor:GetName() == "nobu_shot" and args.damage_type == DAMAGE_TYPE_MAGICAL) then
             return
          end

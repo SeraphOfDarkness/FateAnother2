@@ -137,7 +137,19 @@ function nobu_double_shots:OnProjectileHit(target, location )
         return
     end
     local hCaster = self:GetCaster()
-    local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+
+    local damage = 0
+
+    if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+    elseif hCaster.NobuActionAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+    elseif hCaster.UnifyingAcquired then
+        damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+    else
+        damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+    end
+
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 
@@ -145,8 +157,13 @@ function nobu_double_shots:OnProjectileHit(target, location )
     end
     
     if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        if hCaster.is3000Acquired then
+            DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        else
+            DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        end
     end
+
     if(hCaster.ISDOW) then
         local gun_spawn = hCaster:GetAbsOrigin()
         local random1 = RandomInt(25, 150) -- position of gun spawn
@@ -161,11 +178,31 @@ function nobu_double_shots:OnProjectileHit(target, location )
         end
         local aoe = 50
         
-        hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
+        if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
+            hCaster:FindAbilityByName("nobu_guns_upgrade"):DOWShoot({
             Speed = 10000,
             AoE = aoe,
             Range = 1000,
-        },  gun_spawn )
+            },  gun_spawn )
+        elseif hCaster.UnifyingAcquired then
+            hCaster:FindAbilityByName("nobu_guns_unifying"):DOWShoot({
+            Speed = 10000,
+            AoE = aoe,
+            Range = 1000,
+            },  gun_spawn )
+        elseif hCaster.NobuActionAcquired then
+            hCaster:FindAbilityByName("nobu_guns_action"):DOWShoot({
+            Speed = 10000,
+            AoE = aoe,
+            Range = 1000,
+            },  gun_spawn )
+        else        
+            hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
+            Speed = 10000,
+            AoE = aoe,
+            Range = 1000,
+            },  gun_spawn )
+        end
     end
     return true 
 end

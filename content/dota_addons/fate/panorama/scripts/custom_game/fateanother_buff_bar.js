@@ -179,6 +179,7 @@ var buffCooldown = {
     modifier_robin_combo_cooldown: 180,
     modifier_dual_class_cooldown: 180,
     modifier_tiatum_umu_cooldown: 180,
+    modifier_nobu_combo_cd: 170,
 };
 
 var buffProgress = {

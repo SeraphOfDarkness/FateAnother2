@@ -40,6 +40,7 @@ var heroes = [
     "npc_dota_hero_necrolyte",
 	"npc_dota_hero_sniper",
 	"npc_dota_hero_phantom_assassin",
+	"npc_dota_hero_gyrocopter",
 ]
 
 function OnFatepediaButtonShowTooltip()

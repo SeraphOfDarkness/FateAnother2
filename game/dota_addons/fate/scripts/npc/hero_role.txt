@@ -1469,8 +1469,46 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 			}
 		}
 	}
-	
-	
-	
-	
+	"npc_dota_hero_gyrocopter"
+	{
+		"Sex"			"Female"
+		"Class"			"Archer"
+		"Trait"			"god_slayer" 
+		"Roles"			"snipe,burst" 	
+		"Role" 							
+		{
+			"1"	
+			{			
+				"carry"
+				{
+					"weight"	"85"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"8000"	// > avg dmg deal per round
+					"KD"		"1.5"	// > total KD
+					"Assist"	"20"	// > Assist
+				}
+			}
+			"2"	
+			{			
+				"mobility"	
+				{
+					"weight"	"7"	// weight to calculate
+					"criteria"	"1"
+					"Death"		"20"	// < death of total round
+				}
+			}
+			"3"	
+			{			
+				"support"	
+				{
+					"weight"	"8"	// weight to calculate
+					"criteria"	"4"
+					"Assist"	"20"	// > Assist
+					"Heal"		"1000"	// < death of total round
+					"Avarice"	"1"		// > Avarice
+					"Ward"		"1"		// > ward per round
+				}
+			}
+		}
+	}
 }

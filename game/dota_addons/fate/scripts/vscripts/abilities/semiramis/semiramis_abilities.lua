@@ -838,9 +838,12 @@ function OnGardenPresenceThink(keys)
 
 	for k,v in pairs(enemies) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			v:SetMana(v:GetMana() - mana_drain_per_second)
-			caster:SetMana(caster:GetMana() + mana_drain_per_second)
-    		ability:ApplyDataDrivenModifier(caster, v, "modifier_garden_mana_drain_debuff", {})
+	    		ability:ApplyDataDrivenModifier(caster, v, "modifier_garden_mana_drain_debuff", {})
+			if not IsManaLess(v) then
+				v:SetMana(v:GetMana() - mana_drain_per_second)
+				caster:SetMana(caster:GetMana() + mana_drain_per_second)
+	    	else
+	    	end
 	    end
 	end
 end

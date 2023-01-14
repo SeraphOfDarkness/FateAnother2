@@ -13,10 +13,11 @@ local tStandardAbilities = {
     "nobu_dash",
     "nobu_double_shots",
     "nobu_3000",
-    
+    "nobu_dash_upgrade",
+    "nobu_3000_upgrade",
+    "nobu_shot_upgrade",
 }
  
-
 local tDemonKingAbilities = {
     "nobu_dow",
     "nobu_dogab",
@@ -25,15 +26,30 @@ local tDemonKingAbilities = {
 }
 function nobu_dow:OnSpellStart()
     local hCaster = self:GetCaster()
+
+    if(hCaster.NobuActionAcquired) then
+    hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], true, false)
+    else
     hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], true, false)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
     if( hCaster:HasModifier("modifier_nobu_turnlock") ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], true, false)
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], true, false)
     end
-    
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+    end
   
     hCaster.ISDOW = true
     if(hCaster.Expanded) then
@@ -43,15 +59,32 @@ function nobu_dow:OnSpellStart()
     end
 end
 function nobu_dogab:OnSpellStart()
-    local hCaster = self:GetCaster()
+    local hCaster = self:GetCaster()    
+
+    if(hCaster.NobuActionAcquired) then
+    hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], true, false)
+    else
     hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], true, false)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
     if( hCaster:HasModifier("modifier_nobu_turnlock") ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], true, false)
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], true, false)
+    end   
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
     end
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+
     hCaster:SwapAbilities("nobu_demon_king_close", "nobu_divinity_mark", false, true)
     if(hCaster.Expanded) then
         hCaster.isCharisma = true
@@ -59,15 +92,30 @@ function nobu_dogab:OnSpellStart()
 end
 function nobu_fool_of_owari:OnSpellStart()
     local hCaster = self:GetCaster()
+
+    if(hCaster.NobuActionAcquired) then
+    hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], true, false)
+    else
     hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], true, false)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
     if( hCaster:HasModifier("modifier_nobu_turnlock") ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], true, false)
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], true, false)
     end
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
-   
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+    end
     hCaster.isCharisma = true
     if(hCaster.Expanded) then
         hCaster:SwapAbilities("nobu_demon_king_close", "nobu_leader_of_innovation", false, true)
@@ -77,14 +125,31 @@ function nobu_fool_of_owari:OnSpellStart()
 end
 function nobu_king_of_innovation:OnSpellStart()
     local hCaster = self:GetCaster()
+
+    if(hCaster.NobuActionAcquired) then
+    hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], true, false)
+    else
     hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], true, false)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
     if( hCaster:HasModifier("modifier_nobu_turnlock") ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], true, false)
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], true, false)
     end
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+    end
+    
     hCaster:SwapAbilities("nobu_demon_king_close", "nobu_leader_of_innovation", false, true)
     if(hCaster.Expanded) then 
         hCaster.ISDOW = true
@@ -93,9 +158,20 @@ end
  
 
 function nobu_demon_king_open:OnSpellStart()
-    local hCaster = self:GetCaster()
-    hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], false, true)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], false, true)
+    local hCaster = self:GetCaster()    
+
+    if(hCaster.NobuActionAcquired) then
+        hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], false, true)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], false, true)
+    end
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], false, true)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], false, true)
+    end
+
     if( hCaster:GetAbilityByIndex(2):GetName() ~= "nobu_double_shots" ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], false, true)
         print("1")
@@ -103,8 +179,12 @@ function nobu_demon_king_open:OnSpellStart()
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], false, true)
         print("11")
     end
-    
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], false, true)
+
+    if(hCaster.is3000Acquired) then
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], false, true)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], false, true)
+    end
     
     hCaster:SwapAbilities("nobu_demon_king_close", "nobu_demon_king_open", true, false)
 end
@@ -112,14 +192,31 @@ end
 function nobu_demon_king_close:OnSpellStart()
     local hCaster = self:GetCaster()
     hCaster:SwapAbilities("nobu_demon_king_close", "nobu_demon_king_open", false, true)
+
+    if(hCaster.NobuActionAcquired) then
+    hCaster:SwapAbilities(tStandardAbilities[7], tDemonKingAbilities[1], true, false)
+    else
     hCaster:SwapAbilities(tStandardAbilities[1], tDemonKingAbilities[1], true, false)
-    hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[5], tDemonKingAbilities[2], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], true, false)
+    end
+
     if( hCaster:HasModifier("modifier_nobu_turnlock") ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], true, false)
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], true, false)
     end
-    hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+
+
+    if(hCaster.is3000Acquired) then  
+        hCaster:SwapAbilities(tStandardAbilities[6], tDemonKingAbilities[4], true, false)
+    else
+        hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], true, false)
+    end
 end
 
  
