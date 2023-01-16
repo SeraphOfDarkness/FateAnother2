@@ -6,10 +6,17 @@ MR Reduction -14 -18 -22 -26 -30 -> -9 -13 -17 -21 -25
 Hanging garden presence
 No longer absorb mana from gilles
 
+Robin
+
+Sacrament of druid dps 30 35 40 45 50 -> 40 50 60 70 80
+(This is because robin DPS bug is fixed, previous bug causing absurd dps coz of pepedev pepemath)
+
 New hero Nobunaga (Zlodemon)
+Still is very early phase, please bear with it. Expect bugs and stuffs.
 *SPECIAL THANKS TO ZLODEMON FOR ALLOWING ME TO PORT NOBU TO FATE*
 Who is Zlodemon? A very respectable, kind person, and also the developer of Fate/Balance!
 Thanks again, Zlodemon! 
+
 -------------
 Semiramis
 

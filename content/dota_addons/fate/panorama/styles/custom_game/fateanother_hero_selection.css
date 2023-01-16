@@ -139,6 +139,7 @@
     height: 48%;
     margin-top: 12%;
    /* background-color: yellow;*/
+	overflow: squish scroll;
 }
 
 .BottomBar {
