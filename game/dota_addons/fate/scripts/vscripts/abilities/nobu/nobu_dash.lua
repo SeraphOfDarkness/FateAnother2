@@ -16,8 +16,11 @@ function nobu_dash_wrapper(ability)
 		if(caster.NobuActionAcquired) then
 			caster:AddNewModifier(caster, self, "modifier_nobu_dash_dmg", {duration = 3} )
 		end
+		
 		caster:RemoveModifierByName("modifier_nobu_strategy_attribute_cooldown")
 		caster.IsStrategyReady = true
+		Timers:RemoveTimer("nobu_strategy")
+
 		local speed = 1200
 		local point  = self:GetCursorPosition()+caster:GetForwardVector()
 		local direction      = (point - caster:GetAbsOrigin()):Normalized()

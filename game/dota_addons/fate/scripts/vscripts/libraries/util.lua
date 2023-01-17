@@ -561,6 +561,7 @@ tModifierCooldown = {
     "modifier_robin_combo_cooldown",
     "modifier_dual_class_cooldown",
     "modifier_tiatum_umu_cooldown",
+    "modifier_nobu_strategy_attribute_cooldown",
     "modifier_nobu_combo_cd",
 }
 

@@ -65,7 +65,7 @@ function nobu_3000_wrapper(ability)
      
     function ability:OnChannelThink(fInterval)
         self.ChannelTime = self.ChannelTime + fInterval
-        if(self.ChannelTime >= 0.08) then
+        if(self.ChannelTime >= 0.07) then
      
             local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*RandomInt(-200,200)
             local random1 = RandomInt(0, 300) -- position of gun spawn
@@ -79,7 +79,7 @@ function nobu_3000_wrapper(ability)
                 gun_spawn = gun_spawn + self.rightvec * random1 + random3
             end
             self:CreateGun(gun_spawn)
-            self.ChannelTime = self.ChannelTime - 0.08
+            self.ChannelTime = self.ChannelTime - 0.07
            
         end
         self.caster:SetAbsOrigin(self.caster:GetAbsOrigin() + Vector(0,0,2))
@@ -212,11 +212,18 @@ function nobu_3000_wrapper(ability)
                                                  DOTA_UNIT_TARGET_ALL,
                                                  DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
                                                 )
-             local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
             ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.13*keys.Facing)       
             ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
-            for k,v in pairs(targets) do   
 
+            if targets == nil then return
+            else
+                if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
+                    hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
+                end
+            end
+
+            for k,v in pairs(targets) do   
                 local damage = 0
                 local hCaster = self.caster
                 if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
@@ -228,7 +235,6 @@ function nobu_3000_wrapper(ability)
                 else
                     damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
                 end
-
 
                 if IsDivineServant(v) and self.caster.UnifyingAcquired then 
                     damage= damage*1.2

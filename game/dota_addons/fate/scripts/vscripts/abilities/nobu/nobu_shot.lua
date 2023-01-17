@@ -95,6 +95,9 @@ function nobu_shot_wrapper(ability)
             damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
         end
 
+        if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
+            hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
+        end
 
         if IsDivineServant(target) and hCaster.UnifyingAcquired then 
             damage= damage*1.2

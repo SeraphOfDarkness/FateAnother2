@@ -4,11 +4,25 @@ LinkLuaModifier("modifier_nobu_strategy_attribute", "abilities/nobu/nobu_charism
 LinkLuaModifier("modifier_nobu_strategy_attribute_cooldown", "abilities/nobu/nobu_charisma", LUA_MODIFIER_MOTION_NONE) 
 nobu_charisma = class({})
 
-
- 
 function nobu_charisma:GetIntrinsicModifierName()
 	return "modifier_nobu_charisma_aura"
 end
+
+function nobu_charisma:ApplyStrategy()
+	local caster = self:GetCaster()
+
+	caster.IsStrategyReady = false
+	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute", {duration = 4} )
+
+	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute_cooldown", {duration = 10} )
+	Timers:CreateTimer("nobu_strategy", {
+		endTime = 10,
+		callback = function()
+			caster.IsStrategyReady = true
+	return end
+	})
+end
+
 
 modifier_nobu_charisma_aura = class({})
 
@@ -17,24 +31,6 @@ function modifier_nobu_charisma_aura:GetAuraSearchTeam()
 end
 function modifier_nobu_charisma_aura:DeclareFunctions()
 	return {	MODIFIER_EVENT_ON_RESPAWN   }
-end
-function modifier_nobu_charisma_aura:OnTakeDamage(args)
-    local caster = self:GetCaster()
-    if(  args.attacker == caster and caster.StrategyAcquired and (caster:GetAbsOrigin() - args.unit:GetAbsOrigin()):Length2D() < 1200 )then
-		Timers:RemoveTimer("nobu_strategy")
-		if(caster.IsStrategyReady) then
-			caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute", {duration = 4} )
-		end
-		caster.IsStrategyReady = false
-		caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute_cooldown", {duration = 10} )
-		Timers:CreateTimer("nobu_strategy", {
-			endTime = 10,
-			callback = function()
-				caster.IsStrategyReady = true
-		return end
-		})
-    end
-    
 end
 
 function modifier_nobu_charisma_aura:OnRespawn(args)
@@ -122,7 +118,11 @@ function modifier_nobu_strategy_attribute:DeclareFunctions()
 end
 
 function modifier_nobu_strategy_attribute:GetModifierMoveSpeedBonus_Percentage()
-	return  20  
+	return  10  
+end
+
+function modifier_nobu_strategy_attribute:GetDuration()
+	return  4  
 end
  
 
@@ -135,7 +135,7 @@ end
 modifier_nobu_strategy_attribute_cooldown = class({})
 
 function modifier_nobu_strategy_attribute_cooldown:IsHidden() return false end
-function modifier_nobu_strategy_attribute_cooldown:IsDebuff() return false end
+function modifier_nobu_strategy_attribute_cooldown:IsDebuff() return true end
  
 function modifier_nobu_strategy_attribute_cooldown :GetTexture()
 	return  "custom/nobu/nobu_strategy_attribute"

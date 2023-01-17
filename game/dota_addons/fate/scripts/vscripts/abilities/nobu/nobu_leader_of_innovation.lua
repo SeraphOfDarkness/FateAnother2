@@ -104,7 +104,6 @@ function modifier_nobu_innovation_ms:IsDebuff() return false end
 function modifier_nobu_innovation_ms:DeclareFunctions()
 	return { 
 				MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		 
 				}
 end
 function modifier_nobu_innovation_ms:GetModifierMoveSpeedBonus_Percentage()

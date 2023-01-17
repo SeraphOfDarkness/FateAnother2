@@ -150,6 +150,10 @@ function nobu_double_shots:OnProjectileHit(target, location )
         damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
     end
 
+    if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
+        hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
+    end
+
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 
