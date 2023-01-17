@@ -1,4 +1,4 @@
-Welcome to new Holy Grail War " Fate/Another II"
+Welcome to the new Holy Grail War "Fate/Another II"
 
 Fate/Another II is an updated version of Fate/Another based on Fate Series
 
@@ -13,8 +13,8 @@ Fate/Another II is Hero Arena game featuring 30+ Servants from Fate universe. Ch
 
 ---------------
 
-To newcomers who interest in the game and want to gain more understanding of this game. please try Fate Tutorial map to learn the mechanics and tips.
-
+*If you're new please communicate with people, they'll teach you more if you want to learn.*
+*Or just straight up join the discord! We always welcome new people.*
 
 -------------
 
@@ -39,5 +39,3 @@ Draft Mode (2 Teams) : Map fate_elim_7v7 and fate_elim_6v6 with full lobby - Fuy
 Free For All (No Team) : Map fate_ffa - Ryudo Temple
 
 Rumble (4 Teams) : Map fate_3v3v3v3 - Einzbern Castle
-
-Tutorial Mode : Map fate_tutorial
