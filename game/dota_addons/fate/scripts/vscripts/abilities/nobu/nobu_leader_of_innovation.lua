@@ -14,7 +14,7 @@ end
 modifier_nobu_innovation_aura = class({})
 
 function modifier_nobu_innovation_aura:GetAuraSearchTeam()
-    return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+    return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
 
@@ -58,33 +58,34 @@ end
  
 
 modifier_nobu_innovation = class({})
+ 
+function modifier_nobu_innovation:DeclareFunctions()
+    return{
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+end
 
 function modifier_nobu_innovation:OnCreated()
 	if(self:GetParent() == self:GetCaster()) then
 		self:GetCaster().IsReadyToHeal = true  
 	end
-
 end
 
-function modifier_nobu_innovation:IsHidden() return false end
+function modifier_nobu_innovation:IsHidden() return true end
 function modifier_nobu_innovation:IsDebuff() return false end
- 
-
- 
 
 function modifier_nobu_innovation:OnTakeDamage(args)
     local parent =self:GetParent()
     local caster = self:GetCaster()
-    if(  args.attacker == caster   )then
+    if(args.attacker == caster)then
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("aura_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
-			v:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_innovation_ms", { Duration = self:GetAbility():GetSpecialValueFor("ms_duration") })
-			v:SetHealth(v:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength())
+			v:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_innovation_ms", { duration = 1 })
+			v:FateHeal(self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength(),caster,true)
 		end
-	 
-		 
 		return 
 	end
+
 	if(  args.attacker:GetTeamNumber() == caster:GetTeamNumber() and caster.IsReadyToHeal)then
 		caster.IsReadyToHeal = false
 		caster:SetHealth(caster:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength())

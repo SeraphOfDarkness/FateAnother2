@@ -9,17 +9,17 @@ function nobu_divinity_mark:OnSpellStart()
     hTarget:AddNewModifier(hCaster, self, "modifier_nobu_divinity_mark", {duration = self:GetSpecialValueFor("duration")} )
 end
 
- 
-
 modifier_nobu_divinity_mark = class({})
  
+function modifier_nobu_divinity_mark:DeclareFunctions()
+    return{
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+end
 
 function modifier_nobu_divinity_mark:IsHidden()	return false end
 function modifier_nobu_divinity_mark:RemoveOnDeath()return true end 
 function modifier_nobu_divinity_mark:IsDebuff() 	return true end
-
-
-
  
 function modifier_nobu_divinity_mark:OnCreated()
 if(not IsServer()) then return end
@@ -27,9 +27,7 @@ local caster = self:GetCaster()
 self.stacks = 0
 self.fx = ParticleManager:CreateParticle("particles/nobu/nobu_divinity_mark.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 ParticleManager:SetParticleControl(self.fx , 1, Vector(self.stacks,0,0) ) 
- 
 end
-
  
 function modifier_nobu_divinity_mark:OnDestroy()
     if(not IsServer()) then return end
@@ -38,22 +36,14 @@ function modifier_nobu_divinity_mark:OnDestroy()
 
 end
 
-function modifier_nobu_divinity_mark:OnTakeDamage(args)
+function modifier_nobu_divinity_mark:OnTakeDamage(args)  
+    print("taking dmg mark")
     local parent =self:GetParent()
     local caster = self:GetCaster()
-    if(  args.attacker == caster  and args.damage_category == 0 )then
-        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_shot_upgrade" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_3000_upgrade" and args.inflictor:GetName() ~= "nobu_double_shots" 
-        and args.inflictor:GetName() ~= "nobu_combo" and args.inflictor:GetName() ~= "nobu_dash" and args.inflictor:GetName() ~= "nobu_dash_upgrade" ) then return end
-        if( args.inflictor:GetName() == "nobu_shot" and args.damage_type == DAMAGE_TYPE_MAGICAL) then
-            return
-         end
-         if( args.inflictor:GetName() == "nobu_3000" and args.damage_type == DAMAGE_TYPE_PURE) then
-            return
-         end
-        
-            self.stacks = self.stacks + 1
+    if(  args.attacker == caster )then
+        print("taking dmg mark2")
+        self.stacks = self.stacks + 1
      
-      
         ParticleManager:DestroyParticle(self.fx, true) 
         ParticleManager:ReleaseParticleIndex(self.fx)
         self.fx = ParticleManager:CreateParticle("particles/nobu/nobu_divinity_mark.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
