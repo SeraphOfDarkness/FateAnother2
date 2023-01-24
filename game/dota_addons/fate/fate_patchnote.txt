@@ -1,3 +1,27 @@
+Nobunaga
+
+Demon guns base damage 90 -> 100
+
+Combo, run speed 1500 -> 2000
+Damage rifle modifier 0.6 -> 0.65
+
+EMIYA
+UBW BUYING ITEM FIX ATTEMPT
+
+-------------
+Nobunaga
+
+A lot of fixes
+
+-------------
+
+Nobunaga
+
+20% Overall damage output increase, too lazy to note.
+Fixed Attribute Strategy, now works properly.
+
+-------------
+
 Semiramis
 
 Poison Aura
