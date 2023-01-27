@@ -1,4 +1,25 @@
 Nobunaga
+Base hp 1100 -> 1250
+Agi growth 1.6 -> 1.5
+Str growth 2.1 -> 2.2
+
+Three line formation 
+Delay before start shooting 0.3 -> 0.15
+Range 1300 -> 1500
+
+Demon guns
+Damage per int 1.4 -> 1.7
+
+Strategy attribute
+Bonus damage 40 -> 60
+
+3000 Worlds attribute
+Pure perc 15 -> 20
+
+Robin
+Base hp 1200 -> 1250
+-------------
+Nobunaga
 
 Demon guns base damage 90 -> 100
 

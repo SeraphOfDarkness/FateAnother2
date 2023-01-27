@@ -176,9 +176,9 @@ function nobu_guns_wrapper(ability)
         local caster = self:GetCaster()
         if(caster.UnifyingAcquired) then
             return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()*  self:GetSpecialValueFor("dmg_per_lvl") 
-            +caster:GetIntellect() * self:GetSpecialValueFor("dmg_per_int") + (caster:HasModifier("modifier_nobu_strategy_attribute") and 40 or 0)
+            +caster:GetIntellect() * self:GetSpecialValueFor("dmg_per_int") + (caster:HasModifier("modifier_nobu_strategy_attribute") and 60 or 0)
         else
-            return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()* self:GetSpecialValueFor("dmg_per_lvl")  + (caster:HasModifier("modifier_nobu_strategy_attribute") and 40 or 0)
+            return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()* self:GetSpecialValueFor("dmg_per_lvl")  + (caster:HasModifier("modifier_nobu_strategy_attribute") and 60 or 0)
         end
     end
 

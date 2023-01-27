@@ -101,8 +101,7 @@ function nobu_3000_wrapper(ability)
         local position = self:GetCursorPosition()
         self.caster:StopSound("nobu_ulti_cast")
         EmitGlobalSound("nobu_ulti_end") 
-        Timers:CreateTimer(0.3, function()
-         
+        Timers:CreateTimer(0.15, function()
             local facing =  self.caster:GetForwardVector()
             facing.z = 0
             self:Shoot({
@@ -110,9 +109,9 @@ function nobu_3000_wrapper(ability)
                 Speed = 10000,
                 Facing = facing,
                 AoE = aoe,
-                Range = 1300,
+                Range = 1500,
             })
-            Timers:CreateTimer(0.1, function()
+            Timers:CreateTimer(0.08, function()
                 self.caster:SetAbsOrigin(GetGroundPosition(self.caster:GetAbsOrigin(),self.caster))
 
             end)
@@ -134,7 +133,7 @@ function nobu_3000_wrapper(ability)
                     Speed = 10000,
                     Facing =  facing,
                     AoE = aoe,
-                    Range = 1300,
+                    Range = 1500,
                 })
                 ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
                 ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
@@ -200,12 +199,11 @@ function nobu_3000_wrapper(ability)
                 iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                 iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
                 flExpireTime = GameRules:GetGameTime() + 0.13,
-                
             }
             ]]
             local targets = FindUnitsInLine(  self.caster:GetTeamNumber(),
                                                  keys.Origin,
-                                                 keys.Origin+keys.Speed*0.13*keys.Facing ,
+                                                 keys.Origin+keys.Speed*0.15*keys.Facing ,
                                                  nil,
                                                  keys.AoE,
                                                  DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -213,7 +211,7 @@ function nobu_3000_wrapper(ability)
                                                  DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
                                                 )
             local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
-            ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.13*keys.Facing)       
+            ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.15*keys.Facing)       
             ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
 
             if targets == nil then return
@@ -240,8 +238,8 @@ function nobu_3000_wrapper(ability)
                 if IsDivineServant(v) and self.caster.UnifyingAcquired then 
                     damage= damage*1.2
                 end
-                    DoDamage(self.caster, v, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-                    DoDamage(self.caster, v, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+                    DoDamage(self.caster, v, damage*0.80, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                    DoDamage(self.caster, v, damage*0.20, DAMAGE_TYPE_PURE, 0, self, false)
                
                 if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then        
                     if hCaster.is3000Acquired then
@@ -350,8 +348,8 @@ function nobu_3000_wrapper(ability)
             damage= damage*1.2
         end
         if hCaster.is3000Acquired then
-            DoDamage(hCaster, target, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-            DoDamage(hCaster, target, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+            DoDamage(hCaster, target, damage*0.80, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+            DoDamage(hCaster, target, damage*0.20, DAMAGE_TYPE_PURE, 0, self, false)
         else
             DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
             target:EmitSound("nobu_shot_impact_"..math.random(1,2))
