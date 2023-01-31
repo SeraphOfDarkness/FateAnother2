@@ -1,7 +1,7 @@
 Fix robin nirnroot sommersault making him stuck (attempt)
 
 Grand skin update! POG!
-New voicelines for skins (Around 50), Find them out!
+New voicelines for skins (Around 30), Find them out!
 -------------
 Nobunaga
 Base hp 1100 -> 1250
