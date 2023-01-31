@@ -103,7 +103,11 @@ function OnRightHandStart(keys)
 	caster.current_mana = caster:GetMana()
 	caster.righthand_stack = 0 
 
+	if caster:HasModifier('modifier_alternate_01') then 
+	caster:EmitSound("Amakusa-SkinR")
+	else
 	caster:EmitSound("Amakusa.RightHand")
+	end
 
 	if caster.IsLeftHandAcquired then 
 		local bonus_duration = math.floor(caster.current_mana / ability:GetSpecialValueFor("mana_per_dur")) 

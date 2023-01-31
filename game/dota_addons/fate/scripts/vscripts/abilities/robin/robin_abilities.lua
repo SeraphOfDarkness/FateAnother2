@@ -397,6 +397,7 @@ function OnParalyzingArrow(keys)
 			Timers:CreateTimer(0.3, function() 
 				caster:PreventDI(false)
 				caster:SetPhysicsVelocity(Vector(0,0,0))
+				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 			end)
 		end
 

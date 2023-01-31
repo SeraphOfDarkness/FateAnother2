@@ -102,7 +102,11 @@ function mordred_rush_wrapper(ability)
 
     	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
 
-    	caster:EmitSound("mordred_rush")
+        if caster:HasModifier('modifier_alternate_02') then 
+            caster:EmitSound("Mordred-Armorless-E")
+        else
+            caster:EmitSound("mordred_rush")
+        end
 
     	if caster:HasModifier("pedigree_off") and caster:HasModifier("modifier_mordred_overload") then
         	local kappa = caster:FindModifierByName("modifier_mordred_overload")

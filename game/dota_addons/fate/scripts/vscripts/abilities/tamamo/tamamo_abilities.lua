@@ -1129,8 +1129,16 @@ function OnComboStart(keys)
 	Timers:CreateTimer('tama_ascend', {
 		endTime = 0,
 		callback = function()
-	   	if ascendCount == 15 then	   		
-	   		EmitGlobalSound("Tamamo_Combo1")	   		
+	   	if ascendCount == 15 then	   			   		
+	   		if caster:HasModifier('modifier_alternate_03') then 
+				caster:EmitSound("Tamamo-Police-Combo1")
+	   		elseif caster:HasModifier('modifier_alternate_06') then 
+				caster:EmitSound("Tamamo-Waifu-Combo1")
+	   		elseif caster:HasModifier('modifier_alternate_07') then 
+				caster:EmitSound("Tamamo-Summer-Combo1")	
+			else	
+	   			EmitGlobalSound("Tamamo_Combo1")	   		
+	   		end	   		
 
 		   	return 
 		elseif ascendCount == 1 then
@@ -1168,7 +1176,16 @@ function OnComboStart(keys)
 
 	Timers:CreateTimer(2.2, function()
 		if caster:IsAlive() then
-	   		EmitGlobalSound("Tamamo_Combo2") 
+			if caster:HasModifier('modifier_alternate_03') then 
+				caster:EmitSound("Tamamo-Police-Combo2")
+	   		elseif caster:HasModifier('modifier_alternate_06') then 
+				caster:EmitSound("Tamamo-Waifu-Combo2")
+	   		elseif caster:HasModifier('modifier_alternate_07') then 
+				caster:EmitSound("Tamamo-Summer-Combo2")	
+			else	
+	   			EmitGlobalSound("Tamamo_Combo2")	   		
+	   		end	
+
 	   		if caster:HasModifier("modifier_alternate_05") then 
 				StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
 			else  		

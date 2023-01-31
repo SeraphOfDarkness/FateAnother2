@@ -20,9 +20,21 @@ function aestus_domus_wrapper(ability)
 
 		local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	    if #enemies == 0 then 
-	        caster:EmitSound("nero_aestus_cast_" .. self.soundQueue)
-	    else
-	        EmitGlobalSound("nero_aestus_cast_" .. self.soundQueue)
+		    if caster:HasModifier('modifier_alternate_02') then 
+	        	caster:EmitSound("Nero-Empe-R")
+			elseif caster:HasModifier('modifier_alternate_03') then 
+	        	caster:EmitSound("Nero-Dress-R")
+			else
+	        	caster:EmitSound("nero_aestus_cast_" .. self.soundQueue)
+			end
+	    else		    
+	    	if caster:HasModifier('modifier_alternate_02') then 
+	        	EmitGlobalSound("Nero-Empe-R")
+			elseif caster:HasModifier('modifier_alternate_03') then 
+	        	EmitGlobalSound("Nero-Dress-R")
+			else
+	        	EmitGlobalSound("nero_aestus_cast_" .. self.soundQueue)
+			end
 	    end
 
 		return true
@@ -30,6 +42,9 @@ function aestus_domus_wrapper(ability)
 
 	function ability:OnAbilityPhaseInterrupted()
 		local caster = self:GetCaster()
+		caster:StopSound("Nero-Empe-R")
+		StopGlobalSound("Nero-Empe-R")
+		StopGlobalSound("Nero-Dress-R")
 		caster:StopSound("nero_aestus_cast_" .. self.soundQueue)
 		StopGlobalSound("nero_aestus_cast_" .. self.soundQueue)
 	end
@@ -132,7 +147,10 @@ function aestus_domus_wrapper(ability)
 
 		Timers:CreateTimer(delay + 0.5, function()
 			if caster:IsAlive() then
+				if caster:HasModifier('modifier_alternate_03') then 
+				else
 				EmitGlobalSound("Nero.NP2.1")
+				end
 			end
 		end)	
 	end

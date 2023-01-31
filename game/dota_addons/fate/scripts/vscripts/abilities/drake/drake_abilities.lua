@@ -10,7 +10,11 @@ function OnAbilityCastCheck (keys)
 		return 
 	end 
 	if string.match(ability:GetAbilityName(),"drake_combo_golden_wild_hunt" ) then 
-		EmitGlobalSound("Drake.PreCombo")
+		if caster:HasModifier('modifier_alternate_04') then 
+			EmitGlobalSound("Drake-Summer-Combo1")
+		else
+			EmitGlobalSound("Drake.PreCombo")
+		end	
 	end
 end
 
@@ -1426,6 +1430,11 @@ function OnCrossingFireStart (keys)
 	local duration = ability:GetSpecialValueFor("duration")
 	local bullet_interval = ability:GetSpecialValueFor("bullet_interval")
 	local rate = 20 / (24 * bullet_interval)
+
+	if caster:HasModifier('modifier_alternate_03') then 
+		caster:EmitSound("Drake-Cowgirl-W")
+	end	
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crossing_fire_buff", {})
 	OnCrossingFireThink (caster, ability)
 	StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_4, rate=1/bullet_interval})
@@ -1938,7 +1947,10 @@ function OnSummonBombardStart (keys)
 	local visiondummy = SpawnVisionDummy(caster, position, aoe, 3, false)
 
 	local cannon_counter = 1
-	
+
+	if caster:HasModifier('modifier_alternate_04') then 
+		caster:EmitSound("Drake-Summer-E")
+	end	
 
 	Timers:CreateTimer( cast_delay - ability:GetCastPoint(), function()
 
@@ -2880,11 +2892,19 @@ function OnGoldenWildHuntIIStart (keys)
 
  	Timers:CreateTimer(2.2, function()
  		if caster:IsAlive() then 
- 			EmitGlobalSound("Drake.Temeroso")
+	 		if caster:HasModifier('modifier_alternate_04') then 
+				EmitGlobalSound("Drake-Summer-Combo2")
+			else
+				EmitGlobalSound("Drake.Temeroso")
+			end	
  		end
  		Timers:CreateTimer(2.2, function()
  			if caster:IsAlive() then 
- 				EmitGlobalSound("Drake.ComboEnd")
+	 			if caster:HasModifier('modifier_alternate_04') then 
+					EmitGlobalSound("Drake-Summer-Combo3")
+				else
+					EmitGlobalSound("Drake.ComboEnd")
+				end	
  			end
  		end)
  	end)

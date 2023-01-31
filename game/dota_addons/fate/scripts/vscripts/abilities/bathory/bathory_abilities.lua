@@ -453,7 +453,11 @@ function OnDragonCryStart(keys)
 	StartAnimation(caster, {duration=cast_delay - 0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bathory_lance", {Duration = cast_delay + 1.2})
 
-	EmitGlobalSound("Bathory.Skill4_" .. math.random(1,2))
+	if caster:HasModifier('modifier_alternate_02') then 
+		EmitGlobalSound("Eli-R")
+	else
+		EmitGlobalSound("Bathory.Skill4_" .. math.random(1,2))
+	end	
 	
 	Timers:CreateTimer(cast_delay - 0.3, function()
 		StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})

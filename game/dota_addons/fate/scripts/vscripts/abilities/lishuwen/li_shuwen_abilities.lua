@@ -444,11 +444,18 @@ function tigerstrikewrapper(TPM)
 		end
 
 		target:EmitSound("Hero_EarthShaker.Attack")
+
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
 		else
-			caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			if caster:HasModifier('modifier_alternate_02') then 
+				caster:EmitSound("Li-Boss-E1")
+			else
+				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			end	
 		end
+
+
 	    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
 	    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
 	    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_first_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
@@ -505,7 +512,11 @@ function tigerstrikewrapper(TPM)
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
 		else
-			caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			if caster:HasModifier('modifier_alternate_02') then 
+				caster:EmitSound("Li-Boss-E2")
+			else
+				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			end	
 		end
 		
 	    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
@@ -578,7 +589,11 @@ function tigerstrikewrapper(TPM)
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
 		else
-			caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			if caster:HasModifier('modifier_alternate_02') then 
+				caster:EmitSound("Li-Boss-E3")
+			else
+				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
+			end	
 		end
 	    local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
 		ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())
@@ -1141,6 +1156,10 @@ function OnNSSCastStart(keys)
     ParticleManager:SetParticleControl( windupFx, 0, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl( windupFx, 3, caster:GetAbsOrigin())
 
+	if caster:HasModifier('modifier_alternate_02') then 
+		caster:EmitSound("Li-Boss-R")
+	end
+
     Timers:CreateTimer(cast_delay, function()
 		ParticleManager:DestroyParticle( windupFx, false )
 		ParticleManager:ReleaseParticleIndex( windupFx )
@@ -1199,7 +1218,6 @@ function OnNSSStart(keys)
 	end
 	
 	-- apply delay indicator
-
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
     local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
     ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())

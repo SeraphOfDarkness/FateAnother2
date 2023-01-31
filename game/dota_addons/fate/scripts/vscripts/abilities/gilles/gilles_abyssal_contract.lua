@@ -40,8 +40,12 @@ function gilles_abyssal_contract_wrapper(ability)
 		local summon_duration = self:GetSpecialValueFor("summon_duration")
 		local stun = self:GetSpecialValueFor("stun")
 		local fAOE = self:GetAOERadius()
-
-		EmitGlobalSound("Gilles_Cool")
+	
+		if hCaster:HasModifier('modifier_alternate_02') then 
+		EmitGlobalSound("Gilles-Pope-R")	
+		else
+		EmitGlobalSound("Gilles_Cool")	
+		end	
 		--hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = fDelay - 0.1})
 
 		AddFOWViewer(hCaster:GetTeamNumber(), vTargetPoint, fAOE, fDelay + 0.5, true)

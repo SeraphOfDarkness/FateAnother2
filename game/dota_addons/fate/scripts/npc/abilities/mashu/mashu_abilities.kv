@@ -1,9 +1,176 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Hans : High speed incantation (Q)
+	// Mashu : Bunker bolt (Q)
 	//=================================================================================================================
-	"hans_incantation"
+	"mashu_bunker_bolt"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/hans/redshoes"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"700"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.2"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 180 240 300 360"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"1.8 2.1 2.4 2.7 3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_amount"			"-30 -35 -40 -45 -50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.25"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hans/hans_abilities"
+				"Function"		"OnRedShoes"
+			}
+		}		
+		"Modifiers"
+		{
+			"modifier_mashu_bunker_bolt_slow"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Duration"			"%slow_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_amount"
+				}	
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mashu : Bunker bolt (Black barrel SA) (Q)
+	//=================================================================================================================
+	"mashu_bunker_bolt_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/hans/redshoes"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"900"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.2"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 180 240 300 360"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_str"		"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"2.8 3.1 3.4 3.7 4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_amount"			"-30 -35 -40 -45 -50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.25"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_penalty"			"-12 -14 -16 -18 -20"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hans/hans_abilities"
+				"Function"		"OnRedShoes"
+			}
+		}		
+		"Modifiers"
+		{
+			"modifier_mashu_bunker_bolt_slow"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Duration"			"%slow_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_amount"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_penalty"				
+				}	
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mashu : Protect (W)
+	//=================================================================================================================
+	"mashu_protect"
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -13,16 +180,13 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"			"1"
-		"AbilityCooldown"				"11"
-		"AbilityManaCost"				"100"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
-		}
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"200"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -38,19 +202,20 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"300 400 500 600 700"
+				"damage_reduce"			"50 55 60 65 70"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"han_bonus"				"50"
+				"var_type"				"FIELD_FLOAT"
+				"parry_duration"		"0.3"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cd_reduction"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"protect_duration"		"1"
 			}
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -62,10 +227,11 @@
 
 	    "Modifiers"
 	    {
-			"modifier_hans_combo_window"
+			"modifier_mashu_protect"
 			{	
-				"IsHidden"				"1"
-				"Duration"				"5" 
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+				"Duration"				"%protect_duration" 
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"OnCreated"
@@ -84,17 +250,113 @@
 						"Function"		 	"OnComboWindowBroken"
 					}
 				}				
-				"OnDeath"
+			}
+
+			"modifier_mashu_parry"
+			{	
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+				"Duration"				"%parry_duration" 
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hans/hans_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"		"abilities/hans/hans_abilities"
-						"Function"		 	"OnComboWindowDeath"
+						"Function"		 	"OnComboWindowBroken"
 					}
-				}
+				}				
 			}
 		}	
 	}	
+
+	//=================================================================================================================
+	// Mashu : Shield of Rousing Heroism (E)
+	//=================================================================================================================
+	"mashu_taunt"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/hans/territory"
+		"MaxLevel"						"1"		
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"300"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"buff_duration"		"6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduction"	"-20 -25 -30 -35 -40"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"350"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"taunt_duration"			"1.8 2.1 2.4 2.7 3"
+			}			
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"		"0.4"
+			}			
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hans/hans_abilities"
+				"Function"		"OnTerritoryCreation"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_hans_territory_buff"
+			{
+				"Duration"				"1"
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
+				}
+			}
+
+			"modifier_hans_territory_debuff"
+			{
+				"Duration"				"1"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_reduction"
+				}
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Hans : High speed incantation Upgraded from ult (Q)

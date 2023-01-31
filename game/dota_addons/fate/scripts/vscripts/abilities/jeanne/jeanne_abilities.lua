@@ -389,7 +389,11 @@ function OnPurgeStart(keys)
 
 	local soundQueue = math.random(1,6)
 
-	caster:EmitSound("Jeanne_Skill_" .. soundQueue)
+	if caster:HasModifier('modifier_alternate_02') then 
+		caster:EmitSound("Jeanne-W")
+	else
+		caster:EmitSound("Jeanne_Skill_" .. soundQueue)
+	end
 
 	Timers:CreateTimer(delay, function()
 
@@ -539,7 +543,12 @@ function OnGodResolutionStart(keys)
 
 	local soundQueue = math.random(9,12)
 
-	caster:EmitSound("Jeanne_Skill_" .. soundQueue)
+	if caster:HasModifier('modifier_alternate_02') then 
+		caster:EmitSound("Jeanne-E")
+	else
+		caster:EmitSound("Jeanne_Skill_" .. soundQueue)
+	end
+
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", duration)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gods_resolution_active_buff", {duration = duration})
 	Timers:CreateTimer(0.1, function()

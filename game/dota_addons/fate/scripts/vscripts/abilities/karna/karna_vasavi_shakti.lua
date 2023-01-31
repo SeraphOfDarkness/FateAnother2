@@ -20,6 +20,10 @@ function karna_vasavi_shakti_wrapper(ability)
 		local ascendCount = 0
 		local descendCount = 0
 
+		if caster:HasModifier('modifier_alternate_02') then 
+			caster:EmitSound("Karna.Skin.R" .. math.random(1,3))
+		end	
+
 		local damage = self:GetSpecialValueFor("damage")
 		--[[local dummy = CreateUnitByName("dummy_unit", target_point, false, caster, caster, caster:GetTeamNumber())
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)]]
@@ -27,6 +31,8 @@ function karna_vasavi_shakti_wrapper(ability)
 		if caster.IndraAttribute then 
 			damage = damage + (self:GetSpecialValueFor("bonus_agi") * caster:GetAgility())
 		end
+
+
 
 		--[[local enemy = PickRandomEnemy(caster)
 		if enemy ~= nil then
@@ -49,7 +55,13 @@ function karna_vasavi_shakti_wrapper(ability)
 		   	if ascendCount == 15 and caster:IsAlive() then 
 		   		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1})
 
-		   		EmitGlobalSound("karna_vasavi_short_" .. math.random(1,2))
+				if caster:HasModifier('modifier_alternate_02') then 
+			   		Timers:CreateTimer(0.15, function()
+			   			EmitGlobalSound("karna_vasavi_short_" .. math.random(1,2))
+					end)
+				else
+		   			EmitGlobalSound("karna_vasavi_short_" .. math.random(1,2))
+				end
 
 		   		local beam_particle = ParticleManager:CreateParticle("particles/custom/karna/vasavi_shakti/vasavi_shakti_beam.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		   		ParticleManager:SetParticleControlEnt(beam_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_lance", caster:GetOrigin(), true)

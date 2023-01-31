@@ -75,7 +75,11 @@ function OnUFStart(keys)
 		bonusDamage = caster:GetStrength()*bonus_str + caster:GetIntellect()*bonus_int
 	end
 
-	caster:EmitSound("saber_alter_other_03") 
+	if caster:HasModifier('modifier_alternate_02') then 
+		caster:EmitSound("Salter-F")
+	else
+		caster:EmitSound("saber_alter_other_03") 
+	end
 
 	DSCheckCombo(caster, ability)
 	Timers:CreateTimer(function()
@@ -129,7 +133,13 @@ function OnMBStart(keys)
 	end
 
 	caster:EmitSound("Saber_Alter.ManaBurst") 
-	caster:EmitSound("saber_alter_attack_03")
+
+	if caster:HasModifier('modifier_alternate_02') then 
+		caster:EmitSound("Salter-W")
+	else
+		caster:EmitSound("saber_alter_attack_03")
+	end
+
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, keys.Radius
             , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	

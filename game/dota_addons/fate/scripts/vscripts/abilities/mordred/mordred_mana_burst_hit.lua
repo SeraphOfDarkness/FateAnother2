@@ -51,7 +51,11 @@ function mordred_mana_burst_hit_wrapper(ability)
 	    local caster = self:GetCaster()
 		local target = self:GetCursorTarget()
 
-		EmitSoundOn("mordred_shut_up", caster)
+        if caster:HasModifier('modifier_alternate_02') then 
+			EmitSoundOn("Mordred-Armorless-W", caster)
+        else
+			EmitSoundOn("mordred_shut_up", caster)
+        end
 		--EmitSoundOn("mordred_shut_up", target)
 	    return true
 	end

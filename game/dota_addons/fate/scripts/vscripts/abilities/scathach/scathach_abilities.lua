@@ -692,7 +692,16 @@ function GBAttachEffect(keys)
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( GBCastFx, false )
 	end)
-	EmitGlobalSound("Scathach.Gae_Bolg")
+
+	if caster:HasModifier('modifier_alternate_02') then 
+		EmitGlobalSound("Scat-Priestess-E")
+	elseif caster:HasModifier('modifier_alternate_03') then 
+		EmitGlobalSound("Scat-Sergeant-E")
+	elseif caster:HasModifier('modifier_alternate_04') then 
+		EmitGlobalSound("Scat-Summer-E")
+	else
+		EmitGlobalSound("Scathach.Gae_Bolg")
+	end
 end
 
 

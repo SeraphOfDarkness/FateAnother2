@@ -23,7 +23,11 @@ function astolfo_trap_of_argalia:OnSpellStart()
 		vVelocity = caster:GetForwardVector() * 1850
 	}
 
+	if caster:HasModifier('modifier_alternate_02') then 
+	caster:EmitSound("Astolfo-SkinW")
+	else
 	caster:EmitSound("Astolfo_Slide_" .. math.random(1,5))
+	end
 
 	local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)

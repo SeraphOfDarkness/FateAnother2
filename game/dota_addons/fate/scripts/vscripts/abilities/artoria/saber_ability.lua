@@ -191,6 +191,8 @@ function OnCaliburnHit(keys)
     caster:EmitSound("Saber.Caliburn")
     if caster:HasModifier("modifier_alternate_04") then 
     	caster:EmitSound("Saber_Lily_Caliburn")
+    elseif caster:HasModifier("modifier_alternate_05") then 
+    	caster:EmitSound("Saber-Wedding-W")
     else
     	caster:EmitSound("saber_attack_01")
     end
@@ -453,6 +455,8 @@ function OnMaxStart(keys)
 	
 	if caster:HasModifier("modifier_alternate_04") then 
 		EmitGlobalSound("Saber_Lily_Max_Chant_" .. math.random(1,2))
+	elseif caster:HasModifier("modifier_alternate_05") then 
+		EmitGlobalSound("Saber-Wedding-Combo" .. math.random(1,2))
 	else
 		EmitGlobalSound("Saber_Max_Chant_" .. math.random(1,2))
 	end
@@ -468,6 +472,8 @@ function OnMaxStart(keys)
 		callback = function()
 		if caster:HasModifier("modifier_alternate_04") then 
 			EmitGlobalSound("Saber_Lily_Max_Excalibur")
+		elseif caster:HasModifier("modifier_alternate_05") then 
+			EmitGlobalSound("Saber-Wedding-Combo-Excal")
 		else
 	    	EmitGlobalSound("Saber_Max_Excalibur")
 	    end

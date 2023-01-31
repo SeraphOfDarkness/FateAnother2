@@ -253,6 +253,10 @@ function Precache( context , pc)
         PrecacheResource("soundfile", "soundevents/bgm.vsndevts", context)]]
         --====================== Sound files ======================================--
 
+
+               --======= SKIN UPDATE, SKILL AUDIOS ========--
+    PrecacheResource("soundfile", "soundevents/hero_skin_update.vsndevts", context)
+
                --======= General ========--
     PrecacheResource("soundfile", "soundevents/announcer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/misc_sound.vsndevts", context)
@@ -287,6 +291,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_karna.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_scathach.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_bathory.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_karna_extra_skin_version.vsndevts", context )
                        --============ Caster ==============--      
     PrecacheResource("soundfile", "soundevents/hero_caster.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_zc.vsndevts", context)

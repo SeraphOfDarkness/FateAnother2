@@ -1493,7 +1493,16 @@ function OnHGStart(keys)
 		return 0.1
     end
     )
-	Timers:CreateTimer(1.0, function() EmitGlobalSound("Caster.Hecatic") EmitGlobalSound("Caster.Hecatic_Spread") caster:EmitSound("Misc.Crash") return end)
+	Timers:CreateTimer(1.0, function() 		
+		if caster:HasModifier('modifier_alternate_03') then 
+			EmitGlobalSound("Medea-Illya-R")
+		else
+			EmitGlobalSound("Caster.Hecatic")
+		end	
+		EmitGlobalSound("Caster.Hecatic_Spread")
+		caster:EmitSound("Misc.Crash") 
+		return
+	end)
 end
 
 function DropRay(caster, damage, radius, ability, targetPoint, particle)
