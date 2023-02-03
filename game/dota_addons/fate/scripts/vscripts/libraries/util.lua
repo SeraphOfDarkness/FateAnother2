@@ -337,6 +337,7 @@ locks = {
     "modifier_zhuge_liang_array_enemy",
     "modifier_kinghassan_death_announce",
     "modifier_tiatum_umu_execute",
+    "modifier_mashu_taunt",
 }
 
 no_tp = {
@@ -351,6 +352,7 @@ no_tp = {
     "modifier_jtr_whitechapel_self",
     "modifier_zhuge_liang_array_enemy",
     "modifier_tiatum_umu_execute",
+    "modifier_mashu_taunt",
 }
 
 goesthruB = {

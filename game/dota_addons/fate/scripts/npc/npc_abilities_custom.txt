@@ -44,6 +44,7 @@
 #base "abilities/hans/hans_abilities.kv"
 #base "abilities/robin/robin_abilities.kv"
 #base "abilities/nobu/nobu_abilities.kv"
+#base "abilities/mashu/mashu_abilities.kv"
 #base "abilities/master/master_abilities.kv"
 
 "DOTAAbilities"
