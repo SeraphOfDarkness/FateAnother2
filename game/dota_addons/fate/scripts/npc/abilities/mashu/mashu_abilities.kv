@@ -6,14 +6,14 @@
 	"mashu_bunker_bolt"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/hans/redshoes"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCastRange"				"700"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"			"1"
@@ -25,12 +25,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.2"
+				"cast_delay"			"0.1"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"700"
+				"range"					"1500"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_detect"			"85"
+			}			
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dash_duration"			"0.4"
 			}
 			"02"
 			{
@@ -40,7 +50,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow_duration"				"1.8 2.1 2.4 2.7 3"
+				"slow_duration"			"1.8 2.1 2.4 2.7 3"
 			}
 			"03"
 			{
@@ -57,34 +67,39 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"abilities/hans/hans_abilities"
-				"Function"		"OnRedShoes"
+				"ScriptFile"	"abilities/mashu/mashu_abilities"
+				"Function"		"OnBunkerBolt"
 			}
 		}		
-		"OnProjectileThink"
-		{
-			"ThinkInterval"			"0.15"
-            "OnIntervalThink"
-         	{
-				"RunScript"
-				{
-					"ScriptFile"		"abilities/mashu/mashu_abilities"
-					"Function"			"OnMashuTauntThink"
-				}
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/robin/robin_abilities"
-				"Function"		"OnParalyzingArrowHit"
-			}
-		}
-
 		"Modifiers"
 		{
+			"modifier_mashu_bunker_bolting"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%dash_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"ThinkInterval"  		"0.01"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mashu/mashu_abilities"
+						"Function"		"OnBunkerBoltThink"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/mashu/mashu_abilities"
+						"Function"		 	"OnBunkerBoltDeath"
+					}
+				}	
+			}
 			"modifier_mashu_bunker_bolt_slow"
 			{
 				"IsHidden"			"0"
@@ -202,11 +217,11 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"			"1"
-		"AbilityCooldown"				"17 16 15 14 13"
+		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"200"
 
 		"AbilitySpecial"
@@ -214,17 +229,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"600"
+				"cast_range"			"400"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.2"
+				"cast_time"				"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"			"-40 -45 -50 -55 -60"
+				"damage_reduce"			"50 55 60 65 70"
 			}
 			"02"
 			{
@@ -235,21 +250,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"protect_duration"		"1"
-			}
+			}		
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"red_cooldown"			"8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_restore"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_proc"			"200"
+				"parry_duration"		"0.3"
 			}
 		}
 
@@ -268,20 +273,17 @@
 			{	
 				"IsHidden"				"0"
 				"IsBuff"				"1"
-				"IsPurgable"			"0"
 				"Duration"				"%protect_duration" 
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduce"
 				}
-
 				"OnTakeDamage"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"abilities/mashu/mashu_abilities"
+						"ScriptFile"	"abilities/semiramis/mashu_abilities"
 						"Function"		"OnProtectProc"
 						"DamageTaken"	"%attack_damage"		
 					}
@@ -294,12 +296,10 @@
 				"IsBuff"				"1"
 				"Duration"				"%parry_duration" 
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduce"
 				}
-
 				"OnTakeDamage"
 				{
 					"RunScript"
@@ -321,98 +321,9 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/hans/territory"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastRange"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate"			"1"
-		"AbilityCastPoint"				"0.25"
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"300"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"buff_duration"		"5 6 7 8 9"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduce"		"-12 -15 -18 -21 -24"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"			"350"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"taunt_duration"	"1.5 2 2.5 3 3.5"
-			}			
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.35"
-			}			
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/mashu/mashu_abilities"
-				"Function"		"OnMashuTaunt"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_mashu_taunt"
-			{
-				"Duration"				"%taunt_duration"
-				"IsHidden"				"0"				
-	            "IsDebuff"				"1"		
-	            "ThinkInterval"			"0.15"
-
-	            "OnIntervalThink"
-	         	{
-					"RunScript"
-					{
-						"ScriptFile"		"abilities/mashu/mashu_abilities"
-						"Function"			"OnMashuTauntThink"
-					}
-				}
-			}
-
-			"modifier_mashu_dmg_reduc"
-			{
-				"Duration"				"%buff_duration"
-				"IsHidden"				"0"
-				"IsBuff"				"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduce"
-				}
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Mashu : Shield of Rousing Heroism (E)
-	//=================================================================================================================
-	"mashu_taunt"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/hans/territory"
 		"MaxLevel"						"1"		
 		"AbilityCastPoint"				"0.4"
-		"AbilityCooldown"				"40"
+		"AbilityCooldown"				"32"
 		"AbilityManaCost"				"300"
 		
 		"AbilitySpecial"
@@ -448,40 +359,148 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"abilities/hans/hans_abilities"
-				"Function"		"OnTerritoryCreation"
+				"ScriptFile"	"abilities/mashu/mashu_abilities"
+				"Function"		"OnMashuTaunt"
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_hans_territory_buff"
+			"modifier_mashu_taunt"
 			{
-				"Duration"				"1"
-				"IsHidden"				"0"
-				"IsBuff"				"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
-				}
-			}
-
-			"modifier_hans_territory_debuff"
-			{
-				"Duration"				"1"
+				"Duration"				"%taunt_duration"
 				"IsHidden"				"0"
 				"IsDebuff"				"1"
 
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			   	
+
+				"ThinkInterval"  		"0.15"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mashu/mashu_abilities"
+						"Function"		"OnMashuTauntThink"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/mashu/mashu_abilities"
+						"Function"		 	"OnMashuTauntDestroy"
+					}
+				}		
+			}
+
+			"modifier_mashu_dmg_reduc"
+			{
+				"Duration"				"%buff_duration"
+				"IsHidden"				"0"
+				"IsBuff"				"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
 				}
 			}
 		}
 	}
 
+	//=================================================================================================================
+	// Hans : High speed incantation Upgraded from ult (Q)
+	//=================================================================================================================
+	"hans_incantation_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/hans/incantation"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastRange"				"1200"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"11"
+		"AbilityManaCost"				"0"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"850"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_restore"			"300 400 500 600 700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"han_bonus"				"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cd_reduction"			"10 15 20 25 30"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hans/hans_abilities"
+				"Function"		"OnIncantationStart"
+			}
+		}
 
+		"Modifiers"
+	    {
+			"modifier_hans_combo_window"
+			{	
+				"IsHidden"				"1"
+				"Duration"				"5" 
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hans/hans_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/hans/hans_abilities"
+						"Function"		 	"OnComboWindowBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/hans/hans_abilities"
+						"Function"		 	"OnComboWindowDeath"
+					}
+				}
+			}
+		}
+	}	
 	//=================================================================================================================
 	// Hans : Human Observation (w)
 	//=================================================================================================================
