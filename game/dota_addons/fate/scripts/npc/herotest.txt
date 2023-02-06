@@ -1,10 +1,5 @@
 "CustomHeroList"
 {
 	"npc_dota_hero_gyrocopter"				"1"
-	"npc_dota_hero_phantom_assassin"	"1"
-	//"npc_dota_hero_skeleton_king"		"1"	
-	//"npc_dota_hero_sniper"			"1"		
-	//"npc_dota_hero_enigma"			"1"	
-	//"npc_dota_hero_night_stalker"		"1"
-	//"npc_dota_hero_disruptor"		"1"
+	"npc_dota_hero_phantom_assassin"		"1"
 }
