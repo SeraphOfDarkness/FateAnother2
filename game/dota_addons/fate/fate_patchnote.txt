@@ -76,6 +76,7 @@ Bomb damage 200 -> 220
 Aoe 200 -> 250
 
 Fix karna stupid audio with skin
+Fix excal range reaching out too far
 Extra audio again, some illya, some shirou blah blah.
 
 Today's fun fact : Do you know nobu is so shit she got the lowest winrate in the entire hero pool of 37%? :cry:
