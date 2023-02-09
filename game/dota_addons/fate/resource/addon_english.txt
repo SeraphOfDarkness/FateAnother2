@@ -13488,7 +13488,7 @@
         "DOTA_Tooltip_ability_robin_saboteur_open_Description"		"<font color='#E5CCFF'>SPELLBOOK</font>: Commit war crimes because they're effective. \n<font color='#58ACFA'>Pitfall</font>: Place a trap that <font color='#FFFF28'>stuns</font> enemy. \n<font color='#58ACFA'>Explosive Barrel</font>: Place a trap that explodes. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Subversive Activities</font>."
 
         "DOTA_Tooltip_Ability_robin_saboteur_open_upgrade"				"<font color='#9FFFCC'>Saboteur</font>"
-        "DOTA_Tooltip_ability_robin_saboteur_open_upgrade_Description"		"<font color='#E5CCFF'>SPELLBOOK</font>: Commit war crimes because they're effective. \n<font color='#58ACFA'>Pitfall</font>: Place a trap that <font color='#FF3399'>stuns</font> enemy. \n<font color='#58ACFA'>Explosive Barrel</font>: Place a trap that explodes. \n<font color='#FFB266'>Forest Friends</font>: Summon a bird familliar. \n<font color='#FFB266'>Mandrake Bomb</font>: Throw a poison smoke giving enemy <font color='#FF3399'>Mandrake Root Gas</font>. \n<font color='#FF3399'>Mandrake Root Gas</font> : Deals miniscule damage per second, target will take a damage based on his max health if he tries to heal himself."
+        "DOTA_Tooltip_ability_robin_saboteur_open_upgrade_Description"		"<font color='#E5CCFF'>SPELLBOOK</font>: Commit war crimes because they're effective. \n<font color='#58ACFA'>Pitfall</font>: Place a trap that <font color='#FF3399'>stuns</font> enemy. \n<font color='#58ACFA'>Explosive Barrel</font>: Place a trap that explodes. \n<font color='#FFB266'>Forest Friends</font>: Summon a bird familliar. \n<font color='#FFB266'>Mandrake Bomb</font>: Throw a poison smoke giving enemy <font color='#FF3399'>Mandrake Root Gas</font>. \n<font color='#FF3399'>Mandrake Root Gas</font> : Deals damage per second, target will take a damage based on his max health if he tries to heal himself."
 
         "DOTA_Tooltip_Ability_robin_saboteur_pitfall"				"<font color='#58ACFA'>Pitfall</font>"
         "DOTA_Tooltip_ability_robin_saboteur_pitfall_Description"		"Dig a pitfall trap invisible to enemies, will <font color='#FF3399'>stun</font> nearby enemies when triggered. \nThis ability share level with <font color='#58ACFA'>Saboteur</font>"
@@ -13509,9 +13509,10 @@
         "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_movespeed"			"FAMILLIAR MOVESPEED:"	
         "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_lifetime"			"FAMILLIAR DURATION:"	
 
-        "DOTA_Tooltip_Ability_robin_saboteur_poison_well"						"<font color='#FFB266'>Mandrake Bomb</font>"
+        "DOTA_Tooltip_Ability_robin_saboteur_poison_well"			"<font color='#FFB266'>Mandrake Bomb</font>"
         "DOTA_Tooltip_ability_robin_saboteur_poison_well_Description"		"Throw a bomb filled with boiled mandrake root sap, applying <font color='#FF3399'>Mandrake Root Gas</font>. \n<font color='#FF3399'>Mandrake Root Gas</font>: Deals miniscule damage per second, target will take damage based on his max health if he tries to heal himself, and lose this debuff. \nThis ability share level with <font color='#58ACFA'>Saboteur</font>"
-        "DOTA_Tooltip_ability_robin_saboteur_poison_well_cast_delay"		"CAST DELAY:"	
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_Note0"			"GRENADE DESU YO!"        
+	"DOTA_Tooltip_ability_robin_saboteur_poison_well_cast_delay"		"CAST DELAY:"	
         "DOTA_Tooltip_ability_robin_saboteur_poison_well_cast_range"		"CAST RANGE:"	
         "DOTA_Tooltip_ability_robin_saboteur_poison_well_heal_damage"		"%MAX HEALTH DAMAGE WHEN HEALED:"	
         "DOTA_Tooltip_ability_robin_saboteur_poison_well_radius"			"BOMB AOE:"	
@@ -13666,7 +13667,7 @@
         /////////////////// Attribute //////////////////////////
 
         "DOTA_Tooltip_Ability_robin_attribute_subversive"					"<font color='#9FFFCC'>Attribute: Subversive Activities</font>"        
-        "DOTA_Tooltip_ability_robin_attribute_subversive_Description"		"<font color='#58ACFA'>Sabotage</font>: Unlocks 2 new abilities, <font color='#FFB266'>Forest Friends</font> and <font color='#FFB266'>Mandrake Bomb</font>. \n <font color='#FFB266'>Forest Friends</font> : Summon a invisible familliar to help scout the area. \n <font color='#FFB266'>Mandrake Bomb</font> : Throw a poison smoke giving enemy <font color='#FF3399'>Mandrake Root Gas</font>. \n<font color='#FF3399'>Mandrake Root Gas</font> : Deals miniscule damage per second, target will take a damage based on his max health if he tries to heal himself."
+        "DOTA_Tooltip_ability_robin_attribute_subversive_Description"		"<font color='#58ACFA'>Sabotage</font>: Unlocks 2 new abilities, <font color='#FFB266'>Forest Friends</font> and <font color='#FFB266'>Mandrake Bomb</font>. \n <font color='#FFB266'>Forest Friends</font> : Summon a invisible familliar to help scout the area. \n <font color='#FFB266'>Mandrake Bomb</font> : Throw a poison smoke giving enemy <font color='#FF3399'>Mandrake Root Gas</font>. \n<font color='#FF3399'>Mandrake Root Gas</font> : Deals damage per second, target will take a damage based on his max health if he tries to heal himself."
         "DOTA_Tooltip_ability_robin_attribute_subversive_movespeed"			"FAMILLIAR SPEED:"
         "DOTA_Tooltip_ability_robin_attribute_subversive_vision_radius"		"FAMILLIAR VISION:"
         "DOTA_Tooltip_ability_robin_attribute_subversive_lifetime"			"FAMILLIAR DURATION:"
@@ -13771,6 +13772,7 @@
         "DOTA_Tooltip_ability_nobu_guns_action_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Unifying The Nation by Force</font>."
         "DOTA_Tooltip_ability_nobu_guns_action_base_dmg"					"BASE DMG:"
         "DOTA_Tooltip_ability_nobu_guns_action_dmg_per_lvl"					"DMG PER LEVEL:"
+        "DOTA_Tooltip_ability_nobu_guns_action_armor_pierce" 					"%SHOOT AND TARGETED SHOTS ARMOR PIERCE:"
         "DOTA_Tooltip_ability_nobu_guns_action_amount"					""
         "DOTA_Tooltip_ability_nobu_guns_action_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
          
@@ -13790,6 +13792,7 @@
         "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_lvl"					"DMG PER LEVEL:"
         "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_int"					"DMG PER INT:"
         "DOTA_Tooltip_ability_nobu_guns_upgrade_divine_damage_mod"				"BONUS DMG VS DIVINE:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_armor_pierce" 					"%SHOOT AND TARGETED SHOTS ARMOR PIERCE:"
         "DOTA_Tooltip_ability_nobu_guns_upgrade_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
          
         "DOTA_Tooltip_ability_nobu_shot"					"<font color='#58ACFA'>Shoot</font>"
@@ -13931,10 +13934,11 @@
         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"DIVINE DAMAGE BONUS:"
  
         "DOTA_Tooltip_ability_nobu_independent_action"				"<font color='#9FFFCC'>Attribute: Independent action</font>"
-        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage.\n <font color='#58ACFA'>Shoot</font>: will now microstun and knockback enemy, if it was used without targeted shots(E) activated.\n <font color='#58ACFA'>Dash</font>: Using Dash will now increase next guns damage by a flat magical value for 2 seconds."
-        "DOTA_Tooltip_ability_nobu_independent_microstun_duration" 	"MICROSTUN DURATION:"
-        "DOTA_Tooltip_ability_nobu_independent_guns_damage" 	"DEMON GUNS BONUS DAMAGE:"
-        "DOTA_Tooltip_ability_nobu_independent_attr_damage" 	"DASH BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage. Cause <font color='#58ACFA'>Shoot</font> and <font color='#58ACFA'>Targeted Shots</font> to pierce armor by percentage. \n <font color='#58ACFA'>Shoot</font>: will now microstun and knockback enemy, if it was used without targeted shots(E) activated.\n <font color='#58ACFA'>Dash</font>: Using Dash will now increase next guns damage by a flat magical value for 2 seconds."
+        "DOTA_Tooltip_ability_nobu_independent_action_microstun_duration" 	"MICROSTUN DURATION:"
+        "DOTA_Tooltip_ability_nobu_independent_action_guns_damage" 	"DEMON GUNS BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_attr_damage" 	"DASH BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_armor_pierce" 	"%SHOOT AND TARGETED SHOTS ARMOR PIERCE:"
         
         /////////////////////////// Debuffs Buffs ////////////////////////////////
 
