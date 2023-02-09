@@ -23,25 +23,29 @@ function OnLaserThink(keys)
 	local targets = ability:GetSpecialValueFor("targets")
 	local radius = ability:GetSpecialValueFor("radius")
 
-	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 	if enemies == nil then return end
 
-	local count = 1
-	for k,v in pairs(enemies) do
-		if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
-			if count <= targets then
-				DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	if IsValidEntity(caster) and caster:IsAlive() then
+		local count = 1
+		for k,v in pairs(enemies) do
+			if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
+				if count <= targets then
+					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 
-				local beamFx = ParticleManager:CreateParticle("particles/semiramis/beam_barrage.vpcf", PATTACH_WORLDORIGIN, caster)
-				ParticleManager:SetParticleControl(beamFx, 9, caster:GetAbsOrigin() + Vector(0,0,200))
-				ParticleManager:SetParticleControl(beamFx, 1, v:GetAbsOrigin())
+					local beamFx = ParticleManager:CreateParticle("particles/semiramis/beam_barrage.vpcf", PATTACH_WORLDORIGIN, caster)
+					ParticleManager:SetParticleControl(beamFx, 9, caster:GetAbsOrigin() + Vector(0,0,200))
+					ParticleManager:SetParticleControl(beamFx, 1, v:GetAbsOrigin())
 
-		   		v:EmitSound("Semi.CasterESFX")
+			   		v:EmitSound("Semi.CasterESFX")
 
-				count = count + 1
-			end
-		end	
+					count = count + 1
+				end
+			end	
+		end
 	end
+
+
 
 end
 
@@ -836,15 +840,17 @@ function OnGardenPresenceThink(keys)
 	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	if enemies == nil then return end
 
-	for k,v in pairs(enemies) do
-		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-	    		ability:ApplyDataDrivenModifier(caster, v, "modifier_garden_mana_drain_debuff", {})
-			if not IsManaLess(v) then
-				v:SetMana(v:GetMana() - mana_drain_per_second)
-				caster:SetMana(caster:GetMana() + mana_drain_per_second)
-	    	else
-	    	end
-	    end
+	if IsValidEntity(caster) and caster:IsAlive() then
+		for k,v in pairs(enemies) do
+			if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
+		    		ability:ApplyDataDrivenModifier(caster, v, "modifier_garden_mana_drain_debuff", {})
+				if not IsManaLess(v) then
+					v:SetMana(v:GetMana() - mana_drain_per_second)
+					caster:SetMana(caster:GetMana() + mana_drain_per_second)
+		    	else
+		    	end
+		    end
+		end
 	end
 end
 

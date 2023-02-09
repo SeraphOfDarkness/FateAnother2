@@ -313,7 +313,7 @@ function OnExcaliburStart(keys)
 				dummy:SetForwardVector(casterFacing)
 				Timers:CreateTimer( function()
 						if IsValidEntity(dummy) then
-							local newLoc = dummy:GetAbsOrigin() + keys.Speed * 0.03 * casterFacing
+							local newLoc = dummy:GetAbsOrigin() + (keys.Speed * 0.03 * casterFacing)
 							dummy:SetAbsOrigin(GetGroundPosition(newLoc,dummy))
 							-- DebugDrawCircle(newLoc, Vector(255,0,0), 0.5, keys.StartRadius, true, 0.15)
 							return 0.03
@@ -326,7 +326,7 @@ function OnExcaliburStart(keys)
 				local excalFxIndex = ParticleManager:CreateParticle( "particles/custom/saber/excalibur/shockwave.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, dummy )
 				ParticleManager:SetParticleControl(excalFxIndex, 4, Vector(width * 3,0,0))
 
-				Timers:CreateTimer( 1.65, function()
+				Timers:CreateTimer( 1.15, function()
 						ParticleManager:DestroyParticle( excalFxIndex, false )
 						ParticleManager:ReleaseParticleIndex( excalFxIndex )
 						Timers:CreateTimer( 0.5, function()

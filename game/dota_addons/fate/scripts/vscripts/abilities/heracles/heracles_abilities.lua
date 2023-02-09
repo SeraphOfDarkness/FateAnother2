@@ -486,10 +486,14 @@ function OnNineLanded(caster, ability)
 	local casterInitOrigin = caster:GetAbsOrigin() 
 	local anim = ACT_DOTA_ATTACK
 
-	if math.random(1,100) > 5 then
-		EmitGlobalSound("Heracles_NineLives_" .. math.random(1,3))
+	if caster:HasModifier('modifier_alternate_01') then 
+		caster:EmitSound("Herc-Illya-R" .. math.random(1,3))
 	else
-		EmitGlobalSound("Heracles_Combo_Easter_1")
+		if math.random(1,100) > 5 then
+			EmitGlobalSound("Heracles_NineLives_" .. math.random(1,3))
+		else
+			EmitGlobalSound("Heracles_Combo_Easter_1")
+		end
 	end
 
 	--StartAnimation(caster, {duration = returnDelay * total_hit, activity=ACT_DOTA_CAST_ABILITY_6, rate = 1.0})

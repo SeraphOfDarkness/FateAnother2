@@ -725,7 +725,12 @@ function OnCraneWingStart (keys)
     caster:SetPhysicsAcceleration(Vector(0,0,-2666))
 
 	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
-	caster:EmitSound("Emiya_Crane" .. math.random(1,3))
+
+	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_05') then 
+		caster:EmitSound("Shirou-Crane")
+	else
+		caster:EmitSound("Emiya_Crane" .. math.random(1,3))
+	end
 
 	if caster:HasModifier("modifier_alternate_01") then
 		StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK_EVENT, rate=0.8})
@@ -1451,7 +1456,15 @@ function OnUBWBarrageRetreat(keys)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 
-	caster:EmitSound("Archer.NineFinish")
+
+	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
+		caster:EmitSound("Shirou-NineFinish")
+	elseif caster:HasModifier('modifier_alternate_05') then
+		caster:EmitSound("Muramasa-NineFinish")
+	else
+		caster:EmitSound("Archer.NineFinish")
+	end
+
 	if not caster:HasModifier("modifier_alternate_01") then
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=1.0})
 	end
@@ -1614,6 +1627,10 @@ function OnUBWBarrageStart(keys)
 
 	if caster:HasModifier("modifier_alternate_02") then 
 		caster:EmitSound("Shirou.TraceOn")
+	elseif caster:HasModifier('modifier_alternate_03') then
+		caster:EmitSound("ShirouKaleid-TraceOn")
+	elseif caster:HasModifier('modifier_alternate_05') then
+		caster:EmitSound("Muramasa-Trace")
 	else
 		if math.random(1,2) == 1 then
 			caster:EmitSound("Archer.Bladeoff")
@@ -1767,8 +1784,13 @@ function OnNineStart(keys)
 		DoNineLanded(unit)
 	end)
 
-	caster:EmitSound("Archer.NineLives")
-
+	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
+		caster:EmitSound("Shirou-Nine" .. math.random(1,2))
+	elseif caster:HasModifier('modifier_alternate_05') then
+		caster:EmitSound("Muramasa-Nine" .. math.random(1,3))
+	else
+		caster:EmitSound("Archer.NineLives")
+	end
 end
 
 -- add pause
@@ -1837,7 +1859,17 @@ function OnNineLanded(caster, ability)
 					end
 				end
 
-				caster:EmitSound("Archer.NineFinish") 
+				--[[
+				if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
+					caster:EmitSound("Shirou-NineFinish")
+				elseif caster:HasModifier('modifier_alternate_05') then
+					caster:EmitSound("Muramasa-NineFinish")
+				else
+					caster:EmitSound("Archer.NineFinish")
+				end
+				]]--
+
+				caster:EmitSound("Archer.NineFinish")
 
 				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
 				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
@@ -1893,7 +1925,13 @@ function OnEmiyaGBAOEStart(keys)
 		return
 	end
 
-	caster:EmitSound("emiya_gae_bolg")
+	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
+		caster:EmitSound("Shirou-Gae")
+	elseif caster:HasModifier('modifier_alternate_05') then
+		caster:EmitSound("Muramasa-Gae")
+	else
+		caster:EmitSound("emiya_gae_bolg")
+	end
 
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
 	Timers:CreateTimer(0.8, function()

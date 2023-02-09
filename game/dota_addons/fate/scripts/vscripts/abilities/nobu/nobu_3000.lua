@@ -65,7 +65,7 @@ function nobu_3000_wrapper(ability)
      
     function ability:OnChannelThink(fInterval)
         self.ChannelTime = self.ChannelTime + fInterval
-        if(self.ChannelTime >= 0.07) then
+        if(self.ChannelTime >= 0.06) then
      
             local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*RandomInt(-200,200)
             local random1 = RandomInt(0, 300) -- position of gun spawn
@@ -79,7 +79,7 @@ function nobu_3000_wrapper(ability)
                 gun_spawn = gun_spawn + self.rightvec * random1 + random3
             end
             self:CreateGun(gun_spawn)
-            self.ChannelTime = self.ChannelTime - 0.07
+            self.ChannelTime = self.ChannelTime - 0.06
            
         end
         self.caster:SetAbsOrigin(self.caster:GetAbsOrigin() + Vector(0,0,2))

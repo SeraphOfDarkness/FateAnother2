@@ -102,7 +102,15 @@ function nobu_shot_wrapper(ability)
         if IsDivineServant(target) and hCaster.UnifyingAcquired then 
             damage= damage*1.2
         end
-        DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+
+        if hCaster.NobuActionAcquired then
+            DoDamage(hCaster, target, damage * 0.8, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+            DoDamage(hCaster, target, damage * 0.2, DAMAGE_TYPE_PHYSICAL, 2, self, false)
+
+        else
+            DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        end
+
         target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
 

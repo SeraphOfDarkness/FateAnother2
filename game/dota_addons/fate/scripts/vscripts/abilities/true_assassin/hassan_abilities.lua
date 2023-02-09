@@ -884,11 +884,15 @@ function OnZabStart(keys)
 				return nil
 		end)
 		EmitGlobalSound("TA.Zabaniya") 
-		if caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") then 
+
+		if caster:HasModifier("modifier_alternate_02") then 
 			EmitGlobalSound("FemaleTA.Zabaniya") 
+		elseif caster:HasModifier("modifier_alternate_03") then
+			EmitGlobalSound("Illya-Zaba" .. math.random(1,2)) 
 		else
 			EmitGlobalSound("Hassan_Zabaniya") 
 		end
+
 		target:EmitSound("TA.Darkness") 
 	end
 	})

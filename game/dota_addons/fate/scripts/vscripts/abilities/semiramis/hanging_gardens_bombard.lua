@@ -17,8 +17,9 @@ function hanging_gardens_bombard:OnSpellStart()
 	Timers:CreateTimer(cast_delay, function()
 		if caster:HasModifier("modifier_garden_mounted") then
 			self:DropBeam(targetPoint, beamAoE, damage)
+			local ransec = RandomFloat(0.3 , 0.6)
 			for i = extra_beam,1,-1 do	
-				Timers:CreateTimer(RandomFloat(0.3 , 1.3), function()
+				Timers:CreateTimer(ransec + (0.325 * i), function()
 					local vecran = RandomVector(extra_beam_range)
 					self:DropBeam(targetPoint + vecran, beamAoE, damage)
 				end)

@@ -1,7 +1,6 @@
 // Dota Heroes File
 
 #base "abilities/heroes/heroes.kv"
-#base "abilities/master/master_abilities.kv"
 #base "abilities/astolfo/astolfo_abilities.kv"
 #base "abilities/atalanta/atalanta_abilities.kv"
 #base "abilities/avenger/avenger_abilities.kv"
@@ -46,7 +45,7 @@
 #base "abilities/robin/robin_abilities.kv"
 #base "abilities/nobu/nobu_abilities.kv"
 #base "abilities/mashu/mashu_abilities.kv"
-
+#base "abilities/master/master_abilities.kv"
 
 "DOTAAbilities"
 {

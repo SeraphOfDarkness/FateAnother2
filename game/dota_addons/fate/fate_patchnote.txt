@@ -1,3 +1,86 @@
+Semiramis 
+Garden beam damage 300 450 -> 250 400
+
+Binding chains
+Range 750 -> 800
+
+Combo
+Cast delay 4.5 -> 4
+Radius 600 -> 750 (To match particle attempt)
+
+Garden presence fixed, now properly need SA to work
+Fix garden shoot laser on ded, puta
+Delay is also fixed, no more unlucky triple beam at one spot in 0.5s, now use proper pseudo random with guaranteed 0.Xs gap inbetween beams
+
+Saber
+Excalibur particle fixed, no longer going out of max range
+
+Kong hassun
+Dreadful slash constant damage block duration 0.2 -> 0.8
+
+Robin
+Robin combo
+Initial Damage 1800 -> 2000
+
+Q - E
+Movespeed 290 340 390 440 490 -> 400 430 460 490 520
+Vision range 400 500 600 700 800 -> 600 725 850 975 1100
+
+Q - D
+Dps 30 35 40 45 50 -> 80 100 120 140 160
+Cast range 750 -> 900
+
+Robin Attribute : Taxine of The Yew Tree
+Combo bonus damage 400 -> 500
+
+Nobunaga
+Three line formation
+15% More guns
+
+Attribute Independent Action
+-Now makes Q and E gains 20% Armor Penetration
+
+Charisma
+MS 9% -> 12%
+Armor 2 -> 5
+
+Leader of innovation & Divinity Mark
+Mana cost 200 -> 100
+
+Amakusa
+Black key - Set
+Damage 100 105 110 115 120 -> 100 110 120 130 140 
+
+Right hand - Evil eater
+Stacks 4 4 5 5 6 -> 4 5 6 7 8
+
+Attribute 
+Black key set damage per int 0.4 -> 0.5
+
+Iskandar
+Waver passive MR 25% -> 28%
+
+Medusa
+Attribute - Riding
+Bonus bellerophon damage 100 -> 200
+Attribute - Monstrous Strength
+Mana cost 13 -> 12
+
+Drake
+Golden hind - Golden wild hunt (R)
+Bomb damage 90 110 130 150 170 -> 100 130 160 190 220
+Combo
+Bomb damage 190 -> 250
+Golden hind - Bombard (Ship)
+Bomb damage 200 -> 220
+Aoe 200 -> 250
+
+Fix karna stupid audio with skin
+Extra audio again, some illya, some shirou blah blah.
+
+Today's fun fact : Do you know nobu is so shit she got the lowest winrate in the entire hero pool of 37%? :cry:
+Buffs are related to heroes with horrible winrate or complaints
+-------------
 Fix robin nirnroot sommersault making him stuck (attempt)
 
 Grand skin update! POG!
