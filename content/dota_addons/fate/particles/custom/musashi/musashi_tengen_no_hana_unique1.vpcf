@@ -1,0 +1,49 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_flConstantRadius = 50.0
+	m_nConstantSequenceNumber = 20
+	m_flNoDrawTimeToGoToSleep = -1.0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1e.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1f.vpcf"
+			m_bEndCap = true
+		},
+	]
+	m_nViewModelEffect = "INHERITABLE_BOOL_INHERIT"
+}
