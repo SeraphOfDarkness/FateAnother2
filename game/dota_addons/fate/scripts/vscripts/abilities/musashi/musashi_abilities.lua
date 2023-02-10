@@ -464,7 +464,7 @@ function musashi_niou.prototype.DestroyNiou(self, delay)
         if ____opt_39 ~= nil then
             ____opt_39:ForceKill(false)
         end
-        Sleep(nil, delay)
+        __TS__Await(Sleep(nil, delay))
         local ____opt_41 = self.Niou
         if ____opt_41 ~= nil then
             ____opt_41:Destroy()
