@@ -164,6 +164,7 @@
 	<scripts>
 		<!--<include src="s2r://panorama/scripts/custom_game/fateanother_voice.vjs_c" />
 		<include src="s2r://panorama/scripts/custom_game/fateanother_shop.vjs_c" />-->
+		<include src="file://{resources}/scripts/custom_game/vector_targeting.js" />
 	</scripts>
 	
 	<Panel>

@@ -32,6 +32,7 @@ require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
+require('tslib/vector_targeting')
 
 
 _G.IsPickPhase = true

@@ -15,5 +15,6 @@
 	  "gsro",
 	  "parsy",
 	  "skinshops",
+	  "vector_targeting",
   ]
 }
