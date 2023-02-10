@@ -1,7 +1,7 @@
 -- where the misc functios gather
 heroList = LoadKeyValues("scripts/npc/herolist.txt")
 testList = LoadKeyValues("scripts/npc/herotest.txt")
-require('libraries/modifiers/modifier_ndm')
+require("libraries.modifiers.modifier_ndm")
 
 --"SpellDispellableType"   "SPELL_DISPELLABLE_YES"
 softdispellable = {
@@ -3425,6 +3425,7 @@ local heroNames = {
     ["npc_dota_hero_skeleton_king"] = "King Hassan",
     ["npc_dota_hero_necrolyte"] = "Hans Christian Andersen",
     ["npc_dota_hero_sniper"] = "Robin Hood",
+    ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
 }
 
 
