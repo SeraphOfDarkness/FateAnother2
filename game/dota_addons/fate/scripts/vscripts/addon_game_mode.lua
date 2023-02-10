@@ -33,6 +33,7 @@ require('custom_chatbox')
 require('wrappers')
 require('event')
 require('tslib/vector_targeting')
+require('tslib/ascension')
 
 
 _G.IsPickPhase = true
@@ -1469,6 +1470,16 @@ function FateGameMode:OnPlayerChat(keys)
                 serv:FindAbilityByName("alternative_0" .. tonumber(alterna)):SetLevel(1)
             end
         end
+    end
+
+    local ascension = string.match(text, "^-ascension")
+    if ascension ~= nil then
+        Ascension:Ascend(keys)
+    end
+
+    local undoascension = string.match(text, "^-undoascension")
+    if undoascension ~= nil then
+        Ascension:UndoAscension(keys)
     end
 
     if text == "-addbot" then 
