@@ -2,10 +2,13 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
+local __TS__SparseArrayNew = ____lualib.__TS__SparseArrayNew
+local __TS__SparseArrayPush = ____lualib.__TS__SparseArrayPush
+local __TS__SparseArraySpread = ____lualib.__TS__SparseArraySpread
 local __TS__AsyncAwaiter = ____lualib.__TS__AsyncAwaiter
 local __TS__Await = ____lualib.__TS__Await
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["10"] = 1,["11"] = 1,["12"] = 1,["13"] = 1,["14"] = 1,["15"] = 2,["16"] = 2,["17"] = 7,["18"] = 8,["19"] = 7,["20"] = 8,["22"] = 8,["23"] = 10,["24"] = 11,["25"] = 7,["26"] = 15,["27"] = 17,["28"] = 18,["29"] = 19,["30"] = 20,["31"] = 15,["32"] = 23,["33"] = 25,["35"] = 25,["37"] = 26,["39"] = 26,["41"] = 23,["42"] = 8,["43"] = 7,["44"] = 8,["46"] = 8,["47"] = 30,["48"] = 31,["49"] = 30,["50"] = 31,["52"] = 31,["53"] = 33,["54"] = 34,["55"] = 35,["56"] = 39,["57"] = 40,["58"] = 30,["59"] = 42,["60"] = 44,["61"] = 44,["62"] = 45,["63"] = 45,["64"] = 47,["67"] = 52,["68"] = 53,["69"] = 42,["70"] = 56,["71"] = 58,["72"] = 56,["73"] = 61,["74"] = 63,["75"] = 63,["76"] = 65,["77"] = 66,["78"] = 67,["80"] = 70,["81"] = 71,["82"] = 72,["83"] = 73,["84"] = 73,["85"] = 73,["86"] = 73,["87"] = 73,["88"] = 73,["89"] = 73,["90"] = 73,["91"] = 73,["92"] = 76,["93"] = 76,["94"] = 76,["95"] = 76,["96"] = 76,["97"] = 76,["98"] = 76,["99"] = 76,["100"] = 76,["101"] = 78,["102"] = 78,["103"] = 78,["104"] = 78,["105"] = 78,["106"] = 78,["107"] = 78,["108"] = 78,["109"] = 79,["110"] = 79,["111"] = 79,["112"] = 79,["113"] = 79,["114"] = 79,["115"] = 79,["116"] = 79,["117"] = 80,["118"] = 80,["119"] = 80,["120"] = 80,["121"] = 80,["122"] = 80,["123"] = 80,["124"] = 80,["125"] = 61,["126"] = 83,["127"] = 85,["128"] = 83,["129"] = 88,["130"] = 90,["131"] = 88,["132"] = 93,["133"] = 95,["134"] = 93,["135"] = 98,["136"] = 100,["137"] = 98,["138"] = 103,["139"] = 105,["140"] = 103,["141"] = 31,["142"] = 30,["143"] = 31,["145"] = 31,["146"] = 112,["147"] = 113,["148"] = 112,["149"] = 113,["151"] = 113,["152"] = 115,["153"] = 116,["154"] = 112,["155"] = 120,["156"] = 122,["157"] = 123,["158"] = 124,["160"] = 124,["162"] = 125,["163"] = 120,["164"] = 128,["165"] = 130,["167"] = 130,["169"] = 131,["171"] = 131,["173"] = 128,["174"] = 113,["175"] = 112,["176"] = 113,["178"] = 113,["179"] = 135,["180"] = 136,["181"] = 135,["182"] = 136,["184"] = 136,["185"] = 138,["186"] = 139,["187"] = 143,["188"] = 135,["189"] = 145,["190"] = 147,["191"] = 147,["192"] = 149,["195"] = 154,["196"] = 155,["197"] = 145,["198"] = 158,["199"] = 160,["200"] = 158,["201"] = 163,["202"] = 165,["203"] = 165,["204"] = 167,["205"] = 168,["206"] = 169,["207"] = 170,["208"] = 170,["209"] = 170,["210"] = 170,["211"] = 170,["212"] = 170,["213"] = 170,["214"] = 170,["216"] = 174,["217"] = 175,["218"] = 175,["219"] = 175,["220"] = 175,["221"] = 175,["222"] = 175,["223"] = 175,["224"] = 175,["225"] = 175,["226"] = 177,["227"] = 177,["228"] = 177,["229"] = 177,["230"] = 177,["231"] = 177,["232"] = 177,["233"] = 177,["235"] = 180,["236"] = 181,["237"] = 181,["238"] = 181,["239"] = 181,["240"] = 181,["241"] = 181,["242"] = 181,["243"] = 181,["244"] = 163,["245"] = 184,["246"] = 186,["247"] = 184,["248"] = 189,["249"] = 191,["250"] = 189,["251"] = 136,["252"] = 135,["253"] = 136,["255"] = 136,["256"] = 198,["257"] = 199,["258"] = 198,["259"] = 199,["261"] = 199,["262"] = 201,["263"] = 202,["264"] = 204,["265"] = 210,["266"] = 211,["267"] = 212,["268"] = 213,["269"] = 198,["270"] = 215,["271"] = 217,["272"] = 218,["273"] = 219,["274"] = 220,["275"] = 221,["276"] = 222,["278"] = 222,["280"] = 223,["281"] = 215,["282"] = 226,["283"] = 228,["285"] = 228,["287"] = 226,["288"] = 231,["289"] = 233,["290"] = 234,["292"] = 234,["294"] = 235,["295"] = 236,["296"] = 237,["297"] = 231,["298"] = 240,["299"] = 242,["300"] = 244,["301"] = 245,["302"] = 247,["303"] = 247,["304"] = 247,["305"] = 247,["306"] = 247,["307"] = 247,["308"] = 247,["309"] = 247,["310"] = 247,["311"] = 247,["312"] = 247,["313"] = 247,["314"] = 247,["315"] = 250,["316"] = 252,["317"] = 254,["318"] = 254,["319"] = 254,["320"] = 254,["321"] = 254,["322"] = 254,["323"] = 252,["325"] = 265,["326"] = 266,["327"] = 266,["328"] = 268,["329"] = 270,["330"] = 272,["331"] = 274,["332"] = 274,["333"] = 274,["334"] = 274,["335"] = 274,["336"] = 274,["337"] = 272,["339"] = 285,["341"] = 288,["343"] = 291,["344"] = 240,["345"] = 294,["346"] = 296,["347"] = 297,["348"] = 299,["349"] = 301,["351"] = 301,["354"] = 305,["356"] = 305,["359"] = 294,["360"] = 309,["361"] = 311,["362"] = 311,["363"] = 313,["364"] = 314,["366"] = 316,["367"] = 318,["370"] = 320,["371"] = 321,["375"] = 324,["378"] = 326,["379"] = 327,["383"] = 330,["386"] = 332,["387"] = 333,["391"] = 336,["394"] = 338,["395"] = 339,["400"] = 344,["401"] = 345,["402"] = 346,["403"] = 347,["404"] = 347,["405"] = 347,["406"] = 347,["407"] = 347,["408"] = 348,["409"] = 348,["410"] = 348,["411"] = 348,["412"] = 348,["413"] = 349,["415"] = 353,["416"] = 354,["417"] = 355,["418"] = 355,["419"] = 355,["420"] = 355,["421"] = 355,["422"] = 356,["423"] = 356,["424"] = 356,["425"] = 356,["426"] = 356,["428"] = 309,["429"] = 360,["430"] = 362,["432"] = 362,["434"] = 360,["435"] = 365,["436"] = 367,["437"] = 365,["438"] = 199,["439"] = 198,["440"] = 199,["442"] = 199,["443"] = 374,["444"] = 375,["445"] = 374,["446"] = 375,["447"] = 380,["448"] = 382,["449"] = 383,["450"] = 383,["451"] = 383,["452"] = 383,["453"] = 383,["454"] = 383,["455"] = 383,["456"] = 383,["457"] = 384,["458"] = 385,["459"] = 386,["460"] = 380,["461"] = 389,["463"] = 391,["465"] = 391,["467"] = 392,["468"] = 393,["470"] = 393,["473"] = 389,["474"] = 375,["475"] = 374,["476"] = 375,["478"] = 375,["479"] = 397,["480"] = 398,["481"] = 397,["482"] = 398,["483"] = 400,["484"] = 402,["485"] = 403,["486"] = 403,["487"] = 403,["488"] = 403,["489"] = 403,["490"] = 403,["491"] = 403,["492"] = 403,["493"] = 413,["494"] = 400,["495"] = 416,["496"] = 418,["497"] = 416,["498"] = 421,["499"] = 423,["500"] = 421,["501"] = 426,["502"] = 428,["503"] = 426,["504"] = 431,["505"] = 433,["506"] = 431,["507"] = 398,["508"] = 397,["509"] = 398,["511"] = 398});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["13"] = 1,["14"] = 1,["15"] = 1,["16"] = 1,["17"] = 1,["18"] = 2,["19"] = 2,["20"] = 4,["21"] = 9,["22"] = 10,["23"] = 9,["24"] = 10,["26"] = 10,["27"] = 12,["28"] = 13,["29"] = 9,["30"] = 17,["31"] = 19,["32"] = 20,["33"] = 21,["34"] = 22,["35"] = 17,["36"] = 25,["37"] = 27,["39"] = 27,["41"] = 28,["43"] = 28,["45"] = 25,["46"] = 10,["47"] = 9,["48"] = 10,["50"] = 10,["51"] = 32,["52"] = 33,["53"] = 32,["54"] = 33,["56"] = 33,["57"] = 35,["58"] = 36,["59"] = 37,["60"] = 41,["61"] = 42,["62"] = 32,["63"] = 44,["64"] = 46,["65"] = 46,["66"] = 47,["67"] = 47,["68"] = 49,["71"] = 54,["72"] = 55,["73"] = 44,["74"] = 58,["75"] = 60,["76"] = 58,["77"] = 63,["78"] = 65,["79"] = 65,["80"] = 67,["81"] = 68,["82"] = 69,["84"] = 72,["85"] = 73,["86"] = 74,["87"] = 75,["88"] = 75,["89"] = 75,["90"] = 75,["91"] = 75,["92"] = 75,["93"] = 75,["94"] = 75,["95"] = 75,["96"] = 78,["97"] = 78,["98"] = 78,["99"] = 78,["100"] = 78,["101"] = 78,["102"] = 78,["103"] = 78,["104"] = 78,["105"] = 80,["106"] = 80,["107"] = 80,["108"] = 80,["109"] = 80,["110"] = 80,["111"] = 80,["112"] = 80,["113"] = 81,["114"] = 81,["115"] = 81,["116"] = 81,["117"] = 81,["118"] = 81,["119"] = 81,["120"] = 81,["121"] = 82,["122"] = 82,["123"] = 82,["124"] = 82,["125"] = 82,["126"] = 82,["127"] = 82,["128"] = 82,["129"] = 63,["130"] = 85,["131"] = 87,["132"] = 85,["133"] = 90,["134"] = 92,["135"] = 90,["136"] = 95,["137"] = 97,["138"] = 95,["139"] = 100,["140"] = 102,["141"] = 100,["142"] = 105,["143"] = 107,["144"] = 105,["145"] = 33,["146"] = 32,["147"] = 33,["149"] = 33,["150"] = 114,["151"] = 115,["152"] = 114,["153"] = 115,["155"] = 115,["156"] = 117,["157"] = 118,["158"] = 114,["159"] = 122,["160"] = 124,["161"] = 125,["162"] = 126,["164"] = 126,["166"] = 127,["167"] = 122,["168"] = 130,["169"] = 132,["171"] = 132,["173"] = 133,["175"] = 133,["177"] = 130,["178"] = 115,["179"] = 114,["180"] = 115,["182"] = 115,["183"] = 137,["184"] = 138,["185"] = 137,["186"] = 138,["188"] = 138,["189"] = 140,["190"] = 141,["191"] = 145,["192"] = 137,["193"] = 147,["194"] = 149,["197"] = 154,["198"] = 155,["199"] = 155,["200"] = 156,["201"] = 147,["202"] = 159,["203"] = 161,["206"] = 166,["207"] = 159,["208"] = 169,["209"] = 171,["210"] = 171,["211"] = 173,["212"] = 174,["213"] = 175,["214"] = 176,["215"] = 176,["216"] = 176,["217"] = 176,["218"] = 176,["219"] = 176,["220"] = 176,["221"] = 176,["223"] = 180,["224"] = 181,["225"] = 181,["226"] = 181,["227"] = 181,["228"] = 181,["229"] = 181,["230"] = 181,["231"] = 181,["232"] = 181,["233"] = 183,["234"] = 183,["235"] = 183,["236"] = 183,["237"] = 183,["238"] = 183,["239"] = 183,["240"] = 183,["242"] = 186,["243"] = 187,["244"] = 187,["245"] = 187,["246"] = 187,["247"] = 187,["248"] = 187,["249"] = 187,["250"] = 187,["251"] = 169,["252"] = 190,["253"] = 192,["254"] = 190,["255"] = 195,["256"] = 197,["257"] = 195,["258"] = 138,["259"] = 137,["260"] = 138,["262"] = 138,["263"] = 204,["264"] = 205,["265"] = 204,["266"] = 205,["268"] = 205,["269"] = 207,["270"] = 208,["271"] = 209,["272"] = 215,["273"] = 216,["274"] = 217,["275"] = 218,["276"] = 204,["277"] = 220,["278"] = 222,["279"] = 223,["280"] = 224,["281"] = 225,["282"] = 226,["283"] = 227,["285"] = 227,["287"] = 228,["288"] = 220,["289"] = 231,["290"] = 233,["292"] = 233,["294"] = 231,["295"] = 236,["296"] = 238,["297"] = 239,["299"] = 239,["301"] = 240,["302"] = 241,["303"] = 242,["304"] = 236,["305"] = 245,["306"] = 247,["307"] = 249,["308"] = 250,["309"] = 252,["310"] = 252,["311"] = 252,["312"] = 252,["313"] = 252,["314"] = 252,["315"] = 252,["316"] = 252,["317"] = 252,["318"] = 252,["319"] = 252,["320"] = 252,["321"] = 252,["322"] = 255,["323"] = 257,["324"] = 259,["325"] = 259,["326"] = 259,["327"] = 259,["328"] = 259,["329"] = 259,["330"] = 257,["332"] = 270,["333"] = 271,["334"] = 271,["335"] = 273,["336"] = 275,["337"] = 277,["338"] = 279,["339"] = 279,["340"] = 279,["341"] = 279,["342"] = 279,["343"] = 279,["344"] = 277,["346"] = 290,["348"] = 293,["350"] = 296,["351"] = 245,["352"] = 299,["353"] = 301,["354"] = 302,["355"] = 304,["356"] = 306,["358"] = 306,["361"] = 310,["363"] = 310,["366"] = 299,["367"] = 314,["368"] = 316,["369"] = 316,["370"] = 318,["371"] = 319,["373"] = 321,["374"] = 323,["377"] = 325,["378"] = 326,["382"] = 329,["385"] = 331,["386"] = 332,["390"] = 335,["393"] = 337,["394"] = 338,["398"] = 341,["401"] = 343,["402"] = 344,["407"] = 349,["408"] = 350,["409"] = 351,["410"] = 352,["411"] = 352,["412"] = 352,["413"] = 352,["414"] = 352,["415"] = 353,["416"] = 353,["417"] = 353,["418"] = 353,["419"] = 353,["420"] = 354,["422"] = 358,["423"] = 359,["424"] = 360,["425"] = 360,["426"] = 360,["427"] = 360,["428"] = 360,["429"] = 361,["430"] = 361,["431"] = 361,["432"] = 361,["433"] = 361,["435"] = 314,["436"] = 365,["437"] = 367,["439"] = 367,["441"] = 365,["442"] = 370,["443"] = 372,["444"] = 370,["445"] = 205,["446"] = 204,["447"] = 205,["449"] = 205,["450"] = 379,["451"] = 380,["452"] = 379,["453"] = 380,["455"] = 380,["456"] = 382,["457"] = 386,["458"] = 387,["459"] = 388,["460"] = 379,["461"] = 390,["462"] = 392,["463"] = 393,["464"] = 394,["465"] = 395,["466"] = 396,["467"] = 390,["468"] = 399,["469"] = 401,["470"] = 402,["471"] = 403,["472"] = 399,["473"] = 406,["474"] = 408,["475"] = 410,["477"] = 414,["479"] = 406,["480"] = 418,["481"] = 420,["482"] = 418,["483"] = 423,["484"] = 425,["485"] = 423,["486"] = 428,["487"] = 430,["488"] = 428,["489"] = 433,["490"] = 435,["491"] = 433,["492"] = 438,["493"] = 440,["494"] = 438,["495"] = 443,["496"] = 445,["497"] = 443,["498"] = 448,["499"] = 448,["500"] = 453,["501"] = 455,["502"] = 453,["503"] = 458,["504"] = 460,["505"] = 458,["506"] = 380,["507"] = 379,["508"] = 380,["510"] = 380,["511"] = 464,["512"] = 465,["513"] = 464,["514"] = 465,["516"] = 465,["517"] = 470,["518"] = 471,["519"] = 472,["520"] = 464,["521"] = 474,["522"] = 476,["525"] = 481,["526"] = 482,["527"] = 483,["528"] = 484,["529"] = 485,["530"] = 486,["531"] = 474,["532"] = 489,["533"] = 491,["536"] = 496,["538"] = 498,["539"] = 500,["542"] = 502,["543"] = 503,["544"] = 503,["545"] = 505,["546"] = 506,["547"] = 506,["548"] = 506,["549"] = 507,["550"] = 507,["551"] = 507,["552"] = 508,["554"] = 508,["556"] = 509,["560"] = 512,["563"] = 514,["567"] = 517,["570"] = 519,["574"] = 523,["577"] = 525,["582"] = 530,["583"] = 532,["584"] = 532,["585"] = 534,["586"] = 535,["588"] = 535,["590"] = 536,["592"] = 489,["593"] = 540,["594"] = 542,["597"] = 547,["599"] = 547,["601"] = 548,["603"] = 548,["605"] = 549,["607"] = 549,["609"] = 550,["611"] = 550,["613"] = 551,["614"] = 551,["615"] = 551,["616"] = 551,["617"] = 551,["618"] = 551,["619"] = 551,["620"] = 551,["621"] = 552,["623"] = 552,["625"] = 540,["626"] = 465,["627"] = 464,["628"] = 465,["630"] = 465,["631"] = 556,["632"] = 557,["633"] = 556,["634"] = 557,["636"] = 557,["637"] = 559,["638"] = 560,["639"] = 565,["640"] = 566,["641"] = 567,["642"] = 569,["643"] = 570,["644"] = 556,["645"] = 572,["646"] = 574,["649"] = 579,["650"] = 580,["651"] = 581,["652"] = 582,["653"] = 582,["654"] = 583,["655"] = 572,["656"] = 586,["657"] = 588,["660"] = 593,["662"] = 593,["664"] = 594,["665"] = 594,["666"] = 595,["667"] = 595,["668"] = 596,["669"] = 596,["670"] = 597,["671"] = 598,["673"] = 598,["675"] = 600,["676"] = 602,["678"] = 586,["679"] = 606,["680"] = 608,["683"] = 613,["684"] = 613,["685"] = 614,["686"] = 615,["687"] = 616,["688"] = 616,["689"] = 617,["690"] = 606,["691"] = 620,["692"] = 622,["693"] = 622,["695"] = 622,["696"] = 622,["697"] = 622,["698"] = 622,["700"] = 623,["703"] = 623,["705"] = 623,["708"] = 623,["710"] = 624,["713"] = 624,["715"] = 624,["718"] = 624,["720"] = 622,["721"] = 626,["722"] = 628,["723"] = 632,["724"] = 633,["725"] = 628,["726"] = 630,["727"] = 630,["728"] = 630,["729"] = 630,["730"] = 630,["731"] = 630,["732"] = 628,["733"] = 640,["734"] = 640,["735"] = 642,["736"] = 642,["737"] = 642,["740"] = 642,["742"] = 642,["743"] = 642,["744"] = 642,["745"] = 642,["748"] = 620,["749"] = 647,["750"] = 649,["751"] = 649,["752"] = 651,["754"] = 654,["755"] = 655,["756"] = 656,["757"] = 647,["758"] = 659,["759"] = 661,["760"] = 662,["761"] = 662,["762"] = 662,["763"] = 662,["764"] = 662,["765"] = 662,["766"] = 662,["767"] = 671,["768"] = 659,["769"] = 674,["770"] = 676,["771"] = 674,["772"] = 679,["773"] = 681,["774"] = 679,["775"] = 557,["776"] = 556,["777"] = 557,["779"] = 557,["780"] = 685,["781"] = 686,["782"] = 685,["783"] = 686,["785"] = 686,["786"] = 688,["787"] = 685,["788"] = 693,["789"] = 695,["792"] = 700,["793"] = 701,["794"] = 702,["795"] = 693,["796"] = 705,["797"] = 707,["800"] = 712,["801"] = 712,["802"] = 714,["803"] = 716,["804"] = 716,["805"] = 716,["806"] = 716,["807"] = 716,["808"] = 716,["809"] = 714,["810"] = 705,["811"] = 727,["812"] = 729,["813"] = 729,["814"] = 731,["816"] = 734,["817"] = 735,["818"] = 735,["819"] = 735,["820"] = 735,["821"] = 735,["822"] = 735,["823"] = 735,["824"] = 735,["825"] = 727,["826"] = 738,["827"] = 740,["828"] = 738,["829"] = 743,["830"] = 745,["831"] = 743,["832"] = 686,["833"] = 685,["834"] = 686,["836"] = 686,["837"] = 749,["838"] = 750,["839"] = 749,["840"] = 750,["842"] = 750,["843"] = 752,["844"] = 753,["845"] = 754,["846"] = 759,["847"] = 760,["848"] = 749,["849"] = 762,["850"] = 764,["853"] = 769,["854"] = 770,["855"] = 771,["856"] = 771,["857"] = 772,["858"] = 772,["859"] = 762,["860"] = 775,["861"] = 777,["864"] = 782,["866"] = 782,["868"] = 783,["869"] = 783,["870"] = 784,["871"] = 784,["872"] = 785,["873"] = 785,["874"] = 786,["875"] = 787,["877"] = 787,["879"] = 788,["880"] = 788,["881"] = 788,["882"] = 788,["883"] = 788,["884"] = 788,["885"] = 788,["886"] = 788,["887"] = 788,["888"] = 790,["889"] = 792,["891"] = 775,["892"] = 796,["893"] = 798,["896"] = 803,["897"] = 803,["898"] = 804,["899"] = 804,["901"] = 796,["902"] = 750,["903"] = 749,["904"] = 750,["906"] = 750,["907"] = 811,["908"] = 812,["909"] = 811,["910"] = 812,["911"] = 817,["912"] = 819,["913"] = 820,["914"] = 820,["915"] = 820,["916"] = 820,["917"] = 820,["918"] = 820,["919"] = 820,["920"] = 820,["921"] = 821,["922"] = 822,["923"] = 823,["924"] = 817,["925"] = 826,["927"] = 828,["929"] = 828,["931"] = 829,["932"] = 830,["934"] = 830,["937"] = 826,["938"] = 812,["939"] = 811,["940"] = 812,["942"] = 812,["943"] = 834,["944"] = 835,["945"] = 834,["946"] = 835,["947"] = 837,["948"] = 839,["949"] = 840,["950"] = 840,["951"] = 840,["952"] = 840,["953"] = 840,["954"] = 840,["955"] = 840,["956"] = 840,["957"] = 850,["958"] = 837,["959"] = 853,["960"] = 855,["961"] = 853,["962"] = 858,["963"] = 860,["964"] = 858,["965"] = 863,["966"] = 865,["967"] = 863,["968"] = 868,["969"] = 870,["970"] = 868,["971"] = 835,["972"] = 834,["973"] = 835,["975"] = 835});
 local ____exports = {}
 local ____dota_ts_adapter = require("tslib.dota_ts_adapter")
 local BaseAbility = ____dota_ts_adapter.BaseAbility
@@ -14,6 +17,7 @@ local registerAbility = ____dota_ts_adapter.registerAbility
 local registerModifier = ____dota_ts_adapter.registerModifier
 local ____sleep_timer = require("tslib.sleep_timer")
 local Sleep = ____sleep_timer.Sleep
+require("libraries.util")
 ____exports.musashi_dai_go_sei = __TS__Class()
 local musashi_dai_go_sei = ____exports.musashi_dai_go_sei
 musashi_dai_go_sei.name = "musashi_dai_go_sei"
@@ -187,15 +191,18 @@ function musashi_modifier_tengan.prototype.____constructor(self, ...)
     self.BonusDmg = 0
 end
 function musashi_modifier_tengan.prototype.OnCreated(self)
-    local ____opt_16 = self:GetAbility()
-    self.BonusDmg = ____opt_16 and ____opt_16:GetSpecialValueFor("BonusDmg")
     if not IsServer() then
         return
     end
-    self.Caster = self:GetParent()
+    self.Caster = self:GetCaster()
+    local ____opt_16 = self:GetAbility()
+    self.BonusDmg = ____opt_16 and ____opt_16:GetSpecialValueFor("BonusDmg")
     self:CreateParticle()
 end
 function musashi_modifier_tengan.prototype.OnRefresh(self)
+    if not IsServer() then
+        return
+    end
     self:OnCreated()
 end
 function musashi_modifier_tengan.prototype.CreateParticle(self)
@@ -363,33 +370,33 @@ function musashi_niou_kurikara.prototype.CreateParticle(self)
         local AoeParticleStr = ""
         local CrackParticleStr = ""
         repeat
-            local ____switch39 = self.SlashCount
-            local ____cond39 = ____switch39 == 1
-            if ____cond39 then
+            local ____switch40 = self.SlashCount
+            local ____cond40 = ____switch40 == 1
+            if ____cond40 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth_crack.vpcf"
                     break
                 end
             end
-            ____cond39 = ____cond39 or ____switch39 == 2
-            if ____cond39 then
+            ____cond40 = ____cond40 or ____switch40 == 2
+            if ____cond40 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_water.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth_crack.vpcf"
                     break
                 end
             end
-            ____cond39 = ____cond39 or ____switch39 == 3
-            if ____cond39 then
+            ____cond40 = ____cond40 or ____switch40 == 3
+            if ____cond40 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire_crack.vpcf"
                     break
                 end
             end
-            ____cond39 = ____cond39 or ____switch39 == 4
-            if ____cond39 then
+            ____cond40 = ____cond40 or ____switch40 == 4
+            if ____cond40 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind_crack.vpcf"
@@ -440,6 +447,463 @@ musashi_niou_kurikara = __TS__Decorate(
     musashi_niou_kurikara
 )
 ____exports.musashi_niou_kurikara = musashi_niou_kurikara
+____exports.musashi_ganryuu_jima = __TS__Class()
+local musashi_ganryuu_jima = ____exports.musashi_ganryuu_jima
+musashi_ganryuu_jima.name = "musashi_ganryuu_jima"
+__TS__ClassExtends(musashi_ganryuu_jima, BaseAbility)
+function musashi_ganryuu_jima.prototype.____constructor(self, ...)
+    BaseAbility.prototype.____constructor(self, ...)
+    self.SoundVoiceline = "antimage_anti_ability_manavoid_01"
+    self.DashPosition = Vector(0, 0, 0)
+    self.SlashPosition = Vector(0, 0, 0)
+    self.SecondSlashPosition = Vector(0, 0, 0)
+end
+function musashi_ganryuu_jima.prototype.OnVectorCastStart(self, vStartLocation, vDirection)
+    self.Caster = self:GetCaster()
+    self:SetVector(vStartLocation, vDirection)
+    local DashCounter = self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_ganryuu_jima.name, {undefined = undefined})
+    DashCounter:IncrementStackCount()
+    EmitGlobalSound(self.SoundVoiceline)
+end
+function musashi_ganryuu_jima.prototype.SetVector(self, vStartLocation, vDirection)
+    self.DashPosition = vStartLocation
+    self.SlashPosition = vDirection
+    self.SecondSlashPosition = vDirection:__unm()
+end
+function musashi_ganryuu_jima.prototype.GetCastRange(self)
+    if IsServer() then
+        return 0
+    else
+        return self:GetSpecialValueFor("SlashRange")
+    end
+end
+function musashi_ganryuu_jima.prototype.GetVectorTargetRange(self)
+    return self:GetSpecialValueFor("SlashRange")
+end
+function musashi_ganryuu_jima.prototype.GetVectorTargetStartRadius(self)
+    return self:GetSpecialValueFor("SlashRadius")
+end
+function musashi_ganryuu_jima.prototype.GetVectorTargetEndRadius(self)
+    return self:GetSpecialValueFor("SlashRadius")
+end
+function musashi_ganryuu_jima.prototype.GetVectorPosition(self)
+    return self.DashPosition
+end
+function musashi_ganryuu_jima.prototype.GetVectorDirection(self)
+    return self.SlashPosition
+end
+function musashi_ganryuu_jima.prototype.GetVector2Position(self)
+    return self.SlashPosition
+end
+function musashi_ganryuu_jima.prototype.UpdateVectorValues(self)
+end
+function musashi_ganryuu_jima.prototype.IsDualVectorDirection(self)
+    return false
+end
+function musashi_ganryuu_jima.prototype.IgnoreVectorArrowWidth(self)
+    return false
+end
+musashi_ganryuu_jima = __TS__Decorate(
+    {registerAbility(nil)},
+    musashi_ganryuu_jima
+)
+____exports.musashi_ganryuu_jima = musashi_ganryuu_jima
+____exports.musashi_modifier_ganryuu_jima = __TS__Class()
+local musashi_modifier_ganryuu_jima = ____exports.musashi_modifier_ganryuu_jima
+musashi_modifier_ganryuu_jima.name = "musashi_modifier_ganryuu_jima"
+__TS__ClassExtends(musashi_modifier_ganryuu_jima, BaseModifier)
+function musashi_modifier_ganryuu_jima.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.DashPosition = Vector(0, 0, 0)
+    self.SlashPosition = Vector(0, 0, 0)
+    self.SecondSlashPosition = Vector(0, 0, 0)
+end
+function musashi_modifier_ganryuu_jima.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Ganryuu_Jima = self:GetAbility()
+    self.DashPosition = self.Ganryuu_Jima.DashPosition
+    self.SlashPosition = self.Ganryuu_Jima.SlashPosition
+    self.SecondSlashPosition = self.Ganryuu_Jima.SecondSlashPosition
+    giveUnitDataDrivenModifier(self.Caster, self.Caster, "pause_sealdisabled", 1.5)
+end
+function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stackCount)
+    if not IsServer() then
+        return
+    end
+    local Position = Vector(0, 0, 0)
+    repeat
+        local ____switch66 = stackCount
+        local ____cond66 = ____switch66 == 0
+        if ____cond66 then
+            do
+                Position = self.DashPosition
+                local ____opt_39 = self.Caster
+                local DashBuff = ____opt_39 and ____opt_39:AddNewModifier(self.Caster, self.Ganryuu_Jima, ____exports.musashi_modifier_ganryuu_jima_dash.name, {undefined = undefined})
+                DashBuff.TargetPoint = Position
+                local ____DashBuff_TargetPoint_43 = DashBuff.TargetPoint
+                local ____opt_41 = self.Caster
+                ____DashBuff_TargetPoint_43.z = ____opt_41 and ____opt_41:GetAbsOrigin().z
+                local ____DashBuff_TargetPoint_46 = DashBuff.TargetPoint
+                local ____opt_44 = self.Caster
+                DashBuff.NormalizedTargetPoint = (____DashBuff_TargetPoint_46 - (____opt_44 and ____opt_44:GetAbsOrigin())):Normalized()
+                local ____opt_47 = self.Caster
+                if ____opt_47 ~= nil then
+                    ____opt_47:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1, 2)
+                end
+                DashBuff:StartIntervalThink(0.03)
+                break
+            end
+        end
+        ____cond66 = ____cond66 or ____switch66 == 1
+        if ____cond66 then
+            do
+                Position = self.SlashPosition
+                break
+            end
+        end
+        ____cond66 = ____cond66 or ____switch66 == 2
+        if ____cond66 then
+            do
+                Position = self.SecondSlashPosition
+                break
+            end
+        end
+        ____cond66 = ____cond66 or ____switch66 == 3
+        if ____cond66 then
+            do
+                self:Destroy()
+                break
+            end
+        end
+    until true
+    if stackCount == 1 or stackCount == 2 then
+        local ____opt_49 = self.Caster
+        local SlashBuff = ____opt_49 and ____opt_49:AddNewModifier(self.Caster, self.Ganryuu_Jima, ____exports.musashi_modifier_ganryuu_jima_slash.name, {undefined = undefined})
+        SlashBuff.TargetPoint = Position
+        local ____opt_51 = self.Caster
+        if ____opt_51 ~= nil then
+            ____opt_51:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_2, 2)
+        end
+        SlashBuff:StartIntervalThink(0.03)
+    end
+end
+function musashi_modifier_ganryuu_jima.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_53 = self.Caster
+    if ____opt_53 ~= nil then
+        ____opt_53:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
+    end
+    local ____opt_55 = self.Caster
+    if ____opt_55 ~= nil then
+        ____opt_55:RemoveGesture(ACT_DOTA_CAST_ABILITY_2)
+    end
+    local ____opt_57 = self.Caster
+    if ____opt_57 ~= nil then
+        ____opt_57:StartGesture(ACT_DOTA_CAST_ABILITY_2_END)
+    end
+    local ____opt_59 = self.Caster
+    if ____opt_59 ~= nil then
+        ____opt_59:SetForwardVector(self.Caster:GetForwardVector() * 10)
+    end
+    local ____FindClearSpaceForUnit_64 = FindClearSpaceForUnit
+    local ____self_Caster_63 = self.Caster
+    local ____opt_61 = self.Caster
+    ____FindClearSpaceForUnit_64(
+        ____self_Caster_63,
+        ____opt_61 and ____opt_61:GetAbsOrigin(),
+        true
+    )
+    local ____opt_65 = self.Caster
+    if ____opt_65 ~= nil then
+        ____opt_65:AddNewModifier(self.Caster, self.Ganryuu_Jima, "modifier_phase", {duration = 1.5})
+    end
+end
+musashi_modifier_ganryuu_jima = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_ganryuu_jima
+)
+____exports.musashi_modifier_ganryuu_jima = musashi_modifier_ganryuu_jima
+____exports.musashi_modifier_ganryuu_jima_slash = __TS__Class()
+local musashi_modifier_ganryuu_jima_slash = ____exports.musashi_modifier_ganryuu_jima_slash
+musashi_modifier_ganryuu_jima_slash.name = "musashi_modifier_ganryuu_jima_slash"
+__TS__ClassExtends(musashi_modifier_ganryuu_jima_slash, BaseModifier)
+function musashi_modifier_ganryuu_jima_slash.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.SoundSfx = "musashi_ganryuu_jima_sfx"
+    self.ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_basic.vpcf"
+    self.StartPosition = Vector(0, 0, 0)
+    self.EndPosition = Vector(0, 0, 0)
+    self.TargetPoint = Vector(0, 0, 0)
+    self.SlashRange = 0
+    self.UnitsTravelled = 0
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Ability = self:GetAbility()
+    self.StartPosition = self.Caster:GetAbsOrigin()
+    local ____opt_67 = self.Ability
+    self.SlashRange = ____opt_67 and ____opt_67:GetSpecialValueFor("SlashRange")
+    self.Caster:EmitSound(self.SoundSfx)
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.OnIntervalThink(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_69 = self.Caster
+    if ____opt_69 ~= nil then
+        ____opt_69:SetForwardVector(self.TargetPoint)
+    end
+    local ____opt_71 = self.Caster
+    local CurrentOrigin = ____opt_71 and ____opt_71:GetAbsOrigin()
+    local ____opt_73 = self.Ability
+    local DashSpeed = ____opt_73 and ____opt_73:GetSpecialValueFor("DashSpeed")
+    local ____opt_75 = self.Caster
+    local NewPosition = CurrentOrigin + (____opt_75 and ____opt_75:GetForwardVector()) * DashSpeed
+    self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
+    local ____opt_77 = self.Caster
+    if ____opt_77 ~= nil then
+        ____opt_77:SetAbsOrigin(NewPosition)
+    end
+    if self.UnitsTravelled >= self.SlashRange then
+        self:Destroy()
+    end
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_79 = self.Caster
+    self.EndPosition = ____opt_79 and ____opt_79:GetAbsOrigin()
+    self:CreateParticle()
+    self:DoDamage()
+    local ____opt_81 = self.Caster
+    local DashCounter = ____opt_81 and ____opt_81:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
+    DashCounter:IncrementStackCount()
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.DoDamage(self)
+    local ____FindUnitsInLine_94 = FindUnitsInLine
+    local ____opt_83 = self.Caster
+    local ____array_93 = __TS__SparseArrayNew(
+        ____opt_83 and ____opt_83:GetTeam(),
+        self.StartPosition,
+        self.EndPosition,
+        nil
+    )
+    local ____opt_85 = self.Ability
+    __TS__SparseArrayPush(
+        ____array_93,
+        ____opt_85 and ____opt_85:GetSpecialValueFor("SlashRadius")
+    )
+    local ____opt_87 = self.Ability
+    __TS__SparseArrayPush(
+        ____array_93,
+        ____opt_87 and ____opt_87:GetAbilityTargetTeam()
+    )
+    local ____opt_89 = self.Ability
+    __TS__SparseArrayPush(
+        ____array_93,
+        ____opt_89 and ____opt_89:GetAbilityTargetType()
+    )
+    local ____opt_91 = self.Ability
+    __TS__SparseArrayPush(
+        ____array_93,
+        ____opt_91 and ____opt_91:GetAbilityTargetFlags()
+    )
+    local Targets = ____FindUnitsInLine_94(__TS__SparseArraySpread(____array_93))
+    for ____, Iterator in ipairs(Targets) do
+        local ____ApplyDamage_98 = ApplyDamage
+        local ____self_Caster_97 = self.Caster
+        local ____opt_95 = self.Ability
+        ____ApplyDamage_98({
+            victim = Iterator,
+            attacker = ____self_Caster_97,
+            damage = ____opt_95 and ____opt_95:GetSpecialValueFor("DmgPerSlash"),
+            damage_type = DAMAGE_TYPE_MAGICAL,
+            damage_flags = DOTA_DAMAGE_FLAG_NONE,
+            ability = self.Ability
+        })
+        local ____opt_99 = self.Caster
+        if ____opt_99 and ____opt_99:HasModifier(____exports.musashi_modifier_tengan.name) then
+            local ____Iterator_AddNewModifier_104 = Iterator.AddNewModifier
+            local ____array_103 = __TS__SparseArrayNew(self.Caster, self.Ability, ____exports.musashi_modifier_ganryuu_jima_debuff.name)
+            local ____opt_101 = self.Ability
+            __TS__SparseArrayPush(
+                ____array_103,
+                {duration = ____opt_101 and ____opt_101:GetSpecialValueFor("DmgDelay")}
+            )
+            ____Iterator_AddNewModifier_104(
+                Iterator,
+                __TS__SparseArraySpread(____array_103)
+            )
+        end
+    end
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.CreateParticle(self)
+    local ____opt_105 = self.Caster
+    if ____opt_105 and ____opt_105:HasModifier("modifier_ascended") then
+        self.ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_unique.vpcf"
+    end
+    local ParticleId = ParticleManager:CreateParticle(self.ParticleStr, PATTACH_WORLDORIGIN, self.Caster)
+    ParticleManager:SetParticleControl(ParticleId, 0, self.StartPosition)
+    ParticleManager:SetParticleControl(ParticleId, 1, self.EndPosition)
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.CheckState(self)
+    local ModifierTable = {
+        [MODIFIER_STATE_INVULNERABLE] = true,
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+        [MODIFIER_STATE_UNTARGETABLE] = true,
+        [MODIFIER_STATE_UNSELECTABLE] = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+        [MODIFIER_STATE_NO_HEALTH_BAR] = true
+    }
+    return ModifierTable
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.IsPurgable(self)
+    return false
+end
+function musashi_modifier_ganryuu_jima_slash.prototype.IsPurgeException(self)
+    return false
+end
+musashi_modifier_ganryuu_jima_slash = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_ganryuu_jima_slash
+)
+____exports.musashi_modifier_ganryuu_jima_slash = musashi_modifier_ganryuu_jima_slash
+____exports.musashi_modifier_ganryuu_jima_debuff = __TS__Class()
+local musashi_modifier_ganryuu_jima_debuff = ____exports.musashi_modifier_ganryuu_jima_debuff
+musashi_modifier_ganryuu_jima_debuff.name = "musashi_modifier_ganryuu_jima_debuff"
+__TS__ClassExtends(musashi_modifier_ganryuu_jima_debuff, BaseModifier)
+function musashi_modifier_ganryuu_jima_debuff.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_debuff_basic.vpcf"
+end
+function musashi_modifier_ganryuu_jima_debuff.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Victim = self:GetParent()
+    self:CreateParticle()
+end
+function musashi_modifier_ganryuu_jima_debuff.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_107 = self.Caster
+    local ModifierTengan = ____opt_107 and ____opt_107:FindModifierByName(____exports.musashi_modifier_tengan.name)
+    ApplyDamage({
+        victim = self.Victim,
+        attacker = self.Caster,
+        damage = ModifierTengan.BonusDmg,
+        damage_type = DAMAGE_TYPE_PURE,
+        damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+        ability = self:GetAbility()
+    })
+end
+function musashi_modifier_ganryuu_jima_debuff.prototype.CreateParticle(self)
+    local ____opt_109 = self.Caster
+    if ____opt_109 and ____opt_109:HasModifier("modifier_ascended") then
+        self.ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_debuff_unique.vpcf"
+    end
+    local DebuffParticle = ParticleManager:CreateParticle(self.ParticleStr, PATTACH_POINT_FOLLOW, self.Victim)
+    self:AddParticle(
+        DebuffParticle,
+        false,
+        false,
+        -1,
+        false,
+        false
+    )
+end
+function musashi_modifier_ganryuu_jima_debuff.prototype.IsPurgable(self)
+    return false
+end
+function musashi_modifier_ganryuu_jima_debuff.prototype.IsPurgeException(self)
+    return false
+end
+musashi_modifier_ganryuu_jima_debuff = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_ganryuu_jima_debuff
+)
+____exports.musashi_modifier_ganryuu_jima_debuff = musashi_modifier_ganryuu_jima_debuff
+____exports.musashi_modifier_ganryuu_jima_dash = __TS__Class()
+local musashi_modifier_ganryuu_jima_dash = ____exports.musashi_modifier_ganryuu_jima_dash
+musashi_modifier_ganryuu_jima_dash.name = "musashi_modifier_ganryuu_jima_dash"
+__TS__ClassExtends(musashi_modifier_ganryuu_jima_dash, BaseModifier)
+function musashi_modifier_ganryuu_jima_dash.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.StartPosition = Vector(0, 0, 0)
+    self.TargetPoint = Vector(0, 0, 0)
+    self.NormalizedTargetPoint = Vector(0, 0, 0)
+    self.SlashRange = 0
+    self.UnitsTravelled = 0
+end
+function musashi_modifier_ganryuu_jima_dash.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Ability = self:GetAbility()
+    local ____opt_111 = self.Caster
+    self.StartPosition = ____opt_111 and ____opt_111:GetAbsOrigin()
+    local ____opt_113 = self.Ability
+    self.SlashRange = ____opt_113 and ____opt_113:GetSpecialValueFor("SlashRange")
+end
+function musashi_modifier_ganryuu_jima_dash.prototype.OnIntervalThink(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_115 = self.Caster
+    if ____opt_115 ~= nil then
+        ____opt_115:SetForwardVector(self.NormalizedTargetPoint)
+    end
+    local ____opt_117 = self.Caster
+    local CurrentOrigin = ____opt_117 and ____opt_117:GetAbsOrigin()
+    local ____opt_119 = self.Ability
+    local DashSpeed = ____opt_119 and ____opt_119:GetSpecialValueFor("DashSpeed")
+    local ____opt_121 = self.Caster
+    local NewPosition = CurrentOrigin + (____opt_121 and ____opt_121:GetForwardVector()) * DashSpeed
+    self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
+    local ____opt_123 = self.Caster
+    if ____opt_123 ~= nil then
+        ____opt_123:SetAbsOrigin(NewPosition)
+    end
+    local ____Entities_FindByNameWithin_127 = Entities.FindByNameWithin
+    local ____opt_125 = self.Caster
+    local Musashi = ____Entities_FindByNameWithin_127(
+        Entities,
+        nil,
+        ____opt_125 and ____opt_125:GetName(),
+        self.TargetPoint,
+        DashSpeed
+    )
+    if Musashi or self.UnitsTravelled >= self.SlashRange then
+        self:Destroy()
+    end
+end
+function musashi_modifier_ganryuu_jima_dash.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_128 = self.Caster
+    local DashCounter = ____opt_128 and ____opt_128:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
+    if DashCounter ~= nil then
+        DashCounter:IncrementStackCount()
+    end
+end
+musashi_modifier_ganryuu_jima_dash = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_ganryuu_jima_dash
+)
+____exports.musashi_modifier_ganryuu_jima_dash = musashi_modifier_ganryuu_jima_dash
 ____exports.musashi_niou = __TS__Class()
 local musashi_niou = ____exports.musashi_niou
 musashi_niou.name = "musashi_niou"
@@ -460,14 +924,14 @@ function musashi_niou.prototype.OnSpellStart(self)
 end
 function musashi_niou.prototype.DestroyNiou(self, delay)
     return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        local ____opt_39 = self.Niou
-        if ____opt_39 ~= nil then
-            ____opt_39:ForceKill(false)
+        local ____opt_132 = self.Niou
+        if ____opt_132 ~= nil then
+            ____opt_132:ForceKill(false)
         end
         __TS__Await(Sleep(nil, delay))
-        local ____opt_41 = self.Niou
-        if ____opt_41 ~= nil then
-            ____opt_41:Destroy()
+        local ____opt_134 = self.Niou
+        if ____opt_134 ~= nil then
+            ____opt_134:Destroy()
         end
     end)
 end
@@ -481,7 +945,7 @@ local musashi_modifier_niou = ____exports.musashi_modifier_niou
 musashi_modifier_niou.name = "musashi_modifier_niou"
 __TS__ClassExtends(musashi_modifier_niou, BaseModifier)
 function musashi_modifier_niou.prototype.CheckState(self)
-    local modifiertable = {
+    local ModifierTable = {
         [MODIFIER_STATE_INVULNERABLE] = true,
         [MODIFIER_STATE_MAGIC_IMMUNE] = true,
         [MODIFIER_STATE_UNTARGETABLE] = true,
@@ -490,7 +954,7 @@ function musashi_modifier_niou.prototype.CheckState(self)
         [MODIFIER_STATE_NO_HEALTH_BAR] = true,
         [MODIFIER_STATE_NOT_ON_MINIMAP] = true
     }
-    return modifiertable
+    return ModifierTable
 end
 function musashi_modifier_niou.prototype.IsHidden(self)
     return true
