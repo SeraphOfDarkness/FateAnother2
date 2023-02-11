@@ -24,6 +24,9 @@
 	m_Children = 
 	[
 		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_basicf.vpcf"
+		},
+		{
 			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_basicd.vpcf"
 		},
 		{
@@ -34,9 +37,6 @@
 		},
 		{
 			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_basica.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_basicf.vpcf"
 			m_bEndCap = true
 		},
 		{

@@ -23,27 +23,26 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1a.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1g.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1f.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1b.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1e.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1f.vpcf"
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1a.vpcf"
 			m_bEndCap = true
 		},
 	]
-	m_nViewModelEffect = "INHERITABLE_BOOL_INHERIT"
 }

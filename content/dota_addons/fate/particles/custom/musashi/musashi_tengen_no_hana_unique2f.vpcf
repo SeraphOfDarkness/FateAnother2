@@ -2,9 +2,7 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 16
-	m_flConstantRadius = 150.0
-	m_flConstantLifespan = 0.5
+	m_nMaxParticles = 4
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 5
 	m_controlPointConfigurations = 
@@ -35,7 +33,7 @@
 			m_nParticlesToEmit = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 16.0
+				m_flLiteralValue = 4.0
 			}
 		},
 	]
@@ -45,10 +43,8 @@
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_RANDOM_UNIFORM"
-				m_flRandomMin = 0.15
-				m_flRandomMax = 0.3
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 6.0
 			}
 			m_nOutputField = 1
 		},
@@ -71,10 +67,8 @@
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_RANDOM_UNIFORM"
-				m_flRandomMin = 0.0
-				m_flRandomMax = 360.0
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 90.0
 				m_bHasRandomSignFlip = true
 			}
 			m_nOutputField = 4
@@ -83,14 +77,16 @@
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 85.0
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 75.0
+				m_flRandomMax = 80.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 			}
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 248, 126, 126, 255 ]
-			m_ColorMax = [ 202, 49, 49, 255 ]
+			m_ColorMin = [ 25, 7, 7, 255 ]
+			m_ColorMax = [ 11, 2, 2, 255 ]
 		},
 		{
 			_class = "C_INIT_PositionOffset"
@@ -105,17 +101,18 @@
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_InterpolateRadius"
-			m_flEndScale = 0.5
-			m_flBias = 0.75
-			m_flStartScale = 2.0
-		},
-		{
 			_class = "C_OP_Decay"
 		},
 		{
-			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 1.0
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.15
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_flEndTime = 9999999.0
+			m_Rate = -20.0
+			m_nField = 16
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
 		},
 		{
 			_class = "C_OP_PositionLock"
@@ -135,41 +132,30 @@
 			}
 		},
 		{
-			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 72, 14, 14, 255 ]
+			_class = "C_OP_SpinUpdate"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.125
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
 		},
 	]
 	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
-			m_flOverbrightFactor = 2.0
 			VisibilityInputs = 
 			{
-				m_flCameraBias = 10.0
+				m_flCameraBias = -70.0
 			}
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue.vtex"
+					m_hTexture = resource:"materials/particle/particle_glow_04.vtex"
 				},
 			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-		{
-			_class = "C_OP_RenderSprites"
-			m_flOverbrightFactor = 2.0
-			VisibilityInputs = 
-			{
-				m_flCameraBias = 10.0
-			}
-			m_vecTexturesInput = 
-			[
-				{
-					m_hTexture = resource:"materials/particle/yellowflare2.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
 }

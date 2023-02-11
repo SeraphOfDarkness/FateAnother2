@@ -151,7 +151,7 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d0a.vpcf"
+			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1g0a.vpcf"
 		},
 	]
 }

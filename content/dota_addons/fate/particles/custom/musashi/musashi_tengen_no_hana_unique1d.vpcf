@@ -2,9 +2,11 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 4
+	m_nMaxParticles = 16
+	m_flConstantRadius = 150.0
+	m_flConstantLifespan = 0.5
 	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 3
+	m_nFirstMultipleOverride_BackwardCompat = 5
 	m_controlPointConfigurations = 
 	[
 		{
@@ -33,7 +35,7 @@
 			m_nParticlesToEmit = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 4.0
+				m_flLiteralValue = 16.0
 			}
 		},
 	]
@@ -43,8 +45,10 @@
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 6.0
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.15
+				m_flRandomMax = 0.3
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 			}
 			m_nOutputField = 1
 		},
@@ -64,18 +68,29 @@
 			}
 		},
 		{
-			_class = "C_INIT_RandomNamedModelSequence"
-			m_hModel = resource:"models/items/dark_willow/dark_willow_ti8_immortal_head/dark_willow_ti8_immortal_flower.vmdl"
-			m_names = 
-			[
-				"dw_ti8_immortal_flower_open_1",
-				"dw_ti8_immortal_flower_open_2_shard",
-				"dw_ti8_immortal_flower_open_3_shard",
-				"dw_ti8_immortal_flower_open_4_shard",
-			]
-			m_bLinear = true
-			m_bModelFromRenderer = true
-			m_nFieldOutput = 13
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 85.0
+			}
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 126, 241, 248, 255 ]
+			m_ColorMax = [ 104, 249, 255, 255 ]
 		},
 		{
 			_class = "C_INIT_PositionOffset"
@@ -90,24 +105,17 @@
 	m_Operators = 
 	[
 		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 0.5
+			m_flBias = 0.75
+			m_flStartScale = 2.0
+		},
+		{
 			_class = "C_OP_Decay"
 		},
 		{
-			_class = "C_OP_BasicMovement"
-			m_fDrag = 0.15
-		},
-		{
-			_class = "C_OP_RampScalarLinearSimple"
-			m_flEndTime = 9999999.0
-			m_Rate = -20.0
-			m_nField = 16
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.9
-			m_flEndTime = 0.25
-			m_flStartScale = 0.0
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 1.0
 		},
 		{
 			_class = "C_OP_PositionLock"
@@ -127,51 +135,41 @@
 			}
 		},
 		{
-			_class = "C_OP_SetPerChildControlPoint"
-			m_nFirstControlPoint = 4
-			m_nNumControlPoints = 4
-			m_bSetOrientation = true
-		},
-		{
-			_class = "C_OP_SpinUpdate"
-		},
-		{
-			_class = "C_OP_SpinYaw"
-			m_nSpinRateDegrees = -8
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 0, 138, 166, 255 ]
 		},
 	]
 	m_Renderers = 
 	[
 		{
-			_class = "C_OP_RenderModels"
-			m_ModelList = 
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 2.0
+			VisibilityInputs = 
+			{
+				m_flCameraBias = 10.0
+			}
+			m_vecTexturesInput = 
 			[
 				{
-					m_model = resource:"models/items/dark_willow/dark_willow_ti8_immortal_head/dark_willow_ti8_immortal_flower.vmdl"
+					m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue.vtex"
 				},
 			]
-			m_bAnimated = true
-			m_bOrientZ = true
-			m_bDisableShadows = true
-			m_bForceLoopingAnimation = true
-		},
-	]
-	m_Children = 
-	[
-		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d0.vpcf"
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d0.vpcf"
-			m_flDelay = 0.75
-		},
-		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d0.vpcf"
-			m_flDelay = 1.5
-		},
-		{
-			m_ChildRef = resource:"particles/custom/musashi/musashi_tengen_no_hana_unique1d0.vpcf"
-			m_flDelay = 2.25
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 2.0
+			VisibilityInputs = 
+			{
+				m_flCameraBias = 10.0
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/yellowflare2.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
 }
