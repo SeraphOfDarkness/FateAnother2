@@ -171,7 +171,7 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 6 : Ganryuu Jima (R)
+	// Miyamoto Musashi : Skill 4 : Ganryuu Jima (R)
 	//==================================================================================================================
 	"musashi_ganryuu_jima"
 	{
@@ -228,7 +228,51 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 8 : Tengen No Hana (SA)
+	// Miyamoto Musashi : Skill 5 : Niou (Auxiliary)
+	//==================================================================================================================
+	"musashi_niou"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | 
+										 DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"     		""
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"0"
+		"AbilityCastRange"				"0"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_NONE"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_NONE"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"ModelScale"				"2.5 2.875 3.25 3.625 4.0"
+		}
+	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Skill 6 : Tengen No Hana (SA)
 	//==================================================================================================================
 	"musashi_tengen_no_hana"
 	{
@@ -237,7 +281,7 @@
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | 
-										DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+										 DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"     		"custom/musashi/musashi_tengen_no_hana"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -288,33 +332,33 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 7 : Niou (Auxiliary)
+	// Miyamoto Musashi : Skill 7 : Mukyuu (SA)
 	//==================================================================================================================
-	"musashi_niou"
+	"musashi_mukyuu"
 	{
 		//General-------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | 
-										 DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"     		""
-		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
+										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"     		"custom/musashi/musashi_mukyuu"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+		"LevelsBetweenUpgrades"			"1"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"         		"0"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"60"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -327,7 +371,14 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"ModelScale"				"2.5 2.875 3.25 3.625 4.0"
+			"BuffDuration"				"2"
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_mukyuu_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_mukyuu_unique.vpcf"
 		}
 	}
 }
