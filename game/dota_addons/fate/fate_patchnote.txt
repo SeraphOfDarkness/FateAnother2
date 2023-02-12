@@ -1,4 +1,131 @@
-Semiramis 
+
+Fix semiramis invul after round end, shield UI bug
+Fix sound
+Fix GH,loop free grail
+Fix Tooltip
+Fix UBW shop
+
+Semiramis
+-Sikera Ušum - Arrogant King's Alcohol
+Delay Poison Burst: 1.5 >> 1.0
+
+-Absolute Queen 
+Passive now grant bonus magic resistance as long as Garden is summoned
+
+-Attribute: Oldest Poisoner
+Sikera bonus claw damage per AGI: 4 >> 6
+
+Medusa
+-Highspeed Movement
+Cast Range: 400 450 500 550 600 >> 800
+Distance: 400 450 500 550 600 >> 400 480 560 640 720
+
+----------------
+
+Add [Limited] Ana to 2nd Tour Champion
+Add [Legend] Lancer Ana
+
+Fix Karna's model
+
+Semiramis
+STR: 1.7 >> 2.0
+AGI: 1.8 >> 2.0
+INT: 2.5 >> 2.0
+-Dual Class
+Now can level up skill for both class
+
+-Binding Chain
+No longer dispel by S/EX
+has min duration
+Min Duration: 1 1.25 1.5 1.75 2
+
+-Mana Barrier
+No longer regen shield in Assassin Class
+
+-Poisoned Wine
+Apply slow on poison: 20% 
+Poison can be dispelled by Seal 5
+Add poison effect
+
+-Beam Bombard
+AOE: 250 300 350 400 450 >> 370 340 310 280 250
+Damage: 150 175 200 225 250 >> 100 125 150 175 200
+Beam Count: 5 6 7 8 9 >> 5 5 6 6 7
+Will focus into smaller Area
+
+-Poison Aura
+Fix Damage calculate
+Apply slow
+Slow: 14% 18% 22% 26% 30%
+Debuff MR reduction: 9 13 17 21 25 >> 4% 8% 12% 16% 20%
+Debuff Duration: 1.7 1.9 2.1 2.3 2.5 >> 1.7 1.8 1.9 2.0 2.1
+Debuff can be block by AMP
+
+-Garden
+HP: 1050 1400 1750 2100 2450 >> 1400 1550 1700 1850 2000
+
+-Sikera Ušum - Arrogant King's Alcohol
+Mana Cost: 600 >> 800
+Cooldown: 34 >> 45
+Damage Type: Pure >> Magic
+Delay Poison Burst: 0.7 >> 1.5
+If target is out of range, Poison Burst 30% and not AOE
+
+-Sikera Ušum - Summon Basmu
+DPS: 125 300 >> 125 250
+Damage: 250 600 >> 250 500
+
+-Attribute: Charmer
+Mana Cost: 16 >> 10
+Binding Chain stun Male exclude Astolfo
+Sikera : target male (exclude astolfo) will bypass magic resistance and AMP
+
+-Attribute: Double Summon
+Caster bonus INT: 5 >> 10
+Assassin bonus AGI: 0 >> 10
+
+-Attribute: Absolute Monarchy of the Queen
+Mana Cost: 11 >> 14
+Binding Chain reduce target MR: -20%
+Beam Bombard apply mini stun
+Increase Total Beam by INT: 30 INT per Beam
+Mana Barrier get bonus regen: 10 15 20 25 30
+Mana Barrier can regen shield in Assassin Class
+Absolute Queen Passive now grant bonus magic resistance when distance between Semiramis and Garden below 1500
+Absolute Queen Bonus Magic resist: 8% >> 15%
+
+-Attribute: Oldest Poisoner (NEW)
+Mana Cost: 16
+Conjour Poison Wine bonus poison dps : 20
+Conjour Poison Wine bonus poison duration: 1
+Conjour Poison Wine bonus damage per AGI: 2
+Poison Aura : target get bonus damage from poison skill 15% (hassan dirk, robin, squid poison, semi)
+Sikera Reduce Mana cost: 200
+Sikera bonus hit damage per AGI: 4
+Sikera bonus poison damage per INT: 3
+Sikera bonus poison damage : 200
+
+Atalanta
+-Calydonian Hunt
+Calydonian vision no longer dispelled by S/EX
+
+Edmond
+-Lord of Vengeance
+Count fo Monte Cristo become immune to poison
+
+Iskandar
+-Army of The King
+Infantry/Archer count: 8 >> 12
+
+-Via Expugnatio
+Self Stun: 1.0 >> 0.7
+
+-Attribute: Bond Beyond Time
+Bonus Health: 15% >> 20%
+
+---------------
+
++Semiramis 
 Garden beam damage 300 450 -> 250 400
 
 Binding chains
@@ -76,11 +203,11 @@ Bomb damage 200 -> 220
 Aoe 200 -> 250
 
 Fix karna stupid audio with skin
-Fix excal range reaching out too far
 Extra audio again, some illya, some shirou blah blah.
 
 Today's fun fact : Do you know nobu is so shit she got the lowest winrate in the entire hero pool of 37%? :cry:
 Buffs are related to heroes with horrible winrate or complaints
+
 -------------
 Fix robin nirnroot sommersault making him stuck (attempt)
 

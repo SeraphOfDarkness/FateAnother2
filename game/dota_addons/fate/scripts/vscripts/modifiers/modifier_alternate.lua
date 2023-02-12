@@ -142,6 +142,10 @@ function Alternate01Create (keys)
     	caster:SetModel("models/koumei/waver/waver_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/koumei/waver/waver_by_zefiroft.vmdl")
 		caster:SetModelScale(0.8)	
+	elseif caster:GetName() == "npc_dota_hero_night_stalker" then 
+    	caster:SetModel("models/edmond/cape/edmond_cape_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/edmond/cape/edmond_cape_by_zefiroft.vmdl")
+		caster:SetModelScale(1.1)	
 	end
 end
 
@@ -292,6 +296,10 @@ function Alternate01Destroy (keys)
     	caster:SetModel("models/koumei/default/koumei_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/koumei/default/koumei_by_zefiroft.vmdl")
 		caster:SetModelScale(1.4)
+	elseif caster:GetName() == "npc_dota_hero_night_stalker" then 
+    	caster:SetModel("models/edmond/default/edmond_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/edmond/default/edmond_by_zefiroft.vmdl")
+		caster:SetModelScale(1.05)
 	end
 end
 
@@ -545,6 +553,10 @@ function Alternate03Create (keys)
 		caster:SetModel("models/medea/illya_caster/illya_caster_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/medea/illya_caster/illya_caster_by_zefiroft.vmdl")
 		caster:SetModelScale(0.95)
+	elseif caster:GetName() == "npc_dota_hero_templar_assassin" then 	
+		caster:SetModel("models/medusa/ana/ana_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/medusa/ana/ana_by_zefiroft.vmdl")
+		caster:SetModelScale(0.85)
 	end
 end
 
@@ -586,6 +598,10 @@ function Alternate03Destroy (keys)
 		caster:SetModel("models/caster/caster.vmdl")
 		caster:SetOriginalModel("models/caster/caster.vmdl")
 		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_templar_assassin" then 	
+		caster:SetModel("models/medusa/default/medusa_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/medusa/default/medusa_by_zefiroft.vmdl")
+		caster:SetModelScale(1.1)
 	end
 end
  
@@ -617,6 +633,10 @@ function Alternate04Create (keys)
 		caster:SetModel("models/tamamo/magical/tamamo_magical_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/magical/tamamo_magical_by_zefiroft.vmdl")
 		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_templar_assassin" then 	
+		caster:SetModel("models/medusa/mysterious_ana/myst_ana_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/medusa/mysterious_ana/myst_ana_by_zefiroft.vmdl")
+		caster:SetModelScale(2.1)
 	end
 end
 
@@ -650,6 +670,10 @@ function Alternate04Destroy (keys)
 		caster:SetModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
 		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_templar_assassin" then 	
+		caster:SetModel("models/medusa/default/medusa_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/medusa/default/medusa_by_zefiroft.vmdl")
+		caster:SetModelScale(1.1)
 	end
 end
 

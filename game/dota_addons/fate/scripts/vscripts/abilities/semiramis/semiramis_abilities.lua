@@ -44,9 +44,6 @@ function OnLaserThink(keys)
 			end	
 		end
 	end
-
-
-
 end
 
 function OnPoisonousBite(keys)
@@ -59,10 +56,12 @@ function OnPoisonousBite(keys)
 	local damage_burst = ability:GetSpecialValueFor("damage_burst")
 	local stay_range = ability:GetSpecialValueFor("stay_range")
 	local radius = ability:GetSpecialValueFor("radius")
+	local stay_dmg = ability:GetSpecialValueFor("stay_dmg") / 100
+	local out_dmg = ability:GetSpecialValueFor("out_dmg") / 100
 
    	caster:EmitSound("Semi.AssassinR")
 
-	Timers:CreateTimer(cast_delay / 2, function()
+	Timers:CreateTimer(cast_delay - ability:GetCastPoint(), function()
 		if caster:IsAlive() then
 		   	target:EmitSound("Semi.AssassinRSFX")
 		   	target:EmitSound("Semi.AssassinRSFX2")
@@ -73,19 +72,19 @@ function OnPoisonousBite(keys)
 			local particlewound = ParticleManager:CreateParticle("particles/custom/semiramis/open_wounds.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(particlewound, 0, target:GetAbsOrigin())
 
-		   	if caster.IsAbsoluteAcquired then
-		   		if IsFemaleServant(target) then
-		   		else
-		   			damage = damage + 300
-		   		end
-		   	end
-
-		   	if caster.IsCharmAcquired then
-				local damage_per_int = ability:GetSpecialValueFor("damage_per_int")
-				DoDamage(caster, target, damage + (damage_per_int * caster:GetIntellect()) , DAMAGE_TYPE_PURE, 0, ability, false)
-			else
-				DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			local dmg_flag = 0
+			if caster.IsCharmAcquired and target:IsRealHero() and not IsFemaleServant(target) and target:GetName() ~= "npc_dota_hero_queenofpain" then 
+				dmg_flag = DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 			end
+
+		   	if caster.IsOldestPoisonerAcquired then
+				local damage_per_agi = ability:GetSpecialValueFor("damage_per_agi")
+				damage = damage + (damage_per_agi * caster:GetAgility())
+				local burst_per_int = ability:GetSpecialValueFor("burst_per_int")
+				damage_burst = damage_burst + (burst_per_int * caster:GetIntellect())
+			end
+
+		   	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, dmg_flag, ability, false)
 
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_semiramis_poisonous_bite_debuff", {})
 
@@ -95,7 +94,7 @@ function OnPoisonousBite(keys)
 
 				if caster:IsAlive() then
 					local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-					if(distance < stay_range) then
+					if(distance <= stay_range) then
 
 					   	target:EmitSound("Semi.AssassinRSFXPop")
 					   	target:EmitSound("Semi.AssassinRSFXPop2")
@@ -103,12 +102,7 @@ function OnPoisonousBite(keys)
 						local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 						for k,v in pairs(enemies) do
 							if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
-							   	if caster.IsCharmAcquired then
-									local burst_per_int = ability:GetSpecialValueFor("burst_per_int")
-									DoDamage(caster, v, damage_burst + (burst_per_int * caster:GetIntellect()) , DAMAGE_TYPE_MAGICAL, 0, ability, false)
-								else
-									DoDamage(caster, v, damage_burst, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-								end
+								DoDamage(caster, v, damage_burst * stay_dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 								ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_bite_debuff", {})
 							end	
 						end
@@ -116,7 +110,8 @@ function OnPoisonousBite(keys)
 						local particle = ParticleManager:CreateParticle("particles/custom/semiramis/basmu_poison_d.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 						ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 						ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
-
+					else
+						DoDamage(caster, target, damage_burst * out_dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					end
 				end
 			end)
@@ -127,27 +122,72 @@ end
 function OnLevelupQCas(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-
-	caster:FindAbilityByName("semiramis_presence_concealment"):SetLevel(ability:GetLevel())
+	if string.match(ability:GetAbilityName(), "binding_chains") then
+		if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_presence_concealment"):GetLevel() then
+			caster:FindAbilityByName("semiramis_presence_concealment"):SetLevel(ability:GetLevel())
+		end
+	else
+		if ability:GetLevel() ~= caster:FindAbilityByName(caster.QSkill):GetLevel() then
+			caster:FindAbilityByName(caster.QSkill):SetLevel(ability:GetLevel())
+		end
+	end
 end
+
 function OnLevelupWCas(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-
-	if caster.IsCharmAcquired then
-		caster:FindAbilityByName("semiramis_snek_spit_poison_upgrade"):SetLevel(ability:GetLevel())
+	if string.match(ability:GetAbilityName(), "semiramis_barrier") then
+		if caster.IsOldestPoisonerAcquired then
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_snek_spit_poison_upgrade"):GetLevel() then
+				caster:FindAbilityByName("semiramis_snek_spit_poison_upgrade"):SetLevel(ability:GetLevel())
+			end
+		else
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_snek_spit_poison"):GetLevel() then
+				caster:FindAbilityByName("semiramis_snek_spit_poison"):SetLevel(ability:GetLevel())
+			end
+		end
 	else
-		caster:FindAbilityByName("semiramis_snek_spit_poison"):SetLevel(ability:GetLevel())
+		if ability:GetLevel() ~= caster:FindAbilityByName(caster.WSkill):GetLevel() then
+			caster:FindAbilityByName(caster.WSkill):SetLevel(ability:GetLevel())
+		end
 	end
 end
+
+function OnLevelupECas(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+
+	if ability:GetLevel() ~= caster:FindAbilityByName(caster.ESkill):GetLevel() then
+		caster:FindAbilityByName(caster.ESkill):SetLevel(ability:GetLevel())
+	end
+end
+
 function OnLevelupRCas(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 
-	if caster.IsCharmAcquired then
-		caster:FindAbilityByName("semiramis_poisonous_bite_upgrade"):SetLevel(ability:GetLevel())
+	if string.match(ability:GetAbilityName(), "semiramis_hanging_gardens") then
+		if caster.IsOldestPoisonerAcquired and caster.IsCharmAcquired then
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_poisonous_bite_upgrade"):GetLevel() then
+				caster:FindAbilityByName("semiramis_poisonous_bite_upgrade"):SetLevel(ability:GetLevel())
+			end
+		elseif not caster.IsOldestPoisonerAcquired and caster.IsCharmAcquired then
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_poisonous_bite_charm"):GetLevel() then
+				caster:FindAbilityByName("semiramis_poisonous_bite_charm"):SetLevel(ability:GetLevel())
+			end
+		elseif caster.IsOldestPoisonerAcquired and not caster.IsCharmAcquired then
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_poisonous_bite_old"):GetLevel() then
+				caster:FindAbilityByName("semiramis_poisonous_bite_old"):SetLevel(ability:GetLevel())
+			end
+		else
+			if ability:GetLevel() ~= caster:FindAbilityByName("semiramis_poisonous_bite"):GetLevel() then
+				caster:FindAbilityByName("semiramis_poisonous_bite"):SetLevel(ability:GetLevel())
+			end
+		end
 	else
-		caster:FindAbilityByName("semiramis_poisonous_bite"):SetLevel(ability:GetLevel())
+		if ability:GetLevel() ~= caster:FindAbilityByName(caster.RSkill):GetLevel() then
+			caster:FindAbilityByName(caster.RSkill):SetLevel(ability:GetLevel())
+		end
 	end
 end
 
@@ -160,44 +200,51 @@ function SemiramisChainsCast(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	local bind_duration = ability:GetSpecialValueFor("duration")
-	local damage = ability:GetSpecialValueFor("damage")
+	local max_dur = ability:GetSpecialValueFor("max_dur")
+	local min_dur = ability:GetSpecialValueFor("min_dur")
+	local mr_red = ability:GetSpecialValueFor("mr_red")
+	local bind_duration = 0
 
 	local magic_res = target:GetMagicalArmorValue()
 
-	bind_duration = bind_duration * (1 - magic_res)
-
-	if caster.IsCharmAcquired then
-		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	end
+	bind_duration = math.max(min_dur, max_dur * (1 - magic_res))
 
    	caster:EmitSound("Semi.CasterQ")
    	target:EmitSound("Semi.CasterQSFX")
    	target:EmitSound("Semi.CasterQSFX2")
-	target:AddNewModifier(caster, ability, "modifier_binding_chains", { Duration = bind_duration })
+	target:AddNewModifier(caster, ability, "modifier_binding_chains", { Duration = bind_duration, MagicResist =  mr_red })
+	if caster.IsCharmAcquired and target:IsRealHero() and not IsFemaleServant(target) and target:GetName() ~= "npc_dota_hero_queenofpain" then
+		target:AddNewModifier(caster, ability, "modifier_stunned", { Duration = bind_duration})
+	end
 end
 
 function OnBarrierStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local ply = caster:GetPlayerOwner()
+	local shield_amount = ability:GetSpecialValueFor("shield_amount")
+	local max_shield = ability:GetSpecialValueFor("max_shield")
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_shield", {})
+
+	caster.SemiShieldAmount = math.min(max_shield, (caster.SemiShieldAmount or 0) + shield_amount)
+
+	UpdateBarriorUI(caster, "modifier_semiramis_shield", caster.SemiShieldAmount)
+
 	
-	if caster.ShieldAmount == nil then 
+	--[[if caster.ShieldAmount == nil then 
 		caster.ShieldAmount = keys.ShieldAmount
 	else
 		caster.ShieldAmount = caster.ShieldAmount + keys.ShieldAmount
 	end
 	if caster.ShieldAmount > keys.MaxShield then
 		caster.ShieldAmount = keys.MaxShield
-	end
+	end]]
 	
    	caster:EmitSound("Semi.CasterW")
    	caster:EmitSound("Semi.CasterWSFX")
 
 	-- Create particle
-	if caster.DurabilityParticleIndex == nil then
+	--[[if caster.DurabilityParticleIndex == nil then
 		local prev_amount = 0.0
 		Timers:CreateTimer( function()
 				-- Check if shield still valid
@@ -241,7 +288,151 @@ function OnBarrierStart(keys)
 				end
 			end
 		)
+	end]]
+end
+
+function OnBarrierDamaged(keys)
+	local caster = keys.caster 
+	local currentHealth = caster:GetHealth() 
+
+	caster.SemiShieldAmount = caster.SemiShieldAmount - keys.DamageTaken
+	UpdateBarriorUI(caster, "modifier_semiramis_shield", caster.SemiShieldAmount)
+	if caster.SemiShieldAmount <= 0 then
+		if currentHealth + caster.SemiShieldAmount <= 0 then
+		else
+			caster:RemoveModifierByName("modifier_semiramis_shield")
+			caster:SetHealth(currentHealth + keys.DamageTaken + caster.SemiShieldAmount)
+			caster.SemiShieldAmount = 0
+		end
+	else
+		caster:SetHealth(currentHealth + keys.DamageTaken)
 	end
+end
+
+function OnBarrierThink(keys)
+	local caster = keys.caster 
+	local ability = keys.ability
+	if ability == nil then 
+		ability = caster:FindAbilityByName(caster.WSkill)
+	end
+	local regen = ability:GetSpecialValueFor("regen")
+	local max_shield = ability:GetSpecialValueFor("max_shield")
+
+	if not caster.IsAbsoluteAcquired and caster:HasModifier("modifier_semiramis_class_assassin") then 
+		return 
+	end
+
+	if caster.SemiShieldAmount == nil then caster.SemiShieldAmount = 0 end
+	
+	if caster.SemiShieldAmount == max_shield then
+		return
+	end
+
+	if caster.SemiShieldAmount <= 0 or not caster:HasModifier("modifier_semiramis_shield") then return end
+
+	caster.SemiShieldAmount = math.min(max_shield, caster.SemiShieldAmount + regen)
+	UpdateBarriorUI(caster, "modifier_semiramis_shield", caster.SemiShieldAmount)
+	--[[if caster.ShieldAmount < keys.MaxShield then
+		caster.ShieldAmount = caster.ShieldAmount + regen
+		if caster.ShieldAmount > keys.MaxShield then
+		caster.ShieldAmount = keys.MaxShield
+		end
+	end]]
+end
+
+--[[function UpdateBarriorUI(caster)
+	if caster.DurabilityParticleIndex ~= nil then
+		-- Destroy previous
+		ParticleManager:DestroyParticle( caster.DurabilityParticleIndex, true )
+		ParticleManager:ReleaseParticleIndex( caster.DurabilityParticleIndex )
+	end
+	if caster.ShieldAmount > 0 and caster:HasModifier( "modifier_semiramis_shield" ) then
+		local digit = 0
+		if caster.ShieldAmount > 999 then
+			digit = 4
+		elseif caster.ShieldAmount > 99 then
+			digit = 3
+		elseif caster.ShieldAmount > 9 then
+			digit = 2
+		else
+			digit = 1
+		end
+		
+		-- Create new one
+		caster.DurabilityParticleIndex = ParticleManager:CreateParticle( "particles/custom/caster/caster_argos_durability.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControlEnt( caster.DurabilityParticleIndex, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true )
+		ParticleManager:SetParticleControl( caster.DurabilityParticleIndex, 1, Vector( 0, math.floor( caster.ShieldAmount ), 0 ) )
+		ParticleManager:SetParticleControl( caster.DurabilityParticleIndex, 2, Vector( 1, digit, 0 ) )
+		ParticleManager:SetParticleControl( caster.DurabilityParticleIndex, 3, Vector( 100, 100, 255 ) )
+	end
+end]]
+
+function OnSnakePoisonStart(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target_loc = ability:GetCursorPosition()
+	local range = ability:GetSpecialValueFor("range")
+	local aoe = ability:GetSpecialValueFor("aoe")
+	local speed = 1500
+
+   	caster:EmitSound("Semi.AssassinW")
+   	caster:EmitSound("Semi.AssassinWSFX")
+   	caster:EmitSound("Semi.AssassinWSFX2")
+
+	local projectileTable = {
+		EffectName = "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf",
+		Ability = ability,
+		iMoveSpeed = speed,
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = range,
+		Source = caster,
+		fStartRadius = aoe,
+        fEndRadius = aoe,
+		bHasFrontialCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_ALL,
+		fExpireTime = GameRules:GetGameTime() + (range/speed) + 0.5,
+		bDeleteOnHit = false,
+		vVelocity = caster:GetForwardVector() * speed,
+	}
+
+    local projectile = ProjectileManager:CreateLinearProjectile(projectileTable)
+end
+
+function OnSnakePoisonHit(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target 
+
+	if target == nil then return end
+
+	local damage = ability:GetSpecialValueFor("damage")
+	if caster.IsOldestPoisonerAcquired then 
+		local damage_per_agi = ability:GetSpecialValueFor("damage_per_agi")
+		damage = damage + (damage_per_agi * caster:GetAgility())
+	end
+
+	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false) 
+	if not target:IsMagicImmune() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_semi_snek_poison", {})
+	end
+end
+
+function OnSnakePoisonThink(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target 
+	local dps = ability:GetSpecialValueFor("dps")
+
+	DoDamage(caster, target, dps * 0.5, DAMAGE_TYPE_MAGICAL, 0, ability, false) 
+	local fx = ParticleManager:CreateParticle( "particles/econ/items/venomancer/veno_ti8_immortal_head/veno_ti8_immortal_gale_explosion_venom.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+	ParticleManager:SetParticleControl( fx, 3, target:GetAbsOrigin() + Vector(0,0, 120) )
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(fx, true)
+		ParticleManager:ReleaseParticleIndex(fx)
+	end)
 end
 
 function OnRecallCreate(keys)
@@ -290,7 +481,7 @@ function OnRecallDestroy(keys)
 	local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 	if distance <= max_range then
 		target:EmitSound("Semi.GardenMassTeleportPull")
-		if caster:IsAlive() then
+		if caster:IsAlive() and target:IsAlive() then
 			target:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(200))
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 		end
@@ -317,38 +508,7 @@ function OnMassRecallCast(keys)
 	end
 end
 
-function OnBarrierDamaged(keys)
-	local caster = keys.caster 
-	local currentHealth = caster:GetHealth() 
 
-	caster.ShieldAmount = caster.ShieldAmount - keys.DamageTaken
-	if caster.ShieldAmount <= 0 then
-		if currentHealth + caster.ShieldAmount <= 0 then
-		else
-			caster:RemoveModifierByName("modifier_semiramis_shield")
-			caster:SetHealth(currentHealth + keys.DamageTaken + caster.ShieldAmount)
-			caster.ShieldAmount = 0
-		end
-	else
-		caster:SetHealth(currentHealth + keys.DamageTaken)
-	end
-end
-
-function OnBarrierThink(keys)
-	local caster = keys.caster 
-	local ability = keys.ability
-
-	if caster.ShieldAmount == keys.MaxShield then
-		return
-	end
-
-	if caster.ShieldAmount < keys.MaxShield then
-		caster.ShieldAmount = caster.ShieldAmount + keys.Regen
-		if caster.ShieldAmount > keys.MaxShield then
-		caster.ShieldAmount = keys.MaxShield
-		end
-	end
-end
 
 function OnClassSwap(keys)
 	local caster = keys.caster
@@ -357,7 +517,7 @@ function OnClassSwap(keys)
 	if caster:HasModifier("modifier_dual_class_cooldown") then
 		return 1
 	else
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dual_class_cooldown", {})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dual_class_cooldown", {Duration = ability:GetCooldown(1)})
 
 		if caster:HasModifier("modifier_combo_window") then 
 			caster:RemoveModifierByName("modifier_combo_window")
@@ -367,32 +527,31 @@ function OnClassSwap(keys)
 			caster:RemoveModifierByName("modifier_semiramis_class_assassin")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_class_caster", {})
 
-			if caster.IsCharmAcquired then
-				caster:SwapAbilities(caster:GetAbilityByIndex(0):GetAbilityName(), "semiramis_binding_chains_upgrade", false, true)
-			else
-				caster:SwapAbilities(caster:GetAbilityByIndex(0):GetAbilityName(), "semiramis_binding_chains", false, true)
-			end
-
-			caster:SwapAbilities(caster:GetAbilityByIndex(1):GetAbilityName(), "semiramis_barrier", false, true)
-			caster:SwapAbilities(caster:GetAbilityByIndex(2):GetAbilityName(), "semiramis_beam_bombard", false, true)
-
-			if caster.IsTerritoryAcquired then
-				caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_hanging_gardens_upgrade", false, true)
-			else
-				caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_hanging_gardens", false, true)
-			end
+			caster:SwapAbilities(caster:GetAbilityByIndex(0):GetAbilityName(), caster.QSkill, false, true)
+			caster:SwapAbilities(caster:GetAbilityByIndex(1):GetAbilityName(), caster.WSkill, false, true)
+			caster:SwapAbilities(caster:GetAbilityByIndex(2):GetAbilityName(), caster.ESkill, false, true)
+			caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), caster.RSkill, false, true)
 		else
 			caster:RemoveModifierByName("modifier_semiramis_class_caster")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_class_assassin", {})
 			caster:SwapAbilities(caster:GetAbilityByIndex(0):GetAbilityName(), "semiramis_presence_concealment", false, true)
-			caster:SwapAbilities(caster:GetAbilityByIndex(2):GetAbilityName(), "semiramis_poisonous_cloud", false, true)
 
-			if caster.IsCharmAcquired then
-				caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite_upgrade", false, true)
+			if caster.IsOldestPoisonerAcquired then
 				caster:SwapAbilities(caster:GetAbilityByIndex(1):GetAbilityName(), "semiramis_snek_spit_poison_upgrade", false, true)
+				caster:SwapAbilities(caster:GetAbilityByIndex(2):GetAbilityName(), "semiramis_poisonous_cloud_upgrade", false, true)
+				if caster.IsCharmAcquired then
+					caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite_upgrade", false, true)
+				else
+					caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite_old", false, true)
+				end
 			else
-				caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite", false, true)
 				caster:SwapAbilities(caster:GetAbilityByIndex(1):GetAbilityName(), "semiramis_snek_spit_poison", false, true)
+				caster:SwapAbilities(caster:GetAbilityByIndex(2):GetAbilityName(), "semiramis_poisonous_cloud", false, true)
+				if caster.IsCharmAcquired then
+					caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite_charm", false, true)
+				else
+					caster:SwapAbilities(caster:GetAbilityByIndex(5):GetAbilityName(), "semiramis_poisonous_bite", false, true)
+				end
 			end
 		end
 	end
@@ -459,7 +618,7 @@ function OnHangingGardensCast(keys)
 
 			local tEnemies = FindUnitsInRadius(caster:GetTeam(), targetpoint, nil, quake_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(tEnemies) do
-				if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
+				if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() and not IsImmuneToCC(v) then
 					ability:ApplyDataDrivenModifier(caster,v, "modifier_semiramis_babylon_quake",{})
 				end	
 			end
@@ -489,7 +648,6 @@ function OnHangingGardensCast(keys)
 					garden:SetBaseDamageMin(garden_damage)
 					garden:SetBaseDamageMax(garden_damage)
 					garden:SetBaseMoveSpeed(garden_movespeed)
-					garden:AddItem(CreateItem("item_hanging_garden_dove" , nil, nil))
 				end)
 
 				if garden:HasModifier("modifier_semiramis_babylon_quake") then
@@ -536,6 +694,21 @@ function OnHangingGardensCast(keys)
 			SemiCheckCombo(caster,ability)
 		end
 	end)
+end
+
+function OnAbsoluteGardenDetect(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+
+	if target:GetUnitName() == "semiramis_hanging_gardens" then 
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_absolute_queen", {})
+	end
+end
+
+function OnAbsoluteGardenDestroy(keys)
+	local caster = keys.caster
+	caster:RemoveModifierByName("modifier_semiramis_absolute_queen")
 end
 
 function SemiCheckCombo(caster, ability)
@@ -601,7 +774,7 @@ function OnTiatumUmuCast(keys)
 
 	local ult = caster:FindAbilityByName(caster.RSkill)
 	ult:StartCooldown(ult:GetCooldown(ult:GetLevel()))
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tiatum_umu_cooldown", {})	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tiatum_umu_cooldown", {Duration = ability:GetCooldown(1)})	
 	caster:RemoveModifierByName("modifier_combo_window")
 
    	EmitGlobalSound("Semi.Combo")
@@ -621,8 +794,16 @@ function OnTiatumUmuCast(keys)
 	caster:SetAbsOrigin(garden:GetAbsOrigin())
 	FindClearSpaceForUnit(caster, garden:GetAbsOrigin(), true)
 
+	
+	caster.IsMounted = true
+	local mount = garden:FindAbilityByName("hanging_gardens_mount")
+	mount:ApplyDataDrivenModifier(garden, caster, "modifier_semiramis_mounted", {})
+	mount:ApplyDataDrivenModifier(garden, garden, "modifier_garden_mounted", {})  
+	garden:SwapAbilities("fate_empty3", "semiramis_hanging_garden_sikera_usum", false, true) 
+	SendMountStatus(caster)
+
 	giveUnitDataDrivenModifier(caster, garden, "jump_pause", cast_delay + duration + 0.25)
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", cast_delay + duration + 0.25)
+	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", cast_delay + duration + 0.25)
 
 	local slow = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
 	for k,v in pairs(slow) do
@@ -799,7 +980,9 @@ function OnPoisonousCloudCast(keys)
    	caster:EmitSound("Semi.AssassinE")
 
 	Timers:CreateTimer(cast_delay, function()
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_poisonous_cloud_buff", {})
+		if caster:IsAlive() then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_poisonous_cloud_buff", {})
+		end
 	end)
 end
 
@@ -819,8 +1002,16 @@ function OnPoisonCloudThink(keys)
 
 	for k,v in pairs(enemies) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			DoDamage(caster, v, damage / 2, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-    		ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_cloud_debuff", {})
+			DoDamage(caster, v, damage * 0.25, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			if IsValidEntity(v) and not v:IsNull() and v:IsAlive() and not v:IsMagicImmune() then
+				if caster.IsOldestPoisonerAcquired then 
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_cloud_amp", {})
+				end
+    			ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_cloud_debuff", {})
+    			if not IsImmuneToSlow(v) and not IsImmuneToCC(v) then 
+    				ability:ApplyDataDrivenModifier(caster, v, "modifier_semiramis_poisonous_cloud_slow", {})
+    			end
+    		end
 	    end
 	end
 end
@@ -868,6 +1059,7 @@ function OnDualClassAcquired(keys)
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsDualClassAcquired) then
 
 		UpgradeAttribute(hero, "semiramis_dual_class", "semiramis_dual_class_upgrade" , true)
+		hero.DSkill = "semiramis_dual_class_upgrade"
 
 		hero.IsDualClassAcquired= true
 		NonResetAbility(hero)
@@ -912,9 +1104,34 @@ function OnAbsoluteAcquired(keys)
 
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsAbsoluteAcquired) then
 
-		UpgradeAttribute(hero, "fate_empty1", "semiramis_absolute_queen" , true)
-
 		hero.IsAbsoluteAcquired = true
+
+		--hero:FindAbilityByName("semiramis_absolute_queen"):SetLevel(1)
+		UpgradeAttribute(hero, "fate_empty1", "semiramis_absolute_queen" , true)
+		if hero:HasModifier("modifier_semiramis_class_assassin") then
+			if hero.IsCharmAcquired then 
+				UpgradeAttribute(hero, "semiramis_binding_chains_charm", "semiramis_binding_chains_upgrade" , false)
+				hero.QSkill = "semiramis_binding_chains_upgrade"
+			else
+				UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_absolute" , false)
+				hero.QSkill = "semiramis_binding_chains_absolute"
+			end
+			UpgradeAttribute(hero, "semiramis_barrier", "semiramis_barrier_upgrade" , false)
+			UpgradeAttribute(hero, "semiramis_beam_bombard", "semiramis_beam_bombard_upgrade" , false)
+		else
+			if hero.IsCharmAcquired then 
+				UpgradeAttribute(hero, "semiramis_binding_chains_charm", "semiramis_binding_chains_upgrade" , true)
+				hero.QSkill = "semiramis_binding_chains_upgrade"
+			else
+				UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_absolute" , true)
+				hero.QSkill = "semiramis_binding_chains_absolute"
+			end
+			UpgradeAttribute(hero, "semiramis_barrier", "semiramis_barrier_upgrade" , true)
+			UpgradeAttribute(hero, "semiramis_beam_bombard", "semiramis_beam_bombard_upgrade" , true)			
+		end
+
+		hero.WSkill = "semiramis_barrier_upgrade"
+		hero.ESkill = "semiramis_beam_bombard_upgrade"
 		NonResetAbility(hero)
 
 		-- Set master 1's mana 
@@ -930,17 +1147,71 @@ function OnCharmerAcquired(keys)
 
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsCharmAcquired) then
 
+		hero.IsCharmAcquired = true
+
 		if hero:HasModifier("modifier_semiramis_class_assassin") then
-			UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_upgrade" , false)
-			UpgradeAttribute(hero, "semiramis_snek_spit_poison", "semiramis_snek_spit_poison_upgrade" , true)
-			UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_upgrade" , true)
+			if hero.IsAbsoluteAcquired then 
+				UpgradeAttribute(hero, "semiramis_binding_chains_absolute", "semiramis_binding_chains_upgrade" , false)
+				hero.QSkill = "semiramis_binding_chains_upgrade"
+			else
+				UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_charm" , false)
+				hero.QSkill = "semiramis_binding_chains_charm"
+			end
+			if hero.IsOldestPoisonerAcquired then 
+				UpgradeAttribute(hero, "semiramis_poisonous_bite_old", "semiramis_poisonous_bite_upgrade" , true)
+			else
+				UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_charm" , true)
+			end
 		else
-			UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_upgrade" , true)
-			UpgradeAttribute(hero, "semiramis_snek_spit_poison", "semiramis_snek_spit_poison_upgrade" , false)
-			UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_upgrade" , false)
+			if hero.IsAbsoluteAcquired then 
+				UpgradeAttribute(hero, "semiramis_binding_chains_absolute", "semiramis_binding_chains_upgrade" , true)
+				hero.QSkill = "semiramis_binding_chains_upgrade"
+			else
+				UpgradeAttribute(hero, "semiramis_binding_chains", "semiramis_binding_chains_charm" , true)
+				hero.QSkill = "semiramis_binding_chains_charm"
+			end
+			if hero.IsOldestPoisonerAcquired then 
+				UpgradeAttribute(hero, "semiramis_poisonous_bite_old", "semiramis_poisonous_bite_upgrade" , false)
+			else
+				UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_charm" , false)
+			end
 		end
 
-		hero.IsCharmAcquired = true
+		NonResetAbility(hero)
+
+		-- Set master 1's mana 
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	end
+end
+
+function OnOldestPoisonerAcquired(keys)
+	local caster = keys.caster
+	local ply = caster:GetPlayerOwner()
+	local hero = caster.HeroUnit
+
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsOldestPoisonerAcquired) then
+
+		hero.IsOldestPoisonerAcquired= true
+
+		if hero:HasModifier("modifier_semiramis_class_assassin") then
+			UpgradeAttribute(hero, "semiramis_snek_spit_poison", "semiramis_snek_spit_poison_upgrade" , true)
+			UpgradeAttribute(hero, "semiramis_poisonous_cloud", "semiramis_poisonous_cloud_upgrade" , true)
+			if hero.IsCharmAcquired then 
+				UpgradeAttribute(hero, "semiramis_poisonous_bite_charm", "semiramis_poisonous_bite_upgrade" , true)
+			else
+				UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_old" , true)
+			end
+		else
+			UpgradeAttribute(hero, "semiramis_snek_spit_poison", "semiramis_snek_spit_poison_upgrade" , false)
+			UpgradeAttribute(hero, "semiramis_poisonous_cloud", "semiramis_poisonous_cloud_upgrade" , false)
+			if hero.IsCharmAcquired then 
+				UpgradeAttribute(hero, "semiramis_poisonous_bite_charm", "semiramis_poisonous_bite_upgrade" , false)
+			else
+				UpgradeAttribute(hero, "semiramis_poisonous_bite", "semiramis_poisonous_bite_old" , false)
+			end
+		end
+	
 		NonResetAbility(hero)
 
 		-- Set master 1's mana 

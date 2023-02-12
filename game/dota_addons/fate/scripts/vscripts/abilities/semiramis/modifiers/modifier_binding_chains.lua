@@ -3,7 +3,8 @@ modifier_binding_chains = class({})
 if IsServer() then
 	function modifier_binding_chains:OnCreated(args)
 		local target = self:GetParent()
-
+		self.mr_red = args.MagicResist
+		CustomNetTables:SetTableValue("sync","semi_bind", { magic_resist = self.mr_red})
 		self:InitializeParticles()
 	end
 
@@ -29,6 +30,19 @@ if IsServer() then
 	function modifier_binding_chains:RemoveParticles()
 		ParticleManager:DestroyParticle( self.chain_1, true )
 		ParticleManager:ReleaseParticleIndex( self.chain_1 )
+	end
+end
+
+function modifier_binding_chains:DeclareFunctions()	 
+	return { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
+end
+
+function modifier_binding_chains:GetModifierMagicalResistanceBonus()
+	if IsServer() then
+		return self.mr_red
+	elseif IsClient() then
+		local magic_resist = CustomNetTables:GetTableValue("sync","semi_bind").magic_resist
+        return magic_resist 
 	end
 end
 

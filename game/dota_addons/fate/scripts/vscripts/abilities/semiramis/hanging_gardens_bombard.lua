@@ -1,7 +1,7 @@
 hanging_gardens_bombard = class({})
 
 function hanging_gardens_bombard:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
+	return self:GetSpecialValueFor("beam_aoe")
 end
 
 function hanging_gardens_bombard:OnSpellStart()
