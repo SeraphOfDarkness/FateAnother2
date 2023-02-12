@@ -195,3 +195,36 @@
 		}
 	}
 }
+
+"musashi_battle_continuation_sfx"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"					"sos_reference_stack"
+				"reference_stack"			 "dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/musashi/sfx/musashi_battle_continuation_sfx.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"				"7.500000"
+					}
+					"pitch"
+					{
+						"value"				"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
