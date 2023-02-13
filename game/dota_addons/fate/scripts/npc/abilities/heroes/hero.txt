@@ -43,4 +43,5 @@ HeroesID
 	"40"		"npc_dota_hero_sniper"
 	"41"		"npc_dota_hero_phantom_assassin"
 	"42"		"npc_dota_hero_gyrocopter"
+	"43"		"npc_dota_hero_dragon_knight"
 }
