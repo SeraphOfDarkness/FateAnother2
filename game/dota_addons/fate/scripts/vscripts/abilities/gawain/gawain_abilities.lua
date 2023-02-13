@@ -917,15 +917,6 @@ function OnComboStart(keys)
 	end
 
 	StartAnimation(caster, {duration = 2, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
-
-	--[[
-	if caster:HasModifier('modifier_alternate_02') then 
-		EmitGlobalSound("Gawain-Summer-Combo1")
-	else
-		EmitGlobalSound("gawain_galatine_combo_cast")
-	end
-	]]--
-
 	EmitGlobalSound("gawain_galatine_combo_cast")
 
 	Timers:CreateTimer(2, function()
@@ -960,7 +951,6 @@ function OnComboStart(keys)
 			else
 				EmitGlobalSound("gawain_galatine_combo_activate")
 			end
-
 			StartAnimation(caster, {duration = 0.72, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=1.39})
 			local GalatineBeam =
 			{

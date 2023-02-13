@@ -254,10 +254,6 @@ function Precache( context , pc)
         PrecacheResource("soundfile", "soundevents/bgm.vsndevts", context)]]
         --====================== Sound files ======================================--
 
-
-               --======= SKIN UPDATE, SKILL AUDIOS ========--
-    PrecacheResource("soundfile", "soundevents/hero_skin_update.vsndevts", context)
-
                --======= General ========--
     PrecacheResource("soundfile", "soundevents/announcer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/misc_sound.vsndevts", context)
@@ -293,7 +289,6 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_karna.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_scathach.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_bathory.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/hero_karna_extra_skin_version.vsndevts", context )
                        --============ Caster ==============--      
     PrecacheResource("soundfile", "soundevents/hero_caster.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_zc.vsndevts", context)
@@ -3273,6 +3268,7 @@ function FateGameMode:OnEntityKilled( keys )
             -- Add to death count
             if killedUnit.DeathCount == nil then
                 killedUnit.DeathCount = 1
+                killedUnit.GetShard = 0
             elseif killedUnit:GetName() == "npc_dota_hero_doom_bringer" then
                 if not killedUnit.bIsGHReady or IsTeamWiped(killedUnit) or killedUnit.GodHandStock == 0 then
                     killedUnit.DeathCount = killedUnit.DeathCount + 1
@@ -3296,15 +3292,16 @@ function FateGameMode:OnEntityKilled( keys )
 
             -- check if unit can receive a shard
             if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
-                if killedUnit.DeathCount == 7 then
+                if killedUnit.DeathCount == 7 and not killedUnit.GetGrailDeath then
                     killedUnit.ShardAmount = (killedUnit.ShardAmount or 0) + 1
+                    killedUnit.GetGrailDeath = true
                     local statTable = CreateTemporaryStatTable(killedUnit)
                     CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end
             else
-                if killedUnit.DeathCount % 7 == 0 then
+                if killedUnit.DeathCount % 7 == 0 and killedUnit.DeathCount / 7 > killedUnit.GetShard then
                     killedUnit.ShardAmount = (killedUnit.ShardAmount or 0) + 1
-
+                    killedUnit.GetShard = killedUnit.GetShard + 1
                     local statTable = CreateTemporaryStatTable(killedUnit)
                     CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end
@@ -4452,6 +4449,10 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             playerHero:RemoveModifierByName("modifier_board_drake")
             playerHero:RemoveModifierByName("modifier_board")
             playerHero:RemoveModifierByName("modifier_golden_wild_hunt_check")
+        end
+
+        if playerHero:GetName() == "npc_dota_hero_phantom_assassin" then 
+            playerHero:RemoveModifierByName("modifier_semiramis_mounted")
         end
     end)
 

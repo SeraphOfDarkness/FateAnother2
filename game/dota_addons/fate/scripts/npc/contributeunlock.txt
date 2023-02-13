@@ -215,6 +215,35 @@
 	{
 		"99999999999"		"1"
 	}
+	"npc_dota_hero_templar_assassin_3" // Lancer Ana
+	{
+		"99999999999"		"1"
+		"116623791"			"1" // Mu
+		"110348871"			"1" // memo
+		"49297047"			"1" // classic
+		"39181514"			"1" // NISE
+		"206236138"			"1" //Eli
+		"194317463"			"1" //yo
+		"141743726"			"1" //Mike
+		"136188782"			"1" //Ilshion
+	}
+	"npc_dota_hero_templar_assassin_4" // Ana
+	{
+		"99999999999"		"1"
+		"116623791"			"1" // Mu
+		"110348871"			"1" // memo
+		"49297047"			"1" // classic
+		"39181514"			"1" // NISE
+		"206236138"			"1" //Eli
+		"194317463"			"1" //yo
+		"141743726"			"1" //Mike
+		"136188782"			"1" //Ilshion
+	}
+	"npc_dota_hero_night_stalker_1"	// Count Edmond
+	{
+		"99999999999"		"1"
+		"39181514"			"1" // NISE
+	}
 	"npc_dota_hero_naga_siren_1"	// Archer Card Illya
 	{
 		"99999999999"		"1"

@@ -76,4 +76,7 @@ SkinID
 	"073"		"npc_dota_hero_skywrath_mage_2"		// [Legend] Female Gilgamesh
 	"074"		"npc_dota_hero_disruptor_1"			// [Heroic] Waver Velvet
 	"075"		"npc_dota_hero_crystal_maiden_3"	// [Legend] Caster Card Illya
+	"076"		"npc_dota_hero_templar_assassin_3"	// [Legend] Lancer Ana
+	//"077"		"npc_dota_hero_night_stalker_1"		// [Limited] Count Edmond
+	"078"		"npc_dota_hero_templar_assassin_4"	// [Limited] Ana
 }

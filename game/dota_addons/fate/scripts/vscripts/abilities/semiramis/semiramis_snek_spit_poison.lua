@@ -1,6 +1,6 @@
 semiramis_snek_spit_poison = class({})
 
-LinkLuaModifier("modifier_snek_poison", "abilities/semiramis/modifiers/modifier_snek_poison", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_snek_poison", "abilities/semiramis/modifiers/modifier_snek_poison", LUA_MODIFIER_MOTION_NONE)
 
 function semiramis_snek_spit_poison:OnSpellStart()
 	local caster = self:GetCaster()

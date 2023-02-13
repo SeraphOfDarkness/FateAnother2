@@ -76,4 +76,7 @@ SkinShop
 	"073"		"6000"		// [Legend] Female Gilgamesh
 	"074"		"2000"		// [Heroic] Waver Velvet
 	"075"		"6000"		// [Legend] Caster Card Illya
+	"076"		"6000"		// [Legend] Lancer Ana
+	//"077"		"limit"		// [Limited] Count Edmond
+	"078"		"limit"		// [Limited] Ana
 }

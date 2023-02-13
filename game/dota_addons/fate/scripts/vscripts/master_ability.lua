@@ -240,8 +240,9 @@ SemiramisAttribute = {
 	"semiramis_attribute_territory",
 	"semiramis_attribute_absolute",
 	"semiramis_attribute_charmer",
+	"semiramis_attribute_poisoner",
 	"semiramis_combo",
-	attrCount = 4	
+	attrCount = 5	
 }
 
 KarnaAttribute = {

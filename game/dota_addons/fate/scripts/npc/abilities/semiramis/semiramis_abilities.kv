@@ -29,6 +29,11 @@
 		    {
 		        "var_type"				  	"FIELD_FLOAT"
 		        "bonus_mana_regen"			"10"
+		    }
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "bonus_int"					"10"
 		    }		    
 		    "01"
 		    {
@@ -38,7 +43,7 @@
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_int"					"5"
+		        "bonus_agi"					"10"
 		    }
 		}
 
@@ -88,7 +93,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"garden_health"			"1250 1600 1950 2300 2650"
+				"garden_health"			"1600 1750 1900 2050 2200"
 			}
 			"03"
 			{
@@ -120,10 +125,15 @@
 		        "var_type"				  	"FIELD_INTEGER"
 		        "mana_drain_per_second"		"10"
 		    }		   
-		     "01"
+		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
 		        "radius"					"1600"
+		    }	
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "slow"						"-20"
 		    }		
 		}
 
@@ -151,19 +161,34 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"11"
+		"AbilityManaCost"				"14"
 
 		"AbilitySpecial"
 		{		
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "bonus_mr"					"8"
+		        "bonus_mr"					"10"
 		    }		   
 		    "01"
 		    {
 		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_damage_to_male"		"300"
+		        "radius"					"1500"
+		    }
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "chain_mr"					"-20"
+		    }
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "mana_shield"				"10 15 20 25 30"
+		    }
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "bonus_beam_per_int"		"30"
 		    }
 		}	
 
@@ -191,38 +216,12 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
+		"AbilityManaCost"				"10"
 
 		"AbilitySpecial"
 		{		
-			//ass R
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_int"		"1"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burst_per_int"			"3"
-			}	
-			//cast Q
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 150 200 250 300"
-			}
-			//ass W
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_intt"		"2"
-			}	
+			
+			
 		}
 		"OnSpellStart"
 	    {
@@ -232,5 +231,77 @@
 				"Function"		"OnCharmerAcquired"
 			}
 	    }	
-	}			
+	}	
+	//=======================================
+	// Semiramis Attribute - Placeholder
+	//=======================================
+	"semiramis_attribute_poisoner"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/semiramis/placeholder"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"AbilitySpecial"
+		{	
+			//ass W
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"snek_bonus_agi"		"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"snek_bonus_dps"		"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"snek_bonus_dur"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_poison"			"15"
+			}	
+			//ass R	
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bite_mana"				"200"
+			}
+		    "05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bite_hit_agi"			"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bite_burst"			"200"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bite_burst_int"		"3"
+			}				
+		}	
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+			{
+				"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+				"Function"		"OnOldestPoisonerAcquired"
+			}
+	    }		
+	}
+		
 }

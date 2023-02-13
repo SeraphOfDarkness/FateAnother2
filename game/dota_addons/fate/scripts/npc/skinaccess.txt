@@ -88,11 +88,14 @@
 		"npc_dota_hero_doom_bringer_1"		"1"	// Berserker Card Illya
 		"npc_dota_hero_skywrath_mage_2"	 	"1" // Female Gilgamesh
 		"npc_dota_hero_crystal_maiden_3"	"1" // Caster Card Illya
+		"npc_dota_hero_templar_assassin_3"	"1" // Lancer Ana
 	}
 	"LimitedSkin"
 	{
 		"npc_dota_hero_ember_spirit_4"	 	"1" // Cyber Emiya
 		"npc_dota_hero_lina_4"				"1" // Racing Nero
 		"npc_dota_hero_ember_spirit_5"	 	"1" // Senji Muramasa
+		"npc_dota_hero_templar_assassin_4"	"1" // [Limited] Ana
+		"npc_dota_hero_night_stalker_1"		"1" // [Limited] Count Edmond
 	}
 }

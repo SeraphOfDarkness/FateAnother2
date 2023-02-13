@@ -7,6 +7,8 @@ SkinUnavailable
 		"056"		"npc_dota_hero_ember_spirit_4"		// [Limited] Cyber Emiya
 		"061"		"npc_dota_hero_lina_4"				// [Limited] Racing Nero
 		"066"		"npc_dota_hero_ember_spirit_5"		// [Limited] Senji Muramasa
+		"078"		"npc_dota_hero_templar_assassin_4"	// [Limited] Ana
+		//"077"		"npc_dota_hero_night_stalker_1"		// [Limited] Count Edmond
 	}
 	"WK1"
 	{
