@@ -1,3 +1,10 @@
+Semiramis 
+Attempt to fix hero invul on garden death bug (Attempt #1)
+
+New hero, Saito Hajime (Thanks Zlo, Marteen)
+*VERY EARLY, BETA RELEASE, EXPECT BUGS, PEPE TOOLTIPS*
+
+----------------
 
 Fix semiramis invul after round end, shield UI bug
 Fix sound

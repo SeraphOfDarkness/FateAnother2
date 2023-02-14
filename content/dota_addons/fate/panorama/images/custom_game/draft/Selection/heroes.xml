@@ -101,6 +101,7 @@
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_sven.png" />
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_sven_1.png" />
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_sven_2.png" />
+<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_terrorblade.png" />
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_templar_assassin.png" />
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_templar_assassin_1.png" />
 <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/selection/npc_dota_hero_templar_assassin_2.png" />
