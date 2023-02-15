@@ -432,4 +432,61 @@
 			"particle"					"particles/custom/musashi/musashi_battle_continuation_unique.vpcf"
 		}
 	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Combo Skill : Ishana Daitenshou
+	//==================================================================================================================
+	"musashi_ishana_daitenshou"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | 
+										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"     		"custom/musashi/musashi_ishana_daitenshou"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"500"
+		"AbilityCastRange"				"250"
+		"AbilityCastRangeBuffer"		"250"
+		"AbilityCastPoint"				"0.9"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"180"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | 
+	    								 DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_PURE"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"BuffDuration"				"3.5"
+			"Heal"						"500"
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
+		}
+	}
 }

@@ -1580,4 +1580,111 @@ musashi_modifier_battle_continuation_active = __TS__Decorate(
     musashi_modifier_battle_continuation_active
 )
 ____exports.musashi_modifier_battle_continuation_active = musashi_modifier_battle_continuation_active
+____exports.musashi_ishana_daitenshou = __TS__Class()
+local musashi_ishana_daitenshou = ____exports.musashi_ishana_daitenshou
+musashi_ishana_daitenshou.name = "musashi_ishana_daitenshou"
+__TS__ClassExtends(musashi_ishana_daitenshou, BaseAbility)
+function musashi_ishana_daitenshou.prototype.____constructor(self, ...)
+    BaseAbility.prototype.____constructor(self, ...)
+    self.SoundVoiceline = "antimage_anti_ability_manavoid_06"
+    self.SoundSfx = "musashi_ishana_daitenshou_sfx"
+    self.SoundBgm = "musashi_ishana_daitenshou_bgm"
+end
+function musashi_ishana_daitenshou.prototype.OnSpellStart(self)
+    self.Caster = self:GetCaster()
+    self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_ishana_daitenshou.name, {duration = 5})
+    self:PlaySound()
+end
+function musashi_ishana_daitenshou.prototype.PlaySound(self)
+    EmitGlobalSound(self.SoundVoiceline)
+    EmitGlobalSound(self.SoundSfx)
+    EmitGlobalSound(self.SoundBgm)
+end
+musashi_ishana_daitenshou = __TS__Decorate(
+    {registerAbility(nil)},
+    musashi_ishana_daitenshou
+)
+____exports.musashi_ishana_daitenshou = musashi_ishana_daitenshou
+____exports.musashi_modifier_ishana_daitenshou = __TS__Class()
+local musashi_modifier_ishana_daitenshou = ____exports.musashi_modifier_ishana_daitenshou
+musashi_modifier_ishana_daitenshou.name = "musashi_modifier_ishana_daitenshou"
+__TS__ClassExtends(musashi_modifier_ishana_daitenshou, BaseModifier)
+function musashi_modifier_ishana_daitenshou.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.MarkerParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_marker_basic.vpcf"
+    self.SwordParticle = "particles/custom/musashi/musashi_ishana_daitenshou_sword_basic.vpcf"
+    self.BodyParticle = "particles/custom/musashi/musashi_ishana_daitenshou_body_basic.vpcf"
+    self.MarkerPosition = Vector(0, 0, 0)
+end
+function musashi_modifier_ishana_daitenshou.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Ability = self:GetAbility()
+    local ____opt_221 = self.Ability
+    self.Victim = ____opt_221 and ____opt_221:GetCursorTarget()
+    local ____opt_223 = self.Victim
+    self.MarkerPosition = ____opt_223 and ____opt_223:GetAbsOrigin()
+    self:CreateParticle()
+end
+function musashi_modifier_ishana_daitenshou.prototype.CreateParticle(self)
+    local ____opt_225 = self.Caster
+    if ____opt_225 and ____opt_225:HasModifier("modifier_ascended") then
+        self.MarkerParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
+        self.SwordParticle = "particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
+        self.BodyParticle = "particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
+    end
+    local MarkerParticleId = ParticleManager:CreateParticle(self.MarkerParticleStr, PATTACH_WORLDORIGIN, self.Caster)
+    local SwordParticleId = ParticleManager:CreateParticle(self.SwordParticle, PATTACH_POINT_FOLLOW, self.Caster)
+    local BodyParticleId = ParticleManager:CreateParticle(self.BodyParticle, PATTACH_POINT_FOLLOW, self.Caster)
+    ParticleManager:SetParticleControl(MarkerParticleId, 0, self.MarkerPosition)
+    ParticleManager:SetParticleControlEnt(
+        SwordParticleId,
+        0,
+        self.Caster,
+        PATTACH_POINT_FOLLOW,
+        "attach_attack1",
+        Vector(0, 0, 0),
+        false
+    )
+    ParticleManager:SetParticleControlEnt(
+        BodyParticleId,
+        0,
+        self.Caster,
+        PATTACH_POINT_FOLLOW,
+        "attach_hitloc",
+        Vector(0, 0, 0),
+        false
+    )
+    self:AddParticle(
+        MarkerParticleId,
+        false,
+        false,
+        -1,
+        false,
+        false
+    )
+    self:AddParticle(
+        SwordParticleId,
+        false,
+        false,
+        -1,
+        false,
+        false
+    )
+    self:AddParticle(
+        BodyParticleId,
+        false,
+        false,
+        -1,
+        false,
+        false
+    )
+end
+musashi_modifier_ishana_daitenshou = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_ishana_daitenshou
+)
+____exports.musashi_modifier_ishana_daitenshou = musashi_modifier_ishana_daitenshou
 return ____exports
