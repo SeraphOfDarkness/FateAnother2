@@ -1,1033 +1,735 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
-	m_meshList = 
+	rootNode = 
 	{
-		m_meshList = 
+		_class = "RootNode"
+		children = 
 		[
 			{
-				m_meshName = "gilles_by_zefiroft"
-				m_meshFile = "models/gilles/new/gilles_by_zefiroft.fbx"
-				m_materialSearchPath = ""
-				m_bSkinParentedObjects = true
-				m_bLegacySkinParentedTransforms = false
-				m_bExpensiveTangents = false
-				m_bHighPrecisionTexCoords = false
-				m_bPerVertexCurvature = false
-				m_bBentNormals = false
-				m_bIgnoreCloth = false
-				m_bGetSkinningFromLod0 = false
-				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
-				m_pMorphInfo = null
-			},
-		]
-	}
-	m_clothProxyMeshList = 
-	{
-		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.05
-		m_bCreateStaticBone = false
-		m_nMaxBonesPerVertex = 4
-		m_bRemoveUnusedBonesEnabled = false
-		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.0
-		m_flFallbackEnvelope = 1.0
-		m_nReservedInt = 0
-		m_bSoftSkinAnimation = false
-		m_bReservedBool2 = false
-		m_bReservedBool3 = false
-		m_bReservedBool4 = false
-		m_clothProxyMeshList = [  ]
-	}
-	m_physicsMeshList = 
-	{
-		m_meshList = [  ]
-	}
-	m_pModelInfo = null
-	m_pBoneFlagList = 
-	{
-		m_pObject = null
-	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
+				_class = "MaterialGroupList"
+				children = 
 				[
 					{
-						m_name = "default"
-						m_HitBoxes = 
+						_class = "DefaultMaterialGroup"
+						remaps = 
 						[
 							{
-								m_name = "Bip01"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01"
-								m_vMinBounds = [ -2.0, -2.0, -2.0 ]
-								m_vMaxBounds = [ 2.0, 2.0, 2.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "herogilles1.vmat"
+								to = "materials/gilles/new/gilles1.vmat"
 							},
 							{
-								m_name = "Bip01 Spine1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Spine1"
-								m_vMinBounds = [ -66.743423, -70.020973, 75.821594 ]
-								m_vMaxBounds = [ 45.925552, 70.021004, 110.991577 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "herogilles2.vmat"
+								to = "materials/gilles/new/gilles2.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "Origin_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Chest_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "Hand_Left_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "Hand_Right_Ref"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Bip01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.0, -2.0, -2.0 ]
+								hitbox_maxs = [ 2.0, 2.0, 2.0 ]
 							},
 							{
-								m_name = "Bip01 Spine2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Spine2"
-								m_vMinBounds = [ -166.989227, -197.10495, -35.674469 ]
-								m_vMaxBounds = [ 131.426727, 197.105011, 227.881592 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Spine1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -66.743423, -70.020973, 75.821594 ]
+								hitbox_maxs = [ 45.925552, 70.021004, 110.991577 ]
 							},
 							{
-								m_name = "Bip01 Neck"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Neck"
-								m_vMinBounds = [ -11.842937, -19.275892, 1.06897 ]
-								m_vMaxBounds = [ 22.818058, 19.276102, 25.391968 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Spine2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -166.989227, -197.10495, -35.674469 ]
+								hitbox_maxs = [ 131.426727, 197.105011, 227.881592 ]
 							},
 							{
-								m_name = "Bip01 L UpperArm"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L UpperArm"
-								m_vMinBounds = [ -28.068932, -12.451752, -116.967377 ]
-								m_vMaxBounds = [ 53.789055, 104.243256, 1.121643 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.842937, -19.275892, 1.06897 ]
+								hitbox_maxs = [ 22.818058, 19.276102, 25.391968 ]
 							},
 							{
-								m_name = "Bip01 R UpperArm"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R UpperArm"
-								m_vMinBounds = [ -26.324148, -104.243225, -116.967407 ]
-								m_vMaxBounds = [ 53.788811, 11.004776, 0.291626 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -28.068932, -12.451752, -116.967377 ]
+								hitbox_maxs = [ 53.789055, 104.243256, 1.121643 ]
 							},
 							{
-								m_name = "Bip01 L Forearm"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Forearm"
-								m_vMinBounds = [ -25.21896, -1.325745, -143.448242 ]
-								m_vMaxBounds = [ 33.783043, 91.414268, -7.538208 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.324148, -104.243225, -116.967407 ]
+								hitbox_maxs = [ 53.788811, 11.004776, 0.291626 ]
 							},
 							{
-								m_name = "Bip01 R Forearm"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Forearm"
-								m_vMinBounds = [ -27.10334, -101.300194, -151.401184 ]
-								m_vMaxBounds = [ 35.718658, 0.226776, -8.459229 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -25.21896, -1.325745, -143.448242 ]
+								hitbox_maxs = [ 33.783043, 91.414268, -7.538208 ]
 							},
 							{
-								m_name = "Bip01 L Hand"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Hand"
-								m_vMinBounds = [ -24.821123, -13.333511, -53.645172 ]
-								m_vMaxBounds = [ 24.429857, 21.464508, -1.391144 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.10334, -101.300194, -151.401184 ]
+								hitbox_maxs = [ 35.718658, 0.226776, -8.459229 ]
 							},
 							{
-								m_name = "Bip01 R Hand"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Hand"
-								m_vMinBounds = [ -36.964741, -20.21846, -75.491241 ]
-								m_vMaxBounds = [ 62.495243, 14.287537, -1.852264 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.821123, -13.333511, -53.645172 ]
+								hitbox_maxs = [ 24.429857, 21.464508, -1.391144 ]
 							},
 							{
-								m_name = "Bip01 Xtra03"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra03"
-								m_vMinBounds = [ -52.556343, -124.711113, -161.580078 ]
-								m_vMaxBounds = [ 35.097664, 124.712852, -38.655029 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -36.964741, -20.21846, -75.491241 ]
+								hitbox_maxs = [ 62.495243, 14.287537, -1.852264 ]
 							},
 							{
-								m_name = "Bip01 R Thigh"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Thigh"
-								m_vMinBounds = [ -67.922012, -97.600479, -167.304413 ]
-								m_vMaxBounds = [ 83.742844, 97.723465, 43.837433 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -52.556343, -124.711113, -161.580078 ]
+								hitbox_maxs = [ 35.097664, 124.712852, -38.655029 ]
 							},
 							{
-								m_name = "Bip01 L Finger0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger0"
-								m_vMinBounds = [ -6.587868, -9.159027, -14.368774 ]
-								m_vMaxBounds = [ 9.33113, 8.717957, 1.341217 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Thigh"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -67.922012, -97.600479, -167.304413 ]
+								hitbox_maxs = [ 83.742844, 97.723465, 43.837433 ]
 							},
 							{
-								m_name = "Bip01 L Finger1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger1"
-								m_vMinBounds = [ -5.161047, 2.286285, -22.736725 ]
-								m_vMaxBounds = [ 4.934954, 9.869278, -20.687744 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.587868, -9.159027, -14.368774 ]
+								hitbox_maxs = [ 9.33113, 8.717957, 1.341217 ]
 							},
 							{
-								m_name = "Bip01 L Finger2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger2"
-								m_vMinBounds = [ -14.73242, 2.22998, -27.87088 ]
-								m_vMaxBounds = [ 15.268568, 13.01001, -17.163849 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.161047, 2.286285, -22.736725 ]
+								hitbox_maxs = [ 4.934954, 9.869278, -20.687744 ]
 							},
 							{
-								m_name = "Bip01 R Finger0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger0"
-								m_vMinBounds = [ -2.489463, -7.704956, -14.368835 ]
-								m_vMaxBounds = [ 9.330525, 7.551041, 0.837158 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.73242, 2.22998, -27.87088 ]
+								hitbox_maxs = [ 15.268568, 13.01001, -17.163849 ]
 							},
 							{
-								m_name = "Bip01 R Finger1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger1"
-								m_vMinBounds = [ -5.161707, -9.869247, -22.736786 ]
-								m_vMaxBounds = [ 4.934288, -2.28627, -20.687805 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.489463, -7.704956, -14.368835 ]
+								hitbox_maxs = [ 9.330525, 7.551041, 0.837158 ]
 							},
 							{
-								m_name = "Bip01 R Finger2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger2"
-								m_vMinBounds = [ -14.733057, -13.009842, -27.87085 ]
-								m_vMaxBounds = [ 15.267931, -2.229843, -17.163818 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.161707, -9.869247, -22.736786 ]
+								hitbox_maxs = [ 4.934288, -2.28627, -20.687805 ]
 							},
 							{
-								m_name = "Bip01 Xtra0302"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra0302"
-								m_vMinBounds = [ -55.402054, -219.930023, -167.235779 ]
-								m_vMaxBounds = [ 59.745949, 219.931915, -75.579773 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.733057, -13.009842, -27.87085 ]
+								hitbox_maxs = [ 15.267931, -2.229843, -17.163818 ]
 							},
 							{
-								m_name = "Bip01 R Calf"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Calf"
-								m_vMinBounds = [ -82.532082, -101.694534, -203.741394 ]
-								m_vMaxBounds = [ 72.830902, 101.817001, 80.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra0302"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -55.402054, -219.930023, -167.235779 ]
+								hitbox_maxs = [ 59.745949, 219.931915, -75.579773 ]
 							},
 							{
-								m_name = "Bip01 Head"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Head"
-								m_vMinBounds = [ -54.995396, -42.9809, -18.369629 ]
-								m_vMaxBounds = [ 50.147572, 42.981091, 90.024414 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Calf"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -82.532082, -101.694534, -203.741394 ]
+								hitbox_maxs = [ 72.830902, 101.817001, 80.0 ]
 							},
 							{
-								m_name = "Bip01 L Finger01"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger01"
-								m_vMinBounds = [ -5.074168, -4.63266, -33.940613 ]
-								m_vMaxBounds = [ 7.836839, 6.145355, 1.66037 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -54.995396, -42.9809, -18.369629 ]
+								hitbox_maxs = [ 50.147572, 42.981091, 90.024414 ]
 							},
 							{
-								m_name = "Bip01 L Finger11"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger11"
-								m_vMinBounds = [ -4.806883, 0.555038, -36.395935 ]
-								m_vMaxBounds = [ 4.085113, 12.458038, -12.193939 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.074168, -4.63266, -33.940613 ]
+								hitbox_maxs = [ 7.836839, 6.145355, 1.66037 ]
 							},
 							{
-								m_name = "Bip01 L Finger21"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 L Finger21"
-								m_vMinBounds = [ -14.629736, -1.812317, -43.006409 ]
-								m_vMaxBounds = [ 14.671259, 15.417694, -3.746429 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.806883, 0.555038, -36.395935 ]
+								hitbox_maxs = [ 4.085113, 12.458038, -12.193939 ]
 							},
 							{
-								m_name = "Bip01 R Finger01"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger01"
-								m_vMinBounds = [ -5.074794, -6.145401, -33.940674 ]
-								m_vMaxBounds = [ 7.836212, 4.632599, 1.660339 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_L_Finger21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.629736, -1.812317, -43.006409 ]
+								hitbox_maxs = [ 14.671259, 15.417694, -3.746429 ]
 							},
 							{
-								m_name = "Bip01 R Finger11"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger11"
-								m_vMinBounds = [ -4.807561, -12.458008, -36.395935 ]
-								m_vMaxBounds = [ 4.084437, -0.554993, -12.193939 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.074794, -6.145401, -33.940674 ]
+								hitbox_maxs = [ 7.836212, 4.632599, 1.660339 ]
 							},
 							{
-								m_name = "Bip01 R Finger21"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Finger21"
-								m_vMinBounds = [ -14.6304, -15.417587, -43.006409 ]
-								m_vMaxBounds = [ 14.670595, 1.812424, -3.746429 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.807561, -12.458008, -36.395935 ]
+								hitbox_maxs = [ 4.084437, -0.554993, -12.193939 ]
 							},
 							{
-								m_name = "Bip01 Xtra02"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra02"
-								m_vMinBounds = [ -80.694572, 35.198853, -74.571274 ]
-								m_vMaxBounds = [ 28.611412, 59.946915, -16.739288 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Finger21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.6304, -15.417587, -43.006409 ]
+								hitbox_maxs = [ 14.670595, 1.812424, -3.746429 ]
 							},
 							{
-								m_name = "Bip01 Xtra01"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra01"
-								m_vMinBounds = [ -62.174904, 40.8517, -72.063568 ]
-								m_vMaxBounds = [ 29.748055, 59.443756, -24.162567 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.694572, 35.198853, -74.571274 ]
+								hitbox_maxs = [ 28.611412, 59.946915, -16.739288 ]
 							},
 							{
-								m_name = "Bip01 Xtra04"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra04"
-								m_vMinBounds = [ 0.457909, -59.169369, -155.401154 ]
-								m_vMaxBounds = [ 51.59391, 10.347668, -19.893066 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -62.174904, 40.8517, -72.063568 ]
+								hitbox_maxs = [ 29.748055, 59.443756, -24.162567 ]
 							},
 							{
-								m_name = "Bip01 Xtra05"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra05"
-								m_vMinBounds = [ -15.670614, -83.340477, -78.535156 ]
-								m_vMaxBounds = [ 10.195391, -9.059486, -6.593201 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.457909, -59.169369, -155.401154 ]
+								hitbox_maxs = [ 51.59391, 10.347668, -19.893066 ]
 							},
 							{
-								m_name = "Bip01 Xtra04Opp"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra04Opp"
-								m_vMinBounds = [ 0.458061, -10.347851, -155.401062 ]
-								m_vMaxBounds = [ 51.594063, 59.169147, -19.893066 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.670614, -83.340477, -78.535156 ]
+								hitbox_maxs = [ 10.195391, -9.059486, -6.593201 ]
 							},
 							{
-								m_name = "Bip01 Xtra06"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra06"
-								m_vMinBounds = [ -16.938618, 8.387947, -81.917114 ]
-								m_vMaxBounds = [ 8.92738, 82.668915, -9.975098 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra04Opp"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.458061, -10.347851, -155.401062 ]
+								hitbox_maxs = [ 51.594063, 59.169147, -19.893066 ]
 							},
 							{
-								m_name = "Bip01 Xtra0303"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 Xtra0303"
-								m_vMinBounds = [ -86.526779, -210.564941, -257.144318 ]
-								m_vMaxBounds = [ 39.415222, 210.567017, -58.074249 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.938618, 8.387947, -81.917114 ]
+								hitbox_maxs = [ 8.92738, 82.668915, -9.975098 ]
 							},
 							{
-								m_name = "Bip01 R Foot"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bip01 R Foot"
-								m_vMinBounds = [ -172.178864, -151.792511, -77.078094 ]
-								m_vMaxBounds = [ 98.020058, 151.915436, -54.287075 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_Xtra0303"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -86.526779, -210.564941, -257.144318 ]
+								hitbox_maxs = [ 39.415222, 210.567017, -58.074249 ]
 							},
 							{
-								m_name = "Foot Right Ref"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Foot Right Ref"
-								m_vMinBounds = [ -80.0, -80.0, -80.0 ]
-								m_vMaxBounds = [ 80.0, 80.0, 80.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bip01_R_Foot"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -172.178864, -151.792511, -77.078094 ]
+								hitbox_maxs = [ 98.020058, 151.915436, -54.287075 ]
 							},
 							{
-								m_name = "Foot Left Ref"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Foot Left Ref"
-								m_vMinBounds = [ -80.0, -80.0, -80.0 ]
-								m_vMaxBounds = [ 80.0, 80.0, 80.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Foot_Right_Ref"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.0, -80.0, -80.0 ]
+								hitbox_maxs = [ 80.0, 80.0, 80.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Foot_Left_Ref"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.0, -80.0, -80.0 ]
+								hitbox_maxs = [ 80.0, 80.0, 80.0 ]
 							},
 						]
 					},
 				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
-	m_pAttachmentLists = 
-	[
-		{
-			m_pObject = 
+			},
 			{
-				m_name = ""
-				m_attachments = 
+				_class = "RenderMeshList"
+				children = 
 				[
 					{
-						m_name = "attach_origin"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Origin Ref"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_hitloc"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Chest Ref"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_attack2"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Hand Left Ref"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_attack1"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Hand Right Ref"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
+						_class = "RenderMeshFile"
+						name = "gilles_by_zefiroft"
+						filename = "models/gilles/new/gilles_by_zefiroft.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
-			}
-		},
-	]
-	m_pAnimGroup = 
-	{
-		m_pObject = 
-		{
-			m_Name = ""
-			m_pBoneFlagList = 
-			{
-				m_pObject = null
-			}
-			m_pSeqGroup = 
-			{
-				m_pObject = null
-			}
-			m_pAnimGroups = [  ]
-			m_Vanim = 
-			[
-				{
-					m_Animationname = "gilles_attack"
-					m_Filepath = "models/gilles/new/gilles_attack.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_die"
-					m_Filepath = "models/gilles/new/gilles_die.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 48
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DIE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_idle"
-					m_Filepath = "models/gilles/new/gilles_idle.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 48
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_idle_rare"
-					m_Filepath = "models/gilles/new/gilles_idle_rare.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 12.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE_RARE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_run"
-					m_Filepath = "models/gilles/new/gilles_run.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 51
-					m_flFps = 10.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_RUN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_prelati"
-					m_Filepath = "models/gilles/new/gilles_prelati.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 40
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_3"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "gilles_spell"
-					m_Filepath = "models/gilles/new/gilles_spell.fbx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 270.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-			]
-			m_sScripts = [  ]
-			m_folderNames = [  ]
-			m_sCompileScripts = [  ]
-			m_pActivityWhiteList = 
-			{
-				m_pObject = null
-			}
-		}
-	}
-	m_pMaterialGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pMeshGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pLodGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pPropBreakableList = 
-	{
-		m_pObject = null
-	}
-	m_pPropDataList = 
-	{
-		m_pObject = null
-	}
-	m_pConstraintLists = [  ]
-	m_collision = ""
-	m_softbody = ""
-	m_sMDLFilename = ""
-	m_sOffsetHitboxSets = [  ]
-	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
-	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
-	{
-		m_vMaterialRemapList = 
-		[
-			{
-				m_sSearchMaterial = "herogilles1.vmat"
-				m_sReplaceMaterial = "materials/gilles/new/gilles1.vmat"
 			},
 			{
-				m_sSearchMaterial = "herogilles2.vmat"
-				m_sReplaceMaterial = "materials/gilles/new/gilles2.vmat"
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "gilles_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_attack.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_die"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_die.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 48
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_idle"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 48
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_idle_rare"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_idle_rare.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 12.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_run.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 51
+						framerate = 10.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_prelati"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_prelati.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 40
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gilles_spell"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 270.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/new/gilles_spell.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+==Warnings==
+Changed incompatible hitbox parent bone name 'Bip01 Spine1' to 'Bip01_Spine1'
+Changed incompatible hitbox parent bone name 'Bip01 Spine2' to 'Bip01_Spine2'
+Changed incompatible hitbox parent bone name 'Bip01 Neck' to 'Bip01_Neck'
+Changed incompatible hitbox parent bone name 'Bip01 L UpperArm' to 'Bip01_L_UpperArm'
+Changed incompatible hitbox parent bone name 'Bip01 R UpperArm' to 'Bip01_R_UpperArm'
+Changed incompatible hitbox parent bone name 'Bip01 L Forearm' to 'Bip01_L_Forearm'
+Changed incompatible hitbox parent bone name 'Bip01 R Forearm' to 'Bip01_R_Forearm'
+Changed incompatible hitbox parent bone name 'Bip01 L Hand' to 'Bip01_L_Hand'
+Changed incompatible hitbox parent bone name 'Bip01 R Hand' to 'Bip01_R_Hand'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra03' to 'Bip01_Xtra03'
+Changed incompatible hitbox parent bone name 'Bip01 R Thigh' to 'Bip01_R_Thigh'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger0' to 'Bip01_L_Finger0'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger1' to 'Bip01_L_Finger1'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger2' to 'Bip01_L_Finger2'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger0' to 'Bip01_R_Finger0'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger1' to 'Bip01_R_Finger1'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger2' to 'Bip01_R_Finger2'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra0302' to 'Bip01_Xtra0302'
+Changed incompatible hitbox parent bone name 'Bip01 R Calf' to 'Bip01_R_Calf'
+Changed incompatible hitbox parent bone name 'Bip01 Head' to 'Bip01_Head'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger01' to 'Bip01_L_Finger01'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger11' to 'Bip01_L_Finger11'
+Changed incompatible hitbox parent bone name 'Bip01 L Finger21' to 'Bip01_L_Finger21'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger01' to 'Bip01_R_Finger01'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger11' to 'Bip01_R_Finger11'
+Changed incompatible hitbox parent bone name 'Bip01 R Finger21' to 'Bip01_R_Finger21'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra02' to 'Bip01_Xtra02'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra01' to 'Bip01_Xtra01'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra04' to 'Bip01_Xtra04'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra05' to 'Bip01_Xtra05'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra04Opp' to 'Bip01_Xtra04Opp'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra06' to 'Bip01_Xtra06'
+Changed incompatible hitbox parent bone name 'Bip01 Xtra0303' to 'Bip01_Xtra0303'
+Changed incompatible hitbox parent bone name 'Bip01 R Foot' to 'Bip01_R_Foot'
+Changed incompatible hitbox parent bone name 'Foot Right Ref' to 'Foot_Right_Ref'
+Changed incompatible hitbox parent bone name 'Foot Left Ref' to 'Foot_Left_Ref'
+Changed incompatible bone name 'Origin Ref' to 'Origin_Ref'
+Changed incompatible bone name 'Chest Ref' to 'Chest_Ref'
+Changed incompatible bone name 'Hand Left Ref' to 'Hand_Left_Ref'
+Changed incompatible bone name 'Hand Right Ref' to 'Hand_Right_Ref'
+
+"""
 	}
-	m_flFbxScale = 1.0
-	m_flQCScale = 1.0
-	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_bEmbedAnimsInAnimGroup = false
-	m_pPsfList = null
-	m_keyValueText = ""
-	m_bStaticProp = false
-	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.05
-	m_nMaxClothVertsPerMesh = 2048
-	m_bBuildClothBoneHierarchy = false
-	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
-	m_bMakeImplicitBindPoseSequence = false
-	m_bAdjustSkeletonFromBoneFlags = false
-	m_bHiddenAssetFlag = false
-	m_pAnimGroups = [  ]
 }

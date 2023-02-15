@@ -149,13 +149,13 @@ LinkLuaModifier("modifier_saito_attributes", "abilities/saito/saito_abilities", 
 
 modifier_saito_attributes = modifier_saito_attributes or class({})
 
-function modifier_saito_attributes:IsHidden()                                                                       return true end
+function modifier_saito_attributes:IsHidden()                                                                       return false end
 function modifier_saito_attributes:IsDebuff()                                                                       return false end
 function modifier_saito_attributes:IsPurgable()                                                                     return false end
 function modifier_saito_attributes:IsPurgeException()                                                               return false end
 function modifier_saito_attributes:RemoveOnDeath()                                                                  return false end
 function modifier_saito_attributes:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
---function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 --MODIFIER_ATTRIBUTE_MULTIPLE Helps to make copies of modifiers on your hero, they are hidden but helpful, disabled for now as we handle all attributes with one modifier.
 --You can uncomment that and use these modifiers if you want to add simple properties with the declared functions, example of how to use is below.
 function modifier_saito_attributes:DeclareFunctions()
@@ -920,7 +920,7 @@ function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
                 bShouldDestroy = true
                 break
             else
-                GridNav:DestroyTreesAroundPoint(vNextStepPos, self.nImageRadius, false) --Just to look cool like a cut tree with a slash.
+                --GridNav:DestroyTreesAroundPoint(vNextStepPos, self.nImageRadius, false) --Just to look cool like a cut tree with a slash.
                 
                 if vNextStepDist >= ( self.nImageCreationDist + ( self.nImageCreationDist * self.nImagesCreated ) ) then
                     self.nImagesCreated = self.nImagesCreated + 1

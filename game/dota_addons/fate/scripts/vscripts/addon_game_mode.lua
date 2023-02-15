@@ -258,6 +258,9 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/misc_sound.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/event.vsndevts", context)
 
+               --======= Skin Update ========--
+    PrecacheResource("soundfile", "soundevents/hero_skin_update.vsndevts", context)
+
                         --======= BGM, Ally, Enemy ========--  
     PrecacheResource("soundfile", "soundevents/ally_sounds.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/enemy_sounds.vsndevts", context)
@@ -271,6 +274,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
 
                         --============ Archer ==============--      
     PrecacheResource("soundfile", "soundevents/hero_chocolate.vsndevts", context)

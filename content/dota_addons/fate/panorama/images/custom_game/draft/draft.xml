@@ -1,6 +1,10 @@
 <root> 
 	<Panel class="AddonLoadingRoot"> 
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/other/mashucirc1.png" /> 
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/other/mashucirc2.png" /> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/other/arrow_left.png" /> 
 		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/draft/other/arrow_right.png" /> 
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/mashucirc1.png" />
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/mashucirc2.png" />
 	</Panel> 
 </root>

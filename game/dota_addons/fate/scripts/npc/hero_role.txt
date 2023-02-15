@@ -1483,7 +1483,7 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 				{
 					"weight"	"85"	// weight to calculate
 					"criteria"	"3"
-					"dDeal"		"8000"	// > avg dmg deal per round
+					"dDeal"		"6000"	// > avg dmg deal per round
 					"KD"		"1.5"	// > total KD
 					"Assist"	"20"	// > Assist
 				}
@@ -1510,7 +1510,49 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 				}
 			}
 		}
-	}
+	}	
+	"npc_dota_hero_terrorblade"			
+	{
+		"Sex"			"Male"
+		"Class"			"Saber"
+		"Trait"			"shinsengumi" 
+		"Roles"			"burst,control,support" 	
+		"Role" 							
+		{
+			"1"
+			{			
+				"burst"	
+				{
+					"weight"	"40"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"5000"	// > avg dmg deal per round
+					"KD"		"1.5"	// > total KD
+					"Assist"	"30"	// > Assist
+				}		
+			}
+			"2"
+			{			
+				"control"	
+				{
+					"weight"	"35"	// weight to calculate
+					"criteria"	"1"
+					"CC1"		"25"	// > avg CC duration per round
+				}		
+			}			
+			"3"	
+			{			
+				"support"	
+				{
+					"weight"	"25"	// weight to calculate
+					"criteria"	"4"
+					"Assist"	"30"	// > Assist
+					"Heal"		"500"	// < death of total round
+					"Avarice"	"1"		// > Avarice
+					"Ward"		"1"		// > ward per round
+				}
+			}
+		}
+	}			
 	"npc_dota_hero_dragon_knight"			
 	{
 		"Sex"			"Male"

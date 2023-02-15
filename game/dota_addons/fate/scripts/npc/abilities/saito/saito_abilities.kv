@@ -21,7 +21,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.2"
+		"AbilityCastPoint"							"0.15"
 		"AbilityCooldown"							"10"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
@@ -44,7 +44,7 @@
 			"image_root_duration"					"0.4"
 			"image_duration"						"0.5"
 			"image_radius"							"260"
-			"image_damage"							"200 220 240 260 280"
+			"image_damage"							"240 260 280 300 320"
 			"image_creation_dist"					"250"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
@@ -71,7 +71,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES_STRONG"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.2"
+		"AbilityCastPoint"							"0.15"
 		"AbilityCooldown"							"10"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
@@ -91,7 +91,7 @@
 		{
 			"radius"								"350"
 			"stun_duration"							"0.65"
-			"damage"								"210 230 250 270 290"
+			"damage"								"220 255 290 325 360"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
 		}
@@ -117,7 +117,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES_STRONG"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.2"
+		"AbilityCastPoint"							"0.15"
 		"AbilityCooldown"							"10"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
@@ -136,11 +136,11 @@
 		"AbilityValues"
 		{
 			"pull_radius"							"360"
-			"pull_damage"							"260 280 300 320 340"
+			"pull_damage"							"240 290 240 390 440"
 			"burst_radius"							"240"
 			"burst_stun_duration"					"0.35"
 			"burst_delay"							"0.5"
-			"burst_damage_pct"						"50"
+			"burst_damage_pct"						"25"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
 		}
@@ -166,7 +166,7 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"36 33 30 27 24"
+		"AbilityCooldown"							"36 30 24 18 12"
 		"AbilityManaCost"							"200"
 		"AbilityCastRange"							"550"
 
@@ -186,7 +186,7 @@
 			"proc_radius"							"525"
 			"duration"								"7"
 			"silence_cooldown"						"2.5"
-			"silence_duration"						"0.65"
+			"silence_duration"						"0.75"
 			"hp_bonus"								"100 125 150 175 200"
 			"hp_regen"								"15 20 25 30 35"
 		}
@@ -205,7 +205,7 @@
 		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
@@ -307,9 +307,9 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.2"
-		"AbilityCooldown"							"0.3"
-		"AbilityManaCost"							"100"
+		"AbilityCastPoint"							"0.15"
+		"AbilityCooldown"							"0.25"
+		//"AbilityManaCost"							""
 		"AbilityCastRange"							"550 600 650 700 750"
 
 		"MaxLevel"									"5"
@@ -375,7 +375,7 @@
 			"max_distance"							"850 900 950 1000 1050"
 			"min_distance"							"200"
 			"radius"								"315"
-			"damage"								"480 520 560 600 640"
+			"damage"								"500 650 800 950 1100"
 			"stun_duration"							"0.75"
 		}
 	}
@@ -422,7 +422,7 @@
 			"duration"								"0.2"
 			"fly_duration"							"0.2"
 			"stun_duration"							"0.5"
-			"damage"								"440 510 580 650 720"
+			"damage"								"450 550 650 750 850"
 			"pierce_range"							"720"
 			"pierce_width"							"180"
 		}
@@ -474,7 +474,7 @@
 			"knockback_duration"					"0.75"
 			"slashes_count"							"5"
 			"slashes_interval"						"0.3"		//Optimum time.
-			"slash_damage"							"35 45 55 65 75"
+			"slash_damage"							"70 90 110 130 150"
 			"slash_last_damage"						"350 450 550 650 750"
 			"pull_speed"							"180"
 		}
@@ -502,7 +502,7 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"150"
+		"AbilityCooldown"							"120"
 		"AbilityManaCost"							"600"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
@@ -524,8 +524,8 @@
 			"silence_duration"						"3"
 			"hp_damage"								"16"
 			"fds_hp_mp_scale"						"2"
-			"activation_steps_duration"				"4"
-			"activation_duration"					"4"
+			"activation_steps_duration"				"3"
+			"activation_duration"					"3"
 			"activation_steps"						"2"
 		}
 	}
@@ -674,8 +674,8 @@
 			"fds_active_hp_gain"					"80 90 100 110 120"
 			"fds_active_aura_min_reduction_range"	"900"
 			"fds_active_aura_max_reduction_range"	"300"
-			"fds_active_aura_min_reduction"			"-5"
-			"fds_active_aura_max_reduction"			"-25"
+			"fds_active_aura_min_reduction"			"-10"
+			"fds_active_aura_max_reduction"			"-30"
 		}
 	}
 	//=======================================================================================================
@@ -712,7 +712,7 @@
 			"fli_evasion"							"20"
 			"fls_cast_range"						"75"
 			"fls_revoked_scale"						"1.6"
-			"fls_dmg_per_atk"						"25"
+			"fls_dmg_per_atk"						"50"
 			"fls_last_dmg_per_atk"					"200"
 		}
 	}
