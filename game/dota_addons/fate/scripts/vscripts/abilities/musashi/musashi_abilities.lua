@@ -1736,9 +1736,12 @@ function musashi_ishana_daitenshou.prototype.____constructor(self, ...)
     self.SoundVoiceline = "antimage_anti_ability_manavoid_06"
     self.SoundSfx = "musashi_ishana_daitenshou_sfx"
     self.SoundBgm = "musashi_ishana_daitenshou_bgm"
+    self.MarkLocation = Vector(0, 0, 0)
 end
 function musashi_ishana_daitenshou.prototype.OnSpellStart(self)
     self.Caster = self:GetCaster()
+    local ____opt_238 = self:GetCursorTarget()
+    self.MarkLocation = ____opt_238 and ____opt_238:GetAbsOrigin()
     self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_ishana_daitenshou.name, {duration = 5})
     self:PlaySound()
 end
@@ -1769,15 +1772,31 @@ function musashi_modifier_ishana_daitenshou.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_238 = self.Ability
-    self.Victim = ____opt_238 and ____opt_238:GetCursorTarget()
-    local ____opt_240 = self.Victim
-    self.MarkerPosition = ____opt_240 and ____opt_240:GetAbsOrigin()
+    local ____opt_240 = self.Ability
+    self.Victim = ____opt_240 and ____opt_240:GetCursorTarget()
+    local ____opt_242 = self.Victim
+    self.MarkerPosition = ____opt_242 and ____opt_242:GetAbsOrigin()
+    local ____opt_244 = self.Caster
+    local NiouKurikara = ____opt_244 and ____opt_244:FindAbilityByName(____exports.musashi_niou_kurikara.name)
+    local ____opt_246 = self.Caster
+    if ____opt_246 ~= nil then
+        ____opt_246:CastAbilityOnPosition(
+            self.MarkerPosition,
+            NiouKurikara,
+            self.Caster:GetEntityIndex()
+        )
+    end
+    if not (NiouKurikara and NiouKurikara:IsChanneling()) then
+        local ____opt_250 = self.Caster
+        if ____opt_250 ~= nil then
+            ____opt_250:StartGestureWithFade(ACT_DOTA_CAST_ABILITY_3, 0.2, 0.3)
+        end
+    end
     self:CreateParticle()
 end
 function musashi_modifier_ishana_daitenshou.prototype.CreateParticle(self)
-    local ____opt_242 = self.Caster
-    if ____opt_242 and ____opt_242:HasModifier("modifier_ascended") then
+    local ____opt_252 = self.Caster
+    if ____opt_252 and ____opt_252:HasModifier("modifier_ascended") then
         self.MarkerParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
         self.SwordParticle = "particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
         self.BodyParticle = "particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
