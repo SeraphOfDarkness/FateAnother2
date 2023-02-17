@@ -2,6 +2,12 @@
     "compilerOptions": {
         "rootDir": ".",
         "outDir": "C:/Program Files (x86)/Steam/steamapps/common/dota 2 beta/game/dota_addons/fate/scripts/vscripts",
+        "baseUrl": ".",
+        "paths": 
+        {
+            "@libraries/*":["libraries/*"],
+            "@tslib/*":["tslib/*"]
+        },
         "target": "esnext",
         "lib": ["esnext"],
         "types": ["@moddota/dota-lua-types/normalized"],
@@ -22,7 +28,7 @@
     },
     "tstl": {
         "luaTarget": "JIT",
-        "sourceMapTraceback": true
+        "sourceMapTraceback": false,
     },
     "include": ["**/*.ts", "../common/**/*.ts"]
 }
