@@ -67,7 +67,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"     		"custom/musashi/musashi_tengan"
-		"MaxLevel"						"6"
+		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 	
@@ -83,7 +83,7 @@
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3"
+		"AbilityCharges"				"2"
 		"AbilityChargeRestoreTime"		"38 36 34 32 30"
 
 		//Targeting-----------------------------------------------------------------------------------------------------
@@ -394,6 +394,58 @@
 	}
 
 	//==================================================================================================================
+	// Miyamoto Musashi : Skill 8 : Battle Continuation (SA)
+	//==================================================================================================================
+	"musashi_battle_continuation"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | 
+										 DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"     		"custom/musashi/musashi_battle_continuation"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"0"
+		"AbilityCastRange"				"0"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			""
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"120"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_NONE"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_NONE"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"BuffDuration"				"3.5"
+			"Heal"						"500"
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_battle_continuation_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_battle_continuation_unique.vpcf"
+		}
+	}
+
+	//==================================================================================================================
 	// Miyamoto Musashi : Skill 4 : Niou (Innate)
 	//==================================================================================================================
 	"musashi_niou"
@@ -440,56 +492,7 @@
 	
 
 	
-	//==================================================================================================================
-	// Miyamoto Musashi : Skill 10 : Battle Continuation (SA)
-	//==================================================================================================================
-	"musashi_battle_continuation"
-	{
-		//General-------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/musashi/musashi_abilities"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"     		"custom/musashi/musashi_battle_continuation"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
 	
-		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"0"
-		"AbilityCastRange"				"0"
-		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AnimationPlaybackRate"			"1.0"
-		"AnimationIgnoresModelScale" 	"1"
-
-		//Time----------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"120"
-		"AbilityCharges"				"0"
-		"AbilityChargeRestoreTime"		"0"
-
-		//Targeting-----------------------------------------------------------------------------------------------------
-	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_NONE"
-	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_NONE"
-	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
-
-	    //AbilityMechanics----------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"BuffDuration"				"3.5"
-			"Heal"						"500"
-		}
-
-		//Precache------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/custom/musashi/musashi_battle_continuation_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_battle_continuation_unique.vpcf"
-		}
-	}
 
 	//==================================================================================================================
 	// Miyamoto Musashi : Combo Skill : Ishana Daitenshou

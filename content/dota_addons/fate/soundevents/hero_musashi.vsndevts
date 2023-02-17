@@ -6,7 +6,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -39,7 +39,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -72,7 +72,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -105,7 +105,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -138,7 +138,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -171,7 +171,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -204,7 +204,7 @@
 		{
 			"reference_operator"
 			{
-				"operator"					"sos_reference_stack"
+				"operator"					 "sos_reference_stack"
 				"reference_stack"			 "dota_src1_3d"
 				"operator_variables"
 				{
@@ -218,6 +218,39 @@
 					"volume"
 					{
 						"value"				"7.500000"
+					}
+					"pitch"
+					{
+						"value"				"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"musashi_ishana_daitenshou_bgm"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"					 "sos_reference_stack"
+				"reference_stack"			 "dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/musashi/bgm/musashi_ishana_daitenshou_bgm.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"				"1.000000"
 					}
 					"pitch"
 					{
