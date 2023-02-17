@@ -1046,8 +1046,8 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_dash"
-						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						name = "musashi_red_override1"
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1090,8 +1090,8 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_spell1"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						name = "musashi_red_override2"
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1112,8 +1112,8 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_spell2"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						name = "musashi_red_spell1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1134,8 +1134,8 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_spell3"
-						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						name = "musashi_red_spell2"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1156,7 +1156,7 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_spell4"
+						name = "musashi_red_channel1"
 						activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1178,8 +1178,8 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "musashi_red_spell5"
-						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						name = "musashi_red_spell3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1195,6 +1195,28 @@
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "musashi_red_spell4"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/musashi/red/musashi_red_spell3.SMD"
+						import_bone_scales = false
+						start_frame = 4
+						end_frame = 8
 						framerate = -1.0
 						reverse = false
 					},
