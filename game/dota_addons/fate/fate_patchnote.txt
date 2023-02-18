@@ -1,3 +1,46 @@
+Nobunaga 
+Base gun damage 100 -> 110
+Gun damage per level 9 -> 10
+
+Semiramis
+Most SA Manacost reduced by 1 / 2
+
+Fixed eli model, gilles model
+Released semi and nobu.
+
+----------------
+
+__**Patch Notes From Martin**__
+Attempt 3 to resolve the SAITO GAMING incident!!
+
+Saitō Hajime
+
+* Updated tooltips for Saitō Hajime, now showing descriptions for new abilities players gain from SA to read on Attribute: Invincible Sword
+* Fixed Flashblade [Q ]interactions with abilities that lock hero locations, such as Aestus Domus Aurea [R] and Unreturning Formation: Stone Sentinel Maze [R]
+
+* Flashblade [Q] speed increased from 1400 to 1850
+* Flashblade [Q] distance and damage will now decrease gradually after 3 consecutive uses instead of 2
+
+* Steelwing [W] damage and stun duration will now decrease gradually after 3 consecutive uses instead of 2
+
+* Shadowslash [E] initial damage and pull radius will now decrease gradually after 3 consecutive uses instead of 2
+
+* Formlessness [R] damage per slash increased from 80 90 100 110 120 to 160 180 200 220 240
+
+* Mind's Eye (True) cooldown increased from 36 30 24 18 12 to 36 31 26 21 16
+
+* Undefeated Style [COMBO] duration reduced from 15 to 12
+* Undefeated Style [COMBO] silence duration reduced from 3 to 1.5 (specially added for some players who think that D can perma-silence)
+
+* Memoir [SA] manacost reduced from 16 to 12
+* Memoir: Snarksengumi [SA] proc odds increased from 15% to 22%
+* Memoir: Snarksengumi [SA] permanent agility bonus for Okita reduced from 2 to 1
+
+* Freestyle [SA] bonus passive time interval increased from 0.4 to 0.9 (specially added for players who play with high ping)
+
+P.S now that I think all the bugs and tooltips are fixed I will start looking for someone to help in Chinese and Thai translation for Saitō Hajime
+
+----------------
 
 Saitō Hajime
 

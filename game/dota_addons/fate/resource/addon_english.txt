@@ -14031,10 +14031,10 @@
         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"DIVINE DAMAGE BONUS:"
  
         "DOTA_Tooltip_ability_nobu_independent_action"				"<font color='#9FFFCC'>Attribute: Independent action</font>"
-        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage.\n <font color='#58ACFA'>Shoot</font>: will now microstun and knockback enemy, if it was used without targeted shots(E) activated.\n <font color='#58ACFA'>Dash</font>: Using Dash will now increase next guns damage by a flat magical value for 2 seconds."
-        "DOTA_Tooltip_ability_nobu_independent_microstun_duration" 	"MICROSTUN DURATION:"
-        "DOTA_Tooltip_ability_nobu_independent_guns_damage" 	"DEMON GUNS BONUS DAMAGE:"
-        "DOTA_Tooltip_ability_nobu_independent_attr_damage" 	"DASH BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage.\n <font color='#58ACFA'>Shoot</font>: will now microstun and knockback enemy and gain 20% armor pierce, if it was used without targeted shots(E) activated.\n <font color='#58ACFA'>Dash</font>: Using Dash will now increase next guns damage by a flat magical value for 2 seconds. \n <font color='#58ACFA'>Targeted Shots</font>: Gain 20% armor pierce."
+        "DOTA_Tooltip_ability_nobu_independent_action_microstun_duration" 	"MICROSTUN DURATION:"
+        "DOTA_Tooltip_ability_nobu_independent_action_guns_damage" 	"DEMON GUNS BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_attr_damage" 	"DASH BONUS DAMAGE:"
         
         /////////////////////////// Debuffs Buffs ////////////////////////////////
 
@@ -14076,11 +14076,11 @@
 
 		//Special Modifiers for Counting Some Keys.
 		"DOTA_Tooltip_modifier_saito_q_counter"														"[Q] Counter"
-		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"Flashblade's distance/damage is divided by this stack amount."
+		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"Flashblade's distance/damage is divided by this stack amount after a certain use."
 		"DOTA_Tooltip_modifier_saito_w_counter"														"[W] Counter"
-		"DOTA_Tooltip_modifier_saito_w_counter_Description"											"Steelwing's damage/stun duration is divided by this stack amount."
+		"DOTA_Tooltip_modifier_saito_w_counter_Description"											"Steelwing's damage/stun duration is divided by this stack amount after a certain use."
 		"DOTA_Tooltip_modifier_saito_e_counter"														"[E] Counter"
-		"DOTA_Tooltip_modifier_saito_e_counter_Description"											"Shadowslash's initial damage/pull radius is divided by this stack amount."
+		"DOTA_Tooltip_modifier_saito_e_counter_Description"											"Shadowslash's initial damage/pull radius is divided by this stack amount after a certain use."
 
 		///ABILITIES///
 
@@ -14158,7 +14158,7 @@
 
 		//Freely Drawn Sword
 		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>Freely Drawn Sword</font>"
-		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#58ACFA'>PASSIVE</font>: <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times, and has a scaling %locker_time% cooldown before the next use that scales with each use by %locker_increaser% seconds.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#58ACFA'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less magical damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\nUpgradeable with Attribute: Freestyle."
+		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#58ACFA'>PASSIVE</font>: <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times, and has a scaling %locker_time% cooldown before the next use that scales with each use by %locker_increaser% seconds.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#58ACFA'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less magical damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Freestyle</font>."
 		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
 		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
 		//"DOTA_Tooltip_ability_saito_fds_check_interval"											""
@@ -14234,7 +14234,7 @@
 
 		//Blade Vortex
 		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#FFB266'>Blade Vortex</font>"
-		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repetitively. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_vortex_Lore"													"To flow is to be limitless."
 		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
 		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"SLASH RADIUS"
@@ -14297,7 +14297,7 @@
 
 		//Invincible Sword
 		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9FFFCC'>Attribute: Invincible Sword</font>"
-		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating a combination with the sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font>, and <font color='#58ACFA'>Shadowslash</font> in the interval, enabling <font color='#FFB266'>Tetra-Step</font>, <font color='#FFB266'>Shieldbreaker</font> and <font color='#FFB266'>Blade Vortex</font> for a short duration.\n<font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
+		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating a combination with the sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font>, and <font color='#58ACFA'>Shadowslash</font> in the interval, enabling <font color='#FFB266'>Tetra-Step</font>, <font color='#FFB266'>Shieldbreaker</font> and <font color='#FFB266'>Blade Vortex</font> for a short duration.\n<font color='#FFB266'>Tetra-Step</font>: teleports to the target location, dealing damage and stunning enemies.\n<font color='#FFB266'>Shieldbreaker</font>: thrusts blade forward at the target enemy, creating a beam that travels a certain range and stuns the primary target.\n<font color='#FFB266'>Blade Vortex</font>: slashes the surrounding area with the sword several times, each slash damaging nearby enemies, pulling them towards and mini-stunning them repeatedly.\n<font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
 		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"This phrase describes Saitō’s extraordinary swordsmanship, said to be one of the finest in the Shinsengumi."
 		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"BONUS DAMAGE PER LEVEL:"
 		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"ENABLE DURATION:"

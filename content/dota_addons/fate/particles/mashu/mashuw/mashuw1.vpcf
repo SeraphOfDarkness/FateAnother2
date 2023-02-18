@@ -11,14 +11,7 @@
 	[
 		{
 			m_name = "preview"
-			m_drivers = 
-			[
-				{
-					m_iControlPoint = 1
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
+			m_drivers = [  ]
 		},
 	]
 	m_Emitters = 
@@ -614,7 +607,6 @@
 			m_TransformInput = 
 			{
 				m_nType = "PT_TYPE_CONTROL_POINT"
-				m_nControlPoint = 1
 			}
 		},
 		{

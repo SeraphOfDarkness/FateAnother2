@@ -95,7 +95,6 @@
 	[
 		{
 			_class = "C_INIT_CreateWithinBox"
-			m_nControlPointNumber = 4
 			m_vecMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"

@@ -40,13 +40,13 @@
 		"AbilityValues"
 		{
 			"distance"								"600 650 700 750 800"	//Optimum distance.
-			"speed"									"1400"
+			"speed"									"1850"
 			"image_root_duration"					"0.4"
 			"image_duration"						"0.5"
 			"image_radius"							"260"
 			"image_damage"							"240 260 280 300 320"
 			"image_creation_dist"					"250"
-			"repeat_halver_count_need"				"2"
+			"repeat_halver_count_need"				"3"
 			"combo_cooldown"						"3"
 		}
 	}
@@ -92,7 +92,7 @@
 			"radius"								"350"
 			"stun_duration"							"0.65"
 			"damage"								"220 255 290 325 360"
-			"repeat_halver_count_need"				"2"
+			"repeat_halver_count_need"				"3"
 			"combo_cooldown"						"3"
 		}
 	}
@@ -141,7 +141,7 @@
 			"burst_stun_duration"					"0.35"
 			"burst_delay"							"0.5"
 			"burst_damage_pct"						"25"
-			"repeat_halver_count_need"				"2"
+			"repeat_halver_count_need"				"3"
 			"combo_cooldown"						"3"
 		}
 	}
@@ -166,7 +166,7 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"36 30 24 18 12"
+		"AbilityCooldown"							"36 31 26 21 16"
 		"AbilityManaCost"							"200"
 		"AbilityCastRange"							"550"
 
@@ -329,7 +329,7 @@
 			"slash_instances"						"2"
 			"lock_duration"							"0.5"
 			"last_lock_duration"					"1.5"
-			"slash_damage"							"80 90 100 110 120"
+			"slash_damage"							"160 180 200 220 240"
 			"last_damage"							"600 675 750 825 900"
 		}
 	}
@@ -519,9 +519,9 @@
 
 		"AbilityValues"
 		{
-			"duration"								"15"
+			"duration"								"12"
 			"silence_chance"						"22"
-			"silence_duration"						"3"
+			"silence_duration"						"1.5"
 			"hp_damage"								"16"
 			"fds_hp_mp_scale"						"2"
 			"activation_steps_duration"				"3"
@@ -620,7 +620,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"16"
+		"AbilityManaCost"							"12"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
@@ -636,8 +636,8 @@
 			"me_hp_bonus"							"50"
 			"me_shell_duration"						"1.2"
 			"me_shell_block"						"60"
-			"me_okita_chance"						"15"
-			"me_okita_agility"						"2"
+			"me_okita_chance"						"22"
+			"me_okita_agility"						"1"
 		}
 	}
 	//=======================================================================================================
@@ -670,7 +670,7 @@
 		"AbilityValues"
 		{
 			"fds_active_duration"					"2"
-			"fds_check_interval"					"0.4"
+			"fds_check_interval"					"0.9"
 			"fds_active_hp_gain"					"80 90 100 110 120"
 			"fds_active_aura_min_reduction_range"	"900"
 			"fds_active_aura_max_reduction_range"	"300"

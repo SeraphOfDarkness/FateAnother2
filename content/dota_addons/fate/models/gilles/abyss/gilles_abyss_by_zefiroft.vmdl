@@ -37,6 +37,10 @@
 								from = ".vmat"
 								to = "materials/gilles/gilles_book.vmat"
 							},
+							{
+								from = ""
+								to = "materials/gilles/gilles_book.vmat"
+							},
 						]
 						use_global_default = false
 						global_default_material = ""

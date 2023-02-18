@@ -16,11 +16,6 @@
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_entityName = "self"
 				},
-				{
-					m_iControlPoint = 3
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
 			]
 		},
 	]
@@ -156,7 +151,6 @@
 			m_TransformInput = 
 			{
 				m_nType = "PT_TYPE_CONTROL_POINT"
-				m_nControlPoint = 3
 			}
 		},
 		{
@@ -177,7 +171,6 @@
 		{
 			_class = "C_INIT_InheritVelocity"
 			m_flVelocityScale = 0.25
-			m_nControlPointNumber = 3
 		},
 		{
 			_class = "C_INIT_InitFloat"
