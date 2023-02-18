@@ -126,8 +126,8 @@
 		"LevelsBetweenUpgrades"			"2"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"400"
-		"AbilityCastRange"				"400"
+		"AbilityManaCost"         		"500"
+		"AbilityCastRange"				"500"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0.7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
@@ -145,7 +145,7 @@
 	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_ALL"
 	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_PURE"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -262,6 +262,7 @@
 		"AbilityValues"
 		{
 			"Radius"					"400"
+			"RampUpInterval"			"1"
 			"Damage1"					"250"
 			"Damage2"					"500"
 			"Damage3"					"1000"
@@ -367,7 +368,7 @@
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"120"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -446,7 +447,72 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 4 : Niou (Innate)
+	// Miyamoto Musashi : Combo Skill : Ishana Daitenshou
+	//==================================================================================================================
+	"musashi_ishana_daitenshou"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | 
+										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"     		"custom/musashi/musashi_ishana_daitenshou"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"500"
+		"AbilityCastRange"				"300"
+		"AbilityCastRangeBuffer"		"300"
+		"AbilityCastPoint"				"0.7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"180"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_PURE"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"Radius"					"1250"
+			"DashSpeed"					"50"
+			"NormalSlashCount"			"5"
+			"NormalSlashInterval"		"0.1"
+			"FinalSlashDmgDelay"		"0.5"
+			"MaxHpSlashDmgPercent"		"5"
+			"MaxHpFinalSlashDmgPercent"	"10"
+			"ExecuteThresholdPercent"	"25"
+			"MaxHpReductionPercent"		"25"
+			"ExtraIncomingDmgPercent"	"25"
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_basic.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
+    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
+		}
+	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Skill 9 : Niou (Innate)
 	//==================================================================================================================
 	"musashi_niou"
 	{
@@ -466,8 +532,8 @@
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate"			"1.0"
+		"AbilityCastAnimation"			""
+		"AnimationPlaybackRate"			"0"
 		"AnimationIgnoresModelScale" 	"1"
 
 		//Time----------------------------------------------------------------------------------------------------------
@@ -488,65 +554,11 @@
 			"ModelScale"				"2.5 2.875 3.25 3.625 4.0"
 		}
 	}
-
-	
-
-	
-	
-
-	//==================================================================================================================
-	// Miyamoto Musashi : Combo Skill : Ishana Daitenshou
-	//==================================================================================================================
-	"musashi_ishana_daitenshou"
-	{
-		//General-------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/musashi/musashi_abilities"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | 
-										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"     		"custom/musashi/musashi_ishana_daitenshou"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-	
-		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"500"
-		"AbilityCastRange"				"250"
-		"AbilityCastRangeBuffer"		"250"
-		"AbilityCastPoint"				"0.7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate"			"1.0"
-		"AnimationIgnoresModelScale" 	"1"
-
-		//Time----------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"180"
-		"AbilityCharges"				"0"
-		"AbilityChargeRestoreTime"		"0"
-
-		//Targeting-----------------------------------------------------------------------------------------------------
-	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO"
-	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_PURE"
-
-	    //AbilityMechanics----------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"BuffDuration"				"3.5"
-			"Heal"						"500"
-		}
-
-		//Precache------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_basic.vpcf"
-    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_basic.vpcf"
-    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_basic.vpcf"
-    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
-    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
-    		"particle"					"particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
-		}
-	}
 }
+
+	
+
+	
+	
+
+	
