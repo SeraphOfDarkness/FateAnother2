@@ -223,6 +223,10 @@ function HeroSelectioN:constructor()
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Presence"} )
 		end
 
+		if ServerTables:GetTableValue("Dev", "sss") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_SSS_Presence"} )
+		end
+
 		if ServerTables:GetTableValue("Dev", "mod") == true then 
 			self.devPresence = true
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Mod_Presence"} )
@@ -887,6 +891,9 @@ function HeroSelectioN:AssignHero(playerId, hero, skin)
 				if skin > 0 then 
 					newHero:AddAbility("alternative_0" .. skin)
 					newHero:FindAbilityByName("alternative_0" .. skin):SetLevel(1)
+				end
+				if newHero:GetName() == "npc_dota_hero_antimage" and ServerTables:GetTableValue("Dev", "sss") == true and tostring(PlayerResource:GetSteamAccountID(playerId)) == "301222766" then 
+					newHero:AddAbility("ascension_skill")
 				end
 				return nil 
 			else 

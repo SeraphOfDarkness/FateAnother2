@@ -258,7 +258,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/misc_sound.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/event.vsndevts", context)
 
-               --======= Skin Update ========--
+                        --======= Skin Update ========--
     PrecacheResource("soundfile", "soundevents/hero_skin_update.vsndevts", context)
 
                         --======= BGM, Ally, Enemy ========--  
@@ -333,7 +333,8 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_omniknight.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
-    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_void_spirit.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
 
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
@@ -413,8 +414,8 @@ function Precache( context , pc)
     PrecacheItemByNameSync("item_shard_of_replenishment", context)
     PrecacheItemByNameSync("item_drake_onboard", context)
     PrecacheItemByNameSync("item_padoru_hat", context)
-    PrecacheResourceModel ( context )
-    PrecacheResourceParticle ( context )
+    PrecacheResourceModel( context )
+    PrecacheResourceParticle( context )
 
        -- Master, Stash, and System stuffs
     --[[PrecacheResource("model", "models/shirou/shirou.vmdl", context)
@@ -3884,7 +3885,7 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("GameMode", {mode = 'classic'})
     ServerTables:CreateTable("Condition", {dbhruntproh = false, female = 0, divine = 0})
     ServerTables:CreateTable("Win", {goal = 0})
-    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false})
+    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false})
     ServerTables:CreateTable("PEPE", {slayer = false, savior = false, pepe = false, total = 0, kill = 0})
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})
@@ -4867,6 +4868,7 @@ function FateGameMode:OnEventChecking()
 end
 
 function FateGameMode:OnPlayerConnects()
+    CustomGameEventManager:Send_ServerToAllClients( "bgm_b4_game", {bgm=0} )
     for i = 0, 13 do 
         iupoasldm:initialize(i)
     end

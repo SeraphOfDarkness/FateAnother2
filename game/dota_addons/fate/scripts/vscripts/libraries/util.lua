@@ -1067,7 +1067,7 @@ tRemoveTheseModifiers = {
     "modifier_edmond_hate",
     "modifier_zhuge_liang_array_checker",
     "modifier_zhuge_liang_array_enemy",
-	"modifier_saito_style_active",
+    "modifier_saito_style_active",
 }
 
 tLightningResist = {

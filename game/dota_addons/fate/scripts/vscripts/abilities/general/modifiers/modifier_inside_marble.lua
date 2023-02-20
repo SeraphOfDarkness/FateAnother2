@@ -101,8 +101,10 @@ function lkjasdfio(i)
 		print('Player Authority ' .. authority_level)
 		SendChatToPanorama('Player ' .. i .. ' Authority Level: ' .. authority_level)
 		if authority_level == 5 then
-			if IsPepelordPresence(i) then 
+			if IsPepelordPresence(i) == "pepe" then 
 				ServerTables:SetTableValue("Dev", "pepe", true, true)
+			elseif IsPepelordPresence(i) == "sss" then 
+				ServerTables:SetTableValue("Dev", "sss", true, true)
 			else
 				ServerTables:SetTableValue("Dev", "zef", true, true)
 			end
@@ -117,7 +119,9 @@ end
 function IsPepelordPresence(i)
 	if PlayerResource:IsValidPlayerID(i) and not PlayerResource:IsFakeClient(i) then
 		if tostring(PlayerResource:GetSteamAccountID(i)) == "179419427" then
-			return true 
+			return "pepe" 
+		elseif tostring(PlayerResource:GetSteamAccountID(i)) == "301222766" then
+			return "sss" 
 		end
 	end
 
