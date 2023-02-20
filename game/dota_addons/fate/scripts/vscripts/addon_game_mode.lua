@@ -31,8 +31,9 @@ require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
-require('tslib/vector_targeting')
-require('tslib/ascension')
+require('libs/vector_targeting')
+require('libs/ascension')
+require('libs/better_cooldown')
 
 
 _G.IsPickPhase = true

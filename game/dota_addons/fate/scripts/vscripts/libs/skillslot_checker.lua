@@ -3,8 +3,8 @@ local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
 local ____exports = {}
-require("tslib.dota_ts_adapter")
-local ____dota_ts_adapter = require("tslib.dota_ts_adapter")
+require("libs.dota_ts_adapter")
+local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerModifier = ____dota_ts_adapter.registerModifier
 function ____exports.SkillSlotChecker(self, Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
