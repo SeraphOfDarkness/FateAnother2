@@ -417,8 +417,9 @@ MusashiAttribute =
 	"musashi_attributes_tenma_gogan",
 	"musashi_attributes_gorin_no_sho",
 	"musashi_attributes_mukyuu",
+	"musashi_attributes_niten_ichiryuu",
 	"musashi_ishana_daitenshou",
-	attrCount = 4
+	attrCount = 5
 }
 
 ChargeBasedBuffs = {

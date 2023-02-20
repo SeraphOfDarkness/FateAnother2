@@ -26,7 +26,7 @@
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"15"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -41,6 +41,7 @@
 		{
 			"BonusAtkSpeed"				"10 20 30 40 50"
 			"BonusDmg"					"10 20 30 40 50"
+			"HitsRequired"				"6"
 			"BuffDuration"				"10"
 		}
 
@@ -83,8 +84,8 @@
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"38 36 34 32 30"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
 
 		//Targeting-----------------------------------------------------------------------------------------------------
 	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_NONE"
@@ -96,7 +97,10 @@
 		"AbilityValues"
 		{
 			"BonusDmg"					"70 140 210 280 350"
+			"BonusPureDmgPerAgi"		"0"
 			"BuffDuration"				"10"
+			"MaxCharges"				"2"
+			"RechargeTime"				"38 36 34 32 30"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -126,7 +130,7 @@
 		"LevelsBetweenUpgrades"			"2"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"500"
+		"AbilityManaCost"         		"400"
 		"AbilityCastRange"				"500"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"1.3"
@@ -152,7 +156,7 @@
 		{
 			"DmgPerSlash"				"50 100 150 200 250"
 			"SlashCount"				"4"
-			"Radius"					"400"
+			"Radius"					"500"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -328,6 +332,8 @@
 			"SlashRadius"				"150"
 			"DashSpeed"					"50"
 			"DmgPerSlash"				"350 450 550 650 750"
+			"BonusDmgPerAgi"			"0"
+			"BonusMaxHpDmg"				"0"
 			"DmgDelay"					"0.5"
 		}
 
@@ -361,14 +367,14 @@
 		"AbilityManaCost"         		"0"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			""
-		"AnimationPlaybackRate"			"1.0"
+		"AnimationPlaybackRate"			"0"
 		"AnimationIgnoresModelScale" 	"1"
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"120"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -725,6 +731,54 @@
 	
 		//Casting-------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"         		"11"
+		"AbilityCastRange"				"0"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			""
+		"AnimationPlaybackRate"			"0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"9999"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_NONE"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_NONE"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Attribute 5 : Niten_Ichiryuu
+	//==================================================================================================================
+	"musashi_attributes_niten_ichiryuu"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_attributes"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
+										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"     		"custom/musashi/musashi_niten_ichiryuu"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"15"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0"
