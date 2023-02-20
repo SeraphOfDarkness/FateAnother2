@@ -411,6 +411,15 @@ NobuAttribute = {
 	"nobu_combo",
 	attrCount = 5
 }
+MusashiAttribute = 
+{
+	"musashi_attributes_battle_continuation",
+	"musashi_attributes_tenma_gogan",
+	"musashi_attributes_gorin_no_sho",
+	"musashi_attributes_mukyuu",
+	"musashi_ishana_daitenshou",
+	attrCount = 4
+}
 
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
@@ -960,6 +969,8 @@ function FindAttribute(name)
 		attributes = RobinAttribute
 	elseif name == "npc_dota_hero_gyrocopter" then
 		attributes = NobuAttribute
+	elseif name == "npc_dota_hero_antimage" then
+		attributes = MusashiAttribute
     end
    
     return attributes

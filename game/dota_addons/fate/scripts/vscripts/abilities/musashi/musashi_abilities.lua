@@ -12,6 +12,7 @@ local registerAbility = ____dota_ts_adapter.registerAbility
 local registerModifier = ____dota_ts_adapter.registerModifier
 local ____sleep_timer = require("tslib.sleep_timer")
 local Sleep = ____sleep_timer.Sleep
+local musashi_attributes = require("abilities.musashi.musashi_attributes")
 ____exports.musashi_battle_continuation = __TS__Class()
 local musashi_battle_continuation = ____exports.musashi_battle_continuation
 musashi_battle_continuation.name = "musashi_battle_continuation"
@@ -39,7 +40,7 @@ function musashi_modifier_battle_continuation.prototype.OnTakeDamage(self)
     local ____temp_2 = not IsServer()
     if not ____temp_2 then
         local ____opt_0 = self.Caster
-        ____temp_2 = not (____opt_0 and ____opt_0:HasModifier("musashi_attribute_battle_continuation.name"))
+        ____temp_2 = not (____opt_0 and ____opt_0:HasModifier(musashi_attributes.musashi_attribute_battle_continuation.name))
     end
     if ____temp_2 then
         return
@@ -47,9 +48,9 @@ function musashi_modifier_battle_continuation.prototype.OnTakeDamage(self)
     local ____temp_5 = self.Caster:GetHealth() <= 0
     if ____temp_5 then
         local ____opt_3 = self.Ability
-        ____temp_5 = ____opt_3 and ____opt_3:IsCooldownReady()
+        ____temp_5 = ____opt_3 and ____opt_3:IsFullyCastable()
     end
-    if ____temp_5 and self.Caster:HasModifier("musashi_modifier_tenma_gogan_debuff.name") then
+    if ____temp_5 and not self.Caster:HasModifier("musashi_modifier_tenma_gogan_debuff.name") then
         local BuffDuration = self.Ability:GetSpecialValueFor("BuffDuration")
         self.Caster:SetHealth(1)
         self.Caster:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_battle_continuation_active.name, {duration = BuffDuration})
