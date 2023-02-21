@@ -1,3 +1,98 @@
+Nobunaga 
+Base gun damage 100 -> 110
+Gun damage per level 9 -> 10
+
+Semiramis
+Most SA Manacost reduced by 1 / 2
+
+Fixed eli model, gilles model
+Released semi and nobu.
+
+----------------
+
+__**Patch Notes From Martin**__
+Attempt 3 to resolve the SAITO GAMING incident!!
+
+Saitō Hajime
+
+* Updated tooltips for Saitō Hajime, now showing descriptions for new abilities players gain from SA to read on Attribute: Invincible Sword
+* Fixed Flashblade [Q ]interactions with abilities that lock hero locations, such as Aestus Domus Aurea [R] and Unreturning Formation: Stone Sentinel Maze [R]
+
+* Flashblade [Q] speed increased from 1400 to 1850
+* Flashblade [Q] distance and damage will now decrease gradually after 3 consecutive uses instead of 2
+
+* Steelwing [W] damage and stun duration will now decrease gradually after 3 consecutive uses instead of 2
+
+* Shadowslash [E] initial damage and pull radius will now decrease gradually after 3 consecutive uses instead of 2
+
+* Formlessness [R] damage per slash increased from 80 90 100 110 120 to 160 180 200 220 240
+
+* Mind's Eye (True) cooldown increased from 36 30 24 18 12 to 36 31 26 21 16
+
+* Undefeated Style [COMBO] duration reduced from 15 to 12
+* Undefeated Style [COMBO] silence duration reduced from 3 to 1.5 (specially added for some players who think that D can perma-silence)
+
+* Memoir [SA] manacost reduced from 16 to 12
+* Memoir: Snarksengumi [SA] proc odds increased from 15% to 22%
+* Memoir: Snarksengumi [SA] permanent agility bonus for Okita reduced from 2 to 1
+
+* Freestyle [SA] bonus passive time interval increased from 0.4 to 0.9 (specially added for players who play with high ping)
+
+P.S now that I think all the bugs and tooltips are fixed I will start looking for someone to help in Chinese and Thai translation for Saitō Hajime
+
+----------------
+
+Saitō Hajime
+
+* Now can be affected by Karna's Discernment of the Poor
+* Updated tooltips for Saitō Hajime
+* Added a modifier as an indicator when a special attribute is taken for Saitō Hajime
+
+* Strength gain reduced from 2.2 to 2.1
+* Agility gain reduced from 2.6 to 2.3
+* Intelligence gain increased from 1.2 to 1.6
+
+* Flashblade [Q] cast point improved from 0.2 to 0.15
+* Flashblade [Q] damage per hit increased from 200 220 240 260 280 to 240 260 280 300 320
+
+* Steelwing [W] cast point improved from 0.2 to 0.15
+* Steelwing [W] damage increased from 210 230 250 270 290 to 220 255 290 325 360
+
+* Shadowslash [E] cast point improved from 0.2 to 0.15
+* Shadowslash [E] initial damage increased from 260 280 300 320 340 to 240 290 240 390 440
+* Shadowslash [E] burst damage reduced from 50% to 25%
+
+* Mind's Eye (True) [D] cooldown reduced from 36 33 30 27 24 to 36 30 24 18 12
+* Mind's Eye (True) [D] stun/silence duration increased from 0.65 to 0.75
+
+* Freely Drawn Sword [F] now restores mana on hit and applies damage reduction to non-hero units, in addition to only hero units
+* Freely Drawn Sword [F] no longer restores mana from C Scroll, S Scroll and EX Scroll
+
+* Formlessness [R] cast point improved from 0.2 to 0.15
+* Formlessness [R] cooldown reduced fom 0.3 to 0.25 (will appear in the visual as 0.3)
+* Formlessness [R] manacost reduced from 100 to 0
+
+* Tetra-Step [Q] damage increased from 480 520 560 600 640 to 500 650 800 950 1100
+
+* Shieldbreaker [W] damage increased from 440 510 580 650 720 to 450 550 650 750 850
+
+* Blade Vortex [E] damage per slash increased from 35 45 55 65 75 to 70 90 110 130 150
+
+* Fixed Undefeated Style [COMBO] ended immediately after its Linken proc
+* Fixed Undefeated Style [COMBO] buff is not removed after the round ends
+* Undefeated Style [COMBO] cooldown reduced from 150 to 120
+* Undefeated Style [COMBO] activation duration reduced from 4 to 3
+
+* Freestyle [SA] min damage reduction increased from 5% to 10%
+* Freestyle [SA] max damage reduction increased from 25% to 30%
+* Freestyle [SA] now restores health on hit and aura applies damage reduction to non-hero units, in addition to only hero units
+
+* Kijinmaru Kunishige [SA] slash bonus dmg per atk increased from 25% to 50%
+
+Also fix ana model.
+
+----------------
+
 Semiramis 
 Attempt to fix hero invul on garden death bug (Attempt #1)
 

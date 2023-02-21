@@ -46,6 +46,16 @@ function OnLaserThink(keys)
 	end
 end
 
+function OnGardenDeath(keys)
+	local hero = caster:GetOwnerEntity()
+	if hero.IsMounted then 
+		hero.IsMounted = false
+		if hero:HasModifier("modifier_semiramis_mounted") then
+			hero:RemoveModifierByName("modifier_semiramis_mounted")
+		end
+	end
+end
+
 function OnPoisonousBite(keys)
 	local caster = keys.caster
 	local target = keys.target

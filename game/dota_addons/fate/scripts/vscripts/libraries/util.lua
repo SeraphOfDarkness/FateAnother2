@@ -227,6 +227,9 @@ cleansable = {
     "modifier_poison_cloud_debuff",
     "modifier_poisonous_bite_slow",
     "modifier_nobu_divinity_mark_activated",
+    "modifier_saito_steelwing_mss",
+    "modifier_saito_shadowslash_mrr",
+    "modifier_saito_fds_active_sdr",
 }
 
 slowmodifier = {
@@ -565,6 +568,7 @@ tModifierCooldown = {
     "modifier_tiatum_umu_cooldown",
     "modifier_nobu_strategy_attribute_cooldown",
     "modifier_nobu_combo_cd",
+    "modifier_saito_style_combo_indicator",
 }
 
 CannotReset = {
@@ -768,6 +772,7 @@ CannotReset = {
     "nobu_leader_of_innovation",
     "nobu_divinity_mark",
     "nobu_demon_king_open",
+    "saito_style",
 }
 
 femaleservant = {
@@ -1020,6 +1025,7 @@ tRemoveTheseModifiers = {
     "modifier_edmond_hate",
     "modifier_zhuge_liang_array_checker",
     "modifier_zhuge_liang_array_enemy",
+    "modifier_saito_style_active",
 }
 
 tLightningResist = {
@@ -1080,6 +1086,7 @@ tShinsengumi = {
     "npc_dota_hero_dark_willow",
     "okita_shinsengumi",
     "okita_hijikata",
+    "npc_dota_hero_terrorblade",
 }
 
 tSoldierAoTK = {
@@ -1132,6 +1139,7 @@ tKnightClass = {
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_tusk",
     "npc_dota_hero_death_prophet",
+    "npc_dota_hero_terrorblade",
 }
 
 tHorsemanClass = {
@@ -1162,6 +1170,7 @@ tSaberClass = {
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_lina",
     "npc_dota_hero_omniknight",
+    "npc_dota_hero_terrorblade",
 }
 
 tArcherClass = {
@@ -1759,6 +1768,15 @@ function IsSpellBlocked(target)
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_scathach_rune_of_protection")
+        return true
+    elseif target:HasModifier("modifier_saito_mind_eye_linken") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        target:RemoveModifierByName("modifier_saito_mind_eye_linken")
+        return true
+    elseif target:HasModifier("modifier_saito_style_active") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         return true
     else
         return false
@@ -3425,7 +3443,10 @@ local heroNames = {
     ["npc_dota_hero_skeleton_king"] = "King Hassan",
     ["npc_dota_hero_necrolyte"] = "Hans Christian Andersen",
     ["npc_dota_hero_sniper"] = "Robin Hood",
-    ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
+    ["npc_dota_hero_gyrocopter"] = "Nobunaga",
+    ["npc_dota_hero_terrorblade"] = "Saito Hajime",
+    ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
+	["npc_dota_hero_antimage"] = "Miyamoto Musashi",
 }
 
 

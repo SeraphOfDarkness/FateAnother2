@@ -149,13 +149,13 @@ LinkLuaModifier("modifier_saito_attributes", "abilities/saito/saito_abilities", 
 
 modifier_saito_attributes = modifier_saito_attributes or class({})
 
-function modifier_saito_attributes:IsHidden()                                                                       return true end
+function modifier_saito_attributes:IsHidden()                                                                       return false end
 function modifier_saito_attributes:IsDebuff()                                                                       return false end
 function modifier_saito_attributes:IsPurgable()                                                                     return false end
 function modifier_saito_attributes:IsPurgeException()                                                               return false end
 function modifier_saito_attributes:RemoveOnDeath()                                                                  return false end
 function modifier_saito_attributes:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
---function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 --MODIFIER_ATTRIBUTE_MULTIPLE Helps to make copies of modifiers on your hero, they are hidden but helpful, disabled for now as we handle all attributes with one modifier.
 --You can uncomment that and use these modifiers if you want to add simple properties with the declared functions, example of how to use is below.
 function modifier_saito_attributes:DeclareFunctions()
@@ -778,8 +778,10 @@ end
 -- end
 function saito_flashblade:OnSpellStart()
     local hCaster = self:GetCaster()
+    local nDuration = (self:GetAOERadius() / self:GetSpecialValueFor("speed")) + 0.1
 
-    hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = 10}) --Duration is basically unnecessary but adding 10 seconds if something breaks it ends after 10 seconds.
+    hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = nDuration}) --Fixed interactions with abilities that lock the hero's location, such as Aestus Domus Aurea and Unreturning Formation: Stone Sentinel Maze.
+    --hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = 10}) --Duration is basically unnecessary but adding 10 seconds if something breaks it ends after 10 seconds.
 
     local nTurnRateDuration = GetAttributeValue(hCaster, "saito_attribute_freedom", "q_turn_rate_duration", -1, 0)
     if nTurnRateDuration > 0 then
@@ -920,7 +922,7 @@ function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
                 bShouldDestroy = true
                 break
             else
-                GridNav:DestroyTreesAroundPoint(vNextStepPos, self.nImageRadius, false) --Just to look cool like a cut tree with a slash.
+                --GridNav:DestroyTreesAroundPoint(vNextStepPos, self.nImageRadius, false) --Just to look cool like a cut tree with a slash.
                 
                 if vNextStepDist >= ( self.nImageCreationDist + ( self.nImageCreationDist * self.nImagesCreated ) ) then
                     self.nImagesCreated = self.nImagesCreated + 1

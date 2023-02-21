@@ -1,5 +1,0 @@
-"Layer0"
-{
-	"Shader"		"global_lit_simple.vfx"
-	"TextureColor"		"materials/models\hanging/road_color.png"
-}
