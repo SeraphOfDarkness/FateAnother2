@@ -6,7 +6,7 @@
         "paths": 
         {
             "@libraries/*":["libraries/*"],
-            "@tslib/*":["tslib/*"]
+            "@libs/*":["libs/*"]
         },
         "target": "esnext",
         "lib": ["esnext"],
