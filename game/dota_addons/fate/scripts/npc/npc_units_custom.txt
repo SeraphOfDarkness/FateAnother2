@@ -6,6 +6,7 @@
 #base "units/robin/robin_units.kv"
 #base "units/scathach/scathach_units.kv"
 #base "units/bathory/bathory_unit.kv"
+#base "units/musashi/musashi_units.kv"
 
 // Units File
 "DOTAUnits"

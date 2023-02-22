@@ -21,7 +21,6 @@ require('libraries/animations')
 require('libraries/crowdcontrol')
 require('libraries/physics')
 require("libraries/attachments")
---require('libraries/vector_target')
 require('hero_selection')
 require('libraries/servantstats')
 require('libraries/alternateparticle')
@@ -32,6 +31,9 @@ require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
+require('libs/vector_targeting')
+require('libs/ascension')
+require('libs/better_cooldown')
 
 
 _G.IsPickPhase = true
@@ -274,7 +276,9 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_musashi.vsndevts", context)
+    
 
                         --============ Archer ==============--      
     PrecacheResource("soundfile", "soundevents/hero_chocolate.vsndevts", context)
@@ -333,8 +337,9 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_omniknight.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
-    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
+    
 
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
@@ -1468,6 +1473,16 @@ function FateGameMode:OnPlayerChat(keys)
                 serv:FindAbilityByName("alternative_0" .. tonumber(alterna)):SetLevel(1)
             end
         end
+    end
+
+    local ascension = string.match(text, "^-ascension")
+    if ascension ~= nil then
+        Ascension:Ascend(keys)
+    end
+
+    local undoascension = string.match(text, "^-undoascension")
+    if undoascension ~= nil then
+        Ascension:UndoAscension(keys)
     end
 
     if text == "-addbot" then 

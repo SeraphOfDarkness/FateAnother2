@@ -420,6 +420,16 @@ SaitoAttribute = {
 	"saito_style",
 	attrCount = 5
 }
+MusashiAttribute = 
+{
+	"musashi_attributes_battle_continuation",
+	"musashi_attributes_tenma_gogan",
+	"musashi_attributes_gorin_no_sho",
+	"musashi_attributes_mukyuu",
+	"musashi_attributes_niten_ichiryuu",
+	"musashi_ishana_daitenshou",
+	attrCount = 5
+}
 
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
@@ -971,6 +981,8 @@ function FindAttribute(name)
 		attributes = NobuAttribute
 	elseif name == "npc_dota_hero_terrorblade" then
 		attributes = SaitoAttribute
+	elseif name == "npc_dota_hero_antimage" then
+		attributes = MusashiAttribute
     end
    
     return attributes

@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "C:/Program Files (x86)/Steam/steamapps/common/dota 2 beta/game/dota_addons/fate/scripts/vscripts",
+        "baseUrl": ".",
+        "paths": 
+        {
+            "@libraries/*":["libraries/*"],
+            "@tslib/*":["tslib/*"]
+        },
+        "target": "esnext",
+        "lib": ["esnext"],
+        "types": ["@moddota/dota-lua-types/normalized"],
+        "plugins": [{ "transform": "@moddota/dota-lua-types/transformer" }],
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "strict": true,
+        "allowUnreachableCode" : false,
+        "allowUnusedLabels" : false,
+        "exactOptionalPropertyTypes" : true,
+        "noFallthroughCasesInSwitch" : true,
+        "noImplicitOverride" : true,
+        "noImplicitReturns" : true,
+        "noPropertyAccessFromIndexSignature" : true,
+        "noUncheckedIndexedAccess" : true,
+        "noUnusedParameters" : true,
+        "noUnusedLocals": false,
+    },
+    "tstl": {
+        "luaTarget": "JIT",
+        "sourceMapTraceback": false,
+    },
+    "include": ["**/*.ts", "../common/**/*.ts"]
+}

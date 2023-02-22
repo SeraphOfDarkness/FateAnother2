@@ -15,5 +15,7 @@
 	  "gsro",
 	  "parsy",
 	  "skinshops",
+	  "vector_targeting",
+	  "better_cooldowns_cdr",
   ]
 }
