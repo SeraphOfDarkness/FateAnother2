@@ -1008,7 +1008,7 @@ function OnGuerillaAcquired(keys)
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsGuerillaAcquired) then
 
 		if hero:HasModifier("modifier_combo_window") then
-			RemoveModifierByName("modifier_combo_window")
+			hero:RemoveModifierByName("modifier_combo_window")
 		end
 		
 		hero.IsGuerillaAcquired = true
@@ -1037,7 +1037,7 @@ function OnTaxineAcquired(keys)
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsTaxineAcquired) then
 
 		if hero:HasModifier("modifier_combo_window") then
-			RemoveModifierByName("modifier_combo_window")
+			hero:RemoveModifierByName("modifier_combo_window")
 		end
 
 		hero.IsTaxineAcquired = true

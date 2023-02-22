@@ -260,7 +260,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/misc_sound.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/event.vsndevts", context)
 
-                        --======= Skin Update ========--
+               --======= Skin Update ========--
     PrecacheResource("soundfile", "soundevents/hero_skin_update.vsndevts", context)
 
                         --======= BGM, Ally, Enemy ========--  
@@ -276,9 +276,8 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)    
     PrecacheResource("soundfile", "soundevents/hero_musashi.vsndevts", context)
-    
 
                         --============ Archer ==============--      
     PrecacheResource("soundfile", "soundevents/hero_chocolate.vsndevts", context)
@@ -322,7 +321,8 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_fran.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_lubu.vsndevts", context)
      
-                        --============ Extra ==============--                                        
+                        --============ Extra ==============--                                       
+    PrecacheResource("soundfile", "soundevents/hero_mashu.vsndevts", context)                    
     PrecacheResource("soundfile", "soundevents/hero_avenger.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_ruler.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_amakusa.vsndevts", context)
@@ -337,9 +337,8 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_omniknight.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
-	PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
-    
 
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
@@ -384,6 +383,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_zuus.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_axe.vsndevts", context )
                         --============ Extra ==============--           
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts", context )    
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_mirana.vsndevts", context )    
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_enigma.vsndevts", context )    
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_vengefulspirit.vsndevts", context )
@@ -419,8 +419,8 @@ function Precache( context , pc)
     PrecacheItemByNameSync("item_shard_of_replenishment", context)
     PrecacheItemByNameSync("item_drake_onboard", context)
     PrecacheItemByNameSync("item_padoru_hat", context)
-    PrecacheResourceModel( context )
-    PrecacheResourceParticle( context )
+    PrecacheResourceModel ( context )
+    PrecacheResourceParticle ( context )
 
        -- Master, Stash, and System stuffs
     --[[PrecacheResource("model", "models/shirou/shirou.vmdl", context)
@@ -3901,6 +3901,7 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("Condition", {dbhruntproh = false, female = 0, divine = 0})
     ServerTables:CreateTable("Win", {goal = 0})
     ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false})
+    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false})
     ServerTables:CreateTable("PEPE", {slayer = false, savior = false, pepe = false, total = 0, kill = 0})
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})

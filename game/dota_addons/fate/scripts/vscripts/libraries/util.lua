@@ -1,9 +1,10 @@
 -- where the misc functios gather
 heroList = LoadKeyValues("scripts/npc/herolist.txt")
 testList = LoadKeyValues("scripts/npc/herotest.txt")
-require("libraries.modifiers.modifier_ndm")
+require('libraries/modifiers/modifier_ndm')
 
 --"SpellDispellableType"   "SPELL_DISPELLABLE_YES"
+-- S, EX remove modifier
 softdispellable = {
     -- Buff
     "modifier_lancer_rune_of_combat",
@@ -74,7 +75,7 @@ softdispellable = {
     "modifier_nobu_innovation_ms",
     "modifier_nobu_slow",
 }
-
+-- Rule Breaker/ Gae Dearg remove modifier
 strongdispellable = {
     "modifier_kinghassan_eveningbell",
     "modifier_rho_aias",
@@ -136,7 +137,7 @@ strongdispellable = {
     "modifier_b_scroll",
 
 }
-
+-- 5th Seal remove
 cleansable = {
 
     -- Root, Lock, Stun, Silence, Disarm, Sleep
@@ -193,6 +194,7 @@ cleansable = {
     "modifier_agni_burn",
     "modifier_zhuge_liang_fire_arrow",
     "modifier_zhuge_liang_acid",
+    "modifier_semi_snek_poison",
 
     -- Debuffs  
     "modifier_armor_reduction",
@@ -493,6 +495,21 @@ donotlevel = {
     "edmond_avenger",
     "kinghassan_faith",
     "kinghassan_stack",
+    "hans_masterpiece_red_shoes",
+    "hans_masterpiece_snow_queen",
+    "hans_masterpiece_match_girl",
+    "hans_masterpiece_thumbelina",
+    "hans_masterpiece_red_shoes_upgrade",
+    "hans_masterpiece_snow_queen_upgrade",
+    "hans_masterpiece_match_girl_upgrade",
+    "hans_masterpiece_thumbelina_upgrade",
+    "robin_saboteur_pitfall",
+    "robin_saboteur_barrel",
+    "semiramis_presence_concealment",
+    "semiramis_snek_spit_poison",
+    "semiramis_poisonous_cloud",
+    "semiramis_poisonous_bite",
+    "semiramis_absolute_queen",
 }
 
 tModifierCooldown = {
@@ -569,6 +586,7 @@ tModifierCooldown = {
     "modifier_nobu_strategy_attribute_cooldown",
     "modifier_nobu_combo_cd",
     "modifier_saito_style_combo_indicator",
+    "modifier_mashu_combo_cooldown",
 }
 
 CannotReset = {
@@ -773,6 +791,7 @@ CannotReset = {
     "nobu_divinity_mark",
     "nobu_demon_king_open",
     "saito_style",
+    "mashu_combo",
 }
 
 femaleservant = {
@@ -795,6 +814,7 @@ femaleservant = {
     "npc_dota_hero_zuus",
     "npc_dota_hero_death_prophet",
     "npc_dota_hero_gyrocopter",
+    "npc_dota_hero_dragon_knight",
 }
 
 tSpellBookHero = {
@@ -835,6 +855,33 @@ tArrow = {
     "lubu_combo_god_force",
     "lubu_combo_god_force_upgrade",
     "robin_yew_bow",
+    "robin_yew_bow_taxine",
+    "robin_yew_bow_guerilla",
+    "robin_yew_bow_upgrade",
+}
+
+tPoison = {
+    "hassan_dirk",
+    "hassan_dirk_upgrade", 
+    "gilles_squidlordz_contaminate",
+    "robin_saboteur_poison_well",
+    "robin_roots",
+    "robin_roots_upgrade",
+    "robin_yew_bow",
+    "robin_yew_bow_taxine",
+    "robin_yew_bow_guerilla",
+    "robin_yew_bow_upgrade",
+    "robin_combo",
+    "robin_combo_upgrade",
+    "semiramis_snek_spit_poison",
+    "semiramis_snek_spit_poison_upgrade",
+    "semiramis_poisonous_cloud",
+    "semiramis_poisonous_cloud_upgrade",
+    "semiramis_poisonous_bite",
+    "semiramis_poisonous_bite_charm",
+    "semiramis_poisonous_bite_old",
+    "semiramis_poisonous_bite_upgrade",
+    "semiramis_hanging_garden_sikera_usum",
 }
 
 tWind = {
@@ -2123,6 +2170,38 @@ function IsInSameRealm(loc1, loc2)
     return true
 end
 
+function UpdateBarriorUI(caster, shieldBuff, shieldamount)
+    if caster.ShieldParticleIndex ~= nil then
+        -- Destroy previous
+        ParticleManager:DestroyParticle( caster.ShieldParticleIndex, true )
+        ParticleManager:ReleaseParticleIndex( caster.ShieldParticleIndex )
+    end
+    local shield_particle = "particles/custom/caster/caster_argos_durability.vpcf"
+    if shieldamount > 0 and caster:HasModifier( shieldBuff ) then
+        local digit = 0
+        if shieldamount > 999 then
+            digit = 4
+        elseif shieldamount > 99 then
+            digit = 3
+        elseif shieldamount > 9 then
+            digit = 2
+        else
+            digit = 1
+        end
+        
+        -- Create new one
+        caster.ShieldParticleIndex = ParticleManager:CreateParticle( shield_particle, PATTACH_CUSTOMORIGIN, caster )
+        ParticleManager:SetParticleControlEnt( caster.ShieldParticleIndex, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true )
+        ParticleManager:SetParticleControl( caster.ShieldParticleIndex, 1, Vector( 0, math.floor( shieldamount ), 0 ) )
+        ParticleManager:SetParticleControl( caster.ShieldParticleIndex, 2, Vector( 1, digit, 0 ) )
+        ParticleManager:SetParticleControl( caster.ShieldParticleIndex, 3, Vector( 100, 100, 255 ) )
+    else
+        caster:RemoveModifierByName(shieldBuff)
+        ParticleManager:DestroyParticle( caster.ShieldParticleIndex, true )
+        ParticleManager:ReleaseParticleIndex( caster.ShieldParticleIndex )
+    end
+end
+
 function SendErrorMessage(playerID, string)
    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "error_message_fired", {message=string}) 
 end
@@ -2295,6 +2374,16 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             dmg = math.max(0, dmg - block)
         end
 
+        if target:HasModifier("modifier_semiramis_poisonous_cloud_amp") and IsPoisonAbility(abil) and abil:GetAbilityName() ~= "semiramis_poisonous_cloud_upgrade" then 
+            local semiramis = Entities:FindByClassname(nil, "npc_dota_hero_phantom_assassin")
+            local poison_aura = semiramis:FindAbilityByName("semiramis_poisonous_cloud_upgrade")
+            local bonus_poison = poison_aura:GetSpecialValueFor("bonus_poison") / 100
+            dmg = dmg + (dmg * bonus_poison)
+        end
+
+        if IsPoisonAbility(abil) and IsPoisonImmune(target) and abil:GetAbilityName() ~= "semiramis_poisonous_bite_charm" and abil:GetAbilityName() ~= "semiramis_poisonous_bite_upgrade" then 
+            dmg = 0
+        end
         --[[if (abil:GetAbilityName() == "karna_combo_vasavi" 
             or abil:GetAbilityName() == "karna_vasavi_shakti")
             and source.IndraAttribute then
@@ -2466,6 +2555,28 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             dmg = 0
             IsAbsorbed = true
         end
+    end
+
+    -- check if target has Semi shield
+    if not IsAbsorbed and target:HasModifier("modifier_semiramis_shield") then
+        local reduction = 0
+        if dmg_type == DAMAGE_TYPE_PHYSICAL then
+            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
+            reduction = target:GetMagicalArmorValue() 
+        end 
+        local originalDamage = dmg - target.SemiShieldAmount * 1/(1-reduction)
+        target.SemiShieldAmount = target.SemiShieldAmount - dmg * (1-reduction)
+        UpdateBarriorUI(target, "modifier_semiramis_shield", target.SemiShieldAmount)
+        if target.SemiShieldAmount <= 0 then
+            dmg = originalDamage
+            target:RemoveModifierByName("modifier_semiramis_shield") 
+            target.SemiShieldAmount = 0
+        else
+            dmg = 0
+            IsAbsorbed = true
+        end
+        
     end
 
     -- check if target has Seigan Shield
@@ -3446,7 +3557,7 @@ local heroNames = {
     ["npc_dota_hero_gyrocopter"] = "Nobunaga",
     ["npc_dota_hero_terrorblade"] = "Saito Hajime",
     ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
-	["npc_dota_hero_antimage"] = "Miyamoto Musashi",
+    ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
 }
 
 
@@ -3949,6 +4060,16 @@ end
 function IsArrowAbility(ability)
     for i = 1, #tArrow do
         if ability:GetAbilityName() == tArrow[i] then
+            return true
+        end
+    end
+    
+    return false
+end
+
+function IsPoisonAbility(ability)
+    for i = 1, #tPoison do
+        if ability:GetAbilityName() == tPoison[i] then
             return true
         end
     end

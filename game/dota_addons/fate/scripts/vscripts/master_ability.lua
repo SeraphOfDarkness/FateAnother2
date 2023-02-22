@@ -430,6 +430,14 @@ MusashiAttribute =
 	"musashi_ishana_daitenshou",
 	attrCount = 5
 }
+MashuAttribute = {
+	"mashu_attribute_barrel",
+	"mashu_attribute_shield",
+	"mashu_attribute_chalk",
+	"mashu_attribute_amalgam",
+	"mashu_combo",
+	attrCount = 4
+}
 
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
@@ -983,6 +991,8 @@ function FindAttribute(name)
 		attributes = SaitoAttribute
 	elseif name == "npc_dota_hero_antimage" then
 		attributes = MusashiAttribute
+	elseif name == "npc_dota_hero_dragon_knight" then
+		attributes = MashuAttribute
     end
    
     return attributes
