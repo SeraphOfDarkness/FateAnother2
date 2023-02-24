@@ -34,6 +34,7 @@ function DraftSelectioN:constructor()
 	self.RedTeam = {}
 	self.BlackTeam = {}
 	self.AvailableSkins = {}
+	self.HiddenHero = LoadKeyValues("scripts/npc/hero_hidden.txt")
 	local heroList = LoadKeyValues("scripts/npc/herolist.txt")
     local heroList2 = LoadKeyValues("scripts/npc/herolist.txt")
     local testList = LoadKeyValues("scripts/npc/herotest.txt")
@@ -138,6 +139,10 @@ function DraftSelectioN:constructor()
 					self.PAuthority[i] = new_lvl
 					CustomNetTables:SetTableValue("draft", "authority", self.PAuthority)
 				end
+			end
+
+			if ServerTables:GetTableValue("Dev", "sss") == true and self.PAuthority[i] == 5 then 
+				CustomNetTables:SetTableValue("draft", "hidden", self.HiddenHero)
 			end
 		end
 	end
@@ -545,26 +550,38 @@ function DraftSelectioN:OnSelect(args)
 	   	return 
 	end
 
-	if self.AvailableHeroes[hero] == nil then 
-		return 
+	if self.HiddenHero[hero] == 1 then 
+		self.Picked[playerId] = hero
+		self.PickedPlayer[playerId] = playerId
+   		self.SkinSelect[hero] = 0
+   		self.HiddenHero[hero] = 0
+
+   		CustomNetTables:SetTableValue("draft", "skinselect", self.SkinSelect)
+    	CustomNetTables:SetTableValue("draft", "picked", self.Picked)
+    	CustomNetTables:SetTableValue("draft", "pickedplayer", self.PickedPlayer)
+    	CustomNetTables:SetTableValue("draft", "hidden", self.HiddenHero)
+    else
+		if self.AvailableHeroes[hero] == nil then 
+			return 
+		end
+
+		if self.Draft.GamePhase == "blank" then 
+	    	print('blank state')
+	    	return 
+	    end
+
+		self.Picked[playerId] = hero
+		self.PickedPlayer[playerId] = playerId
+	    self.AvailableHeroes[hero] = nil
+	    self.SkinSelect[hero] = 0
+
+	    print('servant ' .. hero .. ' has been picked')
+
+	    CustomNetTables:SetTableValue("draft", "skinselect", self.SkinSelect)
+	    CustomNetTables:SetTableValue("draft", "picked", self.Picked)
+	    CustomNetTables:SetTableValue("draft", "available", self.AvailableHeroes)
+	    CustomNetTables:SetTableValue("draft", "pickedplayer", self.PickedPlayer)
 	end
-
-	if self.Draft.GamePhase == "blank" then 
-    	print('blank state')
-    	return 
-    end
-
-	self.Picked[playerId] = hero
-	self.PickedPlayer[playerId] = playerId
-    self.AvailableHeroes[hero] = nil
-    self.SkinSelect[hero] = 0
-
-    print('servant ' .. hero .. ' has been picked')
-
-    CustomNetTables:SetTableValue("draft", "skinselect", self.SkinSelect)
-    CustomNetTables:SetTableValue("draft", "picked", self.Picked)
-    CustomNetTables:SetTableValue("draft", "available", self.AvailableHeroes)
-    CustomNetTables:SetTableValue("draft", "pickedplayer", self.PickedPlayer)
 
     self:NextSelect()
 end
@@ -853,6 +870,9 @@ function DraftSelectioN:AssignHero(playerId, hero, skin)
 				if skin > 0 then 
 					newHero:AddAbility("alternative_0" .. skin)
 					newHero:FindAbilityByName("alternative_0" .. skin):SetLevel(1)
+				end
+				if newHero:GetName() == "npc_dota_hero_antimage" and ServerTables:GetTableValue("Dev", "sss") == true and tostring(PlayerResource:GetSteamAccountID(playerId)) == "301222766" then 
+					newHero:AddAbility("ascension_skill")
 				end
 				return nil 
 			else 
