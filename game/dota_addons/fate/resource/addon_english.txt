@@ -14065,7 +14065,7 @@
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"Strategy cooldown"
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
 
-		//=======================================================================================================
+				//=======================================================================================================
 		//	Saitō Hajime
 		//=======================================================================================================
 
@@ -14088,6 +14088,7 @@
 		"DOTA_Tooltip_ability_saito_flashblade"														"<font color='#58ACFA'>Flashblade</font>"
 		"DOTA_Tooltip_ability_saito_flashblade_Description"											"Saitō lunges forward at the target point, creating afterimages every %image_creation_dist% units moved. Afterimage deals damage to nearby enemies, and roots them for %image_root_duration% seconds.\nLinked in level with <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>.\nThis ability's distance and damage will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_flashblade_Lore"												"Staggering blow that sets the air aflame."
+		"DOTA_Tooltip_ability_saito_flashblade_abilitycastpoint"									"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_flashblade_distance"											"DISTANCE:"
 		"DOTA_Tooltip_ability_saito_flashblade_speed"												"SPEED:"
 		//"DOTA_Tooltip_ability_saito_flashblade_image_root_duration"								""
@@ -14098,26 +14099,28 @@
 		//"DOTA_Tooltip_ability_saito_flashblade_repeat_halver_count_need"							""
 		"DOTA_Tooltip_ability_saito_flashblade_combo_cooldown"										"COMBO COOLDOWN:"
 
-		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate"											"Flashblade"
+		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate"											"Flashblade Turn Rate"
 		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate_Description"								"Base turn rate increased to %dMODIFIER_PROPERTY_TURN_RATE_OVERRIDE%."
 
 		//Steelwing
 		"DOTA_Tooltip_ability_saito_steelwing"														"<font color='#58ACFA'>Steelwing</font>"
 		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance, dealing damage and stunning them.\nLinked in level with <font color='#58ACFA'>Flashblade</font> and <font color='#58ACFA'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"Slamming hard-edged wings of a bird taking flight."
+		"DOTA_Tooltip_ability_saito_steelwing_abilitycastpoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_steelwing_radius"												"RADIUS:"
 		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"STUN DURATION:"
 		"DOTA_Tooltip_ability_saito_steelwing_damage"												"DAMAGE:"
 		//"DOTA_Tooltip_ability_saito_steelwing_repeat_halver_count_need"							""
 		"DOTA_Tooltip_ability_saito_steelwing_combo_cooldown"										"COMBO COOLDOWN:"
 
-		"DOTA_Tooltip_modifier_saito_steelwing_mss"													"Steelwing"
+		"DOTA_Tooltip_modifier_saito_steelwing_mss"													"Steelwing Move Slow"
 		"DOTA_Tooltip_modifier_saito_steelwing_mss_Description"										"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		//Shadowslash
 		"DOTA_Tooltip_ability_saito_shadowslash"													"<font color='#58ACFA'>Shadowslash</font>"
 		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, stunning and dealing %burst_damage_pct%%% of this ability's damage to all enemies within a %burst_radius% units around the hit targets.\nLinked in level with <font color='#58ACFA'>Flashblade</font> and <font color='#58ACFA'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"Light-speed assault invisible to the naked eye."
+		"DOTA_Tooltip_ability_saito_shadowslash_abilitycastpoint"									"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"PULL RADIUS:"
 		"DOTA_Tooltip_ability_saito_shadowslash_pull_damage"										"INITIAL DAMAGE:"
 		//"DOTA_Tooltip_ability_saito_shadowslash_burst_radius"										""
@@ -14127,13 +14130,15 @@
 		//"DOTA_Tooltip_ability_saito_shadowslash_repeat_halver_count_need"							""
 		"DOTA_Tooltip_ability_saito_shadowslash_combo_cooldown"										"COMBO COOLDOWN:"
 
-		"DOTA_Tooltip_modifier_saito_shadowslash_mrr"												"Shadowslash"
+		"DOTA_Tooltip_modifier_saito_shadowslash_mrr"												"Shadowslash Magic Resist Reduction"
 		"DOTA_Tooltip_modifier_saito_shadowslash_mrr_Description"									"Magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 		//Mind's Eye (True)
 		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>Mind's Eye (True)</font>"
-		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be stunned and silenced every %silence_cooldown% seconds when they cast a spell. Also, grants both of them bonus max health and increased health regen.\nSaitō can self-cast Mind’s Eye (True) to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Memoir</font>."
+		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be stunned and silenced every %silence_cooldown% seconds when they cast a spell. Also, grants both of them bonus max health and increased health regen.\nSaitō can self-cast <font color='#58ACFA'>Mind’s Eye (True)</font> to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Memoir</font>."
 		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"Even the fiercely loyal Hijikata says that Saitō’s loyalty to the Shinsengumi is second-to-none and knows that he would never betray the Shinsengumi in any capacity."
+		"DOTA_Tooltip_ability_saito_mind_eye_Note0"													"Dispelled by <font color='#58ACFA'>Gáe Dearg</font> and <font color='#58ACFA'>Rule Breaker</font>."
+		"DOTA_Tooltip_ability_saito_mind_eye_abilitycastpoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_mind_eye_proc_radius"											"PROC RADIUS:"
 		"DOTA_Tooltip_ability_saito_mind_eye_duration"												"DURATION:"
 		//"DOTA_Tooltip_ability_saito_mind_eye_silence_cooldown"									""
@@ -14144,13 +14149,13 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye_active"												"Mind's Eye (True)"
 		"DOTA_Tooltip_modifier_saito_mind_eye_active_Description"									"Enemies nearby will be silenced whenever they cast a spell."
 
-		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"Mind's Eye (True)"
+		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"Mind's Eye (True) Immunity"
 		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval_Description"								"Immunity from Mind's Eye (True) stun and silence."
 
 		"DOTA_Tooltip_modifier_saito_mind_eye_shell"												"Cicada Shell"
 		"DOTA_Tooltip_modifier_saito_mind_eye_shell_Description"									"Taking less damage."
 
-		"DOTA_Tooltip_modifier_saito_mind_eye_linken"												"Cicada Shell"
+		"DOTA_Tooltip_modifier_saito_mind_eye_linken"												"Cicada Shell Spell Block"
 		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"The next targeted spell will be blocked."
 
 		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"Snarksengumi"
@@ -14160,6 +14165,7 @@
 		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>Freely Drawn Sword</font>"
 		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#58ACFA'>PASSIVE</font>: <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times, and has a scaling %locker_time% cooldown before the next use that scales with each use by %locker_increaser% seconds.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#58ACFA'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less magical damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Freestyle</font>."
 		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
+		"DOTA_Tooltip_ability_saito_fds_abilitycastpoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
 		//"DOTA_Tooltip_ability_saito_fds_check_interval"											""
 		//"DOTA_Tooltip_ability_saito_fds_check_decreaser"											""
@@ -14179,16 +14185,17 @@
 		"DOTA_Tooltip_modifier_saito_fds_active"													"Freely Drawn Sword"
 		"DOTA_Tooltip_modifier_saito_fds_active_Description"										"If you have time to think, you have time to slice."
 
-		"DOTA_Tooltip_modifier_saito_fds_aura_sdr"													"Freely Drawn Sword"
+		"DOTA_Tooltip_modifier_saito_fds_aura_sdr"													"Freely Drawn Sword Aura"
 		"DOTA_Tooltip_modifier_saito_fds_aura_sdr_Description"										"Reducing Magical Damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
-		"DOTA_Tooltip_modifier_saito_fds_active_sdr"												"Freely Drawn Sword"
+		"DOTA_Tooltip_modifier_saito_fds_active_sdr"												"Freely Drawn Sword Damage Loss"
 		"DOTA_Tooltip_modifier_saito_fds_active_sdr_Description"									"Reducing Magical Damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		//Formless
 		"DOTA_Tooltip_ability_saito_formless_invis"													"<font color='#58ACFA'>Formless</font>"
 		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"Turns Saitō invisible and grants bonus movement speed. If Saitō is revealed, invisibility will restore after the fade delay as long as <font color='#58ACFA'>Formless</font>’s duration has not expired.\nUpon cast, this ability is replaced by <font color='#58ACFA'>Formlessness</font>, while under the effects of <font color='#58ACFA'>Formless</font>.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"Saitō approaches the target in a unique way, different than rushing in with pure speed, and his moves distort the target’s perception of time and distance."
+		"DOTA_Tooltip_ability_saito_formless_invis_abilitycastpoint"								"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"DURATION:"
 		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%MOVEMENT SPEED"
 		"DOTA_Tooltip_ability_saito_formless_invis_fade_delay"										"FADE DELAY:"
@@ -14200,6 +14207,7 @@
 		"DOTA_Tooltip_ability_saito_formless_slash"													"<font color='#58ACFA'>Formlessness</font>"
 		"DOTA_Tooltip_ability_saito_formless_slash_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Allows Saitō to cast this ability up to %max_slashes% times. The first slashes are a double slash, dealing damage and dimensionally locking the target for %lock_duration% seconds. Last slash deals more damage and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#58ACFA'>Formless</font> early.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
+		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastpoint"								"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_formless_slash_max_slashes"									""
 		//"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
 		//"DOTA_Tooltip_ability_saito_formless_slash_lock_duration"									""
@@ -14215,6 +14223,8 @@
 		"DOTA_Tooltip_ability_saito_step"															"<font color='#FFB266'>Tetra-Step</font>"
 		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_step_Lore"														"To be formless is to be unmoving."
+		"DOTA_Tooltip_ability_saito_step_Note0"														"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
+		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_step_max_distance"												"RANGE:"
 		//"DOTA_Tooltip_ability_saito_step_min_distance"											""
 		//"DOTA_Tooltip_ability_saito_step_radius"													""
@@ -14225,6 +14235,7 @@
 		"DOTA_Tooltip_ability_saito_storm"															"<font color='#FFB266'>Shieldbreaker</font>"
 		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_storm_Lore"														"A special left-handed thrust variant of the Shinsengumi’s Hirazuki method."
+		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_storm_duration"												""
 		//"DOTA_Tooltip_ability_saito_storm_fly_duration"											""
 		//"DOTA_Tooltip_ability_saito_storm_stun_duration"											""
@@ -14235,7 +14246,9 @@
 		//Blade Vortex
 		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#FFB266'>Blade Vortex</font>"
 		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
-		"DOTA_Tooltip_ability_saito_vortex_Lore"													"To flow is to be limitless."
+		"DOTA_Tooltip_ability_saito_vortex_Lore"													"Wha~at, this way is just more interesting to me."
+		"DOTA_Tooltip_ability_saito_vortex_Note0"													"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
+		"DOTA_Tooltip_ability_saito_vortex_abilitycastpoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
 		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"SLASH RADIUS"
 		"DOTA_Tooltip_ability_saito_vortex_slash_last_radius"										"LASH SLASH RADIUS:"
@@ -14251,19 +14264,20 @@
 		"DOTA_Tooltip_modifier_saito_vortex_slashing"												"Blade Vortex"
 		"DOTA_Tooltip_modifier_saito_vortex_slashing_Description"									"Slashing nearby enemies."
 
-		"DOTA_Tooltip_modifier_saito_vortex_pull"													"Blade Vortex"
+		"DOTA_Tooltip_modifier_saito_vortex_pull"													"Blade Vortex Pull"
 		"DOTA_Tooltip_modifier_saito_vortex_pull_Description"										"Pulled."
 
 		///COMBO///
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>Combo: Undefeatable Style</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>Combo Requirements: Have 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels mind and spirit through the blades to inflict pain at the enemy’s very core, granting a chance to apply silence and dealing bonus damage on any damage dealt by Saitō’s attacks or abilities. For the duration of this ability, blocks most targeted spells and doubles the health and mana gain of <font color='#58ACFA'>Freely Drawn Sword</font>. The cast points of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> are replaced with a fixed delay and cannot be interrupted, also reduces their cooldown for duration."
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels mind and spirit through the blades to inflict pain at the enemy’s very core, granting a chance to apply silence and dealing bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of <font color='#58ACFA'>Freely Drawn Sword</font>.\nThe cast points of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> are replaced with a fixed delay and cannot be interrupted, also reduces their cooldown for duration."
 		"DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
+		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
 		"DOTA_Tooltip_ability_saito_style_silence_chance"											"%PROC CHANCE:"
 		"DOTA_Tooltip_ability_saito_style_silence_duration"											"SILENCE DURATION:"
-		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%CURRENT HEALTH AS DAMAGE"
+		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%MAX HEALTH DAMAGE"
 		//"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""
 		"DOTA_Tooltip_ability_saito_style_activation_steps_duration"								"ACTIVATION STEP DURATION:"
 		"DOTA_Tooltip_ability_saito_style_activation_duration"										"ACTIVATION DURATION:"
@@ -14297,14 +14311,14 @@
 
 		//Invincible Sword
 		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9FFFCC'>Attribute: Invincible Sword</font>"
-		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating a combination with the sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font>, and <font color='#58ACFA'>Shadowslash</font> in the interval, enabling <font color='#FFB266'>Tetra-Step</font>, <font color='#FFB266'>Shieldbreaker</font> and <font color='#FFB266'>Blade Vortex</font> for a short duration.\n<font color='#FFB266'>Tetra-Step</font>: teleports to the target location, dealing damage and stunning enemies.\n<font color='#FFB266'>Shieldbreaker</font>: thrusts blade forward at the target enemy, creating a beam that travels a certain range and stuns the primary target.\n<font color='#FFB266'>Blade Vortex</font>: slashes the surrounding area with the sword several times, each slash damaging nearby enemies, pulling them towards and mini-stunning them repeatedly.\n<font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
+		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating combination with sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font>, and <font color='#58ACFA'>Shadowslash</font> in the interval, enabling <font color='#FFB266'>Tetra-Step</font>, <font color='#FFB266'>Shieldbreaker</font> and <font color='#FFB266'>Blade Vortex</font> for a short duration.\n<font color='#FFB266'>Tetra-Step</font>: teleports to the target location, dealing damage and stunning enemies.\n<font color='#FFB266'>Shieldbreaker</font>: thrusts blade forward at the target enemy, creating a beam that travels a certain range and stuns the primary target.\n<font color='#FFB266'>Blade Vortex</font>: slashes the surrounding area with the sword several times, each slash damaging nearby enemies, pulling them towards and mini-stunning them repeatedly.\n<font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
 		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"This phrase describes Saitō’s extraordinary swordsmanship, said to be one of the finest in the Shinsengumi."
 		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"BONUS DAMAGE PER LEVEL:"
 		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"ENABLE DURATION:"
 
 		//Memoir
 		"DOTA_Tooltip_ability_saito_attribute_memoir"												"<font color='#9FFFCC'>Attribute: Memoir</font>"
-		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#58ACFA'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFFF28'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFFF28'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFFF28'>Snarksengumi</font>.\n<font color='#FFFF28'>Snarksengumi</font>: When used on Okita Souji, Mind’s Eye (True) has a %me_okita_chance%%% chance to refresh all of her refreshable abilities and permanently increase her agility by %me_okita_agility%."
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#58ACFA'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFFF28'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFFF28'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFFF28'>Snarksengumi</font>.\n<font color='#FFFF28'>Snarksengumi</font>: When used on Okita Souji, <font color='#58ACFA'>Mind’s Eye (True)</font> has a %me_okita_chance%%% chance to refresh all of her refreshable abilities and permanently increase her agility by %me_okita_agility%."
 		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"The lone Shinsengumi who fought through the turbulent age of the Bakumatsu and survived. No one knows about his true thoughts."
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_duration"							""
@@ -14364,8 +14378,212 @@
 		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_agi"									"AGI Per LVL:"
 		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_int"									"INT Per LVL:"
 
+		//====================================
+        //      Mashu
         //====================================
-        //      Archer(Extra)
+        "npc_dota_hero_dragon_knight"             "Mashu Kyrielight"
+        "npc_dota_hero_dragon_knight_summon"		"Servant <font color='#58ACFA'>Mashu Kyrielight</font> has been summoned."
+        "npc_dota_hero_dragon_knight_combo"	"Enable Combo: Fortress of the Distant Utopia - Lord Camelot"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt"			"<font color='#FFFFFF'>Bunker Bolt</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Description"		"Dash forward, when blocked by an enemy unit stops immediately. Dealing damage, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>slowing</font> all nearby enemies. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Black Barrel</font>."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_range"			"DASH RANGE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_aoe"			"DAMAGE AOE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_dash_duration"			"DASH DURATION:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_damage"			"DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_duration"			"SLOW DURATION:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_amount"			"%SLOW:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_stun_duration"			"STUN:"
+
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt_upgrade"			"<font color='#9FFFCC'>Bunker Bolt</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Description"		"Dash forward, when blocked by an enemy unit stops immediately. Dealing damage based on her <font color='#FF0000'>STR</font>, <font color='#FF3399'>stunning</font>, reducing magic resistance and <font color='#FF3399'>slowing</font> all nearby enemies."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_range"			"DASH RANGE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_aoe"			"DAMAGE AOE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_dash_duration"			"DASH DURATION:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage"			"DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage_per_strength"			"BONUS DAMAGE PER STR:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_duration"			"SLOW DURATION:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_amount"			"%SLOW:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_stun_duration"			"STUN:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_mr_penalty"			"%MR REDUCTION:"
+
+        "DOTA_Tooltip_Ability_mashu_protect"			"<font color='#FFFFFF'>Protect / Parry</font>"
+        "DOTA_Tooltip_ability_mashu_protect_Description"		"Mashu prepares to protect / parry an attack reducing next damage taken greatly. When used on an ally, she will prepare to protect. When used on herself, she will prepare to parry. On successful protect/parry greatly reduce cooldown restore half mana cost and deal area damage. If a protected ally moves too far from Mashu, this effect will be lost. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Shield of Faith</font>."
+        "DOTA_Tooltip_ability_mashu_protect_cast_range"			"CAST RANGE:"
+        "DOTA_Tooltip_ability_mashu_protect_damage_reduce"			"%DAMAGE REDUCED:"
+        "DOTA_Tooltip_ability_mashu_protect_max_range"			"MAX RANGE:"
+        "DOTA_Tooltip_ability_mashu_protect_red_cooldown"			"SUCCESSFUL PARRY CD REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_protect_damage"			"PARRY DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_protect_aoe"			"DAMAGE AOE:"
+        "DOTA_Tooltip_ability_mashu_protect_parry_duration"			"PARRY DURATION:"
+        "DOTA_Tooltip_ability_mashu_protect_protect_duration"			"PROTECT DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_protect_upgrade"			"<font color='#9FFFCC'>Protect / Parry</font>"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_Description"		"Mashu prepares to protect / parry an attack reducing next damage taken greatly. When used on an ally, she will prepare to protect. When used on herself, she will prepare to parry. On successful protect/parry greatly reduce cooldown restore half mana cost, deals area damage and becoming invulnerable. If a protected ally moves too far from Mashu, this effect will be lost."
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_cast_range"			"CAST RANGE:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage_reduce"			"%DAMAGE REDUCED:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_max_range"			"MAX RANGE:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_red_cooldown"			"SUCCESSFUL PARRY CD REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage"			"PARRY DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_aoe"			"DAMAGE AOE:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_parry_duration"			"PARRY DURATION:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_protect_duration"			"PROTECT DURATION:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_invul"			"INVUL DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_taunt"			"<font color='#FFFFFF'>Shield of Rousing Heroism</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_Description"		"Mashu channels and takes a defensive stance becoming <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> for a while, then gains <font color='#FFFF28'>Heroism</font> and forces all nearby enemies to attack her. \n<font color='#FFFF28'>Heroism</font>: Recieve reduced damage. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Obscurant Wall of Chalk</font>."
+        "DOTA_Tooltip_ability_mashu_taunt_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_taunt_channel_time"			"CHANNEL TIME:"
+        "DOTA_Tooltip_ability_mashu_taunt_buff_duration"			"HEROISM DURATION:"
+        "DOTA_Tooltip_ability_mashu_taunt_damage_reduction"			"%HEROISM DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_taunt_radius"			"RADIUS:"
+        "DOTA_Tooltip_ability_mashu_taunt_taunt_duration"			"TAUNT DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_taunt_upgrade"			"<font color='#9FFFCC'>Shield of Rousing Heroism</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_Description"		"Mashu channels and takes a defensive stance becoming <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> for a while, then gains <font color='#FFFF28'>Heroism</font>, dealing damage based on her max health and forces all nearby enemies to attack her. \n<font color='#FFFF28'>Heroism</font>: Recieve reduced damage."
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_channel_time"			"CHANNEL TIME:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_buff_duration"			"HEROISM DURATION:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_reduction"			"%HEROISM DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_from_max_health"			"MAX HEALTH DAMAGE MULTIPLIER:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_radius"			"RADIUS:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_taunt_duration"			"TAUNT DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_snowflake"			"<font color='#FFFFFF'>Transient Wall of Snowflakes</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_Description"		"<font color='#58ACFA'>PASSIVE</font>: Mashu recieve reduced damage from all sources and bonus health regen. \n<font color='#58ACFA'>ACTIVE</font>: Mashu channels and takes a defensive stance becoming <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> for a while, then gains <font color='#FFFF28'>Transient Wall of Snowflakes</font> and healing all nearby allies. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: Gain armor, magic resistance, health regeneration, and bonus strength. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Obscurant Wall of Chalk</font>."
+        "DOTA_Tooltip_ability_mashu_snowflake_damage_reduction_passive"		"PASSSIVE DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_passive"	"PASSIVE HEALTH REGEN:"
+        "DOTA_Tooltip_ability_mashu_snowflake_channel_time"		"CHANNEL TIME:"
+        "DOTA_Tooltip_ability_mashu_snowflake_cast_delay"		"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_snowflake_radius"		"RADIUS:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_instant_heal"		"ACTIVE INSTANT HEAL:"
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_active"		"ACTIVE HEALTH REGEN:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_magic_res"		"%ACTIVE MAGIC RESIST:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_active_arm"		"ACTIVE ARMOR BONUS:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_bonus_strength"		"ACTIVE BONUS STR:"
+        "DOTA_Tooltip_ability_mashu_snowflake_buff_duration"	"BUFF DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_snowflake_upgrade"			"<font color='#9FFFCC'>Transient Wall of Snowflakes</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_Description"		"<font color='#58ACFA'>PASSIVE</font>: Mashu recieve reduced damage from all sources and bonus health regen. \n<font color='#58ACFA'>ACTIVE</font>: Mashu channels and takes a defensive stance becoming invulnerable, <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> for a while, then gains <font color='#FFFF28'>Transient Wall of Snowflakes</font> and healing all nearby allies. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: Gain armor, magic resistance, health regeneration, and bonus strength."
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_damage_reduction_passive"		"PASSSIVE DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_passive"	"PASSIVE HEALTH REGEN:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_channel_time"		"CHANNEL TIME:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_cast_delay"		"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_invul"		"INVUL DURATION:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_radius"		"RADIUS:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_instant_heal"		"ACTIVE INSTANT HEAL:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_active"		"ACTIVE HEALTH REGEN:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_magic_res"		"%ACTIVE MAGIC RESIST:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_active_arm"		"ACTIVE ARMOR BONUS:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_bonus_strength"		"ACTIVE BONUS STR:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_buff_duration"	"BUFF DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_punishment"			"<font color='#FFFFFF'>EX : Punishment</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_Description"		"Mashu throws her shield in the targeted direction, when it hits an enemy she'll jump to the target dealing damage while <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> both the target and herself for a while. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Black Barrel</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_cast_delay"		"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_punishment_throw_length"		"THROW RANGE:"
+        "DOTA_Tooltip_ability_mashu_punishment_projectile_speed"		"PROJECTILE SPEED:"
+        "DOTA_Tooltip_ability_mashu_punishment_width"		"SHIELD WIDTH:"
+        "DOTA_Tooltip_ability_mashu_punishment_damage"		"DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_punishment_stun_revoke"		"STUN REVOKE DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_punishment_upgrade"			"<font color='#9FFFCC'>EX : Punishment</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Description"		"Mashu throws her shield in the targeted direction, when it hits an enemy she'll jump to the target dealing damage based on her <font color='#FF0000'>STR</font> while <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> both the target and herself for a while."
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_cast_delay"		"CAST DELAY:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_throw_length"		"THROW RANGE:"
+        "DOTA_Tooltip_ability_mashu_punishmen_upgrade_projectile_speed"		"PROJECTILE SPEED:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_width"		"SHIELD WIDTH:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage"		"DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage_per_strength"		"BONUS DAMAGE PER STR:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_stun_revoke"		"STUN REVOKE DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_combo"			"<font color='#9FFFCC'>Fortress of the Distant Utopia - Lord Camelot</font>"
+        "DOTA_Tooltip_ability_mashu_combo_Description"		"Mashu channels and takes a defensive stance taking greatly reduced damage for a few seconds. After channeling all friendly heroes in the map will be instantly healed and recieve <font color='#9FFFCC'>Lord Camelot Buff</font>. \n<font color='#9FFFCC'>Lord Camelot Buff</font>: Recieved reduced damage, gain health regeneration, bonus max health and damage barrier."
+        "DOTA_Tooltip_ability_mashu_combo_Lore"		"Global skill, affects all friendly hero."
+        "DOTA_Tooltip_ability_mashu_combo_channel_time"		"CHANNEL TIME:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction_chanting"		"%DAMAGE REDUCTION WHILE CHANNELING:"
+        "DOTA_Tooltip_ability_mashu_combo_buff_duration"		"BUFF DURATION:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction"		"%DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_mashu_combo_health_regen"		"HEALTH REGEN:"
+        "DOTA_Tooltip_ability_mashu_combo_bonus_max_health"		"BONUS MAX HEALTH:"
+        "DOTA_Tooltip_ability_mashu_combo_active_instant_heal"		"ACTIVE INSTANT HEAL:"
+        "DOTA_Tooltip_ability_mashu_combo_barrier_amount"		"BARRIER AMOUNT:"
+
+        ////////////////// ATTRIBUTE ///////////////////
+      
+        "DOTA_Tooltip_Ability_mashu_attribute_barrel"			"<font color='#9FFFCC'>Attribute: Black Barrel</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_Description"		"<font color='#58ACFA'>Bunker Bolt</font>: Increases damage based on <font color='#FF0000'>STR</font>, increased stun duration and now decrease enemy magic resistance. \n<font color='#58ACFA'>EX : Punishment</font>: Increases base damage, increase damage based on <font color='#FF0000'>STR</font>."
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_mr_penalty"			"%MAGIC RESIST PENALTY:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strengtho"			"BUNKER BOLT DAMAGE PER STR:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_stun"			"BUNKER BOLT STUN:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_damage"			"EX : PUNISHMENT BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strength"			"EX : PUNISHMENT BONUS DAMAGE PER STR:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_shield"			"<font color='#9FFFCC'>Attribute: Shield of Faith</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_Description"		"<font color='#58ACFA'>Protect / Parry</font>: Extra bonus cast range, duration, and gains invulnerability."
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_range"			"BONUS CAST AND PROTECT RANGE:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_protect_duration"		"EXTRA PROTECT DURATION:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_parry_duration"			"EXTRA PARRY DURATION:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_invul_duration"			"INVUL DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_chalk"			"<font color='#9FFFCC'>Attribute: Obscurant Wall of Chalk</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"		"<font color='#58ACFA'>Transient Wall of Snowflakes</font>: Gains invulnerability after cast, and can be cast while stunned."
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_invul_duration"			"INVUL DURATION:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_amalgam"			"<font color='#9FFFCC'>Attribute: Amalgam Goad</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_Description"		"<font color='#58ACFA'>Shield of Rousing Heroism</font>: Extra taunt duration and buff duration, now also deals damage to enemies hit based on Mashu's max health."
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_damage_from_max_health"			"DAMAGE BASED ON MAX HEALTH:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_buff_duration"			"BONUS BUFF DURATION:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_taunt_duration"			"BONUS TAUNT DURATION:"
+
+        ////////////////// MODIFIERS ///////////////////
+
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting"													"Bunker Bolt"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting_Description"										"Dashing forward."
+
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow"													"Bunker Bolt Debuff"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow_Description"										"Taking bunker bolt debuffs."
+
+		"DOTA_Tooltip_modifier_mashu_protect"														"Protected"
+		"DOTA_Tooltip_modifier_mashu_protect_Description"											Mashu is protecting this unit."
+
+		"DOTA_Tooltip_modifier_mashu_parry"															"Parry"
+		"DOTA_Tooltip_modifier_mashu_parry_Description"												"Mashu is preparing to parry."
+
+		"DOTA_Tooltip_modifier_mashu_taunt"															"Taunted"
+		"DOTA_Tooltip_modifier_mashu_taunt_Description"												"This unit is being forced to attack Mashu."
+
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc"															"Heroism"
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc_Description"												"This unit is recieving reduced damage."
+
+		"DOTA_Tooltip_modifier_mashu_snowflake"															"Transient Wall of Snowflakes"
+		"DOTA_Tooltip_modifier_mashu_snowflake_Description"												"Gaining bonus armor, magic resist, health regen, and bonus strength."
+
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive"															"Transient Wall of Snowflakes Passive"
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive_Description"												"Gains passive damage reduction."
+
+		"DOTA_Tooltip_modifier_mashu_combo_chanting"															"Channeling Lord Camelot"
+		"DOTA_Tooltip_modifier_mashu_combo_chanting_Description"												"Recieving reduced damage."
+
+		"DOTA_Tooltip_modifier_mashu_combo"															"Lord Camelot Buff"
+		"DOTA_Tooltip_modifier_mashu_combo_Description"												"Gaining multiple effects."
+
+		"DOTA_Tooltip_modifier_mashu_combo_barrier"															"Lord Camelot Barrier"
+		"DOTA_Tooltip_modifier_mashu_combo_barrier_Description"												"Blocking damage."
+
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown"												"Lord Camelot Cooldown"
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown_Description"											"Combo cooldown."
+
+        //====================================
+        //      Idk what this is
         //====================================
 
 

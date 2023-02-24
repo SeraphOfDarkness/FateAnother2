@@ -31,8 +31,12 @@ function OnProtectCastStart(keys)
 end
 
 function MashuCheckCombo(caster, ability)
+	print(ability:GetAbilityName())
     if math.ceil(caster:GetStrength()) >= 25 and math.ceil(caster:GetAgility()) >= 25 and math.ceil(caster:GetIntellect()) >= 25 then 
-		if string.match(ability:GetAbilityName(), caster.RSkill) and not caster:HasModifier("modifier_mashu_combo_cooldown") then 
+		if string.match(ability:GetAbilityName(), "mashu_snowflake") and not caster:HasModifier("modifier_mashu_combo_cooldown") then 
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_window", {duration = 3})
+		elseif string.match(ability:GetAbilityName(), "mashu_snowflake_upgrade") and not caster:HasModifier("modifier_mashu_combo_cooldown") then 
+    	print("here3")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_window", {duration = 3})
 		end
     end
@@ -80,6 +84,7 @@ function OnProtectProc(keys)
 	if keys.DamageTaken >= 200 then
 		if target:HasModifier("modifier_mashu_parry") then
     		target:RemoveModifierByName("modifier_mashu_parry") 
+			giveUnitDataDrivenModifier(caster, caster, "jump_pause", invul)
 		end
 
 		if target:HasModifier("modifier_mashu_protect") then
@@ -229,7 +234,7 @@ function OnBunkerBoltThink(keys)
 					ParticleManager:SetParticleControl(reviveFx, 0, caster:GetAbsOrigin())
 
     				caster:EmitSound("Mashu.Q" .. math.random(1,4))
-					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.QPop1", {})
+					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.QPop", {})
 					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.QPop2", {})
 
 					if caster.Barrel then
@@ -271,6 +276,7 @@ function OnMashuUlt(keys)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", channel_time)
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.8})
+    caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_4 , 0.8)
 
 	Timers:CreateTimer(cast_delay, function()
 		giveUnitDataDrivenModifier(caster, caster, "jump_pause", invul)
@@ -294,7 +300,6 @@ function OnMashuUlt(keys)
 				v:FateHeal(active_instant_heal, caster, true)
 			end
 	    end
-
 	    MashuCheckCombo(caster,ability)
 	end)	
 end
@@ -309,7 +314,7 @@ function OnMashuPunishment(keys)
 	local target_point = ability:GetCursorPosition()
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3 + cast_delay)
-	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_ATTACK, rate=1})
+	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_ATTACK, rate=1.5})
 
 	Timers:CreateTimer(cast_delay, function()
 
@@ -391,6 +396,8 @@ function OnMashuCombo(keys)
 
 	local eff = ParticleManager:CreateParticle("particles/mashu/mashur/mashur1.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(eff, 0, caster:GetAbsOrigin())
+	local eff2 = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashuchant1.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(eff2, 0, caster:GetAbsOrigin())
 
 	local charging = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashucombochannel.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(charging, 0, caster:GetAbsOrigin())
@@ -406,26 +413,42 @@ function OnMashuCombo(keys)
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.8})
 
 
-	Timers:CreateTimer(0.7, function()
-		FreezeAnimation(caster,6.3)
+	Timers:CreateTimer(0.95, function()
+		FreezeAnimation(caster,6)
+	end)
+
+
+	Timers:CreateTimer(2.2, function()
+		EmitGlobalSound("Mashu.ComboShieldAppear")
+		EmitGlobalSound("Mashu.ComboShieldAppear2")
+	end)	
+
+	Timers:CreateTimer(4.3, function()
+		EmitGlobalSound("Mashu.ComboShieldAppear")
+		EmitGlobalSound("Mashu.ComboShieldAppear2")
+	end)	
+
+	Timers:CreateTimer(0.1, function()
+		EmitGlobalSound("Mashu.ComboShieldAppear")
+		EmitGlobalSound("Mashu.ComboShieldAppear2")
 	end)
 
 	Timers:CreateTimer(2, function()
 		if caster:IsAlive() then
-			EmitGlobalSound("Mashu.ComboShieldAppear")
-			EmitGlobalSound("Mashu.ComboShieldAppear2")
+			EmitGlobalSound("Mashu.Combo2")
 		else
 			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)
 
-	Timers:CreateTimer(4, function()
+	Timers:CreateTimer(5, function()
 		if caster:IsAlive() then
-			EmitGlobalSound("Mashu.ComboShieldAppear")
-			EmitGlobalSound("Mashu.ComboShieldAppear2")
+			EmitGlobalSound("Mashu.Combo3")
 		else
 			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)
@@ -433,12 +456,12 @@ function OnMashuCombo(keys)
 	Timers:CreateTimer(channel_time, function()
 		if caster:IsAlive() then
 			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
 
 			EmitGlobalSound("Mashu.ComboPop")
 			EmitGlobalSound("Mashu.ComboPop2")
 
-
-			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ALLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(targets) do
 				if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
 					ability:ApplyDataDrivenModifier(caster, v, "modifier_mashu_combo", {})
@@ -461,7 +484,7 @@ function OnBarrierDamaged(keys)
 	local caster = keys.caster 
 	local currentHealth = caster:GetHealth() 
 
-	stack = v:GetModifierStackCount("modifier_mashu_combo_barrier", v) or 0
+	stack = caster:GetModifierStackCount("modifier_mashu_combo_barrier", caster) or 0
 	stack = stack - keys.DamageTaken
 	caster:SetModifierStackCount("modifier_mashu_combo_barrier", caster,stack)
 
@@ -482,7 +505,7 @@ function OnBarrelUpgrade(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster.HeroUnit
 
-	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsNightingaleRefined) then
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.Barrel) then
 		hero.Barrel = true
 
 		UpgradeAttribute(hero, "mashu_bunker_bolt", "mashu_bunker_bolt_upgrade" , true)
@@ -503,7 +526,7 @@ function OnShieldUpgrade(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster.HeroUnit
 
-	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsNightingaleRefined) then
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.Shield) then
 		hero.Shield = true
 
 		UpgradeAttribute(hero, "mashu_protect", "mashu_protect_upgrade" , true)
@@ -522,7 +545,7 @@ function OnChalkUpgrade(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster.HeroUnit
 
-	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsNightingaleRefined) then
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.Chalk) then
 		hero.Chalk = true
 
 		if hero:HasModifier("modifier_combo_window") then
@@ -545,7 +568,7 @@ function OnAmalgamUpgrade(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster.HeroUnit
 
-	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsNightingaleRefined) then
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.Amalgam) then
 		hero.Amalgam = true
 
 		UpgradeAttribute(hero, "mashu_taunt", "mashu_taunt_upgrade" , true)

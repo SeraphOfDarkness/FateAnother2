@@ -132,6 +132,9 @@ strongdispellable = {
     "modifier_robin_poison_smoke",
     "modifier_poisonous_bite_slow",
     "modifier_nobu_innovation_aura",
+    "modifier_saito_mind_eye_active",
+    "modifier_mashu_snowflake",
+    "modifier_mashu_dmg_reduc",
 
     -- items
     "modifier_b_scroll",
@@ -232,6 +235,8 @@ cleansable = {
     "modifier_saito_steelwing_mss",
     "modifier_saito_shadowslash_mrr",
     "modifier_saito_fds_active_sdr",
+    "modifier_mashu_taunt",
+    "modifier_mashu_bunker_bolt_slow",
 }
 
 slowmodifier = {
@@ -295,6 +300,7 @@ slowmodifier = {
     "modifier_semiramis_babylon_quake",
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
+    "modifier_mashu_bunker_bolt_slow",
 }
 
 revokes = {
@@ -380,6 +386,8 @@ goesthruB = {
     "scathach_gae_bolg_upgrade_3",
     "avenger_verg_avesta_upgrade",    
     "avenger_verg_avesta",   
+    "saito_step",
+    "saito_vortex",
 }
 
 invis = {
@@ -832,6 +840,7 @@ tSpellBookHero = {
     "npc_dota_hero_necrolyte",
     "npc_dota_hero_sniper",
     "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_dragon_knight",
 }
 
 tArrow = {
@@ -1280,6 +1289,10 @@ tAvengerClass = {
     "npc_dota_hero_night_stalker",
 }
 
+tShielderClass = {
+    "npc_dota_hero_dragon_knight",
+}
+
 tClass = {
     Saber = tSaberClass,
     Archer = tArcherClass,
@@ -1289,7 +1302,8 @@ tClass = {
     Assassin = tAssassinClass,
     Berserker = tBerserkerClass,
     Avenger = tAvengerClass,
-    Ruler = tRulerClass
+    Ruler = tRulerClass,
+    Shielder = tShielderClass
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -3555,7 +3569,7 @@ local heroNames = {
     ["npc_dota_hero_necrolyte"] = "Hans Christian Andersen",
     ["npc_dota_hero_sniper"] = "Robin Hood",
     ["npc_dota_hero_gyrocopter"] = "Nobunaga",
-    ["npc_dota_hero_terrorblade"] = "Saito Hajime",
+    ["npc_dota_hero_terrorblade"] = "Saitō Hajime",
     ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
     ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
 }

@@ -9,7 +9,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/hans/redshoes"
+		"AbilityTextureName"			"custom/mashu/bunkerbolt"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -126,10 +126,10 @@
 	"mashu_bunker_bolt_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/hans/redshoes"
+		"AbilityTextureName"			"custom/mashu/bunkerbolt"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -259,7 +259,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/hans/incantation"
+		"AbilityTextureName"			"custom/mashu/protect"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -404,7 +404,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/hans/incantation"
+		"AbilityTextureName"			"custom/mashu/protect"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -547,7 +547,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/heroism"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -587,7 +587,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"channel_time"		"0.75"
+				"channel_time"		"0.8"
 			}			
 		}
 
@@ -658,7 +658,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/heroism"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -698,7 +698,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"channel_time"		"0.75"
+				"channel_time"		"0.8"
 			}				
 			"06"
 			{
@@ -775,7 +775,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/snowflake"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -800,7 +800,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction_passive"	"-8 -10 -12 -14 -16"
+				"damage_reduction_passive"	"-6 -8 -10 -12 -14"
 			}			
 			"03"
 			{
@@ -840,7 +840,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"active_arm"		"5 7 9 11 13"
+				"active_arm"		"5 9 13 17 21"
 			}					
 			"06"
 			{
@@ -874,7 +874,7 @@
 				"Duration"				"%buff_duration"
 				"IsHidden"				"0"
 				"IsDebuff"				"0"
-				"EffectName"	"particles/mashu/mashur/mashurbuff/mashurbuff2.vpcf"
+				"EffectName"	"particles/mashu/mashur/mashurbuff/mashurbuff3.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
@@ -894,6 +894,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_passive"
 				}
 			}
 
@@ -936,7 +937,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/snowflake"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -1001,7 +1002,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"active_arm"		"5 7 9 11 13"
+				"active_arm"		"5 9 13 17 21"
 			}					
 			"06"
 			{
@@ -1035,7 +1036,7 @@
 				"Duration"				"%buff_duration"
 				"IsHidden"				"0"
 				"IsDebuff"				"0"
-				"EffectName"	"particles/mashu/mashur/mashurbuff/mashurbuff2.vpcf"
+				"EffectName"	"particles/mashu/mashur/mashurbuff/mashurbuff3.vpcf"
 				"EffectAttachType"	"follow_origin"
 
 				"Properties"
@@ -1098,7 +1099,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/punishment"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -1133,7 +1134,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_revoke"		"0.8"
+				"stun_revoke"		"0.9"
 			}	
 			"06"
 			{
@@ -1169,7 +1170,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/punishment"
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -1199,7 +1200,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage"			"600 850 1000 1150 1300"
+				"damage"			"550 800 950 1100 1250"
 			}		
 			"03"
 			{
@@ -1209,7 +1210,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_revoke"		"0.8"
+				"stun_revoke"		"0.9"
 			}	
 			"06"
 			{
@@ -1245,7 +1246,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/hans/territory"
+		"AbilityTextureName"			"custom/mashu/camelot"
 		"MaxLevel"						"1"		
 		"AbilityCastPoint"				"0.6"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
@@ -1298,7 +1299,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction_chanting"		"-75"
+				"damage_reduction_chanting"		"-50"
 			}			
 		}
 
@@ -1307,7 +1308,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"abilities/mashu/mashu_abilities"
-				"Function"		"OnMashuUlt"
+				"Function"		"OnMashuCombo"
 			}
 		}
 		
@@ -1374,7 +1375,7 @@
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/semiramis/semiramis_garden_presence"
+		"AbilityTextureName"			"custom/mashu/blackbarrel"
 		
 		
 		"AbilityCastPoint"				"0.0"
@@ -1392,14 +1393,19 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_strength"	"3"
+				"damage_per_strengtho"	"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_stun"	"0.5"
 			}
 
 			//PUNISHMEN			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"200"
+				"bonus_damage"			"150"
 			}
 			"03"
 			{
@@ -1424,7 +1430,7 @@
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/semiramis/semiramis_absolute"
+		"AbilityTextureName"			"custom/mashu/shieldoffaith"
 		
 		
 		"AbilityCastPoint"				"0.0"
@@ -1471,7 +1477,7 @@
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/semiramis/semiramis_charmer"
+		"AbilityTextureName"			"custom/mashu/chalk"
 		
 		
 		"AbilityCastPoint"				"0.0"
@@ -1504,7 +1510,7 @@
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/semiramis/placeholder"
+		"AbilityTextureName"			"custom/mashu/amalgam"
 		
 		
 		"AbilityCastPoint"				"0.0"

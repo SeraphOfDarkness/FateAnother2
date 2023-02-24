@@ -1,3 +1,72 @@
+Mashu says hi.
+
+Nerd gave a huge F to half of the legacy BGMs because he's bored of them.
+
+Nero is now cool.. I think.
+
+Robin model small increase in size, around 5%
+Robin combo AOE + 50 to match particle.
+
+Semiramis recall max range + 500, cast + 200, delay 4 -> 5
+
+__**Patch Notes from Martin/Kagut**__
+
+Saitō Hajime
+
+* Released Saitō Hajime to all players
+* Updated tooltips, now show cast point indicators for all abilities, fixed some font typos
+* Fixed panorama for modifiers, can now warn allies on cooldown of combo modifier, show stacks, etc.
+
+* Base Magic Resistance reduced from 15% to 10% (for ZeFi's base hero formula)
+
+--improvements for high ping players, and a slight nerf to ability spam during combo
+* Flashblade [Q] cast point improved from 0.15 to 0.1
+
+* Steelwing [W] cast point improved from 0.15 to 0.1
+* Steelwing [W] damage and stun duration will now gradually decrease after 2 consecutive uses instead of 3, again
+
+* Shadowslash [E] cast point improved from 0.15 to 0.1
+* Shadowslash [E] initial damage and pull radius will now gradually decrease after 2 consecutive uses instead of 3, again
+
+
+* Mind's Eye (True) [D] can now be dispelled by Gáe Dearg and Rule Breaker (nerf on Anti-CCC XDD)
+
+--small buffs to solve "Saito Gaming" without tanks
+* Freely Drawn Sword [F] damage loss duration increased from 6 to 8
+* Freely Drawn Sword [F] damage loss max stacks increased from 4 4 5 5 6 to 5 5 6 6 7
+
+
+--adjustments to match ZeFi's damage formula for all heroes (level 5 == 1600 damage on average, with SA + scale 50 stats == 2500 damage on average)
+* Formlessness [R] damage per slash reduced from 160 180 200 220 240 to 80 90 100 110 120
+* Formlessness [R] last slash damage increased from 600 675 750 825 900 to 600 700 800 900 1000
+
+
+* Tetra-Step [Q] now pierces B Scroll, just like the other abilities from SA
+
+* Blade Vortex [E] now pierces B Scroll, just like the other abilities from SA
+
+* Undefeatable Style [COMBO] manacost reduced from 600 to 400
+* Undefeatable Style [COMBO] damage formula re-coded (I won't explain it here, find out for yourself, hope to slay Seraph with this soon XDD)
+
+* Invincible Sword [SA] enable duration increased from 3 to 4
+
+--rejoice all Okita's picker
+* Memoir [SA] manacost increased from 12 to 16, again
+* Memoir: Snarksengumi [SA] proc odds reduced from 22% to 15%, again
+* Memoir: Snarksengumi [SA] proc odds re-coded as pseudo-random chances (with this the proc odds increase each time it doesn't occur, but are lower in the first place to compensate, this results the Snarksengumi to occur more consistently)
+
+
+* Freestyle [SA] : Freely Drawn Sword [F] min active aura damage reduction increased from 10% to 15%
+
+--cast range increase for players with high ping so can play R more easily + adjustments
+* Kijinmaru Kunishige [SA] : Formlessness [R] cast range bonus increased from 75 to 150
+* Kijinmaru Kunishige [SA] : Formlessness [R] damage to revoked enemies and non-hero units increased from 1.6 to 2
+* Kijinmaru Kunishige [SA] : Formlessness [R] slash bonus damage per attack reduced from 50% to 25%
+
+Nerd's quote for today : Frog, isn't a frog if you don't live in a well. 
+
+----------------
+
 Nobunaga 
 Base gun damage 100 -> 110
 Gun damage per level 9 -> 10

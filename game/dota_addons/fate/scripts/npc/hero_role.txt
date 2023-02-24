@@ -1556,16 +1556,16 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 	"npc_dota_hero_dragon_knight"			
 	{
 		"Sex"			"Male"
-		"Class"			"Saber"
+		"Class"			"Shielder"
 		"Trait"			"" 
-		"Roles"			"tank,control" 	
+		"Roles"			"tank,control,support" 	
 		"Role" 							
 		{
 			"1"
 			{			
 				"tank"	
 				{
-					"weight"	"80"	// weight to calculate
+					"weight"	"65"	// weight to calculate
 					"criteria"	"1"
 					"dTake"		"170"	// > avg dmg taken(%max hp) per round
 					"Death"		"80"	// < death of total round
@@ -1580,7 +1580,16 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 					"CC1"		"25"	// > avg CC duration per round
 				}
 			}
-			
+			"3"	
+			{			
+				"support"	
+				{
+					"weight"	"15"	// weight to calculate
+					"criteria"	"2"
+					"Assist"	"20"	// > Assist
+					"Heal"		"1000"	// < death of total round
+				}
+			}
 		}
 	}	
 }

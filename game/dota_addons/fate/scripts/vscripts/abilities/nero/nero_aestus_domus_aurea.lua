@@ -85,7 +85,7 @@ function aestus_domus_wrapper(ability)
 				ability.FxDestroyed = false	
 
 				ability.TheatreRingFx = ParticleManager:CreateParticle("particles/custom/nero/nero_domus_ring_border.vpcf", PATTACH_WORLDORIGIN, caster.CircleDummy)
-				ParticleManager:SetParticleControl(ability.TheatreRingFx, 0, caster.CircleDummy:GetAbsOrigin())	
+				ParticleManager:SetParticleControl(ability.TheatreRingFx, 2, caster.CircleDummy:GetAbsOrigin())	
 				ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius + 100,0,0))	
 
 				--ability:CreateBannerInCircle(caster, caster:GetAbsOrigin(), radius)

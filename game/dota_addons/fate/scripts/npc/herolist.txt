@@ -47,7 +47,5 @@
 	"npc_dota_hero_skeleton_king"		"1"	
 	"npc_dota_hero_necrolyte"			"1"
 	"npc_dota_hero_gyrocopter"			"1"
-	"npc_dota_hero_dragon_knight"		"1"
 	"npc_dota_hero_terrorblade"			"1"
-	"npc_dota_hero_antimage"			"1"
 }

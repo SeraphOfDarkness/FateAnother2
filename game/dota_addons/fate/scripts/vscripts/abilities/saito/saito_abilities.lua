@@ -3,7 +3,7 @@
 IsNotNull = function(hScript)
     local sType = type(hScript)
     if sType ~= "nil" then
-        if sType == "table" 
+        if sType == "table"
             and type(hScript.IsNull) == "function" then
             return not hScript:IsNull()
         end
@@ -27,7 +27,7 @@ GetDirection = function(hEnt1, hEnt2, b3D)
 
     local iEnt1 = hEnt1.z
     local iEnt2 = hEnt2.z
-    
+
     hEnt1.z = b3D and iEnt1 or 0
     hEnt2.z = b3D and iEnt2 or 0
 
@@ -54,7 +54,6 @@ GetLerped = function(nMin, nMax, fTime)
     return nMin + ( nMax - nMin ) * fTime
 end
 --Autolerper AKA GetLerped(1, 1000, 0.5), return 500.
-
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 TableLength = function(tTable)
     local i = 0
@@ -72,6 +71,7 @@ end
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
 --========================================--
 local bIsRevoked = function(hUnit)
     local tRevokes = revokes or {}
@@ -85,7 +85,7 @@ end
 --========================================--
 
 
---========================================-- 
+--========================================--
 --Return ability attribute registered, if not registered return nothing.
 local GetAttribute = function(hUnit, sAttributeName)
     if IsNotNull(hUnit) then
@@ -99,11 +99,11 @@ local GetAttribute = function(hUnit, sAttributeName)
     end
     return nil
 end
+--========================================--
 
 
 --========================================--
 --This function helps to check the attribute registered in attribute table or not.
-
 local GetAttributeValue = function(hUnit, sAttributeName, sKeyName, nLevel, nDefaultValue)
     --NOTE: -2 becomes 0 return as with GetSpecialValueFor correctly....seems to be.
 
@@ -121,9 +121,10 @@ local GetAttributeValue = function(hUnit, sAttributeName, sKeyName, nLevel, nDef
     end
     return nDefaultValue or 0 --Return default value you set or if not set return 0, basically useful for multiplicative moments when you want for example damage*getattributevalue, but value is 0 so we have to auto-set 1 for correct calculation.
 end
-
 --========================================--
 
+
+--========================================--
 --This can help to get value from Combo for example, by simple call this function, added specially for your hero basically.
 local GetAbilityValue = function(hUnit, sAbilityName, sKeyName, nLevel, nDefaultValue)
     nLevel = nLevel or -1
@@ -141,8 +142,8 @@ local GetAbilityValue = function(hUnit, sAbilityName, sKeyName, nLevel, nDefault
     end
     return nDefaultValue or 0
 end
-
 --========================================--
+
 
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_attributes", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -155,7 +156,7 @@ function modifier_saito_attributes:IsPurgable()                                 
 function modifier_saito_attributes:IsPurgeException()                                                               return false end
 function modifier_saito_attributes:RemoveOnDeath()                                                                  return false end
 function modifier_saito_attributes:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
-function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_saito_attributes:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end --ENABLED
 --MODIFIER_ATTRIBUTE_MULTIPLE Helps to make copies of modifiers on your hero, they are hidden but helpful, disabled for now as we handle all attributes with one modifier.
 --You can uncomment that and use these modifiers if you want to add simple properties with the declared functions, example of how to use is below.
 function modifier_saito_attributes:DeclareFunctions()
@@ -193,14 +194,16 @@ end
 
 
 
+
+
 --NOTE1: Basically if what you're looking for is universal and usable for all Servants to be handled on client values, AKA quick build client-server setup.
 --NOTE2: This means the checkers above, modifiers and example of usage for the Attributes abilities above.
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
-saito_attribute_freedom = saito_attribute_freedom or class({}) 
+saito_attribute_freedom = saito_attribute_freedom or class({})
 
-function saito_attribute_freedom:IsStealable()                                         return true end
-function saito_attribute_freedom:IsHiddenWhenStolen()                                  return false end
+function saito_attribute_freedom:IsStealable()                                                                      return true end
+function saito_attribute_freedom:IsHiddenWhenStolen()                                                               return false end
 function saito_attribute_freedom:OnSpellStart()
     local hCaster     = self:GetCaster()
     local hPlayerHero = PlayerResource:GetSelectedHeroEntity(hCaster:GetPlayerOwnerID())
@@ -230,7 +233,7 @@ function saito_attribute_freedom:OnSpellStart()
             self:OnAfterSpellStart(hPlayerHero)
         end
     end
-end 
+end
 function saito_attribute_freedom:OnAfterSpellStart(hPlayerHero)
     --This function can be used if you want to do some bonus things for the hero when the attribute is learned.
 end
@@ -283,23 +286,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 local nSTATS_REQUIRED = 24.1
 
 
@@ -319,21 +305,19 @@ local CheckComboIsReadyIncrement = function(hUnit, iPreviousStackShouldBe)
 end
 
 
-
-
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_style_combo_indicator", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
 modifier_saito_style_combo_indicator = modifier_saito_style_combo_indicator or class({})
 
-function modifier_saito_style_combo_indicator:IsHidden()                                                                  return self:GetDuration() <= -1 end
-function modifier_saito_style_combo_indicator:IsDebuff()                                                                  return true end
-function modifier_saito_style_combo_indicator:IsPurgable()                                                                return false end
-function modifier_saito_style_combo_indicator:IsPurgeException()                                                          return false end
-function modifier_saito_style_combo_indicator:RemoveOnDeath()                                                             return false end
-function modifier_saito_style_combo_indicator:DestroyOnExpire()                                                           return false end
+function modifier_saito_style_combo_indicator:IsHidden()                                                            return self:GetDuration() <= -1 end
+function modifier_saito_style_combo_indicator:IsDebuff()                                                            return true end
+function modifier_saito_style_combo_indicator:IsPurgable()                                                          return false end
+function modifier_saito_style_combo_indicator:IsPurgeException()                                                    return false end
+function modifier_saito_style_combo_indicator:RemoveOnDeath()                                                       return false end
+function modifier_saito_style_combo_indicator:DestroyOnExpire()                                                     return false end
 function modifier_saito_style_combo_indicator:OnStackCountChanged(iOldStacks)
-    if IsServer() then 
+    if IsServer() then
         --NOTE: The previous crashes were due to overloop when setstackcount checks setstackcount...
         --========================================-- --NOTE: Prevention because if swapped ability is on cooldown, it shouldn't be swapped.
         local hAbilityForSwap_0 = self.hParent:FindAbilityByName(self.sAbilityForSwap_0)
@@ -435,7 +419,7 @@ function modifier_saito_style_combo_indicator:OnIntervalThink()
         end
         --========================================-- --NOTE: Fix visibility in Master.
         local bSetMasterComboTime = false
-        --========================================-- fSelfRemaining > 0 or 
+        --========================================-- fSelfRemaining > 0 or
         if ( fCooldownRemaining <= 0 and ( fDuration > -1 ) and not ( self.bLocalComboStepsTime or self.bLocalComboAvailableTime ) ) then
             self:SetDuration(-1, true)
             --print("SETTING DURATION -1", fSelfRemaining, fDuration, self.bLocalComboReleased, fCooldownRemaining)
@@ -457,7 +441,7 @@ function modifier_saito_style_combo_indicator:OnIntervalThink()
             self.bLocalComboReleased = false
 
             self:SetDuration(fCooldownRemaining, true)
-            
+
             --print("SETTING DURATION TO DURATION 11", fCooldownRemaining, self.bLocalComboReleased)
             bSetMasterComboTime = true
         end
@@ -484,6 +468,7 @@ function modifier_saito_style_combo_indicator:ComboToSlot(bEnable)
         return self.hParent:SwapAbilities(self.sAbilityForSwap_0, self.sAbilityForSwap_1, not bEnable, bEnable)
     end
 end
+
 
 
 
@@ -528,11 +513,11 @@ LinkLuaModifier("modifier_saito_style_active", "abilities/saito/saito_abilities"
 
 modifier_saito_style_active = modifier_saito_style_active or class({})
 
-function modifier_saito_style_active:IsHidden()                                                                return false end
-function modifier_saito_style_active:IsDebuff()                                                                return false end
-function modifier_saito_style_active:IsPurgable()                                                              return false end
-function modifier_saito_style_active:IsPurgeException()                                                        return false end
-function modifier_saito_style_active:RemoveOnDeath()                                                           return true end
+function modifier_saito_style_active:IsHidden()                                                                     return false end
+function modifier_saito_style_active:IsDebuff()                                                                     return false end
+function modifier_saito_style_active:IsPurgable()                                                                   return false end
+function modifier_saito_style_active:IsPurgeException()                                                             return false end
+function modifier_saito_style_active:RemoveOnDeath()                                                                return true end
 function modifier_saito_style_active:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_EVENT_ON_TAKEDAMAGE
@@ -544,7 +529,7 @@ function modifier_saito_style_active:OnTakeDamage(keys)
         if keys.attacker == self.hParent
             and (not IsNotNull(keys.inflictor) or (not keys.inflictor:IsItem() and keys.inflictor ~= self.hAbility)) --Last check there > preventing crashes and triggering chance from damage of this ability instead.
             and UnitFilter( --This checks filter units for example you can put here settings AKA check non-invis and etc.
-                            keys.unit, 
+                            keys.unit,
                             self.nABILITY_TARGET_TEAM,
                             self.nABILITY_TARGET_TYPE,
                             self.nABILITY_TARGET_FLAGS,
@@ -553,7 +538,7 @@ function modifier_saito_style_active:OnTakeDamage(keys)
             and RollPercentage(self.nSilenceChance) then
             giveUnitDataDrivenModifier(self.hParent, keys.unit, "silenced", self.nSilenceDuration)
 
-            local nDamageDo = keys.unit:GetHealth() * self.nHPDamage
+            local nDamageDo = keys.unit:GetMaxHealth() * self.nHPDamage
 
             DoDamage(self.hParent, keys.unit, nDamageDo, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
 
@@ -579,7 +564,7 @@ function modifier_saito_style_active:OnCreated(tTable)
 
     if IsServer() then
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
         self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
@@ -596,7 +581,7 @@ function modifier_saito_style_active:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
 function modifier_saito_style_active:CreateEffect(hTarget)
-    local sSlashPFX = "particles/heroes/saito/saito_style_proc.vpcf"
+    local sSlashPFX =   "particles/heroes/saito/saito_style_proc.vpcf"
     local nSlashPFX =   ParticleManager:CreateParticle(sSlashPFX, PATTACH_ABSORIGIN_FOLLOW, hTarget)
                         ParticleManager:SetParticleControlEnt(
                                                                 nSlashPFX,
@@ -632,54 +617,15 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 --========================================--
-local tSaito_QWE = 
+local tSaito_QWE =
 {
     "saito_flashblade",
     "saito_steelwing",
     "saito_shadowslash",
 }
 --========================================--
-local tSaito_QWE_2 = 
+local tSaito_QWE_2 =
 {
     "saito_step",
     "saito_storm",
@@ -707,8 +653,9 @@ local UpgradeShared = function(hAbility, tSharedAbilities)
     end
 end
 --========================================--
----------------------------------------------------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------------------------------------------------
 --Modifiers that only are needed for showing the radius normally and calculate how much you are using QWE's abilities and divide the values.
 --Their stack modification controls from Saito F's ability which gives casting 3-7 times in a row.
 
@@ -718,23 +665,22 @@ LinkLuaModifier("modifier_saito_e_counter", "abilities/saito/saito_abilities", L
 
 modifier_saito_q_counter = modifier_saito_q_counter or class({})
 
-function modifier_saito_q_counter:IsHidden()                                                                       return false end --Change this to true if you want to hide it from the HUD basically.
-function modifier_saito_q_counter:IsDebuff()                                                                       return false end
-function modifier_saito_q_counter:IsPurgable()                                                                     return false end
-function modifier_saito_q_counter:IsPurgeException()                                                               return false end
-function modifier_saito_q_counter:RemoveOnDeath()                                                                  return false end
-function modifier_saito_q_counter:GetPriority()                                                                    return MODIFIER_PRIORITY_HIGH end
+function modifier_saito_q_counter:IsHidden()                                                                        return false end --Change this to true if you want to hide it from the HUD basically.
+function modifier_saito_q_counter:IsDebuff()                                                                        return false end
+function modifier_saito_q_counter:IsPurgable()                                                                      return false end
+function modifier_saito_q_counter:IsPurgeException()                                                                return false end
+function modifier_saito_q_counter:RemoveOnDeath()                                                                   return false end
+function modifier_saito_q_counter:GetPriority()                                                                     return MODIFIER_PRIORITY_HIGH end
 
 modifier_saito_w_counter = modifier_saito_w_counter or class(modifier_saito_q_counter)
 
 modifier_saito_e_counter = modifier_saito_e_counter or class(modifier_saito_q_counter)
-
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_flashblade = saito_flashblade or class({})
 
-function saito_flashblade:IsStealable()                                         return true end --Basically not necessary in F/A 2, but adding everywhere just to be safe... This is Rubick's properties XDD
-function saito_flashblade:IsHiddenWhenStolen()                                  return false end --Basically not necessary in F/A 2, but adding everywhere just to be safe... This is Rubick's properties XDD
+function saito_flashblade:IsStealable()                                                                             return true end --Basically not necessary in F/A 2, but adding everywhere just to be safe... This is Rubick's properties XDD.
+function saito_flashblade:IsHiddenWhenStolen()                                                                      return false end --Basically not necessary in F/A 2, but adding everywhere just to be safe... This is Rubick's properties XDD.
 function saito_flashblade:GetIntrinsicModifierName()
     return "modifier_saito_q_counter"
 end
@@ -753,10 +699,13 @@ function saito_flashblade:GetAOERadius() --AOE radius is required to indicate wh
     local hCaster = self:GetCaster()
 
     local nDistance = self:GetSpecialValueFor("distance")
-    local nCasts    = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1
+
+    --========================--
+    local nCasts    = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1 --To reduce the distance by number of cast done.
     if nCasts >= self:GetSpecialValueFor("repeat_halver_count_need") then
         nDistance = nDistance / nCasts
     end
+    --========================--
 
     return nDistance
 end
@@ -773,7 +722,7 @@ end
 --     local hCaster = self:GetCaster()
 
 --     local nCastPointIncreaser = 0.05
---     --Base class picks value from KV == 0.1 begin casttime
+--     --The base class picks a value from KV == 0.1 starting cast time.
 --     return self.BaseClass.GetCastPoint(self) + ( hCaster:GetModifierStackCount("modifier_saito_fds_cast_controller", hCaster) * nCastPointIncreaser )
 -- end
 function saito_flashblade:OnSpellStart()
@@ -799,13 +748,13 @@ LinkLuaModifier("modifier_saito_flashblade_motion", "abilities/saito/saito_abili
 --If you change the type under your Workshop Tools booted, it can not work, so better reload or full reload if still error, check always, GabeN BTW.
 modifier_saito_flashblade_motion = modifier_saito_flashblade_motion or class({})
 
-function modifier_saito_flashblade_motion:IsHidden()                                                           return true end
-function modifier_saito_flashblade_motion:IsDebuff()                                                           return false end
-function modifier_saito_flashblade_motion:IsPurgable()                                                         return false end
-function modifier_saito_flashblade_motion:IsPurgeException()                                                   return false end
-function modifier_saito_flashblade_motion:RemoveOnDeath()                                                      return true end --Necessary because we want to remove it on death, but if you want you can make it false and the corpse will fly if it dies when flying.
+function modifier_saito_flashblade_motion:IsHidden()                                                                return true end
+function modifier_saito_flashblade_motion:IsDebuff()                                                                return false end
+function modifier_saito_flashblade_motion:IsPurgable()                                                              return false end
+function modifier_saito_flashblade_motion:IsPurgeException()                                                        return false end
+function modifier_saito_flashblade_motion:RemoveOnDeath()                                                           return true end --Necessary because we want to remove it on death, but if you want you can make it false and the corpse will fly if it dies when flying.
 function modifier_saito_flashblade_motion:CheckState()
-    local tState =  {    
+    local tState =  {
                         [MODIFIER_STATE_STUNNED] = true, --Basically for disable any actions all of them use the stun modifier.
                         -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         -- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, --Added for testing, can uncomment if there are some errors in the future.
@@ -850,7 +799,7 @@ function modifier_saito_flashblade_motion:OnCreated(tTable)
         self.nDamageType           = self.hAbility:GetAbilityDamageType()
 
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
         self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
@@ -923,7 +872,7 @@ function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
                 break
             else
                 --GridNav:DestroyTreesAroundPoint(vNextStepPos, self.nImageRadius, false) --Just to look cool like a cut tree with a slash.
-                
+
                 if vNextStepDist >= ( self.nImageCreationDist + ( self.nImageCreationDist * self.nImagesCreated ) ) then
                     self.nImagesCreated = self.nImagesCreated + 1
                     self:DoEffect(hUnit, vNextStepPos)
@@ -935,7 +884,7 @@ function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
 
         --self:DoEffect(hUnit, vNextMovePoint)
         --print(GridNav:FindPathLength(self.vStartLoc, self.vPoint), GetDistance(self.vStartLoc, self.vPoint, true), hUnit:BoundingRadius2D(), "PEPE")
-        hUnit:SetAbsOrigin(vNextMovePoint) --Setuping next position
+        hUnit:SetAbsOrigin(vNextMovePoint) --Settings for next position.
         --If you want to change direction for hero while sliding, never use in motions based SetForwardvector, it will interrupt your motion controller, if you use it in OnCreated and OnRefresh will happen, you will have crashes.
         --I added my special overrided angle function for that in self:oncreated, it helps to turn the hero for example when your cast time is 0.
         if bShouldDestroy then
@@ -994,7 +943,7 @@ function modifier_saito_flashblade_motion:DoEffect(hUnit, vPosition)
         end
     end
     --=================================--
-    -- Create Particle
+    --Create Particles.
     local nImagePFX =   ParticleManager:CreateParticle( sImagePFX, PATTACH_CUSTOMORIGIN, hUnit )
                         ParticleManager:SetParticleControl( nImagePFX, 0, vPosition )
                         ParticleManager:SetParticleControlForward( nImagePFX, 0, hUnit:GetForwardVector() )
@@ -1031,11 +980,11 @@ LinkLuaModifier("modifier_saito_flashblade_turn_rate", "abilities/saito/saito_ab
 
 modifier_saito_flashblade_turn_rate = modifier_saito_flashblade_turn_rate or class({})
 
-function modifier_saito_flashblade_turn_rate:IsHidden()                                                                return false end
-function modifier_saito_flashblade_turn_rate:IsDebuff()                                                                return false end
-function modifier_saito_flashblade_turn_rate:IsPurgable()                                                              return true end
-function modifier_saito_flashblade_turn_rate:IsPurgeException()                                                        return true end
-function modifier_saito_flashblade_turn_rate:RemoveOnDeath()                                                           return true end
+function modifier_saito_flashblade_turn_rate:IsHidden()                                                             return false end
+function modifier_saito_flashblade_turn_rate:IsDebuff()                                                             return false end
+function modifier_saito_flashblade_turn_rate:IsPurgable()                                                           return true end
+function modifier_saito_flashblade_turn_rate:IsPurgeException()                                                     return true end
+function modifier_saito_flashblade_turn_rate:RemoveOnDeath()                                                        return true end
 function modifier_saito_flashblade_turn_rate:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_TURN_RATE_OVERRIDE
@@ -1055,8 +1004,6 @@ end
 function modifier_saito_flashblade_turn_rate:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
-
-
 
 
 
@@ -1105,7 +1052,7 @@ end
 --     local hCaster = self:GetCaster()
 
 --     local nCastPointIncreaser = 0.05
---     --Base class picks value from KV == 0.1 begin casttime
+--     --The base class picks a value from KV == 0.1 starting cast time.
 --     return self.BaseClass.GetCastPoint(self) + ( hCaster:GetModifierStackCount("modifier_saito_fds_cast_controller", hCaster) * nCastPointIncreaser )
 -- end
 function saito_steelwing:OnSpellStart()
@@ -1115,17 +1062,19 @@ function saito_steelwing:OnSpellStart()
     local nDamageType = self:GetAbilityDamageType()
 
     local nRadius = self:GetAOERadius()
-    
+
     --local nKnockDistance = self:GetSpecialValueFor("knock_distance")
 
     local nStunDuration  = self:GetSpecialValueFor("stun_duration")
     local nDamage        = self:GetSpecialValueFor("damage") + ( GetAttributeValue(hCaster, "saito_attribute_sword", "qwe_hero_level_damage", -1, 0) * hCaster:GetLevel() )
 
-    local nCastsDone = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1  --To reduce the damage by number of cast done.
+    --========================--
+    local nCastsDone = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1  --To reduce the stun duration and damage by number of cast done.
     if nCastsDone >= self:GetSpecialValueFor("repeat_halver_count_need") then
         nStunDuration = nStunDuration / nCastsDone
         nDamage = nDamage / nCastsDone
     end
+    --========================--
 
     local nAttr_MSS_Duraiton = GetAttributeValue(hCaster, "saito_attribute_freedom", "w_ms_slow_duration", -1, 0)
 
@@ -1184,17 +1133,16 @@ function saito_steelwing:DoClapEffect(hCaster)
 
     EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Saito.Steelwing.Cast", hCaster)
 end
-
 ---------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier("modifier_saito_steelwing_mss", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE) --mss == move speed slow
+LinkLuaModifier("modifier_saito_steelwing_mss", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE) --mss == movement speed slow.
 
 modifier_saito_steelwing_mss = modifier_saito_steelwing_mss or class({})
 
-function modifier_saito_steelwing_mss:IsHidden()                                                                return false end
-function modifier_saito_steelwing_mss:IsDebuff()                                                                return true end
-function modifier_saito_steelwing_mss:IsPurgable()                                                              return true end
-function modifier_saito_steelwing_mss:IsPurgeException()                                                        return true end
-function modifier_saito_steelwing_mss:RemoveOnDeath()                                                           return true end
+function modifier_saito_steelwing_mss:IsHidden()                                                                    return false end
+function modifier_saito_steelwing_mss:IsDebuff()                                                                    return true end
+function modifier_saito_steelwing_mss:IsPurgable()                                                                  return true end
+function modifier_saito_steelwing_mss:IsPurgeException()                                                            return true end
+function modifier_saito_steelwing_mss:RemoveOnDeath()                                                               return true end
 function modifier_saito_steelwing_mss:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
@@ -1234,7 +1182,6 @@ end
 
 
 
-
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_shadowslash = saito_shadowslash or class({})
@@ -1251,10 +1198,12 @@ function saito_shadowslash:GetAOERadius()
     local hCaster     = self:GetCaster()
     local nPullRadius = self:GetSpecialValueFor("pull_radius")
 
-    local nCasts = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1
+    --========================--
+    local nCasts = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1 --To reduce the pull radius by number of cast done.
     if nCasts >= self:GetSpecialValueFor("repeat_halver_count_need") then
         nPullRadius = nPullRadius / nCasts
     end
+    --========================--
 
     return nPullRadius
 end
@@ -1271,7 +1220,7 @@ end
 --     local hCaster = self:GetCaster()
 
 --     local nCastPointIncreaser = 0.05
---     --Base class picks value from KV == 0.1 begin casttime
+--     --The base class picks a value from KV == 0.1 starting cast time.
 --     return self.BaseClass.GetCastPoint(self) + ( hCaster:GetModifierStackCount("modifier_saito_fds_cast_controller", hCaster) * nCastPointIncreaser )
 -- end
 function saito_shadowslash:OnSpellStart()
@@ -1283,13 +1232,15 @@ function saito_shadowslash:OnSpellStart()
     local nDamageType = self:GetAbilityDamageType()
 
     local nRadius = self:GetAOERadius()
-    
+
     local nDamage = self:GetSpecialValueFor("pull_damage") + ( GetAttributeValue(hCaster, "saito_attribute_sword", "qwe_hero_level_damage", -1, 0) * hCaster:GetLevel() )
 
+    --========================--
     local nCastsDone = hCaster:GetModifierStackCount(self:GetIntrinsicModifierName(), hCaster) + 1  --To reduce the damage by number of cast done.
     if nCastsDone >= self:GetSpecialValueFor("repeat_halver_count_need") then
         nDamage = nDamage / nCastsDone
     end
+    --========================--
 
     local nBurstRadius       = self:GetSpecialValueFor("burst_radius")
     local nBurstStunDuration = self:GetSpecialValueFor("burst_stun_duration")
@@ -1354,9 +1305,9 @@ function saito_shadowslash:OnSpellStart()
                 for _, hEntity2 in pairs(hEntities2) do
                     if IsNotNull(hEntity2) then
                         local vEntLoc = hEntity2:GetAbsOrigin()
-
+                        --=================================--
                         giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nBurstStunDuration)
-
+                        --=================================--
                         DoDamage(hCaster, hEntity, nBurstDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, hAbility, false)
                         --=================================--
                         self:PullTargetEffect(hEntity2, vEntLoc)
@@ -1415,15 +1366,15 @@ function saito_shadowslash:PullTargetEffect(hTarget, vOldLoc)
     EmitSoundOn("Hero_Saito.Attack", hTarget)
 end
 ---------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier("modifier_saito_shadowslash_mrr", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE) --mrr == magic resistance reduction
+LinkLuaModifier("modifier_saito_shadowslash_mrr", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE) --mrr == magic resistance reduction.
 
 modifier_saito_shadowslash_mrr = modifier_saito_shadowslash_mrr or class({})
 
-function modifier_saito_shadowslash_mrr:IsHidden()                                                                return false end
-function modifier_saito_shadowslash_mrr:IsDebuff()                                                                return true end
-function modifier_saito_shadowslash_mrr:IsPurgable()                                                              return true end
-function modifier_saito_shadowslash_mrr:IsPurgeException()                                                        return true end
-function modifier_saito_shadowslash_mrr:RemoveOnDeath()                                                           return true end
+function modifier_saito_shadowslash_mrr:IsHidden()                                                                  return false end
+function modifier_saito_shadowslash_mrr:IsDebuff()                                                                  return true end
+function modifier_saito_shadowslash_mrr:IsPurgable()                                                                return true end
+function modifier_saito_shadowslash_mrr:IsPurgeException()                                                          return true end
+function modifier_saito_shadowslash_mrr:RemoveOnDeath()                                                             return true end
 function modifier_saito_shadowslash_mrr:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
@@ -1443,24 +1394,6 @@ end
 function modifier_saito_shadowslash_mrr:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1546,11 +1479,11 @@ LinkLuaModifier("modifier_saito_mind_eye_active", "abilities/saito/saito_abiliti
 
 modifier_saito_mind_eye_active = modifier_saito_mind_eye_active or class({})
 
-function modifier_saito_mind_eye_active:IsHidden()                                                                return false end
-function modifier_saito_mind_eye_active:IsDebuff()                                                                return false end
-function modifier_saito_mind_eye_active:IsPurgable()                                                              return false end
-function modifier_saito_mind_eye_active:IsPurgeException()                                                        return false end
-function modifier_saito_mind_eye_active:RemoveOnDeath()                                                           return true end
+function modifier_saito_mind_eye_active:IsHidden()                                                                  return false end
+function modifier_saito_mind_eye_active:IsDebuff()                                                                  return false end
+function modifier_saito_mind_eye_active:IsPurgable()                                                                return false end
+function modifier_saito_mind_eye_active:IsPurgeException()                                                          return false end
+function modifier_saito_mind_eye_active:RemoveOnDeath()                                                             return true end
 function modifier_saito_mind_eye_active:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_HEALTH_BONUS,
@@ -1574,10 +1507,10 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
         and GetDistance(keys.unit, self.hParent) <= self.nRadius
         and not keys.unit:HasModifier("modifier_saito_mind_eye_ss_interval")
         and UnitFilter( --This checks filter units for example you can put here settings AKA check non-invis and etc.
-                        keys.unit, 
-                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                        DOTA_UNIT_TARGET_HERO, 
-                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+                        keys.unit,
+                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                        DOTA_UNIT_TARGET_HERO,
+                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                         self.hCaster:GetTeamNumber()
                         ) == UF_SUCCESS then
 
@@ -1620,7 +1553,7 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
         self:CastPFX(self.hParent)
 
         local bHasAttribute = IsNotNull(GetAttribute(self.hCaster, "saito_attribute_memoir"))
-        
+
         if bHasAttribute then
             local nShellDuration = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_shell_duration", -1, 0)
             local nChance        = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_okita_chance", -1, 0)
@@ -1628,7 +1561,8 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_shell", {duration = nShellDuration})
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_linken", {duration = nShellDuration})
 
-            if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" and RollPercentage(nChance) then --If the target is Okita then add her agility bonus and reset abilities.
+            if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" and RollPseudoRandomPercentage(nChance, 1, self.hParent) then --If the target is Okita then add her agility bonus and reset abilities.
+            --if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" and RollPercentage(nChance) then --Rolls a number from 1 to 100 and returns true if the roll is less than or equal to the number specified.
                 ResetAbilities(self.hParent) --FATE mechanic, described in F/A 2 code... needs as other functions because it is FATE...
 
                 self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_agility", {})
@@ -1640,6 +1574,7 @@ function modifier_saito_mind_eye_active:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
 function modifier_saito_mind_eye_active:CastPFX(hTarget)
+
     -- local sCastPFX =    "particles/heroes/saito/saito_mind_eye_cast.vpcf"
     -- local nCastPFX =    ParticleManager:CreateParticle(sCastPFX, PATTACH_ABSORIGIN_FOLLOW, hTarget)
     --                     ParticleManager:SetParticleControlForward(nCastPFX, 0, hTarget:GetForwardVector())
@@ -1668,23 +1603,21 @@ LinkLuaModifier("modifier_saito_mind_eye_ss_interval", "abilities/saito/saito_ab
 
 modifier_saito_mind_eye_ss_interval = modifier_saito_mind_eye_ss_interval or class({})
 
-function modifier_saito_mind_eye_ss_interval:IsHidden()                                                                return false end
-function modifier_saito_mind_eye_ss_interval:IsDebuff()                                                                return true end
-function modifier_saito_mind_eye_ss_interval:IsPurgable()                                                              return false end
-function modifier_saito_mind_eye_ss_interval:IsPurgeException()                                                        return false end
-function modifier_saito_mind_eye_ss_interval:RemoveOnDeath()                                                           return false end
-
-
+function modifier_saito_mind_eye_ss_interval:IsHidden()                                                             return false end
+function modifier_saito_mind_eye_ss_interval:IsDebuff()                                                             return true end
+function modifier_saito_mind_eye_ss_interval:IsPurgable()                                                           return false end
+function modifier_saito_mind_eye_ss_interval:IsPurgeException()                                                     return false end
+function modifier_saito_mind_eye_ss_interval:RemoveOnDeath()                                                        return false end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_mind_eye_shell", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
 modifier_saito_mind_eye_shell = modifier_saito_mind_eye_shell or class({})
 
-function modifier_saito_mind_eye_shell:IsHidden()                                                                return false end
-function modifier_saito_mind_eye_shell:IsDebuff()                                                                return false end
-function modifier_saito_mind_eye_shell:IsPurgable()                                                              return false end
-function modifier_saito_mind_eye_shell:IsPurgeException()                                                        return false end
-function modifier_saito_mind_eye_shell:RemoveOnDeath()                                                           return true end
+function modifier_saito_mind_eye_shell:IsHidden()                                                                   return false end
+function modifier_saito_mind_eye_shell:IsDebuff()                                                                   return false end
+function modifier_saito_mind_eye_shell:IsPurgable()                                                                 return false end
+function modifier_saito_mind_eye_shell:IsPurgeException()                                                           return false end
+function modifier_saito_mind_eye_shell:RemoveOnDeath()                                                              return true end
 function modifier_saito_mind_eye_shell:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
@@ -1712,14 +1645,14 @@ LinkLuaModifier("modifier_saito_mind_eye_linken", "abilities/saito/saito_abiliti
 
 modifier_saito_mind_eye_linken = modifier_saito_mind_eye_linken or class({})
 
-function modifier_saito_mind_eye_linken:IsHidden()                                                                return false end
-function modifier_saito_mind_eye_linken:IsDebuff()                                                                return false end
-function modifier_saito_mind_eye_linken:IsPurgable()                                                              return false end
-function modifier_saito_mind_eye_linken:IsPurgeException()                                                        return false end
-function modifier_saito_mind_eye_linken:RemoveOnDeath()                                                           return true end
+function modifier_saito_mind_eye_linken:IsHidden()                                                                  return false end
+function modifier_saito_mind_eye_linken:IsDebuff()                                                                  return false end
+function modifier_saito_mind_eye_linken:IsPurgable()                                                                return false end
+function modifier_saito_mind_eye_linken:IsPurgeException()                                                          return false end
+function modifier_saito_mind_eye_linken:RemoveOnDeath()                                                             return true end
 -- function modifier_saito_mind_eye_linken:GetAbsorbSpell(keys) --It's just the default linken for D2. --Uncomment if want to use, commented because who knows maybe somewhere F/A 2 checks it out...
 --     if IsServer() then
---         --There write anything when linken procs
+--         --Here write anything when linken procs.
 --         self:Destroy()
 --         return 1
 --     end
@@ -1735,11 +1668,11 @@ LinkLuaModifier("modifier_saito_mind_eye_agility", "abilities/saito/saito_abilit
 
 modifier_saito_mind_eye_agility = modifier_saito_mind_eye_agility or class({})
 
-function modifier_saito_mind_eye_agility:IsHidden()                                                                return false end
-function modifier_saito_mind_eye_agility:IsDebuff()                                                                return false end
-function modifier_saito_mind_eye_agility:IsPurgable()                                                              return false end
-function modifier_saito_mind_eye_agility:IsPurgeException()                                                        return false end
-function modifier_saito_mind_eye_agility:RemoveOnDeath()                                                           return false end
+function modifier_saito_mind_eye_agility:IsHidden()                                                                 return false end
+function modifier_saito_mind_eye_agility:IsDebuff()                                                                 return false end
+function modifier_saito_mind_eye_agility:IsPurgable()                                                               return false end
+function modifier_saito_mind_eye_agility:IsPurgeException()                                                         return false end
+function modifier_saito_mind_eye_agility:RemoveOnDeath()                                                            return false end
 function modifier_saito_mind_eye_agility:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_STATS_AGILITY_BONUS
@@ -1763,22 +1696,6 @@ end
 function modifier_saito_mind_eye_agility:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1853,12 +1770,12 @@ LinkLuaModifier("modifier_saito_fds_cast_controller", "abilities/saito/saito_abi
 
 modifier_saito_fds_cast_controller = modifier_saito_fds_cast_controller or class({})
 
-function modifier_saito_fds_cast_controller:IsHidden()                                                                  return false end
-function modifier_saito_fds_cast_controller:IsDebuff()                                                                  return false end
-function modifier_saito_fds_cast_controller:IsPurgable()                                                                return false end
-function modifier_saito_fds_cast_controller:IsPurgeException()                                                          return false end
-function modifier_saito_fds_cast_controller:RemoveOnDeath()                                                             return false end
-function modifier_saito_fds_cast_controller:DestroyOnExpire()                                                           return false end --Need to prevent removing if something error with duration modification.
+function modifier_saito_fds_cast_controller:IsHidden()                                                              return false end
+function modifier_saito_fds_cast_controller:IsDebuff()                                                              return false end
+function modifier_saito_fds_cast_controller:IsPurgable()                                                            return false end
+function modifier_saito_fds_cast_controller:IsPurgeException()                                                      return false end
+function modifier_saito_fds_cast_controller:RemoveOnDeath()                                                         return false end
+function modifier_saito_fds_cast_controller:DestroyOnExpire()                                                       return false end --Need to prevent removing if something error with duration modification.
 function modifier_saito_fds_cast_controller:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
@@ -1906,7 +1823,7 @@ function modifier_saito_fds_cast_controller:OnAbilityFullyCast(keys) --Different
 
                     self.hParent:SetModifierStackCount(sModifierName, self.hCaster, nNewStacks)
 
-                    --At the same time we just end their cooldowns, because if don't do this then they will go on cooldown.... PEPE
+                    --At the same time we just end their cooldowns, because if don't do this then they will go on cooldown.... PEPE.
                     hAbility:EndCooldown() --Should be done before BreakCombo function, which puts the abilities on cooldown.
                     hAbility:StartCooldown(nLockerCooldown * self.hParent:GetCooldownReduction()) --There is my genius mechanic, which puts the abilities to micro-cooldown after use.
                 end
@@ -1924,10 +1841,10 @@ function modifier_saito_fds_cast_controller:OnTakeDamage(keys)
         if keys.attacker == self.hParent
             and IsNotNull(keys.inflictor) and not keys.inflictor:IsItem()
             and UnitFilter( --This checks filter units for example you can put here settings AKA check non-invis and etc.
-                            keys.unit, 
-                            self.nABILITY_TARGET_TEAM, 
-                            self.nABILITY_TARGET_TYPE, 
-                            self.nABILITY_TARGET_FLAGS, 
+                            keys.unit,
+                            self.nABILITY_TARGET_TEAM,
+                            self.nABILITY_TARGET_TYPE,
+                            self.nABILITY_TARGET_FLAGS,
                             self.nCASTER_TEAM
                             ) == UF_SUCCESS then
 
@@ -1978,7 +1895,7 @@ function modifier_saito_fds_cast_controller:OnCreated(tTable)
 
     if IsServer() then
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
         self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
     end
@@ -2089,7 +2006,7 @@ function modifier_saito_fds_cast_controller:CheckSwapQWESet(hAbility) --Basicall
     end
 end
 --This old code that doesn't show the buff timer as the last stack part of max cast..., works so you can delete some parts of the code and uncomment from 2 to > nothing.
-function modifier_saito_fds_cast_controller:CheckSwapQWESet2(hAbility) --Basicaly hardcoded, PEPE.
+function modifier_saito_fds_cast_controller:CheckSwapQWESet2(hAbility) --Basically hardcoded, PEPE.
     if IsServer()
         and IsNotNull(GetAttribute(self.hParent, "saito_attribute_sword")) then
 
@@ -2159,14 +2076,14 @@ LinkLuaModifier("modifier_saito_fds_active", "abilities/saito/saito_abilities", 
 
 modifier_saito_fds_active = modifier_saito_fds_active or class({})
 
-function modifier_saito_fds_active:IsHidden()                                                                   return false end
-function modifier_saito_fds_active:IsDebuff()                                                                   return false end
-function modifier_saito_fds_active:IsPurgable()                                                                 return false end
-function modifier_saito_fds_active:IsPurgeException()                                                           return false end
-function modifier_saito_fds_active:RemoveOnDeath()                                                              return true end
-function modifier_saito_fds_active:IsAura()                                                                     return true end
-function modifier_saito_fds_active:IsAuraActiveOnDeath()                                                        return false end
-function modifier_saito_fds_active:IsPermanent()                                                                return false end
+function modifier_saito_fds_active:IsHidden()                                                                       return false end
+function modifier_saito_fds_active:IsDebuff()                                                                       return false end
+function modifier_saito_fds_active:IsPurgable()                                                                     return false end
+function modifier_saito_fds_active:IsPurgeException()                                                               return false end
+function modifier_saito_fds_active:RemoveOnDeath()                                                                  return true end
+function modifier_saito_fds_active:IsAura()                                                                         return true end
+function modifier_saito_fds_active:IsAuraActiveOnDeath()                                                            return false end
+function modifier_saito_fds_active:IsPermanent()                                                                    return false end
 function modifier_saito_fds_active:GetAuraEntityReject(hEntity)
     return not IsNotNull(GetAttribute(self.hParent, "saito_attribute_freestyle"))
 end
@@ -2183,7 +2100,7 @@ function modifier_saito_fds_active:GetAuraSearchFlags()
     return self.nABILITY_TARGET_FLAGS
 end
 function modifier_saito_fds_active:GetModifierAura()
-    return "modifier_saito_fds_aura_sdr" --SDR == spell_damage_reduction
+    return "modifier_saito_fds_aura_sdr" --sdr == spell damage reduction.
 end
 function modifier_saito_fds_active:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
@@ -2194,7 +2111,7 @@ function modifier_saito_fds_active:OnCreated(tTable)
 
     if IsServer() then
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
         self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
     end
@@ -2207,11 +2124,11 @@ LinkLuaModifier("modifier_saito_fds_aura_sdr", "abilities/saito/saito_abilities"
 
 modifier_saito_fds_aura_sdr = modifier_saito_fds_aura_sdr or class({})
 
-function modifier_saito_fds_aura_sdr:IsHidden()                                                                return false end
-function modifier_saito_fds_aura_sdr:IsDebuff()                                                                return true end
-function modifier_saito_fds_aura_sdr:IsPurgable()                                                              return false end
-function modifier_saito_fds_aura_sdr:IsPurgeException()                                                        return false end
-function modifier_saito_fds_aura_sdr:RemoveOnDeath()                                                           return true end
+function modifier_saito_fds_aura_sdr:IsHidden()                                                                     return false end
+function modifier_saito_fds_aura_sdr:IsDebuff()                                                                     return true end
+function modifier_saito_fds_aura_sdr:IsPurgable()                                                                   return false end
+function modifier_saito_fds_aura_sdr:IsPurgeException()                                                             return false end
+function modifier_saito_fds_aura_sdr:RemoveOnDeath()                                                                return true end
 function modifier_saito_fds_aura_sdr:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
@@ -2249,11 +2166,11 @@ LinkLuaModifier("modifier_saito_fds_active_sdr", "abilities/saito/saito_abilitie
 
 modifier_saito_fds_active_sdr = modifier_saito_fds_active_sdr or class({})
 
-function modifier_saito_fds_active_sdr:IsHidden()                                                                return false end
-function modifier_saito_fds_active_sdr:IsDebuff()                                                                return true end
-function modifier_saito_fds_active_sdr:IsPurgable()                                                              return false end
-function modifier_saito_fds_active_sdr:IsPurgeException()                                                        return false end
-function modifier_saito_fds_active_sdr:RemoveOnDeath()                                                           return true end
+function modifier_saito_fds_active_sdr:IsHidden()                                                                   return false end
+function modifier_saito_fds_active_sdr:IsDebuff()                                                                   return true end
+function modifier_saito_fds_active_sdr:IsPurgable()                                                                 return false end
+function modifier_saito_fds_active_sdr:IsPurgeException()                                                           return false end
+function modifier_saito_fds_active_sdr:RemoveOnDeath()                                                              return true end
 function modifier_saito_fds_active_sdr:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
@@ -2311,10 +2228,6 @@ end
 
 
 
-
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_formless_invis = saito_formless_invis or class({})
@@ -2337,11 +2250,11 @@ LinkLuaModifier("modifier_saito_formless_invis", "abilities/saito/saito_abilitie
 
 modifier_saito_formless_invis = modifier_saito_formless_invis or class({})
 
-function modifier_saito_formless_invis:IsHidden()                                                                return false end
-function modifier_saito_formless_invis:IsDebuff()                                                                return false end
-function modifier_saito_formless_invis:IsPurgable()                                                              return false end
-function modifier_saito_formless_invis:IsPurgeException()                                                        return false end
-function modifier_saito_formless_invis:RemoveOnDeath()                                                           return true end
+function modifier_saito_formless_invis:IsHidden()                                                                   return false end
+function modifier_saito_formless_invis:IsDebuff()                                                                   return false end
+function modifier_saito_formless_invis:IsPurgable()                                                                 return false end
+function modifier_saito_formless_invis:IsPurgeException()                                                           return false end
+function modifier_saito_formless_invis:RemoveOnDeath()                                                              return true end
 function modifier_saito_formless_invis:CheckState()
     local tState = {}
 
@@ -2450,6 +2363,7 @@ end
 
 
 
+
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_formless_slash = saito_formless_slash or class({})
@@ -2521,7 +2435,7 @@ function saito_formless_slash:OnSpellStart()
     local nStacksNew = ( hCaster:GetModifierStackCount("modifier_saito_formless_slash_counter", hCaster) + 1 ) % nMaxSlashes
     --There only if /nSlashes == without the .value after the dot then it autosets to 0 the slash counter and also helps handle which slashes it is.
     hCaster:SetModifierStackCount("modifier_saito_formless_slash_counter", hCaster, nStacksNew)
-    
+
     local nAttrStunDuration     = GetAttributeValue(hCaster, "saito_attribute_freedom", "fls_stun_duration", -1, 0)
     local nAttrLastStunDuration = GetAttributeValue(hCaster, "saito_attribute_freedom", "fls_last_stun_duration", -1, 0)
 
@@ -2608,20 +2522,11 @@ LinkLuaModifier("modifier_saito_formless_slash_counter", "abilities/saito/saito_
 
 modifier_saito_formless_slash_counter = modifier_saito_formless_slash_counter or class({})
 
-function modifier_saito_formless_slash_counter:IsHidden()                                                                return not self:GetParent():HasModifier("modifier_saito_formless_invis") end --Hide counter if we haven't invis modifier aka not swapped
-function modifier_saito_formless_slash_counter:IsDebuff()                                                                return false end
-function modifier_saito_formless_slash_counter:IsPurgable()                                                              return false end
-function modifier_saito_formless_slash_counter:IsPurgeException()                                                        return false end
-function modifier_saito_formless_slash_counter:RemoveOnDeath()                                                           return false end
-
-
-
-
-
-
-
-
-
+function modifier_saito_formless_slash_counter:IsHidden()                                                           return not self:GetParent():HasModifier("modifier_saito_formless_invis") end --Hides the counter if we don't have the invisibility modifier AKA not swapping.
+function modifier_saito_formless_slash_counter:IsDebuff()                                                           return false end
+function modifier_saito_formless_slash_counter:IsPurgable()                                                         return false end
+function modifier_saito_formless_slash_counter:IsPurgeException()                                                   return false end
+function modifier_saito_formless_slash_counter:RemoveOnDeath()                                                      return false end
 
 
 
@@ -2677,7 +2582,7 @@ function saito_step:OnSpellStart()
     local vCasterLoc = hCaster:GetAbsOrigin()
     local vDirection = GetDirection(vPoint, hCaster)
     local nDistance  = math.min(math.max(GetDistance(vPoint, vCasterLoc), nMinDistance), nMaxDistance)
-    
+
     vPoint = vCasterLoc + vDirection * nDistance
     while ( not GridNav:IsTraversable(vPoint) or GridNav:IsBlocked(vPoint) ) do
         nDistance = nDistance - 10
@@ -2701,8 +2606,9 @@ function saito_step:OnSpellStart()
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
             giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
-
+            --=================================--
             DoDamage(hCaster, hEntity, nDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+            --=================================--
         end
     end
 
@@ -2729,12 +2635,6 @@ end
 
 
 
-
-
-
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_storm = saito_storm or class({})
@@ -2750,14 +2650,14 @@ LinkLuaModifier("modifier_saito_storm_motion", "abilities/saito/saito_abilities"
 
 modifier_saito_storm_motion = modifier_saito_storm_motion or class({})
 
-function modifier_saito_storm_motion:IsHidden()                                                                   return true end
-function modifier_saito_storm_motion:IsDebuff()                                                                   return false end
-function modifier_saito_storm_motion:IsPurgable()                                                                 return false end
-function modifier_saito_storm_motion:IsPurgeException()                                                           return false end
-function modifier_saito_storm_motion:RemoveOnDeath()                                                              return true end
-function modifier_saito_storm_motion:GetPriority()                                                                return MODIFIER_PRIORITY_HIGH end
+function modifier_saito_storm_motion:IsHidden()                                                                     return true end
+function modifier_saito_storm_motion:IsDebuff()                                                                     return false end
+function modifier_saito_storm_motion:IsPurgable()                                                                   return false end
+function modifier_saito_storm_motion:IsPurgeException()                                                             return false end
+function modifier_saito_storm_motion:RemoveOnDeath()                                                                return true end
+function modifier_saito_storm_motion:GetPriority()                                                                  return MODIFIER_PRIORITY_HIGH end
 function modifier_saito_storm_motion:CheckState()
-    local hState =  { 
+    local hState =  {
                         [MODIFIER_STATE_STUNNED] = true
                     }
 
@@ -2785,15 +2685,15 @@ function modifier_saito_storm_motion:OnCreated(tTable)
     if IsServer() then
         self.nDamageType           = self.hAbility:GetAbilityDamageType()
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
-        self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
+        self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
         self.hTarget = self.hAbility:GetCursorTarget()
 
         self.fDuration = self.hAbility:GetSpecialValueFor("fly_duration")
         self.fFixTime  = self:GetDuration() - self.fDuration
-        self.fSpeed    = 1000 --CORELATES BY TIME WHILE FLYING
+        self.fSpeed    = 1000 --CORRELATES BY TIME, WHEN FLYING.
 
         self.fOffset = ( self.hTarget:BoundingRadius2D() + self.hParent:BoundingRadius2D() ) * 2
 
@@ -2831,7 +2731,7 @@ function modifier_saito_storm_motion:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
 function modifier_saito_storm_motion:UpdateHorizontalMotion(me, dt)
-    --me == Unit, dt == time, basically me == self.hParent == self:GetParent(), dt == 0.03333 == FrameTime() == basic time 33hz think on server
+    --me == Unit, dt == time, basically me == self.hParent == self:GetParent(), dt == 0.03333 == FrameTime() == basic time 33hz thinks on the Server.
     if IsNotNull(self.hTarget)
         and UnitFilter( self.hTarget,
                         self.nABILITY_TARGET_TEAM,
@@ -2852,7 +2752,7 @@ function modifier_saito_storm_motion:UpdateHorizontalMotion(me, dt)
             if fDistance <= self.fOffset then
                 vNextPos = vCurPos
             end
-            
+
             if fUnitsPerDt >= fDistance then
                 vNextPos = self.hTarget:GetAbsOrigin() - vDirection * self.fOffset
             end
@@ -2894,7 +2794,7 @@ function modifier_saito_storm_motion:PokeEnemy()
 
         local vParentLoc = self.hParent:GetAbsOrigin()
         local vDirection = GetDirection(self.hTarget, vParentLoc)
-        
+
         self:PlayEffects(self.hTarget, vDirection)
 
         local tEntities = FindUnitsInLine(
@@ -2903,21 +2803,23 @@ function modifier_saito_storm_motion:PokeEnemy()
                                             vParentLoc + vDirection * self.nPierceRange,
                                             nil,
                                             self.nPierceWidth,
-                                            self.nABILITY_TARGET_TEAM, 
+                                            self.nABILITY_TARGET_TEAM,
                                             self.nABILITY_TARGET_TYPE,
                                             self.nABILITY_TARGET_FLAGS
                                         )
 
         for _, hEntity in pairs(tEntities) do
             if IsNotNull(hEntity) then
+                --=================================--
                 DoDamage(self.hCaster, hEntity, self.nDamage, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
+                --=================================--
             end
         end
     end
 end
 function modifier_saito_storm_motion:PlayEffects(hTarget, vDirection)
     local sImpactPFX = "particles/heroes/saito/saito_storm_impact.vpcf"
-    
+
     local nImpactPFX = ParticleManager:CreateParticle(sImpactPFX, PATTACH_ABSORIGIN_FOLLOW, hTarget)
                         ParticleManager:SetParticleControlEnt(
                                                                 nImpactPFX,
@@ -2945,6 +2847,7 @@ end
 
 
 
+
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 saito_vortex = saito_vortex or class({})
@@ -2957,23 +2860,21 @@ function saito_vortex:OnSpellStart()
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_vortex_slashing", {duration = 3}) --3 Seconds just to prevent any mistakes.
 end
-
---particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_blade_fury_abyssal_sparks_golden.vpcf
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_vortex_slashing", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
 modifier_saito_vortex_slashing = modifier_saito_vortex_slashing or class({})
 
-function modifier_saito_vortex_slashing:IsHidden()                                                              return false end
-function modifier_saito_vortex_slashing:IsDebuff()                                                              return false end
-function modifier_saito_vortex_slashing:IsPurgable()                                                            return false end
-function modifier_saito_vortex_slashing:IsPurgeException()                                                      return false end
-function modifier_saito_vortex_slashing:RemoveOnDeath()                                                         return true end
-function modifier_saito_vortex_slashing:IsAura()                                                                return true end
-function modifier_saito_vortex_slashing:IsAuraActiveOnDeath()                                                   return false end
-function modifier_saito_vortex_slashing:IsPermanent()                                                           return false end
+function modifier_saito_vortex_slashing:IsHidden()                                                                  return false end
+function modifier_saito_vortex_slashing:IsDebuff()                                                                  return false end
+function modifier_saito_vortex_slashing:IsPurgable()                                                                return false end
+function modifier_saito_vortex_slashing:IsPurgeException()                                                          return false end
+function modifier_saito_vortex_slashing:RemoveOnDeath()                                                             return true end
+function modifier_saito_vortex_slashing:IsAura()                                                                    return true end
+function modifier_saito_vortex_slashing:IsAuraActiveOnDeath()                                                       return false end
+function modifier_saito_vortex_slashing:IsPermanent()                                                               return false end
 function modifier_saito_vortex_slashing:CheckState()
-    local tState =  { 
+    local tState =  {
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_STUNNED]           = true
                     }
@@ -3030,8 +2931,8 @@ function modifier_saito_vortex_slashing:OnCreated(hTable)
     if IsServer() then
         self.nDamageType           = self.hAbility:GetAbilityDamageType()
         self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
-        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam() 
-        self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType() 
+        self.nABILITY_TARGET_TEAM  = self.hAbility:GetAbilityTargetTeam()
+        self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
         self:StartIntervalThink(self.nSlashInterval)
@@ -3068,15 +2969,15 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
                                     center_z           = vParentLoc.z
                                 }
 
-        local tEntities = FindUnitsInRadius(  
-                                            self.nCASTER_TEAM, 
-                                            self.hParent:GetAbsOrigin(), 
-                                            nil, 
-                                            nRadius, 
-                                            self.nABILITY_TARGET_TEAM, 
+        local tEntities = FindUnitsInRadius(
+                                            self.nCASTER_TEAM,
+                                            self.hParent:GetAbsOrigin(),
+                                            nil,
+                                            nRadius,
+                                            self.nABILITY_TARGET_TEAM,
                                             self.nABILITY_TARGET_TYPE,
                                             self.nABILITY_TARGET_FLAGS,
-                                            FIND_CLOSEST, 
+                                            FIND_CLOSEST,
                                             false)
 
         for _, hEntity in pairs(tEntities) do
@@ -3128,7 +3029,7 @@ function modifier_saito_vortex_slashing:PlayEffects(hCaster, nRadius)
     EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Saito.Shadowslash.Cast", hCaster)
     EmitSoundOn("Saito.Formless.Slash.Cast", hCaster)
 
-    hCaster:StartGesture(ACT_DOTA_CAST_ABILITY_3) -- Just for now... its kek but for tests
+    hCaster:StartGesture(ACT_DOTA_CAST_ABILITY_3) --Just for now... it's PEPE but for testing.
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_vortex_pull", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -3151,9 +3052,9 @@ function modifier_saito_vortex_pull:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
-    
+
     self.nPullSpeed = self.hAbility:GetSpecialValueFor("pull_speed")
-    
+
     if IsServer() then
         self.nThinkTime = FrameTime()
         self:StartIntervalThink(self.nThinkTime)
@@ -3161,7 +3062,7 @@ function modifier_saito_vortex_pull:OnCreated(tTable)
         self.nOffset = ( self.hCaster:BoundingRadius2D() + self.hParent:BoundingRadius2D() ) * 2
 
         local nLockDuration = (self.hAbility:GetSpecialValueFor("slashes_count") - 1) * self.hAbility:GetSpecialValueFor("slashes_interval")
-        --Bases on -= total time, if dispelled then not applies again--
+        --Based on -= total time, if it is dispelled then it no longer applies.
         giveUnitDataDrivenModifier(self.hCaster, self.hParent, "locked", nLockDuration) --Can be changed instead if you enter the name of the current modifier in the "list" of locks (in util.lua), and remove this function that adds the locks manually.
     end
 end
@@ -3180,7 +3081,7 @@ function modifier_saito_vortex_pull:ChargeMotion(me, dt)
         local vDirection = GetDirection(vCenterLoc, me)
 
         local nPullSpeed = self.nPullSpeed * dt
-        
+
         local vNowLoc  = me:GetAbsOrigin()
         local vNextLoc = vNowLoc + vDirection * nPullSpeed
         local vNextLoc = GetGroundPosition(vNextLoc, me)
@@ -3201,65 +3102,4 @@ function modifier_saito_vortex_pull:OnDestroy()
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---sounds/misc/idles/idle_jugger.vsnd
-
-
-
-
-
-
-
-
--- ---------------------------------------------------------------------------------------------------------------------
--- LinkLuaModifier("modifier_saito_flashblade_motion", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
-
--- modifier_saito_flashblade_motion = modifier_saito_flashblade_motion or class({})
-
-
--- function modifier_saito_flashblade_motion:IsHidden()                                                           return true end
--- function modifier_saito_flashblade_motion:IsDebuff()                                                           return false end
--- function modifier_saito_flashblade_motion:IsPurgable()                                                         return false end
--- function modifier_saito_flashblade_motion:IsPurgeException()                                                   return false end
--- function modifier_saito_flashblade_motion:RemoveOnDeath()                                                      return true end
--- function modifier_saito_flashblade_motion:CheckState()
---     local tState =  {    
---                         [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
---                     }
---     return tState
--- end
--- function modifier_saito_flashblade_motion:OnCreated(tTable)
---     self.hCaster  = self:GetCaster()
---     self.hParent  = self:GetParent()
---     self.hAbility = self:GetAbility()
--- end
--- function modifier_saito_flashblade_motion:OnRefresh(tTable)
---     self:OnCreated(tTable)
--- end
+---------------------------------------------------------------------------------------------------------------------

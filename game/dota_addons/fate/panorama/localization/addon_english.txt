@@ -178,6 +178,7 @@
 		"Assassin"			"Assassin"
 		"Berserker"			"Berserker"
 		"Ruler"				"Ruler"
+		"Shielder"			"Shielder"
 		"Avenger"			"Avenger"
 		"Male"				"Male"
 		"Female"			"Female"

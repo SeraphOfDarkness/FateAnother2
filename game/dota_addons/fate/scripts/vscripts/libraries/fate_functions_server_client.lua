@@ -72,6 +72,8 @@ CCModifierStatic = {
     modifier_fran_lightning_slow = true,
     modifier_purge_the_unjust_slow = true,
     modifier_gods_resolution_slow = true, 
+    modifier_mashu_bunker_bolt_slow = true, 
+    modifier_mashu_taunt = true, 
 }
 
 local VALVE_AddNewModifier = CDOTA_BaseNPC.AddNewModifier
