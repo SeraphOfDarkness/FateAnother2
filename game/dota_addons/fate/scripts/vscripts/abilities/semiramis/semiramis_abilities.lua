@@ -46,16 +46,6 @@ function OnLaserThink(keys)
 	end
 end
 
-function OnGardenDeath(keys)
-	local hero = caster:GetOwnerEntity()
-	if hero.IsMounted then 
-		hero.IsMounted = false
-		if hero:HasModifier("modifier_semiramis_mounted") then
-			hero:RemoveModifierByName("modifier_semiramis_mounted")
-		end
-	end
-end
-
 function OnPoisonousBite(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -84,7 +74,8 @@ function OnPoisonousBite(keys)
 
 			local dmg_flag = 0
 			if caster.IsCharmAcquired and target:IsRealHero() and not IsFemaleServant(target) and target:GetName() ~= "npc_dota_hero_queenofpain" then 
-				dmg_flag = DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+				local bonus_male = ability:GetSpecialValueFor("bonus_male")
+				damage = damage + bonus_male
 			end
 
 		   	if caster.IsOldestPoisonerAcquired then
@@ -94,7 +85,7 @@ function OnPoisonousBite(keys)
 				damage_burst = damage_burst + (burst_per_int * caster:GetIntellect())
 			end
 
-		   	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, dmg_flag, ability, false)
+		   	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
 
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_semiramis_poisonous_bite_debuff", {})
 

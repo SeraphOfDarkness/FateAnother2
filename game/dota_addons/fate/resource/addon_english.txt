@@ -1490,19 +1490,21 @@
 		"DOTA_Tooltip_ability_medusa_highspeed_upgrade_riding_dur"	"RIDING DURATION:"
 		
 		"DOTA_Tooltip_Ability_medusa_breaker_gorgon"			"<font color='#58ACFA'>Breaker Gorgon</font>"
-		"DOTA_Tooltip_ability_medusa_breaker_gorgon_Description"		"Medusa curses enemies inside target area with <font color='#FF3399'>Breaker Gorgon</font> for a duration. \n<font color='#FF3399'>Breaker Gorgon</font>: Target will be <font color='#FF3399'>slowing</font> his movespeed and attackspeed.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Seal</font>"
+		"DOTA_Tooltip_ability_medusa_breaker_gorgon_Description"		"Medusa curses enemies inside target area with <font color='#FF3399'>silence</font> and <font color='#FF3399'>Breaker Gorgon</font> for a duration. \n<font color='#FF3399'>Breaker Gorgon</font>: Target will be <font color='#FF3399'>slowing</font> his movespeed and attackspeed.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Seal</font>"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_Lore"	"The petrified warriors of Mythical Age live forever still to tell the tale of monstrosity that lurks behind Breaker Gorgon."
 		"DOTA_Tooltip_Ability_medusa_breaker_gorgon_Note0"		"Movement speed cannot below 100."
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_radius"		"AOE:"
+		"DOTA_Tooltip_ability_medusa_breaker_gorgon_silence"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_aspd_slow"	"%ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_ms_slow"	"%MOVEMENT SPEED SLOW:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_duration""DURATION:"
 
 		"DOTA_Tooltip_Ability_medusa_breaker_gorgon_upgrade"			"<font color='#9FFFCC'>Breaker Gorgon</font>"
-		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_Description"		"Medusa curses enemies inside target area with <font color='#FF3399'>Breaker Gorgon</font> for a duration. \nEnemies that affect with <font color='#FF3399'>Mystic Eye Active</font> will turn into the <font color='#FF3399'>stone</font> and reduce their armor and magic resistance for a short duration. \n<font color='#FF3399'>Breaker Gorgon</font>: Target will be <font color='#FF3399'>slowing</font> his movespeed, attackspeed and increase his turn rate."
+		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_Description"		"Medusa curses enemies inside target area with <font color='#FF3399'>silence</font> and <font color='#FF3399'>Breaker Gorgon</font> for a duration. \nEnemies that affect with <font color='#FF3399'>Mystic Eye Active</font> will turn into the <font color='#FF3399'>stone</font> and reduce their armor and magic resistance for a short duration. \n<font color='#FF3399'>Breaker Gorgon</font>: Target will be <font color='#FF3399'>slowing</font> his movespeed, attackspeed and increase his turn rate."
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_Lore"	"The petrified warriors of Mythical Age live forever still to tell the tale of monstrosity that lurks behind Breaker Gorgon."
 		"DOTA_Tooltip_Ability_medusa_breaker_gorgon_upgrade_Note0"		"Movement speed cannot below 100."
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_radius"		"AOE:"
+		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_silence"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_aspd_slow"	"%ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_ms_slow"	"%MOVEMENT SPEED SLOW:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_turn_rate"	"%TURN RATE INCREASE:"
@@ -4602,7 +4604,13 @@
         "DOTA_Tooltip_ability_iskandar_charisma_upgrade_Lore"			"The presence of The King of Conquerers inspires even the mightiest of heroes."
         "DOTA_Tooltip_Ability_iskandar_charisma_upgrade_radius"		"AURA RADIUS:"
         "DOTA_Tooltip_Ability_iskandar_charisma_upgrade_bonus_ms"		"%BONUS MOVESPEED:"
-        "DOTA_Tooltip_Ability_iskandar_charisma_upgrade_bonus_atk"		"%BONUS ATTACK DAMAGE:"
+        "DOTA_Tooltip_Ability_iskandar_charisma_upgrade_bonus_atk"		"%BONUS ATTACK DAMAGE:""DOTA_Tooltip_Ability_iskandar_spatha"				"<font color='#FFFFFF'>Sword of the Kupriotes - Spatha</font>"
+        "DOTA_Tooltip_ability_iskandar_spatha_Description"	"Iskandar summons lightning to target area, dealing damage and <font color='#FF3399'>root</font> all enemies for short duration."
+        "DOTA_Tooltip_Ability_iskandar_spatha_cast"				"CAST TIME:"
+        "DOTA_Tooltip_Ability_iskandar_spatha_range"			"CAST RANGE:"
+        "DOTA_Tooltip_Ability_iskandar_spatha_radius"			"AOE:"
+        "DOTA_Tooltip_Ability_iskandar_spatha_damage"			"DAMAGE:"
+        "DOTA_Tooltip_Ability_iskandar_spatha_root"				"ROOT DURATION:"
 
         //////////////////////////// Basic ///////////////////////////////////
 
@@ -4678,13 +4686,10 @@
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_duration"	"DURATION:"
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_soldier_count"	"INFANTRY/ARCHER COUNT:"
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_sustain_limit"	"MINIMUM SOLDIERS REQUIRE:"
-        "DOTA_Tooltip_ability_iskandar_army_of_the_king_Note0"	""
-        "DOTA_Tooltip_ability_iskandar_army_of_the_king_Note1"	"All soldiers count towards the sustain limit; such as <font color='#58ACFA'>Phalanx infantry</font>."
-		"DOTA_Tooltip_ability_iskandar_army_of_the_king_Note2"		"Iskandar is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from master while casting."
-		"DOTA_Tooltip_ability_iskandar_army_of_the_king_Note3"		"In case <font color='#58ACFA'>Army of the King</font> is overlapping with another Reality Marble, <font color='#58ACFA'>Unlimited Blade Works</font>, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
+		"DOTA_Tooltip_ability_iskandar_army_of_the_king_Note0"		"In case <font color='#58ACFA'>Army of the King</font> is overlapping with another Reality Marble, <font color='#58ACFA'>Unlimited Blade Works</font>, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 
 		"DOTA_Tooltip_Ability_iskandar_army_of_the_king_upgrade"     "<font color='#9FFFCC'>Army of the King</font>"
-        "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Description" "After delay, all heroes and units within radius are teleported to Iskandar's Reality Marble. \n Iskandar summons <font color='#99FF33'>Eumenes</font> and his fleets, <font color='#99FF33'>Infantries</font> and <font color='#99FF33'>Archers</font>. \n Iskandar gains new abilities. \n <font color='#58ACFA'>Summon Hephaestion</font>: Summon <font color='#99FF33'>Hephaestion</font> and <font color='#99FF33'>Cavalries</font>. \n <font color='#58ACFA'>Arrow Bombard</font>: bombard an target area with arrows, dealing physical damage and <font color='#FF3399'>rooting</font> enemies. \n <font color='#FFB266'>Summon Waver</font>: Summon <font color='#99FF33'>Waver Velvet</font> and <font color='#99FF33'>Mages</font>. \n Each level increases attack and health of soldiers based on Iskandar's health. \n At least minimum soldiers must be alive in order to sustain Army of the King. \n While Army of the King persists, <font color='#58ACFA'>Gordius Wheel</font> cannot be cast. \n Iskandar is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from master while casting."
+        "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Description" "After delay, all heroes and units within radius are teleported to Iskandar's Reality Marble. \n Iskandar summons <font color='#99FF33'>Waver Velvet</font>, <font color='#99FF33'>Eumenes</font> and his fleets, <font color='#99FF33'>Infantries</font> and <font color='#99FF33'>Archers</font>. \n Iskandar gains new abilities. \n <font color='#58ACFA'>Summon Hephaestion</font>: Summon <font color='#99FF33'>Hephaestion</font> and <font color='#99FF33'>Cavalries</font>. \n <font color='#58ACFA'>Arrow Bombard</font>: bombard an target area with arrows, dealing physical damage and <font color='#FF3399'>rooting</font> enemies. \n<font color='#FFB266'>Summon Bucephalus</font>: Iskandar rides on Bucephalus and jump, dealing damage and <font color='#FF3399'>ministunning</font>. \n Each level increases attack and health of soldiers based on Iskandar's health. \n At least minimum soldiers must be alive in order to sustain Army of the King. \n While Army of the King persists, <font color='#58ACFA'>Gordius Wheel</font> cannot be cast. \n Iskandar is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from master while casting."
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Lore"	"Many spirits. One dream."
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_radius"		"RADIUS:"
@@ -4692,10 +4697,7 @@
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_soldier_count"	"INFANTRY/ARCHER COUNT:"
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_sustain_limit"	"MINIMUM SOLDIERS REQUIRE:"
         "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_bonus_health"	"%BONUS SOLDIER HEALTH:"
-        "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Note0"	""
-        "DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Note1"	"All soldiers count towards the sustain limit; such as <font color='#58ACFA'>Phalanx infantry</font>."
-		"DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Note2"		"Iskandar is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from master while casting."
-		"DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Note3"		"In case <font color='#58ACFA'>Army of the King</font> is overlapping with another Reality Marble, <font color='#58ACFA'>Unlimited Blade Works</font>, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
+		"DOTA_Tooltip_ability_iskandar_army_of_the_king_upgrade_Note0"		"In case <font color='#58ACFA'>Army of the King</font> is overlapping with another Reality Marble, <font color='#58ACFA'>Unlimited Blade Works</font>, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 
 		"DOTA_Tooltip_Ability_iskandar_arrow_bombard"				"<font color='#58ACFA'>Arrow Bombard</font>"
 		"DOTA_Tooltip_ability_iskandar_arrow_bombard_Description"	"bombard an target area with arrows, dealing physical damage and <font color='#FF3399'>rooting</font> enemies for a short duration."
@@ -4727,8 +4729,13 @@
         "DOTA_Tooltip_ability_iskandar_summon_waver_Lore"        ""   
         "DOTA_Tooltip_ability_iskandar_summon_waver_mage_count"        "MAGE COUNTS:" 
 
+        "DOTA_Tooltip_Ability_iskandar_bucephalus"     "<font color='#FFB266'>Summon Bucephalus</font>"
+        "DOTA_Tooltip_ability_iskandar_bucephalus_Description" "Iskandar rides on <font color='#99FF33'>Bucephalus</font> and jump to target location, dealing magic damage and <font color='#FF3399'>stunning</font> all enemies within area. \n While leaping, Iskandar is <font color='#FFFF28'>invulnerable</font> and <font color='#FFFF28'>untargettable</font>."
+        "DOTA_Tooltip_ability_iskandar_bucephalus_Lore"        ""   
+        "DOTA_Tooltip_ability_iskandar_bucephalus_mage_count"        "MAGE COUNTS:" 
+
         "DOTA_Tooltip_Ability_iskandar_brilliance_of_the_king"          "<font color='#FFB266'>Briliance of the King</font>"
-        "DOTA_Tooltip_ability_iskandar_brilliance_of_the_king_Description"      "<font color='#58ACFA'>CHANNEL</font>: All soldiers gain <font color='#FFFF28'>Invulnerable</font> while <font color='#99FF33'>Waver Velvet</font> takes bonus damage, all enemies are <font color='#FF3399'>silenced</font>. \n All enemies will be <font color='#FF3399'>rooted</font> when casting under <font color='#FF04EF'>Annihilate</font>'s effect."
+        "DOTA_Tooltip_ability_iskandar_brilliance_of_the_king_Description"      "<font color='#58ACFA'>CHANNEL</font>: All soldiers gain <font color='#FFFF28'>Invulnerable</font> while <font color='#99FF33'>Waver Velvet</font> takes bonus damage, all enemies are <font color='#FF3399'>silenced</font> and decrease its armor. \n All enemies will be <font color='#FF3399'>rooted</font> when casting under <font color='#FF04EF'>Annihilate</font>'s effect. \nARMOR REDUCTION: %base_arm_red% + (Iskandar's LvL x %arm_red_lvl%)"
         "DOTA_Tooltip_ability_iskandar_brilliance_of_the_king_duration"		"CHANNEL TIME:"    
         "DOTA_Tooltip_ability_iskandar_brilliance_of_the_king_income_dmg"	"%WAVER BONUS DAMAGE TAKEN:"  
 
@@ -4775,7 +4782,10 @@
 		////////////////////// Buff ///////////////////////
 
 		"DOTA_Tooltip_modifier_charisma_movespeed"                  "Iskander Charisma"
-		"DOTA_Tooltip_modifier_charisma_movespeed_Description"         "Increased %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% MS"
+		"DOTA_Tooltip_modifier_charisma_movespeed_Description"         "Increased %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% MS" 			""
+
+		"DOTA_Tooltip_modifier_iskandar_charisma_aura"                  "Iskander Charisma Aura"
+		"DOTA_Tooltip_modifier_iskandar_charisma_aura_Description"         ""
 
 		"DOTA_Tooltip_modifier_charisma_movespeed_upgrade"                  "Iskander Charisma"
 		"DOTA_Tooltip_modifier_charisma_movespeed_upgrade_Description"         "Increased %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% MS, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% Attack Damage."
@@ -4875,6 +4885,9 @@
 		"DOTA_Tooltip_modifier_annihilate_cooldown"                   "Annihilate Cooldown"
 		"DOTA_Tooltip_modifier_annihilate_cooldown_Description"       "Annihilate is unavailable"
 
+		"DOTA_Tooltip_modifier_isk_spatha_cooldown"                   "Spatha Cooldown"
+		"DOTA_Tooltip_modifier_isk_spatha_cooldown_Description"       ""
+
 		////////////////////// Special Attribute /////////////////////////////
 
         "DOTA_Tooltip_Ability_iskandar_attribute_improve_charisma"					"<font color='#9FFFCC'>Attribute: Improve Charisma</font>"
@@ -4901,15 +4914,9 @@
         "DOTA_Tooltip_ability_iskandar_attribute_via_expugnatio_Note0"	"Via Expugnatio's cooldown can be reset."
  
         "DOTA_Tooltip_Ability_iskandar_attribute_bond_beyond_time"          		"<font color='#9FFFCC'>Attribute: Bond Beyond Time</font>"
-        "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_Description"		"<font color='#58ACFA'>Phalanx</font>: Soldiers end their formation and attack nearby enemies. \n<font color='#58ACFA'>Army of the King</font>: Increases the number of soldiers and grants bonus max health based on Iskandar's maximum health. \n Enable <font color='#FFB266'>Summon Waver Velvet</font> while Iskandar is inside <font color='#58ACFA'>Army of the King</font> \n <font color='#FFB266'>Summon Waver</font>: Summon <font color='#99FF33'>Waver Velvet</font> and <font color='#99FF33'>Mages</font>. \n <font color='#FFFFFF'>Mage Captain</font>:<font color='#58ACFA'>PASSIVE</font>: All soldiers gain bonus magic resistance. \n<font color='#FFB266'>Briliance of the King</font>: <font color='#58ACFA'>CHANNEL</font>: All soldiers gain <font color='#FFFF28'>Invulnerable</font> while <font color='#99FF33'>Waver Velvet</font> takes bonus damage, all enemies are <font color='#FF3399'>silenced</font>." 
+        "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_Description"		"<font color='#58ACFA'>Phalanx</font>: Soldiers end their formation and attack nearby enemies. \n<font color='#58ACFA'>Army of the King</font>: Summon <font color='#99FF33'>Waver Velvet</font>, increases the number of soldiers and grants bonus max health based on Iskandar's maximum health. \n Enable <font color='#FFB266'>Summon Bucephalus</font> while Iskandar is inside <font color='#58ACFA'>Army of the King</font> \n <font color='#FFB266'>Summon Bucephalus</font>: Iskandar rides on <font color='#99FF33'>Bucephalus</font> and jump to target location, dealing magic damage and <font color='#FF3399'>stunning</font> all enemies within area. \n <font color='#FFFFFF'>Mage Captain</font>:<font color='#58ACFA'>PASSIVE</font>: All soldiers gain bonus magic resistance. \n<font color='#FFB266'>Briliance of the King</font>: <font color='#58ACFA'>CHANNEL</font>: All soldiers gain <font color='#FFFF28'>Invulnerable</font> while <font color='#99FF33'>Waver Velvet</font> takes bonus damage, all enemies are <font color='#FF3399'>silenced</font> and decrease armor." 
         "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_bonus_soldier" "BONUS SOLDIERS:"
-        "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_health_bonus"  "%BONUS HEALTH:"
-        "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_mage_count"  	"MAGES COUNT:"
-
-        ////////////////// Unused ///////////////////
-
-        "DOTA_Tooltip_modifier_iskandar_charisma"						"Charisma"
-		"DOTA_Tooltip_modifier_iskandar_charisma_Description"			"Bonus movement speed and damage"   
+        "DOTA_Tooltip_ability_iskandar_attribute_bond_beyond_time_health_bonus"  "%BONUS HEALTH:"  
 
 		//====================================
 		//	Saber(Extra)
@@ -8597,12 +8604,13 @@
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_out_dmg" 		"%POISON TARGET DAMAGE:"
 		
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm" 		"<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font>"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals magic damage and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals magic damage bypass magic resistance and magic immune. \n After delay the poison burst, dealing magic damage to target. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Oldest Poisoner</font>. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals pure damage and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals bonus damage. \n After delay the poison burst, dealing magic damage to target. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Oldest Poisoner</font>. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_Note0" 			"Burst damage can't be dispelled. The slow however is dispellable."
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_cast_delay" 	"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_cast_range" 	"CAST RANGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_duration" 		"POISON DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_damage" 		"CLAW DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_bonus_male" 	"BONUS CLAW DAMAGE TO MALE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_damage_burst" 	"POISON DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_radius" 		"POISON BURST RADIUS:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_slow" 			"%POISON SLOW:"
@@ -8611,7 +8619,7 @@
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_out_dmg" 		"%POISON TARGET DAMAGE:"
 
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old" 		"<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font>"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals magic damage based on her <font color='#80FF00'>AGI</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n After delay the poison burst, dealing magic damage based on her <font color='#00F7FF'>INT</font> to taret. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals pure damage based on her <font color='#80FF00'>AGI</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n After delay the poison burst, dealing magic damage based on her <font color='#00F7FF'>INT</font> to taret. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Charmer of Death</font>. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_Note0" 			"Burst damage can't be dispelled. The slow however is dispellable."
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_cast_delay" 		"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_cast_range" 		"CAST RANGE:"
@@ -8627,12 +8635,13 @@
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_out_dmg" 		"%POISON TARGET DAMAGE:"
 
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade" 				"<font color='#9FFFCC'>Sikera Ušum - Arrogant King's Alcohol</font>"
-		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals magic damage based on her <font color='#80FF00'>AGI</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals magic damage bypass magic resistance and magic immune. \n After delay the poison burst, dealing magic damage based on her <font color='#00F7FF'>INT</font> to taret. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 	"Semiramis poison her target with the help of basmu claw. \nClaw deals pure damage based on her <font color='#80FF00'>AGI</font> and applying <font color='#FF3399'>Sikera Ušum</font> to the target. \n If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals bonus damage. \n After delay the poison burst, dealing magic damage based on her <font color='#00F7FF'>INT</font> to taret. \n if target is still around Semiramis vicinity, he will burst dealing magical damage to all enemies in a small area, if not he will take lower damage. \n<font color='#FF3399'>Sikera Ušum</font>: Slowing target. \nThis ability share level with <font color='#58ACFA'>Hanging Gardens of Babylon</font>"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Note0" 			"Burst damage can't be dispelled. The slow however is dispellable."
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_delay" 		"CAST DELAY:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_range" 		"CAST RANGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_duration" 		"POISON DELAY:" 
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage" 			"CLAW DAMAGE:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_bonus_male" 		"BONUS CLAW DAMAGE TO MALE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_per_agi" 	"CLAW BONUS DAMAGE PER AGI:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_burst" 	"POISON DAMAGE:"
 		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_burst_per_int" 	"POISON BONUS DAMAGE PER INT:"
@@ -8813,7 +8822,8 @@
 		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_beam_per_int"	"BEAM BOMBARD INT REQUIRE PER BEAM:"
 
 		"DOTA_Tooltip_ability_semiramis_attribute_charmer" 								"<font color='#9FFFCC'>Attribute: Charmer of Death</font>"
-		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#58ACFA'>Binding Chains</font>: Apply <font color='#FF3399'>stun</font> if target is male and not <font color='#58ACFA'>Astolfo</font>. \n<font color='#58ACFA'>Sikera Ušum - Arrogant King's Alcohol</font>: If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals magic damage bypass magic resistance and magic immune."
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#58ACFA'>Binding Chains</font>: Apply <font color='#FF3399'>stun</font> if target is male and not <font color='#58ACFA'>Astolfo</font>. \n<font color='#58ACFA'>Sikera Ušum - Arrogant King's Alcohol</font>: If target is male and not <font color='#58ACFA'>Astolfo</font>, Claw deals bonus pure damage to target."
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_bonus_male"			"CLAW BONUS DAMAGE TO MALE:"
 
 		"DOTA_Tooltip_ability_semiramis_attribute_poisoner" 								"<font color='#9FFFCC'>Attribute: Oldest Poisoner</font>"
 		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_Description"					"<font color='#58ACFA'>Conjure Poisoned Wine</font>: Deals bonus damage based on her <font color='#80FF00'>AGI</font> while increase <font color='#FF3399'>Poisoned Wine</font>'s damage and duration. \n<font color='#58ACFA'>Poison Aura</font>: enemy with <font color='#FF3399'>Poison Aura Debuff</font> will take extra damage from Poison abilities. \n<font color='#58ACFA'>Sikera Ušum - Arrogant King's Alcohol</font>: Reduce mana cost, increase Claw damage based on her <font color='#80FF00'>AGI</font> and increase poison damage based on her <font color='#00F7FF'>INT</font>"

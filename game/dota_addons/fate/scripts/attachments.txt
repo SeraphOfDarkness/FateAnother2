@@ -1296,4 +1296,36 @@
 			}
 		}
 	}
+	"models/iskandar/default/iskandar_new_by_zefiroft.vmdl"
+	{
+		"attach_hitloc"
+		{
+			"models/iskandar/horse/horse.vmdl"
+			{
+				"scale"		"11.0"
+				"pitch"		"0"
+				"roll"		"90"
+				"yaw"		"90"
+				"ZPos"		"-20"
+				"YPos"		"0"
+				"XPos"		"-3"
+			}
+		}
+	}
+	"models/iskandar/salary/iskandar_salary_by_zefiroft.vmdl"
+	{
+		"attach_hitloc"
+		{
+			"models/iskandar/horse/horse.vmdl"
+			{
+				"scale"		"13.0"
+				"pitch"		"0"
+				"roll"		"90"
+				"yaw"		"90"
+				"ZPos"		"-20"
+				"YPos"		"0"
+				"XPos"		"-3"
+			}
+		}
+	}
 }

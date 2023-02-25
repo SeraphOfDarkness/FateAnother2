@@ -280,10 +280,10 @@ function OnBGStart(keys)
 	local ability = keys.ability
 	local targetPoint = ability:GetCursorPosition()
 	local radius = ability:GetSpecialValueFor("radius")
-
+	local silence = ability:GetSpecialValueFor("silence")
 	RiderCheckCombo(caster, ability)
 
-	if caster:HasModifier('modifier_alternate_01') then 
+	if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
 		caster:EmitSound("Rider.Lily.BreakerGorgon")
 	else
 		caster:EmitSound("Medusa_Skill1")
@@ -301,10 +301,11 @@ function OnBGStart(keys)
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
+		v:AddNewModifier(caster, nil, "modifier_silence", {Duration=silence})
 		if not IsValidEntity(v) or v:IsNull() or IsImmuneToSlow(v) or IsImmuneToCC(v) or v:IsMagicImmune() then 
 			goto excludetarget 
 		end
-
+		
 		if caster.IsSealAcquired then
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_upgrade", {}) 
 			if v:HasModifier("modifier_mystic_eye_enemy_active") then 
@@ -362,7 +363,7 @@ function OnBloodfortStart(keys)
 	local mp_absorb = ability:GetSpecialValueFor("mp_absorb")
 	local center = caster:GetAbsOrigin() 
 
-	if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') then 
+	if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
 		caster:EmitSound("Rider.Lily.BloodFort")
 	else
 		caster:EmitSound("Medusa_Skill2")
@@ -554,7 +555,7 @@ function OnBelleStart(keys)
 	
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", hero_pause)
 	Timers:CreateTimer(0.5, function()
-		if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') then 
+		if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
 			EmitGlobalSound("Rider.Lily.Bellerophon") 
 		else
 			EmitGlobalSound("Medusa_Bellerophon") 
@@ -730,7 +731,7 @@ function OnBelle2Start(keys)
 	local range = ability:GetSpecialValueFor("range")
 	local delay = ability:GetSpecialValueFor("cast_delay") - ability:GetChannelTime()
 
-	if caster:HasModifier('modifier_alternate_01') then 
+	if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
 		EmitGlobalSound("Rider.Lily.Bellerophon") 
 	else
 		EmitGlobalSound("medusa_bellerophon_alt") 

@@ -1,4 +1,43 @@
+function OnSpathaStart(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target_loc = ability:GetCursorPosition()
+	local radius = ability:GetSpecialValueFor("radius")
+	local damage = ability:GetSpecialValueFor("damage")
+	local root = ability:GetSpecialValueFor("root")
 
+	EmitSoundOnLocationWithCaster(target_loc, "Hero_Zuus.LightningBolt", caster)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_isk_spatha_cooldown", {Duration = ability:GetCooldown(1)})
+
+	local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(particle2, 0, target_loc)
+    ParticleManager:SetParticleControl(particle2, 1, target_loc)
+    ParticleManager:SetParticleControl(particle2, 2, target_loc)
+    Timers:CreateTimer( 0.5, function()
+    	local particle3 = ParticleManager:CreateParticle("particles/custom/iskandar/iskandar_spatha.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	    ParticleManager:SetParticleControl(particle3, 0, target_loc)
+	    ParticleManager:SetParticleControl(particle3, 1, target_loc)
+	    ParticleManager:SetParticleControl(particle3, 2, target_loc)
+	    ParticleManager:SetParticleControl(particle3, 6, Vector(radius - 50,0,0))
+	    Timers:CreateTimer( 1.5, function()
+	    	ParticleManager:DestroyParticle( particle3, false )
+			ParticleManager:ReleaseParticleIndex( particle3 )
+		end)
+	end)
+	Timers:CreateTimer( 2.0, function()
+		ParticleManager:DestroyParticle( particle2, false )
+		ParticleManager:ReleaseParticleIndex( particle2 )	
+	end)
+
+	local enemies = FindUnitsInRadius(caster:GetTeam(), target_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for k,v in pairs(enemies) do
+		DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		if not IsLightningResist(v) and not IsImmuneToCC(v) then 
+			giveUnitDataDrivenModifier(caster, v, "rooted", root)
+		end
+	end
+
+end
 function OnForwardStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -55,6 +94,9 @@ function OnPhalanxStart(keys)
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if caster.IsBeyondTimeAcquired then
 				aotkAbility:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{})
+				if caster:HasModifier("modifier_army_of_the_king_death_checker") then 
+					caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
+				end
 			else
 				ability:ApplyDataDrivenModifier(caster, soldier, "modifier_phalanx_wall",{})
 			end
@@ -550,7 +592,7 @@ function OnAOTKCastStart(keys)
 		--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 		ability:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{Duration = duration + cast_delay + 1})
 		soldier:SetModifierStackCount("modifier_army_of_the_king_infantry_bonus_stat", caster, ability:GetLevel())
-
+		soldier:AddNewModifier(caster, nil, "modifier_kill", {Duration = 16})
 		infantrySpawnCounter = infantrySpawnCounter + 1
 		return 0.03
 	end)
@@ -568,7 +610,7 @@ function OnAOTKCastStart(keys)
 		--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 		ability:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_archer_bonus_stat",{Duration = duration + cast_delay + 1})
 		soldier:SetModifierStackCount("modifier_army_of_the_king_archer_bonus_stat", caster, ability:GetLevel())
-
+		soldier:AddNewModifier(caster, nil, "modifier_kill", {Duration = 16})
 		archerSpawnCounter1 = archerSpawnCounter1 + 1
 		return 0.03
 	end)
@@ -586,7 +628,7 @@ function OnAOTKCastStart(keys)
 		--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 		ability:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_archer_bonus_stat",{Duration = duration + cast_delay + 1})
 		soldier:SetModifierStackCount("modifier_army_of_the_king_archer_bonus_stat", caster, ability:GetLevel())
-		
+		soldier:AddNewModifier(caster, nil, "modifier_kill", {Duration = 16})
 		archerSpawnCounter2 = archerSpawnCounter2 + 1
 		return 0.03
 	end)
@@ -620,6 +662,7 @@ function OnAOTKLevelUp(keys)
 	local ability = keys.ability
 
 	caster:FindAbilityByName("iskandar_arrow_bombard"):SetLevel(ability:GetLevel())
+	caster:FindAbilityByName("iskandar_bucephalus"):SetLevel(ability:GetLevel())
 end
 
 function OnAOTKStart(keys)
@@ -638,25 +681,25 @@ function OnAOTKStart(keys)
 
 	-- Swap abilities
 
-	caster:SwapAbilities("fate_empty1", "iskandar_summon_hephaestion", false, true)
+	caster:SwapAbilities("iskandar_spatha", "iskandar_summon_hephaestion", false, true)
 	if caster.IsThundergodAcquired then
 		caster:SwapAbilities("iskandar_gordius_wheel_upgrade", "iskandar_arrow_bombard", false, true)
 	else
 		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	end
 	if caster.IsBeyondTimeAcquired then
-		if caster.IsCharismaImproved then
+		--[[if caster.IsCharismaImproved then
 			caster:SwapAbilities("iskandar_charisma_upgrade", "iskandar_summon_waver", false, true) 
 		else
 			caster:SwapAbilities("iskandar_charisma", "iskandar_summon_waver", false, true) 
-		end
-		caster:SwapAbilities("iskandar_army_of_the_king_upgrade", "fate_empty3", false, true)
+		end]]
+		caster:SwapAbilities("iskandar_army_of_the_king_upgrade", "iskandar_bucephalus", false, true)
 	else 
-		if caster.IsCharismaImproved then
+		--[[if caster.IsCharismaImproved then
 			caster:SwapAbilities("iskandar_charisma_upgrade", "fate_empty4", false, true) 
 		else
 			caster:SwapAbilities("iskandar_charisma", "fate_empty4", false, true) 
-		end
+		end]]
 		caster:SwapAbilities("iskandar_army_of_the_king", "fate_empty3", false, true)
 	end
 
@@ -716,6 +759,7 @@ function OnAOTKStart(keys)
 	if caster.IsAOTKDominant then marbleCenter = aotkCenter else marbleCenter = ubwCenter end
 	local firstRowPos = marbleCenter + Vector(300, -500,0) 
 	local maharajaPos = marbleCenter + Vector(600, 0,0)
+	local waverPos = marbleCenter + Vector(0, -200,0)
 
 	for i=1, #caster.AOTKSoldiers do
 		local soldierHandle = caster.AOTKSoldiers[i]
@@ -729,10 +773,25 @@ function OnAOTKStart(keys)
 	maharaja:SetUnitCanRespawn(false)
 	maharaja:SetOwner(caster)
 	maharaja:FindAbilityByName("iskandar_battle_horn"):SetLevel(ability:GetLevel())
+	maharaja:AddNewModifier(caster, ability, "modifier_kill", {Duration = 16})
 	table.insert(caster.AOTKSoldiers, maharaja)
 	caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 	ability:ApplyDataDrivenModifier(caster, maharaja, "modifier_army_of_the_king_maharaja_bonus_stat",{})
 	maharaja:SetModifierStackCount("modifier_army_of_the_king_maharaja_bonus_stat", caster, ability:GetLevel())
+
+	if caster.IsBeyondTimeAcquired then
+		local waver = CreateUnitByName("iskandar_waver", waverPos, true, nil, nil, caster:GetTeamNumber())
+		waver:SetControllableByPlayer(caster:GetPlayerID(), true)
+		waver:SetOwner(caster)
+		waver:SetUnitCanRespawn(false)
+		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):SetLevel(aotkAbilityHandle:GetLevel())
+		waver:AddNewModifier(caster, ability, "modifier_kill", {Duration = 16})
+		table.insert(caster.AOTKSoldiers, waver)
+		caster.waver = waver
+		caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
+		ability:ApplyDataDrivenModifier(caster, waver, "modifier_army_of_the_king_waver_bonus_stat",{})
+		waver:SetModifierStackCount("modifier_army_of_the_king_waver_bonus_stat", caster, ability:GetLevel())
+	end
 
 	if not caster.IsAOTKDominant then return end -- If Archer's UBW is already active, do not teleport units
 
@@ -842,25 +901,25 @@ function EndAOTK(caster)
 	print("AOTK ended")
 	-- Revert abilities
 
-	caster:SwapAbilities("fate_empty1", "iskandar_summon_hephaestion", true, false)
+	caster:SwapAbilities("iskandar_spatha", "iskandar_summon_hephaestion", true, false)
 	if caster.IsThundergodAcquired then
 		caster:SwapAbilities("iskandar_gordius_wheel_upgrade", "iskandar_arrow_bombard", true, false)
 	else
 		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", true, false)
 	end
 	if caster.IsBeyondTimeAcquired then
-		if caster.IsCharismaImproved then
+		--[[if caster.IsCharismaImproved then
 			caster:SwapAbilities("iskandar_charisma_upgrade", "iskandar_summon_waver", true, false) 
 		else
 			caster:SwapAbilities("iskandar_charisma", "iskandar_summon_waver", true, false) 
-		end
-		caster:SwapAbilities("iskandar_army_of_the_king_upgrade", "fate_empty3", true, false)
+		end]]
+		caster:SwapAbilities("iskandar_army_of_the_king_upgrade", "iskandar_bucephalus", true, false)
 	else 
-		if caster.IsCharismaImproved then
+		--[[if caster.IsCharismaImproved then
 			caster:SwapAbilities("iskandar_charisma_upgrade", "fate_empty4", true, false) 
 		else
 			caster:SwapAbilities("iskandar_charisma", "fate_empty4", true, false) 
-		end
+		end]]
 		caster:SwapAbilities("iskandar_army_of_the_king", "fate_empty3", true, false)
 	end
 
@@ -972,17 +1031,30 @@ function OnSoldierCheck(keys)
 	local caster = keys.caster 
 	local target = keys.target 
 	local ability = keys.ability
-	if IsAoTKSoldier(target) then 
-		if caster:GetUnitName() == "iskandar_eumenes" then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_maharaja_passive_buff", {})
-		elseif caster:GetUnitName() == "iskandar_hephaestion" then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_hephaestion_passive_buff", {})
-		elseif caster:GetUnitName() == "iskandar_waver" then
-			if ability:GetAbilityName() == "iskandar_waver_passive" then
-				ability:ApplyDataDrivenModifier(caster, target, "modifier_waver_passive_buff", {})
+	if caster:GetUnitName() == "iskandar_waver" then
+		if IsAoTKSoldier(target) or target:GetName() == "npc_dota_hero_chen" or target:GetName() == "npc_dota_hero_disruptor" then 
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_waver_passive_buff", {})
+		end
+	else
+		if IsAoTKSoldier(target) then 
+			if caster:GetUnitName() == "iskandar_eumenes" then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_maharaja_passive_buff", {})
+			elseif caster:GetUnitName() == "iskandar_hephaestion" then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_hephaestion_passive_buff", {})
 			end
 		end
 	end
+end
+
+function OnWaverSilence(keys)
+	local caster = keys.caster
+	local ability = keys.ability 
+	local target = keys.target
+	local hero = caster:GetOwner()
+	local base = ability:GetSpecialValueFor("base_arm_red")
+	local bonus = ability:GetSpecialValueFor("arm_red_lvl")
+	local armor_red = base + (hero:GetLevel() * bonus)
+	target:SetModifierStackCount("modifier_waver_silence", caster, armor_red)
 end
 
 function OnEumenesBuffDestroy(keys)
@@ -1012,6 +1084,91 @@ function ModifySoldierHealth(keys)
 	unit:SetMaxHealth(newHP)
 	unit:SetBaseMaxHealth(newHP)
 	unit:SetHealth(newcurrentHP)
+end
+
+function OnBucephalusStart (keys)
+	local caster = keys.caster 
+	local ability = keys.ability
+	local targetPoint = ability:GetCursorPosition()
+	local dist = (caster:GetAbsOrigin() - targetPoint):Length2D() * 10/6
+	local castRange = ability:GetSpecialValueFor("range")
+	local damage = ability:GetSpecialValueFor("damage")
+	local radius = ability:GetSpecialValueFor("radius")
+	local stun = ability:GetSpecialValueFor("stun")
+	-- When you exit the ubw on the last moment, dist is going to be a pretty high number, since the targetPoint is on ubw but you are outside it
+	-- If it's, then we can't use it like that. Either cancel Overedge, or use a default one.
+	-- 2000 is a fixedNumber, just to check if dist is not valid. Over 2000 is surely wrong. (Max is close to 900)
+	if dist > 2000 then
+		dist = castRange --Default one
+	end
+
+	if GridNav:IsBlocked(targetPoint) or not GridNav:IsTraversable(targetPoint) then
+		ability:EndCooldown() 
+		caster:GiveMana(ability:GetManaCost(ability:GetLevel())) 
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Travel")
+		return 
+	end 
+
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.59)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_iskandar_bucephalus", {Duration = 0.6 + 0.5})
+	
+    local archer = Physics:Unit(caster)
+    caster:PreventDI()
+    caster:SetPhysicsFriction(0)
+    caster:SetPhysicsVelocity(Vector(caster:GetForwardVector().x * dist, caster:GetForwardVector().y * dist, 1200))
+    caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+    caster:FollowNavMesh(false)	
+    caster:SetAutoUnstuck(false)
+    caster:SetPhysicsAcceleration(Vector(0,0,-2666))
+
+	Timers:CreateTimer({
+		endTime = 0.6,
+		callback = function()
+		caster:EmitSound("Hero_Centaur.DoubleEdge") 
+		caster:PreventDI(false)
+		caster:SetPhysicsVelocity(Vector(0,0,0))
+		caster:SetAutoUnstuck(true)
+       	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+	
+	-- Stomp
+		local stompParticleIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControl( stompParticleIndex, 0, caster:GetAbsOrigin() )
+		ParticleManager:SetParticleControl( stompParticleIndex, 1, Vector( radius, radius, radius ) )
+		
+	-- Destroy particle
+		Timers:CreateTimer( 1.0, function()
+			ParticleManager:DestroyParticle( stompParticleIndex, false )
+			ParticleManager:ReleaseParticleIndex( stompParticleIndex )
+			
+		end)
+		
+        local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		for k,v in pairs(targets) do
+			if IsValidEntity(v) and not v:IsNull() then
+		       	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		       	if not IsImmuneToCC(v) then 
+		       		v:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun})
+		       	end
+		    end
+		end
+	end})
+end
+
+function OnBucephalusCreate(keys)
+	local caster = keys.caster 
+	if caster:ScriptLookupAttachment("attach_hitloc") ~= nil then 
+		Attachments:AttachProp(caster, "attach_hitloc", "models/iskandar/horse/horse.vmdl")
+	end
+end
+
+function OnBucephalusDestroy(keys)
+	local caster = keys.caster 
+	if caster:ScriptLookupAttachment("attach_hitloc") ~= nil then 
+		local prop = Attachments:GetCurrentAttachment(caster, "attach_hitloc")
+		if prop ~= nil and not prop:IsNull() then
+			prop:RemoveSelf()
+		end
+	end
 end
 
 function OnBattleHornStart(keys)
@@ -1050,7 +1207,7 @@ function OnBattleHornStart(keys)
             , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
 		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			local target_armor = math.ceil(v:GetPhysicalArmorBaseValue() * arm_reduce)
+			local target_armor = math.floor(v:GetPhysicalArmorBaseValue() * arm_reduce)
 			ability:ApplyDataDrivenModifier(caster,v, "modifier_battle_horn_armor_reduction", {})
 			v:SetModifierStackCount("modifier_battle_horn_armor_reduction", caster, target_armor)
 	    end
@@ -1091,7 +1248,7 @@ function OnCavalrySummon(keys)
 		soldier:SetOwner(hero)
 		table.insert(caster.AOTKSoldiers, soldier)
 		--table.insert(caster.AOTKCavalryTable, soldier)
-		--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
+		caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 		aotkAbilityHandle:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_cavalry_bonus_stat",{})
 		soldier:SetModifierStackCount("modifier_army_of_the_king_cavalry_bonus_stat", caster, aotkAbilityHandle:GetLevel())
 	end
@@ -1103,7 +1260,7 @@ function OnCavalrySummon(keys)
 	table.insert(caster.AOTKSoldiers, hepha)
 	hero.hepha = hepha
 	--table.insert(caster.AOTKCavalryTable, hepha)
-	--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
+	caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 	aotkAbilityHandle:ApplyDataDrivenModifier(caster, hepha, "modifier_army_of_the_king_hepha_bonus_stat",{})
 	hepha:SetModifierStackCount("modifier_army_of_the_king_hepha_bonus_stat", caster, aotkAbilityHandle:GetLevel())
 end
@@ -1286,16 +1443,15 @@ end
 
 function OnBrillianceStart(keys)
 	local caster = keys.caster
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	if hero == nil then 
-		hero = caster:GetOwnerEntity() 
-	end
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_big_bad_voodoo", {})
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_silence_aura", {})
+	local ability = keys.ability
+	local hero = caster:GetPlayerOwner():GetAssignedHero() or caster:GetOwner()
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_big_bad_voodoo", {})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_silence_aura", {})
 
 	EmitGlobalSound("Waver_NP_" .. math.random(1,2))
 	if hero:HasModifier("modifier_annihilate_caster") then
-		keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_root_aura", {})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_root_aura", {})
 	end
 end
 

@@ -1,3 +1,63 @@
+Rework Iskandar
+Fix Iskandar's horn not reduce target's armor
+Fix Iskandar's archer model
+
+Iskandar
+-Spatha (NEW)
+summon lightning to target area, dealing damage and root
+Can not reset
+Hotkey: F
+Manacost: 100
+Cooldown: 15
+Cast time: 0.4s
+Cast Range: 600
+AOE: 275
+Damage: 300
+Root: 1.0s
+
+-Arrow Bombard
+Manacost: 100 >> 50
+
+-Bucephalus (NEW)
+Summon horse and jump to target location, dealing damage and ministun
+Iskandar is invulnerable and stunned
+Hotkey: R
+Manacost: 200
+Cooldown: 12
+Cast time: 0.2s
+AOE: 300
+Cast Range: 500 550 600 650 700
+Damage: 400 450 500 550 600
+Stun: 0.1s
+
+-Waver passive
+Now apply to Iskandar and Zhuge Liang
+
+-Brilliance of the King
+Duration: 2 >> 2 2.5 3 3.5 4
+Armor Reduction: 0 >> 5 + (Iskandar's lvl x 1)
+
+-Attribute: Beyond The Time
+Now automatically summon Waver at start of AOTK
+Enable Bucephalus
+
+Medusa
+-Breaker Gorgon
+Now silence enemies at start
+Silence Duration: 0 >> 0.5s
+
+Semiramis
+-Sikera Ušum - Arrogant King
+Claw damage type: Magic >> Pure
+
+-Attribute: Charmer of Death
+Sikera Ušum - Arrogant King claw deal bonus damage to male: 0 >> 200
+
+-Attribute: Oldest Poisoner
+Sikera Ušum - Arrogant King claw bonus damage per AGI: 6 >> 3
+
+------------------
+
 Mashu says hi.
 
 Nerd gave a huge F to half of the legacy BGMs because he's bored of them.

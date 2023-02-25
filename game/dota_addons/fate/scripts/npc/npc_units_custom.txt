@@ -1324,7 +1324,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/windrunner/windrunner.vmdl"
+		"Model"						"models/items/windrunner/windrunner_arcana/wr_arcana_base.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
 		"HealthBarOffset"			"140"
@@ -1396,11 +1396,16 @@
 			"DisableClumpingBehavior"	"1"
 			"AttachWearables"
 			{
-				"Wearable1"		{	"ItemDef"		"21"		}
-				"Wearable2"		{	"ItemDef"		"22"		}
-				"Wearable3" 	{	"ItemDef"		"23"		}
-				"Wearable4"		{	"ItemDef"		"24"		}
-				"Wearable5"		{	"ItemDef"		"25"		}
+				"Wearable1"		{	"ItemDef"		"4473"		}
+				"Wearable2"		{	"ItemDef"		"4180"		}
+				"Wearable3" 	{	"ItemDef"		"12326"		}  // Shoulder
+				"Wearable4"		{	"ItemDef"		"4520"		}
+				"Wearable5"		{	"ItemDef"		"4408"		}
+				//"Wearable1"		{	"ItemDef"		"21"		} // head
+				//"Wearable2"		{	"ItemDef"		"22"		} // bow
+				//"Wearable3" 		{	"ItemDef"		"23"		} // shoulder_pad
+				//"Wearable4"		{	"ItemDef"		"24"		} // cape_back
+				//"Wearable5"		{	"ItemDef"		"25"		} // offhand_quiver
 				//"Wearable6"		{	"ItemDef"		"4603"		} // Sparrowhawk Hood
 			}
 		}
