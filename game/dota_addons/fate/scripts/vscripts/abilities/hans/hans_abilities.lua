@@ -147,10 +147,18 @@ function OnComboStart(keys)
 		    local bonusdur = caster:GetIntellect() * bonus_duration_per_int
 		    local totalduration = duration + bonusdur
 
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_hans_combo_buff", {duration = totalduration})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_hans_combo_buff_self", {duration = totalduration})
+			if target == caster then
+			else
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_hans_combo_buff", {duration = totalduration})
+			end
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_hans_combo_level_up", {duration = totalduration+2})
 
-			GiveSpellAmp(target,totalduration,spell_amp,caster,ability)
+			GiveSpellAmp(caster,totalduration,spell_amp,caster,ability)
+			if target == caster then
+			else
+				GiveSpellAmp(target,totalduration,spell_amp,caster,ability)
+			end
 
 			Timers:CreateTimer(totalduration+0.5, function()
 				if target:HasModifier("modifier_hans_combo_level_up") then
@@ -170,6 +178,7 @@ function OnComboStart(keys)
 end
 
 function OnComboThink(keys)
+	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability 
 	local outofcombatrange = ability:GetSpecialValueFor("out_of_combat_range")
@@ -192,8 +201,16 @@ function OnComboThink(keys)
 	for i=0, 5 do 
 		local abilities = target:GetAbilityByIndex(i)
 		if abilities ~= nil then
-			if abilities.IsResetable ~= false then
-				if not abilities:IsCooldownReady() then 
+			if abilities.IsResetable ~= false then				
+
+				if target == caster then 
+					local remain_cd = abilities:GetCooldownTimeRemaining()
+					abilities:EndCooldown()
+					abilities:StartCooldown(remain_cd - bonus_cd_red / 2)
+					break
+				end
+
+				if not abilities:IsCooldownReady() and target ~= caster then 
 					local remain_cd = abilities:GetCooldownTimeRemaining()
 					abilities:EndCooldown()
 					abilities:StartCooldown(remain_cd - bonus_cd_red)
@@ -362,7 +379,9 @@ function OnSnowQueen(keys)
 	        	ability:ApplyDataDrivenModifier(caster, v, "modifier_hans_snow_queen", {})
 
 				local bonusdamage = caster:GetModifierStackCount("modifier_hans_bonus_damage", caster) or 0
-		       	DoDamage(caster, v, damage + bonusdamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				local wskill = caster:FindAbilityByName(caster.WSkill)
+				local wscale = wskill:GetSpecialValueFor("bonus_snow_queen_damage")
+		       	DoDamage(caster, v, damage + bonusdamage + wscale, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 
 	       	end
 	    end

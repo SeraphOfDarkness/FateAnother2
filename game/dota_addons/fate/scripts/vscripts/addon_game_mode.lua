@@ -31,10 +31,8 @@ require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
-require('libs/vector_targeting')
-require('libs/ascension')
-require('libs/better_cooldown')
-
+--require('libs/vector_targeting')
+--require('libs/ascension')
 
 _G.IsPickPhase = true
 _G.IsPreRound = true

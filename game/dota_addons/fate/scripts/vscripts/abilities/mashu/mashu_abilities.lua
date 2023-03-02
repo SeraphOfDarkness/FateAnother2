@@ -81,7 +81,7 @@ function OnProtectProc(keys)
     local aoe = ability:GetSpecialValueFor("aoe")
     local damage = ability:GetSpecialValueFor("damage")
 
-	if keys.DamageTaken >= 200 then
+	if keys.DamageTaken >= 50 then
 		if target:HasModifier("modifier_mashu_parry") then
     		target:RemoveModifierByName("modifier_mashu_parry") 
 			giveUnitDataDrivenModifier(caster, caster, "jump_pause", invul)
@@ -284,6 +284,7 @@ function OnMashuUlt(keys)
 	end)
 
 	Timers:CreateTimer(channel_time, function()
+		--HardCleanse(caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.RPop1", {})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.RPop2", {})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() , "Mashu.RPop3", {})
@@ -366,8 +367,8 @@ function OnPunishmentHit(keys)
 		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.8})
 
 
-		giveUnitDataDrivenModifier(caster, target, "pause_sealdisabled", stun_revoke)
-		giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", stun_revoke)
+		giveUnitDataDrivenModifier(caster, target, "pause_sealdisabled", stun_revoke + 0.2)
+		giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", stun_revoke - 0.2)
 
 		if caster.Barrel then
 			local damage_per_strength = ability:GetSpecialValueFor("damage_per_strength")
@@ -394,12 +395,12 @@ function OnMashuCombo(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mashu_combo_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 	caster:RemoveModifierByName("modifier_combo_window")
 
-	local eff = ParticleManager:CreateParticle("particles/mashu/mashur/mashur1.vpcf", PATTACH_WORLDORIGIN, nil)
+	local eff = ParticleManager:CreateParticle("particles/mashu/mashur/mashur1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(eff, 0, caster:GetAbsOrigin())
-	local eff2 = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashuchant1.vpcf", PATTACH_WORLDORIGIN, nil)
+	local eff2 = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashuchant1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(eff2, 0, caster:GetAbsOrigin())
 
-	local charging = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashucombochannel.vpcf", PATTACH_WORLDORIGIN, nil)
+	local charging = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashucombochannel.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(charging, 0, caster:GetAbsOrigin())
 
 	EmitGlobalSound("Mashu.Combo1")
@@ -419,18 +420,36 @@ function OnMashuCombo(keys)
 
 
 	Timers:CreateTimer(2.2, function()
+		if caster:IsAlive() then
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
+		else
+			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
+			ParticleManager:DestroyParticle( charging, true )
+		end
 	end)	
 
 	Timers:CreateTimer(4.3, function()
+		if caster:IsAlive() then
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
+		else
+			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
+			ParticleManager:DestroyParticle( charging, true )
+		end
 	end)	
 
 	Timers:CreateTimer(0.1, function()
+		if caster:IsAlive() then
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
+		else
+			ParticleManager:DestroyParticle( eff, true )
+			ParticleManager:DestroyParticle( eff2, true )
+			ParticleManager:DestroyParticle( charging, true )
+		end
 	end)
 
 	Timers:CreateTimer(2, function()
@@ -468,9 +487,9 @@ function OnMashuCombo(keys)
 					v:FateHeal(active_instant_heal, caster, true)
 
     				local barrier_amount = ability:GetSpecialValueFor("barrier_amount")
-					ability:ApplyDataDrivenModifier(caster, v, "modifier_mashu_combo_barrier", {})
+					ability:ApplyDataDrivenModifier(v, v, "modifier_mashu_combo_barrier", {})
 					stack = v:GetModifierStackCount("modifier_mashu_combo_barrier", v) or 0
-					v:SetModifierStackCount("modifier_mashu_combo_barrier", caster,barrier_amount)
+					v:SetModifierStackCount("modifier_mashu_combo_barrier", v,barrier_amount)
 
 					local fx = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashucombopop.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
 					ParticleManager:SetParticleControl(fx, 0, v:GetAbsOrigin())
@@ -482,21 +501,22 @@ end
 
 function OnBarrierDamaged(keys)
 	local caster = keys.caster 
-	local currentHealth = caster:GetHealth() 
+	local unit = keys.unit 
+	local currentHealth = unit:GetHealth() 
 
-	stack = caster:GetModifierStackCount("modifier_mashu_combo_barrier", caster) or 0
+	stack = unit:GetModifierStackCount("modifier_mashu_combo_barrier", unit) or 0
 	stack = stack - keys.DamageTaken
-	caster:SetModifierStackCount("modifier_mashu_combo_barrier", caster,stack)
+	unit:SetModifierStackCount("modifier_mashu_combo_barrier", unit,stack)
 
 	if stack <= 0 then
 		if currentHealth + stack <= 0 then
 		else
-			caster:RemoveModifierByName("modifier_mashu_combo_barrier")
-			caster:SetHealth(currentHealth + keys.DamageTaken + stack)
+			unit:RemoveModifierByName("modifier_mashu_combo_barrier")
+			unit:SetHealth(currentHealth + keys.DamageTaken + stack)
 			stack = 0
 		end
 	else
-		caster:SetHealth(currentHealth + keys.DamageTaken)
+		unit:SetHealth(currentHealth + keys.DamageTaken)
 	end
 end
 

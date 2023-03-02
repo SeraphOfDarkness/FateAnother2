@@ -245,6 +245,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_amount"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_penalty"
 				}	
 			}
 		}
@@ -285,7 +286,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"			"50 55 60 65 70"
+				"damage_reduce"			"-25 -30 -35 -40 -45"
 			}			
 			"03"
 			{
@@ -295,12 +296,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"parry_duration"		"0.4"
+				"parry_duration"		"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"protect_duration"		"1"
+				"protect_duration"		"2"
 			}		
 			"02"
 			{
@@ -430,7 +431,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"			"50 55 60 65 70"
+				"damage_reduce"			"-25 -30 -35 -40 -45"
 			}			
 			"03"
 			{
@@ -440,12 +441,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"parry_duration"		"0.8"
+				"parry_duration"		"1.8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"protect_duration"		"2"
+				"protect_duration"		"3.2"
 			}		
 			"02"
 			{
@@ -567,7 +568,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction"	"-15 -20 -25 -30 -35"
+				"damage_reduction"	"-14 -18 -22 -26 -30"
 			}
 			"05"
 			{
@@ -678,7 +679,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction"	"-15 -20 -25 -30 -35"
+				"damage_reduction"	"-14 -18 -22 -26 -30"
 			}
 			"05"
 			{
@@ -800,7 +801,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction_passive"	"-6 -8 -10 -12 -14"
+				"damage_reduction_passive"	"-8 -10 -12 -14 -16"
 			}			
 			"03"
 			{
@@ -893,7 +894,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction_passive"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_passive"
 				}
 			}
@@ -1056,7 +1057,8 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction_passive"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_passive"
 				}
 			}
 
@@ -1103,7 +1105,7 @@
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate"			"1"
 		"AbilityCooldown"				"47"
@@ -1119,7 +1121,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"projectile_speed"	"1300"
+				"projectile_speed"	"1500"
 			}
 			"01"
 			{
@@ -1139,7 +1141,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.45"
+				"cast_delay"		"0.35"
 			}				
 		}
 
@@ -1174,7 +1176,7 @@
 		"MaxLevel"						"5"		
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate"			"1"
 		"AbilityCooldown"				"47"
@@ -1190,7 +1192,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"projectile_speed"	"1300"
+				"projectile_speed"	"1500"
 			}
 			"01"
 			{
@@ -1215,7 +1217,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.45"
+				"cast_delay"		"0.25"
 			}				
 		}
 
@@ -1269,7 +1271,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction"	"-30"
+				"damage_reduction"	"-20"
 			}			
 			"03"
 			{
@@ -1295,12 +1297,7 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"barrier_amount"	"500"
-			}				
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduction_chanting"		"-50"
-			}			
+			}		
 		}
 
 		"OnSpellStart"
@@ -1411,6 +1408,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"damage_per_strength"		"4"
+			}	
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reduce_cast_delay"		"0.1"
 			}		
 		}
 
@@ -1447,12 +1449,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_protect_duration"		"1"
+				"bonus_protect_duration"		"1.2"
 			}		
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_parry_duration"		"0.4"
+				"bonus_parry_duration"		"0.8"
 			}	
 			"03"
 			{
@@ -1491,7 +1493,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"invul_duration"		"0.4"
 			}
-			//ALSO BECOME CASTABLE WHEN STUNNED
+			//ALSO BECOME CASTABLE WHEN STUNNED 
 		}
 
 	    "OnSpellStart"

@@ -1,3 +1,45 @@
+MASHU
+SHIELD THROW STUN LONGER ON ENEMY LESS ON SELF, BY 0.3s WINDOW 
+
+HANS
+COMBO NOW GAINS EFFECT ON SELF "INSPIRATION"
+E -> E 
+CAST POINT 0.3 -> 0.25
+DELAY 0.2 -> 0.3
+SNOW QUEEN DAMAGE REDUCED BY 50
+W
+NEW EFFECT, PASSIVELY INCREASE SNOW QUEEN DAMAGE BY 50 PER LEVEL
+
+ATTRIBUTE  LOVE LETTER
+MAGIC AMP FROM COMBO 30 -> 25
+
+----------------
+
+Iskandar
+brillianc 2 2.5 3 3.5 4 -> 1.5 1.75 2 2.25 2.5
+armor reduc per level 1 -> 0.5
+
+AOTK soldier count 12 -> 10 sustain 5 ->4
+
+JTR 
+SA 1 - Information erasure no longer dispel A scroll
+
+----------------
+
+saito cn tooltip
+buff mashu
+cd
+
+----------------
+
+-iskandar particles
+-iskandar horse model
+-mashu voices
+-cd bug
+-nero ring particles
+
+----------------
+
 Rework Iskandar
 Fix Iskandar's horn not reduce target's armor
 Fix Iskandar's archer model
@@ -56,7 +98,12 @@ Sikera Ušum - Arrogant King claw deal bonus damage to male: 0 >> 200
 -Attribute: Oldest Poisoner
 Sikera Ušum - Arrogant King claw bonus damage per AGI: 6 >> 3
 
-------------------
+Saitō Hajime
+* Undefeatable Style [COMBO] fixed damage formula interaction with Spell Immunity
+
+Fixed mashu protect amplifying damage, and fixed mashu Q not lowering MR with SA
+
+----------------
 
 Mashu says hi.
 

@@ -237,6 +237,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"duration"				"12"
 			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_snow_queen_damage"		"0 50 100 150 200"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -327,6 +332,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"				"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_snow_queen_damage"		"0 50 100 150 200"
 			}
 		}
 
@@ -630,7 +640,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.25"
 		"AbilityCastRange"				"700"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"			"1"
@@ -643,7 +653,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.2"
+				"cast_delay"			"0.3"
 			}
 			"01"
 			{
@@ -653,7 +663,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"450 525 600 675 750"
+				"damage"				"400 475 550 625 700"
 			}
 			"03"
 			{
@@ -1825,7 +1835,7 @@
 			"06"
 			{				
 				"var_type"			"FIELD_INTEGER"
-				"bonus_magical_damage"	"30"
+				"bonus_magical_damage"	"25"
 			}
 		}
 		
@@ -1980,9 +1990,36 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%bonus_all_stats"
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%bonus_outgoing_damage"
 				}
 			}			
+
+			"modifier_hans_combo_buff_self"
+			{
+				"Passive"				"0"
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"IsHidden"				"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  		"0.65"
+				"EffectName"			"particles/units/heroes/hero_spirit_breaker/spirit_breaker_magnet_aura.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hans/hans_abilities"
+						"Function"		"OnComboThink"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		"%bonus_max_hp"
+				}
+			}
 
 			"modifier_hans_combo_level_up"
 			{
@@ -2097,7 +2134,7 @@
 			"11"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_magical_damage"	"30"
+				"bonus_magical_damage"	"25"
 			}	
 			"11"
 			{
@@ -2140,6 +2177,34 @@
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_arm"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		"%bonus_max_hp"
+				}
+			}
+
+			"modifier_hans_combo_buff_self"
+			{
+				"Passive"				"0"
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"IsHidden"				"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  		"0.65"
+				"EffectName"			"particles/units/heroes/hero_spirit_breaker/spirit_breaker_magnet_aura.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hans/hans_abilities"
+						"Function"		"OnComboThink"
+					}
+				}
+
+				"Properties"
+				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%bonus_all_stats"

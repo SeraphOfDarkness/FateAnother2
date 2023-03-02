@@ -756,7 +756,6 @@ function OnInformationEraseStart(keys)
 		end
 
 		ApplyStrongDispel(target)
-		target:RemoveModifierByName("modifier_a_scroll")
 		target:RemoveModifierByName("modifier_heart_of_harmony")
 	end
 end
