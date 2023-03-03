@@ -1580,7 +1580,7 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
                         self.hCaster:GetTeamNumber()
                         ) == UF_SUCCESS then
 
-        keys.unit:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_ss_interval", {duration = self.nSSInterval})
+        self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_ss_interval", {duration = self.nSSInterval})
 
         giveUnitDataDrivenModifier(self.hCaster, keys.unit, "stunned", self.nSSDuration)
         --giveUnitDataDrivenModifier(self.hCaster, keys.unit, "silenced", self.nSSDuration)
@@ -3273,8 +3273,8 @@ function saito_blast:OnSpellStart()
         vStartPoint = RotatePosition(vCasterLoc, QAngle(0, fAngles, 0), vStartPoint)
     end
 
-    EmitSoundOn("Saito.Blast.Cast.Voice", hCaster)
-    EmitSoundOn("Saito.Blast.Cast", hCaster)
+    EmitGlobalSound("Saito.Blast.Cast.Voice")
+    EmitGlobalSound("Saito.Blast.Cast")
 
     hCaster:RemoveModifierByNameAndCaster("modifier_saito_blast_swap", hCaster) --Swapping back after emitting sound.
 end
@@ -3304,7 +3304,7 @@ function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
         --=================================--
         hTarget:AddNewModifier(hCaster, self, "modifier_saito_blast_sdr", {duration = tExtraData.nSDRDuration})
 
-    EmitSoundOn("Saito.Blast.Impact", hTarget)
+    EmitGlobalSound("Saito.Blast.Impact")
 
     end
 end
