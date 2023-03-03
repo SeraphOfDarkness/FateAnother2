@@ -145,6 +145,61 @@ end
 --========================================--
 
 
+
+--========================================--
+--CRINGE fix, added specifically for F/A 2 because trees shouldn't be destroyed there.
+local fApplyKnockbackSpecial = function(hTarget, nDistance, nDuration, vKnockDirection)
+    --=================================--
+    local fStopFunction = function(hUnit, sTimerName)
+        if type(sTimerName) == "string" then
+            Timers:RemoveTimer(sTimerName)
+        end
+
+        hUnit:OnPreBounce(nil)
+        hUnit:SetBounceMultiplier(0)
+        hUnit:PreventDI(false)
+        hUnit:SetPhysicsVelocity(Vector(0,0,0))
+        hUnit:OnPhysicsFrame(nil)
+        hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+        FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+    end
+    --=================================--
+    if not IsKnockbackImmune(hTarget) then
+        local sTimerNameUnique = hTarget:GetUnitName()..DoUniqueString(tostring(hTarget:entindex()))
+        --=================================--
+        hTarget:InterruptMotionControllers(false)
+
+        local hPhysicsThingReturn = Physics:Unit(hTarget)
+
+        hTarget:PreventDI(true)
+        hTarget:SetPhysicsFriction(0)
+        hTarget:SetPhysicsVelocity(vKnockDirection * ( nDistance / nDuration ))
+        hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+        hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+        hTarget:FollowNavMesh(true)
+        --=================================--
+        Timers:CreateTimer(sTimerNameUnique,
+        {
+            endTime  = nDuration,
+            callback = function()
+                fStopFunction(hTarget, nil)
+            end
+        })
+        --=================================--
+        hTarget:OnPhysicsFrame(function(hUnit)
+            if GridNav:IsNearbyTree(hUnit:GetAbsOrigin(), hUnit:BoundingRadius2D() * 2, true) then
+                fStopFunction(hUnit, sTimerNameUnique)
+            end
+        end)
+        --=================================--
+        hTarget:OnPreBounce(function(hUnit, vNormal)
+            fStopFunction(hUnit, sTimerNameUnique)
+        end)
+    end
+end
+--========================================--
+
+
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_attributes", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
@@ -490,6 +545,7 @@ function saito_style:OnSpellStart()
     local nDuration = self:GetSpecialValueFor("duration")
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_style_active", {duration = nDuration})
+    hCaster:AddNewModifier(hCaster, self, "modifier_saito_blast_swap", {duration = 4}) --To swap to the second combo ability.
 
     -- local sCastPFX =    "particles/heroes/saito/saito_style_cast.vpcf"
     -- local nCastPFX =    ParticleManager:CreateParticle(sCastPFX, PATTACH_ABSORIGIN_FOLLOW, hCaster)
@@ -507,6 +563,12 @@ function saito_style:OnSpellStart()
 
     EmitGlobalSound("Saito.Style.Cast.Voice")
     EmitGlobalSound("Saito.Style.Cast")
+
+    --===============================--
+    --hCaster:SwapAbilities("saito_mind_eye", "saito_blast", false, true)
+    --Timers:CreateTimer(4, function()
+        --hCaster:SwapAbilities("saito_mind_eye", "saito_blast", true, false)
+    --end)
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_style_active", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -535,12 +597,13 @@ function modifier_saito_style_active:OnTakeDamage(keys)
                             self.nABILITY_TARGET_FLAGS,
                             self.nCASTER_TEAM
                             ) == UF_SUCCESS
-            and RollPercentage(self.nSilenceChance) then
+            and RollPseudoRandomPercentage(self.nSilenceChance, 2, self.hParent) then
+            --and RollPercentage(self.nSilenceChance) then --Rolls a number from 1 to 100 and returns true if the roll is less than or equal to the number specified.
             giveUnitDataDrivenModifier(self.hParent, keys.unit, "silenced", self.nSilenceDuration)
 
             local nDamageDo = keys.unit:GetMaxHealth() * self.nHPDamage
 
-            DoDamage(self.hParent, keys.unit, nDamageDo, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
+            DoDamage(self.hParent, keys.unit, nDamageDo, self.nDamageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, self.hAbility, false)
 
             self:CreateEffect(keys.unit)
         end
@@ -1078,16 +1141,16 @@ function saito_steelwing:OnSpellStart()
 
     local nAttr_MSS_Duraiton = GetAttributeValue(hCaster, "saito_attribute_freedom", "w_ms_slow_duration", -1, 0)
 
-    local tKnockBackTable = {
-                                should_stun        = 0,
-                                knockback_duration = 0.2,
-                                duration           = 0.2,
-                                knockback_distance = 0,
-                                knockback_height   = 0,
-                                center_x           = vCasterLoc.x,
-                                center_y           = vCasterLoc.y,
-                                center_z           = vCasterLoc.z
-                            }
+    -- local tKnockBackTable = {
+    --                             should_stun        = 0,
+    --                             knockback_duration = 0.2,
+    --                             duration           = 0.2,
+    --                             knockback_distance = 0,
+    --                             knockback_height   = 0,
+    --                             center_x           = vCasterLoc.x,
+    --                             center_y           = vCasterLoc.y,
+    --                             center_z           = vCasterLoc.z
+    --                         }
 
     local hEntities = FindUnitsInRadius(
                                             hCaster:GetTeamNumber(),
@@ -1103,11 +1166,14 @@ function saito_steelwing:OnSpellStart()
     --=================================--
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
-            tKnockBackTable.knockback_distance = nRadius - GetDistance(hEntity, vCasterLoc)
+            --tKnockBackTable.knockback_distance = nRadius - GetDistance(hEntity, vCasterLoc)
             --hEntity:InterruptMotionControllers(false) --Just for compatibility that interferes with existing motion controllers.
             --=================================--
-            hEntity:RemoveModifierByNameAndCaster("modifier_knockback", hCaster) --For self-interruption and visible looking.
-            hEntity:AddNewModifier(hCaster, self, "modifier_knockback", tKnockBackTable)
+            --hEntity:RemoveModifierByNameAndCaster("modifier_knockback", hCaster) --For self-interruption and visible looking.
+            --hEntity:AddNewModifier(hCaster, self, "modifier_knockback", tKnockBackTable)
+            --=================================--
+            fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
+            --=================================--
             giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
             --=================================--
             if nAttr_MSS_Duraiton > 0 then
@@ -1505,7 +1571,7 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
         and IsNotNull(keys.ability)
         and not keys.ability:IsItem()
         and GetDistance(keys.unit, self.hParent) <= self.nRadius
-        and not keys.unit:HasModifier("modifier_saito_mind_eye_ss_interval")
+        and not self.hParent:HasModifier("modifier_saito_mind_eye_ss_interval")
         and UnitFilter( --This checks filter units for example you can put here settings AKA check non-invis and etc.
                         keys.unit,
                         DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -2858,7 +2924,7 @@ end
 function saito_vortex:OnSpellStart()
     local hCaster = self:GetCaster()
 
-    hCaster:AddNewModifier(hCaster, self, "modifier_saito_vortex_slashing", {duration = 3}) --3 Seconds just to prevent any mistakes.
+    hCaster:AddNewModifier(hCaster, self, "modifier_saito_vortex_slashing", {duration = 3}) --3 seconds just to prevent any mistakes.
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_vortex_slashing", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -2958,16 +3024,16 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
 
         local vParentLoc = self.hParent:GetAbsOrigin()
 
-        local tKnockBackTable = {
-                                    should_stun        = 1,
-                                    knockback_duration = self.nKnockDuration,
-                                    duration           = self.nKnockDuration,
-                                    knockback_distance = self.nKnockDistance,
-                                    knockback_height   = 0,
-                                    center_x           = vParentLoc.x,
-                                    center_y           = vParentLoc.y,
-                                    center_z           = vParentLoc.z
-                                }
+        -- local tKnockBackTable = {
+        --                             should_stun        = 1,
+        --                             knockback_duration = self.nKnockDuration,
+        --                             duration           = self.nKnockDuration,
+        --                             knockback_distance = self.nKnockDistance,
+        --                             knockback_height   = 0,
+        --                             center_x           = vParentLoc.x,
+        --                             center_y           = vParentLoc.y,
+        --                             center_z           = vParentLoc.z
+        --                         }
 
         local tEntities = FindUnitsInRadius(
                                             self.nCASTER_TEAM,
@@ -2983,8 +3049,10 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
         for _, hEntity in pairs(tEntities) do
             if IsNotNull(hEntity) then
                 if bLastSlash then
-                    hEntity:RemoveModifierByNameAndCaster("modifier_knockback", self.hCaster) --For self-interruption and visible looking.
-                    hEntity:AddNewModifier(self.hCaster, self.hAbility, "modifier_knockback", tKnockBackTable)
+                    giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
+                    fApplyKnockbackSpecial(hEntity, self.nKnockDistance, self.nKnockDuration, GetDirection(hEntity, vParentLoc))
+                    -- hEntity:RemoveModifierByNameAndCaster("modifier_knockback", self.hCaster) --For self-interruption and visible looking.
+                    -- hEntity:AddNewModifier(self.hCaster, self.hAbility, "modifier_knockback", tKnockBackTable)
 
                     EmitSoundOn("Saito.Vortex.Impact", hEntity)
                 else
@@ -3100,6 +3168,205 @@ end
 function modifier_saito_vortex_pull:OnDestroy()
     if IsServer() then
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+saito_blast = saito_blast or class({})
+
+function saito_blast:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
+function saito_blast:OnSpellStart()
+    local hCaster = self:GetCaster()
+
+    local vCasterLoc  = hCaster:GetAbsOrigin()
+    local vCasterFow  = hCaster:GetForwardVector()
+    local vStartPoint = vCasterLoc + vCasterFow * 100
+
+    local nSpeed = self:GetSpecialValueFor("speed")
+
+    local nDamage = self:GetSpecialValueFor("damage")
+
+    local nKnockbackDuration = self:GetSpecialValueFor("knockback_duration")
+    local nKnockbackDistance = self:GetSpecialValueFor("knockback_distance")
+
+    local nSDRDuration = self:GetSpecialValueFor("sdr_duration")
+    local nRadialCount = self:GetSpecialValueFor("radial_count")
+
+    self.___tHittedTargets = {}
+
+    local tProjectileInfo = {
+                                Source       = hCaster,
+                                Ability      = self,
+                                vSpawnOrigin = vCasterLoc,
+                                    
+                                iUnitTargetTeam   = self:GetAbilityTargetTeam(),
+                                iUnitTargetType   = self:GetAbilityTargetType(),
+                                iUnitTargetFlags  = self:GetAbilityTargetFlags(),
+
+                                EffectName        = "particles/heroes/saito/saito_blast_projectile.vpcf",
+                                fDistance         = self:GetAOERadius(),
+                                fStartRadius      = self:GetSpecialValueFor("radius_start"),
+                                fEndRadius        = self:GetSpecialValueFor("radius_end"),
+                                vVelocity         = vCasterFow * nSpeed,
+
+                                bHasFrontalCone   = false,
+                                    
+                                bProvidesVision   = false,
+                                iVisionRadius     = 0,
+                                iVisionTeamNumber = hCaster:GetTeamNumber(),
+
+                                bVisibleToEnemies = true,
+
+                                ExtraData = {
+                                                vStart_x = vCasterLoc.x,
+                                                vStart_y = vCasterLoc.y,
+                                                vStart_z = vCasterLoc.z,
+
+                                                nSDRDuration = nSDRDuration,
+
+                                                nKnockDur  = nKnockbackDuration,
+                                                nKnockDist = nKnockbackDistance,
+
+                                                damage      = nDamage,
+                                                nDamageType = self:GetAbilityDamageType(),
+                                            }
+                            }
+
+    local fAngles = 360 / nRadialCount
+    for iArray = 1, nRadialCount do
+        tProjectileInfo.vVelocity = GetDirection(vStartPoint, vCasterLoc) * nSpeed
+
+        local nBlastProjectile = ProjectileManager:CreateLinearProjectile(tProjectileInfo)
+
+        vStartPoint = RotatePosition(vCasterLoc, QAngle(0, fAngles, 0), vStartPoint)
+    end
+
+    EmitSoundOn("Saito.Blast.Cast.Voice", hCaster)
+    EmitSoundOn("Saito.Blast.Cast", hCaster)
+
+    hCaster:RemoveModifierByNameAndCaster("modifier_saito_blast_swap", hCaster) --Swapping back after emitting sound.
+end
+function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
+    if IsNotNull(hTarget) and not self.___tHittedTargets[hTarget] then
+        self.___tHittedTargets[hTarget] = true
+
+        local hCaster = self:GetCaster()
+        --print(tExtraData.vStart_x, tExtraData.vStart_y, tExtraData.vStart_z)
+        -- local tKnockBackTable = {
+        --                             should_stun        = 0,
+        --                             knockback_duration = tExtraData.nKnockDur,
+        --                             duration           = tExtraData.nKnockDur,
+        --                             knockback_distance = tExtraData.nKnockDist,
+        --                             knockback_height   = 0,
+        --                             center_x           = tExtraData.vStart_x,
+        --                             center_y           = tExtraData.vStart_y,
+        --                             center_z           = tExtraData.vStart_z
+        --                         }
+        -- --=================================--
+        -- hTarget:RemoveModifierByNameAndCaster("modifier_knockback", hCaster) --For self-interruption and visible looking.
+        -- hTarget:AddNewModifier(hCaster, self, "modifier_knockback", tKnockBackTable)
+        --=================================--
+        fApplyKnockbackSpecial(hTarget, tExtraData.nKnockDist, tExtraData.nKnockDur, GetDirection(hTarget, Vector(tExtraData.vStart_x, tExtraData.vStart_y, tExtraData.vStart_z)))
+        --=================================--
+        DoDamage(hCaster, hTarget, tExtraData.damage, tExtraData.nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+        --=================================--
+        hTarget:AddNewModifier(hCaster, self, "modifier_saito_blast_sdr", {duration = tExtraData.nSDRDuration})
+
+    EmitSoundOn("Saito.Blast.Impact", hTarget)
+
+    end
+end
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_saito_blast_sdr", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+
+modifier_saito_blast_sdr = modifier_saito_blast_sdr or class({})
+
+function modifier_saito_blast_sdr:IsHidden()                                                                        return false end
+function modifier_saito_blast_sdr:IsDebuff()                                                                        return true end
+function modifier_saito_blast_sdr:IsPurgable()                                                                      return false end
+function modifier_saito_blast_sdr:IsPurgeException()                                                                return false end
+function modifier_saito_blast_sdr:RemoveOnDeath()                                                                   return true end
+function modifier_saito_blast_sdr:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+                    }
+    return tFunc
+end
+function modifier_saito_blast_sdr:GetModifierTotalDamageOutgoing_Percentage(keys)
+    if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_ALL) ~= 0 then
+        return self.nSDRValue
+    end
+end
+function modifier_saito_blast_sdr:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    self.nSDRValue = self.hAbility:GetSpecialValueFor("sdr_value")
+
+    if IsServer() then
+    end
+end
+function modifier_saito_blast_sdr:OnRefresh(tTable)
+    self:OnCreated(tTable)
+end
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_saito_blast_swap", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+
+modifier_saito_blast_swap = modifier_saito_blast_swap or class({})
+
+function modifier_saito_blast_swap:IsHidden()                                                                       return true end
+function modifier_saito_blast_swap:IsDebuff()                                                                       return false end
+function modifier_saito_blast_swap:IsPurgable()                                                                     return false end
+function modifier_saito_blast_swap:IsPurgeException()                                                               return false end
+function modifier_saito_blast_swap:RemoveOnDeath()                                                                  return false end
+function modifier_saito_blast_swap:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    if IsServer() then
+        self.hParent:SwapAbilities("saito_mind_eye", "saito_blast", false, true)
+    end
+end
+function modifier_saito_blast_swap:OnRefresh(tTable)
+    --self:OnCreated(tTable)
+end
+function modifier_saito_blast_swap:OnDestroy()
+    if IsServer() then
+        self.hParent:SwapAbilities("saito_mind_eye", "saito_blast", true, false)
     end
 end
 ---------------------------------------------------------------------------------------------------------------------

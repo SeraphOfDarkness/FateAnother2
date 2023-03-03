@@ -301,6 +301,7 @@ slowmodifier = {
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
+    "modifier_saito_steelwing_mss",
 }
 
 revokes = {

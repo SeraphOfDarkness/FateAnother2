@@ -12970,7 +12970,7 @@
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_stat"		"BONUS ALL STAT:"
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_radius"	"BONUS RADIUS:"
 
-		//====================================
+	//====================================
         //      KING HASSAN BOI
         //====================================
         "npc_dota_hero_skeleton_king"  "King Hassan"
@@ -14080,7 +14080,7 @@
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"Strategy cooldown"
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
 
-				//=======================================================================================================
+		//=======================================================================================================
 		//	Saitō Hajime
 		//=======================================================================================================
 
@@ -14286,7 +14286,7 @@
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>Combo: Undefeatable Style</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels mind and spirit through the blades to inflict pain at the enemy’s very core, granting a chance to apply silence and dealing bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of <font color='#58ACFA'>Freely Drawn Sword</font>.\nThe cast points of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> are replaced with a fixed delay and cannot be interrupted, also reduces their cooldown for duration."
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels mind and spirit through the blades to inflict pain at the enemy’s very core, granting a chance to apply silence and dealing bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of <font color='#58ACFA'>Freely Drawn Sword</font>.\nThe cast points of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> are replaced with a fixed delay and cannot be interrupted, also reduces their cooldown for duration.\nUpon cast, enables <font color='#FFB266'>One by One</font> for a short duration."
 		"DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
 		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
@@ -14303,6 +14303,24 @@
 
 		"DOTA_Tooltip_modifier_saito_style_active"													"Undefeatable Style"
 		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan."
+
+		//One by One
+		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>One by One</font>"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"Saito unleashes %radial_count% mighty wind blades in all directions around him, dealing %blast_damage% damage to any enemy unit it collides with. The sheer impact of the wind blade is enough to knock those enemy units back for %knockback_duration% seconds, then reduces all types of their damage by %sdr_value%%% for %sdr_duration% seconds.\nOne enemy unit can be hit by more than one wind blade per cast."
+		"DOTA_Tooltip_ability_saito_blast_Lore"														"If humans die, they lose, right? So in other words, if you don't die then you won't lose. That’s the innermost secret of the Invincible Blade. But who knows, ya'know?"
+		"DOTA_Tooltip_ability_saito_blast_distance"													"DISTANCE:"
+		"DOTA_Tooltip_ability_saito_blast_speed"													"SPEED:"
+		"DOTA_Tooltip_ability_saito_blast_radius_start"												"RADIUS START:"
+		"DOTA_Tooltip_ability_saito_blast_radius_end"												"RADIUS END:"
+		//"DOTA_Tooltip_ability_saito_blast_damage"													""
+		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
+		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"KNOCKBACK DISTANCE:"
+		//"DOTA_Tooltip_ability_saito_blast_sdr_duration"											""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_value"												""
+		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
+
+		"DOTA_Tooltip_modifier_saito_blast"															"One by One Debuff"
+		"DOTA_Tooltip_modifier_saito_blast_Description"												"Reducing all types of damage dealt by %dMODIFIER_PROPERTY_TOTAL DAMAGE OUTGOING PERCENTAGE%%%."
 
 		///ATTRIBUTES///
 
@@ -14602,10 +14620,11 @@
         //      Idk what this is
         //====================================
 
-
+        //=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)
         //Class (Saber, Archer, Lancer, Rider, Caster, Assassin, Ruler, Avenger)
         //Trait (Divine, Dragon, Arthur, Human, Beast, Counter Guardian, Demon, Female, Male, Reality Marble)
+        //=======================================================================================================
 
         "DOTA_Tooltip_Ability_npc_dota_hero_dark_willow_dummy"             "Okita Souji"
         "DOTA_Tooltip_Ability_npc_dota_hero_dark_willow_dummy_Description" "Servant Class : Saber \nType : Assassin, Carry, Agility \nTrait : Female, Shinsengumi \nCombo : Zekken Mukyuu Sandan (Anti-Personnel) \n<font color='#FFB266'>Noble Phantasm : &#9733; &#9733; &#9733; &#9733; &#9734;</font> \n<font color='#FF0000'>Difficult &#9733; &#9733; &#9733; &#9733; &#9733;</font>"

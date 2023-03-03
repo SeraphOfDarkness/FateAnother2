@@ -65,7 +65,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.25"
+				"stun_duration"			"0.7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_penalty"			"0"
 			}
 		}
 		"OnSpellStart"
@@ -115,6 +120,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_amount"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_penalty"
 				}	
 			}
 		}
@@ -185,7 +191,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.5"
+				"stun_duration"			"1.5"
 			}			
 			"03"
 			{
@@ -1298,6 +1304,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"barrier_amount"	"500"
 			}		
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduction_chanting"	"-25"
+			}	
 		}
 
 		"OnSpellStart"
@@ -1316,6 +1327,8 @@
 				"Duration"				"%channel_time"
 				"IsHidden"				"0"
 				"IsDebuff"				"0"
+				"EffectName"	"particles/mashu/mashucombo/mashuchant1.vpcf"
+				"EffectAttachType"	"follow_origin"
 
 				"Properties"
 				{
@@ -1395,7 +1408,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_stun"	"0.5"
+				"bonus_stun"	"0.8"
 			}
 
 			//PUNISHMEN			

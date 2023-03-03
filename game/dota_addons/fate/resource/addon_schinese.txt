@@ -11767,6 +11767,397 @@
 		"DOTA_Tooltip_Ability_edmond_attribute_improve_monte_silence_disarm"		"黑焰缴械/沉默持续时间:"
 		"DOTA_Tooltip_Ability_edmond_attribute_improve_monte_bonus_combo"			"煌煌燎燃额外伤害:"
 
+		//====================================
+		//	Caster (Grand Order)
+		//====================================
+		"npc_dota_hero_disruptor"			"Zhuge Liang"
+		"npc_dota_hero_disruptor_1"			"[Heroic] Waver Velvet"
+		"npc_dota_hero_disruptor_summon"		"Servant <font color='#58ACFA'>Zhuge Liang</font> has been summoned."
+		"npc_dota_hero_disruptor_enable_combo"	"Enable Combo: Thunderstorm Array"
+
+		//////////////////////////// Innate //////////////////////////////
+
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye"		"<font color='#FFFFFF'>Discerning Eye</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_Description"	"<font color='#58ACFA'>奥拉:</font> 所有附近的盟友英雄获得 <font color='#FFFF28'>Discerning Eye</font>. \n<font color='#FFFF28'>Discerning Eye</font>: 增加统计. \n\n<font color='#9FFFCC'>可选属性升级: Improve Discerning Eye</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_radius"		"范围:"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_bonus_stat"	"主要统计数据:"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade"		"<font color='#9FFFCC'>Discerning Eye</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade_Description"	"<font color='#58ACFA'>奥拉:</font> 所有附近的盟友英雄获得 <font color='#FFFF28'>Discerning Eye</font>. \n<font color='#FFFF28'>Discerning Eye</font>: 增加所有状态."
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade_radius"		"范围:"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade_bonus_stat"	"主要统计数据:"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade_second_stat"	"其他统计数据:"
+		"DOTA_Tooltip_Ability_zhuge_liang_discern_eye_upgrade_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_alchemist"				"<font color='#FFFFFF'>Alchemist</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_alchemist_Description"	"<font color='#E5CCFF'>咒语书</font>。收集药水. \n<font color='#FFFFFF'>Healing Potion</font>: 向区域目标投掷一个治疗药水，增加所有盟友英雄的健康再生。 \n<font color='#FFFFFF'>Mana Potion</font>: 向区域目标投掷一个法力药水，增加所有盟友英雄的法力再生。. \n<font color='#FFFFFF'>Acceleration Potion</font>: 向区域目标投掷一个速度药水，增加所有联盟英雄的移动速度。 \n<font color='#FFFFFF'>Acid Potion</font>: 向区域目标投掷酸液，造成魔法伤害。 \n\n<font color='#9FFFCC'>可选属性升级: Item Creation</font>. \n <font color='#E5CCFF'>SPELLBOOK</font>内的所有能力将共享冷却时间。"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_alchemist_upgrade"				"<font color='#9FFFCC'>Alchemist</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_alchemist_upgrade_Description"	"<font color='#E5CCFF'>咒语书</font>。收集药水. \n<font color='#FFFFFF'>Healing Potion</font>: 向区域目标投掷一个治疗药水，增加所有盟友英雄的健康再生。 \n<font color='#FFFFFF'>Mana Potion</font>: 向区域目标投掷一个法力药水，增加所有盟友英雄的法力再生。. \n<font color='#FFFFFF'>Acceleration Potion</font>: 向区域目标投掷一个速度药水，增加所有联盟英雄的移动速度。 \n<font color='#FFFFFF'>Acid Potion</font>: 向区域目标投掷酸液，造成魔法伤害。"
+		"DOTA_Tooltip_Ability_zhuge_liang_alchemist_upgrade_Note0"			""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot"		"<font color='#FFFFFF'>Healing Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_Description"	"Waver 向区域内的目标投掷一个治疗药水，适用于 <font color='#FFFF28'>Healing Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Healing Potion</font>: 增加健康再生。. \n\n<font color='#9FFFCC'>可选属性升级: Item Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_heal_sec"	"奖励健康再生:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade"		"<font color='#9FFFCC'>Healing Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade_Description"	"Waver 向区域内的目标投掷一个治疗药水，适用于 <font color='#FFFF28'>Healing Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Healing Potion</font>: 增加健康再生。 "
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade_heal_sec"	"奖励健康再生:"
+		"DOTA_Tooltip_Ability_zhuge_liang_heal_pot_upgrade_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot"		"<font color='#FFFFFF'>Mana Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_Description"	"Waver 向区域内目标投掷一个法力药水，应用 <font color='#FFFF28'>Mana Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Mana Potion</font>: 增加法力再生. \n\n<font color='#9FFFCC'>可选属性升级: Item Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_mana_sec"	"奖励法力再生:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade"		"<font color='#9FFFCC'>Mana Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade_Description"	"Waver 向区域内目标投掷一个法力药水，应用 <font color='#FFFF28'>Mana Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Mana Potion</font>: 增加法力再生."
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade_mana_sec"	"奖励法力再生:"
+		"DOTA_Tooltip_Ability_zhuge_liang_mana_pot_upgrade_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot"		"<font color='#FFFFFF'>Accelerate Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_Description"	"Waver 向区域内的目标投掷一个速度药水，适用于 <font color='#FFFF28'>Accelerate Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Accelerate Potion</font>: 提高移动速度. \n\n<font color='#9FFFCC'>可选属性升级: Item Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_bonus_ms"	"%额外的移动速度:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade"		"<font color='#9FFFCC'>Accelerate Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade_Description"	"Waver 向区域内的目标投掷一个速度药水，适用于 <font color='#FFFF28'>Accelerate Potion</font> 对所有的盟友. \n<font color='#FFFF28'>Accelerate Potion</font>: 增加移动速度和攻击速度. "
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade_bonus_ms"	"%额外的移动速度 / 攻击速度:"
+		"DOTA_Tooltip_Ability_zhuge_liang_accel_pot_upgrade_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot"		"<font color='#FFFFFF'>Acid Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_Description"	"Waver 对目标区域投掷酸性药水，应用 <font color='#FF3399'>Acid Potion</font> 对所有的敌人. \n<font color='#FF3399'>Acid Potion</font>: 造成伤害和 <font color='#FF3399'>缓慢</font>. \n\n<font color='#9FFFCC'>可选属性升级: Item Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_dps"			"每秒伤害值:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_slow"		"%慢速:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade"		"<font color='#9FFFCC'>Acid Potion</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_Description"	"Waver 对目标区域投掷酸性药水，应用 <font color='#FF3399'>Acid Potion</font> 对所有的敌人. \n<font color='#FF3399'>Acid Potion</font>: 造成伤害和 <font color='#FF3399'>缓慢</font>. "
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_duration"	"持续时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_dps"			"每秒伤害值:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_slow"		"%慢速:"
+		"DOTA_Tooltip_Ability_zhuge_liang_acid_pot_upgrade_Lore"		""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_alchemist_close"				"<font color='#FFFFFF'>Close Spell Book</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_alchemist_close_Description"	"关闭<font color='#E5CCFF'>SPELLBOOK</font>。"
+
+		///////////////////////////// Basic ///////////////////////////////
+
+		"DOTA_Tooltip_Ability_zhuge_liang_laser"				"<font color='#58ACFA'>Bagua Mirror</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_laser_Description"	"Zhuge Liang 从八卦镜发射能量射线，对沿途的所有敌人造成伤害。."
+		"DOTA_Tooltip_ability_zhuge_liang_laser_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_laser_range"			"距离:"
+		"DOTA_Tooltip_ability_zhuge_liang_laser_damage"			"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_laser_laser"			"总射线数:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_strat_command"				"<font color='#58ACFA'>Tactician Command</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_strat_command_Description"	"<font color='#E5CCFF'>拼写书</font>: 战术的收集. \n<font color='#58ACFA'>Rocks Fall</font>: 向目标地点投掷石块，造成伤害并<font color='#FF3399'>眩晕</font>所有敌人。 \n<font color='#58ACFA'>Fire Arrows</font>: 向目标地点发射火箭，造成伤害并<font color='#FF3399'>燃烧</font>所有敌人。 \n<font color='#58ACFA'>Flood</font>: 摧毁大坝，让洪水<font color='#FF3399'>击退</font>所有敌人。 \n<font color='#58ACFA'>Tornado</font>: 向目标地点发射龙卷风，造成伤害并<font color='#FF3399'>击倒</font>所有敌人。 \n<font color='#58ACFA'>Wood Trap</font>: <font color='#FF3399'>root</font>和<font color='#FF3399'>lock</font>半径内的所有敌人，持续时间。 \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_Ability_zhuge_liang_strat_command_Note0"			""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_strat_command_upgrade"				"<font color='#9FFFCC'>Tactician Command</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_strat_command_upgrade_Description"	"<font color='#E5CCFF'>拼写书</font>: 战术的收集. \n<font color='#58ACFA'>Rocks Fall</font>: 向目标地点投掷石块，造成伤害并<font color='#FF3399'>眩晕</font>所有敌人。 \n<font color='#58ACFA'>Fire Arrows</font>: 向目标地点发射火箭，造成伤害并<font color='#FF3399'>燃烧</font>所有敌人。 \n<font color='#58ACFA'>Flood</font>: 摧毁大坝，让洪水<font color='#FF3399'>击退</font>所有敌人。 \n<font color='#58ACFA'>Tornado</font>: 向目标地点发射龙卷风，造成伤害并<font color='#FF3399'>击倒</font>所有敌人。 \n<font color='#58ACFA'>Wood Trap</font>: <font color='#FF3399'>root</font>和<font color='#FF3399'>lock</font>半径内的所有敌人，持续时间。"
+		"DOTA_Tooltip_Ability_zhuge_liang_strat_command_upgrade_Note0"			""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_rock_fall"				"<font color='#58ACFA'>Rocks Fall</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_Description"	"向目标地点投掷石块，造成伤害和<font color='#FF3399'>眩晕</font>所有敌人，持续时间。 \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_rock_fall_cast_delay"		"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_damage"			"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_radius"			"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_stun"			"眩晕持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_rock_fall_upgrade"				"<font color='#9FFFCC'>Rocks Fall</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_upgrade_Description"	"向目标地点投掷石块，造成伤害和<font color='#FF3399'>眩晕</font>所有敌人，持续时间。 "
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_rock_fall_upgrade_cast_delay"		"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_upgrade_damage"			"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_upgrade_radius"			"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_rock_fall_upgrade_stun"			"眩晕持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_fire_arrow"				"<font color='#58ACFA'>Fire Arrows</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_Description"	"向目标地点发射火箭，造成物理伤害，并对所有敌人施加<font color='#FF3399'>Fire Arrows Burn</font>。 \n<font color='#FF3399'>Fire Arrows Burn</font>。在时间上造成伤害。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过以下方式灭掉  <font color='#58ACFA'>Flood</font>. \n<font color='#FF3399'>Fire Arrows Burn</font> 可以删除 <font color='#FF3399'>Wood Trap</font>. \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过 <font color='#58ACFA'>Tornado</font>. \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_fire_arrow_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_radius"		"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_fire_dur"		"焚烧时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_fire_damage"	"每秒伤害:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_fire_arrow_upgrade"				"<font color='#9FFFCC'>Fire Arrows</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_Description"	"向目标地点发射火箭，造成物理伤害，并对所有敌人施加<font color='#FF3399'>Fire Arrows Burn</font>。 \n<font color='#FF3399'>Fire Arrows Burn</font>。在时间上造成伤害。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过以下方式灭掉  <font color='#58ACFA'>Flood</font>. \n<font color='#FF3399'>Fire Arrows Burn</font> 可以删除 <font color='#FF3399'>Wood Trap</font>. \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过 <font color='#58ACFA'>Tornado</font>. \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_fire_arrow_upgrade_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_fire_dur"		"焚烧时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_fire_arrow_upgrade_fire_damage"	"每秒伤害:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_flood"				"<font color='#58ACFA'>Flood</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_Description"	"摧毁大坝，让洪水<font color='#FF3399'>knockback</font>所有的敌人从右到左打倒。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过以下方式扑灭 <font color='#58ACFA'>Flood</font> \n<font color='#FF3399'>Wood Trap</font> 目标不能是 <font color='#FF3399'>knockback</font> 与 <font color='#58ACFA'>Flood</font>. \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_flood_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_flood_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_distance"	"距离:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_knock"		"击退持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_flood_upgrade"				"<font color='#9FFFCC'>Flood</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_upgrade_Description"	"摧毁大坝，让洪水<font color='#FF3399'>knockback</font>所有的敌人从右到左打倒。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过以下方式扑灭 <font color='#58ACFA'>Flood</font> \n<font color='#FF3399'>Wood Trap</font> 目标不能是 <font color='#FF3399'>knockback</font> 与 <font color='#58ACFA'>Flood</font>. "
+		"DOTA_Tooltip_ability_zhuge_liang_flood_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_flood_upgrade_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_upgrade_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_upgrade_distance"	"距离:"
+		"DOTA_Tooltip_ability_zhuge_liang_flood_upgrade_knock"		"击退持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_wind"				"<font color='#58ACFA'>Tornado</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_Description"	"向目标地点发射龙卷风，造成伤害并<font color='#FF3399'>knock up</font>沿路的所有敌人。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过 <font color='#58ACFA'>Tornado</font>. \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_wind_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_wind_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_distance"	"距离:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_knock"		"击退持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_wind_upgrade"				"<font color='#9FFFCC'>Tornado</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_upgrade_Description"	"向目标地点发射龙卷风，造成伤害并<font color='#FF3399'>knock up</font>沿路的所有敌人。 \n<font color='#FF3399'>Fire Arrows Burn</font> 可以通过 <font color='#58ACFA'>Tornado</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_wind_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_wind_upgrade_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_upgrade_damage"		"损坏:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_upgrade_distance"	"距离:"
+		"DOTA_Tooltip_ability_zhuge_liang_wind_upgrade_knock"		"击退持续时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_wood_trap"				"<font color='#58ACFA'>Wood Trap</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_Description"	"对区域内的所有敌人施加<font color='#FF3399'>Wood Trap</font>，持续时间。 \n<font color='#FF3399'>Wood Trap</font>: 造成伤害，<font color='#FF3399'>root</font>和<font color='#FF3399'>lock</font>目标。 \n<font color='#FF3399'>Wood Trap</font> 可以通过 <font color='#58ACFA'>Fire Arrows</font>. \n<font color='#FF3399'>Wood Trap</font> 目标不能是 <font color='#FF3399'>knock</font> 与 <font color='#58ACFA'>Flood</font>. \n\n<font color='#9FFFCC'>可选属性升级: 36 Stratagems</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_wood_trap_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_dps"		"每秒伤害:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_radius"		"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_duration"	"根茎的长度:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_wood_trap_upgrade"				"<font color='#9FFFCC'>Wood Trap</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_upgrade_Description"	"对区域内的所有敌人施加<font color='#FF3399'>Wood Trap</font>，持续时间。 \n<font color='#FF3399'>Wood Trap</font>: 造成伤害，<font color='#FF3399'>root</font>和<font color='#FF3399'>lock</font>目标。 \n<font color='#FF3399'>Wood Trap</font> 可以通过 <font color='#58ACFA'>Fire Arrows</font>. \n<font color='#FF3399'>Wood Trap</font> 目标不能是 <font color='#FF3399'>knock</font> 与 <font color='#58ACFA'>Flood</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_wood_trap_upgrade_cast_delay"	"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_upgrade_dps"		"每秒伤害:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_upgrade_radius"		"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_wood_trap_upgrade_duration"	"根茎的长度:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_war_command"				"<font color='#58ACFA'>Tactician Advice</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_war_command_Description"	"<font color='#E5CCFF'>拼写书</font>: 诸葛亮可以建议的战术集合。 \n<font color='#58ACFA'>Ambush</font>: 目标将在持续时间内<font color='#FFFF28'>Invisible</font>。 \n<font color='#58ACFA'>Offensive Formation</font>: 增加目标的攻击和攻击速度，持续时间。 \n<font color='#58ACFA'>Defensive Formation</font>: 增加护甲和魔法抵抗力的持续时间。 \n\n<font color='#9FFFCC'>可选属性升级: Chu Shi Biao</font>. \n 只有一种<font color='#FFFF28'>Tactician Advice</font>可以应用于目标。 \n 在这个<font color='#E5CCFF'>咒语书</font>中的所有能力都共享相同的冷却时间。 \n 所有的能力都不能适用于自己。"
+		"DOTA_Tooltip_Ability_zhuge_liang_war_command_Note0"			""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_war_command_upgrade"				"<font color='#9FFFCC'>Tactician Advice</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_war_command_upgrade_Description"	"<font color='#E5CCFF'>拼写书</font>: 诸葛亮可以建议的战术集合。 \n<font color='#58ACFA'>Ambush</font>: 目标将在持续时间内<font color='#FFFF28'>Invisible</font>. \n<font color='#58ACFA'>Offensive Formation</font>: 增加目标的攻击和攻击速度，持续时间, 普通攻击也会造成关键伤害。 \n<font color='#58ACFA'>Defensive Formation</font>: 增加护甲和魔法抵抗力的持续时间，同时提供护盾。 \n 只有一种<font color='#FFFF28'>Tactician Advice</font>可以应用于目标。 \n 在这个<font color='#E5CCFF'>咒语书</font>中的所有能力都共享相同的冷却时间。 \n 所有的能力都不能适用于自己。"
+		"DOTA_Tooltip_Ability_zhuge_liang_war_command_upgrade_Note0"			""
+
+		"DOTA_Tooltip_Ability_zhuge_liang_ambush"				"<font color='#58ACFA'>Ambush</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_Description"	"目标获得<font color='#FFFF28'>Ambush Formation</font>，持续时间。 \n<font color='#FFFF28'>Ambush Formation</font>: 增加目标的移动速度，同时变得<font color='#FFFF28'>Invisible</font>，直到下次施法或他攻击或被攻击。 \n\n<font color='#9FFFCC'>可选属性升级: Chu Shi Biao</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_ambush_duration"	"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_bonus_ms"	"%额外的移动速度:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_ambush_upgrade"				"<font color='#9FFFCC'>Ambush</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_upgrade_Description"	"目标收益  <font color='#FFFF28'>Ambush Formation</font>，持续时间。 \n<font color='#FFFF28'>Ambush Formation</font>: 增加目标的移动速度，同时变得<font color='#FFFF28'>Invisible</font>，直到下一次施法或他攻击或被攻击。\n 通过攻击突破隐身状态，应用 <font color='#FF3399'>Surprise Attack</font> 短时间内的目标. \n<font color='#FF3399'>Surprise Attack</font>: 降低目标的护甲和魔法抗性。"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_ambush_upgrade_duration"	"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_upgrade_bonus_ms"	"%额外的移动速度:"
+		"DOTA_Tooltip_Ability_zhuge_liang_ambush_upgrade_debuff"	"%减少护甲和魔法抵抗力:"
+		"DOTA_Tooltip_ability_zhuge_liang_ambush_upgrade_debuff_dur" "SURPRISE 时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_offense"				"<font color='#58ACFA'>Offensive Formation</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_Description"	"目标收益  <font color='#FFFF28'>Offensive Formation</font>，持续时间。 \n<font color='#FFFF28'>Offensive Formation</font>: 增加目标的攻击伤害和攻击速度。 \n\n<font color='#9FFFCC'>可选属性升级: Chu Shi Biao</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_offense_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_offense_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_bonus_atk"	"%额外的攻击:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_bonus_aspd"	"%额外的攻击速度:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_offense_upgrade"				"<font color='#9FFFCC'>Offensive Formation</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_Description"	"目标收益  <font color='#FFFF28'>Offensive Formation</font>，持续时间。 \n<font color='#FFFF28'>Offensive Formation</font>: I增加目标的攻击伤害和攻击速度，同时目标的普通攻击有机会对基础攻击造成关键伤害。"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_offense_upgrade_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_bonus_atk"	"%额外的攻击:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_bonus_aspd"	"%额外的攻击速度:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_crit_rate"	"%危急率:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_crit_dmg"		"%严重损害:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_defense"				"<font color='#58ACFA'>Defensive Formation</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_Description"	"目标收益  <font color='#FFFF28'>Defensive Formation</font>，持续时间。 \n<font color='#FFFF28'>Defensive Formation</font>: 增加目标的护甲和魔法抵抗力。 \n\n<font color='#9FFFCC'>可选属性升级: Chu Shi Biao</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_defense_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_defense_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_bonus_armor"	"额外的盔甲:"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_bonus_mr"		"%额外的魔法抵抗力:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_defense_upgrade"				"<font color='#9FFFCC'>Defensive Formation</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_upgrade_Description"	"目标收益  <font color='#FFFF28'>Defensive Formation</font> 和 <font color='#FFFF28'>Defensive Shield</font>，持续时间。 \n<font color='#FFFF28'>Defensive Formation</font>: 增加目标的护甲和魔法抵抗力。 \n<font color='#FFFF28'>Defensive Shield</font>: 吸收一定量的损害."
+		"DOTA_Tooltip_ability_zhuge_liang_defense_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_defense_upgrade_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_upgrade_bonus_armor"	"额外的盔甲:"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_upgrade_bonus_mr"		"%额外的魔法抵抗力:"
+		"DOTA_Tooltip_Ability_zhuge_liang_defense_upgrade_shield"		"盾牌金额:"
+		"DOTA_Tooltip_ability_zhuge_liang_defense_upgrade_shield_dur"	"屏蔽时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_array"				"<font color='#58ACFA'>Unreturn Formation Stone Sentinel Maze</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_array_Description"	"延迟后，在目标区域创建一个石阵，同时应用 <font color='#FF3399'>Unreturn Formation</font> 对所有的敌人. \n<font color='#FF3399'>Unreturn Formation</font>: 目标将被阻止离开阵列，同时降低护甲和魔法抗性。 \n\n<font color='#9FFFCC'>可选属性升级: Territory Creation</font>."
+		"DOTA_Tooltip_ability_zhuge_liang_array_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_array_cast_delay"		"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_radius"			"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_armor_debuff"	"减少装甲:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_mr_debuff"		"%MAGIC RESIST REDUCTION:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_array_upgrade"				"<font color='#9FFFCC'>Unreturn Formation Stone Sentinel Maze</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_Description"	"延迟后，在目标区域创建一个石阵，同时应用  <font color='#FF3399'>Unreturn Formation</font> 对所有的敌人. \n<font color='#FF3399'>Unreturn Formation</font>: 目标将被阻止离开阵列，同时降低护甲和魔法抗性。"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_zhuge_liang_array_upgrade_cast_delay"		"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_radius"			"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_duration"		"时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_armor_debuff"	"减少装甲:"
+		"DOTA_Tooltip_ability_zhuge_liang_array_upgrade_mr_debuff"		"%魔法抵抗力降低:"
+
+		///////////////////////////// Special Ability /////////////////////////
+
+
+		///////////////////////////// Combo /////////////////////////
+
+		"DOTA_Tooltip_Ability_zhuge_liang_combo"		"<font color='#FF04EF'>Combo: Thunderstorm Array</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_Description"	"<font color='#FF04EF'>技能释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 3秒内R -> R </font> \n 设置逆天大阵。延迟后，一个巨大的雷暴袭击了目标区域，造成魔法伤害。 <font color='#FF3399'>惊人的</font>和应用 <font color='#FF3399'>Thunderstorm Debuff</font> 持续时间短。 \n<font color='#FF3399'>Thunderstorm Debuff</font>: 降低目标的护甲、魔抗和移动速度。"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_Lore"	"" 
+		"DOTA_Tooltip_ability_zhuge_liang_combo_cast_delay"			"延时:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_radius"				"半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_lightning_count"	"总闪电:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_lightning_dmg"		"雷电伤害:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_lightning_aoe"		"闪电半径:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_stun"				"惊呆了"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_debuff_dur"			"衰弱持续时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_debuff"				"%每层盔甲和魔法抵抗力的减弱:"
+		"DOTA_Tooltip_ability_zhuge_liang_combo_slow"				"%每堆慢速:"
+
+		////////////////////// Buff /////////////////////
+
+		"DOTA_Tooltip_modifier_discern_eye_str"			"Discerning Eye (STR)"
+		"DOTA_Tooltip_modifier_discern_eye_str_Description"	""
+
+		"DOTA_Tooltip_modifier_discern_eye_str_no_int"			"Discerning Eye (STR)"
+		"DOTA_Tooltip_modifier_discern_eye_str_Description"	""
+
+		"DOTA_Tooltip_modifier_discern_eye_agi"			"Discerning Eye (AGI)"
+		"DOTA_Tooltip_modifier_discern_eye_agi_Description"	""
+
+		"DOTA_Tooltip_modifier_discern_eye_agi_no_int"			"Discerning Eye (AGI)"
+		"DOTA_Tooltip_modifier_discern_eye_agi_Description"	""
+
+		"DOTA_Tooltip_modifier_discern_eye_int"			"Discerning Eye (INT)"
+		"DOTA_Tooltip_modifier_discern_eye_int_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_heal_buff"		"Waver's Healing Potion"
+		"DOTA_Tooltip_modifier_zhuge_liang_heal_buff_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_mana_buff"				"Waver's Mana Potion"
+		"DOTA_Tooltip_modifier_zhuge_liang_mana_buff_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_accel_buff"				"Waver's Accelerate Potion"
+		"DOTA_Tooltip_modifier_zhuge_liang_accel_buff_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_ambush"				"Ambush Formation"
+		"DOTA_Tooltip_modifier_zhuge_liang_ambush_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_offense"				"Offensive Formation"
+		"DOTA_Tooltip_modifier_zhuge_liang_offense_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_defense"				"Defensive Formation"
+		"DOTA_Tooltip_modifier_zhuge_liang_defense_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_shield"				"Defensive Shield"
+		"DOTA_Tooltip_modifier_zhuge_liang_shield_Description"	""
+
+		//////////////////// Debuff ////////////////////
+
+		"DOTA_Tooltip_modifier_zhuge_liang_acid"				"Waver's Acid Potion"
+		"DOTA_Tooltip_modifier_zhuge_liang_acid_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_fire_arrow"				"Zhuge Liang Fire Arrows Burn"
+		"DOTA_Tooltip_modifier_zhuge_liang_fire_arrow_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_wood_trap"				"Zhuge Liang Wood Trap"
+		"DOTA_Tooltip_modifier_zhuge_liang_wood_trap_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_ambush_debuff"				"Surprise Attack"
+		"DOTA_Tooltip_modifier_zhuge_liang_ambush_debuff_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_liang_array_enemy"				"Unreturn Formation"
+		"DOTA_Tooltip_modifier_zhuge_liang_array_enemy_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_debuff"				"Thunderstorm Debuff"
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_debuff_Description"	""
+
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_slow"				"Thunderstorm Slow"
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_slow_Description"	""
+
+		//////////////////// Cooldown ////////////////////
+
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_cooldown"		"Thunderstorm Array Cooldown"
+		"DOTA_Tooltip_modifier_zhuge_thunder_storm_cooldown_Description"	""
+
+		/////////////////////// Attribute ////////////////
+
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory"		"<font color='#9FFFCC'>Attribute: Territory Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory_Description"	"<font color='#58ACFA'>Unreturn Formation Stone Sentinel Maze</font>: 增加其持续时间、半径、护甲和魔法抗性的减少"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory_bonus_radius"		"额外半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory_bonus_duration"	"额外期限:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory_armor_debuff"		"额外的装甲缩减:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_territory_mr_debuff"		"%额外的魔法抵抗力降低:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist"		"<font color='#9FFFCC'>Attribute: Item Creation</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_Description"	"<font color='#FFFFFF'>Alchemist</font>: 所有能力不再共享冷却时间，并改善了 \n<font color='#FFFFFF'>Healing Potion</font>: 增加持续时间. \n<font color='#FFFFFF'>Mana Potion</font>: 增加持续时间. \n<font color='#FFFFFF'>Accelerate Potion</font>: 增加持续时间和攻击速度. \n<font color='#FFFFFF'>Acid Potion</font>: 增加其伤害和 <font color='#FF3399'>slow</font>."
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_bonus_heal"		"HEALING POTION 额外时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_bonus_mana"		"MANA POTION 额外时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_bonus_speed"		"ACCELERATE POTION 额外时间:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_bonus_as"			"%ACCELERATE POTION 额外的攻击速度:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_bonus_dps"		"ACID POTION 每秒的额外伤害:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_alchemist_slow"				"%ACID POTION 额外的缓慢:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems"		"<font color='#9FFFCC'>Attribute: 36 Stratagems</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_Description"	"<font color='#58ACFA'>Tactician Command</font>: 提高能力的效果。 \n<font color='#58ACFA'>Rocks Fall</font>: 额外的半径和伤害 \n<font color='#58ACFA'>Fire Arrows</font>: 每秒的额外伤害 \n<font color='#58ACFA'>Flood</font>: 额外伤害. \n<font color='#58ACFA'>Tornado</font>: 额外距离. \n<font color='#58ACFA'>Wood Trap</font>: 额外半径."
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_rock_aoe"		"ROCKS FALL 额外半径:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_rock_dmg"		"ROCKS FALL 额外伤害:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_fire_dps"		"FIRE ARROWS 每秒的额外伤害:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_flood_dmg"		"FLOOD 额外伤害:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_wind_dist"		"TORNADO 额外距离:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_wood_aoe"		"WOOD TRAP 额外半径:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_letter"		"<font color='#9FFFCC'>Attribute: Chu Shi Biao</font>"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_Description"	"<font color='#58ACFA'>Tactician Advice</font>: 魔法书中的所有能力在提高能力效果时不再共享冷却时间 \n<font color='#58ACFA'>Ambush Formation</font>: 增加其持续时间，同时目标的下一次攻击对敌方目标施加<font color='#FF3399'>Suprise Attack</font>。 \n<font color='#FF3399'>Surprise Attack</font>: 降低目标的护甲和魔法抗性。 \n<font color='#58ACFA'>Offensive Formation</font>: 在目标的普通攻击有机会造成关键伤害时，增加额外的攻击伤害和攻击速度。 \n<font color='#58ACFA'>Defensive Formation</font>: 在应用时增加额外的护甲和魔法抵抗力 <font color='#FFFF28'>Defensive Shield</font>. \n<font color='#FFFF28'>Defensive Shield</font>: 损伤吸收."
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_Lore"	"" 
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_ambush_dur"			"AMBUSH 额外时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_ambush_debuff"		"SURPRISE ATTACK 盔甲和魔法抵抗力的减弱:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_ambush_debuff_dur"	"SURPRISE ATTACK 时间:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_atk"					"%OFFENSIVE 额外的攻击和攻击速度:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_crit_rate"			"%OFFENSIVE 关键机会:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_crit_dmg"			"%OFFENSIVE 严重损害:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_def"					"%DEFENSIVE 额外的护甲和魔法抵抗:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_shield"				"DEFENSIVE 盾牌金额:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_shield_dur"			"DEFENSIVE 屏蔽时间:"
+
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye"		"<font color='#9FFFCC'>Attribute: Improve Discerning Eye</font>"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_Description"	"<font color='#FFFFFF'>Discerning Eye</font>: 增加所有统计数据和半径."
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_stat"		"额外的统计资料:"
+		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_radius"	"额外半径:"
+
 		//=======================================================================================================
 		//	Saitō Hajime
 		//=======================================================================================================
@@ -11973,7 +12364,7 @@
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>连击: 常胜的风格</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>连击要求: 所有数据达到25或以上。</font>\n<font color='#FF04EF'>连击顺序: F - D -> F在激活步骤中。</font>\n齋藤通过刀刃引导心灵和精神，在敌人的核心部位造成痛苦，有机会应用沉默，并对齋藤的攻击或能力所造成的任何伤害造成额外伤害。\n在此能力持续期间，阻挡大多数目标法术，并使<font color='#58ACFA'>自由拔剑</font>的健康和法力值加倍。\n<font color='#58ACFA'>光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>的施法点被替换有固定的延迟且不能被打断，还会减少其持续时间的冷却时间。"
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>连击要求: 所有数据达到25或以上。</font>\n<font color='#FF04EF'>连击顺序: F - D -> F在激活步骤中。</font>\n齋藤通过刀刃引导心灵和精神，在敌人的核心部位造成痛苦，有机会应用沉默，并对齋藤的攻击或能力所造成的任何伤害造成额外伤害。\n在此能力持续期间，阻挡大多数目标法术，并使<font color='#58ACFA'>自由拔剑</font>的健康和法力值加倍。\n<font color='#58ACFA'>光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>的施法点被替换有固定的延迟且不能被打断，还会减少其持续时间的冷却时间。\n短時間内能夠啓動<font color='#FFB266'>一对一</font>。"
 		"DOTA_Tooltip_ability_saito_style_Lore"														"没有形式，我的剑是无形的。随着它的流动，它体现了所有的可能性。这就是为什么我的剑无人能及!"
 		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"铸造点:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"持续时间:"
@@ -11990,6 +12381,24 @@
 
 		"DOTA_Tooltip_modifier_saito_style_active"													"常胜的风格"
 		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan。"
+
+		//One by One
+		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>一对一</font>"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"斋藤一在他的周围释放%radial_count%一股强大的风刃，造成%blast_damage%对其碰撞的任何敌方单位造成伤害。光是风刃的冲击力就足以将那些敌方单位击退%knockback_duration%数秒，然后减少所有类型的伤害%sdr_value%%%持續%sdr_duration%秒。\n一个敌方单位可以被多于一个风刃击中。"
+		"DOTA_Tooltip_ability_saito_blast_Lore"														"如果人死了，他们就输了，对吧?所以换句话说，如果你不死，你就不会输。这就是无敌之刃的最奥义。但是谁知道呢，你知道吗？"
+		"DOTA_Tooltip_ability_saito_blast_distance"													"距离:"
+		"DOTA_Tooltip_ability_saito_blast_speed"													"速度:"
+		"DOTA_Tooltip_ability_saito_blast_radius_start"												"半径起点:"
+		"DOTA_Tooltip_ability_saito_blast_radius_end"												"結束半徑:"
+		//"DOTA_Tooltip_ability_saito_blast_damage"													""
+		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
+		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"击退距离:"
+		//"DOTA_Tooltip_ability_saito_blast_sdr_duration"											""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_value"												""
+		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
+
+		"DOTA_Tooltip_modifier_saito_blast"															"一对一减益"
+		"DOTA_Tooltip_modifier_saito_blast_Description"												"减少所有类型的伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
 
 		///ATTRIBUTES///
 
@@ -12080,31 +12489,985 @@
 		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_agi"									"每LVL的AGI:"
 		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_int"									"每LVL的INT:"
 
+		//====================================
+        //      Mashu
+        //====================================
+        "npc_dota_hero_dragon_knight"             "Mashu Kyrielight"
+        "npc_dota_hero_dragon_knight_summon"		"Servant <font color='#58ACFA'>Mashu Kyrielight</font> has been summoned."
+        "npc_dota_hero_dragon_knight_enable_combo"	"Enable Combo: Fortress of the Distant Utopia - Lord Camelot"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt"			"<font color='#FFFFFF'>Bunker Bolt</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Description"		"向前冲锋，被敌方单位阻挡时立即停止。造成伤害 <font color='#FF3399'>stunning</font> 和 <font color='#FF3399'>slowing</font> 所有附近的敌人。 \n\n<font color='#9FFFCC'>可升级的属性: Black Barrel</font>."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_cast_delay"			"延时:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_range"			"范围:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_aoe"			"损伤半径:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_dash_duration"			"充电时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_damage"			"损坏:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_duration"			"缓慢的持续时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_amount"			"%缓慢:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_stun_duration"			"STUN时间:"
+
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt_upgrade"			"<font color='#9FFFCC'>Bunker Bolt</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Description"		"向前冲锋，被敌方单位阻挡时立即停止。造成伤害根据她的<font color='#FF0000'>STR</font>, <font color='#FF3399'>stunning</font>, 降低魔法抵抗力和 <font color='#FF3399'>slowing</font> 附近的所有敌人."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_cast_delay"			"延时:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_range"			"范围:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_aoe"			"损伤半径:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_dash_duration"			"充电时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage"			"损坏:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage_per_strength"			"每点的伤害STR:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_duration"			"缓慢的持续时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_amount"			"%缓慢:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_stun_duration"			"STUN时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_mr_penalty"			"%魔法抵抗力降低:"
+
+        "DOTA_Tooltip_Ability_mashu_protect"			"<font color='#FFFFFF'>Protect / Parry</font>"
+        "DOTA_Tooltip_ability_mashu_protect_Description"		"Mashu 准备保护/抵挡攻击，大大减少接下来受到的伤害。当对盟友使用时，她将准备保护。当对自己使用时，她将准备抵挡。 在成功的保护/抵抗中，大大减少冷却时间，恢复一半的法力，并造成区域伤害。 如果受保护的盟友移动得太远，就会失去效果。 \n\n<font color='#9FFFCC'>可升级的属性: Shield of Faith</font>."
+        "DOTA_Tooltip_ability_mashu_protect_cast_range"			"铸造范围:"
+        "DOTA_Tooltip_ability_mashu_protect_damage_reduce"			"%所受伤害减少:"
+        "DOTA_Tooltip_ability_mashu_protect_max_range"			"最大射程:"
+        "DOTA_Tooltip_ability_mashu_protect_red_cooldown"			"减少成功抵制的冷却时间:"
+        "DOTA_Tooltip_ability_mashu_protect_damage"			"损坏:"
+        "DOTA_Tooltip_ability_mashu_protect_aoe"			"半径:"
+        "DOTA_Tooltip_ability_mashu_protect_parry_duration"			"抗击时间:"
+        "DOTA_Tooltip_ability_mashu_protect_protect_duration"			"保护时间:"
+
+        "DOTA_Tooltip_Ability_mashu_protect_upgrade"			"<font color='#9FFFCC'>Protect / Parry</font>"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_Description"		"Mashu准备保护/抵抗攻击，大大减少接下来受到的伤害。当对盟友使用时，她将准备保护。当对自己使用时，她将准备抵抗。在成功的保护/抵抗中，大大减少冷却时间，恢复一半的法力，并造成区域伤害，在一段时间内成为无敌状态。如果被保护的盟友移动得太远，该效果将消失。"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_cast_range"			"铸造范围:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage_reduce"			"%所受伤害减少:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_max_range"			"最大射程:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_red_cooldown"			"减少成功抵制的冷却时间:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage"			"损坏:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_aoe"			"半径:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_parry_duration"			"抗击时间:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_protect_duration"			"保护时间:"
+        "DOTA_Tooltip_ability_mashu_protect_upgrade_invul"			"无敌的时间:"
+
+        "DOTA_Tooltip_Ability_mashu_taunt"			"<font color='#FFFFFF'>Shield of Rousing Heroism</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_Description"		"Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间，然后获得 <font color='#FFFF28'>Heroism</font> 并迫使附近所有敌人攻击她。 \n<font color='#FFFF28'>Heroism</font>: 获得抗损害能力. \n\n<font color='#9FFFCC'>可升级的属性: Obscurant Wall of Chalk</font>."
+        "DOTA_Tooltip_ability_mashu_taunt_cast_delay"			"延时:"
+        "DOTA_Tooltip_ability_mashu_taunt_channel_time"			"频道时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_buff_duration"			"HEROISM 时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_damage_reduction"			"%HEROISM 所受伤害减少:"
+        "DOTA_Tooltip_ability_mashu_taunt_radius"			"半径:"
+        "DOTA_Tooltip_ability_mashu_taunt_taunt_duration"			"强制攻击时间:"
+
+        "DOTA_Tooltip_Ability_mashu_taunt_upgrade"			"<font color='#9FFFCC'>Shield of Rousing Heroism</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_Description"		"Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间，然后获得 <font color='#FFFF28'>Heroism</font>, 从她的最大生命值造成伤害，并迫使附近所有敌人攻击她。 \n<font color='#FFFF28'>Heroism</font>: 获得抗损害能力."
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_cast_delay"			"延时:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_channel_time"			"频道时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_buff_duration"			"HEROISM 时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_reduction"			"%HEROISM 所受伤害减少:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_from_max_health"			"来自最大健康的伤害:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_radius"			"半径:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_taunt_duration"			"强制攻击时间:"
+
+        "DOTA_Tooltip_Ability_mashu_snowflake"			"<font color='#FFFFFF'>Transient Wall of Snowflakes</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_Description"		"<font color='#58ACFA'>被动式</font>: Mashu 获得伤害减少和额外的健康再生. \n<font color='#58ACFA'>ACTIVE</font>: Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间, 然后给出 <font color='#FFFF28'>Transient Wall of Snowflakes</font> 并治疗附近所有的盟友. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: 获得护甲、魔法抵抗、健康再生和额外力量。 \n\n<font color='#9FFFCC'>可升级的属性: Obscurant Wall of Chalk</font>."
+        "DOTA_Tooltip_ability_mashu_snowflake_damage_reduction_passive"		"%被动的伤害减少:"
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_passive"	"被动的健康再生:"
+        "DOTA_Tooltip_ability_mashu_snowflake_channel_time"		"频道时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_cast_delay"		"延时:"
+        "DOTA_Tooltip_ability_mashu_snowflake_radius"		"半径:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_instant_heal"		"疗养:"
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_active"		"健康再生:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_magic_res"		"%魔法抵抗力:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_active_arm"		"额外装甲:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_bonus_strength"		"额外的 STR:"
+        "DOTA_Tooltip_ability_mashu_snowflake_buff_duration"	"时间:"
+
+        "DOTA_Tooltip_Ability_mashu_snowflake_upgrade"			"<font color='#9FFFCC'>Transient Wall of Snowflakes</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_Description"		"<font color='#58ACFA'>被动式</font>: Mashu 获得伤害减少和额外的健康再生. \n<font color='#58ACFA'>ACTIVE</font>: Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间, 然后给出 <font color='#FFFF28'>Transient Wall of Snowflakes</font> 并治疗附近所有的盟友. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: 获得护甲、魔法抵抗、健康再生和额外力量。"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_damage_reduction_passive"		"%被动的伤害减少:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_passive"	"被动的健康再生:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_channel_time"		"频道时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_cast_delay"		"延时:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_invul"		"无敌的时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_radius"		"半径:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_instant_heal"		"疗养:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_active"		"健康再生:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_magic_res"		"%魔法抵抗力:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_active_arm"		"额外装甲:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_bonus_strength"		"额外的 STR:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_buff_duration"	"时间:"
+
+        "DOTA_Tooltip_Ability_mashu_punishment"			"<font color='#FFFFFF'>EX : Punishment</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_Description"		"Mashu 向目标方向投掷盾牌，当盾牌击中敌人时，她会跳到目标处造成伤害，同时<font color='#FF3399'>stunning</font>和<font color='#FF3399'>revoking</font>目标和自己一段时间。 \n\n<font color='#9FFFCC'>可升级的属性: Black Barrel</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_cast_delay"		"延时:"
+        "DOTA_Tooltip_ability_mashu_punishment_throw_length"		"投掷范围:"
+        "DOTA_Tooltip_ability_mashu_punishment_projectile_speed"		"速度:"
+        "DOTA_Tooltip_ability_mashu_punishment_width"		"宽度:"
+        "DOTA_Tooltip_ability_mashu_punishment_damage"		"损坏:"
+        "DOTA_Tooltip_ability_mashu_punishment_stun_revoke"		"STUN REVOKE 时间:"
+
+        "DOTA_Tooltip_Ability_mashu_punishment_upgrade"			"<font color='#9FFFCC'>EX : Punishment</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Description"		"Mashu 向目标方向投掷一个盾牌，当盾牌击中敌人时，她跳到目标处，根据她的<font color='#FF0000'>STR</font>造成伤害，同时 <font color='#FF3399'>stunning</font>和<font color='#FF3399'>revoking</font>目标和自己一段时间。"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_cast_delay"		"延时:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_throw_length"		"投掷范围:"
+        "DOTA_Tooltip_ability_mashu_punishmen_upgrade_projectile_speed"		"速度:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_width"		"宽度:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage"		"损坏:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage_per_strength"		"每点的额外伤害 STR:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_stun_revoke"		"STUN REVOKE 时间:"
+
+        "DOTA_Tooltip_Ability_mashu_combo"			"<font color='#9FFFCC'>Fortress of the Distant Utopia - Lord Camelot</font>"
+        "DOTA_Tooltip_ability_mashu_combo_Description"		"<font color='#FF04EF'>技能释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 3秒内R -> R .</font>\nMashu 输送并采取防御姿态，在几秒钟内受到的伤害明显减少。传导后，游戏中的所有友方英雄将立即得到治疗并获得 <font color='#9FFFCC'>Lord Camelot Buff</font>. \n<font color='#9FFFCC'>Lord Camelot Buff</font>: 获得减少的伤害，获得健康再生，奖励最大健康和伤害屏障。"
+        "DOTA_Tooltip_ability_mashu_combo_Lore"		"全局技能，影响所有友方英雄。"
+        "DOTA_Tooltip_ability_mashu_combo_channel_time"		"频道时间:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction_chanting"		"%施法时的伤害减少:"
+        "DOTA_Tooltip_ability_mashu_combo_buff_duration"		"时间:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction"		"%抗损坏性:"
+        "DOTA_Tooltip_ability_mashu_combo_health_regen"		"健康再生:"
+        "DOTA_Tooltip_ability_mashu_combo_bonus_max_health"		"额外的最大健康:"
+        "DOTA_Tooltip_ability_mashu_combo_active_instant_heal"		"痊愈:"
+        "DOTA_Tooltip_ability_mashu_combo_barrier_amount"		"盾牌金额:"
+
+        ////////////////// ATTRIBUTE ///////////////////
+      
+        "DOTA_Tooltip_Ability_mashu_attribute_barrel"			"<font color='#9FFFCC'>Attribute: Black Barrel</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_Description"		"<font color='#58ACFA'>Bunker Bolt</font>: 额外的损害，基于 <font color='#FF0000'>STR</font>, 增加眩晕持续时间，现在降低敌人的魔法抗性。 \n<font color='#58ACFA'>EX : Punishment</font>: 增加基本伤害，额外伤害基于<font color='#FF0000'>STR</font>。"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_mr_penalty"			"%魔法抵抗力的惩罚:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strengtho"			"BUNKER BOLT  额外的损害 基于STR:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_stun"			"BUNKER BOLT 惊呆了:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_damage"			"EX : PUNISHMENT 额外的基础伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strength"			"EX : PUNISHMENT 额外的损害 基于STR:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_reduce_cast_delay"			"EX : PUNISHMENT 减少铸造时间:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_shield"			"<font color='#9FFFCC'>Attribute: Shield of Faith</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_Description"		"<font color='#58ACFA'>Protect / Parry</font>: 额外奖励施法范围，持续时间，并获得无敌能力."
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_range"			"额外的铸造范围:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_protect_duration"		"额外保护时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_parry_duration"			"额外的抵抗时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_invul_duration"			"无敌时间:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_chalk"			"<font color='#9FFFCC'>Attribute: Obscurant Wall of Chalk</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"		"<font color='#58ACFA'>Transient Wall of Snowflakes</font>: 施放后获得无敌状态，并可在被固定或被击晕时施放."
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_invul_duration"			"无敌时间:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_amalgam"			"<font color='#9FFFCC'>Attribute: Amalgam Goad</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_Description"		"<font color='#58ACFA'>Shield of Rousing Heroism</font>: 获得额外的持续时间，现在也对附近的敌人造成基于施法者最大生命值的伤害。."
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_damage_from_max_health"			"伤害基于施法者的最大生命:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_buff_duration"			"奖励伤害减少的持续时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_taunt_duration"			"额外的强制攻击时间:"
+
+        ////////////////// MODIFIERS ///////////////////
+
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting"													"Bunker Bolt"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting_Description"										"Dashing forward."
+
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow"													"Bunker Bolt Debuff"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow_Description"										"Taking bunker bolt debuffs."
+
+		"DOTA_Tooltip_modifier_mashu_protect"														"Protected"
+		"DOTA_Tooltip_modifier_mashu_protect_Description"											Mashu is protecting this unit."
+
+		"DOTA_Tooltip_modifier_mashu_parry"															"Parry"
+		"DOTA_Tooltip_modifier_mashu_parry_Description"												"Mashu is preparing to parry."
+
+		"DOTA_Tooltip_modifier_mashu_taunt"															"Taunted"
+		"DOTA_Tooltip_modifier_mashu_taunt_Description"												"This unit is being forced to attack Mashu."
+
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc"															"Heroism"
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc_Description"												"This unit is recieving reduced damage."
+
+		"DOTA_Tooltip_modifier_mashu_snowflake"															"Transient Wall of Snowflakes"
+		"DOTA_Tooltip_modifier_mashu_snowflake_Description"												"Gaining bonus armor, magic resist, health regen, and bonus strength."
+
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive"															"Transient Wall of Snowflakes Passive"
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive_Description"												"Gains passive damage reduction."
+
+		"DOTA_Tooltip_modifier_mashu_combo_chanting"															"Channeling Lord Camelot"
+		"DOTA_Tooltip_modifier_mashu_combo_chanting_Description"												"Recieving reduced damage."
+
+		"DOTA_Tooltip_modifier_mashu_combo"															"Lord Camelot Buff"
+		"DOTA_Tooltip_modifier_mashu_combo_Description"												"Gaining multiple effects."
+
+		"DOTA_Tooltip_modifier_mashu_combo_barrier"															"Lord Camelot Barrier"
+		"DOTA_Tooltip_modifier_mashu_combo_barrier_Description"												"Blocking damage."
+
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown"												"Lord Camelot Cooldown"
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown_Description"											"Combo cooldown."
+
+		//====================================
         //      Archer(Extra)
         //====================================
-        "npc_dota_hero_sniper"             "Archer(Extra)"
+        "npc_dota_hero_sniper"             "罗宾汉"
 
-        "DOTA_Tooltip_Ability_robin_hood_resentment"		"Resentment"
-        "DOTA_Tooltip_Ability_robin_hood_resentment_Description"	"Archer preys on cowardice of his enemies. Cowardice is determined by following conditions, when target is:\nFacing away from Archer\nThe furthest enemy Servant from Archer\na Strength hero\nFor each of conditions met, Archer inflicts increased damage to target."
+        "DOTA_Tooltip_Ability_robin_faceless_king"				"<font color='#FFFFFF'>无貌之王</font>"
+        "DOTA_Tooltip_ability_robin_faceless_king_Description"		"<font color='#58ACFA'>被动</font>: 当受到伤害时给予闪避, 自身获得 <font color='#FFFF28'>无貌之王</font>层数. 并使自身隐形. \n\n<font color='#9FFFCC'>可选属性升级: 传说中的英雄</font>."
+        "DOTA_Tooltip_ability_robin_faceless_king_Lore"    			"罗宾汉最喜欢搞偷袭."
+        "DOTA_Tooltip_ability_robin_faceless_king_Note0"    			"不能被重置."
+        "DOTA_Tooltip_ability_robin_faceless_king_evasion"			"%迴避:"
+        "DOTA_Tooltip_ability_robin_faceless_king_chance"		"%触发机率:"		
+        "DOTA_Tooltip_ability_robin_faceless_king_invis_duration"		"隐形持续时间:"	
+        "DOTA_Tooltip_ability_robin_faceless_king_passive_cooldown"		"冷却:"		
+
+        "DOTA_Tooltip_Ability_robin_faceless_king_upgrade"				"<font color='#9FFFCC'>五月之王</font>"
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Description"		"<font color='#58ACFA'>被动</font>: 当受到伤害时给予闪避, 自身获得 <font color='#FFFF28'>无貌之王</font> 层数. 并使自身隐形."
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Lore"    			"罗宾汉最喜欢搞偷袭."
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_Note0"    			"不能被重置."
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_evasion"			"%迴避:"
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_chance"		"%触发机率:"		
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_invis_duration"		"隐形持续时间:"	
+        "DOTA_Tooltip_ability_robin_faceless_king_upgrade_passive_cooldown"		"冷却:"		
+
+        "DOTA_Tooltip_Ability_robin_clairvoyance"				"<font color='#FFFFFF'>千里眼</font>"
+        "DOTA_Tooltip_ability_robin_clairvoyance_Description"		"<font color='#58ACFA'>被动</font>: 给予自身额外视野. \n\n<font color='#9FFFCC'>可选属性升级: 行侠作义的强盗</font>."
+        "DOTA_Tooltip_ability_robin_clairvoyance_bonus_vision"			"额外视野:"	
+
+        "DOTA_Tooltip_Ability_robin_righteous_thief"				"<font color='#9FFFCC'>行侠作义的强盗</font>"
+        "DOTA_Tooltip_ability_robin_righteous_thief_Description"		"<font color='#58ACFA'>被动</font>: 给自身额外视野范围, 攻击速度, 和每秒获得黄金. 而且自身造成的暴击伤害基於他的 <font color='#80FF00'>敏捷</font>. 施放此技能将會交換他的技能 <font color='#FFB266'>瘫痪之箭</font> 和 <font color='#FFB266'>箭雨</font>"
+        "DOTA_Tooltip_ability_robin_righteous_thief_bonus_Note0"			"暴擊傷害加成."	
+        "DOTA_Tooltip_ability_robin_righteous_thief_bonus_vision"			"额外视野:"	     
+        "DOTA_Tooltip_ability_robin_righteous_thief_goldpersecond"			"每秒获得金钱:"	
+        "DOTA_Tooltip_ability_robin_righteous_thief_attack_speed"			"额外攻击速度:"	
+        "DOTA_Tooltip_ability_robin_righteous_thief_crit_chance"			"%暴击机率:"	
+        "DOTA_Tooltip_ability_robin_righteous_thief_agi_scale_crit"			"每点敏捷造成暴击伤害:"	
+
+        "DOTA_Tooltip_Ability_robin_saboteur_open"				"<font color='#FFFFFF'>破坏工作</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_open_Description"		"<font color='#E5CCFF'>SPELLBOOK</font>: 犯下最有效的战争罪名. \n<font color='#58ACFA'>陷阱</font>: 放置一个陷阱,踏中陷阱将会 <font color='#FFFF28'>晕眩</font> 敌人. \n<font color='#58ACFA'>炸药桶</font>: 放置一个炸药桶. \n\n<font color='#9FFFCC'>可选属性升级: 煽动活动</font>."
+
+        "DOTA_Tooltip_Ability_robin_saboteur_open_upgrade"				"<font color='#9FFFCC'>破坏工作</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_open_upgrade_Description"		"<font color='#E5CCFF'>SPELLBOOK</font>: 犯下最有效的战争罪名. \n<font color='#58ACFA'>陷阱</font>: 放置一个陷阱,踏中陷阱将会 <font color='#FFFF28'>晕眩</font> 敌人. \n<font color='#58ACFA'>炸药桶</font>: 放置一个炸药桶. \n<font color='#58ACFA'>森林之友</font>: 召唤一只侦测鸟. \n<font color='#58ACFA'>曼德拉草炸弹</font>: 向敵人投擲毒煙 <font color='#FF3399'>曼德拉毒气</font>. \n<font color='#FF3399'>曼德拉毒气</font> : 每秒造成极小的伤害, 如果目标试图治愈自己，他将造成根据他自身最大生命值的伤害."
+
+        "DOTA_Tooltip_Ability_robin_saboteur_pitfall"				"<font color='#FFFFFF'>陷阱</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_pitfall_Description"		"掘一个敌人看不见的陷阱, 触发时附近的敌人将会 <font color='#FF3399'>晕眩</font>."
+        "DOTA_Tooltip_ability_robin_saboteur_pitfall_radius"			"触发范围:"	
+        "DOTA_Tooltip_ability_robin_saboteur_pitfall_trap_duration"			"陷阱持续时间:"	
+        "DOTA_Tooltip_ability_robin_saboteur_pitfall_stun_duration"			"晕眩时间:"	
+        "DOTA_Tooltip_ability_robin_saboteur_pitfall_damage"				"伤害:"	
+
+        "DOTA_Tooltip_Ability_robin_saboteur_barrel"				"<font color='#FFFFFF'>炸药桶</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_barrel_Description"		"放置一个敌人看不见的炸药桶, 敌人靠近时将会爆炸和造成伤害."
+        "DOTA_Tooltip_ability_robin_saboteur_barrel_radius"				"触发范围:"	
+        "DOTA_Tooltip_ability_robin_saboteur_barrel_trap_duration"			"陷阱持续时间:"	
+        "DOTA_Tooltip_ability_robin_saboteur_barrel_damage"				"伤害:"	
+
+        "DOTA_Tooltip_Ability_robin_saboteur_scout_familliar"				"<font color='#FFFFFF'>森林之友</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_Description"		"召唤一只可控制的侦测鸟来侦测视野."
+        "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_vision_radius"		"侦测鸟视野:"	
+        "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_movespeed"			"侦测鸟速度:"	
+        "DOTA_Tooltip_ability_robin_saboteur_scout_familliar_lifetime"			"侦测鸟时间:"	
+
+        "DOTA_Tooltip_Ability_robin_saboteur_poison_well"						"<font color='#FFFFFF'>曼德拉草炸弹</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_Description"		"扔一枚装满曼德拉草根汁的炸弹, 造成<font color='#FF3399'>曼德拉毒气</font>. \n<font color='#FF3399'>曼德拉毒气</font> : 每秒造成极小的伤害, 如果目标试图治愈自己，他将造成根据他自身最大生命值的伤害, 并失去这个减益效果."
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_cast_delay"		"施法延遲:"	
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_heal_damage"		"%基于最大生命值的伤害百分比:"	
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_radius"		"范围:"	
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_dps"		"每秒伤害:"	
+        "DOTA_Tooltip_ability_robin_saboteur_poison_well_duration"		"持续时间:"	
+
+        "DOTA_Tooltip_Ability_robin_saboteur_close"				"<font color='#FFFFFF'>關閉破坏工作</font>"
+        "DOTA_Tooltip_ability_robin_saboteur_close_Description"		"關閉破坏工作."
+
+        "DOTA_Tooltip_Ability_robin_paralyzing_arrow"				"<font color='#9FFFCC'>奈恩根后空翻</font>"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_Description"		"罗宾汉在后空翻时射出带毒箭的箭.造成伤害和 <font color='#FF3399'>晕眩</font> 击中的敌人. \n\n<font color='#9FFFCC'>可选属性升级: 紫杉碱毒素</font>."
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_Lore"			"收集新鲜的奈恩根, 与黄毒菌一起煮一个小时. 静置 30 分钟, 然后加入一些火药."	
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_Note0"			"与箭雨共享等级."        
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_stun_duration"			"晕眩时间:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_dash_back"			"后跳范围:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_speed"			"毒箭速度:"	     	     	           
+
+        "DOTA_Tooltip_Ability_robin_paralyzing_arrow_upgrade"				"<font color='#9FFFCC'>奈恩根后空翻</font>"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_Lore"			"收集新鲜的奈恩根, 与黄毒菌一起煮一个小时. 静置 30 分钟, 然后加入一些火药."
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_Description"		"罗宾汉在后空翻时射出带毒箭的箭.造成伤害. 伤害基于自身的 <font color='#00F7FF'>智力</font> 和 <font color='#FF3399'>暈眩</font> 击中的敌人."
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_Note0"			"与箭雨共享等级."	
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_damage_per_int"			"每点智力额外伤害:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_stun_duration"			"晕眩时间:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_dash_back"			"后跳范围:"
+        "DOTA_Tooltip_ability_robin_paralyzing_arrow_upgrade_speed"			"射箭速度:"	     	     	     	     	     	     	     	     
+
+        "DOTA_Tooltip_Ability_robin_hunter_rain"				"<font color='#9FFFCC'>箭雨</font>"
+        "DOTA_Tooltip_ability_robin_hunter_rain_Description"		"罗宾汉向前射出多支箭. 傷害造成基於自身的 <font color='#80FF00'>敏捷</font> 和 <font color='#FF3399'>缓慢</font> 击中的敌人."
+        "DOTA_Tooltip_ability_robin_hunter_rain_Lore"			"Arrow goes BRRRRRRR."	
+        "DOTA_Tooltip_ability_robin_hunter_rain_Note0"			"升级 <font color='#9FFFCC'>奈恩根后空翻</font> 也会提升这个技能等级."        
+        "DOTA_Tooltip_ability_robin_hunter_rain_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_hunter_rain_arrow_amount"			"弓箭数量:"
+        "DOTA_Tooltip_ability_robin_hunter_rain_length"			"范围:"
+        "DOTA_Tooltip_ability_robin_hunter_rain_damage"			"每支箭的伤害:"
+        "DOTA_Tooltip_ability_robin_hunter_rain_damage_per_agi"			"每点敏捷额外伤害:"
+        "DOTA_Tooltip_ability_robin_hunter_rain_speed"			"射箭速度:"
+
+        "DOTA_Tooltip_Ability_robin_roots"				"<font color='#FFFFFF'>德鲁伊的祝福</font>"
+        "DOTA_Tooltip_ability_robin_roots_Description"		"罗宾汉呼唤紫杉树的根. 对区域内的敌人造成伤害, 而且 <font color='#FF3399'>缓慢</font> 并伤害任何试图通过的敌人. \n\n<font color='#9FFFCC'>可选属性升级: 紫杉碱毒素</font>."
+        "DOTA_Tooltip_ability_robin_roots_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_roots_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_roots_radius"			"范围:"
+        "DOTA_Tooltip_ability_robin_roots_dps"				"每秒伤害:"
+        "DOTA_Tooltip_ability_robin_roots_slow"				"缓慢速度:"
+        "DOTA_Tooltip_ability_robin_roots_duration"				"紫杉树根持续时间:"
+
+        "DOTA_Tooltip_Ability_robin_roots_upgrade"				"<font color='#9FFFCC'>德鲁伊的祝福</font>"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_Description"		"罗宾汉呼唤紫杉树的根. 对区域内的敌人造成基于自身的 <font color='#00F7FF'>智力</font>伤害 , 并 <font color='#FF3399'>缓慢</font> 和伤害任何试图通过的敌人造成基于自身 <font color='#00F7FF'>智力</font>的傷害."
+        "DOTA_Tooltip_ability_robin_roots_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_damage_per_int"			"每点智力额外伤害:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_radius"			"范围:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_dps"				"每秒伤害:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_int_scale_dps"			"每秒智力伤害:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_slow"				"缓慢速度:"
+        "DOTA_Tooltip_ability_robin_roots_upgrade_duration"				"紫杉树根持续时间:"
+
+        "DOTA_Tooltip_Ability_robin_yew_bow"				"<font color='#FFFFFF'>紫杉之弓</font>"
+        "DOTA_Tooltip_ability_robin_yew_bow_Description"		"罗宾汉拿起紫杉之弓射出强力一击. 对目标造成物理伤害, 然后对目标周围的一小块区域爆炸,造成魔法伤害并施加 <font color='#FF3399'> 紫杉剧毒</font>. \n<font color='#FF3399'> 紫杉剧毒</font> : 每秒造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 紫杉碱毒素 and 游击战</font>."
+        "DOTA_Tooltip_ability_robin_yew_bow_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_yew_bow_damage_physical"			"物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_damage_radius"			"爆炸半径:"
+        "DOTA_Tooltip_ability_robin_yew_bow_speed"			"弹射速度:"
+        "DOTA_Tooltip_ability_robin_yew_bow_poison_duration"			"中毒持续时间:"
+        "DOTA_Tooltip_ability_robin_yew_bow_dps"						"每秒中毒伤害:"
+
+        "DOTA_Tooltip_Ability_robin_yew_bow_taxine"				"<font color='#9FFFCC'>紫杉之弓</font>"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_Description"		"罗宾汉拿起紫杉之弓射出强力一击. 对目标造成物理伤害, 然后对目标周围的一小块区域爆炸,爆炸造成基於自身<font color='#00F7FF'>智力</font>的魔法伤害 ,并施加 <font color='#FF3399'> 紫杉剧毒</font>. \n<font color='#FF3399'> 紫杉剧毒</font> : 每秒造成基於自身<font color='#00F7FF'>智力</font>的伤害. \n\n<font color='#9FFFCC'>可选属性升级: 游击战</font>."
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_damage_physical"			"物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_damage_per_int"			"每点智力额外魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_damage_radius"			"爆炸半径:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_speed"			"弹射速度:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_poison_duration"			"中毒持续时间:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_dps"						"每秒中毒伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_taxine_dps_per_int"			"每点智力额外中毒伤害:"
+
+        "DOTA_Tooltip_Ability_robin_yew_bow_guerilla"				"<font color='#9FFFCC'>紫杉之弓</font>"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_Description"		"罗宾汉拿起紫杉之弓射出强力一击. 对目标造成基於自身 <font color='#80FF00'>敏捷</font> 的物理傷害, 然后对目标周围的一小块区域爆炸.造成魔法伤害并施加 <font color='#FF3399'> 紫杉剧毒</font>. \n<font color='#FF3399'> 紫杉剧毒</font> : 每秒造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 紫杉碱毒素</font>."
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_damage_physical"			"物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_damage_per_agi"			"每点敏捷额外物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_ignore_armor_amount"		"%无视护甲:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_damage_radius"			"爆炸半径:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_speed"			"弹射速度:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_poison_duration"			"中毒持续时间:"
+        "DOTA_Tooltip_ability_robin_yew_bow_guerilla_dps"						"每秒中毒伤害:"
+
+        "DOTA_Tooltip_Ability_robin_yew_bow_upgrade"				"<font color='#9FFFCC'>紫杉之弓</font>"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_Description"		"罗宾汉拿起紫杉之弓射出强力一击. 对目标造成基於自身 <font color='#80FF00'>敏捷</font> 的物理傷害, 然后针对目标周围的一个小块区域爆炸，爆炸造成基于自身 <font color='#00F7FF'>智力</font>的魔法伤害, 对目标周围的一小块区域施加 <font color='#FF3399'> 紫杉剧毒</font>. \n<font color='#FF3399'> 紫杉剧毒</font> : 每秒造成基于自身 <font color='#00F7FF'>智力</font>的伤害."
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_damage_physical"			"物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_damage_per_agi"			"每点敏捷额外物理伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_ignore_armor_amount"		"%无视护甲:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_damage_per_int"			"每点智力额外魔法伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_damage_radius"			"爆炸半径:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_speed"						"弹射速度:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_poison_duration"			"中毒持续时间:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_dps"						"每秒中毒伤害:"
+        "DOTA_Tooltip_ability_robin_yew_bow_upgrade_dps_per_int"			"每点智力额外中毒伤害:"
+
+        "DOTA_Tooltip_Ability_robin_combo"				"<font color='#FF04EF'>祈祷之弓</font>"
+        "DOTA_Tooltip_ability_robin_combo_Description"		"<font color='#FF04EF'>技能释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 5秒内E -> R </font> .\n 罗宾汉射出祈祷之弓, 祈祷之弓会在一个区域爆炸然后造成魔法伤害. 在箭落下的地方种下紫杉毒, 每秒对该区域内的所有敌人造成更多伤害. 如果任何被击中的敌人有 <font color='#FF3399'>紫杉剧毒</font> 或 <font color='#FF3399'>紫杉树的根</font> 或 <font color='#FF3399'>曼德拉毒气</font> 的减益 他们会引起毒药的连锁反应，在他们周围的区域造成额外的魔法伤害. \n\n<font color='#9FFFCC'>可选属性升级: 紫杉碱毒素</font>."
+        "DOTA_Tooltip_ability_robin_combo_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_combo_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_combo_radius"			"范围:"
+        "DOTA_Tooltip_ability_robin_combo_dps"				"每秒伤害:"  
+        "DOTA_Tooltip_ability_robin_combo_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_robin_combo_damage_roots_bonus"			"紫杉树的根 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_damage_yew_bonus"			"紫杉剧毒 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_damage_smoke_bonus"			"曼德拉毒气 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_chain_poison_radius"			"连锁伤害范围:"
+
+        "DOTA_Tooltip_Ability_robin_combo_upgrade"				"<font color='#FF04EF'>祈祷之弓</font>"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_Description"		"<font color='#FF04EF'>技能释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 5秒内E -> R</font> .\n 罗宾汉射出祈祷之弓, 祈祷之弓会在一个区域爆炸然后造成魔法伤害. 在箭落下的地方种下紫杉毒, 每秒对该区域内的所有敌人造成基於自身 <font color='#00F7FF'>智力</font>的疊加伤害. 如果任何被击中的敌人身上带有 <font color='#FF3399'>紫杉剧毒</font> 或 <font color='#FF3399'>紫杉树的根</font> 或 <font color='#FF3399'>曼德拉毒气</font> 的减益 他们会引起毒药的连锁反应，在他们周围的区域造成额外的魔法伤害."
+        "DOTA_Tooltip_ability_robin_combo_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_radius"			"范围:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_dps"				"每秒伤害:"  
+        "DOTA_Tooltip_ability_robin_combo_upgrade_dps_per_int"				"每点智力额外伤害:"  
+        "DOTA_Tooltip_ability_robin_combo_upgrade_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_damage_roots_bonus"			"紫杉树的根 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_damage_yew_bonus"			"紫杉剧毒 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_damage_smoke_bonus"			"曼德拉毒气 连锁伤害:"
+        "DOTA_Tooltip_ability_robin_combo_upgrade_chain_poison_radius"			"连锁伤害范围:"
+
+        /////////////////// Attribute //////////////////////////
+
+        "DOTA_Tooltip_Ability_robin_attribute_subversive"					"<font color='#9FFFCC'>Attribute: 煽动活动</font>"        
+        "DOTA_Tooltip_ability_robin_attribute_subversive_Description"		"<font color='#FFFFFF'>破坏工作</font>: 解锁2个新技能, <font color='#FFB266'>森林之友</font> 和 <font color='#FFB266'>曼德拉草炸弹</font>. \n <font color='#FFB266'>森林之友</font> : 召唤一只可控制的侦测鸟来侦测视野. \n <font color='#FFB266'>曼德拉草炸弹</font> : 向敌人投掷毒烟并施加 <font color='#FF3399'>曼德拉毒气</font>. \n<font color='#FF3399'>曼德拉毒气</font> : 每秒造成极小的伤害, 如果目标试图治愈自己，他将造成根据他自身最大生命值的伤害."
+        "DOTA_Tooltip_ability_robin_attribute_subversive_movespeed"			"侦测鸟速度:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_vision_radius"			"侦测鸟视野:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_lifetime"			"侦测鸟时间:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_heal_damage"			"%基于最大生命值的伤害百分比:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_radius"			"曼德拉草炸弹范围:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_dps"			"曼德拉毒气每秒伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_subversive_duration"			"曼德拉毒气持续时间:"
+
+        "DOTA_Tooltip_Ability_robin_attribute_righteous_thief"					"<font color='#9FFFCC'>Attribute: 行侠作义的强盗</font>"        
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_Description"		"<font color='#FFFFFF'>千里眼</font>: 升级到 <font color='#FFB266'>行侠作义的强盗</font, 给自身额外视野范围, 被动攻速, 暴击, 和每秒获得黄金. \n<font color='#58ACFA'>行侠作义的强盗</font> : 加强千里眼, 可以切換 <font color='#58ACFA'>奈恩根后空翻</font> 和 <font color='#58ACFA'>箭雨</font>. \n \n<font color='#58ACFA'>箭雨</font> : 罗宾汉向前射出多支箭. 傷害造成基於自身的 <font color='#80FF00'>敏捷</font>."
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_bonus_vision"			"额外视野:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_aspd"			"额外攻速:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_gold_per_second"			"每秒获得黄金:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_crit_chance"			"暴击几率:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_agi_scale_crit"			"每点敏捷暴击伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_cast_delay"			"箭雨施法時間:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_damage"			"每支箭的伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_damage_per_agi"			"每点敏捷额外伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_length"			"箭雨范围:"
+        "DOTA_Tooltip_ability_robin_attribute_righteous_thief_arrow_amount"			"弓箭数量:"
+
+        "DOTA_Tooltip_Ability_robin_attribute_faceless"					"<font color='#9FFFCC'>Attribute: 传说中的英雄</font>"        
+        "DOTA_Tooltip_ability_robin_attribute_faceless_Description"		"<font color='#FFFFFF'>无貌之王</font>: 给予额外闪避, 额外机率, 额外持续時間, 和减少冷却时间."
+        "DOTA_Tooltip_ability_robin_attribute_faceless_evasion"			"额外闪避:"
+        "DOTA_Tooltip_ability_robin_attribute_faceless_invis_chance"			"额外机率:"
+        "DOTA_Tooltip_ability_robin_attribute_faceless_invis_duration"			"额外持续時間:"
+        "DOTA_Tooltip_ability_robin_attribute_faceless_passive_cooldown"			"减少冷却时间:"
+
+        "DOTA_Tooltip_Ability_robin_attribute_guerilla"					"<font color='#9FFFCC'>Attribute: 游击战</font>"        
+        "DOTA_Tooltip_ability_robin_attribute_guerilla_Description"		"<font color='#FFFFFF'>紫杉之弓</font>: 获得额外的物理伤害基于自身 <font color='#80FF00'>敏捷</font>, 和额外范围, 并且无视部份护甲造成伤害."
+        "DOTA_Tooltip_ability_robin_attribute_guerilla_bonus_range"			"额外范围:"
+        "DOTA_Tooltip_ability_robin_attribute_guerilla_damage_per_agi"			"每点敏捷额外伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_guerilla_ignore_armor_amount"			"%无视护甲:"
+
+        "DOTA_Tooltip_Ability_robin_attribute_taxine"					"<font color='#9FFFCC'>Attribute: 紫杉碱毒素</font>"        
+        "DOTA_Tooltip_ability_robin_attribute_taxine_Description"		"<font color='#FFFFFF'>紫杉之弓</font>: 获得额外魔法伤害和基於自身 <font color='#00F7FF'>智力</font>的每秒伤害. \n <font color='#FFFFFF'>德鲁伊的祝福</font>: 造成额外的魔法伤害和基於自身 <font color='#00F7FF'>智力</font>的每秒伤害. \n <font color='#FFFFFF'>奈恩根后空翻</font>: 造成额外的魔法伤害基于自身的 <font color='#00F7FF'>智力</font>. \n<font color='#FFFFFF'>祈祷之弓</font>: 造成额外的每秒傷害基于自身的 <font color='#00F7FF'>智力</font>."
+        "DOTA_Tooltip_ability_robin_attribute_taxine_paralyzing_damage_per_int"			"NIRNROOT BONUS DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_roots_damage_per_int"			"德鲁伊的祝福每點智力额外伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_roots_dps_per_int"			"德鲁伊的祝福每點智力每秒伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_yew_damage_per_int"			"紫杉之弓每點智力额外伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_yew_dps_per_int"			"紫杉剧毒每點智力每秒伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_combo_dps_per_int"			"祈祷之弓每點智力每秒伤害:"
+        "DOTA_Tooltip_ability_robin_attribute_taxine_combo_bonus_damage"			"隐藏额外伤害:"
+
+        /////////////////// Modifier //////////////////////////
+
+        "DOTA_Tooltip_modifier_robin_faceless_king_passive"                   "无貌之王 - 被動"
+
+        "DOTA_Tooltip_modifier_faceless_king_invis"                   "无貌之王"
+		"DOTA_Tooltip_modifier_faceless_king_invis_Description"                   "你正在隐形."
+
+        "DOTA_Tooltip_modifier_faceless_king_cooldown"                   "无貌之王 冷却"
+		"DOTA_Tooltip_modifier_faceless_king_cooldown_Description"                   "无貌之王正在冷却."
+
+        "DOTA_Tooltip_modifier_robin_clairvoyance_passive"                   "千里眼"
+		"DOTA_Tooltip_modifier_robin_clairvoyance_passive_Description"                   "给予额外视野."
+
+        "DOTA_Tooltip_modifier_robin_clairvoyance_upgrade_passive"                   "行侠作义的强盗"
+		"DOTA_Tooltip_modifier_robin_clairvoyance_upgrade_passive_Description"                   "给予额外视野, 攻速,金錢和額外暴擊"
+
+        "DOTA_Tooltip_modifier_robin_scout_familliar"                   		"侦测鸟"
+
+        "DOTA_Tooltip_modifier_robin_poison_smoke"                  			 "曼德拉毒气"
+		"DOTA_Tooltip_modifier_robin_poison_smoke_Description"                   "受到毒的影响."
+
+        "DOTA_Tooltip_modifier_robin_hunter_rain_slow"                  			 "箭雨缓速"
+		"DOTA_Tooltip_modifier_robin_hunter_rain_slow_Description"                   "你被射中了."
+
+        "DOTA_Tooltip_modifier_robin_roots_slow"                  			 "紫杉树根缓速"
+		"DOTA_Tooltip_modifier_robin_roots_slow_Description"                   "你被杂草的根阻碍了."
+
+        "DOTA_Tooltip_modifier_robin_yew_bow"                  			 		"紫杉树毒"
+		"DOTA_Tooltip_modifier_robin_yew_bow_Description"                   "受到毒伤害."
 
 
+        "DOTA_Tooltip_modifier_robin_combo_cooldown"                  		"连击冷却"
+		"DOTA_Tooltip_modifier_robin_combo_Description"                   "你的连击正在冷却."
 
-        "DOTA_Tooltip_Ability_robin_hood_bowmans_resolve"		"Bowman's Resolve"
-        "DOTA_Tooltip_Ability_robin_hood_bowmans_resolve_Description"	"PASSIVE: When Archer does not move for certain amount of time, he becomes Stationed, gaining bonus damage on Strafe and Yew Bow.\nACTIVE: Archer sends a hawk that flies in circle around the furthest enemy Servant from him, revealing vision for short duration."
-
-        "DOTA_Tooltip_Ability_robin_hood_strafe"	"Strafe"
-        "DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
-
-        "DOTA_Tooltip_Ability_robin_hood_yew_bow"	"Yew Bow"
-        "DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
-
-        //      Archer(Extra)
+		//====================================
+		//      Nobunaga (Archer)
         //====================================
+		"npc_dota_hero_gyrocopter"				"织田信长"
+        "npc_dota_hero_gyrocopter_summon"		"从者 <font color='#58ACFA'>织田信长</font> 已被召唤."
+        "npc_dota_hero_gyrocopter_enable_combo"	"激活 连击技能: 第六天魔王."
 
+        /////////////////////////// Skills ////////////////////////////////
 
+		"npc_dota_hero_gyrocopter_hype"					""
+		"npc_dota_hero_gyrocopter_bio"						""
+
+        "DOTA_Tooltip_ability_nobu_guns"							"<font color='#58ACFA'>火绳枪</font>"
+        "DOTA_Tooltip_ability_nobu_guns_Description"			"信长的所有伤害技能都會使用她的火枪. 每支火枪的伤害都根据信长的 <font color='#DD5959'>等级</font>. \n\n<font color='#9FFFCC'>可选属性升级: 单独行动</font>.\n<font color='#9FFFCC'>可选属性升级: 天下布武</font>."
+        "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"基础伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"每级伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_amount"					""
+        "DOTA_Tooltip_ability_nobu_guns_Lore"						"枪支在战场上永远没有价值. 这就是当时每个人的想法. 那我只需要收集一大堆向他们开火就可以了？"
+
+        "DOTA_Tooltip_ability_nobu_guns_action"							"<font color='#9FFFCC'>火绳枪</font>"
+        "DOTA_Tooltip_ability_nobu_guns_action_Description"			"信长的所有伤害技能都會使用她的火枪. 每支火枪的伤害都根据信长的 <font color='#DD5959'>等级</font>. \n\n<font color='#9FFFCC'>可选属性升级: 天下布武</font>."
+        "DOTA_Tooltip_ability_nobu_guns_action_base_dmg"					"基础伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_action_dmg_per_lvl"					"每级伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_action_armor_pierce" 				"%无视射击目标一部分的护甲:"
+        "DOTA_Tooltip_ability_nobu_guns_action_amount"					""
+        "DOTA_Tooltip_ability_nobu_guns_action_Lore"						"枪支在战场上永远没有价值. 这就是当时每个人的想法. 那我只需要收集一大堆向他们开火就可以了？"
+         
+        "DOTA_Tooltip_ability_nobu_guns_unifying"							"<font color='#9FFFCC'>火绳枪</font>"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_Description"			"信长的所有伤害技能都會使用她的火枪. 每支火枪的伤害都根据信长的 <font color='#DD5959'>等级</font> 和 <font color='#00F7FF'>智力</font>. \n\n<font color='#9FFFCC'>可选属性升级: 单独行动</font>."
+        "DOTA_Tooltip_ability_nobu_guns_unifying_base_dmg"					"基础伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_lvl"					"每级伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_int"					"每点智力伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_divine_damage_mod"				"对神性额外伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_amount"					""
+        "DOTA_Tooltip_ability_nobu_guns_unifying_Lore"						"枪支在战场上永远没有价值. 这就是当时每个人的想法. 那我只需要收集一大堆向他们开火就可以了？"
+    
+        "DOTA_Tooltip_ability_nobu_guns_upgrade"							"<font color='#9FFFCC'>火绳枪</font>"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_Description"			"信长的所有伤害技能都會使用她的火枪. 每支火枪的伤害都根据信长的 <font color='#DD5959'>等级</font> 和 <font color='#00F7FF'>智力</font>."
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_base_dmg"					"基础伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_lvl"					"每级伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_int"					"每点智力伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_divine_damage_mod"				"对神性额外伤害:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_Lore"						"枪支在战场上永远没有价值. 这就是当时每个人的想法. 那我只需要收集一大堆向他们开火就可以了"
+         
+        "DOTA_Tooltip_ability_nobu_shot"					"<font color='#58ACFA'>射击</font>"
+        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"信长向着一个方向开枪. 如果她击中敌人, 他会受到物理伤害并减速. \n\n<font color='#9FFFCC'>可选属性升级: 单独行动</font>."
+        "DOTA_Tooltip_ability_nobu_shot_Note0" 					"如果在信长进行瞄准射击时施放, 步枪会出现在她附近并射击附近的敌人."
+        "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"步枪伤害:"
+        "DOTA_Tooltip_ability_nobu_shot_slow_power"				"%减速:"
+        "DOTA_Tooltip_ability_nobu_shot_duration"				"减速持续时间:"
+        "DOTA_Tooltip_ability_nobu_shot_Lore"					""
+
+        "DOTA_Tooltip_ability_nobu_shot_upgrade"					"<font color='#9FFFCC'>射击</font>"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_Description"	 	"信长向着一个方向开枪. 如果她击中敌人, 他会受到物理伤害并减速."
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_Note0" 					"如果在信长进行瞄准射击时施放, 步枪会出现在她附近并射击附近的敌人."
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_damage_mod"				"步枪伤害:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_slow_power"				"%减速:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_duration"				"减速持续时间:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_microstun_duration"				"晕眩时间:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_Lore"					""
+
+        "DOTA_Tooltip_ability_nobu_dash"					"<font color='#58ACFA'>衝刺</font>"
+        "DOTA_Tooltip_ability_nobu_dash_Description"	 	"信长立即朝目标方向冲刺. 每个充能都会随时间补充. \n\n<font color='#9FFFCC'>可选属性升级: 三千世界</font>."
+        "DOTA_Tooltip_ability_nobu_dash_attr_damage"			""
+		"DOTA_Tooltip_ability_nobu_dash_Lore"	"无法被重置."
+
+        "DOTA_Tooltip_ability_nobu_dash_upgrade"					"<font color='#9FFFCC'>沖刺</font>"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_Description"	 	"信长立即朝目标方向冲刺. 每个充能都会随时间补充."
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_dmg_mod"			"步枪伤害:"
+		"DOTA_Tooltip_ability_nobu_dash_upgrade_Lore"		"无法被重置."
+
+        "DOTA_Tooltip_ability_nobu_double_shots"				"<font color='#9FFFCC'>瞄准射击</font>"
+        "DOTA_Tooltip_ability_nobu_double_shots_Description"		"信长开始向目标方向或目标敌人进行一系列射击, 锁定她的動作和專注她的目标.可以使用攻击指令更改目标敌人.信长在射击时不能使用
+三段击战术, 信长使用技能期间可以自由移动, 但向后移动会大大降低速度.施放此技能0.5秒后, 可以通过重复使用取消."
+        "DOTA_Tooltip_ability_nobu_double_shots_damage_mod"		"步枪伤害:"
+        "DOTA_Tooltip_ability_nobu_double_shots_duration"		"持续时间:"
+        "DOTA_Tooltip_ability_nobu_double_shots_sps"			"每秒射击次数:"
+        "DOTA_Tooltip_ability_nobu_double_shots_Lore"			""
+        "DOTA_Tooltip_ability_nobu_double_shots_Note0"					"如果信长失去敌人的视野, 她将在最后一次见到他的地方开枪."	
+
+        "DOTA_Tooltip_ability_nobu_double_shots_stop"				"<font color='#9FFFCC'>停止射击</font>"
+        "DOTA_Tooltip_ability_nobu_double_shots_stop_Description"		"停止射击."
+        "DOTA_Tooltip_ability_nobu_double_shots_stop_Lore"				""
+
+        "DOTA_Tooltip_ability_nobu_demon_king_open"				"<font color='#9FFFCC'>魔王</font>"
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Description"	"每回合开始时，信长可以改变自己的气魄，获得本回合的加成."
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Lore"						""
+	
+        "DOTA_Tooltip_ability_nobu_dow"				"<font color='#FFFFFF'>改变气魄: 世界的毁灭者</font>"
+        "DOTA_Tooltip_ability_nobu_dow_Description"	"<font color='#58ACFA'>被動</font>: 每次信长用她的步枪击中敌人, 她会再召唤一支步枪, 步枪将射击附近的敌人. 只能在几秒钟内發動一次, 伤害等于基础枪的伤害.\n <font color='#58ACFA'>随着魔王的展开属性升级这个选择会得到世界的毁灭者和神佛的毁灭者的加成.</font>"
+        "DOTA_Tooltip_ability_nobu_dow_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_dogab"				"<font color='#FFFFFF'>改变气魄: 神佛的毁灭者</font>"
+        "DOTA_Tooltip_ability_nobu_dogab_Description"	"赋予信长新技能: <font color='#9FFFCC'>神性印记</font>.\n<font color='#9FFFCC'>神性印记 :</font> 信长标记一个敌人 7 秒. 每次她造成伤害, 目标获得堆叠. 當达到12层时, 敌人将被标记为神圣和它的基礎护甲将會减少.\n <font color='#58ACFA'>随着魔王的展开属性升级这个选择会得到世界的毁灭者和神佛的毁灭者的加成.</font>"
+        "DOTA_Tooltip_ability_nobu_dogab_Note0" "不可刷新. 40 秒冷卻時間."
+        "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_fool_of_owari"				"<font color='#FFFFFF'>改变气魄: 尾张的大笨蛋</font>"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"<font color='#58ACFA'>被動</font>: 给织田信长一个1000范围的光环, 增加所有盟友的护甲和移动速度.\n <font color='#58ACFA'>随着魔王的展开属性升级这个选择会得到尾张的大笨蛋和改革家的价值的加成.</font>"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_king_of_innovation"				"<font color='#FFFFFF'>改变气魄: 创造性的改革家</font>"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"赋予信长新技能: <font color='#9FFFCC'>改革引领者</font>. \n<font color='#9FFFCC'>改革引领者:</font> 施法时，织田信长会获得一个持续 10 秒的光环. 每次信长造成伤害, 她周围的所有盟友都得到治疗并获得15% 跑速增益，持续1秒.\n <font color='#58ACFA'>随着魔王的属性升级这个选择会得到尾张的大笨蛋和改革家的价值的加成.</font>"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Note0" "两种效果都有 1 秒的冷却时间."
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 				""
+
+        "DOTA_Tooltip_ability_nobu_demon_king_close"				"<font color='#9FFFCC'>魔王关闭</font>"
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Description"	"关闭技能書."
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Lore"			""
+ 
+        "DOTA_Tooltip_ability_nobu_charisma"						"<font color='#FFFFFF'> 邪惡的氣質</font>"
+        "DOTA_Tooltip_ability_nobu_charisma_Description"			"<font color='#58ACFA'>被動</font>: 增加周围所有盟友的护甲和移动速度 ."
+        "DOTA_Tooltip_ability_nobu_charisma_aura_radius"						"范围:"
+        "DOTA_Tooltip_ability_nobu_charisma_ms_bonus"								"%移动速度:"
+        "DOTA_Tooltip_ability_nobu_charisma_armor_bonus"							"額外护甲:"
+        "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_dow_passive"						"<font color='#FFFFFF'>世界毁灭者</font>"
+        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"<font color='#58ACFA'>被動</font>: 每次信长用她的步枪击中敌人, 她会再召唤一支步枪, 步枪将射击附近的敌人."
+        "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
+        "DOTA_Tooltip_ability_nobu_dow_passive_Note0"								"1.5 秒内只能发生一次, 伤害等于基础枪的伤害."
+
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"<font color='#9FFFCC'>改革引领者</font>"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"施放后, 织田信长将获得光环. 每次信长造成伤害, 她的所有盟友都会获得额外的移动速度并治愈他们。每次信长的盟友造成伤害时，她都会治愈自己."
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"范围:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%移动速度:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"治疗:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"								"持续时间:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"								"移动速度持续时间:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_divinity_mark"						"<font color='#9FFFCC'>神性印记</font>"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"信长标记目标敌人. 每次她造成伤害, 获得一层。当达到 12 层时, 敌人将被标记为神圣和它的基礎护甲将會减少."
+        "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"						"施法范围:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_duration"								"持续时间:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"							"标记持续时间:"
+        "DOTA_Tooltip_ability_nobu_nobu_divinity_mark_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_3000"						"<font color='#58ACFA'>三段击战术</font>"
+        "DOTA_Tooltip_ability_nobu_3000_Description"			"信长开始为她的宝具收集步枪. 每隔一段时间，就会出现一支新步枪. 释放后，所有步枪将以每秒 60 发的速度开始射击. \n\n<font color='#9FFFCC'>可选属性升级:  三千世界</font>."
+        "DOTA_Tooltip_ability_nobu_3000_damage_mod"							"步枪伤害:"
+        "DOTA_Tooltip_ability_nobu_3000_channel_time"						"最大充能:"
+        "DOTA_Tooltip_ability_nobu_3000_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_3000_upgrade"						"<font color='#9FFFCC'>三段击战术</font>"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_Description"			"信长开始为她的宝具收集步枪. 每隔一段时间，就会出现一支新步枪. 释放后，所有步枪都会开始射击和发射激光，造成纯粹和物理伤害."
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_damage_mod"							"步枪伤害:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_channel_time"						"最大充能:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_pure_perc"						"%纯粹伤害:"
+        "DOTA_Tooltip_ability_nobu_3000_Lore"								""
+
+		"DOTA_Tooltip_ability_nobu_combo"						"<font color='#9FFFCC'>连击技能: 第六天魔王</font>"
+        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>连击技能使用需求: 全属性25</font>\n<font color='#58ACFA'>技能顺序: W-D 5秒内</font>\n信长唱吟1.5秒後冲锋，然后以疯狂的速度冲向目标敌人. 如果她擊中敌人，他将会被击晕然後信長会变得刀枪不入并對目標造成魔法伤害加上 25 发步枪射击."
+        "DOTA_Tooltip_ability_nobu_combo_radius"			"施法范围"
+		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"冲向目标敌人速度:"
+		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "最长冲向目标时间:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_initial"			"初始伤害:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_mod"			"步枪伤害:"
+
+        "DOTA_Tooltip_ability_nobu_strategy_attribute"				"<font color='#9FFFCC'>属性: 战略</font>"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"<font color='#58ACFA'>被動</font>: 每 10 秒, 当信长造成伤害时，她会在短时间内获得额外的移动速度和步枪伤害. \n <font color='#58ACFA'>衝刺</font>: 移除该属性的冷却时间."
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"冷却:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%額外移动速度:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"額外步枪伤害:"
+     	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"持续时间:"
+
+        "DOTA_Tooltip_ability_nobu_expanding_attribute"				"<font color='#9FFFCC'>属性: 魔王的展开</font>"
+        "DOTA_Tooltip_ability_nobu_expanding_attribute_Description"	"<font color='#58ACFA'>魔王</font>: 信长可以进一步改变她的性格, 获得魔王能力的额外效果. 具体在法术书."
+
+        "DOTA_Tooltip_ability_nobu_3000_attribute"				"<font color='#9FFFCC'>属性: 3000世界</font>"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"<font color='#58ACFA'>段击战术</font>: 织田信长的三段击战术的子彈改为激光, 並且刺穿敌人.连击技能和大絕的部分伤害视为纯粹伤害.\n <font color='#58ACFA'>冲刺</font>: 冲刺结束时，信長附近会出现两支步枪, 击退 800 范围内的敌人."
+        "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%纯粹伤害:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_dmg_mod"						"冲刺後步枪伤害:"
+      
+        "DOTA_Tooltip_ability_nobu_unifying_attribute"				"<font color='#9FFFCC'>属性: 天下布武</font>"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"<font color='#58ACFA'>火绳枪</font>: 增加织田信长的步枪伤害基於她的 <font color='#00F7FF'>智力</font>. 织田信长的步枪技能对神性从者造成额外伤害."
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_int_scaling" 	"火绳枪每點智力伤害:"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"对神性额外:"
+ 
+        "DOTA_Tooltip_ability_nobu_independent_action"				"<font color='#9FFFCC'>属性: 单独行动</font>"
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>火绳枪</font>: 增加基础伤害.\n <font color='#58ACFA'>射击</font>: 现在会晕和击退敌人并获得 20% 的护甲穿透, 如果在没有激活瞄准射击（E）的情况下使用.\n <font color='#58ACFA'>冲刺</font>: 使用冲刺现在会在2秒内增加下一枪的伤害增加值為固定的魔法. \n <font color='#58ACFA'>瞄准射击</font>: 获得 20% 护甲穿透."
+        "DOTA_Tooltip_ability_nobu_independent_action_microstun_duration" 	"暈眩持续时间:"
+        "DOTA_Tooltip_ability_nobu_independent_action_guns_damage" 	"火绳枪额外伤害:"
+        "DOTA_Tooltip_ability_nobu_independent_action_attr_damage" 	"冲刺额外伤害:"
+        
+        /////////////////////////// Debuffs Buffs ////////////////////////////////
+
+		"DOTA_Tooltip_modifier_nobu_charisma"									"邪惡的氣質"
+		"DOTA_Tooltip_modifier_nobu_charisma_Description"				"护甲和移動速度增加"
+		
+		"DOTA_Tooltip_modifier_nobu_combo_cd"									"第六天魔王冷卻"
+		"DOTA_Tooltip_modifier_nobu_combo_cd_Description"				"第六天魔王冷卻中"
+
+		"DOTA_Tooltip_modifier_nobu_innovation"									"改革"
+		"DOTA_Tooltip_modifier_nobu_innovation_Description"				"造成伤害的盟友会治疗织田信长, 信长造成伤害会加速盟友."
+
+		"DOTA_Tooltip_modifier_nobu_turnlock"									"射擊"
+		"DOTA_Tooltip_modifier_nobu_turnlock_Description"				"如果向后退，织田信长会变慢."
+
+		"DOTA_Tooltip_modifier_nobu_divinity_mark"									"神性印记"
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_Description"				"如果信长射击你10次，你会受到一个减益效果."
+
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated"									"神圣印记激活"
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated_Description"				"你是神圣并且减少了护甲."
+
+		"DOTA_Tooltip_modifier_nobu_slow"									"减速"
+		"DOTA_Tooltip_modifier_nobu_slow_Description"				""
+
+		"DOTA_Tooltip_modifier_nobu_dash_dmg"									"冲刺BUFF"
+		"DOTA_Tooltip_modifier_nobu_dash_dmg_Description"				"下一次射击将造成额外伤害."
+
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"战略冷却"
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
+
+		//====================================
+        //      王哈桑
+        //====================================
+        "npc_dota_hero_skeleton_king"  "王哈桑"
+        "npc_dota_hero_skeleton_king_summon"		"从者 <font color='#58ACFA'>王哈桑</font> 已被召唤."
+        "npc_dota_hero_skeleton_king_enable_combo"	"激活连击技能: 死告天使-亚兹拉尔"
+
+        ////////////////// Innate /////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna"					"<font color='#FFFFFF'>地狱之火</font>"
+        "DOTA_Tooltip_ability_kinghassan_flames_of_gehenna_Description"		"王哈桑持续时间內获得<font color='#FFFF28'>地狱烈炎</font>. \n<font color='#FFFF28'>地狱烈炎</font>: <font color='#FFFF28'>治疗</font> 他自己, 同时对附近的敌人造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 天性的肉體</font>."     
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_delay"			"施法延迟:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_radius"			"范围:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_damage"			"每秒伤害:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_heal"			"每秒治疗:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_duration"		"火焰持续时间:"
+
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade"					"<font color='#9FFFCC'>地狱之火</font>"
+        "DOTA_Tooltip_ability_kinghassan_flames_of_gehenna_upgrade_Description"		"王哈桑持续时间內获得 <font color='#FFFF28'>地狱烈炎</font> . \n<font color='#FFFF28'>地狱烈炎</font>: <font color='#FFFF28'>治疗</font> 他自己, 同时对附近的敌人造成根据他的 <font color='#FF0000'>力量</font>伤害."     
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_delay"			"施法延迟:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_radius"			"范围:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_damage"			"每秒伤害:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_bonus_dps_str"	"每点力量火焰伤害:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_heal"			"每秒治疗:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_bonus_heal_str"	"每点力量治疗:"
+        "DOTA_Tooltip_Ability_kinghassan_flames_of_gehenna_upgrade_duration"		"火焰持续时间:" 
+
+        ///////////////////////// Basic ///////////////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_death_approaching"				"<font color='#58ACFA'>死亡逼近</font>"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_Description"	"王哈桑获得 <font color='#FFFF28'>气息遮断</font> 同时启用 <font color='#58ACFA'>死亡降临</font>. \n<font color='#FFFF28'>气息遮断</font>: 王哈桑将会 <font color='#FFFF28'>隐形</font> 同时提高他的移动速度直到下一次施法或者他攻击或被攻击. \n<font color='#58ACFA'>死亡降临</font>: 闪现到目标位置. \n\n<font color='#9FFFCC'>可选属性升级: 气息遮断</font>."
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_Lore"    		"哈桑能够随意隐藏他的存在,甚至出现在他们的目标眼前."
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_duration"			"持续时间:"
+        //"DOTA_Tooltip_ability_kinghassan_death_approaching_fade_delay"			"隐形延迟:"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_bonus_spd"			"%額外移动速度:"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_range"				"闪现距离:"
+
+        "DOTA_Tooltip_Ability_kinghassan_death_approaching_upgrade"				"<font color='#9FFFCC'>死亡逼近</font>"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_Description"	"王哈桑获得 <font color='#FFFF28'>气息遮断</font> 同时启用 <font color='#58ACFA'>死亡降临</font>. \n<font color='#FFFF28'>气息遮断</font>: 王哈桑将会 <font color='#FFFF28'>隐形</font> 同时提高他的移动速度直到下一次施法或者他攻击或被攻击. \n<font color='#58ACFA'>死亡降临</font>: 闪现到目标位置."
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_Lore"    		"哈桑能够随意隐藏他的存在,甚至出现在他们的目标眼前."
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_duration"			"持续时间:"
+        //"DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_fade_delay"			"隐形延迟:"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_bonus_spd"			"%額外移动速度:"
+        "DOTA_Tooltip_ability_kinghassan_death_approaching_upgrade_range"				"闪现距离:"
+
+        "DOTA_Tooltip_Ability_kinghassan_death_arrival"				"<font color='#58ACFA'>死亡逼近</font>"
+        "DOTA_Tooltip_ability_kinghassan_death_arrival_Description"	"王哈桑立即出现在目标位置. \n\n<font color='#9FFFCC'>可选属性升级: 气息遮断</font>."
+        "DOTA_Tooltip_ability_kinghassan_death_arrival_range"			"距离:"
+
+        "DOTA_Tooltip_Ability_kinghassan_death_arrival_upgrade"				"<font color='#9FFFCC'>死亡降临</font>"
+        "DOTA_Tooltip_ability_kinghassan_death_arrival_upgrade_Description"	"王哈桑立即出现在目标位置. "
+        "DOTA_Tooltip_ability_kinghassan_death_arrival_upgrade_range"			"距离:"
+        //"DOTA_Tooltip_ability_kinghassan_death_arrival_upgrade_stun"				"闪现暈眩:"
+        //"DOTA_Tooltip_ability_kinghassan_death_arrival_upgrade_damage"				"闪现伤害:"
+
+        "DOTA_Tooltip_Ability_kinghassan_dreadful_slash"				"<font color='#58ACFA'>死亡挥击</font>"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_Description"	"王哈桑挥舞着自己的剑, 造成伤害和 <font color='#FF3399'>暈眩</font> 附近的所有敌人和 <font color='#FFFF28'>格挡</font> 部分伤害.  \n\n<font color='#9FFFCC'>可选属性升级: 山中老人</font>. \n 王哈桑使用此技能时會 <font color='#FF3399'>暈眩</font> ."
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_Lore"    	""
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_radius"		"范围:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_damage"		"伤害:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_block"		"最大伤害格挡:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_stun"		"晕眩时间:"
+
+        "DOTA_Tooltip_Ability_kinghassan_dreadful_slash_upgrade"				"<font color='#9FFFCC'>死亡挥击</font>"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_Description"	"王哈桑挥舞着自己的剑, 造成伤害和 <font color='#FF3399'>暈眩</font> 附近的所有敌人和 <font color='#FFFF28'>格挡</font> 部分伤害. \n 哈桑王使用此技能时會 <font color='#FF3399'>暈眩</font> ."
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_Lore"    	""
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_radius"		"范围:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_damage"		"伤害:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_block"		"最大伤害格挡:"
+        "DOTA_Tooltip_ability_kinghassan_dreadful_slash_upgrade_stun"		"晕眩时间:"    
+
+        "DOTA_Tooltip_Ability_kinghassan_evening_bell"				"<font color='#58ACFA'>晚钟</font>"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_Description"	"王哈桑获得 <font color='#FFFF28'>晚钟</font> 数秒. \n<font color='#FFFF28'>晚钟</font>: 增加王哈桑的护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 死亡深渊</font>."
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_Lore"    		"晚钟比任何人想象的死亡都可怕."
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_bonus_mr"			"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_bonus_arm"		"额外护甲:"
+
+        "DOTA_Tooltip_Ability_kinghassan_evening_bell_upgrade"				"<font color='#9FFFCC'>晚钟</font>"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_Description"	"王哈桑获得 <font color='#FFFF28'>晚钟</font> 数秒. \n<font color='#FFFF28'>晚钟</font>: 增加王哈桑的护甲和魔抗. 王哈桑还会获得 <font color='#FFFF28'>死亡深渊</font> 当死于 <font color='#FFFF28'>晚钟</font>. \n<font color='#FFFF28'>死亡深渊</font>: <font color='#FFFF28'>复活</font> 王哈桑會在持续时间结束內根性 而且王哈桑會对附近所有敌人造成等同于他损失的生命值的伤害."
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_Lore"    		"晚钟比任何人想象的死亡都可怕."
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_bonus_mr"			"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_bonus_arm"		"额外护甲:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_revive_health"	"复活生命:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_revive_time"		"复活持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_revive_damage"	"%损失的生命值的伤害:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_revive_radius"	"复活伤害半径:"
+        "DOTA_Tooltip_ability_kinghassan_evening_bell_upgrade_revive_cooldown"	"死亡深渊冷却时间:"
+
+        "DOTA_Tooltip_Ability_kinghassan_azrael"				"<font color='#58ACFA'>死告天使</font>"
+        "DOTA_Tooltip_ability_kinghassan_azrael_Description"	"王哈桑为他的剑蓄力，然后带着死亡之力挥下刀刃。造成魔法伤害和 <font color='#FF3399'>暈眩</font> 击中的敌人. \n\n<font color='#9FFFCC'>可选属性升级: 山中老人</font>. \n 王哈桑将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直至他施放完毕."
+        "DOTA_Tooltip_ability_kinghassan_azrael_Lore"    		"一把普通的大刀。永远挥舞它的人的信念已经渗透到刀刃中."
+        "DOTA_Tooltip_ability_kinghassan_azrael_stun"	"眩晕时间:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_damage"			"魔法伤害:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_length"			"长度:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_cast_delay"		"施法延迟:"
+
+        "DOTA_Tooltip_Ability_kinghassan_azrael_upgrade"				"<font color='#9FFFCC'>死告天使</font>"
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_Description"	"王哈桑为他的剑蓄力然后带着死亡之力挥下刀刃. 造成魔法伤害和额外纯粹伤害基于王哈桑的 <font color='#80FF00'>敏捷</font> 接着 <font color='#FF3399'>暈眩</font> 击中的敌人.  \n 王哈桑将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直至他施放完毕."
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_Lore"    		"一把普通的大刀。永远挥舞它的人的信念已经渗透到刀刃中."
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_stun"	"眩晕时间:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_damage"			"魔法伤害:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_bonus_agi"		"每点敏捷额外纯粹伤害:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_length"			"长度:"
+        "DOTA_Tooltip_ability_kinghassan_azrael_upgrade_cast_delay"			"施法延迟:"
+        //"DOTA_Tooltip_ability_kinghassan_azrael_upgrade_dread_armor_shred"	"%护甲/魔法抗性降低:"
+        //"DOTA_Tooltip_ability_kinghassan_azrael_upgrade_dread_slow"			"%恐惧減速:"
+
+        //////////////// Special Ability ///////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_beheader"				"<font color='#FFB266'>斩首者</font>"
+        "DOTA_Tooltip_ability_kinghassan_beheader_Description"	"王哈桑刺向目标心脏再到脖子。在造成魔法伤害的同时闪現至目标基于 <font color='#FF3399'>立于境界层数</font> 和 <font color='#FF3399'>暈眩</font> 目标敌人. \n 當 <font color='#FFFF28'>气息遮断</font> 被激活, <font color='#FFB266'>斩首者</font>的施法距离等同 <font color='#58ACFA'>死亡降临</font>的閃現距离. \n 當目标死於 <font color='#FFB266'>斩首者</font> 会刷新它的冷却时间"
+        "DOTA_Tooltip_ability_kinghassan_beheader_stun"			"眩晕时间:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_damage"		"基础伤害:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_range"		"施法范围:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_damage_per_stack"		"每层额外伤害:"
+
+        ////////////////// Combo /////////////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_combo"				"<font color='#FF04EF'>死告天使-亚兹拉尔</font>"
+        "DOTA_Tooltip_ability_kinghassan_combo_Description"	"<font color='#FF04EF'>连击技能使用需求 : 全属性25</font>\n<font color='#FF04EF'>技能顺序 : D - E -> R  5秒内</font> \n 王哈桑获得 <font color='#FFFF28'>死亡宣告</font> 并开始敲响晚钟, 每个铃声都会对所有敌方英雄施加不同的减益效果. \n<font color='#58ACFA'>第一次铃响</font>: 目标會收到 <font color='#FF3399'>死亡宣告</font> 之後向所有敌方英雄施加 <font color='#FF3399'>宣布恐惧</font>. <font color='#58ACFA'>第二次铃响</font>: 向所有敌方英雄施加 <font color='#FF3399'>宣布恐惧</font>.  <font color='#58ACFA'>第三次铃响</font>: 向所有敌方英雄施加 <font color='#FF3399'>复活封印</font>.  <font color='#58ACFA'>第四次铃响</font>: 王哈桑闪现至目标并造成大量魔法伤害.  <font color='#FFFF28'>死亡宣告</font>: 王哈桑減少受到的伤害. \n<font color='#FF3399'>死亡宣告</font>: 获得视野并燃烧目标，同时降低目标的生命恢复 \n<font color='#FF3399'>宣布恐惧</font>: 降低移动速度, <font color='#FF3399'>失去視野</font>. \n<font color='#FF3399'>宣布恐惧</font>: 降低目标的护甲和魔抗. \n<font color='#FF3399'>复活封印</font>: 目标无法复活. \n\n<font color='#9FFFCC'>可选属性升级: 立于境界</font>. \n 王哈桑将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直至施放完畢."
+        "DOTA_Tooltip_ability_kinghassan_combo_Lore"    		"徘徊在深渊中获得的瞬杀之力."
+        "DOTA_Tooltip_ability_kinghassan_combo_damage"		"斩击伤害:"
+        "DOTA_Tooltip_ability_kinghassan_combo_dps"			"每秒伤害:"
+        "DOTA_Tooltip_ability_kinghassan_combo_cast"		"施法时间:"
+        "DOTA_Tooltip_ability_kinghassan_combo_regen_debuff""生命恢复减少:"
+        "DOTA_Tooltip_ability_kinghassan_combo_slow"		"%恐惧減速:"
+        "DOTA_Tooltip_ability_kinghassan_combo_def_red"		"%护甲/魔法抗性降低:"
+        "DOTA_Tooltip_ability_kinghassan_combo_dmg_block"		"%自我伤害减少:"
+
+        "DOTA_Tooltip_Ability_kinghassan_combo_upgrade"				"<font color='#FF04EF'>死告天使-亚兹拉尔</font>"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_Description"	"<font color='#FF04EF'>连击技能使用需求 : 全属性25</font>\n<font color='#FF04EF'>技能顺序 : D - E -> R  5秒内</font> \n 王哈桑获得 <font color='#FFFF28'>死亡宣告</font> 并开始敲响晚钟, 每个铃声都会对所有敌方英雄施加不同的减益效果. \n<font color='#58ACFA'>第一次铃响</font>: 目标會收到 <font color='#FF3399'>死亡宣告</font> 之後向所有敌方英雄施加 <font color='#FF3399'>宣布恐惧</font>. <font color='#58ACFA'>第二次铃响</font>: 向所有敌方英雄施加 <font color='#FF3399'>宣布恐惧</font>.  <font color='#58ACFA'>第三次铃响</font>: 向所有敌方英雄施加 <font color='#FF3399'>复活封印</font>.  <font color='#58ACFA'>第四次铃响</font>: 王哈桑闪现至目标并造成大量魔法伤害.  <font color='#FFFF28'>死亡宣告</font>: 王哈桑減少受到的伤害. \n<font color='#FF3399'>死亡宣告</font>: 获得视野并燃烧目标，同时降低目标的生命恢复 \n<font color='#FF3399'>宣布恐惧</font>: 降低移动速度, <font color='#FF3399'>失去視野</font>. \n<font color='#FF3399'>宣布恐惧</font>: 降低目标的护甲和魔抗. \n<font color='#FF3399'>复活封印</font>: 目标无法复活. \n 如果这次打击会使目标的生命值降低到低於 <font color='#FF3399'>立于境界層數</font>, 目标被立即杀死. \n 王哈桑将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直至施放完畢."
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_Lore"    		"徘徊在深渊中获得的瞬杀之力."
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_damage"		"斩击伤害:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_dps"			"每秒伤害:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_cast"		"施法时间:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_regen_debuff""生命恢复减少:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_slow"		"%恐惧減速:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_def_red"		"%护甲/魔法抗性降低:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_dmg_block"		"%自我伤害减少:"
+        "DOTA_Tooltip_ability_kinghassan_combo_upgrade_bonus_hb"		"%每层处决阈值:"
+
+        ////////////////// Buff ///////////////////// AND  ////////////////// Debuff ///////////////////// AND ////////////////// Cooldown //////////////////
+
+        "DOTA_Tooltip_modifier_kinghassan_evening_bell"                               "晚钟"
+		"DOTA_Tooltip_modifier_kinghassan_evening_bell_Description"                   "钟声响起，死亡降临."
+
+        "DOTA_Tooltip_modifier_kinghassan_passive"                               "死告天使 - 层数"
+		"DOTA_Tooltip_modifier_kinghassan_passive_Description"                   "达到所需数量时将造成额外伤害."
+
+        "DOTA_Tooltip_modifier_kinghassan_combo_cast"                               "死亡宣告施放"
+		"DOTA_Tooltip_modifier_kinghassan_combo_cast_Description"                   "王哈桑正在宣示他的统治地位."
+
+        "DOTA_Tooltip_modifier_ambush"                               "氣息遮斷"
+		"DOTA_Tooltip_modifier_ambush_Description"                   "哈桑现在看不见了."
+
+		"DOTA_Tooltip_modifier_kinghassan_flames_of_gehenna"                     "地狱之火"
+		"DOTA_Tooltip_modifier_kinghassan_flames_of_gehennae_Description"         "你在死亡的火焰中燃烧."
+
+		"DOTA_Tooltip_modifier_kinghassan_death_announce"                     "死亡宣告"
+		"DOTA_Tooltip_modifier_kinghassan_death_announce_Description"         "哈哈，祝你好运."
+
+		"DOTA_Tooltip_modifier_kinghassan_combo_cooldown"                    "死告天使-亚兹拉尔冷卻"
+		"DOTA_Tooltip_modifier_kinghassan_combo_cooldown_Description"        "连击技能冷卻"
+
+		"DOTA_Tooltip_modifier_kinghassan_revive_cooldown"                    "死亡深渊冷卻"
+		"DOTA_Tooltip_modifier_kinghassan_revive_cooldown_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_faith_cooldown"                    "死亡深渊冷卻"
+		"DOTA_Tooltip_modifier_kinghassan_faith_cooldown_Description"        ""
+
+		"DOTA_Tooltip_modifier_beheader_cooldown"                    "斩首者冷却"
+		"DOTA_Tooltip_modifier_beheader_cooldown_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_flame_cooldown"                    "地狱之火冷却"
+		"DOTA_Tooltip_modifier_kinghassan_flame_cooldown_Description"        ""
+
+		"DOTA_Tooltip_modifier_flame_gehena_aura"                    "地狱之火治愈"
+		"DOTA_Tooltip_modifier_flame_gehena_aura_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_flames_of_gehenna"                    "地狱之火燃燒"
+		"DOTA_Tooltip_modifier_kinghassan_flames_of_gehenna_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_faith"                    "王哈桑信仰的加护"
+		"DOTA_Tooltip_modifier_kinghassan_faith_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_faith_passive"                    "王哈桑信仰的加护 - 准备就绪"
+		"DOTA_Tooltip_modifier_kinghassan_faith_passive_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_revive"                    "死亡深渊复活"
+		"DOTA_Tooltip_modifier_kinghassan_revive_Description"        ""
+
+        "DOTA_Tooltip_modifier_kinghassan_dread"                    "恐惧"
+		"DOTA_Tooltip_modifier_kinghassan_dread_Description"        "哈桑的恐惧弱化了你"
+
+		"DOTA_Tooltip_modifier_kinghassan_stack"                    "立于境界层数"
+		"DOTA_Tooltip_modifier_kinghassan_stack_Description"        ""
+
+		"DOTA_Tooltip_modifier_kinghassan_combo_fear"                    "宣布恐惧"
+		"DOTA_Tooltip_modifier_kinghassan_combo_fear_Description"        "失去視野和减速"
+
+		"DOTA_Tooltip_modifier_kinghassan_combo_dread"                    "宣告恐惧"
+		"DOTA_Tooltip_modifier_kinghassan_combo_dread_Description"        "降低魔抗和护甲"
+
+		"DOTA_Tooltip_modifier_kinghassan_combo_revive_lock"                    "复活封印"
+		"DOTA_Tooltip_modifier_kinghassan_combo_revive_lock_Description"        ""
+
+        /////////////////// Attribute //////////////////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_oldman"					"<font color='#9FFFCC'>Attribute: 山中老人</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_oldman_Description"		"<font color='#58ACFA'>Azrael</font>: 造成额外魔法伤害基于王哈桑的 <font color='#80FF00'>敏捷</font> \n<font color='#58ACFA'>死亡挥击</font>: 增加伤害和格挡."
+        "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_damage"  	"死告天使额外魔法伤害 :"
+        "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_agi"  		"死告天使每点敏捷额外纯粹伤害:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_dread_dmg"  	"挥击额外伤害:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_dread_block"  	"挥击额外格挡:"
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_presence"					"<font color='#9FFFCC'>Attribute: 气息遮断</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_presence_Description"		"<font color='#58ACFA'>死亡逼近</font>: 增加移动速度.\n<font color='#58ACFA'>死亡降临</font>: 增加施法距离."
+        "DOTA_Tooltip_ability_kinghassan_attribute_presence_movespeed_bonus"  	"%移动速度加成:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_presence_range"  			"死亡降临距离:"
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_boundary"					"<font color='#9FFFCC'>Attribute: 立于境界</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_Description"		"可以使用<font color='#FFB266'>斩首者</font> 和 <font color='#FFB266'>立于境界层数</font>. \n<font color='#FFB266'>斩首者</font>: 王哈桑刺向目标心脏再到脖子。在造成魔法伤害的同时闪現至目标基于 <font color='#FFFF28'>立于境界层数</font> 和 <font color='#FF3399'>暈眩</font> 目标敌人. \n 當 <font color='#FFFF28'>气息遮断</font> 被激活, <font color='#FFB266'>斩首者</font>的施法距离等同 <font color='#58ACFA'>死亡降临</font>的閃現距离. \n 當目标死於 <font color='#FFB266'>斩首者</font> 会刷新它的冷却时间. \n<font color='#FFB266'>立于境界层数</font>: 王哈桑获得 <font color='#FFFF28'>立于境界层数</font> 每当他击杀任何一位英雄. \n<font color='#FFFF28'>立于境界层数</font>: 增加王哈桑 <font color='#80FF00'>敏捷</font>. \n<font color='#FF04EF'>死告天使-亚兹拉尔</font>: 如果这次打击会使目标的生命值降低到低於 <font color='#FFFF28'>立于境界层数</font>, 目标會被立即杀死."
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_damage"  	"斩首者基础伤害:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_damage_stack"  	"每层斩首者额外伤害:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_range"  	"斩首者施法范围:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_stun"  	"斩首者眩晕时间:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_mana"  	"斩首者法力消耗:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_beheader_cooldown"  	"斩首者冷卻:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_bonus_agi_kill"  	"每层境界获得敏捷:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_boundary_combo_hb_stack"  	"%每层处决阈值:"
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_abyss"					"<font color='#9FFFCC'>Attribute: 死亡深渊</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_Description"		"<font color='#58ACFA'>晚钟</font>: 在获得的同时增加持续时间 <font color='#FFFF28'>死亡深渊</font> 当死于 <font color='#FFFF28'>晚钟</font>. \n<font color='#FFFF28'>死亡深渊</font>: <font color='#FFFF28'>复活</font> 王哈桑會在持续时间结束內根性 而且王哈桑會对附近所有敌人造成等同于他损失的生命值的伤害."
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_bonus_duration"  	"晚钟额外持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_health"  	"复活生命:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_time"  		"复活持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_damage"  	"%损失的生命值的伤害:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_radius"  	"复活伤害半径:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_cooldown"  	"死亡深渊冷却时间:"
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_body"					"<font color='#9FFFCC'>Attribute: 天性的肉體</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_body_Description"		"<font color='#58ACFA'>地狱之火</font>: 增加持续时间, 每秒治疗和伤害基于王哈桑的 <font color='#FF0000'>力量</font>."
+        "DOTA_Tooltip_ability_kinghassan_attribute_body_bonus_duration"  	"额外持续时间:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_body_bonus_heal_str"  	"每点力量额外治疗:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_body_bonus_dps_str"  	"每点力量额外伤害:"
+
+        /////////////// Unused //////////////////
+
+        "DOTA_Tooltip_Ability_kinghassan_angel_of_death"       				"<font color='#FFFFFF'>死亡天使</font>"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_Description"   	"<font color='#58ACFA'>被動</font>: 王哈桑获得 <font color='#FFFF28'>死亡天使</font>. \n<font color='#FFFF28'>死亡天使</font>: 增加生命回复. \n\n<font color='#9FFFCC'>可选属性升级: 立于境界</font>."
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_health_regen"				"额外生命恢复:"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_Lore"  						"我发誓如果我再做多次你们就完蛋了."
+
+        "DOTA_Tooltip_Ability_kinghassan_angel_of_death_upgrade"       			"<font color='#9FFFCC'>死亡天使</font>"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_Description"   			"<font color='#58ACFA'>被動</font>: 王哈桑获得 <font color='#FFFF28'>死亡天使</font>. \n<font color='#FFFF28'>死亡天使</font>: 增加生命回复, 护甲和魔法抗性."
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_health_regen"				"额外生命恢复:"
+        //"DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_bonus_health"				"额外生命:"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_bonus_arm"				"额外护甲:"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_bonus_mr"				"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_kinghassan_angel_of_death_upgrade_Lore"  						"我发誓如果我再做多次你们就完蛋了."
+
+        "DOTA_Tooltip_Ability_kinghassan_beheader_upgrade"				"<font color='#9FFFCC'>斩首者</font>"
+        "DOTA_Tooltip_ability_kinghassan_beheader_upgrade_Description"	"王哈桑刺向目标心脏再到脖子。在造成魔法伤害的同时闪現至目标基于 <font color='#FF3399'>立于境界</font> 層數和 <font color='#FF3399'>暈眩</font> 目标敌人."
+        "DOTA_Tooltip_ability_kinghassan_beheader_upgrade_stun"	"STUN DURATION:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_upgrade_execute_chance"		"%每層处决機率:"
+        "DOTA_Tooltip_ability_kinghassan_beheader_upgrade_damage_per_stack"		"每层额外伤害:"
+
+        "DOTA_Tooltip_Ability_kinghassan_attribute_faith"					"<font color='#9FFFCC'>信仰的加护</font>"
+        "DOTA_Tooltip_ability_kinghassan_attribute_faith_Description"		"Enable <font color='#FFB266'>Protection of Faith</font>. \n<font color='#FFB266'>Protection of Faith</font>: King Hassan gains <font color='#FFFF28'>Protection of Faith</font> when receive damage more than threshold. \n<font color='#FFFF28'>Protection of Faith</font>: Blocking first damage while King Hassan <font color='#FFFF28'>immune</font> to magic."
+        "DOTA_Tooltip_ability_kinghassan_attribute_faith_dmg_proc"  	"%DAMAGE THRESHOLD PER MAX HP:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_faith_duration"  	"DURATION:"
+        "DOTA_Tooltip_ability_kinghassan_attribute_faith_cooldown"  	"COOLDOWN:"
+
+		//=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)
         //Class (Saber, Archer, Lancer, Rider, Caster, Assassin, Ruler, Avenger)
         //Trait (Divine, Dragon, Arthur, Human, Beast, Counter Guardian, Demon, Female, Male, Reality Marble)
+        //=======================================================================================================
 
         "DOTA_Tooltip_Ability_npc_dota_hero_dark_willow_dummy"             "Okita Souji"
         "DOTA_Tooltip_Ability_npc_dota_hero_dark_willow_dummy_Description" "Servant Class : Saber \nType : Assassin, Carry, Agility \nTrait : Female, Shinsengumi \nCombo : Zekken Mukyuu Sandan (Anti-Personnel) \n<font color='#FFB266'>Noble Phantasm : &#9733; &#9733; &#9733; &#9733; &#9734;</font> \n<font color='#FF0000'>Difficult &#9733; &#9733; &#9733; &#9733; &#9733;</font>"

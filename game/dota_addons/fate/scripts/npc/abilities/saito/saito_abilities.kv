@@ -502,7 +502,7 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"120"
+		"AbilityCooldown"							"140"
 		"AbilityManaCost"							"400"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
@@ -519,14 +519,66 @@
 
 		"AbilityValues"
 		{
-			"duration"								"12"
-			"silence_chance"						"22"
+			"duration"								"11"
+			"silence_chance"						"30"
 			"silence_duration"						"1.5"
 			"hp_damage"								"16"
 			"fds_hp_mp_scale"						"2"
 			"activation_steps_duration"				"3"
 			"activation_duration"					"3"
 			"activation_steps"						"2"
+		}
+	}
+	//=======================================================================================================
+	//	Saitō Hajime : One by One [COMBO]
+	//=======================================================================================================
+	"saito_blast"
+	{
+		"BaseClass"									"ability_lua"
+
+		"ScriptFile"								"abilities/saito/saito_abilities"
+		"AbilityTextureName"						"custom/saito/saito_blast"
+
+		"AbilityType"								"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
+
+		"AbilityCastPoint"							"0.35"
+		"AbilityCooldown"							"1"
+		//"AbilityManaCost"							""
+		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
+
+		"MaxLevel"									"1"
+		"RequiredLevel"								"1"
+		"LevelsBetweenUpgrades"						"1"
+
+		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_2"
+
+		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
+		//{
+
+		//}
+
+		"AbilityValues"
+		{
+			"distance"								"1000"
+			"speed"									"1100"
+			"radius_start"							"175"
+			"radius_end"							"225"
+			"damage"								"2400"
+			"knockback_duration"					"1.6"
+			"knockback_distance"					"1000"
+			"sdr_duration"							"6.5"
+			"sdr_value"								"-100"
+			"radial_count"							"12"
 		}
 	}
 	//=======================================================================================================
@@ -599,7 +651,7 @@
 
 		"AbilityValues"
 		{
-			"qwe_hero_level_damage"					"5"
+			"qwe_hero_level_damage"					"10"
 			"fds_swap_set_duration"					"4"
 		}
 	}
@@ -636,7 +688,7 @@
 			"me_hp_bonus"							"50"
 			"me_shell_duration"						"1.2"
 			"me_shell_block"						"60"
-			"me_okita_chance"						"15"
+			"me_okita_chance"						"22"
 			"me_okita_agility"						"1"
 		}
 	}
@@ -695,7 +747,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"14"
+		"AbilityManaCost"							"12"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"

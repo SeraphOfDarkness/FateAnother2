@@ -1,3 +1,56 @@
+MASHU , ZHUGELIANG CN TOOLTIP
+It's prob shit, at least it works
+i hope
+idk
+
+MASHU
+released, why not
+
+Str growth 2.8 -> 3
+Agi 1.8 -> 1.4
+INT 1.4 -> 1.6
+
+Q STUN
+0.25 -> 0.7
+
+Black barrel SA
+Q bonus stun 0.25 -> 0.8
+
+Semiramis
+SA cost slightly reduced.
+
+__**Patch Notes from Martin/Kagut**__
+
+* All knockback mechanisms in Saito such as Steelwing [W], Blade Vortex [E2], as well as NEW ABILITY from Undefeatable Style [COMBO] + knockup from Flashblade [Q] with SA are re-coded so as not to destroy nearby trees when hit enemies upon impact and can no longer push units on collision terrain on the map like buildings, rivers etc.
+(Previously able to push and trap units off-map)(Now it has a new feature to use/abuse that all old school WC3 Faters love, like Wall Nine Lives)
+* Fixed skillswap bug that occurred only with -wtf
+
+* Fixed Steelwing [W] slow from SA bypass heroes with slow immunity
+
+* Fixed Mind's Eye (True) (Anti-CCC XDD) can be proc many times on many units during the interval (for CCC)
+
+* Undefeateable Style [COMBO] cooldown increased from 120 to 140
+* Undefeateable Style [COMBO] duration reduced from 12 to 11
+* Undefeateable Style [COMBO] proc chance increased from 22% to 30%
+* Undefeateable Style [COMBO] damage formula recoded as pseudo-random chance, also now having separate proc chance from Mind's Eye (True) proc
+
+* Added NEW ABILITY One by One [D], to use for a short duration after activating Undefeateable Style [COMBO]
+(Basically an ability with TRUE damage reduction that can't be dispelled with multiple projectiles as damage)
+(Specially for players who have skill issues when playing Saito XDD)
+
+* Invincible Sword [SA] bonus QWE damage per level increased from 5 to 10 (finally the late game power for Saito that many players asked for)
+
+* Memoir [SA] Snarksengumi for Okita chance increased from 15% to 22%
+
+* Kijinmaru Kunishige [SA] manacost reduces from 14 to 12
+
+* Updated English and Simplified Chinese tooltips for Saito with these new changes
+* Added Simplified Chinese Translation for King Hassan, Oda Nobunaga and Robin Hood
+
+* Portrait for Saito updated, now has a background
+
+----------------
+
 MASHU
 SHIELD THROW STUN LONGER ON ENEMY LESS ON SELF, BY 0.3s WINDOW 
 

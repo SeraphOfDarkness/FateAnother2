@@ -395,11 +395,6 @@ function OnMashuCombo(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mashu_combo_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 	caster:RemoveModifierByName("modifier_combo_window")
 
-	local eff = ParticleManager:CreateParticle("particles/mashu/mashur/mashur1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControl(eff, 0, caster:GetAbsOrigin())
-	local eff2 = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashuchant1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControl(eff2, 0, caster:GetAbsOrigin())
-
 	local charging = ParticleManager:CreateParticle("particles/mashu/mashucombo/mashucombochannel.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(charging, 0, caster:GetAbsOrigin())
 
@@ -408,7 +403,7 @@ function OnMashuCombo(keys)
 	EmitGlobalSound("Mashu.ComboCharging2")
 	EmitGlobalSound("Mashu.ComboCharging3")
 
-	ability:ApplyDataDrivenModifier(caster, v, "modifier_mashu_combo_chanting", {})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mashu_combo_chanting", {})
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", channel_time)
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.8})
@@ -424,8 +419,6 @@ function OnMashuCombo(keys)
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
 		else
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)	
@@ -435,8 +428,6 @@ function OnMashuCombo(keys)
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
 		else
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)	
@@ -446,8 +437,6 @@ function OnMashuCombo(keys)
 		EmitGlobalSound("Mashu.ComboShieldAppear")
 		EmitGlobalSound("Mashu.ComboShieldAppear2")
 		else
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)
@@ -456,8 +445,6 @@ function OnMashuCombo(keys)
 		if caster:IsAlive() then
 			EmitGlobalSound("Mashu.Combo2")
 		else
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)
@@ -466,16 +453,12 @@ function OnMashuCombo(keys)
 		if caster:IsAlive() then
 			EmitGlobalSound("Mashu.Combo3")
 		else
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 			ParticleManager:DestroyParticle( charging, true )
 		end
 	end)
 
 	Timers:CreateTimer(channel_time, function()
 		if caster:IsAlive() then
-			ParticleManager:DestroyParticle( eff, true )
-			ParticleManager:DestroyParticle( eff2, true )
 
 			EmitGlobalSound("Mashu.ComboPop")
 			EmitGlobalSound("Mashu.ComboPop2")
