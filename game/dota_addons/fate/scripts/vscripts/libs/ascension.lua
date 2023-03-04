@@ -10,7 +10,6 @@ function Ascension:Ascend(keys)
 	local player = keys.playerid
 	local steamid = tostring(PlayerResource:GetSteamAccountID(player))
 	local caster = PlayerResource:GetSelectedHeroEntity(player)
-	
 	for i, playerid in pairs(Ascension.AscendablePlayers) do
 		if (steamid == playerid) then
 			caster:AddAbility("ascension_skill")

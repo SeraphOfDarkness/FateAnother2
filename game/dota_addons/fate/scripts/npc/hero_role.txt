@@ -1555,9 +1555,9 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 	}			
 	"npc_dota_hero_dragon_knight"			
 	{
-		"Sex"			"Male"
+		"Sex"			"Female"
 		"Class"			"Shielder"
-		"Trait"			"" 
+		"Trait"			"Human" 
 		"Roles"			"tank,control,support" 	
 		"Role" 							
 		{

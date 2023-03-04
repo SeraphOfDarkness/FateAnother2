@@ -452,6 +452,8 @@ ChargeBuffReset = {
 	saber_alter_vortigern_upgrade = 3,
 	hassan_dirk = 4,
 	hassan_dirk_upgrade = 7,
+	nobu_dash = 3,
+	nobu_dash_upgrade = 3,
 }
 
 

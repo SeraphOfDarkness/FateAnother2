@@ -942,9 +942,10 @@ function OnMazeLock(keys)
 	if math.abs((caster.MazeDummyCenter - target:GetAbsOrigin()):Length2D()) > radius then 
 		local diff = target:GetAbsOrigin() - caster.MazeDummyCenter
 		diff = diff:Normalized()
-
-		target:SetAbsOrigin(caster.MazeDummyCenter + diff * radius)
-		FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
+		if target:HasModifier("modifier_zhuge_liang_array_enemy") then
+			target:SetAbsOrigin(caster.MazeDummyCenter + diff * radius)
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
+		end
 	end
 end
 

@@ -873,6 +873,7 @@ function DraftSelectioN:AssignHero(playerId, hero, skin)
 				end
 				if newHero:GetName() == "npc_dota_hero_antimage" and ServerTables:GetTableValue("Dev", "sss") == true and tostring(PlayerResource:GetSteamAccountID(playerId)) == "301222766" then 
 					newHero:AddAbility("ascension_skill")
+					newHero:FindAbilityByName("ascension_skill"):SetLevel(1)
 				end
 				return nil 
 			else 
