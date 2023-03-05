@@ -1,3 +1,6 @@
+NEW MECHANICS :
+A Scroll now have penalty when used in a short period of time, giving only 70% of the original magic resistance value when used.
+
 mashu nerf, biggest nerf on combo, rest are around 10% ish of original values
 
 robin buff, 0.5 extra int scale from SA for yew bow and 1 extra agi scale from SA for yew bow

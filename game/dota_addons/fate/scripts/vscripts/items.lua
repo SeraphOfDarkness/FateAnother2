@@ -764,14 +764,15 @@ function AScroll(keys)
 
 	caster.ServStat:useA()
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
-	--if caster:HasModifier("modifier_a_scroll_sated") then
-	--	mres = 25
-	--end
+	if caster:HasModifier("modifier_a_scroll_sated") then
+		mres = mres * 0.7
+	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
 																  Armor = 0,
 																  Duration = duration })
-	--caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
 end
 
@@ -795,14 +796,14 @@ function APlusScroll(keys)
 
 	caster:Heal(healing, caster)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
-	--if caster:HasModifier("modifier_a_scroll_sated") then
-	--	mres = 25
-	--end
+	if caster:HasModifier("modifier_a_scroll_sated") then
+		mres = mres * 0.7
+	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
 																  Armor = armor,
 																  Duration = duration })
-	--caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
 
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
 	caster:EmitSound("DOTA_Item.Mekansm.Activate")

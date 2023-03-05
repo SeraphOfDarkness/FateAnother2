@@ -15729,7 +15729,7 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_a_scroll"					"Rank A Magic Scroll"
 		"DOTA_Tooltip_ability_item_a_scroll_Lore"				"The effect is not unlike that of a defensive usage of the skill known as Mana Burst."
-		"DOTA_Tooltip_ability_item_a_scroll_Description"		"<h1>Use: Shield</h1>Shrouds hero with thick protection of mana, granting massive bonus Magic Resistance for short duration. Grants half as much magic resistance if A+ scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_a_scroll_Description"		"<h1>Use: Shield</h1>Shrouds hero with thick protection of mana, granting massive bonus Magic Resistance for short duration. Grants less magic resistance if A+ scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_a_scroll_bonus_mr"			"%Bonus Magic Resistance:"
 		//"DOTA_Tooltip_ability_item_a_scroll_bonus_armor"		"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_item_a_scroll_duration"			"Duration:"
@@ -15747,7 +15747,7 @@
 
 		"DOTA_Tooltip_ability_item_a_plus_scroll"				"Rank A+ Magic Scroll"
 		"DOTA_Tooltip_ability_item_a_plus_scroll_Lore"	""
-		"DOTA_Tooltip_ability_item_a_plus_scroll_Description"	"Shrouds hero with thick protection of mana, granting bonus magic resistance, armor, as well as healing the user for a small amount of health. Grants half as much magic resistance if A scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_a_plus_scroll_Description"	"Shrouds hero with thick protection of mana, granting bonus magic resistance, armor, as well as healing the user for a small amount of health. Grants less magic resistance if A scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_a_plus_scroll_healing"		"Heal Amount:"
 		"DOTA_Tooltip_ability_item_a_plus_scroll_bonus_mr"		"%Bonus Magic Resistance:"
 		"DOTA_Tooltip_ability_item_a_plus_scroll_bonus_armor"	"Bonus Armor:"
