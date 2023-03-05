@@ -12397,8 +12397,8 @@
 		//"DOTA_Tooltip_ability_saito_blast_sdr_value"												""
 		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
 
-		"DOTA_Tooltip_modifier_saito_blast"															"一对一减益"
-		"DOTA_Tooltip_modifier_saito_blast_Description"												"减少所有类型的伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_saito_blast_sdr"														"一对一减益"
+		"DOTA_Tooltip_modifier_saito_blast_sdr_Description"											"减少所有类型的伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
 
 		///ATTRIBUTES///
 
@@ -13462,6 +13462,407 @@
         "DOTA_Tooltip_ability_kinghassan_attribute_faith_dmg_proc"  	"%DAMAGE THRESHOLD PER MAX HP:"
         "DOTA_Tooltip_ability_kinghassan_attribute_faith_duration"  	"DURATION:"
         "DOTA_Tooltip_ability_kinghassan_attribute_faith_cooldown"  	"COOLDOWN:"
+
+		//====================================
+		//      赛米拉米斯
+        //====================================
+
+		"npc_dota_hero_phantom_assassin"				"赛米拉米斯"
+        "npc_dota_hero_phantom_assassin_summon"		"从者 <font color='#58ACFA'>赛米拉米斯</font> 已被召唤."
+        "npc_dota_hero_phantom_assassin_enable_combo"	"激活连击技能: 虛榮的空中庭園 - 十與一的黑棺"
+
+        /////////////////////////// Innate ////////////////////////////////
+
+        "DOTA_Tooltip_ability_semiramis_dual_class" 								"<font color='#FFFFFF'>双重职阶</font>"
+		"DOTA_Tooltip_ability_semiramis_dual_class_Description" 					"赛米拉米斯可以在兩個职阶之間切換，暗杀者和魔术师讓她能夠利用她兩個职阶的能力. \n<font color='#00F7FF'>魔术师职阶</font> : <font color='#FFB266'>约束锁链</font>, <font color='#FFB266'>法力护盾</font> ,<font color='#FFB266'>光束轰击</font> , 和 <font color='#FFB266'>虚荣的空中庭园-巴比伦的空中庭园</font>. \n<font color='#FF471A'>暗杀者职阶</font>: <font color='#FFB266'>气息遮断</font>, <font color='#FFB266'>戏法毒酒</font> ,<font color='#FFB266'>剧毒气息</font> , 和 <font color='#FFB266'>骄慢王之美酒</font>. \n\n<font color='#9FFFCC'>可选属性升级: 二重召唤</font>."
+		"DOTA_Tooltip_ability_semiramis_dual_class_Note0" 						"无法重置."
+		//"DOTA_Tooltip_ability_semiramis_dual_class_hard_cooldown" 				"冷却:"
+
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade" 								"<font color='#9FFFCC'>双重职阶</font>"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_Description" 					"赛米拉米斯可以在兩個职阶之間切換，暗杀者和魔术师讓她能夠利用她兩個职阶的能力. 她获得额外 <font color='#80FF00'>敏捷</font> 和移动速度当她在 <font color='#FF471A'>暗杀者职阶</font>, <font color='#00F7FF'>智力</font> 和法力恢复当她在 <font color='#00F7FF'>魔术师职阶</font>. \n<font color='#00F7FF'>魔术师职阶</font>: <font color='#FFB266'>约束锁链</font>, <font color='#FFB266'>法力屏障</font> ,<font color='#FFB266'>光束轰击</font> , 和 <font color='#FFB266'>虛榮的空中庭園-巴比倫的空中庭園</font> \n<font color='#FF471A'>暗杀者职阶</font>: <font color='#FFB266'>气息遮断</font>, <font color='#FFB266'>戏法毒酒</font> ,<font color='#FFB266'>剧毒气息</font> , 和 <font color='#FFB266'>骄慢王之美酒</font>."
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_Note0" 						"无法重置."
+		//"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_hard_cooldown" 				"冷却 :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_mana_regen" 	"魔术师职阶额外法力恢复 :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_int" 			"魔术师职阶额外智力 :"
+		"DOTA_Tooltip_ability_semiramis_dual_class_upgrade_bonus_spd" 			"暗杀者职阶额外移动速度 :"
+
+		///////////////// Basic ///////////////////////
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains" 				"<font color='#58ACFA'>约束锁链</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_Description" 			"赛米拉米斯使用 <font color='#FF3399'>约束锁链</font> 根据目标的魔法抗性来決定持续时间. \n<font color='#FF3399'>约束锁链</font>: 目标将会 <font color='#FF3399'>禁锢</font> 和 <font color='#FF3399'>锁定</font>. \n\n<font color='#9FFFCC'>可选属性升级: 死亡尤物與女王的绝对统治</font>. \n此技能等级与 <font color='#58ACFA'>气息遮断</font>相同"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_max_dur" 				"最长持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_min_dur" 				"最短持续时间:"
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains_charm" 				"<font color='#9FFFCC'>约束锁链</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_charm_Description" 			"赛米拉米斯使用 <font color='#FF3399'>约束锁链</font> 根据目标的魔法抗性来決定持续时间. \n 造成 <font color='#FF3399'>暈眩</font> 如果目标是男性而不是 <font color='#58ACFA'>阿斯托尔福</font>. \n<font color='#FF3399'>约束锁链</font>: 目标将会 <font color='#FF3399'>禁锢</font> 和 <font color='#FF3399'>锁定</font>. \n\n<font color='#9FFFCC'>可选属性升级: 女王的绝对统治</font>. \n此技能等级与 <font color='#58ACFA'>气息遮断</font>相同"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_charm_max_dur" 				"最长持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_charm_min_dur" 				"最短持续时间:"
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains_absolute" 				"<font color='#9FFFCC'>约束锁链</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_absolute_Description" 			"赛米拉米斯使用 <font color='#FF3399'>约束锁链</font> 根据目标的魔法抗性来決定持续时间.  \n<font color='#FF3399'>约束锁链</font>: 目标将会 <font color='#FF3399'>禁锢</font>, <font color='#FF3399'>锁定</font> 并降低了目標的魔法抗性. \n\n<font color='#9FFFCC'>可选属性升级: 死亡尤物</font>. \n此技能等级与 <font color='#58ACFA'>气息遮断</font>相同"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_absolute_max_dur" 			"最长持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_absolute_min_dur" 			"最短持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_absolute_mr_red" 			"%魔法抗性降低:"
+
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade" 				"<font color='#9FFFCC'>约束锁链</font>"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_Description" 			"赛米拉米斯使用 <font color='#FF3399'>约束锁链</font> 根据目标的魔法抗性来決定持续时间. \n 造成 <font color='#FF3399'>暈眩</font> 如果目标是男性而不是 <font color='#58ACFA'>阿斯托尔福</font>. \n<font color='#FF3399'>约束锁链</font>: 目标将会 <font color='#FF3399'>禁锢</font>, <font color='#FF3399'>锁定</font> 并降低了目標的魔法抗性. \n此技能等级与 <font color='#58ACFA'>气息遮断</font>相同"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_max_dur" 		"最长持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_min_dur" 		"最短持续时间:"
+		"DOTA_Tooltip_ability_semiramis_binding_chains_upgrade_mr_red" 			"%魔法抗性降低:"
+
+		"DOTA_Tooltip_ability_semiramis_barrier" 								"<font color='#58ACFA'>法力护盾</font>"
+		"DOTA_Tooltip_ability_semiramis_barrier_Description" 			"赛米拉米斯获得 <font color='#FFFF28'>法力护盾</font> 而且护盾能够持续再生. \n<font color='#FFFF28'>法力护盾</font> 护盾不会再生当赛米拉米斯处于 <font color='#FF471A'>暗杀者职阶</font>. \n<font color='#FFFF28'>法力护盾</font>: 吸收一定的伤害量. \n\n<font color='#9FFFCC'>可选属性升级: 女王的绝对统治</font>. \n此技能等级与 <font color='#58ACFA'>戏法毒酒</font>相同"
+		"DOTA_Tooltip_ability_semiramis_barrier_shield_amount" 				"护盾量:"
+		"DOTA_Tooltip_ability_semiramis_barrier_max_shield" 				"最大护盾吸收:"
+		"DOTA_Tooltip_ability_semiramis_barrier_regen" 						"每秒护盾再生:"
+
+		"DOTA_Tooltip_ability_semiramis_barrier_upgrade" 						"<font color='#9FFFCC'>法力护盾</font>"
+		"DOTA_Tooltip_ability_semiramis_barrier_upgrade_Description" 			"赛米拉米斯获得 <font color='#FFFF28'>法力护盾</font> 而且护盾能够持续再生. \n<font color='#FFFF28'>法力护盾</font>: 吸收一定的伤害量. \n此技能等级与 <font color='#58ACFA'>戏法毒酒</font>相同"
+		"DOTA_Tooltip_ability_semiramis_barrier_upgrade_shield_amount" 		"护盾量:"
+		"DOTA_Tooltip_ability_semiramis_barrier_upgrade_max_shield" 		"最大护盾吸收:"
+		"DOTA_Tooltip_ability_semiramis_barrier_upgrade_regen" 				"每秒护盾再生:"
+
+		"DOTA_Tooltip_ability_semiramis_beam_bombard" 					"<font color='#58ACFA'>光束轰击</font>"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_Description" 		"一段延迟后，赛米拉米斯用光束轰击一个区域而且造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 女王的绝对统治</font>. \n此技能等级与 <font color='#58ACFA'>剧毒气息</font>相同"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_cast_time" 		"施法时间:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_cast_delay" 		"延迟:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_cast_range" 		"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_radius" 			"总范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_beam_aoe" 			"光束范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_damage" 			"每束伤害:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_beam_numbers" 		"光束数量:"
+
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade" 					"<font color='#9FFFCC'>光束轰击</font>"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_Description" 		"一段延迟后，赛米拉米斯用光束轰击一个区域而且造成伤害. \n 赛米拉米斯发射额外的光束根据她 <font color='#00F7FF'>智力</font>. \n此技能等级与 <font color='#58ACFA'>剧毒气息</font>相同"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_cast_time" 		"施法时间:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_cast_delay" 		"延迟:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_cast_range" 		"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_radius" 			"总范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_beam_aoe" 			"光束范围:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_damage" 			"每束伤害:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_beam_numbers" 		"光束数量:"
+		"DOTA_Tooltip_ability_semiramis_beam_bombard_upgrade_bonus_beam_int" 	"每點智力光束:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens" 						"<font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_Description" 			"赛米拉米斯准备了几秒钟来召唤她虚荣的空中庭园, <font color='#99FF33'>巴比伦的空中庭园</font>. \n 一段延迟后, 空中庭园会出现并在天空中, 瓦砾对小范围内的敌人造成轻微伤害，同时整个地面区域都会摇晃, <font color='#FF3399'>减速</font> 范围内的所有敌人. \n\n<font color='#9FFFCC'>可选属性升级: 阵地作成</font>. \n 赛米拉米斯将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到庭园被召唤. \n此技能等级与 <font color='#58ACFA'>骄慢王之美酒</font>相同"
+		//"DOTA_Tooltip_ability_semiramis_hanging_gardens_Note0" 						"赛米拉米斯施法时禁咒."
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_cast_point" 				"施法时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_cast_delay" 				"召唤延迟:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_health" 				"空中庭园生命:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_damage" 				"空中庭园攻击伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_garden_movespeed" 			"空中庭园移动速度:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_duration" 					"空中庭园存在时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_quake_slow" 				"%地震减速:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_quake_radius" 				"地震范围:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_quake_duration" 			"地震持续时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_damage" 					"瓦砾伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_damage_radius" 				"瓦砾范围:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade" 						"<font color='#9FFFCC'>虚荣的空中庭园-巴比伦的空中庭园</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_Description" 			"赛米拉米斯准备了几秒钟来召唤她虚荣的空中庭园, <font color='#99FF33'>巴比伦的空中庭园</font>. \n 一段延迟后, 空中庭园会出现并在天空中, 瓦砾对小范围内的敌人造成轻微伤害，同时整个地面区域都会摇晃, <font color='#FF3399'>减速</font> 范围内的所有敌人.  \n 赛米拉米斯将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到庭园被召唤. \n此技能等级与 <font color='#58ACFA'>骄慢王之美酒</font>相同"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_cast_point" 				"施法时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_cast_delay" 				"召唤延迟:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_health" 				"空中庭园生命:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_damage" 				"空中庭园攻击伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_garden_movespeed" 			"空中庭园移动速度:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_duration" 					"空中庭园存在时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_quake_slow" 				"%地震减速:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_quake_radius" 				"地震范围:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_quake_duration" 			"地震持续时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_damage" 					"瓦砾伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_gardens_upgrade_damage_radius" 				"瓦砾范围:"
+
+		"DOTA_Tooltip_ability_semiramis_presence_concealment" 					"<font color='#58ACFA'>气息遮断</font>"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_Description" 		"赛米拉米斯获得 <font color='#FFFF28'>气息遮断</font>数秒. \n<font color='#FFFF28'>气息遮断</font>: 赛米拉米斯将会 <font color='#FFFF28'>隐形</font> 同时获得额外移动速度直到下一次施法或她攻击或被攻击. \n此技能等级与 <font color='#58ACFA'>约束锁链</font>相同"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_duration" 				"隐形持续时间:"
+		"DOTA_Tooltip_ability_semiramis_presence_concealment_bonus_spd" 			"%额外移动速度:"
+
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison" 						"<font color='#58ACFA'>戏法毒酒</font>"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_Description" 			"赛米拉米斯召唤出她著名的毒酒，将它洒向前方, 造成伤害并施加 <font color='#FF3399'>毒酒</font> 数秒. \n<font color='#FF3399'>毒酒</font>: 目标將會 <font color='#FF3399'>减速</font> 而且随着时间的推移受到更多伤害. \n\n<font color='#9FFFCC'>可选属性升级: 世上最古老的毒杀者</font>. \n此技能等级与 <font color='#58ACFA'>法力护盾</font>相同"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_damage" 				"伤害:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_aoe"	 				"宽度:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_dps" 					"每秒中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_duration" 				"中毒持续时间:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_slow"	 				"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_range" 				"距离:"
+
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade" 				"<font color='#9FFFCC'>戏法毒酒</font>"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_Description" 	"赛米拉米斯召唤出她著名的毒酒，将它洒向前方, 造成伤害根据她的 <font color='#80FF00'>敏捷</font> 并施加 <font color='#FF3399'>毒酒</font> 数秒. \n<font color='#FF3399'>毒酒</font>: 目标將會 <font color='#FF3399'>减速</font> 而且随着时间的推移受到更多伤害. \n此技能等级与 <font color='#58ACFA'>法力护盾</font>相同"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_damage" 		"伤害:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_damage_per_agi""每点敏捷伤害:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_aoe"	 		"宽度:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_dps" 			"每秒中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_duration" 		"中毒持续时间:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_slow"	 		"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_snek_spit_poison_upgrade_range" 		"距离:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud" 						"<font color='#58ACFA'>剧毒气息</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_Description" 			"赛米拉米斯毒化了她周围的空气，每隔几刻就对她周围的区域造成伤害并施加 <font color='#FF3399'>剧毒气息减益</font> 對击中的敌人. \n<font color='#FF3399'>剧毒气息减益</font>: 目标將會 <font color='#FF3399'>减速</font> 和降低魔法抗性. \n\n<font color='#9FFFCC'>可选属性升级: 世上最古老的毒杀者</font>. \n此技能等级与 <font color='#58ACFA'>光束轰击</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_cast_delay" 			"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_duration" 				"持续时间:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_damage" 				"每秒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_resist_reduct" 			"%降低魔法抗性:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_radius" 				"范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_debuff_duration" 		"减益持续时间:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_slow" 					"%减益减速:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade" 						"<font color='#9FFFCC'>剧毒气息</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_Description" 			"赛米拉米斯毒化了她周围的空气，每隔几刻就对她周围的区域造成伤害并施加 <font color='#FF3399'>剧毒气息减益</font> 對击中的敌人. \n<font color='#FF3399'>剧毒气息减益</font>: 目标將會 <font color='#FF3399'>减速</font> 和降低魔法抗性，同时会受到额外毒技能伤害. \n此技能等级与 <font color='#58ACFA'>光束轰击</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_cast_delay" 			"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_duration" 				"持续时间:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_damage" 				"每秒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_resist_reduct" 			"%降低魔法抗性:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_radius" 				"范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_debuff_duration" 		"减益持续时间:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_slow" 					"%减益减速:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_cloud_upgrade_bonus_poison" 			"%额外毒技能伤害:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite" 		"<font color='#58ACFA'>骄慢王之美酒</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Description" 	"赛米拉米斯在巴修姆的爪擊帮助下毒死她的目标. \n爪擊造成魔法伤害并施加 <font color='#FF3399'>傲慢王的美酒</font> 對击中的敌人. \n 一段延迟后剧毒會爆发, 对目标造成魔法伤害. \n 如果目标在赛米拉米斯附近，他会爆发而且对小范围内的所有敌人造成魔法伤害, 如果不在赛米拉米斯附近 他会受到较低的伤害. \n<font color='#FF3399'>傲慢王的美酒</font>: 减速目标. \n\n<font color='#9FFFCC'>可选属性升级: 世上最古老的毒杀者</font>. \n此技能等级与 <font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_Note0" 			"爆发伤害无法被驱散. 但是减速是可以驱散的."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_delay" 		"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_cast_range" 		"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_duration" 		"中毒延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_damage" 			"爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_damage_burst" 	"中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_radius" 			"剧毒爆发范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_slow" 			"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_stay_range" 		"剧毒爆发范围判定:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_stay_dmg" 		"%毒范围伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_out_dmg" 		"%毒對目标伤害:"
+		
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm" 		"<font color='#9FFFCC'>骄慢王之美酒</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_Description" 	"赛米拉米斯在巴修姆的爪擊帮助下毒死她的目标. \n爪擊造成魔法伤害并施加 <font color='#FF3399'>傲慢王的美酒</font> 對击中的敌人. \n 如果目标是男性而不是 <font color='#58ACFA'>阿斯托尔福</font>, 爪會造成額外伤害. \n 一段延迟后剧毒會爆发, 对目标造成魔法伤害. \n 如果目在赛米拉米斯附近, 他会爆发而且对小范围内的所有敌人造成魔法伤害, 如果不在赛米拉米斯附近他会受到较低的伤害. \n<font color='#FF3399'>傲慢王的美酒</font>: 减速目标. \n\n<font color='#9FFFCC'>可选属性升级: 世上最古老的毒杀者</font>. \n此技能等级与 <font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_Note0" 			"爆发伤害无法被驱散. 但是减速是可以驱散的."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_cast_delay" 	"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_cast_range" 	"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_duration" 		"中毒延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_damage" 		"爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_bonus_male" 	"對男性額外爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_damage_burst" 	"中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_radius" 		"剧毒爆发范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_slow" 			"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_stay_range" 	"剧毒爆发范围判定:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_stay_dmg" 		"%毒范围伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_charm_out_dmg" 		"%毒對目标伤害:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old" 		"<font color='#9FFFCC'>骄慢王之美酒</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_Description" 	"赛米拉米斯在巴修姆的爪擊帮助下毒死她的目标. \n爪擊造成纯粹伤害基于她的 <font color='#80FF00'>敏捷</font> 并施加 <font color='#FF3399'>傲慢王的美酒</font> 對击中的敌人. \n 一段延迟后剧毒會爆发, 对目标造成魔法伤害基于她的 <font color='#00F7FF'>智力</font> . \n 如果目在赛米拉米斯附近, 他会爆发而且对小范围内的所有敌人造成魔法伤害, 如果不在赛米拉米斯附近他会受到较低的伤害. \n<font color='#FF3399'>傲慢王的美酒</font>: 减速目标. \n\n<font color='#9FFFCC'>可选属性升级: 死亡尤物</font>. \n此技能等级与 <font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_Note0" 			"爆发伤害无法被驱散. 但是减速是可以驱散的."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_cast_delay" 		"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_cast_range" 		"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_duration" 		"中毒延迟:" 
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_damage" 			"爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_damage_per_agi" 	"每点敏捷额外爪击伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_damage_burst" 	"中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_burst_per_int" 	"每点智力额外中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_radius" 			"剧毒爆发范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_slow" 			"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_stay_range" 		"剧毒爆发范围判定:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_stay_dmg" 		"%毒范围伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_old_out_dmg" 		"%毒對目标伤害:"
+
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade" 				"<font color='#9FFFCC'>骄慢王之美酒</font>"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Description" 	"赛米拉米斯在巴修姆的爪擊帮助下毒死她的目标. \n爪擊造成纯粹伤害基于她的 <font color='#80FF00'>敏捷</font> 并施加 <font color='#FF3399'>傲慢王的美酒</font> 對击中的敌人. \n 如果目标是男性而不是 <font color='#58ACFA'>阿斯托尔福</font>, 爪擊會造成額外伤害. \n 一段延迟后剧毒會爆发, 对目标造成魔法伤害基于她的 <font color='#00F7FF'>智力</font> . \n 如果目在赛米拉米斯附近, 他会爆发而且对小范围内的所有敌人造成魔法伤害, 如果不在赛米拉米斯附近他会受到较低的伤害. \n<font color='#FF3399'>傲慢王的美酒</font>: 减速目标. \n此技能等级与 <font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>相同"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_Note0" 			"爆发伤害无法被驱散. 但是减速是可以驱散的."
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_delay" 		"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_cast_range" 		"施法范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_duration" 		"中毒延迟:" 
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage" 			"爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_bonus_male" 		"對男性額外爪擊伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_per_agi" 	"每点敏捷额外爪击伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_damage_burst" 	"中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_burst_per_int" 	"每点智力额外中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_radius" 			"剧毒爆发范围:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_slow" 			"%中毒减速:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_stay_range" 		"剧毒爆发范围判定:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_stay_dmg" 		"%毒范围伤害:"
+		"DOTA_Tooltip_ability_semiramis_poisonous_bite_upgrade_out_dmg" 		"%毒對目标伤害:"
+
+		///////////////// Special Skill /////////////////
+		
+		"DOTA_Tooltip_ability_semiramis_absolute_queen"				"<font color='#FFB266'>女王的绝对统治</font>"
+		"DOTA_Tooltip_ability_semiramis_absolute_queen_Description" "<font color='#58ACFA'>被動</font>: 赛米拉米斯获得魔法抗性當 <font color='#99FF33'>虚荣的空中庭园-巴比伦的空中庭园</font> 被召唤."
+		"DOTA_Tooltip_ability_semiramis_absolute_queen_bonus_mr" 	"%额外魔法抗性:"
+		//"DOTA_Tooltip_ability_semiramis_absolute_queen_radius" 		"在空中庭园范围:"
+		
+		///////////////// Combo /////////////////
+		
+		"DOTA_Tooltip_ability_semiramis_combo"				"<font color='#FF04EF'>虛榮的空中庭園 - 十與一的黑棺</font>"
+		"DOTA_Tooltip_ability_semiramis_combo_Description" 			"<font color='#FF04EF'>连击技能使用需求: 全属性25</font>\n<font color='#FF04EF'>技能顺序: R -> R 5秒内</font>. \n<font color='#FFFF28'>赛米拉米斯必须在庭园内的一定范围内才能施放</font>. \n<font color='#FFFF28'>目标需要距离空中庭園至少一定范围才能施放</font>. \n 赛米拉米斯自动进入她的空中庭園，准备發射十與一的黑棺. \n 在准备时间内所有英雄都会被减速几秒. \n 准备工作完成后，她的空中庭園会向目标位置发射几秒钟的巨型激光束, 随着时间的推移造成魔法伤害并阻止任何英雄使用 <font color='#FF3399'>闪现</font> 直到空中庭園停止射击. \n <font color='#99FF33'>巴比伦的空中庭园</font> 将会 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法被指定</font> 直到完成施放."
+		"DOTA_Tooltip_ability_semiramis_combo_cast_delay" 				"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_combo_semi_range" 				"赛米拉米斯需要距离:"
+		"DOTA_Tooltip_ability_semiramis_combo_minimum_range" 			"最小施法距离:"
+		"DOTA_Tooltip_ability_semiramis_combo_max_range" 				"最大施法距离:"	
+		"DOTA_Tooltip_ability_semiramis_combo_dps" 						"光束每秒伤害:"
+		"DOTA_Tooltip_ability_semiramis_combo_duration" 				"光束持续时间:"
+		"DOTA_Tooltip_ability_semiramis_combo_radius" 					"光束范围:"
+		"DOTA_Tooltip_ability_semiramis_combo_slow" 					"%全图减速:"
+
+		//====================================
+		//      HANGING GARDEN SKILLS
+        //====================================
+
+		"DOTA_Tooltip_ability_hanging_gardens_bombard"				"<font color='#58ACFA'>轨道式炮轰</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_Description" 			"向目标位置发射光束，造成魔法伤害. \n 当赛米拉米斯在庭園上时会随机发射额外的光束."
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_cast_delay" 			"施法延迟:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_damage" 				"每束伤害:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_beam_aoe" 			"光束范围:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_extra_beam" 			"赛米拉米斯额外光束数量:"
+		"DOTA_Tooltip_ability_hanging_gardens_bombard_extra_beam_range" 	"赛米拉米斯额外的光束范围:"
+
+		"DOTA_Tooltip_Ability_item_hanging_garden_dove"				"<font color='#58ACFA'>巴比伦之鸽</font>"
+		"DOTA_Tooltip_ability_item_hanging_garden_dove_Description" 	"在一段时间内生成一只鸽子，将其送到目标位置以获得该区域的视野."
+		"DOTA_Tooltip_ability_item_hanging_garden_dove_Lore" 			"众所周知，赛米拉米斯喜欢鸽子."
+		"DOTA_Tooltip_ability_item_hanging_garden_dove_bird_hp" 		"鸽子生命:"
+		"DOTA_Tooltip_ability_item_hanging_garden_dove_bird_vision" 	"鸽子視野:"
+		"DOTA_Tooltip_ability_item_hanging_garden_dove_duration" 		"鸽子持续时间:"
+
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall"				"<font color='#58ACFA'>强制召回</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_Description" 			"命令 <font color='#FF3399'>强制召回</font> 在該地区的所有盟友, 几秒钟后将它们召回庭园位置. \n<font color='#FF3399'>强制召回</font> : 如果单位在持续时间内生命值低于一半时未受到任何伤害且未超过最大传送范围，则该单位将传送回花园. "
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_delay" 				"延迟:"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_max_range" 			"最大范围:"
+		"DOTA_Tooltip_ability_hanging_gardens_mass_recall_radius" 				"范围:"
+
+		"DOTA_Tooltip_ability_hanging_gardens_mount"				"<font color='#58ACFA'>进入庭园</font>"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_Description" 			"赛米拉米斯进入 <font color='#99FF33'>巴比伦的空中庭园</font>. \n 能够使用 <font color='#58ACFA'>召喚巴修穆</font> 同时为庭园提供额外法力恢复和生命恢复."
+		"DOTA_Tooltip_ability_hanging_gardens_mount_max_range" 				"最大进入范围:"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_bonus_mana_regen" 		"额外法力恢复:"
+		"DOTA_Tooltip_ability_hanging_gardens_mount_bonus_health_regen" 	"额外生命恢复:"
+
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum"				"<font color='#58ACFA'>召喚巴修穆</font>"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_Description" 	"召喚巴修穆并对目标区域下毒, 在该区域造成即时伤害和持续伤害."
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_Lore" 			"卧槽是蛇."
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_cast_time" 		"施法时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_cast_delay" 		"延迟:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_damage" 			"巴修穆伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_dps" 			"每秒中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_duration" 		"中毒持续时间:"
+		"DOTA_Tooltip_ability_semiramis_hanging_garden_sikera_usum_radius" 			"中毒范围:"
+
+		"DOTA_Tooltip_ability_hanging_garden_presence"				"<font color='#FFB266'>空中庭园绝对的权力</font>"
+		"DOTA_Tooltip_ability_hanging_garden_presence_Description" 			"<font color='#58ACFA'>被動</font>: 空中庭园会 <font color='#FF3399'>減速</font> 和每秒从附近的敌方英雄身上吸取法力值."
+		"DOTA_Tooltip_ability_hanging_garden_presence_mana_drain_per_second" "每秒吸取法力值:"
+		"DOTA_Tooltip_ability_hanging_garden_presence_slow" 				"%減速:"
+		"DOTA_Tooltip_ability_hanging_garden_presence_radius" 				"吸取范围:"
+
+		"DOTA_Tooltip_ability_hanging_garden_passive_laser"				"<font color='#9FFFCC'>空中庭园防御系统.</font>"
+		"DOTA_Tooltip_ability_hanging_garden_passive_laser_Description" 			"<font color='#58ACFA'>被動</font> : 空中庭园每秒会向附近的敌人发射激光."
+		"DOTA_Tooltip_ability_hanging_garden_passive_laser_damage" 				"激光伤害:"
+		"DOTA_Tooltip_ability_hanging_garden_passive_laser_targets" 			"最大目标:"
+		"DOTA_Tooltip_ability_hanging_garden_passive_laser_radius" 				"探測范围:"
+
+		//====================================
+		//      COOLDOWNS DEBUFFS BUFFS
+        //====================================
+
+        "DOTA_Tooltip_modifier_semiramis_shield"					"法力护盾"
+		"DOTA_Tooltip_modifier_semiramis_shield_Description"		"受保护."
+
+		"DOTA_Tooltip_modifier_semiramis_presence_concealment"					"赛米拉米斯气息遮断"
+		"DOTA_Tooltip_modifier_semiramis_presence_concealment_Description"		"隐形."
+
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_buff"					"赛米拉米斯剧毒气息"
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_buff_Description"		"正在放毒."
+
+		"DOTA_Tooltip_modifier_semiramis_mounted"					"赛米拉米斯王座"
+		"DOTA_Tooltip_modifier_semiramis_mounted_Description"		"赛米拉米斯在空中庭园里."	
+			
+		"DOTA_Tooltip_modifier_semiramis_absolute_queen"					"绝对女王"
+		"DOTA_Tooltip_modifier_semiramis_absolute_queen_Description"		"額外魔法抗性."	
+
+		"DOTA_Tooltip_modifier_semiramis_mass_recall"					"强制召回"
+		"DOTA_Tooltip_modifier_semiramis_mass_recall_Description"		"准备传送."	
+		
+		"DOTA_Tooltip_modifier_garden_mounted"					"女王的王座"
+		"DOTA_Tooltip_modifier_garden_mounted_Description"		"额外的法力值和生命恢复."	
+
+
+		"DOTA_Tooltip_modifier_semi_snek_poison"					"毒酒"
+		"DOTA_Tooltip_modifier_semi_snek_poison_Description"		""	
+
+		"DOTA_Tooltip_modifier_binding_chains"					"约束锁链"
+		"DOTA_Tooltip_modifier_binding_chains_Description"		"锁链束缚你的身体."
+
+		"DOTA_Tooltip_modifier_poisonous_bite"					"Sikera Ušum Poison"
+		"DOTA_Tooltip_modifier_poisonous_bite_Description"		"受到伤害."
+
+		"DOTA_Tooltip_modifier_poisonous_bite_slow"					"Sikera Ušum Slow"
+		"DOTA_Tooltip_modifier_poisonous_bite_slow_Description"		"减速."
+
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_debuff"					"剧毒气息减益"
+		"DOTA_Tooltip_modifier_semiramis_poisonous_cloud_debuff_Description"		"魔抗降低."
+
+		"DOTA_Tooltip_modifier_semiramis_babylon_quake"					"地震"
+		"DOTA_Tooltip_modifier_semiramis_babylon_quake_Description"					"巴比伦觉醒让你慢下来"
+
+		"DOTA_Tooltip_modifier_tiatum_umu_cast"					"Tiatum Umu Slow"
+		"DOTA_Tooltip_modifier_tiatum_umu_cast_Description"					"空中庭园正在施放，减慢了所有人的速度"
+
+		"DOTA_Tooltip_modifier_tiatum_umu_execute"					"Tiatum Umu Execute"
+		"DOTA_Tooltip_modifier_tiatum_umu_execute_Description"		"巨大的法力激光束导致空间扭曲，无法眨眼."
+
+		"DOTA_Tooltip_modifier_garden_presence"					"空中庭园绝对的权力"
+		"DOTA_Tooltip_modifier_garden_presence_Description"		"吸取法力."	
+
+		"DOTA_Tooltip_modifier_garden_mana_drain_debuff"					"空中庭园绝对的权力减益"
+		"DOTA_Tooltip_modifier_garden_mana_drain_debuff_Description"		"法力正在耗尽."
+
+
+		"DOTA_Tooltip_modifier_dual_class_cooldown"					"双重职阶冷卻"
+		"DOTA_Tooltip_modifier_dual_class_cooldown_Description"		"技能冷却."
+
+		"DOTA_Tooltip_modifier_tiatum_umu_cooldown"					"虛榮的空中庭園 - 十與一的黑棺冷卻"
+		"DOTA_Tooltip_modifier_tiatum_umu_cooldown_Description"		"激光束冷却."	
+
+		//====================================
+		//      ATTRIBUTES
+        //====================================
+
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class" 								"<font color='#9FFFCC'>属性: 二重召唤</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_Description"					"<font color='#FFFFFF'>双重职阶</font> : 减少其冷却时间.  \n <font color='#00F7FF'>魔术师职阶</font> 获得额外的魔法恢复和 <font color='#00F7FF'>智力</font>. \n <font color='#FF471A'>暗杀者职阶</font> 获得额外的移动速度和 <font color='#80FF00'>敏捷</font>."
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_hard_cooldown"					"新的冷却时间:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_mana_regen"				"魔术师职阶额外的魔法恢复:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_int"						"魔术师职阶额外智力:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_spd"						"暗杀者职阶额外移動速度:"
+		"DOTA_Tooltip_ability_semiramis_attribute_dual_class_bonus_agi"						"暗杀者职阶額外敏捷:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_territory" 								"<font color='#9FFFCC'>属性: 阵地作成</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_Description"					"<font color='#58ACFA'>虚荣的空中庭园-巴比伦的空中庭园</font>: 所有能力在 <font color='#99FF33'>巴比伦的空中庭园</font> 将升级 1, 激活 <font color='#FFB266'>空中庭园绝对的权力</font>. 施法时间减少. \n<font color='#FFB266'>空中庭园绝对的权力</font>: 庭园将会 <font color='#FF3399'>減速</font> 和每秒从附近的敌方英雄身上吸取法力值."
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_delay" 					"施法延迟:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_cast_point" 					"施法點:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_health" 					"庭园生命:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_garden_damage" 					"庭园伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_slow" 					"%地震减速:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_radius" 					"地震范围:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_quake_duration" 				"地震持续时间:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_duration" 						"存在時間:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_mana_drain_per_second" 			"空中庭园吸取魔力:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_radius" 						"空中庭园范围:"
+		"DOTA_Tooltip_ability_semiramis_attribute_territory_slow" 							"%空中庭园减速:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute" 								"<font color='#9FFFCC'>属性: 女王的绝对统治</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_Description"					"激活 <font color='#FFB266'>女王的绝对统治</font>. \n<font color='#FFB266'>女王的绝对统治</font>: <font color='#58ACFA'>被動</font>: 赛米拉米斯获得魔法抗性當 <font color='#99FF33'>虚荣的空中庭园-巴比伦的空中庭园</font> 被召唤. \n<font color='#58ACFA'>约束锁链</font>: 降低目标魔法抗性. \n<font color='#58ACFA'>法力护盾</font>: 增加护盾再生和护盾可以在 <font color='#FF471A'>暗杀者职阶</font>再生. \n<font color='#58ACFA'>光束轰击</font>: 赛米拉米斯发射额外的光束基于她的 <font color='#00F7FF'>智力</font>."
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_mr"			"%绝对的女王额外魔法抗性:"
+		//"DOTA_Tooltip_ability_semiramis_attribute_absolute_radius"				"绝对的女王空中庭园范围:"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_chain_mr"			"%约束锁链降低魔法抗性:"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_mana_shield"			"法力护盾額外再生:"
+		"DOTA_Tooltip_ability_semiramis_attribute_absolute_bonus_beam_per_int"	"每點智力額外光束轰击:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer" 								"<font color='#9FFFCC'>属性: 死亡尤物</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_Description"					"<font color='#58ACFA'>约束锁链</font>: 能夠 <font color='#FF3399'>暈眩</font> 如果目标是男性而不是 <font color='#58ACFA'>阿斯托爾福</font>. \n<font color='#58ACFA'>驕慢王之美酒</font>: 如果目标是男性而不是 <font color='#58ACFA'>阿斯托爾福>, 爪擊對目標造成纯粹伤害."
+		"DOTA_Tooltip_ability_semiramis_attribute_charmer_bonus_male"			"對男性額外爪擊伤害:"
+
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner" 								"<font color='#9FFFCC'>属性: 世上最古老的毒杀者</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_Description"					"<font color='#58ACFA'>戏法毒酒</font>: 造成伤害根据她的 <font color='#80FF00'>敏捷</font> 同时增加 <font color='#FF3399'>毒酒</font>的伤害和持续时间. \n<font color='#58ACFA'>剧毒气息</font>: 敌人拥有 <font color='#FF3399'>剧毒气息减益</font> 会受到额外毒技能伤害. \n<font color='#58ACFA'>骄慢王之美酒</font>: 降低法力消耗, 增加爪擊伤害基于她的 <font color='#80FF00'>敏捷</font> 并增加毒伤害基于她的 <font color='#00F7FF'>智力</font>"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_snek_bonus_agi"		"毒酒每點敏捷額外伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_snek_bonus_dps"		"毒酒額外中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_snek_bonus_dur"		"毒酒額外中毒持续时间:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_aura_poison"			"%剧毒气息额外中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_mana"			"骄慢王之美酒法力消耗降低:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_hit_agi"		"骄慢王之美酒每點敏捷額外伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_burst"			"骄慢王之美酒額外中毒伤害:"
+		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_burst_int"		"骄慢王之美酒每點智力伤害:"
 
 		//=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)

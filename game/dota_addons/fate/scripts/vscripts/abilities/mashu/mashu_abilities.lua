@@ -367,8 +367,8 @@ function OnPunishmentHit(keys)
 		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.8})
 
 
-		giveUnitDataDrivenModifier(caster, target, "pause_sealdisabled", stun_revoke + 0.2)
-		giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", stun_revoke - 0.2)
+		giveUnitDataDrivenModifier(caster, target, "pause_sealdisabled", stun_revoke + 0.12)
+		giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", stun_revoke - 0.12)
 
 		if caster.Barrel then
 			local damage_per_strength = ability:GetSpecialValueFor("damage_per_strength")

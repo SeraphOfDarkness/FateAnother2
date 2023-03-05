@@ -1,3 +1,16 @@
+mashu nerf, biggest nerf on combo, rest are around 10% ish of original values
+
+robin buff, 0.5 extra int scale from SA for yew bow and 1 extra agi scale from SA for yew bow
+
+From martin :
+* Added Simplified Chinese translation for Semiramis
+
+* Saitō Hajime: One by One [D] was temporarily nerfed by numbers prior to rework later (maybe with new mechanics, or modules if necessary)
+
+Sorry for the trouble and bad gaming experience <3
+
+----------------
+
 MASHU , ZHUGELIANG CN TOOLTIP
 It's prob shit, at least it works
 i hope

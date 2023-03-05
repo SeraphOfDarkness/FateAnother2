@@ -14319,8 +14319,8 @@
 		//"DOTA_Tooltip_ability_saito_blast_sdr_value"												""
 		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
 
-		"DOTA_Tooltip_modifier_saito_blast"															"One by One Debuff"
-		"DOTA_Tooltip_modifier_saito_blast_Description"												"Reducing all types of damage dealt by %dMODIFIER_PROPERTY_TOTAL DAMAGE OUTGOING PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_saito_blast_sdr"														"One by One Debuff"
+		"DOTA_Tooltip_modifier_saito_blast_sdr_Description"											"Reducing all types of damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		///ATTRIBUTES///
 
