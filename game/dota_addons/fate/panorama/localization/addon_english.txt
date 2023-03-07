@@ -178,7 +178,6 @@
 		"Assassin"			"Assassin"
 		"Berserker"			"Berserker"
 		"Ruler"				"Ruler"
-		"Shielder"			"Shielder"
 		"Avenger"			"Avenger"
 		"Male"				"Male"
 		"Female"			"Female"
@@ -382,7 +381,7 @@ Rule
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD"
+        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD,Seraph,Kagutsugi"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"
@@ -398,8 +397,7 @@ Rule
 \nEYEOFLIE for Okita's model and animations.
 \nKaiserraiser and ZeFiRoFT for Drake and Scathach's model and animations.
 \nSeva (Fate/Balance) for Modred.
-\nZlodemon (Fate/Balance) for Nobunaga and Saito Hajime base.
-\nMarilith Cribaum for Saito Hajime.
+\nZlodemon (Fate/Balance) for Nobunaga.
 \nTranslation volunteers: MENTAL OUT|食蜂操祈, Marcellus, Mucya, SasakiSaki, Com, Beato, Amano Jack, AMATERASU, Matka Tvoja, RyuDo, GISH, Goeniko, TITAN_BIGDICK, Ecuayos
 \nVarious other Type-Moon games such as Unlimited Codes and Extella which I shamelessly ripped audios from... plz no lawsuit.
 \nType-Moon for creating Fate/Stay Night and the franchise."

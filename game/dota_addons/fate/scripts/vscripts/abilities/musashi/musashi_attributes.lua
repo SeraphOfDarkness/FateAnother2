@@ -3,24 +3,25 @@ local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
 local ____exports = {}
+local ____skill_utils = require("libs.skill_utils")
+local GetMaster1 = ____skill_utils.GetMaster1
+local InitSkillSlotChecker = ____skill_utils.InitSkillSlotChecker
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseAbility = ____dota_ts_adapter.BaseAbility
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerAbility = ____dota_ts_adapter.registerAbility
 local registerModifier = ____dota_ts_adapter.registerModifier
+local musashi_ability = require("abilities.musashi.musashi_abilities")
 ____exports.musashi_attributes_battle_continuation = __TS__Class()
 local musashi_attributes_battle_continuation = ____exports.musashi_attributes_battle_continuation
 musashi_attributes_battle_continuation.name = "musashi_attributes_battle_continuation"
 __TS__ClassExtends(musashi_attributes_battle_continuation, BaseAbility)
 function musashi_attributes_battle_continuation.prototype.OnSpellStart(self)
-    local Master = self:GetCaster()
-    local Hero = Master:GetPlayerOwner():GetAssignedHero()
-    local TengenNoHana = Hero:FindAbilityByName("musashi_tengen_no_hana")
-    if TengenNoHana ~= nil then
-        TengenNoHana:SetHidden(false)
-    end
-    Hero:AddNewModifier(Master, self, ____exports.musashi_attribute_battle_continuation.name, {undefined = undefined})
-    self:SetFrozenCooldown(true)
+    local Master2 = self:GetCaster()
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
+    local Master1 = GetMaster1(Master2)
+    Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
+    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_battle_continuation.name, {undefined = undefined})
 end
 musashi_attributes_battle_continuation = __TS__Decorate(
     {registerAbility(nil)},
@@ -51,43 +52,92 @@ musashi_attribute_battle_continuation = __TS__Decorate(
     musashi_attribute_battle_continuation
 )
 ____exports.musashi_attribute_battle_continuation = musashi_attribute_battle_continuation
-____exports.musashi_attributes_tenma_gogan = __TS__Class()
-local musashi_attributes_tenma_gogan = ____exports.musashi_attributes_tenma_gogan
-musashi_attributes_tenma_gogan.name = "musashi_attributes_tenma_gogan"
-__TS__ClassExtends(musashi_attributes_tenma_gogan, BaseAbility)
-function musashi_attributes_tenma_gogan.prototype.OnSpellStart(self)
-    local Master = self:GetCaster()
-    local Hero = Master:GetPlayerOwner():GetAssignedHero()
-    local TenmaGogan = Hero:FindAbilityByName("musashi_tenma_gogan")
-    if TenmaGogan ~= nil then
-        TenmaGogan:SetHidden(false)
-    end
-    Hero:AddNewModifier(Master, self, ____exports.musashi_attribute_tenma_gogan.name, {undefined = undefined})
-    self:SetFrozenCooldown(true)
+____exports.musashi_attributes_improve_tengan = __TS__Class()
+local musashi_attributes_improve_tengan = ____exports.musashi_attributes_improve_tengan
+musashi_attributes_improve_tengan.name = "musashi_attributes_improve_tengan"
+__TS__ClassExtends(musashi_attributes_improve_tengan, BaseAbility)
+function musashi_attributes_improve_tengan.prototype.OnSpellStart(self)
+    local Master2 = self:GetCaster()
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
+    local Master1 = GetMaster1(Master2)
+    Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
+    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_improve_tengan.name, {undefined = undefined})
+    InitSkillSlotChecker(Hero, musashi_ability.musashi_tengan.name, musashi_ability.musashi_tenma_gogan.name, 0.03)
 end
-musashi_attributes_tenma_gogan = __TS__Decorate(
+musashi_attributes_improve_tengan = __TS__Decorate(
     {registerAbility(nil)},
-    musashi_attributes_tenma_gogan
+    musashi_attributes_improve_tengan
 )
-____exports.musashi_attributes_tenma_gogan = musashi_attributes_tenma_gogan
-____exports.musashi_attribute_tenma_gogan = __TS__Class()
-local musashi_attribute_tenma_gogan = ____exports.musashi_attribute_tenma_gogan
-musashi_attribute_tenma_gogan.name = "musashi_attribute_tenma_gogan"
-__TS__ClassExtends(musashi_attribute_tenma_gogan, BaseModifier)
-musashi_attribute_tenma_gogan = __TS__Decorate(
+____exports.musashi_attributes_improve_tengan = musashi_attributes_improve_tengan
+____exports.musashi_attribute_improve_tengan = __TS__Class()
+local musashi_attribute_improve_tengan = ____exports.musashi_attribute_improve_tengan
+musashi_attribute_improve_tengan.name = "musashi_attribute_improve_tengan"
+__TS__ClassExtends(musashi_attribute_improve_tengan, BaseModifier)
+function musashi_attribute_improve_tengan.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetParent()
+    local ____opt_0 = self.Caster
+    local TenganChargeCounter = ____opt_0 and ____opt_0:FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name)
+    if TenganChargeCounter ~= nil then
+        TenganChargeCounter:ForceRefresh()
+    end
+end
+function musashi_attribute_improve_tengan.prototype.GetModifierOverrideAbilitySpecial(self, event)
+    local ____opt_4 = self.Caster
+    local Tengan = ____opt_4 and ____opt_4:FindAbilityByName(musashi_ability.musashi_tengan.name)
+    if event.ability == Tengan then
+        if event.ability_special_value == "BonusPureDmgPerAgi" or event.ability_special_value == "MaxCharges" or event.ability_special_value == "RechargeTime" then
+            return 1
+        end
+    end
+    return 0
+end
+function musashi_attribute_improve_tengan.prototype.GetModifierOverrideAbilitySpecialValue(self, event)
+    local Ability = self:GetAbility()
+    if event.ability_special_value == "BonusPureDmgPerAgi" then
+        return Ability and Ability:GetSpecialValueFor("BonusPureDmgPerAgi")
+    elseif event.ability_special_value == "MaxCharges" then
+        return Ability and Ability:GetSpecialValueFor("MaxCharges")
+    elseif event.ability_special_value == "RechargeTime" then
+        return Ability and Ability:GetSpecialValueFor("RechargeTime")
+    end
+    return 0
+end
+function musashi_attribute_improve_tengan.prototype.DeclareFunctions(self)
+    return {MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL, MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE}
+end
+function musashi_attribute_improve_tengan.prototype.IsPurgable(self)
+    return false
+end
+function musashi_attribute_improve_tengan.prototype.IsPurgeException(self)
+    return false
+end
+function musashi_attribute_improve_tengan.prototype.IsPermanent(self)
+    return true
+end
+function musashi_attribute_improve_tengan.prototype.RemoveOnDeath(self)
+    return false
+end
+function musashi_attribute_improve_tengan.prototype.IsHidden(self)
+    return true
+end
+musashi_attribute_improve_tengan = __TS__Decorate(
     {registerModifier(nil)},
-    musashi_attribute_tenma_gogan
+    musashi_attribute_improve_tengan
 )
-____exports.musashi_attribute_tenma_gogan = musashi_attribute_tenma_gogan
+____exports.musashi_attribute_improve_tengan = musashi_attribute_improve_tengan
 ____exports.musashi_attributes_gorin_no_sho = __TS__Class()
 local musashi_attributes_gorin_no_sho = ____exports.musashi_attributes_gorin_no_sho
 musashi_attributes_gorin_no_sho.name = "musashi_attributes_gorin_no_sho"
 __TS__ClassExtends(musashi_attributes_gorin_no_sho, BaseAbility)
 function musashi_attributes_gorin_no_sho.prototype.OnSpellStart(self)
-    local Master = self:GetCaster()
-    local Hero = Master:GetPlayerOwner():GetAssignedHero()
-    Hero:AddNewModifier(Master, self, ____exports.musashi_attribute_gorin_no_sho.name, {undefined = undefined})
-    self:SetFrozenCooldown(true)
+    local Master2 = self:GetCaster()
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
+    local Master1 = GetMaster1(Master2)
+    Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
+    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_gorin_no_sho.name, {undefined = undefined})
 end
 musashi_attributes_gorin_no_sho = __TS__Decorate(
     {registerAbility(nil)},
@@ -123,14 +173,15 @@ local musashi_attributes_mukyuu = ____exports.musashi_attributes_mukyuu
 musashi_attributes_mukyuu.name = "musashi_attributes_mukyuu"
 __TS__ClassExtends(musashi_attributes_mukyuu, BaseAbility)
 function musashi_attributes_mukyuu.prototype.OnSpellStart(self)
-    local Master = self:GetCaster()
-    local Hero = Master:GetPlayerOwner():GetAssignedHero()
-    local Mukyuu = Hero:FindAbilityByName("musashi_mukyuu")
+    local Master2 = self:GetCaster()
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
+    local Master1 = GetMaster1(Master2)
+    Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
+    local Mukyuu = Hero:FindAbilityByName(musashi_ability.musashi_mukyuu.name)
     if Mukyuu ~= nil then
         Mukyuu:SetHidden(false)
     end
-    Hero:AddNewModifier(Master, self, ____exports.musashi_attribute_mukyuu.name, {undefined = undefined})
-    self:SetFrozenCooldown(true)
+    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_mukyuu.name, {undefined = undefined})
 end
 musashi_attributes_mukyuu = __TS__Decorate(
     {registerAbility(nil)},
@@ -141,6 +192,30 @@ ____exports.musashi_attribute_mukyuu = __TS__Class()
 local musashi_attribute_mukyuu = ____exports.musashi_attribute_mukyuu
 musashi_attribute_mukyuu.name = "musashi_attribute_mukyuu"
 __TS__ClassExtends(musashi_attribute_mukyuu, BaseModifier)
+function musashi_attribute_mukyuu.prototype.GetModifierOverrideAbilitySpecial(self, event)
+    local Caster = self:GetParent()
+    local Ability = Caster:FindAbilityByName(musashi_ability.musashi_niou_kurikara.name)
+    if event.ability == Ability then
+        if event.ability_special_value == "DmgReducWhileChannel" or event.ability_special_value == "DmgReducFinishChannel" or event.ability_special_value == "BuffDuration" then
+            return 1
+        end
+    end
+    return 0
+end
+function musashi_attribute_mukyuu.prototype.GetModifierOverrideAbilitySpecialValue(self, event)
+    local Ability = self:GetAbility()
+    if event.ability_special_value == "DmgReducWhileChannel" then
+        return Ability and Ability:GetSpecialValueFor("DmgReducWhileChannel")
+    elseif event.ability_special_value == "DmgReducFinishChannel" then
+        return Ability and Ability:GetSpecialValueFor("DmgReducFinishChannel")
+    elseif event.ability_special_value == "BuffDuration" then
+        return Ability and Ability:GetSpecialValueFor("BuffDuration")
+    end
+    return 0
+end
+function musashi_attribute_mukyuu.prototype.DeclareFunctions(self)
+    return {MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL, MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE}
+end
 function musashi_attribute_mukyuu.prototype.IsPurgable(self)
     return false
 end
@@ -166,10 +241,11 @@ local musashi_attributes_niten_ichiryuu = ____exports.musashi_attributes_niten_i
 musashi_attributes_niten_ichiryuu.name = "musashi_attributes_niten_ichiryuu"
 __TS__ClassExtends(musashi_attributes_niten_ichiryuu, BaseAbility)
 function musashi_attributes_niten_ichiryuu.prototype.OnSpellStart(self)
-    local Master = self:GetCaster()
-    local Hero = Master:GetPlayerOwner():GetAssignedHero()
-    Hero:AddNewModifier(Master, self, ____exports.musashi_attribute_niten_ichiryuu.name, {undefined = undefined})
-    self:SetFrozenCooldown(true)
+    local Master2 = self:GetCaster()
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
+    local Master1 = GetMaster1(Master2)
+    Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
+    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_niten_ichiryuu.name, {undefined = undefined})
 end
 musashi_attributes_niten_ichiryuu = __TS__Decorate(
     {registerAbility(nil)},
@@ -185,24 +261,37 @@ function musashi_attribute_niten_ichiryuu.prototype.OnCreated(self)
         return
     end
     local Caster = self:GetParent()
-    self.DaiGoSei = Caster:FindAbilityByName("musashi_dai_go_sei")
-    self.Tengan = Caster:FindAbilityByName("musashi_tengan")
-    self.GanryuuJima = Caster:FindAbilityByName("musashi_ganryuu_jima")
+    self.DaiGoSei = Caster:FindAbilityByName(musashi_ability.musashi_dai_go_sei.name)
+    self.GanryuuJima = Caster:FindAbilityByName(musashi_ability.musashi_ganryuu_jima.name)
+    self.GanryuuJima:UpdateVectorValues()
 end
 function musashi_attribute_niten_ichiryuu.prototype.GetModifierOverrideAbilitySpecial(self, event)
     if event.ability == self.DaiGoSei then
         if event.ability_special_value == "HitsRequired" or event.ability_special_value == "CriticalDmg" then
             return 1
         end
+    elseif event.ability == self.GanryuuJima then
+        if event.ability_special_value == "SlashRange" or event.ability_special_value == "SlashRadius" or event.ability_special_value == "BonusDmgPerAgi" then
+            return 1
+        end
     end
     return 0
 end
 function musashi_attribute_niten_ichiryuu.prototype.GetModifierOverrideAbilitySpecialValue(self, event)
+    local Ability = self:GetAbility()
     if event.ability == self.DaiGoSei then
         if event.ability_special_value == "HitsRequired" then
-            return 4
+            return Ability and Ability:GetSpecialValueFor("HitsRequired")
         elseif event.ability_special_value == "CriticalDmg" then
-            return 2.5
+            return Ability and Ability:GetSpecialValueFor("CriticalDmg")
+        end
+    elseif event.ability == self.GanryuuJima then
+        if event.ability_special_value == "SlashRange" then
+            return Ability and Ability:GetSpecialValueFor("SlashRange")
+        elseif event.ability_special_value == "SlashRadius" then
+            return Ability and Ability:GetSpecialValueFor("SlashRadius")
+        elseif event.ability_special_value == "BonusDmgPerAgi" then
+            return Ability and Ability:GetSpecialValueFor("BonusDmgPerAgi")
         end
     end
     return 0

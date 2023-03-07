@@ -1,15 +1,12 @@
-LinkLuaModifier("modifier_ascended", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ascended", "abilities/ascension/ascension_skill", LUA_MODIFIER_MOTION_NONE)
 
 ascension_skill = class ({})
+
 function ascension_skill:GetIntrinsicModifierName()
 	return "modifier_ascended"
 end
 
-modifier_ascended = class({})
-
-function modifier_ascended:GetTexture()
-	return "custom/ascension/ascended"
-end
+modifier_ascended = class ({})
 
 function modifier_ascended:IsHidden()
 	return false

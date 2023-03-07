@@ -1,5 +1,5 @@
 HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(snipe), support, 
-{									// tank(counter), burst(beam/jump), control, mobility
+{									// tank(counter), burst(beam/jump/aoe), control, mobility
 	"npc_dota_hero_legion_commander"							// MMR base: win +10/ lose -10
 	{															// bonus MMR: 10 (cal from role and weight)
 		"Sex"			"Female"								// MMR MVP: 5 (most KDA from each team: 3K + A - 2D)
@@ -1566,7 +1566,7 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 				"tank"	
 				{
 					"weight"	"65"	// weight to calculate
-					"criteria"	"1"
+					"criteria"	"2"
 					"dTake"		"170"	// > avg dmg taken(%max hp) per round
 					"Death"		"80"	// < death of total round
 				}		
@@ -1589,6 +1589,48 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 					"Assist"	"20"	// > Assist
 					"Heal"		"1000"	// < death of total round
 				}
+			}
+		}
+	}
+	"npc_dota_hero_antimage"			
+	{
+		"Sex"			"Female"
+		"Class"			"Saber"
+		"Trait"			"Human" 
+		"Roles"			"carry,burst,tank" 	
+		"Role" 							
+		{
+			"1"
+			{			
+				"tank"	
+				{
+					"weight"	"30"	// weight to calculate
+					"criteria"	"2"
+					"dTake"		"170"	// > avg dmg taken(%max hp) per round
+					"Death"		"80"	// < death of total round
+				}		
+			}
+			"2"	
+			{			
+				"carry"
+				{
+					"weight"	"40"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"6000"	// > avg dmg deal per round
+					"KD"		"1.5"	// > total KD
+					"Assist"	"35"	// > Assist
+				}
+			}
+			"3"
+			{			
+				"burst"	
+				{
+					"weight"	"30"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"5000"	// > avg dmg deal per round
+					"KD"		"2.0"	// > total KD
+					"Assist"	"20"	// > Assist
+				}		
 			}
 		}
 	}	

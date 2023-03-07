@@ -80,15 +80,15 @@ function modifier_nobu_innovation:OnTakeDamage(args)
     if(args.attacker == caster)then
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("aura_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
-			v:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_innovation_ms", { duration = 1 })
-			v:FateHeal(self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength(),caster,true)
+			v:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_innovation_ms", { duration = self:GetAbility():GetSpecialValueFor("ms_duration") })
+			v:FateHeal(self:GetAbility():GetSpecialValueFor("health_base") + (caster:GetStrength() * self:GetAbility():GetSpecialValueFor("bonus_str_heal")),caster,true)
 		end
 		return 
 	end
 
 	if(  args.attacker:GetTeamNumber() == caster:GetTeamNumber() and caster.IsReadyToHeal)then
 		caster.IsReadyToHeal = false
-		caster:SetHealth(caster:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength())
+		caster:SetHealth(caster:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + (caster:GetStrength() * self:GetAbility():GetSpecialValueFor("bonus_str_heal")))
 		Timers:CreateTimer(1, function()
 		caster.IsReadyToHeal = true
 		end)

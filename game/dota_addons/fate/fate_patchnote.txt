@@ -1,3 +1,19 @@
+
+Update Nobu Tooltips
+Update A, A+ tooltip
+Fix double Musashi
+Fix nobu divinity mark not make target become divine
+Fix A Debuff penalty
+Disable Skin change gender
+
+Iskandar
+-Waver now Brilliance of the king start cooldown 5s after summon
+
+-Horn
+Armor reduction: 30% 40% 50% 60% 70% >> 30% 35% 40% 45% 50%
+
+--------------------
+
 NEW MECHANICS :
 A Scroll now have penalty when used in a short period of time, giving only 70% of the original magic resistance value when used.
 

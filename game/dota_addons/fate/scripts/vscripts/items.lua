@@ -753,6 +753,8 @@ function AScroll(keys)
 	--local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
 	local mres = ability:GetSpecialValueFor("bonus_mr")
 	local duration = ability:GetSpecialValueFor("duration")
+	local satedCooldown = ability:GetSpecialValueFor("satedCooldown")
+	local penalty = ability:GetSpecialValueFor("penalty") / 100
 	--local satedCooldown = ability:GetCooldown(1) * 0.5
 
 	if caster:HasModifier("jump_pause_nosilence") then
@@ -765,14 +767,13 @@ function AScroll(keys)
 	caster.ServStat:useA()
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
 	if caster:HasModifier("modifier_a_scroll_sated") then
-		mres = mres * 0.7
+		mres = mres * (1 - penalty)
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
 																  Armor = 0,
 																  Duration = duration })
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
-
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
 end
 
@@ -784,6 +785,8 @@ function APlusScroll(keys)
 	local armor = ability:GetSpecialValueFor("bonus_armor")
 	local duration = ability:GetSpecialValueFor("duration")
 	local healing = ability:GetSpecialValueFor("healing")
+	local satedCooldown = ability:GetSpecialValueFor("satedCooldown")
+	local penalty = ability:GetSpecialValueFor("penalty") / 100
 
 	if caster:HasModifier("jump_pause_nosilence") then
 		RefundItem(caster, ability)
@@ -797,7 +800,7 @@ function APlusScroll(keys)
 	caster:Heal(healing, caster)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
 	if caster:HasModifier("modifier_a_scroll_sated") then
-		mres = mres * 0.7
+		mres = mres * (1 - penalty)
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,

@@ -13867,189 +13867,276 @@
         "npc_dota_hero_gyrocopter_summon"		"Servant <font color='#58ACFA'>Nobunaga</font> has been summoned."
         "npc_dota_hero_gyrocopter_enable_combo"	"Enable Combo: Demon king of the sixth heaven."
 
-        /////////////////////////// Skills ////////////////////////////////
-
-		"npc_dota_hero_gyrocopter_hype"					""
+        "npc_dota_hero_gyrocopter_hype"					""
 		"npc_dota_hero_gyrocopter_bio"						""
 
-        "DOTA_Tooltip_ability_nobu_guns"							"<font color='#58ACFA'>Demon guns</font>"
-        "DOTA_Tooltip_ability_nobu_guns_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>.\n<font color='#9FFFCC'>Upgradable with Attribute: Unifying The Nation by Force</font>."
-        "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"BASE DMG:"
-        "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"DMG PER LEVEL:"
-        "DOTA_Tooltip_ability_nobu_guns_amount"					""
+        /////////////////////////// Innate Skills ////////////////////////////////
+
+		"DOTA_Tooltip_ability_nobu_demon_king_open"				"<font color='#9FFFCC'>Demon King</font>"
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: At the start of each round, Nobunaga can alter her spirit origin, gaining bonuses for this round. \n<font color='#FFFFFF'>Spirit altering: Destroyer of worlds</font>: Acquire <font color='#FFB266'>Destroyer of Worlds</font>: Each time nobunaga hits an enemy with her musket, she will summon an additional musket, which will shoot a nearby enemy. \n<font color='#FFFFFF'>Spirit altering: Destroyer of Gods and Buddhas</font>: Acquire <font color='#FFB266'>Divinity Mark</font>: Apply <font color='#FF3399'>Divinity Mark</font> to target enemy. When <font color='#FF3399'>Divinity Mark</font> reach certain stacks, target will get <font color='#FF3399'>Pseudo Divinity</font> for durations. \n<font color='#FF3399'>Pseudo Divinity</font>: target will be considered as Divine while reducing its armor. \n<font color='#FFFFFF'>Spirit altering: Fool of Owari</font>: Acquire <font color='#FFB266'>Demonic Charisma</font>: <font color='#58ACFA'>PASSIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Demonic Charisma</font>. \n<font color='#FFFF28'>Demonic Charisma</font> Increase target's armor and movement speed. \n<font color='#FFFFFF'>Spirit altering: King of innovation</font>: Acquire <font color='#FFB266'>Leader of innovation</font>: <font color='#58ACFA'>ACTIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Innovation</font>. \n<font color='#FFFF28'>Innovation</font>: Each time Nobunaga deals damage, all nearby allies will be <font color='#FFFF28'>healed</font> and gain bonus movespeed for short duration. \n If nearby ally deals damage, Nobunaga will be <font color='#FFFF28'>healed</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Demon King Expanding</font>."
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Lore"						""
+
+        "DOTA_Tooltip_ability_nobu_demon_king_open_upgrade"				"<font color='#9FFFCC'>Demon King</font>"
+        "DOTA_Tooltip_ability_nobu_demon_king_open_upgrade_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: At the start of each round, Nobunaga can alter her spirit origin, gaining bonuses for this round. \n<font color='#FFFFFF'>Spirit altering: Destroyer of worlds</font>: Acquire <font color='#FFB266'>Destroyer of Worlds</font> and <font color='#FFB266'>Divinity Mark</font> \n<font color='#FFFFFF'>Spirit altering: Destroyer of Gods and Buddhas</font>: Acquire <font color='#FFB266'>Divinity Mark</font> and <font color='#FFB266'>Demonic Charisma</font>  \n<font color='#FFFFFF'>Spirit altering: Fool of Owari</font>: Acquire <font color='#FFB266'>Demonic Charisma</font> and <font color='#FFB266'>Leader of innovation</font>  \n<font color='#FFFFFF'>Spirit altering: King of innovation</font>: Acquire <font color='#FFB266'>Leader of innovation</font> and <font color='#FFB266'>Destroyer of worlds</font> "
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Lore"						""
+	
+        "DOTA_Tooltip_ability_nobu_dow"				"<font color='#FFFFFF'>Spirit altering: Destroyer of worlds</font>"
+        "DOTA_Tooltip_ability_nobu_dow_Description"	"Acquire <font color='#FFB266'>Destroyer of Worlds</font> \n<font color='#FFFFFF'>Destroyer of Worlds</font>: <font color='#58ACFA'>PASSIVE</font>: Each time nobunaga hits an enemy with her musket, she will summon an additional musket, which will shoot a nearby enemy. \n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Destroyer of worlds and Destroyer of Gods and Buddhas bonuses.</font>"
+        "DOTA_Tooltip_ability_nobu_dow_Lore" ""
+        "DOTA_Tooltip_ability_nobu_dow_distance" 		"SEARCH RADIUS:"
+        "DOTA_Tooltip_ability_nobu_dow_damage" 			"%MUSKET DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_dow_cooldown" 		"COOLDOWN:"
+
+        "DOTA_Tooltip_ability_nobu_dogab"				"<font color='#FFFFFF'>Spirit altering: Destroyer of Gods and Buddhas</font>"
+        "DOTA_Tooltip_ability_nobu_dogab_Description"	"Acquire <font color='#FFB266'>Divinity Mark</font>. \n<font color='#FFFFFF'>Divinity Mark:</font> Apply <font color='#FF3399'>Divinity Mark</font> to target enemy. Each time Nobunaga deals damage, target gains a <font color='#FF3399'>Divinity Mark</font>'s stack. \n When <font color='#FF3399'>Divinity Mark</font> reach certain stacks, target will get <font color='#FF3399'>Pseudo Divinity</font> for durations. \n<font color='#FF3399'>Pseudo Divinity</font>: target will be considered as Divine while reducing its armor. \n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Destroyer of Gods and Buddhas and Fool of Owari bonuses.</font>"
+        "DOTA_Tooltip_ability_nobu_dogab_Note0" 		"Non-refreshable. 40 seconds cooldown."
+        "DOTA_Tooltip_ability_nobu_dogab_Lore" 			""
+        "DOTA_Tooltip_ability_nobu_dogab_cast_range" 			"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_dogab_duration" 				"DIVINITY MARK DURATION:"
+        "DOTA_Tooltip_ability_nobu_dogab_stack" 				"REQUIRE DIVINITY MARK STACKS:"
+        "DOTA_Tooltip_ability_nobu_dogab_activated_duration" 	"PSEUDO DIVINITY DURATION:"
+        "DOTA_Tooltip_ability_nobu_dogab_arm_debuff" 			"PSEUDO DIVINITY ARMOR REDUCTION:"
+        "DOTA_Tooltip_ability_nobu_dogab_cooldown" 				"COOLDOWN:"
+
+        "DOTA_Tooltip_ability_nobu_fool_of_owari"				"<font color='#FFFFFF'>Spirit altering: Fool of Owari</font>"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Acquire <font color='#FFB266'>Demonic Charisma</font>. \n<font color='#FFFFFF'>Demonic Charisma</font>: <font color='#58ACFA'>PASSIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Demonic Charisma</font>. \n<font color='#FFFF28'>Demonic Charisma</font> Increase target's armor and movement speed. \n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses.</font>"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" 			""
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_aura_radius" 	"AURA RADIUS:"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_ms_bonus" 		"%BONUS MOVESPEED:"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_armor_bonus" 	"BONUS ARMOR:"
+
+        "DOTA_Tooltip_ability_nobu_king_of_innovation"				"<font color='#FFFFFF'>Spirit altering: King of innovation</font>"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Acquire <font color='#FFB266'>Leader of innovation</font>. \n<font color='#FFFFFF'>Leader of innovation:</font> <font color='#58ACFA'>ACTIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Innovation</font>. \n<font color='#FFFF28'>Innovation</font>: Each time Nobunaga deals damage, all nearby allies will be <font color='#FFFF28'>healed</font> and gain bonus movespeed for short duration. \n If nearby ally deals damage, Nobunaga will be <font color='#FFFF28'>healed</font> based on her <font color='#FF0000'>STR</font>. \n<font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses.</font> \n:HEAL AMOUNT: %health_base% + (%bonus_str_heal% x <font color='#FF0000'>STR</font>)"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Note0" "Both effects have a hard cooldown of a 1 second."
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 		""
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_aura_radius" 		"AURA RADIUS:"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_duration" 		"AURA DURATION:"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_heal_cd" 			"HEAL COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_ms_bonus" 		"%BONUS MOVESPEED:"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_ms_duration" 		"BONUS MOVESPEED DURATION:"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_cooldown" 		"COOLDOWN:"
+
+        "DOTA_Tooltip_ability_nobu_demon_king_close"				"<font color='#9FFFCC'>Demon King close</font>"
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Description"	"Close the spellbook."
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Lore"			""
+
+        "DOTA_Tooltip_ability_nobu_charisma"						"<font color='#FFB266'>Demonic Charisma</font>"
+        "DOTA_Tooltip_ability_nobu_charisma_Description"			"<font color='#58ACFA'>PASSIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Demonic Charisma</font>."
+        "DOTA_Tooltip_ability_nobu_charisma_aura_radius"			"AURA RADIUS:"
+        "DOTA_Tooltip_ability_nobu_charisma_ms_bonus"				"%BONUS MOVESPEED:"
+        "DOTA_Tooltip_ability_nobu_charisma_armor_bonus"			"BONUS ARMOR:"
+        "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_dow_passive"						"<font color='#FFB266'>Destroyer of Worlds</font>"
+        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"<font color='#58ACFA'>PASSIVE</font>: Each time nobunaga hits an enemy with her musket, she will summon an additional musket, which will shoot a nearby enemy."
+        "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
+        "DOTA_Tooltip_ability_nobu_dow_passive_distance"			"SEARCH RADIUS:"
+        "DOTA_Tooltip_ability_nobu_dow_passive_damage"				"%MUSKET DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_dow_passive_cooldown"			"COOLDOWN:"
+
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"<font color='#FFB266'>Leader of innovation</font>"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"<font color='#58ACFA'>ACTIVE AURA</font>: All nearby allies get <font color='#FFFF28'>Innovation</font>. \n<font color='#FFFF28'>Innovation</font>: Each time Nobunaga deals damage, all nearby allies will be <font color='#FFFF28'>healed</font> and gain bonus movespeed for short duration. \n If nearby ally deals damage, Nobunaga will be <font color='#FFFF28'>healed</font> based on her <font color='#FF0000'>STR</font>. \n:HEAL AMOUNT: %health_base% + (%bonus_str_heal% x <font color='#FF0000'>STR</font>)"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"		"AURA RADIUS:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"			"AURA DURATION:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_cooldown"			"HEAL COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"			"%BONUS MOVESPEED:"       
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"		"BONUS MOVESPEED DURATION:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"				""
+
+        "DOTA_Tooltip_ability_nobu_divinity_mark"						"<font color='#FFB266'>Divinity mark</font>"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Apply <font color='#FF3399'>Divinity Mark</font> to target enemy. Each time Nobunaga deals damage, target gains a <font color='#FF3399'>Divinity Mark</font>'s stack. \n When <font color='#FF3399'>Divinity Mark</font> reach certain stacks, target will get <font color='#FF3399'>Pseudo Divinity</font> for durations. \n<font color='#FF3399'>Pseudo Divinity</font>: target will be considered as Divine while reducing its armor."
+        "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"			"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_duration"				"DIVINITY MARK DURATION:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_stack"					"REQUIRE DIVINITY MARK STACKS:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"	"PSEUDO DIVINITY DURATION:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_arm_debuff"			"PSEUDO DIVINITY ARMOR REDUCTION:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_guns"						"<font color='#FFFFFF'>Demon guns</font>"
+        "DOTA_Tooltip_ability_nobu_guns_Description"			"<font color='#58ACFA'>PASSIVE:</font> <font color='#FFFFFF'>Destroyer of worlds</font>, <font color='#58ACFA'>Shoot, Targeted Shots, Three line formation</font> and <font color='#FF04EF'>Demon king of the sixth heaven</font>'s musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Unifying The Nation by Force and Independent Action</font>. \nMUSKET DAMAGE: %base_dmg% + (%dmg_per_lvl% x Nobunaga's <font color='#DD5959'>level</font>)"
+        //"DOTA_Tooltip_ability_nobu_guns_base_dmg"					"BASE DMG:"
+        //"DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"DMG PER LEVEL:"
+        //"DOTA_Tooltip_ability_nobu_guns_amount"					""
         "DOTA_Tooltip_ability_nobu_guns_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
          
-
         "DOTA_Tooltip_ability_nobu_guns_action"							"<font color='#9FFFCC'>Demon guns</font>"
-        "DOTA_Tooltip_ability_nobu_guns_action_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Unifying The Nation by Force</font>."
-        "DOTA_Tooltip_ability_nobu_guns_action_base_dmg"					"BASE DMG:"
-        "DOTA_Tooltip_ability_nobu_guns_action_dmg_per_lvl"					"DMG PER LEVEL:"
-        "DOTA_Tooltip_ability_nobu_guns_action_armor_pierce" 				"%SHOOT AND TARGETED SHOTS ARMOR PIERCE:"
-        "DOTA_Tooltip_ability_nobu_guns_action_amount"					""
+        "DOTA_Tooltip_ability_nobu_guns_action_Description"			"<font color='#58ACFA'>PASSIVE:</font> <font color='#FFFFFF'>Destroyer of worlds</font>, <font color='#58ACFA'>Shoot, Targeted Shots, Three line formation</font> and <font color='#FF04EF'>Demon king of the sixth heaven</font>'s musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Unifying The Nation by Force</font>. \nMUSKET DAMAGE: %base_dmg% + (%dmg_per_lvl% x Nobunaga's <font color='#DD5959'>level</font>)"
+        //"DOTA_Tooltip_ability_nobu_guns_action_base_dmg"					"BASE DMG:"
+        //"DOTA_Tooltip_ability_nobu_guns_action_dmg_per_lvl"					"DMG PER LEVEL:"
+        //"DOTA_Tooltip_ability_nobu_guns_action_armor_pierce" 				"%SHOOT AND TARGETED SHOTS ARMOR PIERCE:"
+        //"DOTA_Tooltip_ability_nobu_guns_action_amount"					""
         "DOTA_Tooltip_ability_nobu_guns_action_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
          
         "DOTA_Tooltip_ability_nobu_guns_unifying"							"<font color='#9FFFCC'>Demon guns</font>"
-        "DOTA_Tooltip_ability_nobu_guns_unifying_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font> and <font color='#00F7FF'>INT</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>."
-        "DOTA_Tooltip_ability_nobu_guns_unifying_base_dmg"					"BASE DMG:"
-        "DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_lvl"					"DMG PER LEVEL:"
-        "DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_int"					"DMG PER INT:"
-        "DOTA_Tooltip_ability_nobu_guns_unifying_divine_damage_mod"				"BONUS DMG VS DIVINE:"
-        "DOTA_Tooltip_ability_nobu_guns_unifying_amount"					""
+        "DOTA_Tooltip_ability_nobu_guns_unifying_Description"			"<font color='#58ACFA'>PASSIVE:</font> <font color='#FFFFFF'>Destroyer of worlds</font>, <font color='#58ACFA'>Shoot, Targeted Shots, Three line formation</font> and <font color='#FF04EF'>Demon king of the sixth heaven</font>'s musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font> and <font color='#00F7FF'>INT</font>. \nMusket deals bonus damage to Divine enemies. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>. \nMUSKET DAMAGE: %base_dmg% + (%dmg_per_lvl% x <font color='#DD5959'>level</font>) + (%dmg_per_int% x <font color='#00F7FF'>INT</font>)"
+        //"DOTA_Tooltip_ability_nobu_guns_unifying_base_dmg"					"BASE DMG:"
+        //"DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_lvl"					"DMG PER LEVEL:"
+        //"DOTA_Tooltip_ability_nobu_guns_unifying_dmg_per_int"					"DMG PER INT:"
+        "DOTA_Tooltip_ability_nobu_guns_unifying_divine_damage_mod"				"%BONUS DAMAGE TO DIVINE:"
+        //"DOTA_Tooltip_ability_nobu_guns_unifying_amount"					""
         "DOTA_Tooltip_ability_nobu_guns_unifying_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
     
-
         "DOTA_Tooltip_ability_nobu_guns_upgrade"							"<font color='#9FFFCC'>Demon guns</font>"
-        "DOTA_Tooltip_ability_nobu_guns_upgrade_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font> and <font color='#00F7FF'>INT</font>."
-        "DOTA_Tooltip_ability_nobu_guns_upgrade_base_dmg"					"BASE DMG:"
-        "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_lvl"					"DMG PER LEVEL:"
-        "DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_int"					"DMG PER INT:"
-        "DOTA_Tooltip_ability_nobu_guns_upgrade_divine_damage_mod"				"BONUS DMG VS DIVINE:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_Description"			"<font color='#58ACFA'>PASSIVE:</font> <font color='#FFFFFF'>Destroyer of worlds</font>, <font color='#58ACFA'>Shoot, Targeted Shots, Three line formation</font> and <font color='#FF04EF'>Demon king of the sixth heaven</font>'s musket damage is scaled based on Nobunaga's <font color='#DD5959'>level</font> and <font color='#00F7FF'>INT</font>. \nMusket deals bonus damage to Divine enemies. \nMUSKET DAMAGE: %base_dmg% + (%dmg_per_lvl% x <font color='#DD5959'>level</font>) + (%dmg_per_int% x <font color='#00F7FF'>INT</font>)"
+        //"DOTA_Tooltip_ability_nobu_guns_upgrade_base_dmg"					"BASE DMG:"
+        //"DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_lvl"					"DMG PER LEVEL:"
+        //"DOTA_Tooltip_ability_nobu_guns_upgrade_dmg_per_int"					"DMG PER INT:"
+        "DOTA_Tooltip_ability_nobu_guns_upgrade_divine_damage_mod"				"%BONUS DAMAGE TO DIVINE:"
         "DOTA_Tooltip_ability_nobu_guns_upgrade_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
+
+        /////////////// Basic ////////////////////////
          
         "DOTA_Tooltip_ability_nobu_shot"					"<font color='#58ACFA'>Shoot</font>"
-        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>."
+        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her musket in the direction, dealing physical damage and apply <font color='#FF3399'>Shoot slow</font> for a short duration to all enemies along the path. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>. \n Using this ability while <font color='#58ACFA'>Targeted Shots</font> is actived, a musket will appear near her and shoot nearby enemy instead."
         "DOTA_Tooltip_ability_nobu_shot_Note0" 					"If cast when Nobu is shooting with targeted shots, a rifle will appear near her and shoot nearby enemy instead."
-        "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"RIFLE DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_shot_distance"				"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"MUSKET DAMAGE MOD:"
         "DOTA_Tooltip_ability_nobu_shot_slow_power"				"%SLOW:"
         "DOTA_Tooltip_ability_nobu_shot_duration"				"SLOW DURATION:"
         "DOTA_Tooltip_ability_nobu_shot_Lore"					""
 
-         "DOTA_Tooltip_ability_nobu_shot_upgrade"					"<font color='#9FFFCC'>Shoot</font>"
-        "DOTA_Tooltip_ability_nobu_shot_upgrade_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed."
+        "DOTA_Tooltip_ability_nobu_shot_upgrade"					"<font color='#9FFFCC'>Shoot</font>"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_Description"	 	"Nobunaga shoots her musket in the direction, dealing physical damage that bypass some armor, <font color='#FF3399'>ministuns</font>, <font color='#FF3399'>knock back</font> and apply <font color='#FF3399'>Shoot slow</font> for a short duration to all enemies along the path. \n Using this ability while <font color='#58ACFA'>Targeted Shots</font> is actived, a musket will appear near her and shoot nearby enemy instead, no longer <font color='#FF3399'>ministuns</font> and <font color='#FF3399'>knock back</font>"
         "DOTA_Tooltip_ability_nobu_shot_upgrade_Note0" 					"If cast when Nobu is shooting with targeted shots, a rifle will appear near her and shoot nearby enemy instead."
-        "DOTA_Tooltip_ability_nobu_shot_upgrade_damage_mod"				"RIFLE DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_distance"				"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_damage_mod"				"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_armor_pierce"			"%DAMAGE BYPASS ARMOR:"
         "DOTA_Tooltip_ability_nobu_shot_upgrade_slow_power"				"%SLOW:"
         "DOTA_Tooltip_ability_nobu_shot_upgrade_duration"				"SLOW DURATION:"
-        "DOTA_Tooltip_ability_nobu_shot_upgrade_microstun_duration"				"STUN DURATION:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_microstun_duration"		"STUN DURATION:"
+        "DOTA_Tooltip_ability_nobu_shot_upgrade_knock"					"KNOCK BACK DISTANCE:"
         "DOTA_Tooltip_ability_nobu_shot_upgrade_Lore"					""
 
         "DOTA_Tooltip_ability_nobu_dash"					"<font color='#58ACFA'>Dash</font>"
-        "DOTA_Tooltip_ability_nobu_dash_Description"	 	"Nobunaga immediately dashes in the target direction. Each charge is replenished over time. \n\n<font color='#9FFFCC'>Upgradable with Attribute:  3000 Worlds</font>."
-        "DOTA_Tooltip_ability_nobu_dash_attr_damage"			""
-		"DOTA_Tooltip_ability_nobu_dash_Lore"	"Cannot be reset."
+        "DOTA_Tooltip_ability_nobu_dash_Description"	 	"<font color='#58ACFA'>PASSIVE:</font> Recharge its's stack every certain time. \n<font color='#58ACFA'>ACTIVE:</font> Nobunaga immediately dashes in the target direction and consume its stack to refresh its cooldown. \n\n<font color='#9FFFCC'>Upgradable with Attribute: 3000 Worlds and Independent Action</font>. \n Using <font color='#58ACFA'>Dash</font> will refresh <font color='#FFB266'>Strategy</font> cooldown."
+        "DOTA_Tooltip_ability_nobu_dash_cooldown"						"REFRESH COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_dash_dash"							"DASH DISTANCE:"
+
+        "DOTA_Tooltip_ability_nobu_dash_3000"					"<font color='#9FFFCC'>Dash</font>"
+        "DOTA_Tooltip_ability_nobu_dash_3000_Description"	 	"<font color='#58ACFA'>PASSIVE:</font> Recharge its's stack every certain time. \n<font color='#58ACFA'>ACTIVE:</font> Nobunaga immediately dashes in the target direction and consume its stack to refresh its cooldown. \n At the end of dash, muskets will appear near Nobunaga and shoot to nearby enemy, dealing physical damage and <font color='#FF3399'>knock back</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>. \n Using <font color='#58ACFA'>Dash</font> will refresh <font color='#FFB266'>Strategy</font> cooldown."
+        "DOTA_Tooltip_ability_nobu_dash_3000_cooldown"			"REFRESH COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_dash_3000_dash"				"DASH DISTANCE:"
+        "DOTA_Tooltip_ability_nobu_dash_3000_search"			"SEARCH RADIUS:"
+        "DOTA_Tooltip_ability_nobu_dash_3000_damage_mod"		"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_dash_3000_bonus_gun"			"BONUS MUSKETS:"
+        "DOTA_Tooltip_ability_nobu_dash_3000_knock"				"KNOCKBACK DISTANCE:"
+
+        "DOTA_Tooltip_ability_nobu_dash_action"					"<font color='#9FFFCC'>Dash</font>"
+        "DOTA_Tooltip_ability_nobu_dash_action_Description"	 	"<font color='#58ACFA'>PASSIVE:</font> Recharge its's stack every certain time. \n<font color='#58ACFA'>ACTIVE:</font> Nobunaga immediately dashes in the target direction, gains <font color='#FFFF28'>Dash Buff</font> and consume its stack to refresh its cooldown. \n<font color='#FFFF28'>Dash Buff</font>: deals bonus magical damage to musket abilities. \n\n<font color='#9FFFCC'>Upgradable with Attribute: 3000 Worlds</font>. \n Using <font color='#58ACFA'>Dash</font> will refresh <font color='#FFB266'>Strategy</font> cooldown."
+        "DOTA_Tooltip_ability_nobu_dash_action_cooldown"			"REFRESH COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_dash_action_dash"				"DASH DISTANCE:"
+        "DOTA_Tooltip_ability_nobu_dash_action_action_dur"			"DASH BUFF DURATION:"
+        "DOTA_Tooltip_ability_nobu_dash_action_action_bonus_dmg"	"MUSKET BONUS DAMAGE:"
 
         "DOTA_Tooltip_ability_nobu_dash_upgrade"					"<font color='#9FFFCC'>Dash</font>"
-        "DOTA_Tooltip_ability_nobu_dash_upgrade_Description"	 	"Nobunaga immediately dashes in the target direction. Each charge is replenished over time."
-        "DOTA_Tooltip_ability_nobu_dash_upgrade_dmg_mod"			"RIFLE DAMAGE MOD:"
-		"DOTA_Tooltip_ability_nobu_dash_upgrade_Lore"		"Cannot be reset."
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_Description"	 	"<font color='#58ACFA'>PASSIVE:</font> Recharge its's stack every certain time. \n<font color='#58ACFA'>ACTIVE:</font> Nobunaga immediately dashes in the target direction, gains <font color='#FFFF28'>Dash Buff</font> and consume its stack to refresh its cooldown. \n At the end of dash, muskets will appear near Nobunaga and shoot to nearby enemy, dealing physical damage and <font color='#FF3399'>knock back</font>. \n<font color='#FFFF28'>Dash Buff</font>: deals bonus magical damage to musket abilities. \n Using <font color='#58ACFA'>Dash</font> will refresh <font color='#FFB266'>Strategy</font> cooldown."
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_cooldown"			"REFRESH COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_dash"				"DASH DISTANCE:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_search"				"SEARCH RADIUS:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_damage_mod"			"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_bonus_gun"			"BONUS MUSKETS:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_knock"				"KNOCKBACK DISTANCE:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_action_dur"			"DASH BUFF DURATION:"
+        "DOTA_Tooltip_ability_nobu_dash_upgrade_action_bonus_dmg"	"MUSKET BONUS DAMAGE:"
 
-        "DOTA_Tooltip_ability_nobu_double_shots"				"<font color='#9FFFCC'>Targeted Shots</font>"
-        "DOTA_Tooltip_ability_nobu_double_shots_Description"		"Nobunaga start a series of shoots in the target direction or into target enemy, locking her rotation to always look on her target.\nSending an attack order will change target to enemy attacked.\nNobunaga cannot use three line formation while shooting, can move freely, but moving backwards will have its speed greatly decreased.\nAfter 0.5 seconds after casting this ability, it can be canceled by repeated use."
-        "DOTA_Tooltip_ability_nobu_double_shots_damage_mod"		"RIFLE DAMAGE MOD:"
-        "DOTA_Tooltip_ability_nobu_double_shots_duration"		"DURATION:"
+        "DOTA_Tooltip_ability_nobu_double_shots"				"<font color='#58ACFA'>Targeted Shots</font>"
+        "DOTA_Tooltip_ability_nobu_double_shots_Description"	"Nobunaga start a series of shoots in the target direction or into target enemy, gains <font color='#FFFF28'>Shooting</font> while enable <font color='#58ACFA'>Stop shooting</font> for durations. \n<font color='#FFFF28'>Shooting</font>: Locking Nobunaga rotation to always look on her target, can move freely, but moving backwards will have its speed greatly decreased. \n<font color='#58ACFA'>Stop shooting</font>: Stop this ability. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Independent Action</font>. \n Sending an attack order or attack move will change target to enemy attacked or nearby enemy. \n If enemy is not visible by Nobunaga's team, she will be shooting at the last place where he has been seen. \n Nobunaga cannot use <font color='#58ACFA'>Three line formation</font> while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_double_shots_delay_stop"		"MIN DURATION:"
+        "DOTA_Tooltip_ability_nobu_double_shots_cast_range"		"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_double_shots_damage_mod"		"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_double_shots_duration"		"MAX DURATION:"
         "DOTA_Tooltip_ability_nobu_double_shots_sps"			"SHOTS PER SECOND:"
         "DOTA_Tooltip_ability_nobu_double_shots_Lore"			""
-        "DOTA_Tooltip_ability_nobu_double_shots_Note0"					"If enemy is not visible by Nobunaga's team, she will be shooting at the last place where he has been seen."	
 
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade"				"<font color='#9FFFCC'>Targeted Shots</font>"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_Description"	"Nobunaga start a series of shoots in the target direction or into target enemy, gains <font color='#FFFF28'>Shooting</font> while enable <font color='#58ACFA'>Stop shooting</font> for durations. \n<font color='#FFFF28'>Shooting</font>: Locking Nobunaga rotation to always look on her target, can move freely, but moving backwards will have its speed greatly decreased. \n<font color='#58ACFA'>Stop shooting</font>: Stop this ability. \n Sending an attack order or attack move will change target to enemy attacked or nearby enemy. \n If enemy is not visible by Nobunaga's team, she will be shooting at the last place where he has been seen. \n Nobunaga cannot use <font color='#58ACFA'>Three line formation</font> while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_delay_stop"		"MIN DURATION:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_cast_range"		"CAST RANGE:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_damage_mod"		"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_armor_pierce"	"%DAMAGE BYPASS ARMOR:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_duration"		"MAX DURATION:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_sps"			"SHOTS PER SECOND:"
+        "DOTA_Tooltip_ability_nobu_double_shots_upgrade_Lore"			""
 
         "DOTA_Tooltip_ability_nobu_double_shots_stop"				"<font color='#9FFFCC'>Stop shooting</font>"
         "DOTA_Tooltip_ability_nobu_double_shots_stop_Description"		"Stop series of shots."
         "DOTA_Tooltip_ability_nobu_double_shots_stop_Lore"				""
 
-
-
-        "DOTA_Tooltip_ability_nobu_demon_king_open"				"<font color='#9FFFCC'>Demon King</font>"
-        "DOTA_Tooltip_ability_nobu_demon_king_open_Description"	"At the start of each round, Nobunaga can alter her spirit origin, gaining bonuses for this round."
-        "DOTA_Tooltip_ability_nobu_demon_king_open_Lore"						""
-	
-
-        "DOTA_Tooltip_ability_nobu_dow"				"<font color='#FFFFFF'>Spirit altering: Destroyer of worlds</font>"
-        "DOTA_Tooltip_ability_nobu_dow_Description"	"<font color='#58ACFA'>PASSIVE</font>: Each time nobunaga hits an enemy with her rifle, she will summon an additional rifle, which will shoot a nearby enemy. Can only occur once in a seconds, damage is equal to base guns damage.\n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Destroyer of worlds and Destroyer of Gods and Buddhas bonuses.</font>"
-        "DOTA_Tooltip_ability_nobu_dow_Lore" ""
-
-        "DOTA_Tooltip_ability_nobu_dogab"				"<font color='#FFFFFF'>Spirit altering: Destroyer of Gods and Buddhas</font>"
-        "DOTA_Tooltip_ability_nobu_dogab_Description"	"Gives Nobunaga a new ability: <font color='#9FFFCC'>Divinity Mark</font>.\n<font color='#9FFFCC'>Divinity Mark :</font> Nobunaga marks an enemy for 7 seconds. Each time she deals damage, target gains a stack. When reaching 12 stacks, enemy will be marked as divine and its armor will be reduced by its base value.\n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Destroyer of Gods and Buddhas and Fool of Owari bonuses.</font>"
-        "DOTA_Tooltip_ability_nobu_dogab_Note0" "Non-refreshable. 40 seconds cooldown."
-        "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
-
-        "DOTA_Tooltip_ability_nobu_fool_of_owari"				"<font color='#FFFFFF'>Spirit altering: Fool of Owari</font>"
-        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"<font color='#58ACFA'>PASSIVE</font>: Grants oda nobunaga Charisma aura in 1000 range, increasing all allies armor and movement speed.\n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses.</font>"
-        "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
-
-        "DOTA_Tooltip_ability_nobu_king_of_innovation"				"<font color='#FFFFFF'>Spirit altering: King of innovation</font>"
-        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Nobunaga a new ability: <font color='#9FFFCC'>Leader of innovation</font>. \n<font color='#9FFFCC'>Leader of innovation:</font> When cast, Oda Nobunaga will receive an aura for 10 seconds. Each time Nobunaga deals damage, all of her allies around gets healed and gain a 15% ms buff for 1 seconds.\n <font color='#58ACFA'>With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses.</font>"
-        "DOTA_Tooltip_ability_nobu_king_of_innovation_Note0" "Both effects have a hard cooldown of a 1 second."
-        "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 				""
-
-        "DOTA_Tooltip_ability_nobu_demon_king_close"				"<font color='#9FFFCC'>Demon King close</font>"
-        "DOTA_Tooltip_ability_nobu_demon_king_close_Description"	"Close the spellbook."
-        "DOTA_Tooltip_ability_nobu_demon_king_close_Lore"			""
- 
-
-        "DOTA_Tooltip_ability_nobu_charisma"						"<font color='#FFFFFF'>Demonic Charisma</font>"
-        "DOTA_Tooltip_ability_nobu_charisma_Description"			"<font color='#58ACFA'>PASSIVE</font>: Increases armor and movement speed of all allies around ."
-        "DOTA_Tooltip_ability_nobu_charisma_aura_radius"						"RADIUS:"
-        "DOTA_Tooltip_ability_nobu_charisma_ms_bonus"								"%MS BONUS:"
-        "DOTA_Tooltip_ability_nobu_charisma_armor_bonus"							"BONUS ARMOR:"
-        "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
-
-        "DOTA_Tooltip_ability_nobu_dow_passive"						"<font color='#FFFFFF'>Destroyer of Worlds</font>"
-        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"<font color='#58ACFA'>PASSIVE</font>: Each time nobunaga hits enemy with her rifle abilities, she will summon an additional rifle, which will shoot in closest enemy."
-        "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
-        "DOTA_Tooltip_ability_nobu_dow_passive_Note0"								"Can only occur once in a 1.5 seconds, damage is equal to base guns damage."
-
-         "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"<font color='#9FFFCC'>Leader of innovation</font>"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura. Each time a Nobunaga deals damage, all of her allies gain a bonus movement speed and heal them. Each time an ally of Nobunaga deals damage, she heals herself."
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"RADIUS:"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS BONUS:"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"BASE HEAL:"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"								"DURATION:"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"								"MS BONUS DURATION:"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
-
-           "DOTA_Tooltip_ability_nobu_divinity_mark"						"<font color='#9FFFCC'>Divinity mark</font>"
-        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy. Each time she deals damage, gains a stack.When reaching 12 stacks, enemy will be marked as divine and its armor will be reduced by its base value."
-        "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"						"CAST RANGE:"
-        "DOTA_Tooltip_ability_nobu_divinity_mark_duration"								"DURATION:"
-        "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"							"ACTIVE DURATION:"
-        "DOTA_Tooltip_ability_nobu_nobu_divinity_mark_Lore"								""
-
         "DOTA_Tooltip_ability_nobu_3000"						"<font color='#58ACFA'>Three line formation</font>"
-        "DOTA_Tooltip_ability_nobu_3000_Description"			"Nobunaga starts gathering rifles for her noble phantasm. every short period, a new rifle will appear. When released, all rifles will start shooting with a 60 shots per second speed. \n\n<font color='#9FFFCC'>Upgradable with Attribute:  3000 Worlds</font>."
-        "DOTA_Tooltip_ability_nobu_3000_damage_mod"							"RIFLE DMG MOD:"
-        "DOTA_Tooltip_ability_nobu_3000_channel_time"						"MAX CHANNEL:"
+        "DOTA_Tooltip_ability_nobu_3000_Description"			"<font color='#58ACFA'>CHANNEL</font>: Nobunaga starts gathering muskets. When the channeling is interrupted or success, all muskets will start shooting bullets to target location, dealing physical damage to all enemies along the path. \n\n<font color='#9FFFCC'>Upgradable with Attribute: 3000 Worlds</font>. \n This ability cannot be used while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_3000_damage_mod"						"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_3000_channel_time"					"MAX CHANNEL:"
+        "DOTA_Tooltip_ability_nobu_3000_range"							"MUSKET RANGE:"
+        "DOTA_Tooltip_ability_nobu_3000_aoe"							"MUSKET WIDTH:"
         "DOTA_Tooltip_ability_nobu_3000_Lore"								""
 
         "DOTA_Tooltip_ability_nobu_3000_upgrade"						"<font color='#9FFFCC'>Three line formation</font>"
-        "DOTA_Tooltip_ability_nobu_3000_upgrade_Description"			"Nobunaga starts gathering rifles for her noble phantasm. every short period, a new rifle will appear. When released, all rifles starts shooting will shoots lasers dealing a mix of pure and physical damage."
-        "DOTA_Tooltip_ability_nobu_3000_upgrade_damage_mod"							"RIFLE DMG MOD:"
-        "DOTA_Tooltip_ability_nobu_3000_upgrade_channel_time"						"MAX CHANNEL:"
-        "DOTA_Tooltip_ability_nobu_3000_upgrade_pure_perc"						"%PURE DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_Description"			"<font color='#58ACFA'>CHANNEL</font>: Nobunaga starts gathering muskets. When the channeling is interrupted or success, all muskets will start shooting lasers to target location, dealing a mix of pure and physical damage to all enemies along the path. \n This ability cannot be used while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_damage_mod"				"MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_channel_time"			"MAX CHANNEL:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_range"					"MUSKET RANGE:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_aoe"					"MUSKET WIDTH:"
+        "DOTA_Tooltip_ability_nobu_3000_upgrade_pure_perc"				"%PURE DAMAGE:"
         "DOTA_Tooltip_ability_nobu_3000_Lore"								""
 
-		"DOTA_Tooltip_ability_nobu_combo"						"<font color='#9FFFCC'>Combo: Demon king of the sixth heaven</font>"
-        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 25 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 5 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots."
-        "DOTA_Tooltip_ability_nobu_combo_radius"			"CAST RANGE"
-		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"RUN SPEED:"
-		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "MAXIMUM RUN DURATION:"
-		"DOTA_Tooltip_ability_nobu_combo_dmg_initial"			"INITIAL DAMAGE:"
-		"DOTA_Tooltip_ability_nobu_combo_dmg_mod"			"RIFLES DMG MOD:"
+        ////////////////////// Combo ///////////////////////////
+
+		"DOTA_Tooltip_ability_nobu_combo"						"<font color='#FF04EF'>Combo: Demon king of the sixth heaven</font>"
+        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#FF04EF'>Combo Requirement: 25 in all stats</font>\n<font color='#FF04EF'>Combo Sequence: W -> D in 5 seconds</font> \n Nobunaga start charging then run into the target enemy with insane speed. \n When Nobunaga hits target, dealing magic damage, <font color='#FF3399'>stunning</font> then follow by muskets shots dealing physical damage. \n\n<font color='#9FFFCC'>Upgradable with Attribute: 3000 Worlds</font>. \n Nobunaga is <font color='#FF3399'>stunned</font> while charging and running then <font color='#FFFF28'>invulnerable</font> and <font color='#FFFF28'>untargettable</font> after hitting target to finish ability. \n This ability cannot be used while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_combo_charge_time"		"CHARGE TIME:"
+        "DOTA_Tooltip_ability_nobu_combo_radius"			"CAST RANGE:"
+		"DOTA_Tooltip_ability_nobu_combo_run_speed"			"RUN SPEED:"
+		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 	"MAXIMUM RUN DURATION:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_initial"		"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_nobu_combo_total_atk"			"TOTAL MUSKETS:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_mod"			"MUSKET DAMAGE MOD:"
+
+		"DOTA_Tooltip_ability_nobu_combo_upgrade"						"<font color='#FF04EF'>Combo: Demon king of the sixth heaven</font>"
+        "DOTA_Tooltip_ability_nobu_combo_upgrade_Description"			"<font color='#FF04EF'>Combo Requirement: 25 in all stats</font>\n<font color='#FF04EF'>Combo Sequence: W -> D in 5 seconds</font> \n Nobunaga start charging then run into the target enemy with insane speed. \n When Nobunaga hits target, dealing magic damage, <font color='#FF3399'>stunning</font> then follow by muskets shots dealing a mix of pure and physical damage. \n\n<font color='#9FFFCC'>Upgradable with Attribute: 3000 Worlds</font>. \n Nobunaga is <font color='#FF3399'>stunned</font> while charging and running then <font color='#FFFF28'>invulnerable</font> and <font color='#FFFF28'>untargettable</font> after hitting target to finish ability. \n This ability cannot be used while <font color='#58ACFA'>Targeted Shots</font> is actived."
+        "DOTA_Tooltip_ability_nobu_combo_upgrade_charge_time"		"CHARGE TIME:"
+        "DOTA_Tooltip_ability_nobu_combo_upgrade_radius"			"CAST RANGE:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_run_speed"			"RUN SPEED:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_run_duration"	 	"MAXIMUM RUN DURATION:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_dmg_initial"		"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_total_atk"			"TOTAL MUSKETS:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_dmg_mod"			"MUSKET DAMAGE MOD:"
+		"DOTA_Tooltip_ability_nobu_combo_upgrade_pure"				"%PURE DAMAGE:"
+
+		////////////// Attribute ///////////////////////
 
         "DOTA_Tooltip_ability_nobu_strategy_attribute"				"<font color='#9FFFCC'>Attribute: Strategy</font>"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"<font color='#58ACFA'>PASSIVE</font>: Every 10 seconds, when Nobunaga deals damage she will gain bonus movement speed and rifle damage for a short duration. \n <font color='#58ACFA'>Dash</font>: removes cooldown from this attribute."
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"COOLDOWN:"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%MS BONUS:"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"BONUS RIFLE DMG:"
-     	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"DURATION:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"Enable <font color='#FFB266'>Strategy</font>. \n<font color='#FFB266'>Strategy</font>: <font color='#58ACFA'>PASSIVE</font>: When Nobunaga's musket deals damage, she gains <font color='#FFFF28'>Strategy</font> for short duration. \n<font color='#FFFF28'>Strategy</font>: Increase Nobunaga's movement speed and attack damage. \n <font color='#58ACFA'>Dash</font>: removes <font color='#FFB266'>Strategy</font> cooldown"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time"	"STRATEGY COOLDOWN:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%BONUS MOVESPEED:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"		"BONUS ATTACK:"
+     	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"STRATEGY DURATION:"
 
         "DOTA_Tooltip_ability_nobu_expanding_attribute"				"<font color='#9FFFCC'>Attribute: Demon king expanding</font>"
-        "DOTA_Tooltip_ability_nobu_expanding_attribute_Description"	"<font color='#58ACFA'>Demon King</font>: Nobunaga can alter her personality even further, gaining extra effects of her Demon King ability. Details inside the spellbook."
+        "DOTA_Tooltip_ability_nobu_expanding_attribute_Description"	"<font color='#58ACFA'>Demon King</font>: \n<font color='#FFFFFF'>Spirit altering: Destroyer of worlds</font>: Acquire <font color='#FFB266'>Destroyer of Worlds</font> and <font color='#FFB266'>Divinity Mark</font> \n<font color='#FFFFFF'>Spirit altering: Destroyer of Gods and Buddhas</font>: Acquire <font color='#FFB266'>Divinity Mark</font> and <font color='#FFB266'>Demonic Charisma</font>  \n<font color='#FFFFFF'>Spirit altering: Fool of Owari</font>: Acquire <font color='#FFB266'>Demonic Charisma</font> and <font color='#FFB266'>Leader of innovation</font>  \n<font color='#FFFFFF'>Spirit altering: King of innovation</font>: Acquire <font color='#FFB266'>Leader of innovation</font> and <font color='#FFB266'>Destroyer of worlds</font>"
 
         "DOTA_Tooltip_ability_nobu_3000_attribute"				"<font color='#9FFFCC'>Attribute: 3000 worlds</font>"
-        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"<font color='#58ACFA'>Three Line Formation</font>: Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies.Combo and ultimate deal portion of their damage as pure.\n <font color='#58ACFA'>Dash</font>: At the end of dash, two rifles will appear near Nobu, shooting an enemy in 800 range with a little knockback."
-        "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%PURE:"
-        "DOTA_Tooltip_ability_nobu_3000_attribute_dmg_mod"						"DASH RIFLE DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"<font color='#58ACFA'>Three Line Formation</font>: Projectiles change to lasers and convert some damage into pure damage \n<font color='#FF04EF'>Demon king of the sixth heaven</font>: Projectiles change to lasers and convert some damage into pure damage \n<font color='#58ACFA'>Dash</font>: At the end of dash, muskets will appear near Nobunaga and shoot to nearby enemy, dealing physical damage and <font color='#FF3399'>knock back</font>."
+        "DOTA_Tooltip_ability_nobu_3000_attribute_three_pure"		"%THREE LINE FORMATION PURE DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_combo_pure"		"%DEMON KING SIXTH HEAVEN PURE DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_damage_mod"		"DASH MUSKET DAMAGE MOD:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_search"			"DASH SEARCH RADIUS:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_bonus_gun"		"DASH BONUS MUSKETS:"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_knock"			"DASH KNOCKBACK DISTANCE:"
       
         "DOTA_Tooltip_ability_nobu_unifying_attribute"				"<font color='#9FFFCC'>Attribute: Unifying the Nation by Force</font>"
-        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increases Oda Nobunaga's rifle damage based on <font color='#00F7FF'>INT</font>. Oda nobunaga's rifle abilities deal additional damage to divine servants."
-        "DOTA_Tooltip_ability_nobu_unifying_attribute_int_scaling" 	"DEMON GUNS DMG PER INT:"
-        "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"DIVINE DAMAGE BONUS:"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increases musket damage based on Nobunaga's <font color='#00F7FF'>INT</font>. \n Musket deals bonus damage to Divine enemies."
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_int_scaling" 			"BONUS DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"%DIVINE DAMAGE BONUS:"
  
         "DOTA_Tooltip_ability_nobu_independent_action"				"<font color='#9FFFCC'>Attribute: Independent action</font>"
-        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage.\n <font color='#58ACFA'>Shoot</font>: will now microstun and knockback enemy and gain 20% armor pierce, if it was used without targeted shots(E) activated.\n <font color='#58ACFA'>Dash</font>: Using Dash will now increase next guns damage by a flat magical value for 2 seconds. \n <font color='#58ACFA'>Targeted Shots</font>: Gain 20% armor pierce."
-        "DOTA_Tooltip_ability_nobu_independent_action_microstun_duration" 	"MICROSTUN DURATION:"
-        "DOTA_Tooltip_ability_nobu_independent_action_guns_damage" 	"DEMON GUNS BONUS DAMAGE:"
-        "DOTA_Tooltip_ability_nobu_independent_action_attr_damage" 	"DASH BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"<font color='#58ACFA'>Demon Guns</font>: Increase base damage. \n <font color='#58ACFA'>Shoot</font>: Target will be <font color='#FF3399'>ministunned</font> and <font color='#FF3399'>knock back</font>, some damage bypass armor. \n Using <font color='#58ACFA'>Shoot</font> while <font color='#58ACFA'>Targeted Shots</font> is actived will no longer <font color='#FF3399'>ministunned</font> and <font color='#FF3399'>knock back</font>. \n <font color='#58ACFA'>Dash</font>: Nobunaga gains <font color='#FFFF28'>Dash Buff</font> \n<font color='#FFFF28'>Dash Buff</font>: deals bonus magical damage to musket abilities. \n<font color='#58ACFA'>Targeted Shots</font>: Some damage bypass armor."
+        "DOTA_Tooltip_ability_nobu_independent_action_guns_damage" 			"DEMON GUNS BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_shoot_armor_pierce" 	"%SHOOT DAMAGE BYPASS ARMOR:"
+        "DOTA_Tooltip_ability_nobu_independent_action_shoot_stun" 			"SHOOT STUN DURATION:"
+        "DOTA_Tooltip_ability_nobu_independent_action_shoot_knock" 			"SHOOT KNOCKBACK DISTANCE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_dash_dur" 			"DASH BUFF DURATION:"
+        "DOTA_Tooltip_ability_nobu_independent_action_dash_bonus_dmg" 		"DASH BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_nobu_independent_action_double_armor_pierce" 	"%TARGETED SHOTS DAMAGE BYPASS ARMOR:"
         
         /////////////////////////// Debuffs Buffs ////////////////////////////////
 
@@ -14068,17 +14155,20 @@
 		"DOTA_Tooltip_modifier_nobu_divinity_mark"									"Divinity mark"
 		"DOTA_Tooltip_modifier_nobu_divinity_mark_Description"				"If Nobu shoots you 10 times, you will receive a debuff."
 
-		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated"									"Divinity mark active"
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated"									"Pseudo Divinity"
 		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated_Description"				"You are divine and have armor reduced."
 
 		"DOTA_Tooltip_modifier_nobu_slow"									"Slowed"
 		"DOTA_Tooltip_modifier_nobu_slow_Description"				""
 
 		"DOTA_Tooltip_modifier_nobu_dash_dmg"									"Dash buff"
-		"DOTA_Tooltip_modifier_nobu_dash_dmg_Description"				"Next shoot will deal additional damage."
+		"DOTA_Tooltip_modifier_nobu_dash_dmg_Description"				"Next shoot will deal additional damage." 
 
-		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"Strategy cooldown"
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"Strategy cooldown" 
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
+
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute"							"Strategy" 
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_Description"				""
 
 		//=======================================================================================================
 		//	Saitō Hajime
@@ -14615,6 +14705,199 @@
 
 		"DOTA_Tooltip_modifier_mashu_combo_cooldown"												"Lord Camelot Cooldown"
 		"DOTA_Tooltip_modifier_mashu_combo_cooldown_Description"											"Combo cooldown."
+
+		//=====================================================================================================
+		// MIYAMOTO MUSASHI
+		//=====================================================================================================
+		"npc_dota_hero_antimage"    "MIYAMOTO MUSASHI"
+        "npc_dota_hero_antimage_summon"    "<b><font color='SlateBlue'>MIYAMOTO MUSASHI</b></font> has been summoned."
+        "npc_dota_hero_antimage_enable_combo"    "Enable Combo: <b><font color='#FF0000'>ISHANA DAITENSHOU - SLASH THE VOID 「」 </b></font>"
+
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei"    "<b><font color='SandyBrown'>DAI GO SEI</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_description"    "Blink to enemy and stun target enemy for short duration. 
+ Increase her Attack Speed and Damage. 
+ Deal critical damage on every few hits while TENGAN is active. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. 
+ A stance that utilitize the main advantages of using two swords. "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "BONUS ATTACK SPEED: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusDmg"    "BONUS DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_StunDuration"    "STUN DURATION: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BuffDuration"    "BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_HitsRequired"    "HITS REQUIRED: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_CriticalDmg"    "CRITICAL DAMAGE: "
+
+        "DOTA_Tooltip_Ability_musashi_accel_turn"    "<b><font color='DodgerBlue'>ACCEL TURN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_description"    "Perform emergency dodge and dash back. 
+ Deals damage to units in her path. "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Lore"    "Swimsuit Ishtar's skill that's been copied visually. 
+ Even though Ishtar was the victim of plagiarism, the only thing she could manage to say was she's a genius!"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Damage"    "DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_DashRange"    "DASH RANGE: "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_DashSpeed"    "DASH SPEED: "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_DashWidth"    "DASH WIDTH: "
+
+        "DOTA_Tooltip_Ability_musashi_tengan"    "<b><font color='DodgerBlue'>TENGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengan_description"    "Apply a buff on herself for durations. This buff have interactions with her other skills. Buff will be removed after casting E or R. 
+ Q: Allows her to deal critical damage after every few hits. 
+ E Allows her to deal BONUS PURE DMG on the last strike. 
+ R Allows her to apply debuff on enemies in her path which explodes and deal BONUS PURE DMG after short delay. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: IMPROVE TENGAN</b></font"
+        "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. 
+ TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome. "
+        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmg"    "BONUS DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengan_BuffDuration"    "BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
+        "DOTA_Tooltip_Ability_musashi_tengan_MaxCharges"    "MAX CHARGES: "
+        "DOTA_Tooltip_Ability_musashi_tengan_RechargeTime"    "RECHARGE TIME: "
+
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<b><font color='Crimson'>NIOU KURIKARA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "Slash few times to deal damage to an AOE. 
+ She become UNTARGETABLE and these slashes cannot be stopped by herself once activated. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: MUKYUU AND ATTRIBUTES: GORIN NO SHO</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure. "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgPerSlash"    "DAMAGE PER SLASH: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_SlashCount"    "SLASH COUNT: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Radius"    "RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducWhileChannel"    "%DAMAGE REDUCTION WHILE CHANNELLING: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducFinishChannel"    "%DAMAGE REDUCTION BUFF: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_BuffDuration"    "BUFF DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_mukyuu"    "<b><font color='SlateBlue'>MUKYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "Become Invulnerable and Magic Immune for short durations. "
+        "DOTA_Tooltip_Ability_musashi_mukyuu_Lore"    "Musashi achieved realm of NOTHINGNESS, the ultimate mental state of a swordsman. One is NOTHING, thus INVINCIBLE. 
+ Not even a slash that uses the Multi-Dimensional Refraction Phenomenon can reach someone who achieved realm of NOTHINGNESS. "
+        "DOTA_Tooltip_Ability_musashi_mukyuu_BuffDuration"    "BUFF DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<b><font color='SlateBlue'>TENGEN NO HANA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_description"    "Apply a buff on herself and perform a circle slash around her to deal PURE DAMAGE and STUN enemies when the buff ends. Damage ramp up based on the buff elapsed time. 
+ This skill can be used again to remove the buff and deal damage earlier but the damage will be PENALIZED. "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Lore"    "A vibrant flower of tengen. Her sword reaches the realm of NOTHINGNESS. "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Radius"    "RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_RampUpInterval"    "RAMP UP INTERVAL: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_BuffDuration"    "BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Damage1"    "1 SEC DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Damage2"    "2 SEC DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullDamage"    "FULL DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_StunDuration"    "STUN DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<b><font color='MediumSeaGreen'>GANRYUU JIMA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "Dash towards location A. After reaching location A, she performs spinning slashes from A to B and B to A. 
+ Deal damage to units in her spinning slashes path. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_Lore"    "Let's, KENGOU BATTOU! Oh yeah, so sexy! My name is...Musashi Miyamoto!"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DashSpeed"    "DASH SPEED: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DmgPerSlash"    "DAMAGE PER SLASH: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DebuffDmgDelay"    "DEBUFF DAMAGE DELAY: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRange"    "SLASH RANGE: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRadius"    "SLASH RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
+
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<b><font color='Crimson'>TENMA GOGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "Change all slashes of E from MAGICAL to PURE. Bypass all shield effects. 
+ R Damage can bypass INVULNERABLE and MAGIC IMMUNE. 
+ Buff will be removed after casting E or R and a debuff will be applied to her. 
+ She will be stunned and revoked during this debuff. BATTLE CONTINUATION cannot proc while this debuff exists. "
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_Lore"    "Musashi overloads her TENGAN to the verge of collapsing to gain abrupt offensive power momentarily. 
+ TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions. "
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_BuffDuration"    "BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_DebuffDuration"    "DEBUFF DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<b><font color='SlateBlue'>BATTLE CONTINUATION</b></font>"
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and cannot be killed or healed for durations. Apply a heal on herself when the buff ends. 
+ Cannot revive while TENMA GOGAN debuff exists. "
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
+ If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_BuffDuration"    "BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_Heal"    "HEAL: "
+
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<b><font color='Red'>ISHANA DAITENSHOU - SLASH THE VOID 「」"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "COMBO SEQUENCE: D->Q->R 
+ Marks the target location and perform NIOU KURIKARA while she charges her mana. 
+ Dash towards enemy and perform slashes if target still within search radius when she finishes charging. 
+ Deal damage based on enemy Max HP. If target HP falls below threshold, target will be executed. 
+ If target survives the blow, target will receive debuff which reduce Max Hp and take increased damage until end of the round. "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_Lore"    "SLASH THE VOID 「」 - BEYOND ZERO"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_SearchRadius"    "SEARCH RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_DashSpeed"    "DASH SPEED: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_NormalSlashCount"    "NORMAL SLASH COUNT: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_NormalSlashInterval"    "NORMAL SLASH INTERVAL: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_NormalSlashMaxHpPercent"    "%MAX HP AS NORMAL SLASH DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashDmgDelay"    "FINAL SLASH DELAY: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashMaxHpPercent"    "%MAX HP AS FINAL SLASH DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExecuteThresholdPercent"    "%EXECUTE THRESHOLD: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxHpReductionPercent"    "%MAX HP REDUCTION: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%INCREASED INCOMING DAMAGE: "
+
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<b><font color='Gold'>BATTLE CONTINUATION</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "Enable BATTLE CONTINUATION and apply TENGEN NO HANA on her automatically when it procs. "
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<b><font color='Gold'>IMPROVE TENGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase TENGAN max charge and reduce TENGAN recharge time. Increase PURE DAMAGE from TENGAN buff."
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_BonusPureDmgPerAgi"    "BONUS PURE DAMAGE PER AGI: "
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_MaxCharges"    "MAX CHARGES: "
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_RechargeTime"    "RECHARGE TIME: "
+
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<b><font color='Gold'>GORIN NO SHO</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "Apply elemental effects in sequence to enemies when using Niou Kurikara. 
+ EARTH: Slow enemies' movement speed. 
+ WATER: Push enemies towards center. 
+ FIRE: Apply Stun and Burn to enemies. 
+ WIND: Apply Stun and Revoke to enemies. "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_DebuffDuration"    "DEBUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_EarthSlow"    "%EARTH MOVEMENT SPEED SLOW: "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_PushSpeed"    "WATER PUSH SPEED: "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_FireBurnDuration"    "FIRE BURN DURATION: "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_FireBurnDmgPerSec"    "BURN DAMAGE PER SECOND: "
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_WindDuration"    "WIND DEBUFF DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<b><font color='Gold'>MUKYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "Enables MUKYUU and allow TENGAN NO HANA to be used after using MUKYUU. 
+ Musashi receive reduced damage while channelling NIOU KURIKARA. Gains Damage Reduction buff if NIOU KURIKARA is channelled successfully."
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_DmgReducWhileChannel"    "%DAMAGE REDUCTION WHILE CHANNELLING: "
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_DmgReducFinishChannel"    "%DAMAGE REDUCTION BUFF: "
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_BuffDuration"    "BUFF DURATION: "
+
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<b><font color='Gold'>NITEN ICHIRYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "Reduce hits required to proc critical damage when using DAI GO SEI. 
+ Increase slash range, slash width, damage per slash of GANRYUU JIMA. "
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_HitsRequired"    "HITS REQUIRED TO CRIT: "
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_CriticalDmg"    "CRITICAL DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_SlashRange"    "SLASH RANGE: "
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_SlashRadius"    "SLASH RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
+        
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei"    "DAI GO SEI"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_description"    "Increase base damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% and attack speed %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+        "DOTA_Tooltip_musashi_modifier_tengan"    "TENGAN"
+        "DOTA_Tooltip_musashi_modifier_mukyuu"    "MUKYUU"
+        "DOTA_Tooltip_musashi_modifier_mukyuu_description"    "INVULNERABLE and MAGIC IMMUNE."
+        "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "TENGEN NO HANA"
+        "DOTA_Tooltip_musashi_modifier_tengen_no_hana_description"    "Deal PURE DAMAGE and STUN enemies around her when buff ends."
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima"    "GANRYUU JIMA"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff"    "GANRYUU JIMA DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff_description"    "Deal PURE DAMAGE when this debuff ends. "
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan"    "TENMA GOGAN"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff"    "TENMA GOGAN DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "Stunned and Revoked. BATTLE CONTINUATION cannot proc."
+        "DOTA_Tooltip_musashi_modifier_battle_continuation"    "BATTLE CONTINUATION"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_description"    "HP cannot go below %dMODIFIER_PROPERTY_MIN_HEALTH% and Healing is %dMODIFIER_PROPERTY_DISABLE_HEALING%."
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "BATTLE CONTINUATION COOLDOWN"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "ISHANA DAITENSHOU"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_cooldown"    "ISHANA DAITENSHOU COOLDOWN"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "ISHANA DAITENSHOU DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "Increase incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% and MAX HP by %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_channeling_buff"    "NIOU KURIKARA CHANNELLING BUFF"
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_channeling_buff_description"    "UNTARGETABLE and reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postchannel_buff"    "NIOU KURIKARA POST CHANNEL BUFF"
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postchannel_buff_description"    "Reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_earth_debuff"    "EARTH DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_earth_debuff_description"    "Movement Speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_water_debuff"    "WATER DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_water_debuff_description"    "Pushed towards target point."
+        "DOTA_Tooltip_musashi_modifier_fire_debuff"    "FIRE DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "Receive burn damage for durations. "
+        "DOTA_Tooltip_musashi_modifier_wind_debuff"    "WIND DEBUFF"
+        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Revoked and Stunned for durations. "
 
         //====================================
         //      Idk what this is

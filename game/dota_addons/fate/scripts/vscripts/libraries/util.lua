@@ -384,9 +384,9 @@ goesthruB = {
     "scathach_gae_bolg_upgrade_2",
     "scathach_gae_bolg_upgrade_3",
     "avenger_verg_avesta_upgrade",    
-    "avenger_verg_avesta",   
+    "avenger_verg_avesta",  
     "saito_step",
-    "saito_vortex",
+    "saito_vortex", 
 }
 
 invis = {
@@ -517,6 +517,7 @@ donotlevel = {
     "semiramis_poisonous_cloud",
     "semiramis_poisonous_bite",
     "semiramis_absolute_queen",
+    "nobu_strat",
 }
 
 tModifierCooldown = {
@@ -795,6 +796,7 @@ CannotReset = {
     "semiramis_dual_class_upgrade",
     "semiramis_combo",
     "nobu_combo",
+    "nobu_combo_upgrade",
     "nobu_leader_of_innovation",
     "nobu_divinity_mark",
     "nobu_demon_king_open",
@@ -841,6 +843,7 @@ tSpellBookHero = {
     "npc_dota_hero_necrolyte",
     "npc_dota_hero_sniper",
     "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_gyrocopter",
     "npc_dota_hero_dragon_knight",
 }
 
@@ -1895,7 +1898,7 @@ function IsFemaleServant(target)
     end
 
     -- skin female
-    if target:GetName() == "npc_dota_hero_bounty_hunter" then 
+    --[[if target:GetName() == "npc_dota_hero_bounty_hunter" then 
         if target:HasModifier("modifier_alternate_02") or target:HasModifier("modifier_alternate_03") then 
             return true 
         end
@@ -1911,7 +1914,7 @@ function IsFemaleServant(target)
         if target:HasModifier("modifier_alternate_02") then 
             return true 
         end    
-    end
+    end]]
 
     return false
 end
@@ -3379,7 +3382,12 @@ function MasterCannotUpgrade(hero, caster, ability, AcquireSA)
         SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
         caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
         ability:EndCooldown()
-        return true      
+        return true    
+    elseif hero:GetName() == "npc_dota_hero_gyrocopter" and hero:HasModifier("modifier_nobu_turnlock") then   
+        SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
+        caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
+        ability:EndCooldown()
+        return true   
     end
  
     return false
@@ -4152,6 +4160,10 @@ function IsDivineServant(hTarget)
         if hTarget:GetName() == tDivineHeroes[i] then
             return true
         end
+    end
+
+    if hTarget:HasModifier("modifier_nobu_divinity_mark_activated") then 
+        return true 
     end
 
     return false
