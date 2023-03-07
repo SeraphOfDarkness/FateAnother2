@@ -288,7 +288,7 @@ function OnGodForceStart(keys)
 					end
 					caster:EmitSound('Hero_Juggernaut.OmniSlash')
 					--StartAnimation(caster, {duration=interval - 0.05, activity=anim, rate=2.5})
-					local slashfxx = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/slash.vpcf", PATTACH_ABSORIGIN, caster)
+					local slashfxx = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/slash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 					ParticleManager:SetParticleControlForward(slashfxx, 0, caster:GetForwardVector() * -1)
 					ParticleManager:SetParticleControl(slashfxx, 1, Vector(0,0,(i % 2) * 180))
 					ParticleManager:SetParticleControl(slashfxx, 2, Vector(1,1,radius))

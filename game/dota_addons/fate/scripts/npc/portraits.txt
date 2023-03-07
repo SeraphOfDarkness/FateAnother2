@@ -2671,35 +2671,68 @@
 
 	"models/heroes/saito2/saito_mdoc.vmdl"
 	{
-		"PortraitLightPosition"		"78.278076 -71.234673 324.330261"
-		"PortraitLightAngles"		"58.833107 136.411575 0.000000"
-		"PortraitLightFOV"		"88.000000"
-		"PortraitLightDistance"		"343.000000"
-		"PortraitLightColor"		"191 224 254"
-		"PortraitShadowColor"		"65 65 65"
-		"PortraitShadowScale"		"4.175000"
-		"PortraitAmbientColor"		"192 192 192"
-		"PortraitAmbientScale"		"5.000000"
-		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_graveyard.vmat"
-		"PortraitBackgroundColor1"		"1.000000 1.000000 1.000000"
-		"PortraitBackgroundColor2"		"1.000000 1.000000 1.000000"
-		"PortraitBackgroundColor3"		"1.000000 1.000000 1.000000"
-		"PortraitBackgroundColor4"		"1.000000 1.000000 1.000000"
-		"PortraitLightScale"		"1.882885"
-		"PortraitGroundShadowScale"		"1.500000"
-		"PortraitAmbientDirection"		"0.000000 0.000000 -1.000000"
-		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
-		"cameras"
-		{
-			"default"
-			{
-				"PortraitPosition"		"170.90 -65.63 150"
-				"PortraitAngles"		"350.41 160.17 0"
-				"PortraitFOV"		"15"
-			}
-		}
-	}
+        "PortraitLightPosition"        "78.278076 -71.234673 324.330261"
+        "PortraitLightAngles"        "58.833107 136.411575 0.000000"
+        "PortraitLightFOV"        "88.000000"
+        "PortraitLightDistance"        "343.000000"
+        "PortraitLightColor"        "191 224 254"
+        "PortraitShadowColor"        "65 65 65"
+        "PortraitShadowScale"        "4.175000"
+        "PortraitAmbientColor"        "192 192 192"
+        "PortraitAmbientScale"        "5.000000"
+        "PortraitSpecularColor"        "251 74 84"
+        "PortraitBackgroundTexture"        "materials/vgui/hud/heroportraits/portraitbackground_graveyard.vmat"
+        "PortraitBackgroundColor1"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor2"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor3"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor4"        "1.000000 1.000000 1.000000"
+        "PortraitLightScale"        "1.882885"
+        "PortraitGroundShadowScale"        "1.500000"
+        "PortraitAmbientDirection"        "0.000000 0.000000 -1.000000"
+        "PortraitAnimationActivity"        "ACT_DOTA_IDLE"
+        "cameras"
+        {
+            "default"
+            {
+                "PortraitPosition"        "170.90 -65.63 150"
+                "PortraitAngles"        "350.41 160.17 0"
+                "PortraitFOV"        "15"
+            }
+        }
+    }
+
+	"models/musashi/red/musashi_red_by_zefiroft.vmdl"
+    {
+        "PortraitLightPosition"        "66.240837 -17.914551 196.867035"
+        "PortraitLightAngles"        "8.675864 168.451904 -142.115280"
+        "PortraitLightFOV"        "70.496002"
+        "PortraitLightDistance"        "105.519997"
+        "PortraitLightColor"        "144 174 255"
+        "PortraitShadowColor"        "101 86 165"
+        "PortraitShadowScale"        "1.000000"
+        "PortraitAmbientColor"        "105 144 253"
+        "PortraitAmbientScale"        "1.729000"
+        "PortraitSpecularColor"        "251 74 84"
+        "PortraitBackgroundTexture"        "materials/vgui/hud/heroportraits/portraitbackground_nightsilver.vmat"
+        "PortraitBackgroundColor1"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor2"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor3"        "1.000000 1.000000 1.000000"
+        "PortraitBackgroundColor4"        "0.407843 0.415686 0.513726"
+        "PortraitLightScale"        "3.394000"
+        "PortraitGroundShadowScale"        "1.500000"
+        "PortraitAmbientDirection"        "-0.699 -0.701 -0.141"
+        "PortraitAnimationActivity"        "ACT_DOTA_CAPTURE"
+        "cameras"
+        {
+            "default"
+            {
+                "PortraitPosition"        "140.40 -12.15 58.95"
+                "PortraitAngles"        "358.76 177.53 0"
+                "PortraitFOV"        "8"
+                "PortraitFar"        "1000"
+            }
+        }
+    }
 
 	"default"
 	{

@@ -1597,7 +1597,7 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 		"Sex"			"Female"
 		"Class"			"Saber"
 		"Trait"			"Human" 
-		"Roles"			"carry,burst,tank" 	
+		"Roles"			"carry,mobility,tank" 	
 		"Role" 							
 		{
 			"1"
@@ -1614,23 +1614,21 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 			{			
 				"carry"
 				{
-					"weight"	"40"	// weight to calculate
+					"weight"	"50"	// weight to calculate
 					"criteria"	"3"
-					"dDeal"		"6000"	// > avg dmg deal per round
+					"dDeal"		"5000"	// > avg dmg deal per round
 					"KD"		"1.5"	// > total KD
 					"Assist"	"35"	// > Assist
 				}
 			}
-			"3"
+			"3"	
 			{			
-				"burst"	
+				"mobility"	
 				{
-					"weight"	"30"	// weight to calculate
-					"criteria"	"3"
-					"dDeal"		"5000"	// > avg dmg deal per round
-					"KD"		"2.0"	// > total KD
-					"Assist"	"20"	// > Assist
-				}		
+					"weight"	"10"	// weight to calculate
+					"criteria"	"1"
+					"Death"		"35"	// < death of total round
+				}
 			}
 		}
 	}	

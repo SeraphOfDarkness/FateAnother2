@@ -2,12 +2,13 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
+local __TS__ArrayFind = ____lualib.__TS__ArrayFind
 local ____exports = {}
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerModifier = ____dota_ts_adapter.registerModifier
-function ____exports.InitSkillSlotChecker(self, Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
-    if not IsServer() then
+function ____exports.InitSkillSlotChecker(Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
+    if not IsServer() or Caster:HasModifier(____exports.Modifier_Skill_Slot_Checker.name) then
         return
     end
     local OriSkill = Caster:FindAbilityByName(OriSkillStr)
@@ -81,7 +82,7 @@ Modifier_Skill_Slot_Checker = __TS__Decorate(
     Modifier_Skill_Slot_Checker
 )
 ____exports.Modifier_Skill_Slot_Checker = Modifier_Skill_Slot_Checker
-function ____exports.CheckComboStatsFulfilled(self, Caster)
+function ____exports.CheckComboStatsFulfilled(Caster)
     if not IsServer() then
         return false
     end
@@ -95,7 +96,7 @@ function ____exports.CheckComboStatsFulfilled(self, Caster)
     end
     return false
 end
-function ____exports.InitComboSequenceChecker(self, Caster, SkillsSequence, OriSkillStr, ComboSkillStr, Timeout)
+function ____exports.InitComboSequenceChecker(Caster, SkillsSequence, OriSkillStr, ComboSkillStr, Timeout)
     if not IsServer() then
         return
     end
@@ -103,8 +104,6 @@ function ____exports.InitComboSequenceChecker(self, Caster, SkillsSequence, OriS
     ModifierComboSequence.SkillsSequence = SkillsSequence
     ModifierComboSequence.OriSkillStr = OriSkillStr
     ModifierComboSequence.ComboSkillStr = ComboSkillStr
-    print("oriskill", OriSkillStr)
-    print("comboskillstr", ComboSkillStr)
 end
 ____exports.Modifier_Combo_Sequence = __TS__Class()
 local Modifier_Combo_Sequence = ____exports.Modifier_Combo_Sequence
@@ -128,10 +127,8 @@ function Modifier_Combo_Sequence.prototype.OnStackCountChanged(self, stackCount)
     local ____stackCount_14 = stackCount
     local ____opt_12 = self.SkillsSequence
     if ____stackCount_14 == (____opt_12 and #____opt_12) - 1 then
-        print("hey hey")
         local Caster = self:GetCaster()
         ____exports.InitSkillSlotChecker(
-            nil,
             Caster,
             self.OriSkillStr,
             self.ComboSkillStr,
@@ -155,9 +152,33 @@ end
 function Modifier_Combo_Sequence.prototype.RemoveOnDeath(self)
     return false
 end
+function Modifier_Combo_Sequence.prototype.GetTexture(self)
+    return "custom/utils/ComboSequence"
+end
 Modifier_Combo_Sequence = __TS__Decorate(
     {registerModifier(nil)},
     Modifier_Combo_Sequence
 )
 ____exports.Modifier_Combo_Sequence = Modifier_Combo_Sequence
+function ____exports.GetMaster1(Master2)
+    if not IsServer() then
+        return
+    end
+    local TargetFlags = DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+    local Units = FindUnitsInRadius(
+        Master2:GetTeam(),
+        Master2:GetAbsOrigin(),
+        nil,
+        400,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        DOTA_UNIT_TARGET_ALL,
+        TargetFlags,
+        FIND_CLOSEST,
+        false
+    )
+    return __TS__ArrayFind(
+        Units,
+        function(____, Unit) return Unit:GetUnitName() == "master_1" and Unit:GetPlayerOwner() == Master2:GetPlayerOwner() end
+    )
+end
 return ____exports

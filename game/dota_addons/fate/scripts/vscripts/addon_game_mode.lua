@@ -31,8 +31,8 @@ require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
---require('libs/vector_targeting')
---require('libs/ascension')
+require('libs/vector_targeting')
+require('libs/ascension')
 
 _G.IsPickPhase = true
 _G.IsPreRound = true
@@ -236,6 +236,7 @@ end
 function Activate()
     GameRules.AddonTemplate = FateGameMode()
     GameRules.AddonTemplate:InitGameMode()
+    require('libs/filters')
 end
 
 
@@ -3899,7 +3900,6 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("Condition", {dbhruntproh = false, female = 0, divine = 0})
     ServerTables:CreateTable("Win", {goal = 0})
     ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false})
-    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false})
     ServerTables:CreateTable("PEPE", {slayer = false, savior = false, pepe = false, total = 0, kill = 0})
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})

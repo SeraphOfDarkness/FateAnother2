@@ -556,9 +556,11 @@ function OnNineLanded(caster, ability)
 	-- main timer
 	Timers:CreateTimer(function()
 		if caster:IsAlive() then -- only perform actions while caster stays alive
-			local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
+			local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector() * -1)
 			ParticleManager:SetParticleControl(particle, 1, Vector(0,0,(nineCounter % 2) * 180))
+			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,radius))
+			ParticleManager:SetParticleControl(particle, 3, Vector(radius / 250,1,1))
 
 			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
 

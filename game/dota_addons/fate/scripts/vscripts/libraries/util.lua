@@ -595,6 +595,7 @@ tModifierCooldown = {
     "modifier_nobu_combo_cd",
     "modifier_saito_style_combo_indicator",
     "modifier_mashu_combo_cooldown",
+    "musashi_modifier_ishana_daitenshou_cooldown",
 }
 
 CannotReset = {
@@ -802,6 +803,10 @@ CannotReset = {
     "nobu_demon_king_open",
     "saito_style",
     "mashu_combo",
+    "musashi_tengan",
+    "musashi_mukyuu",
+    "musashi_battle_continuation",
+    "musashi_ishana_daitenshou",
 }
 
 femaleservant = {
@@ -2381,7 +2386,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
         end
         
-        if target:IsMagicImmune() and dmg_flag ~= bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)  then 
+        if target:IsMagicImmune() and dmg_flag ~= bit.bor(dmg_flag, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)  then 
             dmg = 0 
         end
 
