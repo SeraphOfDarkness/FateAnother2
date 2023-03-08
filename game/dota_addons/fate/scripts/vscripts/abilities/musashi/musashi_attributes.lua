@@ -74,9 +74,6 @@ local musashi_attribute_improve_tengan = ____exports.musashi_attribute_improve_t
 musashi_attribute_improve_tengan.name = "musashi_attribute_improve_tengan"
 __TS__ClassExtends(musashi_attribute_improve_tengan, BaseModifier)
 function musashi_attribute_improve_tengan.prototype.OnCreated(self)
-    if not IsServer() then
-        return
-    end
     self.Caster = self:GetParent()
     local ____opt_0 = self.Caster
     local TenganChargeCounter = ____opt_0 and ____opt_0:FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name)
@@ -178,9 +175,10 @@ function musashi_attributes_mukyuu.prototype.OnSpellStart(self)
     local Master1 = GetMaster1(Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
     local Mukyuu = Hero:FindAbilityByName(musashi_ability.musashi_mukyuu.name)
-    if Mukyuu ~= nil then
+    Hero:SwapAbilities("fate_empty1", musashi_ability.musashi_mukyuu.name, false, true)
+    --[[if Mukyuu ~= nil then
         Mukyuu:SetHidden(false)
-    end
+    end]]
     Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_mukyuu.name, {undefined = undefined})
 end
 musashi_attributes_mukyuu = __TS__Decorate(
@@ -257,9 +255,6 @@ local musashi_attribute_niten_ichiryuu = ____exports.musashi_attribute_niten_ich
 musashi_attribute_niten_ichiryuu.name = "musashi_attribute_niten_ichiryuu"
 __TS__ClassExtends(musashi_attribute_niten_ichiryuu, BaseModifier)
 function musashi_attribute_niten_ichiryuu.prototype.OnCreated(self)
-    if not IsServer() then
-        return
-    end
     local Caster = self:GetParent()
     self.DaiGoSei = Caster:FindAbilityByName(musashi_ability.musashi_dai_go_sei.name)
     self.GanryuuJima = Caster:FindAbilityByName(musashi_ability.musashi_ganryuu_jima.name)

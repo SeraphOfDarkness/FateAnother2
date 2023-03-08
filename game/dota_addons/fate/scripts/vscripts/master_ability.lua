@@ -423,7 +423,7 @@ SaitoAttribute = {
 MusashiAttribute = 
 {
 	"musashi_attributes_battle_continuation",
-	"musashi_attributes_tenma_gogan",
+	"musashi_attributes_improve_tengan",
 	"musashi_attributes_gorin_no_sho",
 	"musashi_attributes_mukyuu",
 	"musashi_attributes_niten_ichiryuu",

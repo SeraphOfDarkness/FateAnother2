@@ -14812,7 +14812,7 @@
         "DOTA_Tooltip_Ability_musashi_battle_continuation_Heal"    "HEAL: "
 
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<b><font color='Red'>ISHANA DAITENSHOU - SLASH THE VOID 「」"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "COMBO SEQUENCE: D->Q->R 
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "COMBO SEQUENCE: Q->D->R 
  Marks the target location and perform NIOU KURIKARA while she charges her mana. 
  Dash towards enemy and perform slashes if target still within search radius when she finishes charging. 
  Deal damage based on enemy Max HP. If target HP falls below threshold, target will be executed. 

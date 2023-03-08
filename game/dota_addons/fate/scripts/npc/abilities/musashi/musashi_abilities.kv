@@ -193,7 +193,7 @@
 		"LevelsBetweenUpgrades"			"1"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"200"
+		"AbilityManaCost"         		"100"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0.3"
@@ -260,7 +260,7 @@
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"40"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -273,7 +273,7 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"BuffDuration"				"2"
+			"BuffDuration"				"1"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -521,8 +521,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | 
-										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"     		"custom/musashi/musashi_ishana_daitenshou"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -589,8 +588,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | 
-										 DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"     		""
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -638,8 +636,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_attributes"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
-										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"     		"custom/musashi/musashi_battle_continuation"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -669,6 +666,7 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"BuffDuration"				"3.5"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -686,8 +684,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_attributes"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
-										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"     		"custom/musashi/musashi_tenma_gogan"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -737,8 +734,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_attributes"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
-										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"     		"custom/musashi/musashi_gorin_no_sho"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -773,7 +769,7 @@
 			"PushSpeed"					"25"
 			"FireBurnDuration"			"5"
 			"FireBurnDmgPerSec"			"100"
-			"WindDuration"				"2"
+			"WindDuration"				"1"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -791,8 +787,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_attributes"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
-										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"     		"custom/musashi/musashi_mukyuu"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -842,8 +837,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_attributes"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | 
-										 DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"     		"custom/musashi/musashi_niten_ichiryuu"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
