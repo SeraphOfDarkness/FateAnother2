@@ -14,10 +14,11 @@ function nobu_3000_wrapper(ability)
         if(self.dummies == nil) then
             self.dummies = {}
         end
-        if    self.caster :HasModifier("modifier_nobu_turnlock") then
+        if self.caster:HasModifier("modifier_nobu_turnlock") then
             Timers:RemoveTimer("nobu_shoots")
-            self.caster :RemoveModifierByName("modifier_nobu_turnlock")
+            self.caster:RemoveModifierByName("modifier_nobu_turnlock")
             self.caster:StopAnimation()
+            self.caster:RemoveModifierByName("modifier_nobu_e_window")
             --StartAnimation(  self.caster, {duration= 1 , activity=ACT_DOTA_CAST_ABILITY_4, rate= 1})
         end
         if( self.dummies ~= {}) then
@@ -97,7 +98,8 @@ function nobu_3000_wrapper(ability)
         ParticleManager:DestroyParticle( self.particle_kappa, false)
         ParticleManager:ReleaseParticleIndex( self.particle_kappa)
         StartAnimation( self.caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
-        local aoe = 65
+        local aoe = self:GetSpecialValueFor("aoe")
+        local range = self:GetSpecialValueFor("range")
         local position = self:GetCursorPosition()
         self.caster:StopSound("nobu_ulti_cast")
         EmitGlobalSound("nobu_ulti_end") 
@@ -109,7 +111,7 @@ function nobu_3000_wrapper(ability)
                 Speed = 10000,
                 Facing = facing,
                 AoE = aoe,
-                Range = 1500,
+                Range = range,
             })
             Timers:CreateTimer(0.08, function()
                 self.caster:SetAbsOrigin(GetGroundPosition(self.caster:GetAbsOrigin(),self.caster))
@@ -133,7 +135,7 @@ function nobu_3000_wrapper(ability)
                     Speed = 10000,
                     Facing =  facing,
                     AoE = aoe,
-                    Range = 1500,
+                    Range = range,
                 })
                 ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
                 ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
@@ -153,7 +155,7 @@ function nobu_3000_wrapper(ability)
         local vCasterOrigin = self.caster:GetAbsOrigin()
          --print(vCasterOrigin)
         self.Dummy = CreateUnitByName("dummy_unit", position, false, nil, nil, self.caster:GetTeamNumber())
-         self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+        self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
         self.Dummy:SetAbsOrigin(position)
      
         vCasterOrigin.z = 0
@@ -165,7 +167,7 @@ function nobu_3000_wrapper(ability)
         --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
         local GunFx
         if(self.caster.is3000Acquired) then
-              GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+            GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
         else
             GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
         end
@@ -214,80 +216,24 @@ function nobu_3000_wrapper(ability)
             ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.15*keys.Facing)       
             ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
 
+            local hCaster = self:GetCaster()
             if targets == nil then return
             else
                 local hCaster = self.caster
                 if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
-                    hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
+                    hCaster:FindAbilityByName("nobu_strat"):ApplyStrategy()
                 end
             end
 
+            local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+
             for k,v in pairs(targets) do   
-                local damage = 0
-                local hCaster = self.caster
-                if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-                    damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-                elseif hCaster.NobuActionAcquired then
-                    damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-                elseif hCaster.UnifyingAcquired then
-                    damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-                else
-                    damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-                end
+                local pure_perc = self:GetSpecialValueFor("pure_perc") / 100
+                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage * (1-pure_perc), DAMAGE_TYPE_PHYSICAL, 0)
+                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
 
-                if IsDivineServant(v) and self.caster.UnifyingAcquired then 
-                    damage= damage*1.2
-                end
-                    DoDamage(self.caster, v, damage*0.80, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-                    DoDamage(self.caster, v, damage*0.20, DAMAGE_TYPE_PURE, 0, self, false)
-               
-                if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then        
-                    if hCaster.is3000Acquired then
-                        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-                    else
-                        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-                    end
-                end
-
-                if(self.caster.ISDOW) then
-                    local gun_spawn = self.caster:GetAbsOrigin()
-                    local random1 = RandomInt(25, 150) -- position of gun spawn
-                    local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
-                    local random3 = RandomInt(80,200)*Vector(0,0,1) 
-                    
-            
-                    if random2 == 0 then 
-                        gun_spawn = gun_spawn +  self.caster:GetRightVector() * -1 * random1 + random3
-                    else 
-                        gun_spawn = gun_spawn + self.caster:GetRightVector() * random1 + random3
-                    end
-                    local aoe = 50
-
-                    if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-                        hCaster:FindAbilityByName("nobu_guns_upgrade"):DOWShoot({
-                        Speed = 10000,
-                        AoE = aoe,
-                        Range = 1000,
-                        },  gun_spawn )
-                    elseif hCaster.UnifyingAcquired then
-                        hCaster:FindAbilityByName("nobu_guns_unifying"):DOWShoot({
-                        Speed = 10000,
-                        AoE = aoe,
-                        Range = 1000,
-                        },  gun_spawn )
-                    elseif hCaster.NobuActionAcquired then
-                        hCaster:FindAbilityByName("nobu_guns_action"):DOWShoot({
-                        Speed = 10000,
-                        AoE = aoe,
-                        Range = 1000,
-                        },  gun_spawn )
-                    else        
-                        hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
-                        Speed = 10000,
-                        AoE = aoe,
-                        Range = 1000,
-                        },  gun_spawn )
-                    end
+                if hCaster.ISDOW then
+                    hCaster:FindAbilityByName(hCaster.DSkill):DOWShoot()
                 end
 
                 if(self.caster.is3000Acquired) then  
@@ -329,80 +275,26 @@ function nobu_3000_wrapper(ability)
         end
         local hCaster = self:GetCaster()
 
-        local damage = 0
-        if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        elseif hCaster.NobuActionAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        elseif hCaster.UnifyingAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        else
-            damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        end            
+        local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
 
-        if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
-            hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
-        end
-
-        if IsDivineServant(target) and hCaster.UnifyingAcquired then 
-            damage= damage*1.2
-        end
         if hCaster.is3000Acquired then
-            DoDamage(hCaster, target, damage*0.80, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-            DoDamage(hCaster, target, damage*0.20, DAMAGE_TYPE_PURE, 0, self, false)
+            local pure_perc = self:GetSpecialValueFor("pure_perc") / 100
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * (1-pure_perc), DAMAGE_TYPE_PHYSICAL, 0)
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
         else
-            DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)  
             target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         end
-        if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then                    
-            if hCaster.is3000Acquired then
-                DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            else
-                DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            end
-        end
-        if(hCaster.ISDOW) then
-            local gun_spawn = hCaster:GetAbsOrigin()
-            local random1 = RandomInt(25, 150) -- position of gun spawn
-            local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
-            local random3 = RandomInt(80,200)*Vector(0,0,1) 
-            
 
-            if random2 == 0 then 
-                gun_spawn = gun_spawn +  hCaster:GetRightVector() * -1 * random1 + random3
-            else 
-                gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
-            end
-            local aoe = 50
-            
-            local hCaster = self.caster
-            if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_upgrade"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_unifying"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.NobuActionAcquired then
-                hCaster:FindAbilityByName("nobu_guns_action"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            else        
-                hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            end
+        if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
+            hCaster:FindAbilityByName("nobu_strat"):ApplyStrategy()
+        end 
+
+        if(hCaster.ISDOW) then
+            hCaster:FindAbilityByName(hCaster.DSkill):DOWShoot()
         end
-        if(self.caster.is3000Acquired) then  
+
+        if(hCaster.is3000Acquired) then  
             return false
         else
             return true

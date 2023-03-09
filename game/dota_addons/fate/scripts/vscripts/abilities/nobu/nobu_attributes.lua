@@ -7,6 +7,7 @@ function nobu_strategy_attribute:OnSpellStart()
 
 	hero.StrategyAcquired = true
 	hero.IsStrategyReady = true
+	hero:FindAbilityByName("nobu_strat"):SetLevel(1)
  
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
@@ -41,8 +42,13 @@ function nobu_expanding_attribute:OnSpellStart()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.Expanded) then
 		hero.Expanded = true
-	 	local master = hero.MasterUnit
-		 Timers:CreateTimer(function()
+		if hero:GetAbilityByIndex(4):GetAbilityName() == 'nobu_demon_king_open' then
+	 		UpgradeAttribute(hero, 'nobu_demon_king_open', 'nobu_demon_king_open_upgrade', true)
+	 	else
+	 		UpgradeAttribute(hero, 'nobu_demon_king_open', 'nobu_demon_king_open_upgrade', false)
+	 	end
+	 	hero.FSkill = "nobu_demon_king_open_upgrade"
+		Timers:CreateTimer(function()
 			if hero:IsAlive() then 
 				hero:AddNewModifier(hero, self, "modifier_nobu_expanding_attribute", {})
 				return nil
@@ -67,10 +73,21 @@ function nobu_3000_attribute:OnSpellStart()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.is3000Acquired) then
 		hero.is3000Acquired = true
-	 
-		UpgradeAttribute(hero, 'nobu_dash', 'nobu_dash_upgrade', true)
-		UpgradeAttribute(hero, 'nobu_3000', 'nobu_3000_upgrade', true)
-
+		hero:RemoveModifierByName("modifier_nobu_combo_window")
+		local show = true
+	 	if hero:GetAbilityByIndex(4):GetAbilityName() == "nobu_demon_king_close" then
+	 		show = false
+		end
+		if hero.NobuActionAcquired then
+			UpgradeAttribute(hero, 'nobu_dash_action', 'nobu_dash_upgrade', show)
+			hero.WSkill = "nobu_dash_upgrade"
+		else
+			UpgradeAttribute(hero, 'nobu_dash', 'nobu_dash_3000', show)
+			hero.WSkill = "nobu_dash_3000"
+		end
+		UpgradeAttribute(hero, 'nobu_3000', 'nobu_3000_upgrade', show)
+		UpgradeAttribute(hero, 'nobu_combo', 'nobu_combo_upgrade', false)	
+		hero.RSkill = "nobu_3000_upgrade"
 		NonResetAbility(hero)
 		local master = hero.MasterUnit
 		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
@@ -86,17 +103,19 @@ function nobu_unifying_attribute:OnSpellStart()
 	local hero = caster.HeroUnit
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.UnifyingAcquired) then
-	hero.UnifyingAcquired = true
- 
-	if hero.NobuActionAcquired then
-	UpgradeAttribute(hero, 'nobu_guns_action', 'nobu_guns_upgrade', true)
-	else
-	UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_unifying', true)
-	end
-
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+		hero.UnifyingAcquired = true
+	 
+		if hero.NobuActionAcquired then
+			UpgradeAttribute(hero, 'nobu_guns_action', 'nobu_guns_upgrade', true)
+			hero.DSkill = "nobu_guns_upgrade"
+		else
+			UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_unifying', true)
+			hero.DSkill = "nobu_guns_unifying"
 		end
+
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	end
 end
 
 
@@ -108,28 +127,35 @@ function nobu_independent_action:OnSpellStart()
 	local hero = caster.HeroUnit
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.NobuActionAcquired) then
-	hero.NobuActionAcquired = true
+		hero.NobuActionAcquired = true
+		local show = true
+	 	if hero:GetAbilityByIndex(4):GetAbilityName() == "nobu_demon_king_close" then
+	 		show = false
+		end
 
-	UpgradeAttribute(hero, 'nobu_shot', 'nobu_shot_upgrade', true)
+		UpgradeAttribute(hero, 'nobu_shot', 'nobu_shot_upgrade', show)
+		UpgradeAttribute(hero, 'nobu_double_shots', 'nobu_double_shots_upgrade', show)
+		hero.QSkill = "nobu_shot_upgrade"
+		hero.ESkill = "nobu_double_shots_upgrade"
 
-	if hero.UnifyingAcquired then
-	UpgradeAttribute(hero, 'nobu_guns_unifying', 'nobu_guns_upgrade', true)
-	else
-	UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_action', true)
-	end
+		if hero.UnifyingAcquired then
+			UpgradeAttribute(hero, 'nobu_guns_unifying', 'nobu_guns_upgrade', true)
+			hero.DSkill = "nobu_guns_upgrade"
+		else
+			UpgradeAttribute(hero, 'nobu_guns', 'nobu_guns_action', true)
+			hero.DSkill = "nobu_guns_action"
+		end
 
-	--[[
-	if hero:GetLevel() < 8 then
-		hero:FindAbilityByName("nobu_guns"):SetLevel(2)
-	elseif hero:GetLevel() >= 8 and hero:GetLevel() < 16 then
-		hero:FindAbilityByName("nobu_guns"):SetLevel(3)
-	elseif hero:GetLevel() >= 16 then
-		hero:FindAbilityByName("nobu_guns"):SetLevel(4)
-	end
-	]]--
+		if hero.is3000Acquired then
+			UpgradeAttribute(hero, 'nobu_dash_3000', 'nobu_dash_upgrade', show)
+			hero.WSkill = "nobu_dash_upgrade"
+		else
+			UpgradeAttribute(hero, 'nobu_dash', 'nobu_dash_action', show)
+			hero.WSkill = "nobu_dash_action"
+		end
 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 	end
 end
 

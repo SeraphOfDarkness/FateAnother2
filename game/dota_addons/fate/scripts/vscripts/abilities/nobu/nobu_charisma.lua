@@ -3,20 +3,25 @@ LinkLuaModifier("modifier_nobu_charisma", "abilities/nobu/nobu_charisma", LUA_MO
 LinkLuaModifier("modifier_nobu_strategy_attribute", "abilities/nobu/nobu_charisma", LUA_MODIFIER_MOTION_NONE) 
 LinkLuaModifier("modifier_nobu_strategy_attribute_cooldown", "abilities/nobu/nobu_charisma", LUA_MODIFIER_MOTION_NONE) 
 nobu_charisma = class({})
+nobu_strat = class({})
 
 function nobu_charisma:GetIntrinsicModifierName()
 	return "modifier_nobu_charisma_aura"
 end
 
-function nobu_charisma:ApplyStrategy()
+function nobu_strat:ApplyStrategy()
 	local caster = self:GetCaster()
+	local cooldown = self:GetSpecialValueFor("cooldown_time")
+	local duration = self:GetSpecialValueFor("duration")
+	local bonus_ms = self:GetSpecialValueFor("bonus_ms")
+	local bonus_attack = self:GetSpecialValueFor("bonus_attack")
 
 	caster.IsStrategyReady = false
-	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute", {duration = 4} )
+	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute", {Attack= bonus_attack, MS= bonus_ms, Duration = duration} )
 
-	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute_cooldown", {duration = 10} )
+	caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute_cooldown", {duration = cooldown} )
 	Timers:CreateTimer("nobu_strategy", {
-		endTime = 10,
+		endTime = cooldown,
 		callback = function()
 			caster.IsStrategyReady = true
 	return end
@@ -40,9 +45,9 @@ function modifier_nobu_charisma_aura:OnRespawn(args)
  caster.isCharisma = false
  local ind5abilityname = caster:GetAbilityByIndex(4):GetName()
  caster:GetAbilityByIndex(1):RefreshCharges()
- if(ind5abilityname ~= "nobu_demon_king_close" and ind5abilityname ~= "nobu_demon_king_open" ) then 
+ if(ind5abilityname ~= "nobu_demon_king_close" and ind5abilityname ~= caster.FSkill ) then 
  
-	 caster:SwapAbilities(ind5abilityname, "nobu_demon_king_open", false, true)   
+	 caster:SwapAbilities(ind5abilityname, caster.FSkill, false, true)   
  end
 end
 
@@ -112,18 +117,26 @@ modifier_nobu_strategy_attribute = class({})
 
 function modifier_nobu_strategy_attribute:IsHidden() return false end
 function modifier_nobu_strategy_attribute:IsDebuff() return false end
+function modifier_nobu_strategy_attribute:OnCreated(args)
+	self.MS = args.MS
+	self.ATK = args.Attack
+end
 function modifier_nobu_strategy_attribute:DeclareFunctions()
-	return {	MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+	return {	MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
   }
 end
 
 function modifier_nobu_strategy_attribute:GetModifierMoveSpeedBonus_Percentage()
-	return  10  
+	return self:GetAbility():GetSpecialValueFor("bonus_ms");  
 end
 
-function modifier_nobu_strategy_attribute:GetDuration()
-	return  4  
+function modifier_nobu_strategy_attribute:GetModifierPreAttack_BonusDamage()
+	return  self:GetAbility():GetSpecialValueFor("bonus_attack");  
 end
+
+--[[function modifier_nobu_strategy_attribute:GetDuration()
+	return  4  
+end]]
  
 
 function modifier_nobu_strategy_attribute:GetTexture()

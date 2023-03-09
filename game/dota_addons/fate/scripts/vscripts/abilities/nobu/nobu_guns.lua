@@ -174,11 +174,23 @@ end
 function nobu_guns_wrapper(ability)
     function ability:GetGunsDamage()
         local caster = self:GetCaster()
-        if(caster.UnifyingAcquired) then
-            return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()*  self:GetSpecialValueFor("dmg_per_lvl") 
-            +caster:GetIntellect() * self:GetSpecialValueFor("dmg_per_int") + (caster:HasModifier("modifier_nobu_strategy_attribute") and 60 or 0)
-        else
-            return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()* self:GetSpecialValueFor("dmg_per_lvl")  + (caster:HasModifier("modifier_nobu_strategy_attribute") and 60 or 0)
+        local damage = self:GetSpecialValueFor("base_dmg") + (caster:GetLevel()*self:GetSpecialValueFor("dmg_per_lvl"))
+        if caster.UnifyingAcquired then 
+            damage = damage + (caster:GetIntellect() * self:GetSpecialValueFor("dmg_per_int"))
+        end
+        return damage
+    end
+
+    function ability:GunDoDamage(hTarget, hAbil, iDamage, iDmgType, iDmgFlag)
+        local caster = self:GetCaster()
+        if IsDivineServant(hTarget) and caster.UnifyingAcquired then 
+            local bonus_divine = 1 + (self:GetSpecialValueFor("divine_damage_mod") / 100)
+            iDamage = iDamage * bonus_divine
+        end
+        DoDamage(caster, hTarget, iDamage, iDmgType, iDmgFlag, hAbil, false)
+        if caster.is3000Acquired and caster:FindModifierByName("modifier_nobu_dash_dmg") then
+            local dash = caster:FindAbilityByName(caster.WSkill)
+            DoDamage(caster, hTarget, dash:GetSpecialValueFor("action_bonus_dmg"), DAMAGE_TYPE_MAGICAL, 0, dash, false)
         end
     end
 
@@ -186,53 +198,61 @@ function nobu_guns_wrapper(ability)
     	return "modifier_nobu_atk_sound"
     end
 
-    function ability:DOWShoot(keys, position)
+    function ability:DOWShoot()
+        local hCaster = self:GetCaster()
+        self.DoW = hCaster:FindAbilityByName("nobu_dow_passive")
+        local dist = self.DoW:GetSpecialValueFor("distance")
+        local aoe = self.DoW:GetSpecialValueFor("aoe")
+        local cooldown = self.DoW:GetCooldown(1)
+        local targets = FindUnitsInRadius( hCaster:GetTeam(),  hCaster:GetOrigin(), nil, dist, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
         
-        self.caster = self:GetCaster()
-        local vCasterOrigin = self.caster:GetAbsOrigin()
-        local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
-        self.target = nil
-        local target  
-        if( targets[1] ~= nil) then
-            self.target  = targets[1]:GetAbsOrigin()
-             target = targets[1]
-         end    
-        if(target == nil) then return end
-        self.caster.ISDOW = false 
-        self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
-        self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
-        self.Dummy:SetAbsOrigin(position)
-      
-        vCasterOrigin.z = 0
-         self.Dummy:SetForwardVector((  self.target- position ):Normalized())
-        --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
+        if targets[1] == nil then 
+            return 
+        end
 
-        local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+        local gun_spawn = hCaster:GetAbsOrigin()
+        local random1 = RandomInt(25, 150) -- position of gun spawn
+        local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
+        local random3 = RandomInt(80,200)*Vector(0,0,1) 
+
+        if random2 == 0 then 
+            gun_spawn = gun_spawn +  hCaster:GetRightVector() * -1 * random1 + random3
+        else 
+            gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
+        end
+
+        hCaster.ISDOW = false 
+        self.DoW:StartCooldown(self.DoW:GetCooldown(1))
+
+        local dummy = CreateUnitByName("dummy_unit", gun_spawn, false, nil, nil, hCaster:GetTeamNumber())
+        dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+        dummy:SetAbsOrigin(gun_spawn)
+        dummy:SetForwardVector( (targets[1]:GetAbsOrigin() - gun_spawn):Normalized() )
+
+        local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy )
         ParticleManager:SetParticleControl(GunFx, 1, Vector(40,0,0) ) 
-        ParticleManager:SetParticleControl(GunFx, 3, position ) 
-        ParticleManager:SetParticleControl(GunFx, 4, self.target- position ) 
-        self.Dummy.GunFx = GunFx
-        local dummy = self.Dummy
-        Timers:CreateTimer(1.5, function()
-            self.caster.ISDOW = true 
+        ParticleManager:SetParticleControl(GunFx, 3, gun_spawn ) 
+        ParticleManager:SetParticleControl(GunFx, 4, targets[1]:GetAbsOrigin() - gun_spawn ) 
 
+        Timers:CreateTimer(cooldown, function()
+            hCaster.ISDOW = true 
         end)
 
         Timers:CreateTimer(0.4, function()
-            dummy:SetForwardVector((  target:GetAbsOrigin()- position ):Normalized())
-            local velocity = dummy:GetForwardVector()
-            dummy:EmitSound("nobu_shoot_1")
+            dummy:SetForwardVector( (targets[1]:GetAbsOrigin() - gun_spawn):Normalized() )
+            EmitSoundOnLocationWithCaster(gun_spawn, "nobu_shoot_1", hCaster)
+            local velocity = (targets[1]:GetAbsOrigin() - gun_spawn):Normalized()
             velocity.z = 0
         
             local projectileTable = {
                 EffectName = "particles/nobu/nobu_bullet.vpcf" ,
                 Ability = self,
-                vSpawnOrigin = position + dummy:GetForwardVector()*80,
-                vVelocity =velocity * keys.Speed,
-                fDistance = keys.Range,
-                fStartRadius = keys.AoE,
-                fEndRadius = keys.AoE,
-                Source = self:GetCaster(),
+                vSpawnOrigin = gun_spawn + (velocity * 80),
+                vVelocity =velocity * 10000,
+                fDistance = dist,
+                fStartRadius = aoe,
+                fEndRadius = aoe,
+                Source = hCaster,
                 bHasFrontalCone = false,
                 bReplaceExisting = false,
                 iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -254,11 +274,10 @@ function nobu_guns_wrapper(ability)
         end
         local hCaster = self:GetCaster()
         local damage = self:GetGunsDamage()
-        if IsDivineServant(target) and hCaster.UnifyingAcquired then 
-            damage= damage*1.2
-        end
-        if(hCaster.ISDOW) then
-            local gun_spawn = hCaster:GetAbsOrigin()
+        self:GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)
+        if (hCaster.ISDOW) then
+            self:DOWShoot()
+            --[[local gun_spawn = hCaster:GetAbsOrigin()
             local random1 = RandomInt(25, 150) -- position of gun spawn
             local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
             local random3 = RandomInt(80,200)*Vector(0,0,1) 
@@ -275,15 +294,7 @@ function nobu_guns_wrapper(ability)
                 Speed = 10000,
                 AoE = aoe,
                 Range = 1000,
-            },  gun_spawn )
-        end
-        DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-            if hCaster.is3000Acquired then
-                DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            else
-                DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            end
+            },  gun_spawn )]]
         end
         target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         return true

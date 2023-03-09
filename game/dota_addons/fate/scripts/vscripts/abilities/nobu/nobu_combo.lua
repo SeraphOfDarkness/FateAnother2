@@ -1,205 +1,194 @@
 nobu_combo = class({})
+nobu_combo_upgrade = class({})
 
 LinkLuaModifier("modifier_nobu_combo_self","abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_mark", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_stun", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_cd", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 
-function nobu_combo:CastFilterResultLocation(vLocation)
-    local caster = self:GetCaster()
-    if IsServer() and  caster:FindModifierByName("modifier_nobu_turnlock") then
-        return UF_FAIL_CUSTOM
-    else
-        return UF_SUCESS
+function combo_wrapper(abil)
+    function abil:CastFilterResultLocation(vLocation)
+        local caster = self:GetCaster()
+        if IsServer() and  caster:FindModifierByName("modifier_nobu_turnlock") then
+            return UF_FAIL_CUSTOM
+        else
+            return UF_SUCESS
+        end
     end
-end
 
-function nobu_combo:GetCustomCastErrorLocation(vLocation)
-    return "Can not be used while shooting"
-end
+    function abil:GetCustomCastErrorLocation(vLocation)
+        return "Can not be used while shooting"
+    end
 
-function PointOnCircle(origin, radius, angle)
-    return Vector(radius*math.cos(angle), radius*math.sin(angle),0) + origin
-end
+    function PointOnCircle(origin, radius, angle)
+        return Vector(radius*math.cos(angle), radius*math.sin(angle),0) + origin
+    end
 
-function nobu_combo:OnSpellStart()
-    local hCaster = self:GetCaster()
-    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
-    giveUnitDataDrivenModifier(self.caster, self.caster, "pause_sealdisabled", 1.5)
-    hCaster.target_enemy = self:GetCursorTarget()
-    self.target_enemy = self:GetCursorTarget()
-    StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
-    self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
-     hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
-     EmitGlobalSound("nobu_combo_cast") 
-     self.caster = hCaster
-     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_cd", {duration = self:GetCooldown(1)})
-     local masterCombo = hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
-    masterCombo:EndCooldown()
-    masterCombo:StartCooldown(self:GetCooldown(1))
-end
+    function abil:OnSpellStart()
+        local hCaster = self:GetCaster()
+        hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + self:GetSpecialValueFor("charge_time")} )
+        giveUnitDataDrivenModifier(self.caster, self.caster, "pause_sealdisabled", self:GetSpecialValueFor("charge_time"))
+        hCaster.target_enemy = self:GetCursorTarget()
+        self.target_enemy = self:GetCursorTarget()
+        StartAnimation(hCaster, {duration=self:GetSpecialValueFor("charge_time") , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
+        self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
+        hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
+        EmitGlobalSound("nobu_combo_cast") 
+        self.caster = hCaster
+        hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_cd", {duration = self:GetCooldown(1)})
+        local masterCombo = hCaster.MasterUnit2:FindAbilityByName("nobu_combo")
+        masterCombo:EndCooldown()
+        masterCombo:StartCooldown(self:GetCooldown(1))
+    end
 
-function nobu_combo:AttackEnemy()
-    local hCaster = self:GetCaster()
-    local damage =  self:GetSpecialValueFor("dmg_initial")
-    local target = self.target_enemy
-    if(not hCaster:IsAlive() or not target:IsAlive()) then return end
-    self.dummies = {}
-  
-    hCaster:SetAbsOrigin(hCaster:GetAbsOrigin() + hCaster:GetForwardVector()*90)
-    giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 3)
-    target:RemoveModifierByName("modifier_nobu_combo_mark")
-    giveUnitDataDrivenModifier(hCaster, target, "modifier_nobu_combo_stun", 3)
-    local sin = Physics:Unit( target)
-    Timers:CreateTimer( 0.40, function()
-        if(hCaster:IsAlive() == false) then return end
-        ParticleManager:DestroyParticle( self.particle_kappa, false)
-        ParticleManager:ReleaseParticleIndex( self.particle_kappa)
+    function abil:AttackEnemy()
+        local hCaster = self:GetCaster()
+        local damage =  self:GetSpecialValueFor("dmg_initial")
+        local total_atk =  self:GetSpecialValueFor("total_atk")
+        local target = self.target_enemy
+        if(not hCaster:IsAlive() or not target:IsAlive()) then return end
+        self.dummies = {}
+      
+        hCaster:SetAbsOrigin(hCaster:GetAbsOrigin() + hCaster:GetForwardVector()*90)
+        giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 3)
+        target:RemoveModifierByName("modifier_nobu_combo_mark")
+        giveUnitDataDrivenModifier(hCaster, target, "pause_sealenabled", 3)
+        local sin = Physics:Unit( target)
+
+        Timers:CreateTimer( 0.40, function()
+            if(hCaster:IsAlive() == false) then return end
+            ParticleManager:DestroyParticle( self.particle_kappa, false)
+            ParticleManager:ReleaseParticleIndex( self.particle_kappa)
             target:SetPhysicsVelocity(Vector(0,0,1500))
         end)
-   Timers:CreateTimer( 0.62, function()
-            if(hCaster:IsAlive() == false) then return end
-            
-            
-            target:SetPhysicsVelocity(Vector(0,0,-500))
-            end)
-    Timers:CreateTimer(1.1,  function()
-        target:SetBounceMultiplier(0)
-        target:PreventDI(false)
-        target:SetPhysicsVelocity(Vector(0,0,0))
-        target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
-        DoDamage(hCaster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-        self.target = target:GetAbsOrigin()
-        for i=1,25 do 
-            local gun_spawn =   PointOnCircle(GetGroundPosition(target:GetAbsOrigin(), caster), 450,i*10)
-            gun_spawn = gun_spawn + RandomInt(0,150)*Vector(0,0,1) 
-           
-            self:CreateGun(gun_spawn) 
-        end
 
+        Timers:CreateTimer( 0.62, function()
+            if(hCaster:IsAlive() == false) then return end
+                
+            target:SetPhysicsVelocity(Vector(0,0,-500))
         end)
         
-        Timers:CreateTimer(1.8,  function()
-         
-         for i = 1, #self.dummies do
-             Timers:CreateTimer(0.033 * i, function()
-                 local facing =  self.dummies[i]:GetForwardVector()
-                 facing.z = 0
-                self:Shoot({
-                    Origin = self.dummies[i]:GetAbsOrigin()+facing*80,
-                    Speed = 10000,
-                    Facing =  facing,
-                    AoE = aoe,
-                    Range = 1000,
-                })
-                self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
-                ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
-		        ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
-                self.dummies[i]:RemoveSelf()
-              end)
-          end
-         end)
+        Timers:CreateTimer(1.1,  function()
+            target:SetBounceMultiplier(0)
+            target:PreventDI(false)
+            target:SetPhysicsVelocity(Vector(0,0,0))
+            target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
+            DoDamage(hCaster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            self.target = target:GetAbsOrigin()
+            for i=1,total_atk do 
+                local gun_spawn =   PointOnCircle(GetGroundPosition(target:GetAbsOrigin(), caster), 450,i*10)
+                gun_spawn = gun_spawn + RandomInt(0,150)*Vector(0,0,1) 
+               
+                self:CreateGun(gun_spawn) 
+            end
 
-   
-     Timers:CreateTimer(3,  function()
-        StopGlobalSound("nobu_combo_cast") 
-        EmitGlobalSound("nobu_combo_end") 
+        end)
+            
+        Timers:CreateTimer(1.8,  function()
+            local aoe = 65
+            for i = 1, #self.dummies do
+                Timers:CreateTimer(0.033 * i, function()
+                    local facing =  self.dummies[i]:GetForwardVector()
+                    facing.z = 0
+                    self:Shoot({
+                        Origin = self.dummies[i]:GetAbsOrigin()+facing*80,
+                        Speed = 10000,
+                        Facing =  facing,
+                        AoE = aoe,
+                        Range = 1000,
+                    })
+                    self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
+                    ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
+    		        ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
+                    self.dummies[i]:RemoveSelf()
+                end)
+            end
+        end)
+
+       
+        Timers:CreateTimer(3,  function()
+            StopGlobalSound("nobu_combo_cast") 
+            EmitGlobalSound("nobu_combo_end") 
             if( target:IsAlive()) then
-                FindClearSpaceForUnit(  target,   target:GetAbsOrigin(), true)
-                
+                FindClearSpaceForUnit(  target,   target:GetAbsOrigin(), true)    
             end
         end)    
-    StartAnimation(hCaster, {duration=3 , activity=ACT_DOTA_CAST_ABILITY_7, rate= 1})
- 
+        StartAnimation(hCaster, {duration=3 , activity=ACT_DOTA_CAST_ABILITY_7, rate= 1})
 
-end
-
-function nobu_combo:CreateGun(position)
-   
- 
-	self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
-	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
-	self.Dummy:SetAbsOrigin(position)
- 
- 
-	 self.Dummy:SetForwardVector((  self.target- position ):Normalized())
-    --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
-    local GunFx
-    if(self.caster.is3000Acquired) then
-	      GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
-    else
-        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
-    end
- 
-	ParticleManager:SetParticleControl(GunFx, 3, position ) 
-    ParticleManager:SetParticleControl(GunFx, 4,   self.target- position  ) 
-    self.Dummy.GunFx = GunFx
-    table.insert(self.dummies, self.Dummy)
-	Timers:CreateTimer(3.2, function()
-		ParticleManager:DestroyParticle(GunFx, true)
-		ParticleManager:ReleaseParticleIndex(GunFx)
-	end)
-end
-
-
-function nobu_combo:Shoot(keys)
-    local projectileTable = {
-        EffectName = "particles/nobu/nobu_bullet.vpcf" ,
-        Ability = self,
-        vSpawnOrigin = keys.Origin,
-        vVelocity = keys.Facing * keys.Speed,
-        fDistance = keys.Range,
-        fStartRadius = keys.AoE,
-        fEndRadius = keys.AoE,
-        Source = self:GetCaster(),
-        bHasFrontalCone = false,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        flExpireTime = GameRules:GetGameTime() + 0.33,
-        
-    }
-    ProjectileManager:CreateLinearProjectile(projectileTable)
-end
-
-function nobu_combo:OnProjectileHit(target, location )
-    if target == nil then
-        return
-    end
-    local hCaster = self:GetCaster()
-    local damage = 0
-
-    if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-        damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
-    elseif hCaster.NobuActionAcquired then
-        damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
-    elseif hCaster.UnifyingAcquired then
-        damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
-    else
-        damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
     end
 
-    if IsDivineServant(target) and hCaster.UnifyingAcquired then 
-        damage= damage*1.2
-    end
-
-    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
-     if hCaster.is3000Acquired then
-        DoDamage(hCaster, target, damage * 0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        DoDamage(hCaster, target, damage * 0.15, DAMAGE_TYPE_PURE, 0, self, false)
-    else
-        DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-    end
-    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-        if hCaster.is3000Acquired then
-            DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    function abil:CreateGun(position)
+       
+     
+    	self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
+    	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+    	self.Dummy:SetAbsOrigin(position)
+     
+     
+    	self.Dummy:SetForwardVector((  self.target- position ):Normalized())
+        --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
+        local GunFx
+        if(self.caster.is3000Acquired) then
+            GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
         else
+            GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
         end
+     
+    	ParticleManager:SetParticleControl(GunFx, 3, position ) 
+        ParticleManager:SetParticleControl(GunFx, 4,   self.target- position  ) 
+        self.Dummy.GunFx = GunFx
+        table.insert(self.dummies, self.Dummy)
+    	Timers:CreateTimer(3.2, function()
+    		ParticleManager:DestroyParticle(GunFx, true)
+    		ParticleManager:ReleaseParticleIndex(GunFx)
+    	end)
     end
-    return true 
+
+
+    function abil:Shoot(keys)
+        local projectileTable = {
+            EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+            Ability = self,
+            vSpawnOrigin = keys.Origin,
+            vVelocity = keys.Facing * keys.Speed,
+            fDistance = keys.Range,
+            fStartRadius = keys.AoE,
+            fEndRadius = keys.AoE,
+            Source = self:GetCaster(),
+            bHasFrontalCone = false,
+            bReplaceExisting = false,
+            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            flExpireTime = GameRules:GetGameTime() + 0.33,
+            
+        }
+        ProjectileManager:CreateLinearProjectile(projectileTable)
+    end
+
+    function abil:OnProjectileHit(target, location )
+        if target == nil then
+            return
+        end
+        local hCaster = self:GetCaster()
+        local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
+
+
+        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+        if hCaster.is3000Acquired then
+            local pure_perc = self:GetSpecialValueFor("pure") / 100
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * (1-pure_perc), DAMAGE_TYPE_PHYSICAL, 0)
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
+        else
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)  
+        end
+
+        return true 
+    end
 end
 
+combo_wrapper(nobu_combo)
+combo_wrapper(nobu_combo_upgrade)
 
 
 modifier_nobu_combo_self = class({})
@@ -237,7 +226,7 @@ function modifier_nobu_combo_self:GetModifierProvidesFOWVision()
 end
 
 function modifier_nobu_combo_self:GetModifierMoveSpeed_Absolute()
-	return 1500  --self:GetAbility():GetSpecialValueFor("run_speed")
+	return self:GetAbility():GetSpecialValueFor("run_speed")
 end
 function modifier_nobu_combo_self:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE

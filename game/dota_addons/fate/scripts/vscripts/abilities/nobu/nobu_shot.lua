@@ -15,11 +15,11 @@ function nobu_shot_wrapper(ability)
 
     function ability:OnSpellStart()
         local hCaster = self:GetCaster()
-        local aoe = 50
+        local aoe = self:GetSpecialValueFor("aoe")
+        local distance = self:GetSpecialValueFor("distance")
         local origin = hCaster:GetAttachmentOrigin(3) 
 
-        
-        if  hCaster:FindModifierByName("modifier_nobu_turnlock") then
+        if  hCaster:HasModifier("modifier_nobu_turnlock") then
 
             local gun_spawn = hCaster:GetAbsOrigin()
             local random1 = RandomInt(25, 150) -- position of gun spawn
@@ -32,12 +32,11 @@ function nobu_shot_wrapper(ability)
     		else 
     			gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
             end
-            local aoe = 50
             
             self:EShot({
                 Speed = 10000,
                 AoE = aoe,
-                Range = 1000,
+                Range = distance,
             },  gun_spawn )
 
         else
@@ -49,14 +48,18 @@ function nobu_shot_wrapper(ability)
                     Origin = origin,
                     Speed = 10000,
                     Facing = facing,
-                    AoE = aoe*2,
-                    Range = 1000,
+                    AoE = aoe * 2,
+                    Range = distance,
                 } )
             end)
         end
     end
 
     function ability:Shoot(keys)
+        local arm_pierce = 0
+        if self:GetCaster().NobuActionAcquired then 
+            arm_pierce = 1
+        end
         local projectileTable = {
             EffectName = "particles/nobu/nobu_bullet_q.vpcf" ,
             Ability = self,
@@ -72,110 +75,53 @@ function nobu_shot_wrapper(ability)
             iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
             flExpireTime = GameRules:GetGameTime() + 0.1,
-            
+            ExtraData = { ArmorPierce = arm_pierce}
         }
         ProjectileManager:CreateLinearProjectile(projectileTable)
     end
 
      
-    function ability:OnProjectileHit(target, location )
+    function ability:OnProjectileHit_ExtraData(target, location, tExtraData)
         if target == nil then
             return
         end
         local hCaster = self:GetCaster()
 
-        local damage = 0
-        if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        elseif hCaster.NobuActionAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        elseif hCaster.UnifyingAcquired then
-            damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        else
-            damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-        end
+        local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
 
-        if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
-            hCaster:FindAbilityByName("nobu_charisma"):ApplyStrategy()
-        end
 
-        if IsDivineServant(target) and hCaster.UnifyingAcquired then 
-            damage= damage*1.2
-        end
+        if tExtraData.ArmorPierce == 1 then
+            local armor_pierce = self:GetSpecialValueFor("armor_pierce") / 100
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * (1-armor_pierce), DAMAGE_TYPE_PHYSICAL, 0)
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * armor_pierce, DAMAGE_TYPE_PHYSICAL, 2)
 
-        if hCaster.NobuActionAcquired then
-            DoDamage(hCaster, target, damage * 0.8, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-            DoDamage(hCaster, target, damage * 0.2, DAMAGE_TYPE_PHYSICAL, 2, self, false)
-
-        else
-            DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        end
-
-        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
-        target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
-
-        if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-            if hCaster.is3000Acquired then
-                DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash_upgrade"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            else
-            end
-        end
-
-        if( hCaster.NobuActionAcquired and not  hCaster:FindModifierByName("modifier_nobu_turnlock")) then
+            local stun = self:GetSpecialValueFor("microstun_duration")
+            local knock = self:GetSpecialValueFor("knock")
             local knockback = { should_stun = true,
-            knockback_duration = 0.1,
-            duration = 0.1,
-            knockback_distance = 80,
+            knockback_duration = stun,
+            duration = stun,
+            knockback_distance = knock,
             knockback_height = 0,
             center_x = hCaster:GetAbsOrigin().x,
             center_y = hCaster:GetAbsOrigin().y,
             center_z = hCaster:GetAbsOrigin().z }
 
             target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
-            
+        else
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)
         end
+
+        if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
+            hCaster:FindAbilityByName("nobu_strat"):ApplyStrategy()
+        end
+
+        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+        target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
+
         if(hCaster.ISDOW) then
-            local gun_spawn = hCaster:GetAbsOrigin()
-            local random1 = RandomInt(25, 150) -- position of gun spawn
-    		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
-    		local random3 = RandomInt(80,200)*Vector(0,0,1) 
-            
-
-    		if random2 == 0 then 
-    			gun_spawn = gun_spawn +  hCaster:GetRightVector() * -1 * random1 + random3
-    		else 
-    			gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
-            end
-            local aoe = 50
-            
-
-            if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_upgrade"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_unifying"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.NobuActionAcquired then
-                hCaster:FindAbilityByName("nobu_guns_action"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            else        
-                hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            end
+            hCaster:FindAbilityByName(hCaster.DSkill):DOWShoot()
         end
-        return false 
+        --return false 
     end
 
 
@@ -185,7 +131,7 @@ function nobu_shot_wrapper(ability)
         self.caster = self:GetCaster()
         local vCasterOrigin = self.caster:GetAbsOrigin()
         vCasterOrigin.z = 0
-        local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
+        local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, keys.Range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
         self.target = nil
          if( targets[1] ~= nil) then
             self.target  = targets[1]:GetAbsOrigin()
@@ -198,7 +144,7 @@ function nobu_shot_wrapper(ability)
     	self.Dummy:SetAbsOrigin(position)
 
         if(self.target == nil) then 
-            self.target = self.caster:GetForwardVector()*1000 + self.caster:GetAbsOrigin()
+            self.target = self.caster:GetForwardVector()*keys.Range + self.caster:GetAbsOrigin()
             self.Dummy:SetForwardVector( self.caster:GetForwardVector())
         else
             self.Dummy:SetForwardVector((  self.target - position ):Normalized())
@@ -239,7 +185,7 @@ function nobu_shot_wrapper(ability)
                 iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                 iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
                 flExpireTime = GameRules:GetGameTime() + 0.33,
-                
+                ExtraData = { ArmorPierce = 0}
             }
             ProjectileManager:CreateLinearProjectile(projectileTable)
             ParticleManager:DestroyParticle(GunFx, false)

@@ -1,31 +1,38 @@
 nobu_dash = class({})
+nobu_dash_action = class({})
+nobu_dash_3000 = class({})
 nobu_dash_upgrade = class({})
 LinkLuaModifier("modifier_nobu_turnrate", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_dash_dmg", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_nobu_combo_window", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 
 function nobu_dash_wrapper(ability)
 	function ability:OnSpellStart()
 		local caster = self:GetCaster()
+		local cooldown = self:GetSpecialValueFor("cooldown")
+		local distance = self:GetSpecialValueFor("dash")
 		Timers:RemoveTimer("nobu_dash")
 		if(self:GetCurrentAbilityCharges() > 0) then
 			self:EndCooldown()
-			self:StartCooldown(0.5)
+			self:StartCooldown(cooldown)
 		end
 		local ability = self
-		if(caster.NobuActionAcquired) then
-			caster:AddNewModifier(caster, self, "modifier_nobu_dash_dmg", {duration = 3} )
+		if caster.NobuActionAcquired then
+			local action_dur = self:GetSpecialValueFor("action_dur")
+			caster:AddNewModifier(caster, self, "modifier_nobu_dash_dmg", {duration = action_dur} )
 		end
 		
-		caster:RemoveModifierByName("modifier_nobu_strategy_attribute_cooldown")
-		caster.IsStrategyReady = true
-		Timers:RemoveTimer("nobu_strategy")
+		if caster.StrategyAcquired then
+			caster:RemoveModifierByName("modifier_nobu_strategy_attribute_cooldown")
+			caster.IsStrategyReady = true
+			Timers:RemoveTimer("nobu_strategy")
+		end
 
 		local speed = 1200
 		local point  = self:GetCursorPosition()+caster:GetForwardVector()
-		local direction      = (point - caster:GetAbsOrigin()):Normalized()
+		local direction = (point - caster:GetAbsOrigin()):Normalized()
 		direction.z = 0
-		local dist = 400--self:GetSpecialValueFor("dist")
+		local dist = distance --self:GetSpecialValueFor("dist")
 		local casted_dist = (point - caster:GetAbsOrigin()):Length2D()
 		if (casted_dist > dist )then
 			point = caster:GetAbsOrigin() + (((point - caster:GetAbsOrigin()):Normalized()) * dist)
@@ -33,38 +40,14 @@ function nobu_dash_wrapper(ability)
 		end
 		local sin = Physics:Unit(caster)
 		if caster:GetStrength() >= 25 and caster:GetAgility() >= 25 and caster:GetIntellect() >= 25 and caster:GetAbilityByIndex(3):GetName() ~= "nobu_combo"then      
-	    	if caster:FindAbilityByName("nobu_combo"):IsCooldownReady()  then
-	    		if not caster:HasModifier("modifier_nobu_combo_cd") then
-	    			
-		    		if caster.NobuActionAcquired and caster.UnifyingAcquired then
-		    			caster:SwapAbilities("nobu_guns_upgrade", "nobu_combo", false, true)
-		            elseif caster.NobuActionAcquired then
-		    			caster:SwapAbilities("nobu_guns_action", "nobu_combo", false, true)
-		            elseif caster.UnifyingAcquired then
-		    			caster:SwapAbilities("nobu_guns_unifying", "nobu_combo", false, true)
-		    		else 
-		    			caster:SwapAbilities("nobu_guns", "nobu_combo", false, true)
-		            end
-
-		    		Timers:CreateTimer('nobu_window',{
-				        endTime = 5,
-				        callback = function()
-				        if caster:GetAbilityByIndex(3):GetName() ~= "nobu_guns"  then
-						  	if caster.NobuActionAcquired and caster.UnifyingAcquired then
-				    			caster:SwapAbilities("nobu_combo", "nobu_guns_upgrade", false, true)
-				            elseif caster.NobuActionAcquired then
-				    			caster:SwapAbilities("nobu_combo", "nobu_guns_action", false, true)
-				            elseif caster.UnifyingAcquired then
-				    			caster:SwapAbilities("nobu_combo", "nobu_guns_unifying", false, true)
-				    		else 
-				    			caster:SwapAbilities("nobu_combo", "nobu_guns", false, true)
-				            end
-				       	end
-				    end})
-	 
-	    		end
-	        end
-	    end
+	    	if not caster:HasModifier("modifier_nobu_combo_cd") then
+		    	if caster.is3000Acquired and caster:FindAbilityByName("nobu_combo_upgrade"):IsCooldownReady() then 
+		    		caster:AddNewModifier(caster, self, "modifier_nobu_combo_window", {duration = 5} )
+		    	elseif not caster.is3000Acquired and caster:FindAbilityByName("nobu_combo"):IsCooldownReady() then 
+		    		caster:AddNewModifier(caster, self, "modifier_nobu_combo_window", {duration = 5} )
+		        end
+		    end
+		end
 	    
 		caster:SetPhysicsFriction(0)
 		caster:SetPhysicsVelocity(direction * speed)
@@ -107,29 +90,45 @@ function nobu_dash_wrapper(ability)
 
 	function ability:AttributeGuns()
 		local hCaster = self:GetCaster()
-		local gun_spawn = hCaster:GetAbsOrigin()+  hCaster:GetRightVector() * 100 + Vector(0,0,150)
+		local bonus_gun = self:GetSpecialValueFor("bonus_gun")
+		local aoe = hCaster:FindAbilityByName(hCaster.QSkill):GetSpecialValueFor("aoe")
+		local distance = hCaster:FindAbilityByName(hCaster.QSkill):GetSpecialValueFor("distance")
+		local gun_spawn1 = hCaster:GetAbsOrigin()+  hCaster:GetRightVector() * 100 + Vector(0,0,150)
 		local gun_spawn2 = hCaster:GetAbsOrigin()+  hCaster:GetRightVector() * -100  + Vector(0,0,150)
-	 	local aoe = 50
-		 Timers:CreateTimer(0.1, function()
+	 	local gun_spawn = gun_spawn1
+	 	for i = 1,bonus_gun do
+	 		if i == 2 then 
+	 			gun_spawn = gun_spawn2
+	 		end
+	 		Timers:CreateTimer(0.1 * (i - 1), function()
+			    self:Shot({
+				Speed = 10000,
+				AoE = aoe,
+				Range = distance,
+			},  gun_spawn )
+		    end)
+		end
+		--[[Timers:CreateTimer(0.1, function()
 			self:Shot({
 				Speed = 10000,
 				AoE = aoe,
-				Range = 1000,
+				Range = distance,
 			},  gun_spawn2 )
 
 		 end)
 		self:Shot({
 			Speed = 10000,
 			AoE = aoe,
-			Range = 1000,
-		},  gun_spawn )
+			Range = distance,
+		},  gun_spawn )]]
 	end
 
 	function ability:Shot(keys, position)
 	    self.caster = self:GetCaster()
+	    local search = self:GetSpecialValueFor("search")
 	    local vCasterOrigin = self.caster:GetAbsOrigin()
 	    vCasterOrigin.z = 0
-	    local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
+	    local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, search, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
 	    self.target = nil
 	     if( targets[1] ~= nil) then
 	        self.target  = targets[1]:GetAbsOrigin()
@@ -183,77 +182,31 @@ function nobu_dash_wrapper(ability)
 	    end
 	    local hCaster = self:GetCaster()        
 
-	    local damage = 0
-	    if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-	        damage = hCaster:FindAbilityByName("nobu_guns_upgrade"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-	    elseif hCaster.NobuActionAcquired then
-	        damage = hCaster:FindAbilityByName("nobu_guns_action"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-	    elseif hCaster.UnifyingAcquired then
-	        damage = hCaster:FindAbilityByName("nobu_guns_unifying"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-	    else
-	        damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-	    end
+	    local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
 
-	    if IsDivineServant(target) and hCaster.UnifyingAcquired then 
-	        damage= damage*1.2
-	    end
-	    DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	    hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)
 	    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
-	        local knockback = { should_stun = false,
-	        knockback_duration = 0.05,
-	        duration = 0.05,
-	        knockback_distance = 40,
-	        knockback_height = 0,
-	        center_x = hCaster:GetAbsOrigin().x,
-	        center_y = hCaster:GetAbsOrigin().y,
-	        center_z = hCaster:GetAbsOrigin().z }
 
-	        target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+	    local knockback = { should_stun = false,
+	    knockback_duration = 0.05,
+	    duration = 0.05,
+	    knockback_distance = 40,
+	    knockback_height = 0,
+	    center_x = hCaster:GetAbsOrigin().x,
+	    center_y = hCaster:GetAbsOrigin().y,
+	    center_z = hCaster:GetAbsOrigin().z }
+
+	    target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
 	    if(hCaster.ISDOW) then
-	        local gun_spawn = hCaster:GetAbsOrigin()
-	        local random1 = RandomInt(25, 150) -- position of gun spawn
-			local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
-			local random3 = RandomInt(80,200)*Vector(0,0,1) 
-	        
-
-			if random2 == 0 then 
-				gun_spawn = gun_spawn +  hCaster:GetRightVector() * -1 * random1 + random3
-			else 
-				gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
-	        end
-	        local aoe = 50
-	        
-            if hCaster.NobuActionAcquired and hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_upgrade"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.UnifyingAcquired then
-                hCaster:FindAbilityByName("nobu_guns_unifying"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            elseif hCaster.NobuActionAcquired then
-                hCaster:FindAbilityByName("nobu_guns_action"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            else        
-                hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
-                Speed = 10000,
-                AoE = aoe,
-                Range = 1000,
-                },  gun_spawn )
-            end
+	        hCaster:FindAbilityByName(hCaster.DSkill):DOWShoot()
 	    end
 	    return true 
 	end
 end
 
 nobu_dash_wrapper(nobu_dash)
+nobu_dash_wrapper(nobu_dash_action)
+nobu_dash_wrapper(nobu_dash_3000)
 nobu_dash_wrapper(nobu_dash_upgrade)
 
  
@@ -285,6 +238,47 @@ modifier_nobu_dash_dmg = class({})
 function modifier_nobu_dash_dmg:IsHidden() return false end
 function modifier_nobu_dash_dmg:RemoveOnDeath() return true end
 function modifier_nobu_dash_dmg:IsDebuff() return false end
+
+modifier_nobu_combo_window = class({})
+
+function modifier_nobu_combo_window:IsHidden()
+	return true 
+end
+
+function modifier_nobu_combo_window:OnCreated(args)
+	if IsServer() then
+		local caster = self:GetParent()
+		if caster.is3000Acquired then 
+			caster:SwapAbilities(caster.DSkill, "nobu_combo_upgrade", false, true)
+		else
+			caster:SwapAbilities(caster.DSkill, "nobu_combo", false, true)
+		end
+	end
+end
+
+function modifier_nobu_combo_window:OnRefresh(args)
+	
+end
+
+function modifier_nobu_combo_window:OnDestroy()
+	if IsServer() then
+		local caster = self:GetParent()
+		if caster.is3000Acquired then 
+			caster:SwapAbilities(caster.DSkill, "nobu_combo_upgrade", true, false)
+		else
+			caster:SwapAbilities(caster.DSkill, "nobu_combo", true, false)
+		end
+		
+	end
+end
+
+function modifier_nobu_combo_window:RemoveOnDeath()
+	return true
+end
+
+function modifier_nobu_combo_window:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 
  
 

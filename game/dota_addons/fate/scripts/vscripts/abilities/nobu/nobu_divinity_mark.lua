@@ -1,12 +1,14 @@
 nobu_divinity_mark = class({})
 LinkLuaModifier("modifier_nobu_divinity_mark", "abilities/nobu/nobu_divinity_mark", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_divinity_mark_activated", "abilities/nobu/nobu_divinity_mark", LUA_MODIFIER_MOTION_NONE) 
- 
+LinkLuaModifier("modifier_nobu_divinity_mark_cd", "abilities/nobu/nobu_divinity_mark", LUA_MODIFIER_MOTION_NONE)
+
 function nobu_divinity_mark:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
     hTarget:EmitSound("nobu_divinity_mark_cast")
     hTarget:AddNewModifier(hCaster, self, "modifier_nobu_divinity_mark", {duration = self:GetSpecialValueFor("duration")} )
+    hTarget:AddNewModifier(hCaster, self, "modifier_nobu_divinity_mark_cd", {duration = self:GetCooldown(1)} )
 end
 
 modifier_nobu_divinity_mark = class({})
@@ -50,7 +52,7 @@ function modifier_nobu_divinity_mark:OnTakeDamage(args)
         ParticleManager:SetParticleControl(self.fx , 1, Vector(self.stacks,0,0) ) 
 
     end
-    if(self.stacks == 9) then
+    if(self.stacks == self:GetAbility():GetSpecialValueFor("stack")) then
         parent:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_divinity_mark_activated", {duration = self:GetAbility():GetSpecialValueFor("activated_duration")} )
         parent:EmitSound("nobu_divinity_mark_activated")
         self:Destroy()
@@ -79,13 +81,32 @@ function modifier_nobu_divinity_mark_activated:RemoveOnDeath()return true end
 function modifier_nobu_divinity_mark_activated:IsDebuff() 	return true end
 
 function modifier_nobu_divinity_mark_activated:DeclareFunctions()
-    return {  MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE     }
+    return {  MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS     }
 end
 
 
  
-function modifier_nobu_divinity_mark_activated:GetModifierPhysicalArmorBase_Percentage ()
-   	    return  0
+function modifier_nobu_divinity_mark_activated:GetModifierPhysicalArmorBonus()
+   	    return  self:GetAbility():GetSpecialValueFor("arm_debuff")
+end
+
+modifier_nobu_divinity_mark_cd = class({})
+
+
+function modifier_nobu_divinity_mark_cd:IsHidden()
+    return false 
+end
+
+function modifier_nobu_divinity_mark_cd:RemoveOnDeath()
+    return false
+end
+
+function modifier_nobu_divinity_mark_cd:IsDebuff()
+    return true 
+end
+
+function modifier_nobu_divinity_mark_cd:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
  
  

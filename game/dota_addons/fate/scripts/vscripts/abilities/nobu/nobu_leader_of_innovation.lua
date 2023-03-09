@@ -1,12 +1,15 @@
 LinkLuaModifier("modifier_nobu_innovation_aura", "abilities/nobu/nobu_leader_of_innovation", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_innovation", "abilities/nobu/nobu_leader_of_innovation", LUA_MODIFIER_MOTION_NONE) 
 LinkLuaModifier("modifier_nobu_innovation_ms", "abilities/nobu/nobu_leader_of_innovation", LUA_MODIFIER_MOTION_NONE) 
+LinkLuaModifier("modifier_nobu_innovation_cd", "abilities/nobu/nobu_leader_of_innovation", LUA_MODIFIER_MOTION_NONE)
+
 nobu_leader_of_innovation = class({})
 
 function nobu_leader_of_innovation:OnSpellStart()
     local hCaster = self:GetCaster()
 	hCaster:EmitSound("nobu_innovation_cast")
-    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_innovation_aura", {duration = self:GetSpecialValueFor("duration")} )
+    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_innovation_aura", {duration = self:GetSpecialValueFor("duration")} ) 
+    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_innovation_cd", {duration = self:GetCooldown(1)} )
 end
  
  
@@ -37,7 +40,7 @@ function modifier_nobu_innovation_aura:GetModifierAura()
 end
 
 function modifier_nobu_innovation_aura:IsHidden()
-	return true
+	return false
 end
 
 function modifier_nobu_innovation_aura:RemoveOnDeath()
@@ -89,7 +92,7 @@ function modifier_nobu_innovation:OnTakeDamage(args)
 	if(  args.attacker:GetTeamNumber() == caster:GetTeamNumber() and caster.IsReadyToHeal)then
 		caster.IsReadyToHeal = false
 		caster:SetHealth(caster:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + (caster:GetStrength() * self:GetAbility():GetSpecialValueFor("bonus_str_heal")))
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(self:GetAbility():GetSpecialValueFor("cooldown"), function()
 		caster.IsReadyToHeal = true
 		end)
 
@@ -109,4 +112,23 @@ function modifier_nobu_innovation_ms:DeclareFunctions()
 end
 function modifier_nobu_innovation_ms:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetAbility():GetSpecialValueFor("ms_bonus")
+end
+
+modifier_nobu_innovation_cd = class({})
+
+
+function modifier_nobu_innovation_cd:IsHidden()
+    return false 
+end
+
+function modifier_nobu_innovation_cd:RemoveOnDeath()
+    return false
+end
+
+function modifier_nobu_innovation_cd:IsDebuff()
+    return true 
+end
+
+function modifier_nobu_innovation_cd:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

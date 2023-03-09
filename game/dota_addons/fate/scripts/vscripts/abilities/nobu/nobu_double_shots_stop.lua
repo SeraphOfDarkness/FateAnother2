@@ -2,11 +2,9 @@ nobu_double_shots_stop = class({})
  
 function nobu_double_shots_stop:OnSpellStart()
     local hCaster = self:GetCaster()
-    Timers:RemoveTimer("nobu_shoots")
+    local pID = hCaster:GetPlayerOwnerID()
+    Timers:RemoveTimer("nobu_shoots" .. pID)
     EndAnimation(hCaster)
     hCaster:RemoveModifierByName("modifier_nobu_turnlock")
-    if  hCaster:GetAbilityByIndex(2):GetName() ~= "nobu_double_shots" then
-        hCaster:SwapAbilities("nobu_double_shots", "nobu_double_shots_stop", true, false)    
-    end
-
+    hCaster:RemoveModifierByName("modifier_nobu_e_window")    
 end
