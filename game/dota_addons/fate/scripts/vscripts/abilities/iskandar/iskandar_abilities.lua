@@ -785,6 +785,7 @@ function OnAOTKStart(keys)
 		waver:SetOwner(caster)
 		waver:SetUnitCanRespawn(false)
 		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):SetLevel(aotkAbilityHandle:GetLevel())
+		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):StartCooldown(5)
 		waver:AddNewModifier(caster, ability, "modifier_kill", {Duration = 16})
 		table.insert(caster.AOTKSoldiers, waver)
 		caster.waver = waver
