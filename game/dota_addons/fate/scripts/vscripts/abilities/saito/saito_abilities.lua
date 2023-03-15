@@ -545,7 +545,7 @@ function saito_style:OnSpellStart()
     local nDuration = self:GetSpecialValueFor("duration")
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_style_active", {duration = nDuration})
-    hCaster:AddNewModifier(hCaster, self, "modifier_saito_blast_swap", {duration = 4}) --To swap to the second combo ability.
+    --hCaster:AddNewModifier(hCaster, self, "modifier_saito_blast_swap", {duration = 4}) --To swap to the second combo ability.
 
     -- local sCastPFX =    "particles/heroes/saito/saito_style_cast.vpcf"
     -- local nCastPFX =    ParticleManager:CreateParticle(sCastPFX, PATTACH_ABSORIGIN_FOLLOW, hCaster)
@@ -1571,7 +1571,8 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
         and IsNotNull(keys.ability)
         and not keys.ability:IsItem()
         and GetDistance(keys.unit, self.hParent) <= self.nRadius
-        and not self.hParent:HasModifier("modifier_saito_mind_eye_ss_interval")
+        and not self.hParent:HasModifier("modifier_saito_mind_eye_out_of_range")
+        and not self.hCaster:HasModifier("modifier_saito_mind_eye_ss_interval")
         and UnitFilter( --This checks filter units for example you can put here settings AKA check non-invis and etc.
                         keys.unit,
                         DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -1580,7 +1581,7 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
                         self.hCaster:GetTeamNumber()
                         ) == UF_SUCCESS then
 
-        self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_ss_interval", {duration = self.nSSInterval})
+        self.hCaster:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_ss_interval", {duration = self.nSSInterval})
 
         giveUnitDataDrivenModifier(self.hCaster, keys.unit, "stunned", self.nSSDuration)
         --giveUnitDataDrivenModifier(self.hCaster, keys.unit, "silenced", self.nSSDuration)
@@ -1634,11 +1635,29 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
                 self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_agility", {})
             end
         end
+
+        if self.hCaster ~= self.hParent then
+            self:StartIntervalThink(0.1)
+        end
     end
 end
 function modifier_saito_mind_eye_active:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
+function modifier_saito_mind_eye_active:OnIntervalThink()
+    if IsServer() then
+        if GetDistance(self.hCaster, self.hParent) > self.nRadius * 2 then
+            self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_out_of_range", {})
+        else
+            self.hParent:RemoveModifierByNameAndCaster("modifier_saito_mind_eye_out_of_range", self.hCaster)
+        end
+    end
+end
+function modifier_saito_mind_eye_active:OnDestroy()
+    if IsServer() then
+        self.hParent:RemoveModifierByNameAndCaster("modifier_saito_mind_eye_out_of_range", self.hCaster)
+    end
+end 
 function modifier_saito_mind_eye_active:CastPFX(hTarget)
 
     -- local sCastPFX =    "particles/heroes/saito/saito_mind_eye_cast.vpcf"
@@ -1674,6 +1693,18 @@ function modifier_saito_mind_eye_ss_interval:IsDebuff()                         
 function modifier_saito_mind_eye_ss_interval:IsPurgable()                                                           return false end
 function modifier_saito_mind_eye_ss_interval:IsPurgeException()                                                     return false end
 function modifier_saito_mind_eye_ss_interval:RemoveOnDeath()                                                        return false end
+--This modifier is necessary to check the distance of an ally with this buff from Saito, to show the player a radius within which Mind's Eye (True) stun/silence can proc or not.
+--Bullied by my ex-boyfriend, SADGE.
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_saito_mind_eye_out_of_range", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+
+modifier_saito_mind_eye_out_of_range = modifier_saito_mind_eye_out_of_range or class({})
+
+function modifier_saito_mind_eye_out_of_range:IsHidden()                                                            return false end
+function modifier_saito_mind_eye_out_of_range:IsDebuff()                                                            return true end
+function modifier_saito_mind_eye_out_of_range:IsPurgable()                                                          return false end
+function modifier_saito_mind_eye_out_of_range:IsPurgeException()                                                    return false end
+function modifier_saito_mind_eye_out_of_range:RemoveOnDeath()                                                       return true end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_mind_eye_shell", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
@@ -3279,8 +3310,9 @@ function saito_blast:OnSpellStart()
     hCaster:RemoveModifierByNameAndCaster("modifier_saito_blast_swap", hCaster) --Swapping back after emitting sound.
 end
 function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
-    if IsNotNull(hTarget) and not self.___tHittedTargets[hTarget] then
-        self.___tHittedTargets[hTarget] = true
+    if IsNotNull(hTarget) then
+        --and not self.___tHittedTargets[hTarget] then --Uncomment to make the unit only affected by one blast, when standing in an area of multiple blasts.
+        --self.___tHittedTargets[hTarget] = true
 
         local hCaster = self:GetCaster()
         --print(tExtraData.vStart_x, tExtraData.vStart_y, tExtraData.vStart_z)
@@ -3326,7 +3358,8 @@ function modifier_saito_blast_sdr:DeclareFunctions()
 end
 function modifier_saito_blast_sdr:GetModifierTotalDamageOutgoing_Percentage(keys)
     if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_ALL) ~= 0 then
-        return self.nSDRValue
+        --return self.nSDRValue
+        return RemapValClamped(self:GetElapsedTime(), 0, self:GetDuration(), self.nSDRMaxValue, self.nSDRMinValue)
     end
 end
 function modifier_saito_blast_sdr:OnCreated(tTable)
@@ -3334,10 +3367,9 @@ function modifier_saito_blast_sdr:OnCreated(tTable)
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
 
-    self.nSDRValue = self.hAbility:GetSpecialValueFor("sdr_value")
-
-    if IsServer() then
-    end
+    --self.nSDRValue = self.hAbility:GetSpecialValueFor("sdr_value")
+    self.nSDRMaxValue = self.hAbility:GetSpecialValueFor("sdr_max_value")
+    self.nSDRMinValue = self.hAbility:GetSpecialValueFor("sdr_min_value")
 end
 function modifier_saito_blast_sdr:OnRefresh(tTable)
     self:OnCreated(tTable)

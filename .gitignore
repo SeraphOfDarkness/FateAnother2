@@ -1,41 +1,19 @@
 # folders
 content/
+game/dota_addons/*
+!game/dota_addons/fate
 game/_toolsettings/
 game/bin/
 game/core/
 game/dota/
-game/dota_addons/addon_template/
-game/dota_addons/adventure_example/
-game/dota_addons/aghanim/
-game/dota_addons/cavern/
-game/dota_addons/conquest/
-game/dota_addons/diretide2020/
-game/dota_addons/dungeon/
-game/dota_addons/hero_demo/
-game/dota_addons/holdout/
-game/dota_addons/holdout_example/
-game/dota_addons/jungle_spirits_2019/
-game/dota_addons/last_hit_trainer/
-game/dota_addons/lua_ability_example/
-game/dota_addons/manyplayer_example/
-game/dota_addons/nemestice/
-game/dota_addons/new_bloom_2017/
-game/dota_addons/npx_2019/
-game/dota_addons/overthrow/
-game/dota_addons/rpg_example/
-game/dota_addons/tutorial_assist_game/
-game/dota_addons/tutorial_basics/
-game/dota_addons/ui_example/
-game/dota_addons/winter2022/
-game/dota_addons/winter_2018/
-game/dota_addons/workshop_testbed/
 game/dota_koreana/
 game/dota_lv/
 game/dota_russian/
 game/dota_schinese/
 
+
 # files
 *.cfg
 *.bin
-game/thirdpartylegalnotices.txt
 steam_appid.txt
+game/thirdpartylegalnotices.txt

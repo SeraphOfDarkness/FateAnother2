@@ -99,9 +99,9 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"Damage"					"100 200 300 400 500"
+			"Damage"					"200 350 500 650 800"
 			"DashRange"					"750"
-			"DashSpeed"					"50"
+			"DashSpeed"					"60"
 			"DashWidth"					"200"
 		}
 
@@ -122,8 +122,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL  
-										 DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"     		"custom/musashi/musashi_niou_kurikara"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -133,14 +132,13 @@
 		"AbilityManaCost"         		"400"
 		"AbilityCastRange"				"500"
 		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.8"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"
 
 		//Time----------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"2.0"
+		"AbilityChannelTime"			"0"
 		"AbilityCooldown"				"30"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
@@ -174,6 +172,8 @@
 			"particle"					"particles/custom/musashi/musashi_niou_kurikara_unique_fire_crack.vpcf"
 			"particle"					"particles/custom/musashi/musashi_niou_kurikara_unique_wind.vpcf"
 			"particle"					"particles/custom/musashi/musashi_niou_kurikara_unique_wind_crack.vpcf"
+			"particle"					"particles/custom/musashi/musashi_niou_kurikara_fire_debuff_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_niou_kurikara_fire_debuff_unique.vpcf"
 		}
 	}
 
@@ -196,7 +196,7 @@
 		"AbilityManaCost"         		"100"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"
@@ -220,7 +220,7 @@
 			"BuffDuration"				"10"
 			"BonusPureDmgPerAgi"		"0"
 			"MaxCharges"				"2"
-			"RechargeTime"				"38 36 34 32 30"
+			"RechargeTime"				"30"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -234,7 +234,65 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 5 : Mukyuu (F)
+	// Miyamoto Musashi : Skill 6 : Ganryuu Jima (R)
+	//==================================================================================================================
+	"musashi_ganryuu_jima"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | 
+										 DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"     		"custom/musashi/musashi_ganryuu_jima"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"800"
+		"AbilityCastRange"				"0"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"40"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"DashSpeed"					"60"
+			"DmgPerSlash"				"450 550 650 750 850"
+			"DebuffDmgDelay"			"0.75"
+			"SlashRange"				"750"
+			"SlashRadius"				"200"
+			"BonusDmgPerAgi"			"0"
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_unique.vpcf"
+			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_debuff_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_debuff_unique.vpcf"
+		}
+	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Skill 7 : Mukyuu (F)
 	//==================================================================================================================
 	"musashi_mukyuu"
 	{
@@ -285,65 +343,7 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 6 : Ganryuu Jima (R)
-	//==================================================================================================================
-	"musashi_ganryuu_jima"
-	{
-		//General-------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/musashi/musashi_abilities"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | 
-										 DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"     		"custom/musashi/musashi_ganryuu_jima"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-	
-		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"800"
-		"AbilityCastRange"				"0"
-		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate"			"1.0"
-		"AnimationIgnoresModelScale" 	"1"
-
-		//Time----------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"40"
-		"AbilityCharges"				"0"
-		"AbilityChargeRestoreTime"		"0"
-
-		//Targeting-----------------------------------------------------------------------------------------------------
-	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
-
-	    //AbilityMechanics----------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"DashSpeed"					"50"
-			"DmgPerSlash"				"450 550 650 750 850"
-			"DebuffDmgDelay"			"1"
-			"SlashRange"				"750"
-			"SlashRadius"				"200"
-			"BonusDmgPerAgi"			"0"
-		}
-
-		//Precache------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_unique.vpcf"
-			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_debuff_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_ganryuu_jima_debuff_unique.vpcf"
-		}
-	}
-
-	//==================================================================================================================
-	// Miyamoto Musashi : Skill 7 : Tenma Gogan (D)
+	// Miyamoto Musashi : Skill 8 : Tenma Gogan (D)
 	//==================================================================================================================
 	"musashi_tenma_gogan"
 	{
@@ -396,7 +396,7 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 8 : Tengen No Hana (F)
+	// Miyamoto Musashi : Skill 9 : Tengen No Hana (F)
 	//==================================================================================================================
 	"musashi_tengen_no_hana"
 	{
@@ -439,9 +439,9 @@
 			"Radius"					"500"
 			"RampUpInterval"			"1"
 			"BuffDuration"				"3"
-			"Damage1"					"250"
-			"Damage2"					"500"
-			"FullDamage"				"1000"
+			"1SecPercentage"			"25"
+			"2SecPercentage"			"50"
+			"FullDamage"				"100"
 			"StunDuration"				"1.5"
 		}
 
@@ -461,7 +461,7 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 9 : Battle Continuation (SA)
+	// Miyamoto Musashi : Skill 10 : Battle Continuation (SA)
 	//==================================================================================================================
 	"musashi_battle_continuation"
 	{
@@ -521,7 +521,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/musashi/musashi_abilities"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | 
+										 DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"     		"custom/musashi/musashi_ishana_daitenshou"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
@@ -529,9 +530,9 @@
 	
 		//Casting-------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"         		"700"
-		"AbilityCastRange"				"350"
-		"AbilityCastRangeBuffer"		"350"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastRange"				"500"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0.6"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"
@@ -553,14 +554,13 @@
 		"AbilityValues"
 		{
 			"SearchRadius"				"1500"
-			"DashSpeed"					"50"
-			"NormalSlashCount"			"5"
+			"DashSpeed"					"60"
+			"MaxNormalSlashCount"		"5"
 			"NormalSlashInterval"		"0.1"
 			"NormalSlashMaxHpPercent"	"3"
 			"FinalSlashDmgDelay"		"0.5"
-			"FinalSlashMaxHpPercent"	"20"
+			"FinalSlashMaxHpPercent"	"25"
 			"ExecuteThresholdPercent"	"25"
-			"DebuffDuration"			"120"
 			"MaxHpReductionPercent"		"-25"
 			"ExtraIncomingDmgPercent"	"25"
 		}
@@ -580,7 +580,7 @@
 	}
 
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 10 : Niou (Innate)
+	// Miyamoto Musashi : Skill 11 : Niou (Innate)
 	//==================================================================================================================
 	"musashi_niou"
 	{
@@ -646,7 +646,7 @@
 		"AbilityManaCost"         		"17"
 		"AbilityCastRange"				"0"
 		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.03"
 		"AbilityCastAnimation"			""
 		"AnimationPlaybackRate"			"0"
 		"AnimationIgnoresModelScale" 	"1"
@@ -667,6 +667,7 @@
 		"AbilityValues"
 		{
 			"BuffDuration"				"3.5"
+			"Cooldown"					"120"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -716,7 +717,7 @@
 		{
 			"BonusPureDmgPerAgi"		"3.5"
 			"MaxCharges"				"4"
-			"RechargeTime"				"19 18 17 16 15"
+			"RechargeTime"				"15"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -767,9 +768,10 @@
 			"DebuffDuration"			"1"
 			"EarthSlow"					"-50"
 			"PushSpeed"					"25"
-			"FireBurnDuration"			"5"
-			"FireBurnDmgPerSec"			"100"
-			"WindDuration"				"1"
+			"FireBurnDuration"			"3"
+			"FireBurnDmgPerSec"			"150"
+			"FireIncreaseDmgTaken"		"25"
+			"WindDuration"				"1.5"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------

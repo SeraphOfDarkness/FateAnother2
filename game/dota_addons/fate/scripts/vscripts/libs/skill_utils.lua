@@ -8,12 +8,12 @@ local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerModifier = ____dota_ts_adapter.registerModifier
 function ____exports.InitSkillSlotChecker(Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
-    if not IsServer() or Caster:HasModifier(____exports.Modifier_Skill_Slot_Checker.name) then
+    if not IsServer() then
         return
     end
     local OriSkill = Caster:FindAbilityByName(OriSkillStr)
     local TargetSkill = Caster:FindAbilityByName(TargetSkillStr)
-    local ModifierSkillSlotChecker = Caster:AddNewModifier(Caster, nil, ____exports.Modifier_Skill_Slot_Checker.name, {duration = Timeout})
+    local ModifierSkillSlotChecker = Caster:AddNewModifier(Caster, OriSkill, ____exports.modifier_skill_slot_checker.name, {duration = Timeout})
     ModifierSkillSlotChecker.OriSkill = OriSkill
     ModifierSkillSlotChecker.TargetSkill = TargetSkill
     ModifierSkillSlotChecker.OriSkillIndex = OriSkill and OriSkill:GetAbilityIndex()
@@ -24,24 +24,24 @@ function ____exports.InitSkillSlotChecker(Caster, OriSkillStr, TargetSkillStr, T
     ModifierSkillSlotChecker.SwapBackIfCasted = ____SwapBackIfCasted_2
     Caster:SwapAbilities(OriSkillStr, TargetSkillStr, false, true)
 end
-____exports.Modifier_Skill_Slot_Checker = __TS__Class()
-local Modifier_Skill_Slot_Checker = ____exports.Modifier_Skill_Slot_Checker
-Modifier_Skill_Slot_Checker.name = "Modifier_Skill_Slot_Checker"
-__TS__ClassExtends(Modifier_Skill_Slot_Checker, BaseModifier)
-function Modifier_Skill_Slot_Checker.prototype.____constructor(self, ...)
+____exports.modifier_skill_slot_checker = __TS__Class()
+local modifier_skill_slot_checker = ____exports.modifier_skill_slot_checker
+modifier_skill_slot_checker.name = "modifier_skill_slot_checker"
+__TS__ClassExtends(modifier_skill_slot_checker, BaseModifier)
+function modifier_skill_slot_checker.prototype.____constructor(self, ...)
     BaseModifier.prototype.____constructor(self, ...)
     self.OriSkillIndex = 0
     self.SwapBackIfCasted = true
 end
-function Modifier_Skill_Slot_Checker.prototype.OnAbilityFullyCast(self, event)
-    if not IsServer() then
+function modifier_skill_slot_checker.prototype.OnAbilityFullyCast(self, event)
+    if not IsServer() or event.unit ~= self:GetCaster() then
         return
     end
     if event.ability == self.TargetSkill and self.SwapBackIfCasted then
         self:Destroy()
     end
 end
-function Modifier_Skill_Slot_Checker.prototype.OnDestroy(self)
+function modifier_skill_slot_checker.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
@@ -62,26 +62,29 @@ function Modifier_Skill_Slot_Checker.prototype.OnDestroy(self)
         )
     end
 end
-function Modifier_Skill_Slot_Checker.prototype.DeclareFunctions(self)
+function modifier_skill_slot_checker.prototype.DeclareFunctions(self)
     return {MODIFIER_EVENT_ON_ABILITY_FULLY_CAST}
 end
-function Modifier_Skill_Slot_Checker.prototype.IsHidden(self)
+function modifier_skill_slot_checker.prototype.IsHidden(self)
     return true
 end
-function Modifier_Skill_Slot_Checker.prototype.IsPurgable(self)
+function modifier_skill_slot_checker.prototype.IsPurgable(self)
     return false
 end
-function Modifier_Skill_Slot_Checker.prototype.IsPurgeException(self)
+function modifier_skill_slot_checker.prototype.IsPurgeException(self)
     return false
 end
-function Modifier_Skill_Slot_Checker.prototype.RemoveOnDeath(self)
+function modifier_skill_slot_checker.prototype.RemoveOnDeath(self)
     return false
 end
-Modifier_Skill_Slot_Checker = __TS__Decorate(
+function modifier_skill_slot_checker.prototype.GetAttributes(self)
+    return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+modifier_skill_slot_checker = __TS__Decorate(
     {registerModifier(nil)},
-    Modifier_Skill_Slot_Checker
+    modifier_skill_slot_checker
 )
-____exports.Modifier_Skill_Slot_Checker = Modifier_Skill_Slot_Checker
+____exports.modifier_skill_slot_checker = modifier_skill_slot_checker
 function ____exports.CheckComboStatsFulfilled(Caster)
     if not IsServer() then
         return false
@@ -100,27 +103,29 @@ function ____exports.InitComboSequenceChecker(Caster, SkillsSequence, OriSkillSt
     if not IsServer() then
         return
     end
-    local ModifierComboSequence = Caster:AddNewModifier(Caster, nil, ____exports.Modifier_Combo_Sequence.name, {duration = Timeout})
+    local ModifierComboSequence = Caster:AddNewModifier(Caster, nil, ____exports.modifier_combo_sequence.name, {duration = Timeout})
     ModifierComboSequence.SkillsSequence = SkillsSequence
     ModifierComboSequence.OriSkillStr = OriSkillStr
     ModifierComboSequence.ComboSkillStr = ComboSkillStr
 end
-____exports.Modifier_Combo_Sequence = __TS__Class()
-local Modifier_Combo_Sequence = ____exports.Modifier_Combo_Sequence
-Modifier_Combo_Sequence.name = "Modifier_Combo_Sequence"
-__TS__ClassExtends(Modifier_Combo_Sequence, BaseModifier)
-function Modifier_Combo_Sequence.prototype.OnAbilityFullyCast(self, event)
-    if not IsServer() then
+____exports.modifier_combo_sequence = __TS__Class()
+local modifier_combo_sequence = ____exports.modifier_combo_sequence
+modifier_combo_sequence.name = "modifier_combo_sequence"
+__TS__ClassExtends(modifier_combo_sequence, BaseModifier)
+function modifier_combo_sequence.prototype.OnAbilityFullyCast(self, event)
+    if not IsServer() or event.unit ~= self:GetCaster() then
         return
     end
     local StackCount = self:GetStackCount()
-    if event.ability:GetName() == self.SkillsSequence[StackCount + 1] then
-        self:IncrementStackCount()
-    else
-        self:Destroy()
+    do
+        if event.ability:GetName() == self.SkillsSequence[StackCount + 1] then
+            self:IncrementStackCount()
+        else
+            self:Destroy()
+        end
     end
 end
-function Modifier_Combo_Sequence.prototype.OnStackCountChanged(self, stackCount)
+function modifier_combo_sequence.prototype.OnStackCountChanged(self, stackCount)
     if not IsServer() then
         return
     end
@@ -137,29 +142,29 @@ function Modifier_Combo_Sequence.prototype.OnStackCountChanged(self, stackCount)
         )
     end
 end
-function Modifier_Combo_Sequence.prototype.DeclareFunctions(self)
+function modifier_combo_sequence.prototype.DeclareFunctions(self)
     return {MODIFIER_EVENT_ON_ABILITY_FULLY_CAST}
 end
-function Modifier_Combo_Sequence.prototype.IsHidden(self)
+function modifier_combo_sequence.prototype.IsHidden(self)
     return false
 end
-function Modifier_Combo_Sequence.prototype.IsPurgable(self)
+function modifier_combo_sequence.prototype.IsPurgable(self)
     return false
 end
-function Modifier_Combo_Sequence.prototype.IsPurgeException(self)
+function modifier_combo_sequence.prototype.IsPurgeException(self)
     return false
 end
-function Modifier_Combo_Sequence.prototype.RemoveOnDeath(self)
+function modifier_combo_sequence.prototype.RemoveOnDeath(self)
     return false
 end
-function Modifier_Combo_Sequence.prototype.GetTexture(self)
+function modifier_combo_sequence.prototype.GetTexture(self)
     return "custom/utils/ComboSequence"
 end
-Modifier_Combo_Sequence = __TS__Decorate(
+modifier_combo_sequence = __TS__Decorate(
     {registerModifier(nil)},
-    Modifier_Combo_Sequence
+    modifier_combo_sequence
 )
-____exports.Modifier_Combo_Sequence = Modifier_Combo_Sequence
+____exports.modifier_combo_sequence = modifier_combo_sequence
 function ____exports.GetMaster1(Master2)
     if not IsServer() then
         return
@@ -181,4 +186,66 @@ function ____exports.GetMaster1(Master2)
         function(____, Unit) return Unit:GetUnitName() == "master_1" and Unit:GetPlayerOwner() == Master2:GetPlayerOwner() end
     )
 end
+function ____exports.ApplySaWhenRevived(Master2, AttributeAbility, AttributeModifier)
+    if not IsServer() then
+        return
+    end
+    local ModifierHeroAliveChecker = Master2:AddNewModifier(Master2, AttributeAbility, ____exports.modifier_hero_alive_checker.name, {undefined = undefined})
+    ModifierHeroAliveChecker.AttributeAbility = AttributeAbility
+    ModifierHeroAliveChecker.AttributeModifier = AttributeModifier
+end
+____exports.modifier_hero_alive_checker = __TS__Class()
+local modifier_hero_alive_checker = ____exports.modifier_hero_alive_checker
+modifier_hero_alive_checker.name = "modifier_hero_alive_checker"
+__TS__ClassExtends(modifier_hero_alive_checker, BaseModifier)
+function modifier_hero_alive_checker.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.AttributeModifier = ""
+end
+function modifier_hero_alive_checker.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Master2 = self:GetParent()
+    self.Hero = self.Master2:GetPlayerOwner():GetAssignedHero()
+    self:StartIntervalThink(0.1)
+end
+function modifier_hero_alive_checker.prototype.OnIntervalThink(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_15 = self.Hero
+    if ____opt_15 and ____opt_15:IsAlive() then
+        self:Destroy()
+    end
+end
+function modifier_hero_alive_checker.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_17 = self.Hero
+    if ____opt_17 ~= nil then
+        ____opt_17:AddNewModifier(self.Master2, self.AttributeAbility, self.AttributeModifier, {undefined = undefined})
+    end
+end
+function modifier_hero_alive_checker.prototype.IsPurgable(self)
+    return false
+end
+function modifier_hero_alive_checker.prototype.IsPurgeException(self)
+    return false
+end
+function modifier_hero_alive_checker.prototype.IsHidden(self)
+    return true
+end
+function modifier_hero_alive_checker.prototype.IsPermanent(self)
+    return true
+end
+function modifier_hero_alive_checker.prototype.GetAttributes(self)
+    return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+modifier_hero_alive_checker = __TS__Decorate(
+    {registerModifier(nil)},
+    modifier_hero_alive_checker
+)
+____exports.modifier_hero_alive_checker = modifier_hero_alive_checker
 return ____exports

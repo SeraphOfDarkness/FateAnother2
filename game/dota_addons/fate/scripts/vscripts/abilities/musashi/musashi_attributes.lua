@@ -4,6 +4,7 @@ local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
 local ____exports = {}
 local ____skill_utils = require("libs.skill_utils")
+local ApplySaWhenRevived = ____skill_utils.ApplySaWhenRevived
 local GetMaster1 = ____skill_utils.GetMaster1
 local InitSkillSlotChecker = ____skill_utils.InitSkillSlotChecker
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
@@ -18,10 +19,9 @@ musashi_attributes_battle_continuation.name = "musashi_attributes_battle_continu
 __TS__ClassExtends(musashi_attributes_battle_continuation, BaseAbility)
 function musashi_attributes_battle_continuation.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     local Master1 = GetMaster1(Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_battle_continuation.name, {undefined = undefined})
+    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_battle_continuation.name)
 end
 musashi_attributes_battle_continuation = __TS__Decorate(
     {registerAbility(nil)},
@@ -58,10 +58,10 @@ musashi_attributes_improve_tengan.name = "musashi_attributes_improve_tengan"
 __TS__ClassExtends(musashi_attributes_improve_tengan, BaseAbility)
 function musashi_attributes_improve_tengan.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     local Master1 = GetMaster1(Master2)
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_improve_tengan.name, {undefined = undefined})
+    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_improve_tengan.name)
     InitSkillSlotChecker(Hero, musashi_ability.musashi_tengan.name, musashi_ability.musashi_tenma_gogan.name, 0.03)
 end
 musashi_attributes_improve_tengan = __TS__Decorate(
@@ -131,10 +131,9 @@ musashi_attributes_gorin_no_sho.name = "musashi_attributes_gorin_no_sho"
 __TS__ClassExtends(musashi_attributes_gorin_no_sho, BaseAbility)
 function musashi_attributes_gorin_no_sho.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     local Master1 = GetMaster1(Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_gorin_no_sho.name, {undefined = undefined})
+    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_gorin_no_sho.name)
 end
 musashi_attributes_gorin_no_sho = __TS__Decorate(
     {registerAbility(nil)},
@@ -171,15 +170,11 @@ musashi_attributes_mukyuu.name = "musashi_attributes_mukyuu"
 __TS__ClassExtends(musashi_attributes_mukyuu, BaseAbility)
 function musashi_attributes_mukyuu.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     local Master1 = GetMaster1(Master2)
+    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    local Mukyuu = Hero:FindAbilityByName(musashi_ability.musashi_mukyuu.name)
-    Hero:SwapAbilities("fate_empty1", musashi_ability.musashi_mukyuu.name, false, true)
-    --[[if Mukyuu ~= nil then
-        Mukyuu:SetHidden(false)
-    end]]
-    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_mukyuu.name, {undefined = undefined})
+    Hero:SwapAbilities(musashi_ability.musashi_mukyuu.name, "fate_empty1", true, false)
+    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_mukyuu.name)
 end
 musashi_attributes_mukyuu = __TS__Decorate(
     {registerAbility(nil)},
@@ -240,10 +235,9 @@ musashi_attributes_niten_ichiryuu.name = "musashi_attributes_niten_ichiryuu"
 __TS__ClassExtends(musashi_attributes_niten_ichiryuu, BaseAbility)
 function musashi_attributes_niten_ichiryuu.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     local Master1 = GetMaster1(Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    Hero:AddNewModifier(Master2, self, ____exports.musashi_attribute_niten_ichiryuu.name, {undefined = undefined})
+    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_niten_ichiryuu.name)
 end
 musashi_attributes_niten_ichiryuu = __TS__Decorate(
     {registerAbility(nil)},

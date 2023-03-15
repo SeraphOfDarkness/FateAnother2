@@ -762,13 +762,7 @@ local function __TS__AsyncAwaiter(generator)
         function(____, resolve, reject)
             local adopt, fulfilled, step, resolved, asyncCoroutine
             function adopt(self, value)
-                local ____temp_0
-                if __TS__InstanceOf(value, __TS__Promise) then
-                    ____temp_0 = value
-                else
-                    ____temp_0 = __TS__Promise.resolve(value)
-                end
-                return ____temp_0
+                return __TS__InstanceOf(value, __TS__Promise) and value or __TS__Promise.resolve(value)
             end
             function fulfilled(self, value)
                 local success, resultOrError = coroutine.resume(asyncCoroutine, value)
@@ -785,8 +779,8 @@ local function __TS__AsyncAwaiter(generator)
                 if coroutine.status(asyncCoroutine) == "dead" then
                     resolve(nil, result)
                 else
-                    local ____self_1 = adopt(nil, result)
-                    ____self_1["then"](____self_1, fulfilled, reject)
+                    local ____self_0 = adopt(nil, result)
+                    ____self_0["then"](____self_0, fulfilled, reject)
                 end
             end
             resolved = false
@@ -795,8 +789,8 @@ local function __TS__AsyncAwaiter(generator)
                 asyncCoroutine,
                 function(____, v)
                     resolved = true
-                    local ____self_2 = adopt(nil, v)
-                    ____self_2["then"](____self_2, resolve, reject)
+                    local ____self_1 = adopt(nil, v)
+                    ____self_1["then"](____self_1, resolve, reject)
                 end
             )
             if success then
@@ -903,7 +897,7 @@ do
             local descriptors = rawget(metatable, "_descriptors")
             if descriptors then
                 local descriptor = descriptors[key]
-                if descriptor then
+                if descriptor ~= nil then
                     if descriptor.get then
                         return descriptor.get(self)
                     end
@@ -919,7 +913,7 @@ do
             local descriptors = rawget(metatable, "_descriptors")
             if descriptors then
                 local descriptor = descriptors[key]
-                if descriptor then
+                if descriptor ~= nil then
                     if descriptor.set then
                         descriptor.set(self, value)
                     else
@@ -972,7 +966,7 @@ local function __TS__Decorate(decorators, target, key, desc)
         local i = #decorators
         while i >= 0 do
             local decorator = decorators[i + 1]
-            if decorator then
+            if decorator ~= nil then
                 local oldResult = result
                 if key == nil then
                     result = decorator(nil, result)
@@ -1045,7 +1039,7 @@ do
             if isClassicLua or caller and caller.func ~= error then
                 return description
             else
-                return (tostring(description) .. "\n") .. self.stack
+                return (description .. "\n") .. tostring(self.stack)
             end
         end
     end
@@ -1056,7 +1050,7 @@ do
             {__call = function(____, _self, message) return __TS__New(Type, message) end}
         )
     end
-    local ____initErrorClass_2 = initErrorClass
+    local ____initErrorClass_1 = initErrorClass
     local ____class_0 = __TS__Class()
     ____class_0.name = ""
     function ____class_0.prototype.____constructor(self, message)
@@ -1067,31 +1061,25 @@ do
         self.name = "Error"
         self.stack = getErrorStack(nil, self.constructor.new)
         local metatable = getmetatable(self)
-        if not metatable.__errorToStringPatched then
+        if metatable and not metatable.__errorToStringPatched then
             metatable.__errorToStringPatched = true
             metatable.__tostring = wrapErrorToString(nil, metatable.__tostring)
         end
     end
     function ____class_0.prototype.__tostring(self)
-        local ____temp_1
-        if self.message ~= "" then
-            ____temp_1 = (self.name .. ": ") .. self.message
-        else
-            ____temp_1 = self.name
-        end
-        return ____temp_1
+        return self.message ~= "" and (self.name .. ": ") .. self.message or self.name
     end
-    Error = ____initErrorClass_2(nil, ____class_0, "Error")
+    Error = ____initErrorClass_1(nil, ____class_0, "Error")
     local function createErrorClass(self, name)
-        local ____initErrorClass_4 = initErrorClass
-        local ____class_3 = __TS__Class()
-        ____class_3.name = ____class_3.name
-        __TS__ClassExtends(____class_3, Error)
-        function ____class_3.prototype.____constructor(self, ...)
-            ____class_3.____super.prototype.____constructor(self, ...)
+        local ____initErrorClass_3 = initErrorClass
+        local ____class_2 = __TS__Class()
+        ____class_2.name = ____class_2.name
+        __TS__ClassExtends(____class_2, Error)
+        function ____class_2.prototype.____constructor(self, ...)
+            ____class_2.____super.prototype.____constructor(self, ...)
             self.name = name
         end
-        return ____initErrorClass_4(nil, ____class_3, name)
+        return ____initErrorClass_3(nil, ____class_2, name)
     end
     RangeError = createErrorClass(nil, "RangeError")
     ReferenceError = createErrorClass(nil, "ReferenceError")
@@ -1261,13 +1249,13 @@ do
             self.size = self.size - 1
             local next = self.nextKey[key]
             local previous = self.previousKey[key]
-            if next and previous then
+            if next ~= nil and previous ~= nil then
                 self.nextKey[previous] = next
                 self.previousKey[next] = previous
-            elseif next then
+            elseif next ~= nil then
                 self.firstKey = next
                 self.previousKey[next] = nil
-            elseif previous then
+            elseif previous ~= nil then
                 self.lastKey = previous
                 self.nextKey[previous] = nil
             else
@@ -1453,13 +1441,7 @@ do
 end
 
 local function __TS__ObjectDefineProperty(target, key, desc)
-    local ____temp_0
-    if type(key) == "number" then
-        ____temp_0 = key + 1
-    else
-        ____temp_0 = key
-    end
-    local luaKey = ____temp_0
+    local luaKey = type(key) == "number" and key + 1 or key
     local value = rawget(target, luaKey)
     local hasGetterOrSetter = desc.get ~= nil or desc.set ~= nil
     local descriptor
@@ -1473,39 +1455,39 @@ local function __TS__ObjectDefineProperty(target, key, desc)
         descriptor = desc
     else
         local valueExists = value ~= nil
-        local ____desc_set_5 = desc.set
-        local ____desc_get_6 = desc.get
-        local ____temp_1
+        local ____desc_set_4 = desc.set
+        local ____desc_get_5 = desc.get
+        local ____temp_0
         if desc.configurable ~= nil then
-            ____temp_1 = desc.configurable
+            ____temp_0 = desc.configurable
+        else
+            ____temp_0 = valueExists
+        end
+        local ____temp_1
+        if desc.enumerable ~= nil then
+            ____temp_1 = desc.enumerable
         else
             ____temp_1 = valueExists
         end
         local ____temp_2
-        if desc.enumerable ~= nil then
-            ____temp_2 = desc.enumerable
+        if desc.writable ~= nil then
+            ____temp_2 = desc.writable
         else
             ____temp_2 = valueExists
         end
         local ____temp_3
-        if desc.writable ~= nil then
-            ____temp_3 = desc.writable
-        else
-            ____temp_3 = valueExists
-        end
-        local ____temp_4
         if desc.value ~= nil then
-            ____temp_4 = desc.value
+            ____temp_3 = desc.value
         else
-            ____temp_4 = value
+            ____temp_3 = value
         end
         descriptor = {
-            set = ____desc_set_5,
-            get = ____desc_get_6,
-            configurable = ____temp_1,
-            enumerable = ____temp_2,
-            writable = ____temp_3,
-            value = ____temp_4
+            set = ____desc_set_4,
+            get = ____desc_get_5,
+            configurable = ____temp_0,
+            enumerable = ____temp_1,
+            writable = ____temp_2,
+            value = ____temp_3
         }
     end
     __TS__SetDescriptor(target, luaKey, descriptor)
@@ -1575,14 +1557,8 @@ end
 
 local function __TS__ParseFloat(numberString)
     local infinityMatch = __TS__Match(numberString, "^%s*(-?Infinity)")
-    if infinityMatch then
-        local ____temp_0
-        if __TS__StringAccess(infinityMatch, 0) == "-" then
-            ____temp_0 = -math.huge
-        else
-            ____temp_0 = math.huge
-        end
-        return ____temp_0
+    if infinityMatch ~= nil then
+        return __TS__StringAccess(infinityMatch, 0) == "-" and -math.huge or math.huge
     end
     local number = tonumber(__TS__Match(numberString, "^%s*(-?%d+%.?%d*)"))
     return number or 0 / 0
@@ -1613,27 +1589,15 @@ do
         if base == nil then
             base = 10
             local hexMatch = __TS__Match(numberString, "^%s*-?0[xX]")
-            if hexMatch then
+            if hexMatch ~= nil then
                 base = 16
-                local ____TS__Match_result__0_0
-                if __TS__Match(hexMatch, "-") then
-                    ____TS__Match_result__0_0 = "-" .. __TS__StringSubstring(numberString, #hexMatch)
-                else
-                    ____TS__Match_result__0_0 = __TS__StringSubstring(numberString, #hexMatch)
-                end
-                numberString = ____TS__Match_result__0_0
+                numberString = __TS__Match(hexMatch, "-") and "-" .. __TS__StringSubstring(numberString, #hexMatch) or __TS__StringSubstring(numberString, #hexMatch)
             end
         end
         if base < 2 or base > 36 then
             return 0 / 0
         end
-        local ____temp_1
-        if base <= 10 then
-            ____temp_1 = __TS__StringSubstring(parseIntBasePattern, 0, base)
-        else
-            ____temp_1 = __TS__StringSubstring(parseIntBasePattern, 0, 10 + 2 * (base - 10))
-        end
-        local allowedDigits = ____temp_1
+        local allowedDigits = base <= 10 and __TS__StringSubstring(parseIntBasePattern, 0, base) or __TS__StringSubstring(parseIntBasePattern, 0, 10 + 2 * (base - 10))
         local pattern = ("^%s*(-?[" .. allowedDigits) .. "]*)"
         local number = tonumber(
             __TS__Match(numberString, pattern),
@@ -1872,13 +1836,13 @@ do
             self.size = self.size - 1
             local next = self.nextKey[value]
             local previous = self.previousKey[value]
-            if next and previous then
+            if next ~= nil and previous ~= nil then
                 self.nextKey[previous] = next
                 self.previousKey[next] = previous
-            elseif next then
+            elseif next ~= nil then
                 self.firstKey = next
                 self.previousKey[next] = nil
-            elseif previous then
+            elseif previous ~= nil then
                 self.lastKey = previous
                 self.nextKey[previous] = nil
             else
@@ -2066,7 +2030,7 @@ local function __TS__SourceMapTraceBack(fileName, sourceMap)
             if thread == nil and message == nil and level == nil then
                 trace = originalTraceback()
             elseif __TS__StringIncludes(_VERSION, "Lua 5.0") then
-                trace = originalTraceback((("[Level " .. tostring(level)) .. "] ") .. message)
+                trace = originalTraceback((("[Level " .. tostring(level)) .. "] ") .. tostring(message))
             else
                 trace = originalTraceback(thread, message, level)
             end
@@ -2075,12 +2039,12 @@ local function __TS__SourceMapTraceBack(fileName, sourceMap)
             end
             local function replacer(____, file, srcFile, line)
                 local fileSourceMap = _G.__TS__sourcemap[file]
-                if fileSourceMap and fileSourceMap[line] then
+                if fileSourceMap ~= nil and fileSourceMap[line] ~= nil then
                     local data = fileSourceMap[line]
                     if type(data) == "number" then
                         return (srcFile .. ":") .. tostring(data)
                     end
-                    return (tostring(data.file) .. ":") .. tostring(data.line)
+                    return (data.file .. ":") .. tostring(data.line)
                 end
                 return (file .. ":") .. line
             end
@@ -2091,14 +2055,14 @@ local function __TS__SourceMapTraceBack(fileName, sourceMap)
             )
             local function stringReplacer(____, file, line)
                 local fileSourceMap = _G.__TS__sourcemap[file]
-                if fileSourceMap and fileSourceMap[line] then
+                if fileSourceMap ~= nil and fileSourceMap[line] ~= nil then
                     local chunkName = __TS__Match(file, "%[string \"([^\"]+)\"%]")
                     local sourceName = string.gsub(chunkName, ".lua$", ".ts")
                     local data = fileSourceMap[line]
                     if type(data) == "number" then
                         return (sourceName .. ":") .. tostring(data)
                     end
-                    return (tostring(data.file) .. ":") .. tostring(data.line)
+                    return (data.file .. ":") .. tostring(data.line)
                 end
                 return (file .. ":") .. line
             end
@@ -2218,13 +2182,7 @@ do
             return source
         end
         local before = sub(source, 1, startPos - 1)
-        local ____temp_0
-        if type(replaceValue) == "string" then
-            ____temp_0 = replaceValue
-        else
-            ____temp_0 = replaceValue(nil, searchValue, startPos - 1, source)
-        end
-        local replacement = ____temp_0
+        local replacement = type(replaceValue) == "string" and replaceValue or replaceValue(nil, searchValue, startPos - 1, source)
         local after = sub(source, endPos + 1)
         return (before .. replacement) .. after
     end
@@ -2379,6 +2337,7 @@ do
                 return key
             end
         end
+        return nil
     end
 end
 

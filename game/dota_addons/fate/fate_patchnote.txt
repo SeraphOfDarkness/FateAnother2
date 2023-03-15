@@ -1,18 +1,89 @@
+-Musashi changes
+1. Fix SA not applicable when hero is dead.
+
+-Musashi SA changes
+1. Gorin No Sho (#3)
+   Water: Push towards center->Roots and push towards center
+
+-Musashi skill changes 
+1. Accel turn (W) damage increased from 100/200/300/400/500->200/350/500/650/800
+2. Accel turn (W) dash speed increased from 50->60
+3. Niou Kurikara (E) no longer channeling but self stunned and revoked.
+4. Ganryuu Jima (R) dash speed increased from 50->60
+5. Ganryuu Jima (R) debuff explosion delay from Tengan (D) reduced from 1.0->0.75
+6. Finalize combo sequence D->Q->R
+7. Combo normal slash damage based on enemy's Max HP increased from 3%->5% per slash.
+8. Combo final slash damage based on enemy's Max HP increased from 20%->25%.
+9. Combo dash speed increased from 50->60
+10. Combo Cast Range increased from 350->500.
+
+-Musashi SA changes
+1. Mukyuu (#4) no longer give her Untargetable state while channelling Niou Kurikara (E).
+2. Gorin No Sho (#3) 
+   Fire: Burn damage increased from 100->150. Duration decreased from 5->3.
+   Fire: Apply burn and stun -> Apply burn and take increased damage by 25%.
+
+-Musashi changes
+1. Particle update
+2. Attempt to fix combo cant be casted reliably
+3. Combo should be fixed finally. new sequence Q->D->R. sequence must be exact and using any other skills than designated sequence will remove combo modifier.
+4. Fixed execution threshold being divided by 100 twice.
+
+Saito changes
+One by One [D]
+- impact sound disabled
+- no longer pierces through spell immunity (still can't be dispelled)
+- knockback 500 > 400
+- knockback duration 1.6 > 1
+- damage reduction duration 10 > 8
+- min damage reduction 50% > 20%
+
+-Musashi changes
+1. Fix Battle Continuation??
+2. Battle Continuation no longer hard dispel.
+3. Fix TENGEN NO HANA stun duration and no damage. 
+4. Combo now applies TENGAN automatically (intended from original sequence)
+5. Reduced combo voicelines and sfx volume.
+
+-Musashi changes
+1. Combo Sequence changed from Q->D->R to Q->R (hopefully it works this time)
+2. Updated tooltips again.
+3. Fix bugged skillslot for BC proc TENGEN NO HANA.
+4. TENGEN NO HANA no longer abusable with GanryuuJima (back to alpha test)
+5. TENGEN NO HANA stun duration now ramps up with the same percentage as damage.
+6. Fix skills bypassing AVALON.
+
+-Saito changes:
+1. Combo 2 Reworked.
 
 Update Nobu Tooltips
 Update A, A+ tooltip
-Fix double Musashi
 Fix nobu divinity mark not make target become divine
-Fix A Debuff penalty
+Fix nine lives particle
 Disable Skin change gender
 
 Iskandar
 -Waver now Brilliance of the king start cooldown 5s after summon
 
 -Horn
-Armor reduction: 30% 40% 50% 60% 70% >> 30% 35% 40% 45% 50%
+Armor reduction: 30% 40% 50% 60% 70% >> 30% 35% 40% 45% 50% 
 
---------------------
+-Fix A Debuff penalty
+-Update A, A+ tooltip
+-Fix double Musashi
+-Musashi changes:
+ 1. Mukyuu cooldown increased from 30 -> 40, Duration reduced from 2 -> 1
+ 2. Fixed tooltip not updating dynamically when upgraded with SA (will fix more tooltips over the weekend)
+ 3. New tooltip for Battle Continuation and Tenma Gogan
+ 4. Attempt to fix combo sequence from D->Q->R to Q->D->R (works in test lobby but might not work in real game like current combo sequence)
+ 5. Voicelines volume reduced
+ 6. Tengan mana cost reduced from 200 -> 100
+ 7. Wind debuff reduced duration from 2 -> 1
+ 8. Ganryuu Jima damage increased from 350/450/550/650/750 to 450/550/650/750/850
+ 9. Tengen No Hana will now stun for 1.5s
+
+-Attempt to fix model bugs: 
+-New Hero Beta Release: LOST DATA
 
 NEW MECHANICS :
 A Scroll now have penalty when used in a short period of time, giving only 70% of the original magic resistance value when used.

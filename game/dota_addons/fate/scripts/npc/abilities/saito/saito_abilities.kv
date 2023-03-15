@@ -46,7 +46,7 @@
 			"image_radius"							"260"
 			"image_damage"							"240 260 280 300 320"
 			"image_creation_dist"					"250"
-			"repeat_halver_count_need"				"3"
+			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
 		}
 	}
@@ -232,7 +232,7 @@
 			"max_casts"								"3 4 5 6 7"		//Core number values.	--Changing the core number values here can break things in the balance, be careful.
 			"check_interval"						"1.1"		//Core number values.
 			"check_decreaser"						"0.05"		//Core number values.
-			"locker_time_combo"						"0.1"
+			"locker_time_combo"						"0"
 			"locker_time"							"0.1"		//Core number values.
 			"locker_increaser"						"0.05"		//Core number values.
 			"active_duration"						"6"
@@ -502,8 +502,8 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"140"
-		"AbilityManaCost"							"400"
+		"AbilityCooldown"							"120"
+		"AbilityManaCost"							"600"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
 		"MaxLevel"									"1"
@@ -519,8 +519,8 @@
 
 		"AbilityValues"
 		{
-			"duration"								"11"
-			"silence_chance"						"30"
+			"duration"								"15"
+			"silence_chance"						"22"
 			"silence_duration"						"1.5"
 			"hp_damage"								"16"
 			"fds_hp_mp_scale"						"2"
@@ -530,7 +530,7 @@
 		}
 	}
 	//=======================================================================================================
-	//	Saitō Hajime : One by One [COMBO]
+	//	Saitō Hajime : One by One [D] (Unused)
 	//=======================================================================================================
 	"saito_blast"
 	{
@@ -544,12 +544,11 @@
 
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
 
-		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.35"
 		"AbilityCooldown"							"1"
@@ -573,11 +572,12 @@
 			"speed"									"1100"
 			"radius_start"							"175"
 			"radius_end"							"225"
-			"damage"								"1400"
-			"knockback_duration"					"1.6"
-			"knockback_distance"					"1000"
-			"sdr_duration"							"6.5"
-			"sdr_value"								"-100"
+			"damage"								"700"
+			"knockback_duration"					"1"
+			"knockback_distance"					"400"
+			"sdr_duration"							"8"
+			"sdr_max_value"							"-100"
+			"sdr_min_value"							"-20"
 			"radial_count"							"12"
 		}
 	}
@@ -651,7 +651,7 @@
 
 		"AbilityValues"
 		{
-			"qwe_hero_level_damage"					"10"
+			"qwe_hero_level_damage"					"5"
 			"fds_swap_set_duration"					"4"
 		}
 	}
@@ -688,7 +688,7 @@
 			"me_hp_bonus"							"50"
 			"me_shell_duration"						"1.2"
 			"me_shell_block"						"60"
-			"me_okita_chance"						"22"
+			"me_okita_chance"						"25"
 			"me_okita_agility"						"1"
 		}
 	}

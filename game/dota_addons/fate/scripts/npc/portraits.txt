@@ -2668,9 +2668,9 @@
 			}
 		}
 	}
-
+	
 	"models/heroes/saito2/saito_mdoc.vmdl"
-	{
+    {
         "PortraitLightPosition"        "78.278076 -71.234673 324.330261"
         "PortraitLightAngles"        "58.833107 136.411575 0.000000"
         "PortraitLightFOV"        "88.000000"
@@ -2700,7 +2700,7 @@
             }
         }
     }
-
+	
 	"models/musashi/red/musashi_red_by_zefiroft.vmdl"
     {
         "PortraitLightPosition"        "66.240837 -17.914551 196.867035"

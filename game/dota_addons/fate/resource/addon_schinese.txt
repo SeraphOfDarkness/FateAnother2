@@ -12228,7 +12228,7 @@
 
 		//Mind's Eye (True)
 		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>心灵之眼 (真)</font>"
-		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"为齋藤和一个盟友英雄的周围注入一个负面的debuff光环，当他们施法时，每隔%silence_cooldown%秒就会使附近的一个敌人被击晕并被沉默。同时，给予他们两个人最大的健康奖励和增加健康再生。\n齋藤可以自我施放<font color='#58ACFA'>心灵之眼 (真)</font>来祝福自己和%AbilityCastRange%范围内最近的盟友英雄。\n\n<font color='#9FFFCC'>可升级的属性: 回忆录</font>。"
+		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"为齋藤和一个盟友英雄的周围注入一个负面的debuff光环，当他们施法时，每隔%silence_cooldown%秒就会使附近的一个敌人被击晕并被沉默。同时，给予他们两个人最大的健康奖励和增加健康再生。如果你离斋藤一太远，则不会触发眩晕和沈默。\n齋藤可以自我施放<font color='#58ACFA'>心灵之眼 (真)</font>来祝福自己和%AbilityCastRange%范围内最近的盟友英雄。\n\n<font color='#9FFFCC'>可升级的属性: 回忆录</font>。"
 		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"即使是忠诚度很高的土方也说，齋藤对新选组的忠诚度是首屈一指的，并知道他绝不会以任何身份背叛新选组。"
 		"DOTA_Tooltip_ability_saito_mind_eye_Note0"													"此状态会被<font color='#58ACFA'>破魔的红蔷薇</font>和<font color='#58ACFA'>破除万物戒律之符</font>解除。"
 		"DOTA_Tooltip_ability_saito_mind_eye_abilitycastpoint"										"铸造点:"
@@ -12245,6 +12245,9 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"心灵之眼（真）豁免权"
 		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval_Description"								"免受心灵之眼（真）的眩晕和沉默。"
 
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range"											"心灵之眼（真）接近度"
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range_Description"								"如果你离斋藤一太远，则不会触发眩晕和沈默。"
+
 		"DOTA_Tooltip_modifier_saito_mind_eye_shell"												"蝉壳"
 		"DOTA_Tooltip_modifier_saito_mind_eye_shell_Description"									"受到的伤害更少。"
 
@@ -12252,7 +12255,7 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"下一个目标法术将被阻断。"
 
 		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"Snarksengumi"
-		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"从齋藤那里永久地获得额外的敏捷性。"
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"从齋藤那里永久地获得额外的%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%敏捷性。"
 
 		//Freely Drawn Sword
 		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>自由拔剑</font>"
@@ -12364,7 +12367,7 @@
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>连击: 常胜的风格</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>连击要求: 所有数据达到25或以上。</font>\n<font color='#FF04EF'>连击顺序: F - D -> F在激活步骤中。</font>\n齋藤通过刀刃引导心灵和精神，在敌人的核心部位造成痛苦，有机会应用沉默，并对齋藤的攻击或能力所造成的任何伤害造成额外伤害。\n在此能力持续期间，阻挡大多数目标法术，并使<font color='#58ACFA'>自由拔剑</font>的健康和法力值加倍。\n<font color='#58ACFA'>光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>的施法点被替换有固定的延迟且不能被打断，还会减少其持续时间的冷却时间。\n短時間内能夠啓動<font color='#FFB266'>一对一</font>。"
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>连击要求: 所有数据达到25或以上。</font>\n<font color='#FF04EF'>连击顺序: F - D -> F在激活步骤中。</font>\n齋藤通过刀刃引导心灵和精神，在敌人的核心部位造成痛苦，有机会应用沉默，并对齋藤的攻击或能力所造成的任何伤害造成额外伤害。\n在此能力持续期间，阻挡大多数目标法术，并使<font color='#58ACFA'>自由拔剑</font>的健康和法力值加倍。\n<font color='#58ACFA'>光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>的施法点被替换有固定的延迟且不能被打断，还会减少其持续时间的冷却时间。"
 		"DOTA_Tooltip_ability_saito_style_Lore"														"没有形式，我的剑是无形的。随着它的流动，它体现了所有的可能性。这就是为什么我的剑无人能及!"
 		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"铸造点:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"持续时间:"
@@ -12384,7 +12387,7 @@
 
 		//One by One
 		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>一对一</font>"
-		"DOTA_Tooltip_ability_saito_blast_Description"												"斋藤一在他的周围释放%radial_count%一股强大的风刃，造成%blast_damage%对其碰撞的任何敌方单位造成伤害。光是风刃的冲击力就足以将那些敌方单位击退%knockback_duration%数秒，然后减少所有类型的伤害%sdr_value%%%持續%sdr_duration%秒。\n一个敌方单位可以被多于一个风刃击中。"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"斋藤一在他的周围释放%radial_count%一股强大的风刃，造成%damage%对其碰撞的任何敌方单位造成伤害。光是风刃的冲击力就足以将那些敌方单位击退%knockback_duration%秒，然后减少所有类型的伤害持續%sdr_duration%秒。\n傷害減少從%sdr_max_value%%%並隨著時間減少到%sdr_min_value%%%。\n一个敌方单位可以被多于一个风刃击中。"
 		"DOTA_Tooltip_ability_saito_blast_Lore"														"如果人死了，他们就输了，对吧?所以换句话说，如果你不死，你就不会输。这就是无敌之刃的最奥义。但是谁知道呢，你知道吗？"
 		"DOTA_Tooltip_ability_saito_blast_distance"													"距离:"
 		"DOTA_Tooltip_ability_saito_blast_speed"													"速度:"
@@ -12394,7 +12397,8 @@
 		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
 		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"击退距离:"
 		//"DOTA_Tooltip_ability_saito_blast_sdr_duration"											""
-		//"DOTA_Tooltip_ability_saito_blast_sdr_value"												""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_max_value"											""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_min_value"											""
 		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
 
 		"DOTA_Tooltip_modifier_saito_blast_sdr"														"一对一减益"
@@ -13863,6 +13867,312 @@
 		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_hit_agi"		"骄慢王之美酒每點敏捷額外伤害:"
 		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_burst"			"骄慢王之美酒額外中毒伤害:"
 		"DOTA_Tooltip_ability_semiramis_attribute_poisoner_bite_burst_int"		"骄慢王之美酒每點智力伤害:"
+
+        //====================================
+        //    汉斯·克里斯蒂安·安徒生
+        //====================================
+
+        "npc_dota_hero_necrolyte"  "汉斯·克里斯蒂安·安徒生"
+        "npc_dota_hero_necrolyte_summon"		"从者 <font color='#58ACFA'>汉斯·克里斯蒂安·安徒生</font> 已被召唤."
+        "npc_dota_hero_necrolyte_enable_combo"	"激活连击技能: 我生命中的童话故事 - 为你撰写的故事"
+
+        ////////////////// Innate /////////////
+
+        "DOTA_Tooltip_Ability_hans_territory"				"<font color='#FFFFFF'>阵地建造</font>"
+        "DOTA_Tooltip_ability_hans_territory_Description"		"<font color='#58ACFA'>被動</font>: 安徒生获得 <font color='#FFFF28'>阵地建造</font>. \n<font color='#FFFF28'>阵地建造</font>: 增加安徒生的最大法力和法力恢复. \n\n<font color='#9FFFCC'>可选属性升级: 提升阵地建造</font>."
+        "DOTA_Tooltip_ability_hans_territory_Lore"    		"安徒生喜欢拥有自己的工作空间，因此有一片属于他自己的专属写作空间."
+        "DOTA_Tooltip_ability_hans_territory_bonus_mana"			"额外最大法力:"
+        "DOTA_Tooltip_ability_hans_territory_bonus_mana_reg"		"额外法力恢复:"		
+
+        "DOTA_Tooltip_Ability_hans_territory_upgrade"				"<font color='#9FFFCC'>阵地建造</font>"
+        "DOTA_Tooltip_ability_hans_territory_upgrade_Description"		"<font color='#58ACFA'>被動</font>: 安徒生获得 <font color='#FFFF28'>阵地建造</font>. \n<font color='#FFFF28'>阵地建造</font>: 增加安徒生的最大法力和法力恢复. \n<font color='#58ACFA'>ACTIVE</font>: 施放时，安徒生会用魔法投射出自己的工作空间. 向敌人施加 <font color='#FF3399'>安徒生领地减益</font>, 和 <font color='#FF3399'>禁咒</font>, 而且  <font color='#FF3399'>禁錮</font> 而盟友获得 <font color='#FFFF28'>安徒生领地增益</font>. \n<font color='#FF3399'>安徒生领地减益</font>: 降低魔法抗性. \n<font color='#FFFF28'>安徒生领地增益</font>: 增加魔法抗性."
+        "DOTA_Tooltip_ability_hans_territory_upgrade_Lore"    		"安徒生喜欢拥有自己的工作空间，因此有一片属于他自己的专属写作空间."
+        "DOTA_Tooltip_ability_hans_territory_upgrade_bonus_mana"			"被動额外最大法力:"
+        "DOTA_Tooltip_ability_hans_territory_upgrade_bonus_mana_reg"		"被動额外法力恢复:"	
+        "DOTA_Tooltip_ability_hans_territory_upgrade_radius"				"主动技能范围:"
+        "DOTA_Tooltip_ability_hans_territory_upgrade_duration"				"主动技能持续时间:"	
+        "DOTA_Tooltip_ability_hans_territory_upgrade_cast_delay"			"主动技能施法延迟:"	
+        "DOTA_Tooltip_ability_hans_territory_upgrade_bonus_mr"				"%对盟友加成魔法抗性:"	
+        "DOTA_Tooltip_ability_hans_territory_upgrade_mr_reduction"			"%对敌人降低魔法抗性:"	
+        "DOTA_Tooltip_ability_hans_territory_upgrade_revoke_duration"			"主动禁咒和禁锢持续时间:"	
+
+        ///////////////////////// Basic ///////////////////////
+
+        "DOTA_Tooltip_Ability_hans_incantation"				"<font color='#58ACFA'>高速咏唱</font>"
+        "DOTA_Tooltip_ability_hans_incantation_Description"	"安徒生高速咏唱,为他的目标恢复法力. \n 对安徒生本人使用会恢复额外的法力值. \n\n<font color='#9FFFCC'>可选属性升级: 安徒生自传</font>."
+        "DOTA_Tooltip_ability_hans_incantation_Lore"    		"Rapper 风格的唱法."
+        "DOTA_Tooltip_ability_hans_incantation_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_incantation_cast_time"			"施法时间:"
+        "DOTA_Tooltip_ability_hans_incantation_mana_restore"			"法力恢复:"
+
+        "DOTA_Tooltip_Ability_hans_incantation_upgrade"				"<font color='#9FFFCC'>高速咏唱-EX</font>"
+        "DOTA_Tooltip_ability_hans_incantation_upgrade_Description"	"安徒生高速咏唱, 恢复法力并减少目标冷却时间. \n 对安徒生本人使用会恢复额外的法力值. \n<font color='#FFFF28'>减少两倍冷却如果安徒生处于连击技能状态下</font>."
+        "DOTA_Tooltip_ability_hans_incantation_upgrade_Lore"    		"快还要更快-摸斗嗨压哭."
+        "DOTA_Tooltip_ability_hans_incantation_upgrade_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_incantation_upgrade_mana_restore"			"法力恢复:"
+        "DOTA_Tooltip_ability_hans_incantation_upgrade_cd_reduction"			"%减少冷却:"
+
+        "DOTA_Tooltip_Ability_hans_nightingale"				"<font color='#58ACFA'>人間観察</font>"
+        "DOTA_Tooltip_ability_hans_nightingale_Description"	"<font color='#58ACFA'>被動</font> : 增加冰雪女王伤害. \n <font color='#58ACFA'>主動</font> :目标获得 <font color='#FFFF28'>人間観察</font> 数秒. \n<font color='#FFFF28'>人間観察</font>: 增加目标的魔抗、护甲、生命恢复和魔法伤害. \n 不能对自己施放. \n\n<font color='#9FFFCC'>可选属性升级: 改善人类观察</font>. \n 法术增强不會與连击技能叠加. \n 单次伤害超过2500时，法术增强效果减半."
+        "DOTA_Tooltip_ability_hans_nightingale_Note0"    		"别针对安徒生!!!."
+        "DOTA_Tooltip_ability_hans_nightingale_Note1"    		"法术增强不會與连击技能叠加."
+        "DOTA_Tooltip_ability_hans_nightingale_Lore"    		"安徒生观察他的目标，迅速找出他的弱点/长处，让他的目标更多地了解自己."
+        "DOTA_Tooltip_ability_hans_nightingale_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_nightingale_bonus_mr"			"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_hans_nightingale_bonus_arm"			"额外护甲:"
+        "DOTA_Tooltip_ability_hans_nightingale_bonus_hp_regen"			"额外生命恢复:"
+        "DOTA_Tooltip_ability_hans_nightingale_bonus_spell_amp"			"%额外魔法伤害:"
+        "DOTA_Tooltip_ability_hans_nightingale_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_hans_nightingale_bonus_snow_queen_damage"			"额外冰雪女王伤害:"
+
+        "DOTA_Tooltip_Ability_hans_nightingale_upgrade"				"<font color='#9FFFCC'>人間観察</font>"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_Description"	"<font color='#58ACFA'>被動</font> : 增加冰雪女王伤害. \n <font color='#58ACFA'>主動</font> :目标获得 <font color='#FFFF28'>人間観察</font> 数秒. \n<font color='#FFFF28'>人間観察</font>: 增加目标的魔抗、护甲、生命恢复和魔法伤害. \n 不能对自己施放. \n 法术增强不會與连击技能叠加. \n 单次伤害超过2500时，法术增强效果减半."
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_Note0"    		"别针对安徒生!!!."
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_Lore"    		"安徒生观察他的目标，迅速找出他的弱点/长处，让他的目标更多地了解自己."
+        "DOTA_Tooltip_ability_hans_nightingale_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_bonus_mr"			"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_bonus_arm"			"额外护甲:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_bonus_hp_regen"			"额外生命恢复:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_bonus_spell_amp"			"%额外魔法伤害:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_hans_nightingale_upgrade_bonus_snow_queen_damage"			"额外冰雪女王伤害:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_open"				"<font color='#58ACFA'>名著</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_open_Description"	"<font color='#E5CCFF'>法术书</font>: 打开安徒生写的杰作. \n<font color='#58ACFA'>夜莺</font>: 安徒生 <font color='#FFFF28'>治愈</font> 目標. \n<font color='#58ACFA'>红鞋</font>: 对目标造成伤害，并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞. \n<font color='#58ACFA'>冰雪女王</font>: 对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人移动速度. \n\n<font color='#9FFFCC'>可选属性升级: 编写拇指姑娘 和 完成手稿</font>."
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_open_thumbelina"				"<font color='#9FFFCC'>名著 - 打开</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_open_thumbelina_Description"	"<font color='#E5CCFF'>法术书</font>: 打开安徒生写的杰作. \n<font color='#58ACFA'>夜莺</font>: 安徒生 <font color='#FFFF28'>治愈</font> 目標. \n<font color='#58ACFA'>红鞋</font>: 对目标造成伤害, 并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞. \n<font color='#58ACFA'>冰雪女王</font>: 对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人移动速度. \n<font color='#FFB266'>拇指姑娘</font>: 對目標區域內的所有敵人造成傷害, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> .  \n\n<font color='#9FFFCC'>可选属性升级: 完成手稿</font>."
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_open_observation"				"<font color='#9FFFCC'>名著 - 打开</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_open_observation_Description"	"<font color='#E5CCFF'>法术书</font>: 打开安徒生写的杰作. \n<font color='#58ACFA'>夜莺</font>: 安徒生 <font color='#FFFF28'>治愈</font> 目標. \n<font color='#58ACFA'>红鞋</font>: 对目标造成伤害, 并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞. \n<font color='#58ACFA'>冰雪女王</font>: 对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人移动速度. \n\n<font color='#9FFFCC'>可选属性升级: 编写拇指姑娘</font>."
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_open_upgrade"				"<font color='#9FFFCC'>名著 - 打开</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_open_upgrade_Description"	"<font color='#E5CCFF'>法术书</font>: 打开安徒生写的杰作. \n<font color='#58ACFA'>夜莺</font>: 安徒生 <font color='#FFFF28'>治愈</font> 目標. \n<font color='#58ACFA'>红鞋</font>: 对目标造成伤害, 并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞. \n<font color='#58ACFA'>冰雪女王</font>: 对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人移动速度. \n<font color='#FFB266'>拇指姑娘</font>: 對目標區域內的所有敵人造成傷害, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> ."
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_red_shoes"				"<font color='#58ACFA'>名著 - 红鞋</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_Description"		"对目标造成伤害, 并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞. \n\n<font color='#9FFFCC'>可选属性升级: 完成手稿</font>."
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_Lore"    		"故事的起源是基于安徒生小时候目睹的一件事。他的父亲是个鞋匠，有一位富家小姐送了一条红绸给自己的女儿做一双舞鞋。他用一些有价值的红色皮革和丝绸，精心制作了一双鞋，有钱的顾客告诉他这双鞋很糟糕。她说他“除了毁了她的丝绸外什么也没做”。他父亲回答说，-那样的话，我还不如把我的皮革也弄坏了-他当着她的面把鞋子剪了."
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_duration"			"红鞋持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_red_shoes_upgrade"				"<font color='#9FFFCC'>名著 - 红鞋</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_Description"		"对目标造成伤害, 并施加 <font color='#FF3399'>红鞋</font>. \n<font color='#FF3399'>红鞋</font> 目标随机移动，就像在跳舞."
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_Lore"    		"故事的起源是基于安徒生小时候目睹的一件事。他的父亲是个鞋匠，有一位富家小姐送了一条红绸给自己的女儿做一双舞鞋。他用一些有价值的红色皮革和丝绸，精心制作了一双鞋，有钱的顾客告诉他这双鞋很糟糕。她说他“除了毁了她的丝绸外什么也没做”。他父亲回答说，-那样的话，我还不如把我的皮革也弄坏了-他当着她的面把鞋子剪了."
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_cast_delay"		"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_red_shoes_upgrade_duration"			"红鞋持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_snow_queen"				"<font color='#58ACFA'>名著 - 冰雪女王</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_Description"		"对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人的移动速度和转身速度. \n\n<font color='#9FFFCC'>可选属性升级: 完成手稿</font>."
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_Lore"    		"故事中的白雪公主取材于一位美丽的瑞典歌剧演员珍妮·林德，她在安徒生向她倾诉自己的感受时拒绝了她。 安徒生是一个愿意为喜欢的人付出的人，他制作2个世界知名的关于她的故事。不管怎样，格尔达是故事中的一个女孩，她会用眼泪拯救她的童年朋友."
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_radius"			"范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_slow"			"%减速:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_turn_rate_reduction"			"%降低转身速度:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_duration"			"冰雪女王的雪花持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_snow_queen_upgrade"				"<font color='#9FFFCC'>名著 - 冰雪女王</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_Description"		"对目标区域内的所有敌人造成伤害并施加 <font color='#FF3399'>冰雪女王的雪花</font>. \n<font color='#FF3399'>冰雪女王的雪花</font>: 降低敌人的移动速度和转身速度."
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_Lore"    		"故事中的白雪公主取材于一位美丽的瑞典歌剧演员珍妮·林德，她在安徒生向她倾诉自己的感受时拒绝了她。 安徒生是一个愿意为喜欢的人付出的人，他制作2个世界知名的关于她的故事。不管怎样，格尔达是故事中的一个女孩，她会用眼泪拯救她的童年朋友."
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_radius"			"范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_slow"			"%减速:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_turn_rate_reduction"			"%降低转身速度:"
+        "DOTA_Tooltip_ability_hans_masterpiece_snow_queen_upgrade_duration"			"冰雪女王的雪花持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_match_girl"				"<font color='#58ACFA'>名著 - 夜莺</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_Description"		"安徒生 <font color='#FFFF28'>治疗</font> 目标生命,基于目标最大生命和技能等級. 还会在短时间内为目标增加伤害减免基于他的 <font color='#00F7FF'>智力</font>.
+        \n<font color='#FFFF28'>两倍治疗量如果安徒生处于连击技能状态下</font>. \n\n<font color='#9FFFCC'>可选属性升级: 完成手稿 </font>."
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_Lore"    		"夜莺的故事取材于安徒生的暗恋对象，瑞典歌剧演唱家珍妮林德."
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_health_restore"			"治疗量:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_health_restore_from_max_health"			"%最大生命的治疗量:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_damage_reduction"			"%减少伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_bonus_duration_per_int"			"每点智力额外持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_match_girl_upgrade"				"<font color='#9FFFCC'>名著 - 夜莺</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_Description"		"安徒生 <font color='#FFFF28'>治疗</font> 目标基于他的 <font color='#00F7FF'>智力</font>, 目标最大生命, 和技能等级. 还会在短时间内为目标增加伤害减免基于他的 <font color='#00F7FF'>智力</font>. \n<font color='#FFFF28'>两倍治疗量如果安徒生处于连击技能状态下</font>. "
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_Lore"    		"夜莺的故事取材于安徒生的暗恋对象，瑞典歌剧演唱家珍妮林德."
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_health_restore"			"治疗量:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_int_scale"			"每点智力额外治疗量:"        
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_health_restore_from_max_health"			"%最大生命值治疗量:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_damage_reduction"			"%减少伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_hans_masterpiece_match_girl_upgrade_bonus_duration_per_int"			"每点智力额外持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_close"				"<font color='#58ACFA'>名著 - 关闭</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_close_Description"	"故事讲完了，回到现实."
+
+        "DOTA_Tooltip_Ability_hans_naked_king"				"<font color='#58ACFA'>名著 - 国王的新衣</font>"
+        "DOTA_Tooltip_ability_hans_naked_king_Description"		"安徒生将会 <font color='#FFFF28'>隐形</font> 在一段时间内制造诱饵以分散敌人的注意力."
+        "DOTA_Tooltip_ability_hans_naked_king_Lore"    			"两个胆大妄为的骗子有胆量欺骗国王，然后逍遥法外。." 
+        "DOTA_Tooltip_ability_hans_naked_king_illusion_amount"			"诱饵数量:"
+        "DOTA_Tooltip_ability_hans_naked_king_illusion_duration"			"诱饵持续时间:"
+        "DOTA_Tooltip_ability_hans_naked_king_invis_duration"			"隐形持续时间:"
+        "DOTA_Tooltip_ability_hans_naked_king_Note0"	"Cannot be reset."
+
+        "DOTA_Tooltip_Ability_hans_biography"				"<font color='#58ACFA'>安徒生自传</font> <font color='#FFB266'>(被動)</font>"
+        "DOTA_Tooltip_ability_hans_biography_Description"		"<font color='#58ACFA'>[1级]</font> : 安徒生在脱离战斗时迅速恢复法力, 基于他的 <font color='#00F7FF'>智力</font>. \n<font color='#58ACFA'>[2级]</font>: 提升 <font color='#58ACFA'>高速咏唱</font>, 现在不再消耗法力和不用施法, 施法距离增加 <font color='#E5CCFF'>400</font> 并减少目标冷却时间. 同时增加安徒生的属性 <font color='#E5CCFF'>3</font>. \n <font color='#58ACFA'>[3級]</font> : 增加安徒生魔法抗性 <font color='#E5CCFF'>10</font>% 和移动速度 <font color='#E5CCFF'>40</font>. \n <font color='#58ACFA'>[4級]</font> : 解锁 <font color='#58ACFA'>名著 - 国王的新衣</font>. 还可以进一步增加安徒生属性 <font color='#E5CCFF'>2</font>. \n <font color='#58ACFA'>[5級]</font> : 增加攻击性法术造成的伤害 <font color='#58ACFA'>名著 - 打开</font>  <font color='#E5CCFF'>250</font>."
+        "DOTA_Tooltip_ability_hans_biography_Note0"	"脱离战斗需要在800范围左右没有任何敌人."
+
+        ///////////////////// Special Skill ///////////////
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_thumbelina"				"<font color='#FFB266'>名著 - 拇指姑娘</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_Description"		"安徒生召唤拇指姑娘 来……猛击地面？什么？这是如何运作的？我不知道. \n 对目标区域内的所有敌人造成伤害, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> . \n\n<font color='#9FFFCC'>可选属性升级: 完成手稿</font>."
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_Lore"    		"这是一个令人沮丧的故事，讲的是米高被拇指大小的人类女孩弄得心碎。米高是个很酷的家伙，真可惜." 
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_radius"			"范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_stun"			"暈眩时间:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_revoke"			"禁咒持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_masterpiece_thumbelina_upgrade"				"<font color='#9FFFCC'>名著 - 拇指姑娘</font>"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_Description"		"安徒生召唤拇指姑娘 来……猛击地面？什么？这是如何运作的？我不知道. \n 对目标区域内的所有敌人造成伤害, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> ."
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_Lore"    		"这是一个令人沮丧的故事，讲的是米高被拇指大小的人类女孩弄得心碎。米高是个很酷的家伙，真可惜." 
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_radius"			"范围:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_stun"			"暈眩时间:"
+        "DOTA_Tooltip_ability_hans_masterpiece_thumbelina_upgrade_revoke"			"禁咒持续时间:"
+
+        ////////////////// Combo /////////////
+
+        "DOTA_Tooltip_Ability_hans_combo"				"<font color='#FF04EF'>我生命中的童话故事 - 为你撰写的故事</font>"
+        "DOTA_Tooltip_ability_hans_combo_Description"	"<font color='#FF04EF'>连击技能使用需求 : 全属性25</font>\n<font color='#FF04EF'>技能顺序 : Q -> R 5秒内</font> \n 安徒生开始为一个友军目标写故事，并且施加 <font color='#FFFF28'>我生命中的童话故事 - 为你撰写的故事</font> 同时恢复目标的御主法力并對自己施加 <font color='#FFFF28'>我生命中的童话故事 - 灵感</font> . 如果目标在连击技能持续时间结束前没有死亡，则升级目标. \n<font color='#FFFF28'>我生命中的童话故事 - 为你撰写的故事</font>: 增加目标的最大生命值、生命恢复、所有属性加成、魔法抗性和护甲加成，以及在目标脱离战斗时快速恢复生命值、法力和技能冷却时间的能力. \n<font color='#FFFF28'>我生命中的童话故事 - 灵感</font> : 获得额外的最大生命值、属性和相同的脱离战斗效果. \n\n<font color='#9FFFCC'>可选属性升级: 初恋情人的来信</font>."
+        "DOTA_Tooltip_ability_hans_combo_bonus_mana_regen_out_of_combat"			"脱离战斗后获得额外的法力回复:"        
+        "DOTA_Tooltip_ability_hans_combo_bonus_health_regen_out_of_combat"			"脱离战斗后额外生命恢复:"    
+        "DOTA_Tooltip_ability_hans_combo_bonus_mr"			"%额外魔法抗性:"  
+        "DOTA_Tooltip_ability_hans_combo_bonus_arm"			"额外护甲:"  
+        "DOTA_Tooltip_ability_hans_combo_bonus_health_regen"			"额外生命恢复:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_all_stats"			"额外全屬性:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_max_hp"			"额外最大生命:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_cd_red"			"每秒额外冷却时间减少:"
+        "DOTA_Tooltip_ability_hans_combo_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_hans_combo_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_combo_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_combo_master_mana_gain"			"获得御主法力:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_magical_damage"			"%额外魔法伤害:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_duration_per_int"			"每点智力额外持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_combo_upgrade"				"<font color='#FF04EF'>我生命中的童话故事 - 为你撰写的故事</font>"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_Description"	"<font color='#FF04EF'>连击技能使用需求 : 全属性25</font>\n<font color='#FF04EF'>技能顺序 : Q -> R 5秒内</font> \n 安徒生开始为一个友军目标写故事，并且施加 <font color='#FFFF28'>我生命中的童话故事 - 为你撰写的故事</font> 同时恢复目标的御主法力和御主生命并對自己施加 <font color='#FFFF28'>我生命中的童话故事 - 灵感</font> . 如果目标在连击技能持续时间结束前没有死亡，则升级目标. \n<font color='#FFFF28'>我生命中的童话故事 - 为你撰写的故事</font>: 增加目标的最大生命值、生命恢复、所有属性加成、魔法抗性和护甲加成，以及在目标脱离战斗时快速恢复生命值、法力和技能冷却时间的能力. \n<font color='#FFFF28'>我生命中的童话故事 - 灵感</font> : 获得额外的最大生命值、属性和相同的脱离战斗效果."
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_mana_regen_out_of_combat"			"脱离战斗后获得额外的法力回复:"        
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_health_regen_out_of_combat"			"脱离战斗后额外生命恢复:"    
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_mr"			"%额外魔法抗性:"  
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_arm"			"额外护甲:"  
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_health_regen"			"额外生命恢复:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_all_stats"			"额外全屬性:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_max_hp"			"额外最大生命:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_bonus_cd_red"			"每秒额外冷却时间减少:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_duration"			"持续时间:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_master_mana_gain"			"获得御主法力:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_master_health_gain"		"获得御主生命:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_combo_upgrade_cast_range"			"施法范围:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_magical_damage"			"%额外魔法伤害:"
+        "DOTA_Tooltip_ability_hans_combo_bonus_duration_per_int"			"每点智力额外持续时间:"
+
+        ////////////////// Buff ///////////////////// AND  ////////////////// Debuff ///////////////////// AND ////////////////// Cooldown //////////////////
+
+        "DOTA_Tooltip_modifier_hans_combo_buff"                               	"我生命中的童话故事 - 为你撰写的故事"
+		"DOTA_Tooltip_modifier_hans_combo_buff_Description"                   "你现在是你自己故事的主角。作者是伟大的安徒生."
+
+        "DOTA_Tooltip_modifier_hans_combo_buff_self"                               	"我生命中的童话故事 - 灵感"
+		"DOTA_Tooltip_modifier_hans_combo_buff_self_Description"                   "作家的障碍不再是一回事。获得属性、最大生命值、额外魔法伤害和额外的非战斗奖励."
+
+        "DOTA_Tooltip_modifier_hans_biography"                               "安徒生自传"
+		"DOTA_Tooltip_modifier_hans_biography_combo_cast_Description"                   "多了解安徒生，让安徒生拥有更多的力量."      
+
+		"DOTA_Tooltip_modifier_hans_territory_debuff"                     "安徒生领地减益"
+		"DOTA_Tooltip_modifier_hans_territory_debuff_Description"         "降低魔法抗性."		
+
+		"DOTA_Tooltip_modifier_hans_territory_buff"                     "安徒生领地增益"
+		"DOTA_Tooltip_modifier_hans_territory_buff_Description"         "增加魔法抗性."
+
+		"DOTA_Tooltip_modifier_hans_nightingale_buff"                     "安徒生夜莺增益"
+		"DOTA_Tooltip_modifier_hans_nightingale_buff_Description"         "受到的伤害减少."
+
+		"DOTA_Tooltip_modifier_hans_territory"                     "安徒生领地"
+		"DOTA_Tooltip_modifier_hans_territory_Description"         "法力和法力恢复增加."
+
+		"DOTA_Tooltip_modifier_hans_invis"                     "名著 - 国王的新衣"
+		"DOTA_Tooltip_modifier_hans_invis_Description"         "安徒生正在隱形."
+
+	    "DOTA_Tooltip_modifier_hans_snow_queen"                               "名著 - 冰雪女王"
+		"DOTA_Tooltip_modifier_hans_snow_queen_Description"                   "冰雪女王的雪花诅咒你."
+	
+	    "DOTA_Tooltip_modifier_hans_red_shoes"                               "名著 - 红鞋"
+		"DOTA_Tooltip_modifier_hans_red_shoes_Description"                   "舞蹈！舞蹈！"
+
+	    "DOTA_Tooltip_modifier_hans_observation"                               "人类观察"
+		"DOTA_Tooltip_modifier_hans_observation_Description"                   "安徒生告诉你你的弱点."
+
+		//////////////// Cooldown ///////////////////
+
+		"DOTA_Tooltip_modifier_hans_territory_cooldown"                               "安徒生领地冷却时间"
+		"DOTA_Tooltip_modifier_hans_territory_cooldown_Description"                   "技能正在冷却."
+
+		"DOTA_Tooltip_modifier_hans_naked_king_cooldown"                               "名著 - 国王的新衣冷却时间"
+		"DOTA_Tooltip_modifier_hans_naked_king_cooldown_Description"                   "技能正在冷却."
+
+		"DOTA_Tooltip_modifier_hans_combo_cooldown"                               "生命的童話故事 - 为你撰写的故事冷却"
+		"DOTA_Tooltip_modifier_hans_combo_cooldown_Description"                   "技能正在冷却."
+
+        /////////////////// Attribute //////////////////////////
+
+        "DOTA_Tooltip_Ability_hans_attribute_love_letter"					"<font color='#9FFFCC'>属性: 初恋情人的来信</font>"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_Description"		"<font color='#FF04EF'>我生命中的童话故事 - 为你撰写的故事</font>: 增加持续时间, 所有属性加成，魔法抗性和生命值。恢复御主的生命和法力."
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_duration"  	"额外持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_all_stats"  		"额外全属性:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_mr"  	"%额外魔法抗性:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_master_mana_gain"  	"获得额外御主法力:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_master_health_gain"  	"获得额外御主生命:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_max_health"  	"额外最大生命:"
+        "DOTA_Tooltip_ability_hans_attribute_love_letter_bonus_magical_damage"  	"%额外魔法伤害:"
+
+        "DOTA_Tooltip_Ability_hans_attribute_human_observation"					"<font color='#9FFFCC'>属性: 完成手稿</font>"
+        "DOTA_Tooltip_ability_hans_attribute_human_observation_Description"		"<font color='#58ACFA'>名著 - 打开</font>: 增加 <font color='#58ACFA'>夜莺, 红鞋, 冰雪女王</font> 和 <font color='#FFB266'>拇指姑娘</font> 施法范围. \n <font color='#58ACFA'>夜莺</font>: 现在基于安徒生的 <font color='#00F7FF'>智力</font>, 和从此属性获得双倍施法距离加成."
+        "DOTA_Tooltip_ability_hans_attribute_human_observation_bonus_cast_range"  	"额外施法范围:"
+        "DOTA_Tooltip_ability_hans_attribute_human_observation_int_scale_nightingale"  		"夜莺每点智力额外治疗:"
+        "DOTA_Tooltip_ability_hans_attribute_human_observation_nightingale_bonus_buff_duration"  	"夜莺额外增益持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_human_observation_nightingale_bonus_duration_per_int"  	"夜莺额外每点智力额外持续时间:"
+
+        "DOTA_Tooltip_Ability_hans_attribute_write_thumbelina"					"<font color='#9FFFCC'>属性: 名著 - 编写拇指姑娘</font>"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_Description"		"解鎖 <font color='#FFB266'>名著 - 拇指姑娘</font>. \n <font color='#FFB266'>名著 - 拇指姑娘</font>: 对目标区域内的所有敌人造成伤害, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> ."
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_radius"  	"范围:"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_revoke"  	"禁咒持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_stun"  			"暈眩持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_damage"  			"伤害:"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_cast_delay"  		"施法延迟:"
+        "DOTA_Tooltip_ability_hans_attribute_write_thumbelina_cooldown"  		"冷却:"
+
+        "DOTA_Tooltip_Ability_hans_attribute_refine_nightingale"					"<font color='#9FFFCC'>属性: 改善人类观察</font>"
+        "DOTA_Tooltip_ability_hans_attribute_refine_nightingale_Description"		"<font color='#58ACFA'>人类观察</font>: 获得额外施法范围, 持续时间和魔法伤害."
+        "DOTA_Tooltip_ability_hans_attribute_refine_nightingale_bonus_duration"  	"额外持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_refine_nightingale_bonus_cast_range"  	"额外施法范围:"
+        "DOTA_Tooltip_ability_hans_attribute_refine_nightingale_bonus_spell_amp"  	"%额外魔法伤害:"
+
+        "DOTA_Tooltip_Ability_hans_attribute_territory"					"<font color='#9FFFCC'>属性: 提升阵地建造</font>"
+        "DOTA_Tooltip_ability_hans_attribute_territory_Description"		"<font color='#FFFFFF'>阵地建造</font>: <font color='#58ACFA'>被動</font>: 安徒生获得 <font color='#FFFF28'>阵地建造</font>. \n<font color='#FFFF28'>阵地建造</font>: 增加安徒生的最大法力和法力恢复. \n<font color='#58ACFA'>主動</font>: 施放时，安徒生会用魔法投射出自己的工作空间. 向敌人施加 <font color='#FF3399'>安徒生领地减益</font> 和 <font color='#FF3399'>禁咒</font> 而盟友获得 <font color='#FFFF28'>安徒生领地增益</font>. \n<font color='#FF3399'>安徒生领地减益</font>: 降低魔法抗性. \n<font color='#FFFF28'>安徒生领地增益</font>: 增加魔法抗性."
+        "DOTA_Tooltip_ability_hans_attribute_territory_bonus_mana_reg"  	"额外法力回复:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_bonus_mana"  	"额外法力:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_radius"  			"范围:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_bonus_mr"  			"额外魔法抗性/惩罚:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_duration"  			"持续时间:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_cast_delay"  			"施法延迟:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_cooldown"  			"冷却:"
+        "DOTA_Tooltip_ability_hans_attribute_territory_revoke_duration"  			"禁咒持续时间:"
 
 		//=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)
