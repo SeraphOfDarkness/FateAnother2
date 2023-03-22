@@ -74,6 +74,9 @@ local musashi_attribute_improve_tengan = ____exports.musashi_attribute_improve_t
 musashi_attribute_improve_tengan.name = "musashi_attribute_improve_tengan"
 __TS__ClassExtends(musashi_attribute_improve_tengan, BaseModifier)
 function musashi_attribute_improve_tengan.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
     self.Caster = self:GetParent()
     local ____opt_0 = self.Caster
     local TenganChargeCounter = ____opt_0 and ____opt_0:FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name)

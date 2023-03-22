@@ -2,6 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
 local __TS__Decorate = ____lualib.__TS__Decorate
+local __TS__ArrayIndexOf = ____lualib.__TS__ArrayIndexOf
 local __TS__ArrayFind = ____lualib.__TS__ArrayFind
 local ____exports = {}
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
@@ -13,7 +14,7 @@ function ____exports.InitSkillSlotChecker(Caster, OriSkillStr, TargetSkillStr, T
     end
     local OriSkill = Caster:FindAbilityByName(OriSkillStr)
     local TargetSkill = Caster:FindAbilityByName(TargetSkillStr)
-    local ModifierSkillSlotChecker = Caster:AddNewModifier(Caster, OriSkill, ____exports.modifier_skill_slot_checker.name, {duration = Timeout})
+    local ModifierSkillSlotChecker = Caster:AddNewModifier(Caster, nil, ____exports.modifier_skill_slot_checker.name, {duration = Timeout})
     ModifierSkillSlotChecker.OriSkill = OriSkill
     ModifierSkillSlotChecker.TargetSkill = TargetSkill
     ModifierSkillSlotChecker.OriSkillIndex = OriSkill and OriSkill:GetAbilityIndex()
@@ -48,18 +49,20 @@ function modifier_skill_slot_checker.prototype.OnDestroy(self)
     local ____opt_3 = self.OriSkill
     local CurrentSkillIndex = ____opt_3 and ____opt_3:GetAbilityIndex()
     if CurrentSkillIndex ~= self.OriSkillIndex then
-        local ____self_10 = self:GetParent()
-        local ____self_10_SwapAbilities_11 = ____self_10.SwapAbilities
-        local ____opt_5 = self.OriSkill
-        local ____temp_9 = ____opt_5 and ____opt_5:GetName()
-        local ____opt_7 = self.TargetSkill
-        ____self_10_SwapAbilities_11(
-            ____self_10,
-            ____temp_9,
-            ____opt_7 and ____opt_7:GetName(),
-            true,
-            false
-        )
+        local ____opt_5 = self:GetCaster()
+        if ____opt_5 ~= nil then
+            local ____opt_5_SwapAbilities_11 = ____opt_5.SwapAbilities
+            local ____opt_6 = self.OriSkill
+            local ____temp_10 = ____opt_6 and ____opt_6:GetName()
+            local ____opt_8 = self.TargetSkill
+            ____opt_5_SwapAbilities_11(
+                ____opt_5,
+                ____temp_10,
+                ____opt_8 and ____opt_8:GetName(),
+                true,
+                false
+            )
+        end
     end
 end
 function modifier_skill_slot_checker.prototype.DeclareFunctions(self)
@@ -112,8 +115,38 @@ ____exports.modifier_combo_sequence = __TS__Class()
 local modifier_combo_sequence = ____exports.modifier_combo_sequence
 modifier_combo_sequence.name = "modifier_combo_sequence"
 __TS__ClassExtends(modifier_combo_sequence, BaseModifier)
+function modifier_combo_sequence.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.Abilities = {}
+end
+function modifier_combo_sequence.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    local ____opt_13 = self.Caster
+    local AbilityCount = ____opt_13 and ____opt_13:GetAbilityCount()
+    do
+        local i = 0
+        while i < AbilityCount do
+            local ____opt_15 = self.Caster
+            local Ability = ____opt_15 and ____opt_15:GetAbilityByIndex(i)
+            local ____opt_17 = self.Abilities
+            if ____opt_17 ~= nil then
+                local ____self_Abilities_18 = self.Abilities
+                ____self_Abilities_18[#____self_Abilities_18 + 1] = Ability
+            end
+            i = i + 1
+        end
+    end
+end
 function modifier_combo_sequence.prototype.OnAbilityFullyCast(self, event)
-    if not IsServer() or event.unit ~= self:GetCaster() then
+    if not IsServer() or event.unit ~= self.Caster then
+        return
+    end
+    local ____opt_20 = self.Abilities
+    local AbilityIndex = ____opt_20 and __TS__ArrayIndexOf(self.Abilities, event.ability)
+    if AbilityIndex == -1 then
         return
     end
     local StackCount = self:GetStackCount()
@@ -129,12 +162,11 @@ function modifier_combo_sequence.prototype.OnStackCountChanged(self, stackCount)
     if not IsServer() then
         return
     end
-    local ____stackCount_14 = stackCount
-    local ____opt_12 = self.SkillsSequence
-    if ____stackCount_14 == (____opt_12 and #____opt_12) - 1 then
-        local Caster = self:GetCaster()
+    local ____stackCount_24 = stackCount
+    local ____opt_22 = self.SkillsSequence
+    if ____stackCount_24 == (____opt_22 and #____opt_22) - 1 then
         ____exports.InitSkillSlotChecker(
-            Caster,
+            self.Caster,
             self.OriSkillStr,
             self.ComboSkillStr,
             self:GetRemainingTime(),
@@ -206,16 +238,17 @@ function modifier_hero_alive_checker.prototype.OnCreated(self)
     if not IsServer() then
         return
     end
-    self.Master2 = self:GetParent()
-    self.Hero = self.Master2:GetPlayerOwner():GetAssignedHero()
+    self.Master2 = self:GetCaster()
+    local ____opt_25 = self.Master2
+    self.Hero = ____opt_25 and ____opt_25:GetPlayerOwner():GetAssignedHero()
     self:StartIntervalThink(0.1)
 end
 function modifier_hero_alive_checker.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____opt_15 = self.Hero
-    if ____opt_15 and ____opt_15:IsAlive() then
+    local ____opt_27 = self.Hero
+    if ____opt_27 and ____opt_27:IsAlive() then
         self:Destroy()
     end
 end
@@ -223,9 +256,9 @@ function modifier_hero_alive_checker.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_17 = self.Hero
-    if ____opt_17 ~= nil then
-        ____opt_17:AddNewModifier(self.Master2, self.AttributeAbility, self.AttributeModifier, {undefined = undefined})
+    local ____opt_29 = self.Hero
+    if ____opt_29 ~= nil then
+        ____opt_29:AddNewModifier(self.Master2, self.AttributeAbility, self.AttributeModifier, {undefined = undefined})
     end
 end
 function modifier_hero_alive_checker.prototype.IsPurgable(self)

@@ -988,7 +988,7 @@ function OnKazikliBeyStart(keys)
 				local targets2 = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe_lastspike, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				for k,v in pairs(targets2) do
 					if IsValidEntity(v) and not v:IsNull() then
-						PI1[k] = FxCreator("particles/custom/vlad/vlad_kb_ontarget_prespike.vpcf", PATTACH_ABSORIGIN, v,0,nil)
+						PI1[k] = FxCreator("particles/custom/vlad/vlad_kb_ontarget_prespike.vpcf", PATTACH_ABSORIGIN_FOLLOW, v,0,nil)
 						ParticleManager:SetParticleControlEnt(PI1[k], 3, caster, PATTACH_POINT_FOLLOW	, "attach_hitloc", caster:GetAbsOrigin(),false)
 					end
 				end
@@ -1006,7 +1006,7 @@ function OnKazikliBeyStart(keys)
 				
 				FxDestroyer(PI4, false)--destroy vfx1
 				FxDestroyer(PI5, false)
-				local PI1 = FxCreator("particles/custom/vlad/vlad_kb_spikesend.vpcf", PATTACH_WORLDORIGIN, caster,0,nil)
+				local PI1 = FxCreator("particles/custom/vlad/vlad_kb_spikesend.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster,0,nil)
 
 				Timers:CreateTimer(2, function()
 					FxDestroyer(PI1, false)

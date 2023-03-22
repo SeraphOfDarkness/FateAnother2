@@ -1,66 +1,7 @@
 "DOTAAbilities"
 {
 	//==================================================================================================================
-	// Miyamoto Musashi : Skill 1 : Dai Go Sei (Q)
-	//==================================================================================================================
-	"musashi_dai_go_sei"
-	{
-		//General-------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/musashi/musashi_abilities"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"     		"custom/musashi/musashi_dai_go_sei"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-	
-		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"100"
-		"AbilityCastRange"				"750"
-		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK_EVENT"
-		"AnimationPlaybackRate"			"1.0"
-		"AnimationIgnoresModelScale" 	"1"
-
-		//Time----------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"20"
-		"AbilityCharges"				"0"
-		"AbilityChargeRestoreTime"		"0"
-
-		//Targeting-----------------------------------------------------------------------------------------------------
-	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO"
-	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
-
-	    //AbilityMechanics----------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"BonusAtkSpeed"				"10 20 30 40 50"
-			"BonusDmg"					"10 20 30 40 50"
-			"StunDuration"				"0.5"
-			"BuffDuration"				"10"
-			"HitsRequired"				"6"
-			"CriticalDmg"				"1.5"	
-		}
-
-		//Precache------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_blueorb_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_redorb_basic.vpcf"
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_unique.vpcf"
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_blueorb_unique.vpcf"
-			"particle"					"particles/custom/musashi/musashi_dai_go_sei_redorb_unique.vpcf"
-		}
-	}
-
-	//==================================================================================================================
-	// Miyamoto Musashi : Skill 2 : Accel Turn (W)
+	// Miyamoto Musashi : Skill 1 : Accel Turn (Q)
 	//==================================================================================================================
 	"musashi_accel_turn"
 	{
@@ -76,8 +17,8 @@
 		"LevelsBetweenUpgrades"			"1"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"200"
-		"AbilityCastRange"				"0"
+		"AbilityManaCost"         		"100"
+		"AbilityCastRange"				"750"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_RUN"
@@ -86,7 +27,7 @@
 
 		//Time----------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"0"
-		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityCharges"				"0"
 		"AbilityChargeRestoreTime"		"0"
 
@@ -95,14 +36,16 @@
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
 	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"Damage"					"200 350 500 650 800"
-			"DashRange"					"750"
+			"Damage"					"100 200 300 400 500"
+			"Range"						"400 500 600 700 800"
 			"DashSpeed"					"60"
-			"DashWidth"					"200"
+			"ProjectileRadius"			"200"
+			"ProjectileSpeed"			"2000"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -110,6 +53,67 @@
 		{
 			"particle"					"particles/custom/musashi/musashi_accel_turn_basic.vpcf"
 			"particle"					"particles/custom/musashi/musashi_accel_turn_unique.vpcf"
+		}
+	}
+
+	//==================================================================================================================
+	// Miyamoto Musashi : Skill 2 : Dai Go Sei (W)
+	//==================================================================================================================
+	"musashi_dai_go_sei"
+	{
+		//General-------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/musashi/musashi_abilities"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"     		"custom/musashi/musashi_dai_go_sei"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+	
+		//Casting-------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"         		"200"
+		"AbilityCastRange"				"750"
+		"AbilityCastRangeBuffer"		"250"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK_EVENT"
+		"AnimationPlaybackRate"			"1.0"
+		"AnimationIgnoresModelScale" 	"1"
+
+		//Time----------------------------------------------------------------------------------------------------------
+		"AbilityChannelTime"			"0"
+		"AbilityCooldown"				"20"
+		"AbilityCharges"				"0"
+		"AbilityChargeRestoreTime"		"0"
+
+		//Targeting-----------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+	    //AbilityMechanics----------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"BonusAtkSpeed"				"10 20 30 40 50"
+			"BonusDmg"					"10 20 30 50 50"
+			"StunDuration"				"0.5"
+			"BuffDuration"				"10"
+			"HitsRequired"				"6"
+			"TenganBonusRatio"			"1.5"
+			"Damage"					"250"	
+		}
+
+		//Precache------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_blueorb_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_redorb_basic.vpcf"
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_unique.vpcf"
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_blueorb_unique.vpcf"
+			"particle"					"particles/custom/musashi/musashi_dai_go_sei_redorb_unique.vpcf"
 		}
 	}
 
@@ -132,7 +136,7 @@
 		"AbilityManaCost"         		"400"
 		"AbilityCastRange"				"500"
 		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.8"
+		"AbilityCastPoint"				"0.6"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"
@@ -148,6 +152,7 @@
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
 	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -212,6 +217,7 @@
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_NONE"
 	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
 	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_NONE"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -269,6 +275,7 @@
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
 	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -502,6 +509,7 @@
 		{
 			"BuffDuration"				"3.5"
 			"Heal"						"500"
+			"DmgThreshold"				"2500"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -531,8 +539,8 @@
 		//Casting-------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"         		"700"
 		"AbilityCastRange"				"500"
-		"AbilityCastRangeBuffer"		"0"
-		"AbilityCastPoint"				"0.6"
+		"AbilityCastRangeBuffer"		"250"
+		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"			"1.0"
 		"AnimationIgnoresModelScale" 	"1"

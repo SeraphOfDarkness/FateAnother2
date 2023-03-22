@@ -1646,7 +1646,7 @@ function modifier_saito_mind_eye_active:OnRefresh(tTable)
 end
 function modifier_saito_mind_eye_active:OnIntervalThink()
     if IsServer() then
-        if GetDistance(self.hCaster, self.hParent) > self.nRadius * 2 then
+        if GetDistance(self.hCaster, self.hParent) > self.nRadius * 2 then --Added a checker to see if units with this buff in range near Saito == 2 * diameter.
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_out_of_range", {})
         else
             self.hParent:RemoveModifierByNameAndCaster("modifier_saito_mind_eye_out_of_range", self.hCaster)
@@ -1684,7 +1684,7 @@ function modifier_saito_mind_eye_active:GetEffectAttachType()
 end
 --This modifier is necessary for checking intervals, basically to prevent situations where you and an allied hero will double silence the same enemy or for meme infinity silence.
 ---------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier("modifier_saito_mind_eye_ss_interval", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_saito_mind_eye_ss_interval", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE) --ss == stun silence.
 
 modifier_saito_mind_eye_ss_interval = modifier_saito_mind_eye_ss_interval or class({})
 
@@ -3360,6 +3360,7 @@ function modifier_saito_blast_sdr:GetModifierTotalDamageOutgoing_Percentage(keys
     if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_ALL) ~= 0 then
         --return self.nSDRValue
         return RemapValClamped(self:GetElapsedTime(), 0, self:GetDuration(), self.nSDRMaxValue, self.nSDRMinValue)
+        --Autolerper and autoclamper values based on elapsed time after applied... with this modifier from duration.
     end
 end
 function modifier_saito_blast_sdr:OnCreated(tTable)

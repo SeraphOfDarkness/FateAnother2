@@ -1,4 +1,46 @@
 -Musashi changes
+1. Accel Turn and Dai Go Sei now swapped slot.
+2. Accel Turn now rescaled from 750 range to 400/500/600/700/800
+
+Bug fixes / Misc
+1. Emiya 9 Lives particle
+2. Musashi Hana particle
+3. Vlad Kazikley Bey particle
+4. Added korean tooltip
+
+-Musashi changes
+1. Battle Continuation now have threshold of max damage 2.5k
+2. Niou Kurikara (E) cast point reduced from 0.8->0.6
+3. Niou Kurikara (E) water debuff now roots properly.
+4. Combo total cast point reduced from 1.4->0.6
+5. Fixed items destroying combo sequence modifier.
+
+Saito changes
+1. Fixed damage overloop from Undefeatable Style [COMBO] & shift queue could cause instant 3K damage from QWE during combo duration
+2. Freely Drawn Sword [F] enables combo lock time, AGAIN
+3. Undefeatable Style [COMBO] duration and cooldown are fixed to 10 and 150 respectively
+
+-Musashi changes
+1. Dai Go Sei (Q) now able to target creeps
+2. Fix Niou Kurikara (E) sometimes miscount to 5 hits
+3. Fix Water push stucking enemies.
+4. BC will auto proc Hana but no longer controllable to detonate early. Using hana during this time will detonate it immediately.
+
+* Added Simplified Chinese translation for Hans
+
+Saitō Hajime
+
+* Flashblade [Q] damage and distance will now decrease gradually after 2 consecutive uses instead of 3, AGAIN
+* Mind's Eye silence [D] proc reworked AGAIN > if the distance is further than the maximum diameter of Mind's Eye proc radius then silence from allies (with Mind's Eye) cannot be proc-ed (requires Saito to be nearby)
+* One by One [D] is DISABLED to rework and repair its particles (maybe forever disabled for good)
+* Freely Drawn Sword [F] locker for combo removed
+* Invincible Sword [SA] bonus QWE damage per level reduced from 10 to 5, AGAIN
+* Undefeateable Style [COMBO] manacost increased from 400 to 600, AGAIN
+* Undefeateable Style [COMBO] cooldown reduced from 140 to 120
+* Undefeateable Style [COMBO] proc chance reduced from 30% to 22%
+* Memoir: Snarksengumi [SA] proc odds increased from 22% to 25%
+
+-Musashi changes
 1. Fix SA not applicable when hero is dead.
 
 -Musashi SA changes

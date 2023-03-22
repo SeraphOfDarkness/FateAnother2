@@ -19,6 +19,189 @@ local InitComboSequenceChecker = ____skill_utils.InitComboSequenceChecker
 local InitSkillSlotChecker = ____skill_utils.InitSkillSlotChecker
 local ____sleep_timer = require("libs.sleep_timer")
 local Sleep = ____sleep_timer.Sleep
+____exports.musashi_accel_turn = __TS__Class()
+local musashi_accel_turn = ____exports.musashi_accel_turn
+musashi_accel_turn.name = "musashi_accel_turn"
+__TS__ClassExtends(musashi_accel_turn, BaseAbility)
+function musashi_accel_turn.prototype.____constructor(self, ...)
+    BaseAbility.prototype.____constructor(self, ...)
+    self.SoundVoiceline = "antimage_anti_ability_manavoid_07"
+    self.SoundSfx = "musashi_accel_turn_sfx"
+end
+function musashi_accel_turn.prototype.OnSpellStart(self)
+    self.Caster = self:GetCaster()
+    self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_accel_turn.name, {undefined = undefined})
+    self:CreateProjectile()
+    self:PlaySound()
+end
+function musashi_accel_turn.prototype.CreateProjectile(self)
+    local ParticleStr = "particles/custom/musashi/musashi_accel_turn_basic.vpcf"
+    local ____opt_0 = self.Caster
+    if ____opt_0 and ____opt_0:HasModifier("modifier_ascended") then
+        ParticleStr = "particles/custom/musashi/musashi_accel_turn_unique.vpcf"
+    end
+    local ____opt_2 = self.Caster
+    local Direction = ____opt_2 and ____opt_2:GetForwardVector():__unm()
+    local ____ProjectileManager_CreateLinearProjectile_8 = ProjectileManager.CreateLinearProjectile
+    local ____ParticleStr_6 = ParticleStr
+    local ____self_Caster_7 = self.Caster
+    local ____opt_4 = self.Caster
+    ____ProjectileManager_CreateLinearProjectile_8(
+        ProjectileManager,
+        {
+            EffectName = ____ParticleStr_6,
+            Ability = self,
+            Source = ____self_Caster_7,
+            vSpawnOrigin = ____opt_4 and ____opt_4:GetAbsOrigin(),
+            vVelocity = Direction * self:GetSpecialValueFor("ProjectileSpeed"),
+            fDistance = self:GetSpecialValueFor("Range"),
+            fStartRadius = self:GetSpecialValueFor("ProjectileRadius"),
+            fEndRadius = self:GetSpecialValueFor("ProjectileRadius"),
+            iUnitTargetTeam = self:GetAbilityTargetTeam(),
+            iUnitTargetFlags = self:GetAbilityTargetFlags(),
+            iUnitTargetType = self:GetAbilityTargetType()
+        }
+    )
+end
+function musashi_accel_turn.prototype.OnProjectileHit(self, target)
+    if not IsServer() then
+        return
+    end
+    local Damage = self:GetSpecialValueFor("Damage")
+    local DmgType = self:GetAbilityDamageType()
+    local DmgFlag = DOTA_DAMAGE_FLAG_NONE
+    DoDamage(
+        self.Caster,
+        target,
+        Damage,
+        DmgType,
+        DmgFlag,
+        self,
+        false
+    )
+end
+function musashi_accel_turn.prototype.PlaySound(self)
+    local ____opt_9 = self.Caster
+    if ____opt_9 ~= nil then
+        ____opt_9:EmitSound(self.SoundVoiceline)
+    end
+    local ____opt_11 = self.Caster
+    if ____opt_11 ~= nil then
+        ____opt_11:EmitSound(self.SoundSfx)
+    end
+end
+function musashi_accel_turn.prototype.GetCastRange(self)
+    if IsServer() then
+        return 0
+    else
+        return self:GetSpecialValueFor("DashRange")
+    end
+end
+musashi_accel_turn = __TS__Decorate(
+    {registerAbility(nil)},
+    musashi_accel_turn
+)
+____exports.musashi_accel_turn = musashi_accel_turn
+____exports.musashi_modifier_accel_turn = __TS__Class()
+local musashi_modifier_accel_turn = ____exports.musashi_modifier_accel_turn
+musashi_modifier_accel_turn.name = "musashi_modifier_accel_turn"
+__TS__ClassExtends(musashi_modifier_accel_turn, BaseModifier)
+function musashi_modifier_accel_turn.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.Direction = Vector(0, 0, 0)
+    self.UnitsTravelled = 0
+    self.DashRange = 0
+    self.DashSpeed = 0
+end
+function musashi_modifier_accel_turn.prototype.OnCreated(self)
+    if not IsServer() then
+        return
+    end
+    self.Caster = self:GetCaster()
+    self.Ability = self:GetAbility()
+    local ____opt_13 = self.Ability
+    self.Direction = ____opt_13 and ____opt_13:GetForwardVector():__unm()
+    local ____opt_15 = self.Ability
+    self.DashRange = ____opt_15 and ____opt_15:GetSpecialValueFor("Range")
+    local ____opt_17 = self.Ability
+    self.DashSpeed = ____opt_17 and ____opt_17:GetSpecialValueFor("DashSpeed")
+    ProjectileManager:ProjectileDodge(self.Caster)
+    self:StartIntervalThink(0.03)
+end
+function musashi_modifier_accel_turn.prototype.OnIntervalThink(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_19 = self.Caster
+    if ____opt_19 ~= nil then
+        ____opt_19:SetForwardVector(self.Direction)
+    end
+    local ____opt_21 = self.Caster
+    local CurrentOrigin = ____opt_21 and ____opt_21:GetAbsOrigin()
+    local ____opt_23 = self.Caster
+    local NewPosition = CurrentOrigin + (____opt_23 and ____opt_23:GetForwardVector()) * self.DashSpeed
+    self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
+    local ____opt_25 = self.Caster
+    if ____opt_25 ~= nil then
+        ____opt_25:SetAbsOrigin(NewPosition)
+    end
+    if self.UnitsTravelled >= self.DashRange then
+        self:Destroy()
+    end
+end
+function musashi_modifier_accel_turn.prototype.OnDestroy(self)
+    if not IsServer() then
+        return
+    end
+    local ____opt_27 = self.Caster
+    if ____opt_27 ~= nil then
+        ____opt_27:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
+    end
+    local ____FindClearSpaceForUnit_32 = FindClearSpaceForUnit
+    local ____self_Caster_31 = self.Caster
+    local ____opt_29 = self.Caster
+    ____FindClearSpaceForUnit_32(
+        ____self_Caster_31,
+        ____opt_29 and ____opt_29:GetAbsOrigin(),
+        true
+    )
+    local ____opt_33 = self.Caster
+    if ____opt_33 ~= nil then
+        ____opt_33:AddNewModifier(self.Caster, self.Ability, "modifier_phased", {duration = 1})
+    end
+end
+function musashi_modifier_accel_turn.prototype.DeclareFunctions(self)
+    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
+end
+function musashi_modifier_accel_turn.prototype.GetOverrideAnimation(self)
+    return ACT_DOTA_OVERRIDE_ABILITY_1
+end
+function musashi_modifier_accel_turn.prototype.GetOverrideAnimationRate(self)
+    return 2
+end
+function musashi_modifier_accel_turn.prototype.CheckState(self)
+    local ModifierTable = {
+        [MODIFIER_STATE_INVULNERABLE] = true,
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+        [MODIFIER_STATE_UNSELECTABLE] = true,
+        [MODIFIER_STATE_UNTARGETABLE] = true,
+        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+        [MODIFIER_STATE_COMMAND_RESTRICTED] = true
+    }
+    return ModifierTable
+end
+function musashi_modifier_accel_turn.prototype.IsPurgable(self)
+    return false
+end
+function musashi_modifier_accel_turn.prototype.IsPurgeException(self)
+    return false
+end
+musashi_modifier_accel_turn = __TS__Decorate(
+    {registerModifier(nil)},
+    musashi_modifier_accel_turn
+)
+____exports.musashi_modifier_accel_turn = musashi_modifier_accel_turn
 ____exports.musashi_dai_go_sei = __TS__Class()
 local musashi_dai_go_sei = ____exports.musashi_dai_go_sei
 musashi_dai_go_sei.name = "musashi_dai_go_sei"
@@ -33,33 +216,43 @@ function musashi_dai_go_sei.prototype.OnAbilityPhaseStart(self)
     local Victim = self:GetCursorTarget()
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
     local StunDuration = self:GetSpecialValueFor("StunDuration")
-    local ____opt_0 = self.Caster
-    if ____opt_0 ~= nil then
-        ____opt_0:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_dai_go_sei.name, {duration = BuffDuration})
+    local Damage = self:GetSpecialValueFor("Damage")
+    local ____opt_35 = self.Caster
+    if ____opt_35 ~= nil then
+        ____opt_35:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_dai_go_sei.name, {duration = BuffDuration})
     end
-    local ____opt_2 = self.Caster
-    if ____opt_2 ~= nil then
-        ____opt_2:SetAbsOrigin(Victim and Victim:GetAbsOrigin())
+    local ____opt_37 = self.Caster
+    if ____opt_37 ~= nil then
+        ____opt_37:SetAbsOrigin(Victim and Victim:GetAbsOrigin())
     end
-    local ____FindClearSpaceForUnit_9 = FindClearSpaceForUnit
-    local ____self_Caster_8 = self.Caster
-    local ____opt_6 = self.Caster
-    ____FindClearSpaceForUnit_9(
-        ____self_Caster_8,
-        ____opt_6 and ____opt_6:GetAbsOrigin(),
+    local ____FindClearSpaceForUnit_44 = FindClearSpaceForUnit
+    local ____self_Caster_43 = self.Caster
+    local ____opt_41 = self.Caster
+    ____FindClearSpaceForUnit_44(
+        ____self_Caster_43,
+        ____opt_41 and ____opt_41:GetAbsOrigin(),
         true
     )
     Victim:AddNewModifier(self.Caster, self, "modifier_stunned", {duration = StunDuration})
+    DoDamage(
+        self.Caster,
+        Victim,
+        Damage,
+        self:GetAbilityDamageType(),
+        DOTA_DAMAGE_FLAG_NONE,
+        self,
+        false
+    )
     self:PlaySound()
 end
 function musashi_dai_go_sei.prototype.PlaySound(self)
-    local ____opt_10 = self.Caster
-    if ____opt_10 ~= nil then
-        ____opt_10:EmitSound(self.SoundVoiceline)
+    local ____opt_45 = self.Caster
+    if ____opt_45 ~= nil then
+        ____opt_45:EmitSound(self.SoundVoiceline)
     end
-    local ____opt_12 = self.Caster
-    if ____opt_12 ~= nil then
-        ____opt_12:EmitSound(self.SoundSfx)
+    local ____opt_47 = self.Caster
+    if ____opt_47 ~= nil then
+        ____opt_47:EmitSound(self.SoundSfx)
     end
 end
 musashi_dai_go_sei = __TS__Decorate(
@@ -71,16 +264,29 @@ ____exports.musashi_modifier_dai_go_sei = __TS__Class()
 local musashi_modifier_dai_go_sei = ____exports.musashi_modifier_dai_go_sei
 musashi_modifier_dai_go_sei.name = "musashi_modifier_dai_go_sei"
 __TS__ClassExtends(musashi_modifier_dai_go_sei, BaseModifier)
+function musashi_modifier_dai_go_sei.prototype.____constructor(self, ...)
+    BaseModifier.prototype.____constructor(self, ...)
+    self.HitsRequired = 0
+end
 function musashi_modifier_dai_go_sei.prototype.OnCreated(self)
     if not IsServer() then
         return
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_14 = self.Ability
-    self.BonusDmg = ____opt_14 and ____opt_14:GetSpecialValueFor("BonusDmg")
-    local ____opt_16 = self.Ability
-    self.BonusAtkSpeed = ____opt_16 and ____opt_16:GetSpecialValueFor("BonusAtkSpeed")
+    local ____opt_49 = self.Ability
+    self.BonusDmg = ____opt_49 and ____opt_49:GetSpecialValueFor("BonusDmg")
+    local ____opt_51 = self.Ability
+    self.BonusAtkSpeed = ____opt_51 and ____opt_51:GetSpecialValueFor("BonusAtkSpeed")
+    local ____opt_53 = self.Ability
+    self.HitsRequired = ____opt_53 and ____opt_53:GetSpecialValueFor("HitsRequired")
+    local ____opt_55 = self.Caster
+    if ____opt_55 and ____opt_55:HasModifier(____exports.musashi_modifier_tengan.name) then
+        local ____opt_57 = self.Ability
+        local TenganBonusRatio = ____opt_57 and ____opt_57:GetSpecialValueFor("TenganBonusRatio")
+        self.BonusDmg = self.BonusDmg * TenganBonusRatio
+        self.BonusAtkSpeed = self.BonusAtkSpeed * TenganBonusRatio
+    end
     self:SetHasCustomTransmitterData(true)
     self:CreateParticle()
 end
@@ -102,40 +308,26 @@ function musashi_modifier_dai_go_sei.prototype.OnAttackLanded(self, event)
     if not IsServer() then
         return
     end
-    local ____temp_20 = event.attacker == self.Caster and event.target:IsRealHero()
-    if ____temp_20 then
-        local ____opt_18 = self.Caster
-        ____temp_20 = ____opt_18 and ____opt_18:HasModifier(____exports.musashi_modifier_tengan.name)
-    end
-    if ____temp_20 then
-        self:IncrementStackCount()
-        local ____opt_21 = self.Ability
-        local HitsRequired = ____opt_21 and ____opt_21:GetSpecialValueFor("HitsRequired")
-        if self:GetStackCount() == HitsRequired then
-            self:SetStackCount(0)
-            local ____event_damage_25 = event.damage
-            local ____opt_23 = self.Ability
-            local Damage = ____event_damage_25 * (____opt_23 and ____opt_23:GetSpecialValueFor("CriticalDmg"))
-            local DmgType = DAMAGE_TYPE_PHYSICAL
-            local DmgFlag = DOTA_DAMAGE_FLAG_NONE
-            DoDamage(
-                self.Caster,
-                event.target,
-                Damage,
-                DmgType,
-                DmgFlag,
-                self.Ability,
-                false
-            )
+    if event.attacker == self.Caster and event.target:IsRealHero() then
+        if self:GetStackCount() < self.HitsRequired then
+            self:IncrementStackCount()
         end
+    end
+end
+function musashi_modifier_dai_go_sei.prototype.OnStackCountChanged(self, stackCount)
+    if not IsServer() then
+        return
+    end
+    if stackCount == self.HitsRequired - 1 then
+        print("hairo")
     end
 end
 function musashi_modifier_dai_go_sei.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_dai_go_sei_basic.vpcf"
     local BlueOrbParticleStr = "particles/custom/musashi/musashi_dai_go_sei_blueorb_basic.vpcf"
     local RedOrbParticleStr = "particles/custom/musashi/musashi_dai_go_sei_redorb_basic.vpcf"
-    local ____opt_26 = self.Caster
-    if ____opt_26 and ____opt_26:HasModifier("modifier_ascended") then
+    local ____opt_59 = self.Caster
+    if ____opt_59 and ____opt_59:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_dai_go_sei_unique.vpcf"
         BlueOrbParticleStr = "particles/custom/musashi/musashi_dai_go_sei_blueorb_unique.vpcf"
         RedOrbParticleStr = "particles/custom/musashi/musashi_dai_go_sei_redorb_unique.vpcf"
@@ -206,221 +398,6 @@ musashi_modifier_dai_go_sei = __TS__Decorate(
     musashi_modifier_dai_go_sei
 )
 ____exports.musashi_modifier_dai_go_sei = musashi_modifier_dai_go_sei
-____exports.musashi_accel_turn = __TS__Class()
-local musashi_accel_turn = ____exports.musashi_accel_turn
-musashi_accel_turn.name = "musashi_accel_turn"
-__TS__ClassExtends(musashi_accel_turn, BaseAbility)
-function musashi_accel_turn.prototype.____constructor(self, ...)
-    BaseAbility.prototype.____constructor(self, ...)
-    self.SoundVoiceline = "antimage_anti_ability_manavoid_07"
-    self.SoundSfx = "musashi_accel_turn_sfx"
-end
-function musashi_accel_turn.prototype.OnSpellStart(self)
-    self.Caster = self:GetCaster()
-    self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_accel_turn.name, {undefined = undefined})
-    self:PlaySound()
-end
-function musashi_accel_turn.prototype.PlaySound(self)
-    local ____opt_28 = self.Caster
-    if ____opt_28 ~= nil then
-        ____opt_28:EmitSound(self.SoundVoiceline)
-    end
-    local ____opt_30 = self.Caster
-    if ____opt_30 ~= nil then
-        ____opt_30:EmitSound(self.SoundSfx)
-    end
-end
-function musashi_accel_turn.prototype.GetCastRange(self)
-    if IsServer() then
-        return 0
-    else
-        return self:GetSpecialValueFor("DashRange")
-    end
-end
-musashi_accel_turn = __TS__Decorate(
-    {registerAbility(nil)},
-    musashi_accel_turn
-)
-____exports.musashi_accel_turn = musashi_accel_turn
-____exports.musashi_modifier_accel_turn = __TS__Class()
-local musashi_modifier_accel_turn = ____exports.musashi_modifier_accel_turn
-musashi_modifier_accel_turn.name = "musashi_modifier_accel_turn"
-__TS__ClassExtends(musashi_modifier_accel_turn, BaseModifier)
-function musashi_modifier_accel_turn.prototype.____constructor(self, ...)
-    BaseModifier.prototype.____constructor(self, ...)
-    self.Direction = Vector(0, 0, 0)
-    self.StartPosition = Vector(0, 0, 0)
-    self.UnitsTravelled = 0
-    self.DashRange = 0
-    self.DashSpeed = 0
-end
-function musashi_modifier_accel_turn.prototype.OnCreated(self)
-    if not IsServer() then
-        return
-    end
-    self.Caster = self:GetCaster()
-    self.Ability = self:GetAbility()
-    local ____opt_32 = self.Ability
-    self.Direction = ____opt_32 and ____opt_32:GetForwardVector():__unm()
-    local ____opt_34 = self.Caster
-    self.StartPosition = ____opt_34 and ____opt_34:GetAbsOrigin()
-    local ____opt_36 = self.Ability
-    self.DashRange = ____opt_36 and ____opt_36:GetSpecialValueFor("DashRange")
-    local ____opt_38 = self.Ability
-    self.DashSpeed = ____opt_38 and ____opt_38:GetSpecialValueFor("DashSpeed")
-    self:CreateParticle()
-    self:StartIntervalThink(0.03)
-end
-function musashi_modifier_accel_turn.prototype.OnIntervalThink(self)
-    if not IsServer() then
-        return
-    end
-    local ____opt_40 = self.Caster
-    if ____opt_40 ~= nil then
-        ____opt_40:SetForwardVector(self.Direction)
-    end
-    local ____opt_42 = self.Caster
-    local CurrentOrigin = ____opt_42 and ____opt_42:GetAbsOrigin()
-    local ____opt_44 = self.Caster
-    local NewPosition = CurrentOrigin + (____opt_44 and ____opt_44:GetForwardVector()) * self.DashSpeed
-    self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
-    local ____opt_46 = self.Caster
-    if ____opt_46 ~= nil then
-        ____opt_46:SetAbsOrigin(NewPosition)
-    end
-    if self.UnitsTravelled >= self.DashRange then
-        self:Destroy()
-    end
-end
-function musashi_modifier_accel_turn.prototype.OnDestroy(self)
-    if not IsServer() then
-        return
-    end
-    self:DealDamage()
-    local ____opt_48 = self.Caster
-    if ____opt_48 ~= nil then
-        ____opt_48:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
-    end
-    local ____FindClearSpaceForUnit_53 = FindClearSpaceForUnit
-    local ____self_Caster_52 = self.Caster
-    local ____opt_50 = self.Caster
-    ____FindClearSpaceForUnit_53(
-        ____self_Caster_52,
-        ____opt_50 and ____opt_50:GetAbsOrigin(),
-        true
-    )
-    local ____opt_54 = self.Caster
-    if ____opt_54 ~= nil then
-        ____opt_54:AddNewModifier(self.Caster, self.Ability, "modifier_phased", {duration = 1})
-    end
-end
-function musashi_modifier_accel_turn.prototype.DealDamage(self)
-    local ____opt_56 = self.Ability
-    local DashWidth = ____opt_56 and ____opt_56:GetSpecialValueFor("DashWidth")
-    local ____opt_58 = self.Ability
-    local Damage = ____opt_58 and ____opt_58:GetSpecialValueFor("Damage")
-    local ____opt_60 = self.Ability
-    local DmgType = ____opt_60 and ____opt_60:GetAbilityDamageType()
-    local DmgFlag = DOTA_DAMAGE_FLAG_NONE
-    local ____FindUnitsInLine_73 = FindUnitsInLine
-    local ____opt_62 = self.Caster
-    local ____array_72 = __TS__SparseArrayNew(
-        ____opt_62 and ____opt_62:GetTeam(),
-        self.StartPosition
-    )
-    local ____opt_64 = self.Caster
-    __TS__SparseArrayPush(
-        ____array_72,
-        ____opt_64 and ____opt_64:GetAbsOrigin(),
-        nil,
-        DashWidth
-    )
-    local ____opt_66 = self.Ability
-    __TS__SparseArrayPush(
-        ____array_72,
-        ____opt_66 and ____opt_66:GetAbilityTargetTeam()
-    )
-    local ____opt_68 = self.Ability
-    __TS__SparseArrayPush(
-        ____array_72,
-        ____opt_68 and ____opt_68:GetAbilityTargetType()
-    )
-    local ____opt_70 = self.Ability
-    __TS__SparseArrayPush(
-        ____array_72,
-        ____opt_70 and ____opt_70:GetAbilityTargetFlags()
-    )
-    local Targets = ____FindUnitsInLine_73(__TS__SparseArraySpread(____array_72))
-    for ____, Iterator in ipairs(Targets) do
-        DoDamage(
-            self.Caster,
-            Iterator,
-            Damage,
-            DmgType,
-            DmgFlag,
-            self.Ability,
-            false
-        )
-    end
-end
-function musashi_modifier_accel_turn.prototype.CreateParticle(self)
-    local ParticleStr = "particles/custom/musashi/musashi_accel_turn_basic.vpcf"
-    local ____opt_74 = self.Caster
-    if ____opt_74 and ____opt_74:HasModifier("modifier_ascended") then
-        ParticleStr = "particles/custom/musashi/musashi_accel_turn_unique.vpcf"
-    end
-    local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_WORLDORIGIN, self.Caster)
-    local ParticleSpeed = self.Direction * 2000
-    local ____ParticleManager_SetParticleControl_78 = ParticleManager.SetParticleControl
-    local ____opt_76 = self.Caster
-    ____ParticleManager_SetParticleControl_78(
-        ParticleManager,
-        Particle,
-        0,
-        ____opt_76 and ____opt_76:GetAbsOrigin()
-    )
-    ParticleManager:SetParticleControl(Particle, 1, ParticleSpeed)
-    self:AddParticle(
-        Particle,
-        false,
-        false,
-        -1,
-        false,
-        false
-    )
-end
-function musashi_modifier_accel_turn.prototype.DeclareFunctions(self)
-    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
-end
-function musashi_modifier_accel_turn.prototype.GetOverrideAnimation(self)
-    return ACT_DOTA_OVERRIDE_ABILITY_1
-end
-function musashi_modifier_accel_turn.prototype.GetOverrideAnimationRate(self)
-    return 2
-end
-function musashi_modifier_accel_turn.prototype.CheckState(self)
-    local ModifierTable = {
-        [MODIFIER_STATE_INVULNERABLE] = true,
-        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-        [MODIFIER_STATE_UNSELECTABLE] = true,
-        [MODIFIER_STATE_UNTARGETABLE] = true,
-        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true
-    }
-    return ModifierTable
-end
-function musashi_modifier_accel_turn.prototype.IsPurgable(self)
-    return false
-end
-function musashi_modifier_accel_turn.prototype.IsPurgeException(self)
-    return false
-end
-musashi_modifier_accel_turn = __TS__Decorate(
-    {registerModifier(nil)},
-    musashi_modifier_accel_turn
-)
-____exports.musashi_modifier_accel_turn = musashi_modifier_accel_turn
 ____exports.musashi_niou_kurikara = __TS__Class()
 local musashi_niou_kurikara = ____exports.musashi_niou_kurikara
 musashi_niou_kurikara.name = "musashi_niou_kurikara"
@@ -439,36 +416,36 @@ function musashi_niou_kurikara.prototype.OnAbilityPhaseStart(self)
         self.Caster:GetEntityIndex()
     )
     self.Niou = self.NiouSkill.Niou
-    local ____opt_79 = self.Niou
-    if ____opt_79 ~= nil then
-        ____opt_79:FaceTowards(self:GetCursorPosition())
+    local ____opt_61 = self.Niou
+    if ____opt_61 ~= nil then
+        ____opt_61:FaceTowards(self:GetCursorPosition())
     end
     return true
 end
 function musashi_niou_kurikara.prototype.OnAbilityPhaseInterrupted(self)
-    local ____opt_81 = self.NiouSkill
-    if ____opt_81 ~= nil then
-        ____opt_81:DestroyNiou(0)
+    local ____opt_63 = self.NiouSkill
+    if ____opt_63 ~= nil then
+        ____opt_63:DestroyNiou(0)
     end
 end
 function musashi_niou_kurikara.prototype.OnSpellStart(self)
-    local ____opt_83 = self.Caster
-    if ____opt_83 ~= nil then
-        ____opt_83:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_niou_kurikara_channeling.name, {duration = 1.5})
+    local ____opt_65 = self.Caster
+    if ____opt_65 ~= nil then
+        ____opt_65:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_niou_kurikara_channeling.name, {duration = 1.5})
     end
-    local ____opt_85 = self.Niou
-    if ____opt_85 ~= nil then
-        ____opt_85:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_1, 1.1)
+    local ____opt_67 = self.Niou
+    if ____opt_67 ~= nil then
+        ____opt_67:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_1, 1.1)
     end
-    local ____opt_87 = self.Caster
-    if not (____opt_87 and ____opt_87:HasModifier(____exports.musashi_modifier_ishana_daitenshou.name)) then
+    local ____opt_69 = self.Caster
+    if not (____opt_69 and ____opt_69:HasModifier(____exports.musashi_modifier_ishana_daitenshou.name)) then
         EmitGlobalSound(self.SoundVoiceline)
     end
 end
 function musashi_niou_kurikara.prototype.OnUpgrade(self)
-    local ____opt_89 = self.NiouSkill
-    if ____opt_89 ~= nil then
-        ____opt_89:SetLevel(self:GetLevel())
+    local ____opt_71 = self.NiouSkill
+    if ____opt_71 ~= nil then
+        ____opt_71:SetLevel(self:GetLevel())
     end
 end
 function musashi_niou_kurikara.prototype.GetAOERadius(self)
@@ -495,8 +472,8 @@ function musashi_modifier_niou_kurikara_channeling.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_91 = self.Ability
-    self.TargetPoint = ____opt_91 and ____opt_91:GetCursorPosition()
+    local ____opt_73 = self.Ability
+    self.TargetPoint = ____opt_73 and ____opt_73:GetCursorPosition()
     giveUnitDataDrivenModifier(self.Caster, self.Caster, "pause_sealdisabled", 1.5)
     self:IncrementStackCount()
     self:StartIntervalThink(0.5)
@@ -519,72 +496,71 @@ function musashi_modifier_niou_kurikara_channeling.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    print("slashcount", self.SlashCount)
-    local ____opt_93 = self.Caster
-    local NiouSkill = ____opt_93 and ____opt_93:FindAbilityByName(____exports.musashi_niou.name)
+    local ____opt_75 = self.Caster
+    local NiouSkill = ____opt_75 and ____opt_75:FindAbilityByName(____exports.musashi_niou.name)
     NiouSkill:DestroyNiou(1)
-    local ____opt_95 = self.Ability
-    local BuffDuration = ____opt_95 and ____opt_95:GetSpecialValueFor("BuffDuration")
-    local ____opt_97 = self.Caster
-    if ____opt_97 ~= nil then
-        ____opt_97:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_niou_kurikara_postchannel_buff.name, {duration = BuffDuration})
+    local ____opt_77 = self.Ability
+    local BuffDuration = ____opt_77 and ____opt_77:GetSpecialValueFor("BuffDuration")
+    local ____opt_79 = self.Caster
+    if ____opt_79 ~= nil then
+        ____opt_79:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_niou_kurikara_postchannel_buff.name, {duration = BuffDuration})
     end
-    local ____opt_99 = self.Caster
-    local ModifierIshanaDaitenshou = ____opt_99 and ____opt_99:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
+    local ____opt_81 = self.Caster
+    local ModifierIshanaDaitenshou = ____opt_81 and ____opt_81:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
     if ModifierIshanaDaitenshou ~= nil then
         ModifierIshanaDaitenshou:IncrementStackCount()
     end
 end
 function musashi_modifier_niou_kurikara_channeling.prototype.DealDamage(self)
     self.SlashCount = self.SlashCount + 1
-    local ____opt_103 = self.Ability
-    local Damage = ____opt_103 and ____opt_103:GetSpecialValueFor("DmgPerSlash")
-    local ____opt_105 = self.Ability
-    local DmgType = ____opt_105 and ____opt_105:GetAbilityDamageType()
-    local ____opt_107 = self.Ability
-    local TargetFlags = ____opt_107 and ____opt_107:GetAbilityTargetFlags()
+    local ____opt_85 = self.Ability
+    local Damage = ____opt_85 and ____opt_85:GetSpecialValueFor("DmgPerSlash")
+    local ____opt_87 = self.Ability
+    local DmgType = ____opt_87 and ____opt_87:GetAbilityDamageType()
+    local ____opt_89 = self.Ability
+    local TargetFlags = ____opt_89 and ____opt_89:GetAbilityTargetFlags()
     local DmgFlag = DOTA_DAMAGE_FLAG_NONE
     local Targets
-    local ____opt_109 = self.Caster
-    local ____temp_113 = ____opt_109 and ____opt_109:HasModifier(____exports.musashi_modifier_tenma_gogan.name)
-    if not ____temp_113 then
-        local ____opt_111 = self.Caster
-        ____temp_113 = ____opt_111 and ____opt_111:HasModifier(____exports.musashi_modifier_ishana_daitenshou.name)
+    local ____opt_91 = self.Caster
+    local ____temp_95 = ____opt_91 and ____opt_91:HasModifier(____exports.musashi_modifier_tenma_gogan.name)
+    if not ____temp_95 then
+        local ____opt_93 = self.Caster
+        ____temp_95 = ____opt_93 and ____opt_93:HasModifier(____exports.musashi_modifier_ishana_daitenshou.name)
     end
-    if ____temp_113 then
+    if ____temp_95 then
         DmgType = DAMAGE_TYPE_PURE
         DmgFlag = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_HPLOSS
         TargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     end
-    local ____FindUnitsInRadius_123 = FindUnitsInRadius
-    local ____opt_114 = self.Caster
-    local ____array_122 = __TS__SparseArrayNew(
-        ____opt_114 and ____opt_114:GetTeam(),
+    local ____FindUnitsInRadius_105 = FindUnitsInRadius
+    local ____opt_96 = self.Caster
+    local ____array_104 = __TS__SparseArrayNew(
+        ____opt_96 and ____opt_96:GetTeam(),
         self.TargetPoint,
         nil
     )
-    local ____opt_116 = self.Ability
+    local ____opt_98 = self.Ability
     __TS__SparseArrayPush(
-        ____array_122,
-        ____opt_116 and ____opt_116:GetAOERadius()
+        ____array_104,
+        ____opt_98 and ____opt_98:GetAOERadius()
     )
-    local ____opt_118 = self.Ability
+    local ____opt_100 = self.Ability
     __TS__SparseArrayPush(
-        ____array_122,
-        ____opt_118 and ____opt_118:GetAbilityTargetTeam()
+        ____array_104,
+        ____opt_100 and ____opt_100:GetAbilityTargetTeam()
     )
-    local ____opt_120 = self.Ability
+    local ____opt_102 = self.Ability
     __TS__SparseArrayPush(
-        ____array_122,
-        ____opt_120 and ____opt_120:GetAbilityTargetType(),
+        ____array_104,
+        ____opt_102 and ____opt_102:GetAbilityTargetType(),
         TargetFlags,
         FIND_ANY_ORDER,
         false
     )
-    Targets = ____FindUnitsInRadius_123(__TS__SparseArraySpread(____array_122))
+    Targets = ____FindUnitsInRadius_105(__TS__SparseArraySpread(____array_104))
     for ____, Iterator in ipairs(Targets) do
-        local ____opt_124 = self.Caster
-        if ____opt_124 and ____opt_124:HasModifier("musashi_attribute_gorin_no_sho") then
+        local ____opt_106 = self.Caster
+        if ____opt_106 and ____opt_106:HasModifier("musashi_attribute_gorin_no_sho") then
             self:ApplyElementalDebuffs(Iterator)
         end
         DoDamage(
@@ -597,38 +573,38 @@ function musashi_modifier_niou_kurikara_channeling.prototype.DealDamage(self)
             false
         )
     end
-    local ____opt_126 = self.Caster
-    local ModifierTengan = ____opt_126 and ____opt_126:FindModifierByName(____exports.musashi_modifier_tengan.name)
+    local ____opt_108 = self.Caster
+    local ModifierTengan = ____opt_108 and ____opt_108:FindModifierByName(____exports.musashi_modifier_tengan.name)
     if self.SlashCount == 4 and ModifierTengan then
         DmgType = DAMAGE_TYPE_PURE
         DmgFlag = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
         TargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-        local ____FindUnitsInRadius_137 = FindUnitsInRadius
-        local ____opt_128 = self.Caster
-        local ____array_136 = __TS__SparseArrayNew(
-            ____opt_128 and ____opt_128:GetTeam(),
+        local ____FindUnitsInRadius_119 = FindUnitsInRadius
+        local ____opt_110 = self.Caster
+        local ____array_118 = __TS__SparseArrayNew(
+            ____opt_110 and ____opt_110:GetTeam(),
             self.TargetPoint,
             nil
         )
-        local ____opt_130 = self.Ability
+        local ____opt_112 = self.Ability
         __TS__SparseArrayPush(
-            ____array_136,
-            ____opt_130 and ____opt_130:GetAOERadius()
+            ____array_118,
+            ____opt_112 and ____opt_112:GetAOERadius()
         )
-        local ____opt_132 = self.Ability
+        local ____opt_114 = self.Ability
         __TS__SparseArrayPush(
-            ____array_136,
-            ____opt_132 and ____opt_132:GetAbilityTargetTeam()
+            ____array_118,
+            ____opt_114 and ____opt_114:GetAbilityTargetTeam()
         )
-        local ____opt_134 = self.Ability
+        local ____opt_116 = self.Ability
         __TS__SparseArrayPush(
-            ____array_136,
-            ____opt_134 and ____opt_134:GetAbilityTargetType(),
+            ____array_118,
+            ____opt_116 and ____opt_116:GetAbilityTargetType(),
             TargetFlags,
             FIND_ANY_ORDER,
             false
         )
-        Targets = ____FindUnitsInRadius_137(__TS__SparseArraySpread(____array_136))
+        Targets = ____FindUnitsInRadius_119(__TS__SparseArraySpread(____array_118))
         for ____, Iterator in ipairs(Targets) do
             DoDamage(
                 self.Caster,
@@ -640,8 +616,8 @@ function musashi_modifier_niou_kurikara_channeling.prototype.DealDamage(self)
                 false
             )
         end
-        local ____opt_138 = self.Caster
-        local ModifierTenmaGogan = ____opt_138 and ____opt_138:FindModifierByName(____exports.musashi_modifier_tenma_gogan.name)
+        local ____opt_120 = self.Caster
+        local ModifierTenmaGogan = ____opt_120 and ____opt_120:FindModifierByName(____exports.musashi_modifier_tenma_gogan.name)
         ModifierTengan:Destroy()
         if ModifierTenmaGogan ~= nil then
             ModifierTenmaGogan:Destroy()
@@ -649,37 +625,37 @@ function musashi_modifier_niou_kurikara_channeling.prototype.DealDamage(self)
     end
 end
 function musashi_modifier_niou_kurikara_channeling.prototype.ApplyElementalDebuffs(self, Target)
-    local ____opt_142 = self.Caster
-    local GorinNoSho = ____opt_142 and ____opt_142:FindModifierByName("musashi_attribute_gorin_no_sho")
+    local ____opt_124 = self.Caster
+    local GorinNoSho = ____opt_124 and ____opt_124:FindModifierByName("musashi_attribute_gorin_no_sho")
     local AttributeAbility = GorinNoSho and GorinNoSho:GetAbility()
     repeat
-        local ____switch67 = self.SlashCount
-        local ____cond67 = ____switch67 == 1
-        if ____cond67 then
+        local ____switch70 = self.SlashCount
+        local ____cond70 = ____switch70 == 1
+        if ____cond70 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("DebuffDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_earth_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond67 = ____cond67 or ____switch67 == 2
-        if ____cond67 then
+        ____cond70 = ____cond70 or ____switch70 == 2
+        if ____cond70 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("DebuffDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_water_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond67 = ____cond67 or ____switch67 == 3
-        if ____cond67 then
+        ____cond70 = ____cond70 or ____switch70 == 3
+        if ____cond70 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("FireBurnDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_fire_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond67 = ____cond67 or ____switch67 == 4
-        if ____cond67 then
+        ____cond70 = ____cond70 or ____switch70 == 4
+        if ____cond70 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("WindDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_wind_debuff.name, {duration = DebuffDuration})
@@ -689,38 +665,38 @@ function musashi_modifier_niou_kurikara_channeling.prototype.ApplyElementalDebuf
     until true
 end
 function musashi_modifier_niou_kurikara_channeling.prototype.CreateParticle(self)
-    local ____opt_154 = self.Caster
-    if ____opt_154 and ____opt_154:HasModifier("modifier_ascended") then
+    local ____opt_136 = self.Caster
+    if ____opt_136 and ____opt_136:HasModifier("modifier_ascended") then
         local AoeParticleStr = ""
         local CrackParticleStr = ""
         repeat
-            local ____switch74 = self.SlashCount
-            local ____cond74 = ____switch74 == 1
-            if ____cond74 then
+            local ____switch77 = self.SlashCount
+            local ____cond77 = ____switch77 == 1
+            if ____cond77 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth_crack.vpcf"
                     break
                 end
             end
-            ____cond74 = ____cond74 or ____switch74 == 2
-            if ____cond74 then
+            ____cond77 = ____cond77 or ____switch77 == 2
+            if ____cond77 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_water.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_water_crack.vpcf"
                     break
                 end
             end
-            ____cond74 = ____cond74 or ____switch74 == 3
-            if ____cond74 then
+            ____cond77 = ____cond77 or ____switch77 == 3
+            if ____cond77 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire_crack.vpcf"
                     break
                 end
             end
-            ____cond74 = ____cond74 or ____switch74 == 4
-            if ____cond74 then
+            ____cond77 = ____cond77 or ____switch77 == 4
+            if ____cond77 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind_crack.vpcf"
@@ -737,14 +713,14 @@ function musashi_modifier_niou_kurikara_channeling.prototype.CreateParticle(self
             1,
             Vector(1.5, 0, 0)
         )
-        local ____ParticleManager_SetParticleControl_158 = ParticleManager.SetParticleControl
-        local ____opt_156 = self.Ability
-        ____ParticleManager_SetParticleControl_158(
+        local ____ParticleManager_SetParticleControl_140 = ParticleManager.SetParticleControl
+        local ____opt_138 = self.Ability
+        ____ParticleManager_SetParticleControl_140(
             ParticleManager,
             AoeParticle,
             12,
             Vector(
-                ____opt_156 and ____opt_156:GetAOERadius(),
+                ____opt_138 and ____opt_138:GetAOERadius(),
                 0,
                 0
             )
@@ -758,14 +734,14 @@ function musashi_modifier_niou_kurikara_channeling.prototype.CreateParticle(self
             1,
             Vector(1.5, 0, 0)
         )
-        local ____ParticleManager_SetParticleControl_161 = ParticleManager.SetParticleControl
-        local ____opt_159 = self.Ability
-        ____ParticleManager_SetParticleControl_161(
+        local ____ParticleManager_SetParticleControl_143 = ParticleManager.SetParticleControl
+        local ____opt_141 = self.Ability
+        ____ParticleManager_SetParticleControl_143(
             ParticleManager,
             AoeParticle,
             2,
             Vector(
-                ____opt_159 and ____opt_159:GetAOERadius(),
+                ____opt_141 and ____opt_141:GetAOERadius(),
                 0,
                 0
             )
@@ -773,8 +749,8 @@ function musashi_modifier_niou_kurikara_channeling.prototype.CreateParticle(self
     end
 end
 function musashi_modifier_niou_kurikara_channeling.prototype.GetModifierIncomingDamage_Percentage(self)
-    local ____opt_162 = self:GetAbility()
-    return ____opt_162 and ____opt_162:GetSpecialValueFor("DmgReducWhileChannel")
+    local ____opt_144 = self:GetAbility()
+    return ____opt_144 and ____opt_144:GetSpecialValueFor("DmgReducWhileChannel")
 end
 function musashi_modifier_niou_kurikara_channeling.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
@@ -804,8 +780,8 @@ function musashi_modifier_earth_debuff.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
 end
 function musashi_modifier_earth_debuff.prototype.GetModifierMoveSpeedBonus_Percentage(self)
-    local ____opt_164 = self:GetAbility()
-    return ____opt_164 and ____opt_164:GetSpecialValueFor("EarthSlow")
+    local ____opt_146 = self:GetAbility()
+    return ____opt_146 and ____opt_146:GetSpecialValueFor("EarthSlow")
 end
 musashi_modifier_earth_debuff = __TS__Decorate(
     {registerModifier(nil)},
@@ -828,40 +804,46 @@ function musashi_modifier_water_debuff.prototype.OnCreated(self)
     self.Caster = self:GetCaster()
     self.Victim = self:GetParent()
     self.Attribute = self:GetAbility()
-    local ____opt_166 = self.Caster
-    local ModifierNiouKurikara = ____opt_166 and ____opt_166:FindModifierByName(____exports.musashi_modifier_niou_kurikara_channeling.name)
+    local ____opt_148 = self.Caster
+    local ModifierNiouKurikara = ____opt_148 and ____opt_148:FindModifierByName(____exports.musashi_modifier_niou_kurikara_channeling.name)
     self.TargetPoint = ModifierNiouKurikara.TargetPoint
-    local ____opt_168 = self.Attribute
-    self.PushSpeed = ____opt_168 and ____opt_168:GetSpecialValueFor("PushSpeed")
-    local ____opt_170 = self.Victim
-    if ____opt_170 ~= nil then
-        ____opt_170:AddNewModifier(self.Caster, self.Attribute, "modifier_rooted", {duration = 1})
+    local ____opt_150 = self.Attribute
+    self.PushSpeed = ____opt_150 and ____opt_150:GetSpecialValueFor("PushSpeed")
+    local ____opt_152 = self.Victim
+    if ____opt_152 ~= nil then
+        ____opt_152:AddNewModifier(self.Caster, self.Attribute, "modifier_rooted", {duration = 1})
     end
+    giveUnitDataDrivenModifier(
+        self.Caster,
+        self.Victim,
+        "locked",
+        self:GetDuration()
+    )
     self:StartIntervalThink(0.03)
 end
 function musashi_modifier_water_debuff.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____opt_172 = self.Victim
-    local CurrentOrigin = ____opt_172 and ____opt_172:GetAbsOrigin()
+    local ____opt_154 = self.Victim
+    local CurrentOrigin = ____opt_154 and ____opt_154:GetAbsOrigin()
     local ForwardVector = (self.TargetPoint - CurrentOrigin):Normalized()
-    local ____opt_174 = self.Victim
-    if ____opt_174 ~= nil then
-        ____opt_174:SetForwardVector(ForwardVector)
+    local ____opt_156 = self.Victim
+    if ____opt_156 ~= nil then
+        ____opt_156:SetForwardVector(ForwardVector)
     end
-    local ____opt_176 = self.Victim
-    local NewPosition = CurrentOrigin + (____opt_176 and ____opt_176:GetForwardVector()) * self.PushSpeed
-    local ____opt_178 = self.Victim
-    if ____opt_178 ~= nil then
-        ____opt_178:SetAbsOrigin(NewPosition)
+    local ____opt_158 = self.Victim
+    local NewPosition = CurrentOrigin + (____opt_158 and ____opt_158:GetForwardVector()) * self.PushSpeed
+    local ____opt_160 = self.Victim
+    if ____opt_160 ~= nil then
+        ____opt_160:SetAbsOrigin(NewPosition)
     end
-    local ____Entities_FindByNameWithin_182 = Entities.FindByNameWithin
-    local ____opt_180 = self.Victim
-    local VictimEntity = ____Entities_FindByNameWithin_182(
+    local ____Entities_FindByNameWithin_164 = Entities.FindByNameWithin
+    local ____opt_162 = self.Victim
+    local VictimEntity = ____Entities_FindByNameWithin_164(
         Entities,
         nil,
-        ____opt_180 and ____opt_180:GetName(),
+        ____opt_162 and ____opt_162:GetName(),
         self.TargetPoint,
         self.PushSpeed
     )
@@ -873,21 +855,21 @@ function musashi_modifier_water_debuff.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_183 = self.Victim
-    if ____opt_183 ~= nil then
-        ____opt_183:SetForwardVector(self.Victim:GetAbsOrigin():Normalized())
+    local ____opt_165 = self.Victim
+    if ____opt_165 ~= nil then
+        ____opt_165:SetForwardVector(self.Victim:GetAbsOrigin():Normalized())
     end
-    local ____FindClearSpaceForUnit_188 = FindClearSpaceForUnit
-    local ____self_Victim_187 = self.Victim
-    local ____opt_185 = self.Victim
-    ____FindClearSpaceForUnit_188(
-        ____self_Victim_187,
-        ____opt_185 and ____opt_185:GetAbsOrigin(),
+    local ____FindClearSpaceForUnit_170 = FindClearSpaceForUnit
+    local ____self_Victim_169 = self.Victim
+    local ____opt_167 = self.Victim
+    ____FindClearSpaceForUnit_170(
+        ____self_Victim_169,
+        ____opt_167 and ____opt_167:GetAbsOrigin(),
         true
     )
-    local ____opt_189 = self.Victim
-    if ____opt_189 ~= nil then
-        ____opt_189:AddNewModifier(self.Victim, self.Attribute, "modifier_phased", {duration = 1})
+    local ____opt_171 = self.Victim
+    if ____opt_171 ~= nil then
+        ____opt_171:AddNewModifier(self.Victim, self.Attribute, "modifier_phased", {duration = 1})
     end
 end
 musashi_modifier_water_debuff = __TS__Decorate(
@@ -910,10 +892,10 @@ function musashi_modifier_fire_debuff.prototype.OnCreated(self)
     self.Caster = self:GetCaster()
     self.Victim = self:GetParent()
     self.Ability = self:GetAbility()
-    local ____opt_191 = self.Ability
-    local DebuffDuration = ____opt_191 and ____opt_191:GetSpecialValueFor("DebuffDuration")
-    local ____opt_193 = self.Ability
-    self.Damage = ____opt_193 and ____opt_193:GetSpecialValueFor("FireBurnDmgPerSec")
+    local ____opt_173 = self.Ability
+    local DebuffDuration = ____opt_173 and ____opt_173:GetSpecialValueFor("DebuffDuration")
+    local ____opt_175 = self.Ability
+    self.Damage = ____opt_175 and ____opt_175:GetSpecialValueFor("FireBurnDmgPerSec")
     self:StartIntervalThink(DebuffDuration)
     self:CreateParticle()
 end
@@ -935,8 +917,8 @@ function musashi_modifier_fire_debuff.prototype.OnIntervalThink(self)
 end
 function musashi_modifier_fire_debuff.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_niou_kurikara_fire_debuff_basic.vpcf"
-    local ____opt_195 = self.Caster
-    if ____opt_195 and ____opt_195:HasModifier("modifier_ascended") then
+    local ____opt_177 = self.Caster
+    if ____opt_177 and ____opt_177:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_niou_kurikara_fire_debuff_unique.vpcf"
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Victim)
@@ -950,8 +932,8 @@ function musashi_modifier_fire_debuff.prototype.CreateParticle(self)
     )
 end
 function musashi_modifier_fire_debuff.prototype.GetModifierIncomingDamage_Percentage(self)
-    local ____opt_197 = self.Ability
-    return ____opt_197 and ____opt_197:GetSpecialValueFor("FireIncreaseDmgTaken")
+    local ____opt_179 = self.Ability
+    return ____opt_179 and ____opt_179:GetSpecialValueFor("FireIncreaseDmgTaken")
 end
 function musashi_modifier_fire_debuff.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
@@ -987,8 +969,8 @@ local musashi_modifier_niou_kurikara_postchannel_buff = ____exports.musashi_modi
 musashi_modifier_niou_kurikara_postchannel_buff.name = "musashi_modifier_niou_kurikara_postchannel_buff"
 __TS__ClassExtends(musashi_modifier_niou_kurikara_postchannel_buff, BaseModifier)
 function musashi_modifier_niou_kurikara_postchannel_buff.prototype.GetModifierIncomingDamage_Percentage(self)
-    local ____opt_199 = self:GetAbility()
-    return ____opt_199 and ____opt_199:GetSpecialValueFor("DmgReducFinishChannel")
+    local ____opt_181 = self:GetAbility()
+    return ____opt_181 and ____opt_181:GetSpecialValueFor("DmgReducFinishChannel")
 end
 function musashi_modifier_niou_kurikara_postchannel_buff.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
@@ -1036,39 +1018,39 @@ end
 function musashi_tengan.prototype.OnSpellStart(self)
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
     local RechargeTime = self:GetSpecialValueFor("RechargeTime")
-    local ____opt_201 = self.Caster
-    if ____opt_201 ~= nil then
-        ____opt_201:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_tengan.name, {duration = BuffDuration})
+    local ____opt_183 = self.Caster
+    if ____opt_183 ~= nil then
+        ____opt_183:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_tengan.name, {duration = BuffDuration})
     end
-    local ____opt_203 = self.ChargeCounter
-    if ____opt_203 ~= nil then
-        local ____opt_204 = self.ChargeCounter
-        local ____temp_206 = ____opt_204 and ____opt_204.RechargeTimer
-        ____temp_206[#____temp_206 + 1] = RechargeTime
+    local ____opt_185 = self.ChargeCounter
+    if ____opt_185 ~= nil then
+        local ____opt_186 = self.ChargeCounter
+        local ____temp_188 = ____opt_186 and ____opt_186.RechargeTimer
+        ____temp_188[#____temp_188 + 1] = RechargeTime
     end
-    local ____opt_208 = self.ChargeCounter
-    local ____temp_212 = (____opt_208 and ____opt_208:GetStackCount()) == self:GetSpecialValueFor("MaxCharges")
-    if ____temp_212 then
-        local ____opt_210 = self.Caster
-        ____temp_212 = ____opt_210 and ____opt_210:HasModifier("musashi_attribute_improve_tengan")
+    local ____opt_190 = self.ChargeCounter
+    local ____temp_194 = (____opt_190 and ____opt_190:GetStackCount()) == self:GetSpecialValueFor("MaxCharges")
+    if ____temp_194 then
+        local ____opt_192 = self.Caster
+        ____temp_194 = ____opt_192 and ____opt_192:HasModifier("musashi_attribute_improve_tengan")
     end
-    if ____temp_212 then
+    if ____temp_194 then
         InitSkillSlotChecker(self.Caster, ____exports.musashi_tengan.name, ____exports.musashi_tenma_gogan.name, 5)
     end
-    local ____opt_213 = self.ChargeCounter
-    if ____opt_213 ~= nil then
-        ____opt_213:DecrementStackCount()
+    local ____opt_195 = self.ChargeCounter
+    if ____opt_195 ~= nil then
+        ____opt_195:DecrementStackCount()
     end
     self:PlaySound()
 end
 function musashi_tengan.prototype.PlaySound(self)
-    local ____opt_215 = self.Caster
-    if ____opt_215 ~= nil then
-        ____opt_215:EmitSound(self.SoundVoiceline)
+    local ____opt_197 = self.Caster
+    if ____opt_197 ~= nil then
+        ____opt_197:EmitSound(self.SoundVoiceline)
     end
-    local ____opt_217 = self.Caster
-    if ____opt_217 ~= nil then
-        ____opt_217:EmitSound(self.SoundSfx)
+    local ____opt_199 = self.Caster
+    if ____opt_199 ~= nil then
+        ____opt_199:EmitSound(self.SoundSfx)
     end
 end
 function musashi_tengan.prototype.GetIntrinsicModifierName(self)
@@ -1092,8 +1074,8 @@ function musashi_modifier_tengan_chargecounter.prototype.OnCreated(self)
         return
     end
     self.Ability = self:GetAbility()
-    local ____opt_219 = self.Ability
-    local MaxCharges = ____opt_219 and ____opt_219:GetSpecialValueFor("MaxCharges")
+    local ____opt_201 = self.Ability
+    local MaxCharges = ____opt_201 and ____opt_201:GetSpecialValueFor("MaxCharges")
     self:SetStackCount(MaxCharges)
     self:StartIntervalThink(1)
 end
@@ -1108,14 +1090,14 @@ function musashi_modifier_tengan_chargecounter.prototype.OnStackCountChanged(sel
         return
     end
     if self:GetStackCount() == 0 then
-        local ____opt_221 = self.Ability
-        if ____opt_221 ~= nil then
-            ____opt_221:StartCooldown(self.RechargeTimer[1] or 0)
+        local ____opt_203 = self.Ability
+        if ____opt_203 ~= nil then
+            ____opt_203:StartCooldown(self.RechargeTimer[1] or 0)
         end
     else
-        local ____opt_223 = self.Ability
-        if ____opt_223 ~= nil then
-            ____opt_223:EndCooldown()
+        local ____opt_205 = self.Ability
+        if ____opt_205 ~= nil then
+            ____opt_205:EndCooldown()
         end
     end
 end
@@ -1126,8 +1108,8 @@ function musashi_modifier_tengan_chargecounter.prototype.OnIntervalThink(self)
     do
         local i = 0
         while i < #self.RechargeTimer do
-            local ____self_RechargeTimer_225, ____temp_226 = self.RechargeTimer, i + 1
-            ____self_RechargeTimer_225[____temp_226] = ____self_RechargeTimer_225[____temp_226] - 1
+            local ____self_RechargeTimer_207, ____temp_208 = self.RechargeTimer, i + 1
+            ____self_RechargeTimer_207[____temp_208] = ____self_RechargeTimer_207[____temp_208] - 1
             i = i + 1
         end
     end
@@ -1176,8 +1158,8 @@ function musashi_modifier_tengan.prototype.OnRefresh(self)
     self:OnCreated()
 end
 function musashi_modifier_tengan.prototype.CreateParticle(self)
-    local ____opt_231 = self.Caster
-    if ____opt_231 and ____opt_231:HasModifier("modifier_ascended") then
+    local ____opt_213 = self.Caster
+    if ____opt_213 and ____opt_213:HasModifier("modifier_ascended") then
         local ParticleStr = "particles/custom/musashi/musashi_tengan_unique.vpcf"
         local OverheadParticleStr = "particles/custom/musashi/musashi_tengan_overhead_unique.vpcf"
         local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Caster)
@@ -1264,8 +1246,8 @@ function musashi_ganryuu_jima.prototype.OnAbilityPhaseStart(self)
 end
 function musashi_ganryuu_jima.prototype.OnVectorCastStart(self, vStartLocation, vDirection)
     self:SetVector(vStartLocation, vDirection)
-    local ____opt_235 = self.Caster
-    local ModifierGanryuuJima = ____opt_235 and ____opt_235:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_ganryuu_jima.name, {undefined = undefined})
+    local ____opt_217 = self.Caster
+    local ModifierGanryuuJima = ____opt_217 and ____opt_217:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_ganryuu_jima.name, {undefined = undefined})
     if ModifierGanryuuJima ~= nil then
         ModifierGanryuuJima:IncrementStackCount()
     end
@@ -1280,8 +1262,8 @@ function musashi_ganryuu_jima.prototype.GetCastRange(self)
     if IsServer() then
         return 0
     else
-        local ____opt_239 = self.Caster
-        if ____opt_239 and ____opt_239:HasModifier("musashi_attribute_niten_ichiryuu") then
+        local ____opt_221 = self.Caster
+        if ____opt_221 and ____opt_221:HasModifier("musashi_attribute_niten_ichiryuu") then
             return 1000
         else
             return self:GetSpecialValueFor("SlashRange")
@@ -1346,40 +1328,40 @@ function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stack
     end
     local Position = Vector(0, 0, 0)
     repeat
-        local ____switch164 = stackCount
-        local ____cond164 = ____switch164 == 0
-        if ____cond164 then
+        local ____switch167 = stackCount
+        local ____cond167 = ____switch167 == 0
+        if ____cond167 then
             do
                 Position = self.DashPosition
-                local ____opt_241 = self.Caster
-                local DashBuff = ____opt_241 and ____opt_241:AddNewModifier(self.Caster, self.GanryuuJima, ____exports.musashi_modifier_ganryuu_jima_dash.name, {undefined = undefined})
+                local ____opt_223 = self.Caster
+                local DashBuff = ____opt_223 and ____opt_223:AddNewModifier(self.Caster, self.GanryuuJima, ____exports.musashi_modifier_ganryuu_jima_dash.name, {undefined = undefined})
                 DashBuff.TargetPoint = Position
-                local ____DashBuff_TargetPoint_245 = DashBuff.TargetPoint
-                local ____opt_243 = self.Caster
-                ____DashBuff_TargetPoint_245.z = ____opt_243 and ____opt_243:GetAbsOrigin().z
-                local ____DashBuff_TargetPoint_248 = DashBuff.TargetPoint
-                local ____opt_246 = self.Caster
-                DashBuff.NormalizedTargetPoint = (____DashBuff_TargetPoint_248 - (____opt_246 and ____opt_246:GetAbsOrigin())):Normalized()
+                local ____DashBuff_TargetPoint_227 = DashBuff.TargetPoint
+                local ____opt_225 = self.Caster
+                ____DashBuff_TargetPoint_227.z = ____opt_225 and ____opt_225:GetAbsOrigin().z
+                local ____DashBuff_TargetPoint_230 = DashBuff.TargetPoint
+                local ____opt_228 = self.Caster
+                DashBuff.NormalizedTargetPoint = (____DashBuff_TargetPoint_230 - (____opt_228 and ____opt_228:GetAbsOrigin())):Normalized()
                 DashBuff:StartIntervalThink(0.03)
                 break
             end
         end
-        ____cond164 = ____cond164 or ____switch164 == 1
-        if ____cond164 then
+        ____cond167 = ____cond167 or ____switch167 == 1
+        if ____cond167 then
             do
                 Position = self.SlashPosition
                 break
             end
         end
-        ____cond164 = ____cond164 or ____switch164 == 2
-        if ____cond164 then
+        ____cond167 = ____cond167 or ____switch167 == 2
+        if ____cond167 then
             do
                 Position = self.SecondSlashPosition
                 break
             end
         end
-        ____cond164 = ____cond164 or ____switch164 == 3
-        if ____cond164 then
+        ____cond167 = ____cond167 or ____switch167 == 3
+        if ____cond167 then
             do
                 self:Destroy()
                 break
@@ -1387,8 +1369,8 @@ function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stack
         end
     until true
     if stackCount == 1 or stackCount == 2 then
-        local ____opt_249 = self.Caster
-        local SlashBuff = ____opt_249 and ____opt_249:AddNewModifier(self.Caster, self.GanryuuJima, ____exports.musashi_modifier_ganryuu_jima_slash.name, {undefined = undefined})
+        local ____opt_231 = self.Caster
+        local SlashBuff = ____opt_231 and ____opt_231:AddNewModifier(self.Caster, self.GanryuuJima, ____exports.musashi_modifier_ganryuu_jima_slash.name, {undefined = undefined})
         SlashBuff.TargetPoint = Position
         SlashBuff:StartIntervalThink(0.03)
     end
@@ -1397,45 +1379,45 @@ function musashi_modifier_ganryuu_jima.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_251 = self.Caster
-    if ____opt_251 ~= nil then
-        ____opt_251:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
+    local ____opt_233 = self.Caster
+    if ____opt_233 ~= nil then
+        ____opt_233:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
     end
-    local ____opt_253 = self.Caster
-    if ____opt_253 ~= nil then
-        ____opt_253:StartGesture(ACT_DOTA_CAST_ABILITY_1)
+    local ____opt_235 = self.Caster
+    if ____opt_235 ~= nil then
+        ____opt_235:StartGesture(ACT_DOTA_CAST_ABILITY_1)
     end
-    local ____FindClearSpaceForUnit_258 = FindClearSpaceForUnit
-    local ____self_Caster_257 = self.Caster
-    local ____opt_255 = self.Caster
-    ____FindClearSpaceForUnit_258(
-        ____self_Caster_257,
-        ____opt_255 and ____opt_255:GetAbsOrigin(),
+    local ____FindClearSpaceForUnit_240 = FindClearSpaceForUnit
+    local ____self_Caster_239 = self.Caster
+    local ____opt_237 = self.Caster
+    ____FindClearSpaceForUnit_240(
+        ____self_Caster_239,
+        ____opt_237 and ____opt_237:GetAbsOrigin(),
         true
     )
-    local ____opt_259 = self.Caster
-    if ____opt_259 ~= nil then
-        ____opt_259:AddNewModifier(self.Caster, self.GanryuuJima, "modifier_phased", {duration = 1})
+    local ____opt_241 = self.Caster
+    if ____opt_241 ~= nil then
+        ____opt_241:AddNewModifier(self.Caster, self.GanryuuJima, "modifier_phased", {duration = 1})
     end
-    local ____opt_261 = self.Caster
-    local ModifierTengan = ____opt_261 and ____opt_261:FindModifierByName(____exports.musashi_modifier_tengan.name)
+    local ____opt_243 = self.Caster
+    local ModifierTengan = ____opt_243 and ____opt_243:FindModifierByName(____exports.musashi_modifier_tengan.name)
     if ModifierTengan ~= nil then
         ModifierTengan:Destroy()
     end
-    local ____opt_265 = self.Caster
-    local ModifierTenmaGogan = ____opt_265 and ____opt_265:FindModifierByName(____exports.musashi_modifier_tenma_gogan.name)
+    local ____opt_247 = self.Caster
+    local ModifierTenmaGogan = ____opt_247 and ____opt_247:FindModifierByName(____exports.musashi_modifier_tenma_gogan.name)
     if ModifierTenmaGogan then
-        local ____opt_267 = self.GanryuuJima
-        if ____opt_267 ~= nil then
-            ____opt_267:EndCooldown()
+        local ____opt_249 = self.GanryuuJima
+        if ____opt_249 ~= nil then
+            ____opt_249:EndCooldown()
         end
-        local ____opt_269 = self.Caster
-        if ____opt_269 ~= nil then
-            local ____opt_269_GiveMana_272 = ____opt_269.GiveMana
-            local ____opt_270 = self.GanryuuJima
-            ____opt_269_GiveMana_272(
-                ____opt_269,
-                ____opt_270 and ____opt_270:GetManaCost(-1)
+        local ____opt_251 = self.Caster
+        if ____opt_251 ~= nil then
+            local ____opt_251_GiveMana_254 = ____opt_251.GiveMana
+            local ____opt_252 = self.GanryuuJima
+            ____opt_251_GiveMana_254(
+                ____opt_251,
+                ____opt_252 and ____opt_252:GetManaCost(-1)
             )
         end
         if ModifierTenmaGogan ~= nil then
@@ -1484,34 +1466,34 @@ function musashi_modifier_ganryuu_jima_dash.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_276 = self.Ability
-    self.SlashRange = ____opt_276 and ____opt_276:GetSpecialValueFor("SlashRange")
-    local ____opt_278 = self.Ability
-    self.DashSpeed = ____opt_278 and ____opt_278:GetSpecialValueFor("DashSpeed")
+    local ____opt_258 = self.Ability
+    self.SlashRange = ____opt_258 and ____opt_258:GetSpecialValueFor("SlashRange")
+    local ____opt_260 = self.Ability
+    self.DashSpeed = ____opt_260 and ____opt_260:GetSpecialValueFor("DashSpeed")
 end
 function musashi_modifier_ganryuu_jima_dash.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____opt_280 = self.Caster
-    if ____opt_280 ~= nil then
-        ____opt_280:SetForwardVector(self.NormalizedTargetPoint)
+    local ____opt_262 = self.Caster
+    if ____opt_262 ~= nil then
+        ____opt_262:SetForwardVector(self.NormalizedTargetPoint)
     end
-    local ____opt_282 = self.Caster
-    local CurrentOrigin = ____opt_282 and ____opt_282:GetAbsOrigin()
-    local ____opt_284 = self.Caster
-    local NewPosition = CurrentOrigin + (____opt_284 and ____opt_284:GetForwardVector()) * self.DashSpeed
+    local ____opt_264 = self.Caster
+    local CurrentOrigin = ____opt_264 and ____opt_264:GetAbsOrigin()
+    local ____opt_266 = self.Caster
+    local NewPosition = CurrentOrigin + (____opt_266 and ____opt_266:GetForwardVector()) * self.DashSpeed
     self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
-    local ____opt_286 = self.Caster
-    if ____opt_286 ~= nil then
-        ____opt_286:SetAbsOrigin(NewPosition)
+    local ____opt_268 = self.Caster
+    if ____opt_268 ~= nil then
+        ____opt_268:SetAbsOrigin(NewPosition)
     end
-    local ____Entities_FindByNameWithin_290 = Entities.FindByNameWithin
-    local ____opt_288 = self.Caster
-    local Musashi = ____Entities_FindByNameWithin_290(
+    local ____Entities_FindByNameWithin_272 = Entities.FindByNameWithin
+    local ____opt_270 = self.Caster
+    local Musashi = ____Entities_FindByNameWithin_272(
         Entities,
         nil,
-        ____opt_288 and ____opt_288:GetName(),
+        ____opt_270 and ____opt_270:GetName(),
         self.TargetPoint,
         self.DashSpeed
     )
@@ -1523,8 +1505,8 @@ function musashi_modifier_ganryuu_jima_dash.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_291 = self.Caster
-    local ModifierGanryuuJima = ____opt_291 and ____opt_291:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
+    local ____opt_273 = self.Caster
+    local ModifierGanryuuJima = ____opt_273 and ____opt_273:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
     if ModifierGanryuuJima ~= nil then
         ModifierGanryuuJima:IncrementStackCount()
     end
@@ -1572,33 +1554,33 @@ function musashi_modifier_ganryuu_jima_slash.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_295 = self.Caster
-    self.StartPosition = ____opt_295 and ____opt_295:GetAbsOrigin()
-    local ____opt_297 = self.Ability
-    self.SlashRange = ____opt_297 and ____opt_297:GetSpecialValueFor("SlashRange")
-    local ____opt_299 = self.Ability
-    self.DashSpeed = ____opt_299 and ____opt_299:GetSpecialValueFor("DashSpeed")
-    local ____opt_301 = self.Caster
-    if ____opt_301 ~= nil then
-        ____opt_301:EmitSound(self.SoundSfx)
+    local ____opt_277 = self.Caster
+    self.StartPosition = ____opt_277 and ____opt_277:GetAbsOrigin()
+    local ____opt_279 = self.Ability
+    self.SlashRange = ____opt_279 and ____opt_279:GetSpecialValueFor("SlashRange")
+    local ____opt_281 = self.Ability
+    self.DashSpeed = ____opt_281 and ____opt_281:GetSpecialValueFor("DashSpeed")
+    local ____opt_283 = self.Caster
+    if ____opt_283 ~= nil then
+        ____opt_283:EmitSound(self.SoundSfx)
     end
 end
 function musashi_modifier_ganryuu_jima_slash.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____opt_303 = self.Caster
-    if ____opt_303 ~= nil then
-        ____opt_303:SetForwardVector(self.TargetPoint)
+    local ____opt_285 = self.Caster
+    if ____opt_285 ~= nil then
+        ____opt_285:SetForwardVector(self.TargetPoint)
     end
-    local ____opt_305 = self.Caster
-    local CurrentOrigin = ____opt_305 and ____opt_305:GetAbsOrigin()
-    local ____opt_307 = self.Caster
-    local NewPosition = CurrentOrigin + (____opt_307 and ____opt_307:GetForwardVector()) * self.DashSpeed
+    local ____opt_287 = self.Caster
+    local CurrentOrigin = ____opt_287 and ____opt_287:GetAbsOrigin()
+    local ____opt_289 = self.Caster
+    local NewPosition = CurrentOrigin + (____opt_289 and ____opt_289:GetForwardVector()) * self.DashSpeed
     self.UnitsTravelled = self.UnitsTravelled + (NewPosition - CurrentOrigin):Length2D()
-    local ____opt_309 = self.Caster
-    if ____opt_309 ~= nil then
-        ____opt_309:SetAbsOrigin(NewPosition)
+    local ____opt_291 = self.Caster
+    if ____opt_291 ~= nil then
+        ____opt_291:SetAbsOrigin(NewPosition)
     end
     if self.UnitsTravelled >= self.SlashRange then
         self:Destroy()
@@ -1608,54 +1590,54 @@ function musashi_modifier_ganryuu_jima_slash.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_311 = self.Caster
-    self.EndPosition = ____opt_311 and ____opt_311:GetAbsOrigin()
+    local ____opt_293 = self.Caster
+    self.EndPosition = ____opt_293 and ____opt_293:GetAbsOrigin()
     self:DealDamage()
     self:CreateParticle()
-    local ____opt_313 = self.Caster
-    local ModifierGanryuuJima = ____opt_313 and ____opt_313:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
+    local ____opt_295 = self.Caster
+    local ModifierGanryuuJima = ____opt_295 and ____opt_295:FindModifierByName(____exports.musashi_modifier_ganryuu_jima.name)
     if ModifierGanryuuJima ~= nil then
         ModifierGanryuuJima:IncrementStackCount()
     end
 end
 function musashi_modifier_ganryuu_jima_slash.prototype.DealDamage(self)
-    local ____opt_317 = self.Ability
-    local BaseDmg = ____opt_317 and ____opt_317:GetSpecialValueFor("DmgPerSlash")
-    local ____opt_319 = self.Ability
-    local BonusDmgPerAgi = ____opt_319 and ____opt_319:GetSpecialValueFor("BonusDmgPerAgi")
+    local ____opt_299 = self.Ability
+    local BaseDmg = ____opt_299 and ____opt_299:GetSpecialValueFor("DmgPerSlash")
+    local ____opt_301 = self.Ability
+    local BonusDmgPerAgi = ____opt_301 and ____opt_301:GetSpecialValueFor("BonusDmgPerAgi")
     local Damage = BaseDmg + self.Caster:GetAgility() * BonusDmgPerAgi
-    local ____opt_321 = self.Ability
-    local DmgType = ____opt_321 and ____opt_321:GetAbilityDamageType()
+    local ____opt_303 = self.Ability
+    local DmgType = ____opt_303 and ____opt_303:GetAbilityDamageType()
     local DmgFlag = DOTA_DAMAGE_FLAG_NONE
-    local ____FindUnitsInLine_334 = FindUnitsInLine
-    local ____opt_323 = self.Caster
-    local ____array_333 = __TS__SparseArrayNew(
-        ____opt_323 and ____opt_323:GetTeam(),
+    local ____FindUnitsInLine_316 = FindUnitsInLine
+    local ____opt_305 = self.Caster
+    local ____array_315 = __TS__SparseArrayNew(
+        ____opt_305 and ____opt_305:GetTeam(),
         self.StartPosition,
         self.EndPosition,
         nil
     )
-    local ____opt_325 = self.Ability
+    local ____opt_307 = self.Ability
     __TS__SparseArrayPush(
-        ____array_333,
-        ____opt_325 and ____opt_325:GetSpecialValueFor("SlashRadius")
+        ____array_315,
+        ____opt_307 and ____opt_307:GetSpecialValueFor("SlashRadius")
     )
-    local ____opt_327 = self.Ability
+    local ____opt_309 = self.Ability
     __TS__SparseArrayPush(
-        ____array_333,
-        ____opt_327 and ____opt_327:GetAbilityTargetTeam()
+        ____array_315,
+        ____opt_309 and ____opt_309:GetAbilityTargetTeam()
     )
-    local ____opt_329 = self.Ability
+    local ____opt_311 = self.Ability
     __TS__SparseArrayPush(
-        ____array_333,
-        ____opt_329 and ____opt_329:GetAbilityTargetType()
+        ____array_315,
+        ____opt_311 and ____opt_311:GetAbilityTargetType()
     )
-    local ____opt_331 = self.Ability
+    local ____opt_313 = self.Ability
     __TS__SparseArrayPush(
-        ____array_333,
-        ____opt_331 and ____opt_331:GetAbilityTargetFlags()
+        ____array_315,
+        ____opt_313 and ____opt_313:GetAbilityTargetFlags()
     )
-    local Targets = ____FindUnitsInLine_334(__TS__SparseArraySpread(____array_333))
+    local Targets = ____FindUnitsInLine_316(__TS__SparseArraySpread(____array_315))
     for ____, Iterator in ipairs(Targets) do
         DoDamage(
             self.Caster,
@@ -1667,44 +1649,44 @@ function musashi_modifier_ganryuu_jima_slash.prototype.DealDamage(self)
             false
         )
     end
-    local ____opt_335 = self.Caster
-    if ____opt_335 and ____opt_335:HasModifier(____exports.musashi_modifier_tengan.name) then
+    local ____opt_317 = self.Caster
+    if ____opt_317 and ____opt_317:HasModifier(____exports.musashi_modifier_tengan.name) then
         local TargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-        local ____FindUnitsInLine_344 = FindUnitsInLine
-        local ____array_343 = __TS__SparseArrayNew(
+        local ____FindUnitsInLine_326 = FindUnitsInLine
+        local ____array_325 = __TS__SparseArrayNew(
             self.Caster:GetTeam(),
             self.StartPosition,
             self.EndPosition,
             nil
         )
-        local ____opt_337 = self.Ability
+        local ____opt_319 = self.Ability
         __TS__SparseArrayPush(
-            ____array_343,
-            ____opt_337 and ____opt_337:GetSpecialValueFor("SlashRadius")
+            ____array_325,
+            ____opt_319 and ____opt_319:GetSpecialValueFor("SlashRadius")
         )
-        local ____opt_339 = self.Ability
+        local ____opt_321 = self.Ability
         __TS__SparseArrayPush(
-            ____array_343,
-            ____opt_339 and ____opt_339:GetAbilityTargetTeam()
+            ____array_325,
+            ____opt_321 and ____opt_321:GetAbilityTargetTeam()
         )
-        local ____opt_341 = self.Ability
+        local ____opt_323 = self.Ability
         __TS__SparseArrayPush(
-            ____array_343,
-            ____opt_341 and ____opt_341:GetAbilityTargetType(),
+            ____array_325,
+            ____opt_323 and ____opt_323:GetAbilityTargetType(),
             TargetFlags
         )
-        local Targets = ____FindUnitsInLine_344(__TS__SparseArraySpread(____array_343))
+        local Targets = ____FindUnitsInLine_326(__TS__SparseArraySpread(____array_325))
         for ____, Iterator in ipairs(Targets) do
-            local ____opt_345 = self.Ability
-            local DmgDelay = ____opt_345 and ____opt_345:GetSpecialValueFor("DebuffDmgDelay")
+            local ____opt_327 = self.Ability
+            local DmgDelay = ____opt_327 and ____opt_327:GetSpecialValueFor("DebuffDmgDelay")
             Iterator:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ganryuu_jima_debuff.name, {duration = DmgDelay})
         end
     end
 end
 function musashi_modifier_ganryuu_jima_slash.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_basic.vpcf"
-    local ____opt_347 = self.Caster
-    if ____opt_347 and ____opt_347:HasModifier("modifier_ascended") then
+    local ____opt_329 = self.Caster
+    if ____opt_329 and ____opt_329:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_unique.vpcf"
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_WORLDORIGIN, self.Caster)
@@ -1747,8 +1729,8 @@ function musashi_modifier_ganryuu_jima_debuff.prototype.OnCreated(self)
         return
     end
     self.Caster = self:GetCaster()
-    local ____opt_349 = self.Caster
-    local ModifierTengan = ____opt_349 and ____opt_349:FindModifierByName(____exports.musashi_modifier_tengan.name)
+    local ____opt_331 = self.Caster
+    local ModifierTengan = ____opt_331 and ____opt_331:FindModifierByName(____exports.musashi_modifier_tengan.name)
     self.BonusDmg = ModifierTengan.BonusDmg
     self:CreateParticle()
 end
@@ -1780,8 +1762,8 @@ function musashi_modifier_ganryuu_jima_debuff.prototype.DealDamage(self)
 end
 function musashi_modifier_ganryuu_jima_debuff.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_debuff_basic.vpcf"
-    local ____opt_351 = self.Caster
-    if ____opt_351 and ____opt_351:HasModifier("modifier_ascended") then
+    local ____opt_333 = self.Caster
+    if ____opt_333 and ____opt_333:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_ganryuu_jima_debuff_unique.vpcf"
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Caster)
@@ -1831,13 +1813,13 @@ function musashi_mukyuu.prototype.OnSpellStart(self)
     self:PlaySound()
 end
 function musashi_mukyuu.prototype.PlaySound(self)
-    local ____opt_353 = self.Caster
-    if ____opt_353 ~= nil then
-        ____opt_353:EmitSound(self.SoundVoiceline)
+    local ____opt_335 = self.Caster
+    if ____opt_335 ~= nil then
+        ____opt_335:EmitSound(self.SoundVoiceline)
     end
-    local ____opt_355 = self.Caster
-    if ____opt_355 ~= nil then
-        ____opt_355:EmitSound(self.SoundSfx)
+    local ____opt_337 = self.Caster
+    if ____opt_337 ~= nil then
+        ____opt_337:EmitSound(self.SoundSfx)
     end
 end
 musashi_mukyuu = __TS__Decorate(
@@ -1857,8 +1839,8 @@ function musashi_modifier_mukyuu.prototype.OnCreated(self)
     self:CreateParticle()
 end
 function musashi_modifier_mukyuu.prototype.CreateParticle(self)
-    local ____opt_357 = self.Caster
-    if ____opt_357 and ____opt_357:HasModifier("modifier_ascended") then
+    local ____opt_339 = self.Caster
+    if ____opt_339 and ____opt_339:HasModifier("modifier_ascended") then
         local ParticleStr = "particles/custom/musashi/musashi_mukyuu_unique.vpcf"
         local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Caster)
         ParticleManager:SetParticleControlEnt(
@@ -1932,17 +1914,17 @@ end
 function musashi_tenma_gogan.prototype.OnSpellStart(self)
     self.Caster = self:GetCaster()
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
-    local ____opt_359 = self.Caster
-    if ____opt_359 ~= nil then
-        ____opt_359:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_tenma_gogan.name, {duration = BuffDuration})
+    local ____opt_341 = self.Caster
+    if ____opt_341 ~= nil then
+        ____opt_341:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_tenma_gogan.name, {duration = BuffDuration})
     end
     self:PlaySound()
 end
 function musashi_tenma_gogan.prototype.PlaySound(self)
     EmitGlobalSound(self.SoundVoiceline)
-    local ____opt_361 = self.Caster
-    if ____opt_361 ~= nil then
-        ____opt_361:EmitSound(self.SoundSfx)
+    local ____opt_343 = self.Caster
+    if ____opt_343 ~= nil then
+        ____opt_343:EmitSound(self.SoundSfx)
     end
 end
 musashi_tenma_gogan = __TS__Decorate(
@@ -1959,10 +1941,10 @@ function musashi_modifier_tenma_gogan.prototype.OnCreated(self)
         return
     end
     self.Caster = self:GetCaster()
-    local ____opt_363 = self.Caster
-    local ChargeCounter = ____opt_363 and ____opt_363:FindModifierByName(____exports.musashi_modifier_tengan_chargecounter.name)
-    local ____opt_365 = self.Caster
-    local Tengan = ____opt_365 and ____opt_365:FindAbilityByName(____exports.musashi_tengan.name)
+    local ____opt_345 = self.Caster
+    local ChargeCounter = ____opt_345 and ____opt_345:FindModifierByName(____exports.musashi_modifier_tengan_chargecounter.name)
+    local ____opt_347 = self.Caster
+    local Tengan = ____opt_347 and ____opt_347:FindAbilityByName(____exports.musashi_tengan.name)
     if ChargeCounter ~= nil then
         ChargeCounter:SetStackCount(0)
     end
@@ -1979,9 +1961,9 @@ function musashi_modifier_tenma_gogan.prototype.OnStackCountChanged(self, stackC
         return
     end
     repeat
-        local ____switch238 = stackCount
-        local ____cond238 = ____switch238 == 1
-        if ____cond238 then
+        local ____switch241 = stackCount
+        local ____cond241 = ____switch241 == 1
+        if ____cond241 then
             do
                 self:Destroy()
             end
@@ -1995,16 +1977,16 @@ function musashi_modifier_tenma_gogan.prototype.OnDestroy(self)
     end
     local Ability = self:GetAbility()
     local DebuffDuration = Ability and Ability:GetSpecialValueFor("DebuffDuration")
-    local ____opt_375 = self.Caster
-    if ____opt_375 ~= nil then
-        ____opt_375:AddNewModifier(self.Caster, Ability, ____exports.musashi_modifier_tenma_gogan_debuff.name, {duration = DebuffDuration})
+    local ____opt_357 = self.Caster
+    if ____opt_357 ~= nil then
+        ____opt_357:AddNewModifier(self.Caster, Ability, ____exports.musashi_modifier_tenma_gogan_debuff.name, {duration = DebuffDuration})
     end
 end
 function musashi_modifier_tenma_gogan.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_tenma_gogan_basic.vpcf"
     local BodyParticleStr = "particles/custom/musashi/musashi_tenma_gogan_body.vpcf"
-    local ____opt_377 = self.Caster
-    if ____opt_377 and ____opt_377:HasModifier("modifier_ascended") then
+    local ____opt_359 = self.Caster
+    if ____opt_359 and ____opt_359:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_tenma_gogan_unique.vpcf"
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Caster)
@@ -2102,15 +2084,15 @@ function musashi_modifier_tengen_no_hana.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_379 = self.Ability
-    self.Radius = ____opt_379 and ____opt_379:GetSpecialValueFor("Radius")
-    local ____opt_381 = self.Ability
-    local RampUpInterval = ____opt_381 and ____opt_381:GetSpecialValueFor("RampUpInterval")
+    local ____opt_361 = self.Ability
+    self.Radius = ____opt_361 and ____opt_361:GetSpecialValueFor("Radius")
+    local ____opt_363 = self.Ability
+    local RampUpInterval = ____opt_363 and ____opt_363:GetSpecialValueFor("RampUpInterval")
     self:StartIntervalThink(RampUpInterval)
     self:CreateParticle()
-    local ____opt_383 = self.Caster
-    if ____opt_383 ~= nil then
-        ____opt_383:EmitSound(self.SoundSfx)
+    local ____opt_365 = self.Caster
+    if ____opt_365 ~= nil then
+        ____opt_365:EmitSound(self.SoundSfx)
     end
 end
 function musashi_modifier_tengen_no_hana.prototype.OnIntervalThink(self)
@@ -2124,28 +2106,28 @@ function musashi_modifier_tengen_no_hana.prototype.OnStackCountChanged(self, sta
         return
     end
     repeat
-        local ____switch260 = stackCount
-        local ____cond260 = ____switch260 == 0
-        if ____cond260 then
+        local ____switch263 = stackCount
+        local ____cond263 = ____switch263 == 0
+        if ____cond263 then
             do
-                local ____opt_385 = self.Ability
-                self.Percentage = ____opt_385 and ____opt_385:GetSpecialValueFor("1SecPercentage")
+                local ____opt_367 = self.Ability
+                self.Percentage = ____opt_367 and ____opt_367:GetSpecialValueFor("1SecPercentage")
                 break
             end
         end
-        ____cond260 = ____cond260 or ____switch260 == 1
-        if ____cond260 then
+        ____cond263 = ____cond263 or ____switch263 == 1
+        if ____cond263 then
             do
-                local ____opt_387 = self.Ability
-                self.Percentage = ____opt_387 and ____opt_387:GetSpecialValueFor("2SecPercentage")
+                local ____opt_369 = self.Ability
+                self.Percentage = ____opt_369 and ____opt_369:GetSpecialValueFor("2SecPercentage")
                 break
             end
         end
-        ____cond260 = ____cond260 or ____switch260 == 2
-        if ____cond260 then
+        ____cond263 = ____cond263 or ____switch263 == 2
+        if ____cond263 then
             do
-                local ____opt_389 = self.Ability
-                self.Percentage = ____opt_389 and ____opt_389:GetSpecialValueFor("FullDamage")
+                local ____opt_371 = self.Ability
+                self.Percentage = ____opt_371 and ____opt_371:GetSpecialValueFor("FullDamage")
                 self:Destroy()
                 break
             end
@@ -2157,53 +2139,53 @@ function musashi_modifier_tengen_no_hana.prototype.OnDestroy(self)
         return
     end
     self.Percentage = self.Percentage / 100
-    local ____opt_391 = self.Caster
-    if ____opt_391 ~= nil then
-        ____opt_391:StartGesture(ACT_DOTA_CAST_ABILITY_1)
+    local ____opt_373 = self.Caster
+    if ____opt_373 ~= nil then
+        ____opt_373:StartGesture(ACT_DOTA_CAST_ABILITY_1)
     end
     self:DealDamage()
     self:CreateAoeParticle()
-    local ____opt_393 = self.Caster
-    if ____opt_393 ~= nil then
-        ____opt_393:EmitSound(self.SoundVoiceline)
+    local ____opt_375 = self.Caster
+    if ____opt_375 ~= nil then
+        ____opt_375:EmitSound(self.SoundVoiceline)
     end
-    local ____opt_395 = self.Ability
-    if ____opt_395 ~= nil then
-        ____opt_395:SetHidden(true)
+    local ____opt_377 = self.Ability
+    if ____opt_377 ~= nil then
+        ____opt_377:SetHidden(true)
     end
 end
 function musashi_modifier_tengen_no_hana.prototype.DealDamage(self)
     local Damage = self.Percentage * 1000
     local DmgType = DAMAGE_TYPE_PURE
     local DmgFlag = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-    local ____FindUnitsInRadius_408 = FindUnitsInRadius
-    local ____opt_397 = self.Caster
-    local ____array_407 = __TS__SparseArrayNew(____opt_397 and ____opt_397:GetTeam())
-    local ____opt_399 = self.Caster
+    local ____FindUnitsInRadius_390 = FindUnitsInRadius
+    local ____opt_379 = self.Caster
+    local ____array_389 = __TS__SparseArrayNew(____opt_379 and ____opt_379:GetTeam())
+    local ____opt_381 = self.Caster
     __TS__SparseArrayPush(
-        ____array_407,
-        ____opt_399 and ____opt_399:GetAbsOrigin(),
+        ____array_389,
+        ____opt_381 and ____opt_381:GetAbsOrigin(),
         nil,
         self.Radius
     )
-    local ____opt_401 = self.Ability
+    local ____opt_383 = self.Ability
     __TS__SparseArrayPush(
-        ____array_407,
-        ____opt_401 and ____opt_401:GetAbilityTargetTeam()
+        ____array_389,
+        ____opt_383 and ____opt_383:GetAbilityTargetTeam()
     )
-    local ____opt_403 = self.Ability
+    local ____opt_385 = self.Ability
     __TS__SparseArrayPush(
-        ____array_407,
-        ____opt_403 and ____opt_403:GetAbilityTargetType()
+        ____array_389,
+        ____opt_385 and ____opt_385:GetAbilityTargetType()
     )
-    local ____opt_405 = self.Ability
+    local ____opt_387 = self.Ability
     __TS__SparseArrayPush(
-        ____array_407,
-        ____opt_405 and ____opt_405:GetAbilityTargetFlags(),
+        ____array_389,
+        ____opt_387 and ____opt_387:GetAbilityTargetFlags(),
         FIND_ANY_ORDER,
         false
     )
-    local Targets = ____FindUnitsInRadius_408(__TS__SparseArraySpread(____array_407))
+    local Targets = ____FindUnitsInRadius_390(__TS__SparseArraySpread(____array_389))
     for ____, Iterator in ipairs(Targets) do
         DoDamage(
             self.Caster,
@@ -2214,15 +2196,15 @@ function musashi_modifier_tengen_no_hana.prototype.DealDamage(self)
             self.Ability,
             false
         )
-        local ____opt_409 = self.Ability
-        local StunDuration = (____opt_409 and ____opt_409:GetSpecialValueFor("StunDuration")) * self.Percentage
+        local ____opt_391 = self.Ability
+        local StunDuration = (____opt_391 and ____opt_391:GetSpecialValueFor("StunDuration")) * self.Percentage
         Iterator:AddNewModifier(self.Caster, self.Ability, "modifier_stunned", {duration = StunDuration})
     end
 end
 function musashi_modifier_tengen_no_hana.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_basic.vpcf"
-    local ____opt_411 = self.Caster
-    if ____opt_411 and ____opt_411:HasModifier("modifier_ascended") then
+    local ____opt_393 = self.Caster
+    if ____opt_393 and ____opt_393:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_unique1.vpcf"
         if self.Caster:HasModifier(____exports.musashi_modifier_battle_continuation_active.name) then
             ParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_unique2.vpcf"
@@ -2241,8 +2223,8 @@ end
 function musashi_modifier_tengen_no_hana.prototype.CreateAoeParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_aoe_basic.vpcf"
     local MarkerParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_aoemarker_basic.vpcf"
-    local ____opt_413 = self.Caster
-    if ____opt_413 and ____opt_413:HasModifier("modifier_ascended") then
+    local ____opt_395 = self.Caster
+    if ____opt_395 and ____opt_395:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_aoe_unique1.vpcf"
         MarkerParticleStr = "particles/custom/musashi/musashi_tengen_no_hana_aoemarker_unique1.vpcf"
         if self.Caster:HasModifier(____exports.musashi_modifier_battle_continuation_active.name) then
@@ -2252,18 +2234,26 @@ function musashi_modifier_tengen_no_hana.prototype.CreateAoeParticle(self)
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_WORLDORIGIN, self.Caster)
     local MarkerParticle = ParticleManager:CreateParticle(MarkerParticleStr, PATTACH_WORLDORIGIN, self.Caster)
-    local ____ParticleManager_SetParticleControl_417 = ParticleManager.SetParticleControl
-    local ____opt_415 = self.Caster
-    ____ParticleManager_SetParticleControl_417(
+    local ____ParticleManager_SetParticleControl_399 = ParticleManager.SetParticleControl
+    local ____opt_397 = self.Caster
+    ____ParticleManager_SetParticleControl_399(
         ParticleManager,
         Particle,
         0,
-        ____opt_415 and ____opt_415:GetAbsOrigin()
+        ____opt_397 and ____opt_397:GetAbsOrigin()
     )
     ParticleManager:SetParticleControl(
         Particle,
         2,
         Vector(self.Radius, self.Radius, self.Radius)
+    )
+    local ____ParticleManager_SetParticleControl_402 = ParticleManager.SetParticleControl
+    local ____opt_400 = self.Caster
+    ____ParticleManager_SetParticleControl_402(
+        ParticleManager,
+        MarkerParticle,
+        0,
+        ____opt_400 and ____opt_400:GetAbsOrigin()
     )
     ParticleManager:SetParticleControl(
         MarkerParticle,
@@ -2298,28 +2288,42 @@ ____exports.musashi_modifier_battle_continuation = __TS__Class()
 local musashi_modifier_battle_continuation = ____exports.musashi_modifier_battle_continuation
 musashi_modifier_battle_continuation.name = "musashi_modifier_battle_continuation"
 __TS__ClassExtends(musashi_modifier_battle_continuation, BaseModifier)
-function musashi_modifier_battle_continuation.prototype.OnTakeDamage(self, event)
-    local Caster = self:GetCaster()
-    if not IsServer() or event.unit ~= Caster or not Caster:HasModifier("musashi_attribute_battle_continuation") or Caster:HasModifier(____exports.musashi_modifier_battle_continuation_cooldown.name) then
+function musashi_modifier_battle_continuation.prototype.OnCreated(self)
+    if not IsServer() then
         return
     end
-    if Caster:GetHealth() <= 0 and not Caster:HasModifier(____exports.musashi_modifier_tenma_gogan_debuff.name) then
-        local Ability = self:GetAbility()
-        local BuffDuration = Ability and Ability:GetSpecialValueFor("BuffDuration")
-        Caster:SetHealth(1)
-        if Caster ~= nil then
-            Caster:AddNewModifier(Caster, Ability, ____exports.musashi_modifier_battle_continuation_active.name, {duration = BuffDuration})
-        end
-        if Caster ~= nil then
-            Caster:AddNewModifier(
-                Caster,
-                Ability,
-                ____exports.musashi_modifier_battle_continuation_cooldown.name,
-                {duration = Ability and Ability:GetCooldown(1)}
-            )
-        end
-        if Ability ~= nil then
-            Ability:UseResources(true, false, true)
+    self.Caster = self:GetCaster()
+    self.Ability = self:GetAbility()
+end
+function musashi_modifier_battle_continuation.prototype.OnTakeDamage(self, event)
+    if not IsServer() or event.unit ~= self.Caster then
+        return
+    end
+    local ____opt_403 = self.Ability
+    local DmgThreshold = ____opt_403 and ____opt_403:GetSpecialValueFor("DmgThreshold")
+    if not self.Caster:HasModifier("musashi_attribute_battle_continuation") or self.Caster:HasModifier(____exports.musashi_modifier_battle_continuation_cooldown.name) or self.Caster:HasModifier(____exports.musashi_modifier_tenma_gogan_debuff.name) or event.damage >= DmgThreshold then
+        return
+    end
+    if self.Caster:GetHealth() <= 0 then
+        local ____opt_405 = self.Ability
+        local BuffDuration = ____opt_405 and ____opt_405:GetSpecialValueFor("BuffDuration")
+        self.Caster:SetHealth(1)
+        self.Caster:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_battle_continuation_active.name, {duration = BuffDuration})
+        local ____self_410 = self.Caster
+        local ____self_410_AddNewModifier_411 = ____self_410.AddNewModifier
+        local ____array_409 = __TS__SparseArrayNew(self.Caster, self.Ability, ____exports.musashi_modifier_battle_continuation_cooldown.name)
+        local ____opt_407 = self.Ability
+        __TS__SparseArrayPush(
+            ____array_409,
+            {duration = ____opt_407 and ____opt_407:GetCooldown(1)}
+        )
+        ____self_410_AddNewModifier_411(
+            ____self_410,
+            __TS__SparseArraySpread(____array_409)
+        )
+        local ____opt_412 = self.Ability
+        if ____opt_412 ~= nil then
+            ____opt_412:UseResources(true, false, true)
         end
     end
 end
@@ -2360,19 +2364,19 @@ function musashi_modifier_battle_continuation_active.prototype.OnCreated(self)
         return
     end
     self.Caster = self:GetCaster()
-    local ____opt_428 = self.Caster
-    local TengenNoHana = ____opt_428 and ____opt_428:FindAbilityByName(____exports.musashi_tengen_no_hana.name)
-    local ____opt_430 = self.Caster
-    if ____opt_430 ~= nil then
-        ____opt_430:CastAbilityImmediately(
+    local ____opt_414 = self.Caster
+    local TengenNoHana = ____opt_414 and ____opt_414:FindAbilityByName(____exports.musashi_tengen_no_hana.name)
+    local ____opt_416 = self.Caster
+    if ____opt_416 ~= nil then
+        ____opt_416:CastAbilityImmediately(
             TengenNoHana,
             self.Caster:GetEntityIndex()
         )
     end
     ProjectileManager:ProjectileDodge(self.Caster)
-    local ____opt_432 = self.Caster
-    if ____opt_432 ~= nil then
-        ____opt_432:Purge(
+    local ____opt_418 = self.Caster
+    if ____opt_418 ~= nil then
+        ____opt_418:Purge(
             false,
             true,
             false,
@@ -2389,25 +2393,25 @@ function musashi_modifier_battle_continuation_active.prototype.OnDestroy(self)
     end
     local Ability = self:GetAbility()
     local Heal = Ability and Ability:GetSpecialValueFor("Heal")
-    local ____opt_436 = self.Caster
-    if ____opt_436 ~= nil then
-        ____opt_436:Heal(Heal, Ability)
+    local ____opt_422 = self.Caster
+    if ____opt_422 ~= nil then
+        ____opt_422:Heal(Heal, Ability)
     end
 end
 function musashi_modifier_battle_continuation_active.prototype.PlaySound(self)
-    local ____opt_438 = self.Caster
-    if ____opt_438 ~= nil then
-        ____opt_438:EmitSound(self.SoundVoiceline)
+    local ____opt_424 = self.Caster
+    if ____opt_424 ~= nil then
+        ____opt_424:EmitSound(self.SoundVoiceline)
     end
-    local ____opt_440 = self.Caster
-    if ____opt_440 ~= nil then
-        ____opt_440:EmitSound(self.SoundSfx)
+    local ____opt_426 = self.Caster
+    if ____opt_426 ~= nil then
+        ____opt_426:EmitSound(self.SoundSfx)
     end
 end
 function musashi_modifier_battle_continuation_active.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_battle_continuation_basic.vpcf"
-    local ____opt_442 = self.Caster
-    if ____opt_442 and ____opt_442:HasModifier("modifier_ascended") then
+    local ____opt_428 = self.Caster
+    if ____opt_428 and ____opt_428:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_battle_continuation_unique.vpcf"
     end
     local Particle = ParticleManager:CreateParticle(ParticleStr, PATTACH_POINT_FOLLOW, self.Caster)
@@ -2520,24 +2524,24 @@ function musashi_modifier_ishana_daitenshou.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_448 = self.Ability
-    self.Victim = ____opt_448 and ____opt_448:GetCursorTarget()
-    local ____opt_450 = self.Caster
-    self.StartPosition = ____opt_450 and ____opt_450:GetAbsOrigin()
-    local ____opt_452 = self.Victim
-    self.MarkerPosition = ____opt_452 and ____opt_452:GetAbsOrigin()
-    local ____opt_454 = self.Caster
-    local NiouKurikara = ____opt_454 and ____opt_454:FindAbilityByName(____exports.musashi_niou_kurikara.name)
-    local ____opt_456 = self.Caster
-    if ____opt_456 ~= nil then
-        ____opt_456:CastAbilityOnPosition(
+    local ____opt_434 = self.Ability
+    self.Victim = ____opt_434 and ____opt_434:GetCursorTarget()
+    local ____opt_436 = self.Caster
+    self.StartPosition = ____opt_436 and ____opt_436:GetAbsOrigin()
+    local ____opt_438 = self.Victim
+    self.MarkerPosition = ____opt_438 and ____opt_438:GetAbsOrigin()
+    local ____opt_440 = self.Caster
+    local NiouKurikara = ____opt_440 and ____opt_440:FindAbilityByName(____exports.musashi_niou_kurikara.name)
+    local ____opt_442 = self.Caster
+    if ____opt_442 ~= nil then
+        ____opt_442:CastAbilityOnPosition(
             self.MarkerPosition,
             NiouKurikara,
             self.Caster:GetEntityIndex()
         )
     end
-    local ____opt_458 = self.Ability
-    self.SearchRadius = ____opt_458 and ____opt_458:GetSpecialValueFor("SearchRadius")
+    local ____opt_444 = self.Ability
+    self.SearchRadius = ____opt_444 and ____opt_444:GetSpecialValueFor("SearchRadius")
     self:CreateParticle()
     self:StartIntervalThink(0.03)
 end
@@ -2545,12 +2549,12 @@ function musashi_modifier_ishana_daitenshou.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____Entities_FindByNameWithin_462 = Entities.FindByNameWithin
-    local ____opt_460 = self.Victim
-    local VictimEntity = ____Entities_FindByNameWithin_462(
+    local ____Entities_FindByNameWithin_448 = Entities.FindByNameWithin
+    local ____opt_446 = self.Victim
+    local VictimEntity = ____Entities_FindByNameWithin_448(
         Entities,
         nil,
-        ____opt_460 and ____opt_460:GetName(),
+        ____opt_446 and ____opt_446:GetName(),
         self.MarkerPosition,
         self.SearchRadius
     )
@@ -2563,29 +2567,29 @@ function musashi_modifier_ishana_daitenshou.prototype.OnStackCountChanged(self, 
         return
     end
     repeat
-        local ____switch312 = stackCount
-        local ____cond312 = ____switch312 == 0
-        if ____cond312 then
+        local ____switch318 = stackCount
+        local ____cond318 = ____switch318 == 0
+        if ____cond318 then
             do
-                local ____opt_463 = self.Caster
-                if ____opt_463 ~= nil then
-                    ____opt_463:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_dash.name, {undefined = undefined})
+                local ____opt_449 = self.Caster
+                if ____opt_449 ~= nil then
+                    ____opt_449:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_dash.name, {undefined = undefined})
                 end
                 break
             end
         end
-        ____cond312 = ____cond312 or ____switch312 == 1
-        if ____cond312 then
+        ____cond318 = ____cond318 or ____switch318 == 1
+        if ____cond318 then
             do
-                local ____opt_465 = self.Caster
-                if ____opt_465 ~= nil then
-                    ____opt_465:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_slash.name, {undefined = undefined})
+                local ____opt_451 = self.Caster
+                if ____opt_451 ~= nil then
+                    ____opt_451:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_slash.name, {undefined = undefined})
                 end
                 break
             end
         end
-        ____cond312 = ____cond312 or ____switch312 == 2
-        if ____cond312 then
+        ____cond318 = ____cond318 or ____switch318 == 2
+        if ____cond318 then
             do
                 self:Destroy()
                 break
@@ -2597,8 +2601,8 @@ function musashi_modifier_ishana_daitenshou.prototype.CreateParticle(self)
     local MarkerParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_marker_basic.vpcf"
     local SwordParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_sword_basic.vpcf"
     local BodyParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_body_basic.vpcf"
-    local ____opt_467 = self.Caster
-    if ____opt_467 and ____opt_467:HasModifier("modifier_ascended") then
+    local ____opt_453 = self.Caster
+    if ____opt_453 and ____opt_453:HasModifier("modifier_ascended") then
         MarkerParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_marker_unique.vpcf"
         SwordParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_sword_unique.vpcf"
         BodyParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_body_unique.vpcf"
@@ -2677,10 +2681,10 @@ function musashi_modifier_ishana_daitenshou_dash.prototype.OnCreated(self)
         return
     end
     self.Caster = self:GetCaster()
-    local ____opt_469 = self:GetAbility()
-    self.DashSpeed = ____opt_469 and ____opt_469:GetSpecialValueFor("DashSpeed")
-    local ____opt_471 = self.Caster
-    self.ModifierIshanaDaitenshou = ____opt_471 and ____opt_471:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
+    local ____opt_455 = self:GetAbility()
+    self.DashSpeed = ____opt_455 and ____opt_455:GetSpecialValueFor("DashSpeed")
+    local ____opt_457 = self.Caster
+    self.ModifierIshanaDaitenshou = ____opt_457 and ____opt_457:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
     self.Victim = self.ModifierIshanaDaitenshou.Victim
     self:StartIntervalThink(0.03)
 end
@@ -2688,27 +2692,27 @@ function musashi_modifier_ishana_daitenshou_dash.prototype.OnIntervalThink(self)
     if not IsServer() then
         return
     end
-    local ____opt_473 = self.Caster
-    local CasterAbsOrigin = ____opt_473 and ____opt_473:GetAbsOrigin()
-    local ____opt_475 = self.Victim
-    local VictimAbsOrigin = ____opt_475 and ____opt_475:GetAbsOrigin()
+    local ____opt_459 = self.Caster
+    local CasterAbsOrigin = ____opt_459 and ____opt_459:GetAbsOrigin()
+    local ____opt_461 = self.Victim
+    local VictimAbsOrigin = ____opt_461 and ____opt_461:GetAbsOrigin()
     local Direction = (VictimAbsOrigin - CasterAbsOrigin):Normalized()
-    local ____opt_477 = self.Caster
-    if ____opt_477 ~= nil then
-        ____opt_477:SetForwardVector(Direction)
+    local ____opt_463 = self.Caster
+    if ____opt_463 ~= nil then
+        ____opt_463:SetForwardVector(Direction)
     end
-    local ____opt_479 = self.Caster
-    local NewPosition = CasterAbsOrigin + (____opt_479 and ____opt_479:GetForwardVector()) * self.DashSpeed
-    local ____opt_481 = self.Caster
-    if ____opt_481 ~= nil then
-        ____opt_481:SetAbsOrigin(NewPosition)
+    local ____opt_465 = self.Caster
+    local NewPosition = CasterAbsOrigin + (____opt_465 and ____opt_465:GetForwardVector()) * self.DashSpeed
+    local ____opt_467 = self.Caster
+    if ____opt_467 ~= nil then
+        ____opt_467:SetAbsOrigin(NewPosition)
     end
-    local ____Entities_FindByNameWithin_485 = Entities.FindByNameWithin
-    local ____opt_483 = self.Caster
-    local Musashi = ____Entities_FindByNameWithin_485(
+    local ____Entities_FindByNameWithin_471 = Entities.FindByNameWithin
+    local ____opt_469 = self.Caster
+    local Musashi = ____Entities_FindByNameWithin_471(
         Entities,
         nil,
-        ____opt_483 and ____opt_483:GetName(),
+        ____opt_469 and ____opt_469:GetName(),
         VictimAbsOrigin,
         self.DashSpeed
     )
@@ -2720,25 +2724,25 @@ function musashi_modifier_ishana_daitenshou_dash.prototype.OnDestroy(self)
     if not IsServer() then
         return
     end
-    local ____opt_486 = self.ModifierIshanaDaitenshou
-    if ____opt_486 ~= nil then
-        ____opt_486:IncrementStackCount()
+    local ____opt_472 = self.ModifierIshanaDaitenshou
+    if ____opt_472 ~= nil then
+        ____opt_472:IncrementStackCount()
     end
-    local ____opt_488 = self.Caster
-    if ____opt_488 ~= nil then
-        ____opt_488:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
+    local ____opt_474 = self.Caster
+    if ____opt_474 ~= nil then
+        ____opt_474:SetForwardVector(self.Caster:GetAbsOrigin():Normalized())
     end
-    local ____FindClearSpaceForUnit_493 = FindClearSpaceForUnit
-    local ____self_Caster_492 = self.Caster
-    local ____opt_490 = self.Caster
-    ____FindClearSpaceForUnit_493(
-        ____self_Caster_492,
-        ____opt_490 and ____opt_490:GetAbsOrigin(),
+    local ____FindClearSpaceForUnit_479 = FindClearSpaceForUnit
+    local ____self_Caster_478 = self.Caster
+    local ____opt_476 = self.Caster
+    ____FindClearSpaceForUnit_479(
+        ____self_Caster_478,
+        ____opt_476 and ____opt_476:GetAbsOrigin(),
         true
     )
-    local ____opt_494 = self.Caster
-    if ____opt_494 ~= nil then
-        ____opt_494:AddNewModifier(
+    local ____opt_480 = self.Caster
+    if ____opt_480 ~= nil then
+        ____opt_480:AddNewModifier(
             self.Caster,
             self:GetAbility(),
             "modifier_phased",
@@ -2773,13 +2777,13 @@ function musashi_modifier_ishana_daitenshou_slash.prototype.OnCreated(self)
     end
     self.Caster = self:GetCaster()
     self.Ability = self:GetAbility()
-    local ____opt_496 = self.Caster
-    self.ModifierIshanaDaitenshou = ____opt_496 and ____opt_496:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
+    local ____opt_482 = self.Caster
+    self.ModifierIshanaDaitenshou = ____opt_482 and ____opt_482:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
     self.Victim = self.ModifierIshanaDaitenshou.Victim
-    local ____opt_498 = self.Ability
-    local NormalSlashInterval = ____opt_498 and ____opt_498:GetSpecialValueFor("NormalSlashInterval")
-    local ____opt_500 = self.Ability
-    self.MaxNormalSlashCount = ____opt_500 and ____opt_500:GetSpecialValueFor("MaxNormalSlashCount")
+    local ____opt_484 = self.Ability
+    local NormalSlashInterval = ____opt_484 and ____opt_484:GetSpecialValueFor("NormalSlashInterval")
+    local ____opt_486 = self.Ability
+    self.MaxNormalSlashCount = ____opt_486 and ____opt_486:GetSpecialValueFor("MaxNormalSlashCount")
     self:StartIntervalThink(NormalSlashInterval)
     EmitGlobalSound(self.SoundSfx)
 end
@@ -2799,18 +2803,18 @@ function musashi_modifier_ishana_daitenshou_slash.prototype.OnDestroy(self)
         return
     end
     self:PerformFinalSlash()
-    local ____opt_502 = self.ModifierIshanaDaitenshou
-    if ____opt_502 ~= nil then
-        ____opt_502:IncrementStackCount()
+    local ____opt_488 = self.ModifierIshanaDaitenshou
+    if ____opt_488 ~= nil then
+        ____opt_488:IncrementStackCount()
     end
 end
 function musashi_modifier_ishana_daitenshou_slash.prototype.DealDamage(self)
-    local ____opt_504 = self.Ability
-    local NormalSlashMaxHpPercent = (____opt_504 and ____opt_504:GetSpecialValueFor("NormalSlashMaxHpPercent")) / 100
-    local ____opt_506 = self.Victim
-    local Damage = (____opt_506 and ____opt_506:GetMaxHealth()) * NormalSlashMaxHpPercent
-    local ____opt_508 = self.Ability
-    local DmgType = ____opt_508 and ____opt_508:GetAbilityDamageType()
+    local ____opt_490 = self.Ability
+    local NormalSlashMaxHpPercent = (____opt_490 and ____opt_490:GetSpecialValueFor("NormalSlashMaxHpPercent")) / 100
+    local ____opt_492 = self.Victim
+    local Damage = (____opt_492 and ____opt_492:GetMaxHealth()) * NormalSlashMaxHpPercent
+    local ____opt_494 = self.Ability
+    local DmgType = ____opt_494 and ____opt_494:GetAbilityDamageType()
     local DmgFlag = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_HPLOSS
     DoDamage(
         self.Caster,
@@ -2824,17 +2828,17 @@ function musashi_modifier_ishana_daitenshou_slash.prototype.DealDamage(self)
 end
 function musashi_modifier_ishana_daitenshou_slash.prototype.PerformFinalSlash(self)
     return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        local ____opt_510 = self.Ability
-        local FinalSlashDmgDelay = ____opt_510 and ____opt_510:GetSpecialValueFor("FinalSlashDmgDelay")
+        local ____opt_496 = self.Ability
+        local FinalSlashDmgDelay = ____opt_496 and ____opt_496:GetSpecialValueFor("FinalSlashDmgDelay")
         __TS__Await(Sleep(nil, FinalSlashDmgDelay))
-        local ____opt_512 = self.Ability
-        local FinalSlashMaxHpPercent = (____opt_512 and ____opt_512:GetSpecialValueFor("FinalSlashMaxHpPercent")) / 100
-        local ____opt_514 = self.Ability
-        local ExecuteThresholdPercent = ____opt_514 and ____opt_514:GetSpecialValueFor("ExecuteThresholdPercent")
-        local ____opt_516 = self.Victim
-        local Damage = (____opt_516 and ____opt_516:GetMaxHealth()) * FinalSlashMaxHpPercent
-        local ____opt_518 = self.Ability
-        local DmgType = ____opt_518 and ____opt_518:GetAbilityDamageType()
+        local ____opt_498 = self.Ability
+        local FinalSlashMaxHpPercent = (____opt_498 and ____opt_498:GetSpecialValueFor("FinalSlashMaxHpPercent")) / 100
+        local ____opt_500 = self.Ability
+        local ExecuteThresholdPercent = ____opt_500 and ____opt_500:GetSpecialValueFor("ExecuteThresholdPercent")
+        local ____opt_502 = self.Victim
+        local Damage = (____opt_502 and ____opt_502:GetMaxHealth()) * FinalSlashMaxHpPercent
+        local ____opt_504 = self.Ability
+        local DmgType = ____opt_504 and ____opt_504:GetAbilityDamageType()
         local DmgFlag = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_HPLOSS
         DoDamage(
             self.Caster,
@@ -2846,37 +2850,37 @@ function musashi_modifier_ishana_daitenshou_slash.prototype.PerformFinalSlash(se
             false
         )
         self:CreateParticle()
-        local ____opt_520 = self.Victim
-        local CurrentHealth = ____opt_520 and ____opt_520:GetHealthPercent()
+        local ____opt_506 = self.Victim
+        local CurrentHealth = ____opt_506 and ____opt_506:GetHealthPercent()
         if CurrentHealth <= ExecuteThresholdPercent then
-            local ____opt_522 = self.Victim
-            if ____opt_522 ~= nil then
-                ____opt_522:Kill(self.Ability, self.Caster)
+            local ____opt_508 = self.Victim
+            if ____opt_508 ~= nil then
+                ____opt_508:Kill(self.Ability, self.Caster)
             end
         else
-            local ____opt_524 = self.Victim
-            local CurrentHealthPercent = ____opt_524 and ____opt_524:GetHealthPercent()
-            local ____opt_526 = self.Victim
-            if ____opt_526 ~= nil then
-                ____opt_526:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_debuff.name, {undefined = undefined})
+            local ____opt_510 = self.Victim
+            local CurrentHealthPercent = ____opt_510 and ____opt_510:GetHealthPercent()
+            local ____opt_512 = self.Victim
+            if ____opt_512 ~= nil then
+                ____opt_512:AddNewModifier(self.Caster, self.Ability, ____exports.musashi_modifier_ishana_daitenshou_debuff.name, {undefined = undefined})
             end
-            local ____opt_528 = self.Victim
-            local NewHealth = (____opt_528 and ____opt_528:GetMaxHealth()) * CurrentHealthPercent / 100
-            local ____opt_530 = self.Victim
-            if ____opt_530 ~= nil then
-                ____opt_530:SetHealth(NewHealth)
+            local ____opt_514 = self.Victim
+            local NewHealth = (____opt_514 and ____opt_514:GetMaxHealth()) * CurrentHealthPercent / 100
+            local ____opt_516 = self.Victim
+            if ____opt_516 ~= nil then
+                ____opt_516:SetHealth(NewHealth)
             end
         end
     end)
 end
 function musashi_modifier_ishana_daitenshou_slash.prototype.CreateParticle(self)
     local ParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_slash_basic.vpcf"
-    local ____opt_532 = self.ModifierIshanaDaitenshou
-    local StartPosition = ____opt_532 and ____opt_532.StartPosition
-    local ____opt_534 = self.Caster
-    local EndPosition = ____opt_534 and ____opt_534:GetAbsOrigin()
-    local ____opt_536 = self.Caster
-    if ____opt_536 and ____opt_536:HasModifier("modifier_ascended") then
+    local ____opt_518 = self.ModifierIshanaDaitenshou
+    local StartPosition = ____opt_518 and ____opt_518.StartPosition
+    local ____opt_520 = self.Caster
+    local EndPosition = ____opt_520 and ____opt_520:GetAbsOrigin()
+    local ____opt_522 = self.Caster
+    if ____opt_522 and ____opt_522:HasModifier("modifier_ascended") then
         ParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_slash_unique.vpcf"
         local PetalsParticleStr = "particles/custom/musashi/musashi_ishana_daitenshou_petals_unique.vpcf"
         local PetalsParticle = ParticleManager:CreateParticle(PetalsParticleStr, PATTACH_WORLDORIGIN, self.Caster)
@@ -2904,12 +2908,12 @@ local musashi_modifier_ishana_daitenshou_debuff = ____exports.musashi_modifier_i
 musashi_modifier_ishana_daitenshou_debuff.name = "musashi_modifier_ishana_daitenshou_debuff"
 __TS__ClassExtends(musashi_modifier_ishana_daitenshou_debuff, BaseModifier)
 function musashi_modifier_ishana_daitenshou_debuff.prototype.GetModifierExtraHealthPercentage(self)
-    local ____opt_538 = self:GetAbility()
-    return ____opt_538 and ____opt_538:GetSpecialValueFor("MaxHpReductionPercent")
+    local ____opt_524 = self:GetAbility()
+    return ____opt_524 and ____opt_524:GetSpecialValueFor("MaxHpReductionPercent")
 end
 function musashi_modifier_ishana_daitenshou_debuff.prototype.GetModifierIncomingDamage_Percentage(self)
-    local ____opt_540 = self:GetAbility()
-    return ____opt_540 and ____opt_540:GetSpecialValueFor("ExtraIncomingDmgPercent")
+    local ____opt_526 = self:GetAbility()
+    return ____opt_526 and ____opt_526:GetSpecialValueFor("ExtraIncomingDmgPercent")
 end
 function musashi_modifier_ishana_daitenshou_debuff.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
@@ -2972,14 +2976,14 @@ function musashi_niou.prototype.OnSpellStart(self)
 end
 function musashi_niou.prototype.DestroyNiou(self, delay)
     return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        local ____opt_542 = self.Niou
-        if ____opt_542 ~= nil then
-            ____opt_542:ForceKill(false)
+        local ____opt_528 = self.Niou
+        if ____opt_528 ~= nil then
+            ____opt_528:ForceKill(false)
         end
         __TS__Await(Sleep(nil, delay))
-        local ____opt_544 = self.Niou
-        if ____opt_544 ~= nil then
-            ____opt_544:Destroy()
+        local ____opt_530 = self.Niou
+        if ____opt_530 ~= nil then
+            ____opt_530:Destroy()
         end
     end)
 end

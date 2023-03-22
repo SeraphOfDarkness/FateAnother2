@@ -14240,7 +14240,7 @@
 
 		//Mind's Eye (True)
 		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>Mind's Eye (True)</font>"
-		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be stunned and silenced every %silence_cooldown% seconds when they cast a spell. Also, grants both of them bonus max health and increased health regen. If the ally moves too far from Saitō, the stun and silence will not proc.\nSaitō can self-cast <font color='#58ACFA'>Mind’s Eye (True)</font> to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Memoir</font>."
+		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be stunned and silenced every %silence_cooldown% seconds when they cast a spell, the stun and silence of allied heroes will not proc if they move too far from Saitō. Also, grants both of them bonus max health and increased health regen.\nSaitō can self-cast <font color='#58ACFA'>Mind’s Eye (True)</font> to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Memoir</font>."
 		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"Even the fiercely loyal Hijikata says that Saitō’s loyalty to the Shinsengumi is second-to-none and knows that he would never betray the Shinsengumi in any capacity."
 		"DOTA_Tooltip_ability_saito_mind_eye_Note0"													"Dispelled by <font color='#58ACFA'>Gáe Dearg</font> and <font color='#58ACFA'>Rule Breaker</font>."
 		"DOTA_Tooltip_ability_saito_mind_eye_abilitycastpoint"										"CAST POINT:"
@@ -14305,7 +14305,7 @@
 		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"Saitō approaches the target in a unique way, different than rushing in with pure speed, and his moves distort the target’s perception of time and distance."
 		"DOTA_Tooltip_ability_saito_formless_invis_abilitycastpoint"								"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"DURATION:"
-		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%MOVEMENT SPEED"
+		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_saito_formless_invis_fade_delay"										"FADE DELAY:"
 
 		"DOTA_Tooltip_modifier_saito_formless_invis"												"Formless"
@@ -14358,9 +14358,9 @@
 		"DOTA_Tooltip_ability_saito_vortex_Note0"													"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
 		"DOTA_Tooltip_ability_saito_vortex_abilitycastpoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"SLASH RADIUS"
+		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"SLASH RADIUS:"
 		"DOTA_Tooltip_ability_saito_vortex_slash_last_radius"										"LASH SLASH RADIUS:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_stun_duration"										"STUN DURATION"
+		"DOTA_Tooltip_ability_saito_vortex_slash_stun_duration"										"STUN DURATION:"
 		"DOTA_Tooltip_ability_saito_vortex_knockback_distance"										"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_saito_vortex_knockback_duration"										"KNOCKBACK DURATION:"
 		//"DOTA_Tooltip_ability_saito_vortex_slashes_count"											""
@@ -14385,7 +14385,7 @@
 		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
 		"DOTA_Tooltip_ability_saito_style_silence_chance"											"%PROC CHANCE:"
 		"DOTA_Tooltip_ability_saito_style_silence_duration"											"SILENCE DURATION:"
-		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%MAX HEALTH DAMAGE"
+		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%MAX HEALTH DAMAGE:"
 		//"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""
 		"DOTA_Tooltip_ability_saito_style_activation_steps_duration"								"ACTIVATION STEP DURATION:"
 		"DOTA_Tooltip_ability_saito_style_activation_duration"										"ACTIVATION DURATION:"
@@ -14398,13 +14398,14 @@
 		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan."
 
 		//One by One
-		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>One by One</font>"
-		"DOTA_Tooltip_ability_saito_blast_Description"												"Saito unleashes %radial_count% mighty wind blades in all directions around him, dealing %damage% damage to any enemy unit it collides with. The sheer impact of the wind blades is enough to knock those enemy units back for %knockback_duration% seconds, then reduces all types of their damage for %sdr_duration% seconds.\nThe damage reduction starts at %sdr_max_value%%% and decreases over time to %sdr_min_value%%%.\nOne enemy unit can be hit by more than one wind blade per cast."
+		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>One By One</font>"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% blades of wind in all directions around him, dealing %damage% damage to any enemy units that collide with that. The impact of the wind blades is enough to knock those enemy units back for %knockback_duration% seconds, then reduces all types of their damage for %sdr_duration% seconds. The damage reduction starts at %sdr_max_value%%% and decreases over time to %sdr_min_value%%%.\nAn enemy unit can be hit by more than one wind blade per cast."
 		"DOTA_Tooltip_ability_saito_blast_Lore"														"If humans die, they lose, right? So in other words, if you don't die then you won't lose. That’s the innermost secret of the Invincible Blade. But who knows, ya'know?"
+		"DOTA_Tooltip_ability_saito_blast_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_blast_distance"													"DISTANCE:"
 		"DOTA_Tooltip_ability_saito_blast_speed"													"SPEED:"
-		"DOTA_Tooltip_ability_saito_blast_radius_start"												"RADIUS START:"
-		"DOTA_Tooltip_ability_saito_blast_radius_end"												"RADIUS END:"
+		//"DOTA_Tooltip_ability_saito_blast_radius_start"											"RADIUS START:"
+		//"DOTA_Tooltip_ability_saito_blast_radius_end"												"RADIUS END:"
 		//"DOTA_Tooltip_ability_saito_blast_damage"													""
 		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
 		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"KNOCKBACK DISTANCE:"
@@ -14413,7 +14414,7 @@
 		//"DOTA_Tooltip_ability_saito_blast_sdr_min_value"											""
 		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
 
-		"DOTA_Tooltip_modifier_saito_blast_sdr"														"One by One Debuff"
+		"DOTA_Tooltip_modifier_saito_blast_sdr"														"One By One Debuff"
 		"DOTA_Tooltip_modifier_saito_blast_sdr_Description"											"Reducing all types of damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		///ATTRIBUTES///
@@ -14804,11 +14805,12 @@
         "DOTA_Tooltip_Ability_musashi_tenma_gogan_DebuffDuration"    "DEBUFF DURATION: "
         "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<b><font color='SlateBlue'>BATTLE CONTINUATION</b></font>"
         "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and cannot be killed or healed for durations. Apply a heal on herself when the buff ends. 
- Cannot revive while TENMA GOGAN debuff exists. "
+ Cannot revive if damage higher than Damage Threshold or while TENMA GOGAN debuff exists. "
         "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
  If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
         "DOTA_Tooltip_Ability_musashi_battle_continuation_BuffDuration"    "BUFF DURATION: "
         "DOTA_Tooltip_Ability_musashi_battle_continuation_Heal"    "HEAL: "
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_DmgThreshold"    "DAMAGE THRESHOLD: "
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<b><font color='Red'>ISHANA DAITENSHOU - SLASH THE VOID 「」"
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<b><font color='Red'>COMBO SEQUENCE: D-Q->R. 
  Note: Sequence must be exact and casting any other skills will destroy the modifer. </b></font> 

@@ -301,7 +301,6 @@ slowmodifier = {
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
-    "modifier_saito_steelwing_mss",
 }
 
 revokes = {
@@ -1091,7 +1090,6 @@ tRemoveTheseModifiers = {
     "modifier_edmond_hate",
     "modifier_zhuge_liang_array_checker",
     "modifier_zhuge_liang_array_enemy",
-    "modifier_saito_style_active",
 }
 
 tLightningResist = {
