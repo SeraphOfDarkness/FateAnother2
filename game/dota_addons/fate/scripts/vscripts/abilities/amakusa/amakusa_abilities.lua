@@ -126,7 +126,9 @@ function OnRightHandStart(keys)
 		local re_ability = caster:GetAbilityByIndex(i)
 		if re_ability ~= nil and not re_ability:IsCooldownReady() then 
 			re_ability:EndCooldown()
-			AddRightHandStacks(caster, -1)
+			if i < 3 then
+				AddRightHandStacks(caster, -1)
+			end
 		end
 	end
 
@@ -633,7 +635,7 @@ function amakusa_black_key_passive:OnSpellStart()
 
 	if caster:HasModifier("modifier_right_hand") then 
 		stack_gain = ability:GetSpecialValueFor("stack_gain_r")
-		AddRightHandStacks(caster, -1)
+		--AddRightHandStacks(caster, -1)
 	end
 	print('active gain stack')
 	AddBlackKey(caster, stack_gain)

@@ -94,6 +94,7 @@ function OnPhalanxStart(keys)
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if caster.IsBeyondTimeAcquired then
 				aotkAbility:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{})
+				soldier:SetModifierStackCount("modifier_army_of_the_king_infantry_bonus_stat", caster, aotkAbility:GetLevel())
 				if caster:HasModifier("modifier_army_of_the_king_death_checker") then 
 					caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 				end
@@ -128,6 +129,7 @@ function OnPhalanxStart(keys)
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if caster.IsBeyondTimeAcquired then
 				aotkAbility:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{})
+				soldier:SetModifierStackCount("modifier_army_of_the_king_infantry_bonus_stat", caster, aotkAbility:GetLevel())
 			else
 				ability:ApplyDataDrivenModifier(caster, soldier, "modifier_phalanx_wall",{})
 			end
@@ -785,7 +787,7 @@ function OnAOTKStart(keys)
 		waver:SetOwner(caster)
 		waver:SetUnitCanRespawn(false)
 		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):SetLevel(aotkAbilityHandle:GetLevel())
-		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):StartCooldown(5)
+		waver:FindAbilityByName("iskandar_brilliance_of_the_king"):StartCooldown(2)
 		waver:AddNewModifier(caster, ability, "modifier_kill", {Duration = 16})
 		table.insert(caster.AOTKSoldiers, waver)
 		caster.waver = waver

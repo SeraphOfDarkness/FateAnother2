@@ -1249,8 +1249,9 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"56.0"
-		"AttackDamageMax"			"56.0"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"56"
+		"AttackDamageMax"			"60"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.5"
 		"AttackAcquisitionRange"	"2000"
@@ -1259,8 +1260,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"5"
-		"BountyGoldMin"				"25.0"
-		"BountyGoldMax"				"25.0"
+		"BountyGoldMin"				"22"
+		"BountyGoldMax"				"25"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1301,12 +1302,12 @@
 			"DisableClumpingBehavior"	"1"
 			"AttachWearables"
 			{
-				"Wearable1"		{	"ItemDef"		"63"		}
-				"Wearable2"		{	"ItemDef"		"64"		}
-				"Wearable3" 	{	"ItemDef"		"65"		}
-				"Wearable4"		{	"ItemDef"		"66"		}
-				"Wearable5"		{	"ItemDef"		"67"		}
-				"Wearable6"		{	"ItemDef"		"68"		}
+				"Wearable1"		{	"ItemDef"		"7360"		}
+				"Wearable2"		{	"ItemDef"		"7440"		}
+				"Wearable3" 	{	"ItemDef"		"7439"		}
+				"Wearable4"		{	"ItemDef"		"7437"		}
+				"Wearable5"		{	"ItemDef"		"7441"		}
+				"Wearable6"		{	"ItemDef"		"7438"		}
 			}
 			//{
 			//	"Wearable1"		{	"ItemDef"		"6789"		} //"Shield of Ascension"
@@ -1342,8 +1343,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"40.0"
-		"AttackDamageMax"			"40.0"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"45"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.35"
 		"AttackAnimationPoint"		"0.5"
@@ -1354,8 +1355,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"3"
-		"BountyGoldMin"				"25.0"
-		"BountyGoldMax"				"25.0"
+		"BountyGoldMin"				"22"
+		"BountyGoldMax"				"25"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1433,8 +1434,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"50.0"
-		"AttackDamageMax"			"50.0"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.3"
 		"AttackAnimationPoint"		"0.5"
@@ -1446,8 +1447,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"15"
-		"BountyGoldMin"				"25.0"
-		"BountyGoldMax"				"25.0"
+		"BountyGoldMin"				"22"
+		"BountyGoldMax"				"25"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1488,12 +1489,12 @@
 			"DisableClumpingBehavior"	"1"
 			"AttachWearables"
 			{
-				"Wearable1"		{	"ItemDef"		"220"		}
-				"Wearable2"		{	"ItemDef"		"221"		}
-				"Wearable3" 	{	"ItemDef"		"222"		}
-				"Wearable4"		{	"ItemDef"		"223"		}
-				"Wearable5"		{	"ItemDef"		"224"		}
-				"Wearable6"		{	"ItemDef"		"225"		}
+				"Wearable1"		{	"ItemDef"		"5993"		}
+				"Wearable2"		{	"ItemDef"		"5995"		}
+				"Wearable3" 	{	"ItemDef"		"5991"		}
+				"Wearable4"		{	"ItemDef"		"9161"		}
+				"Wearable5"		{	"ItemDef"		"5998"		}
+				"Wearable6"		{	"ItemDef"		"5999"		}
 			}
 		}
 	}
@@ -1520,8 +1521,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10.0"
-		"AttackDamageMax"			"10.0"
+		"AttackDamageMin"			"10"
+		"AttackDamageMax"			"12"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.4"
 		"AttackAnimationPoint"		"0.66"
@@ -1530,8 +1531,8 @@
 		
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyGoldMin"				"25.0"
-		"BountyGoldMax"				"25.0"
+		"BountyGoldMin"				"22"
+		"BountyGoldMax"				"25"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1572,10 +1573,11 @@
 			"DisableClumpingBehavior"	"1"
 			"AttachWearables"	
 			{
-				"Wearable1"		{	"ItemDef"	"5924"	} // "Rapture"
-				"Wearable2"		{	"ItemDef"	"183"	} // "Default Shoulderpad"
-				"Wearable3"		{	"ItemDef"	"5233"	} // "Blade of Endless Havoc"
-				"Wearable4"		{	"ItemDef"	"5982"	} // "Chaos Legion helm"
+				"Wearable1"		{	"ItemDef"	"5980"	} // "Rapture"
+				"Wearable2"		{	"ItemDef"	"5981"	} // "Default Shoulderpad"
+				"Wearable3"		{	"ItemDef"	"5982"	} // "Blade of Endless Havoc"
+				"Wearable4"		{	"ItemDef"	"5983"	} // "Chaos Legion helm"
+				"Wearable4"		{	"ItemDef"	"5984"	} // "Chaos Legion helm"
 			}
 		}
 	}
@@ -1604,8 +1606,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"50.0"
-		"AttackDamageMax"			"50.0"
+		"AttackDamageMin"			"45"
+		"AttackDamageMax"			"50"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.4"
 		"AttackAnimationPoint"		"0.66"
@@ -1614,8 +1616,8 @@
 		
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyGoldMin"				"50.0"
-		"BountyGoldMax"				"50.0"
+		"BountyGoldMin"				"45"
+		"BountyGoldMax"				"50"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1657,10 +1659,11 @@
 			"DisableClumpingBehavior"	"1"
 			"AttachWearables"	
 			{
-				"Wearable1"		{	"ItemDef"	"5924"	} // "Rapture"
-				"Wearable2"		{	"ItemDef"	"183"	} // "Default Shoulderpad"
-				"Wearable3"		{	"ItemDef"	"5233"	} // "Blade of Endless Havoc"
-				"Wearable4"		{	"ItemDef"	"5982"	} // "Chaos Legion helm"
+				"Wearable1"		{	"ItemDef"	"8309"	} // "Rapture"
+				"Wearable2"		{	"ItemDef"	"8302"	} // "Default Shoulderpad"
+				"Wearable3"		{	"ItemDef"	"8297"	} // "Blade of Endless Havoc"
+				"Wearable3"		{	"ItemDef"	"8289"	} // "Blade of Endless Havoc"
+				"Wearable4"		{	"ItemDef"	"8320"	} // "Chaos Legion helm"
 			}
 		}
 	}
@@ -1691,8 +1694,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"12.0"
-		"AttackDamageMax"			"12.0"
+		"AttackDamageMin"			"12"
+		"AttackDamageMax"			"12"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.9"
 		"AttackAnimationPoint"		"0.5"
@@ -1703,8 +1706,8 @@
 		
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyGoldMin"				"26.0"
-		"BountyGoldMax"				"38.0"
+		"BountyGoldMin"				"26"
+		"BountyGoldMax"				"38"
 		
 		// Bounds
 		//----------------------------------------------------------------
@@ -1781,8 +1784,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"8.0"
-		"AttackDamageMax"			"8.0"
+		"AttackDamageMin"			"8"
+		"AttackDamageMax"			"8"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.9"
 		"AttackAnimationPoint"		"0.5"
@@ -1793,8 +1796,8 @@
 		
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyGoldMin"				"26.0"
-		"BountyGoldMax"				"38.0"
+		"BountyGoldMin"				"26"
+		"BountyGoldMax"				"38"
 		
 		// Bounds
 		//----------------------------------------------------------------

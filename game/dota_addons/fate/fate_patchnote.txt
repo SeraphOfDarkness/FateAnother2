@@ -1,3 +1,24 @@
+
+Fix Iskandar + Okita's unit
+
+Iskandar
+-Brillance of the king
+Start cooldown: 5 >> 2
+
+Amakusa
+-Black key 
+No longer consume Right Hand's stack
+
+--------------
+Ishtar fixes, tooltips fixes.
+
+----------------
+Ishtar (Pepe hero)
+
+Tooltip fixes.
+Some new bgm
+----------------
+
 -Musashi changes
 1. Accel Turn and Dai Go Sei now swapped slot.
 2. Accel Turn now rescaled from 750 range to 400/500/600/700/800

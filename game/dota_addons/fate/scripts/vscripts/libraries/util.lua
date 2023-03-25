@@ -64,13 +64,11 @@ softdispellable = {
     "modifier_mordred_rampage_stack",
     "modifier_armor_reduction",
     "modifier_witchcraft_mr_reduction",
-    "modifier_atalanta_calydonian_hunt",
     "modifier_dirk_weakening_venom",
     "modifier_zhuge_liang_acid",
     "modifier_zhuge_liang_fire_arrow",
     "modifier_robin_roots_slow",
     "modifier_robin_hunter_rain_slow",
-    "modifier_binding_chains",
     "modifier_poison_cloud_debuff",
     "modifier_nobu_innovation_ms",
     "modifier_nobu_slow",
@@ -301,6 +299,7 @@ slowmodifier = {
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
+    "modifier_saito_steelwing_mss",
 }
 
 revokes = {
@@ -597,6 +596,7 @@ tModifierCooldown = {
     "modifier_saito_style_combo_indicator",
     "modifier_mashu_combo_cooldown",
     "musashi_modifier_ishana_daitenshou_cooldown",
+    "modifier_ishtar_combo_cooldown",
 }
 
 CannotReset = {
@@ -741,6 +741,7 @@ CannotReset = {
     "gilles_prelati_spellbook_upgrade",
     "gille_larret_de_mort",
     "iskander_annihilate",
+    "iskandar_spatha",
     "gawain_blessing_of_fairy",
     "gawain_combo_excalibur_galatine",
     "gawain_combo_excalibur_galatine_upgrade_1",
@@ -831,6 +832,7 @@ femaleservant = {
     "npc_dota_hero_gyrocopter",
     "npc_dota_hero_dragon_knight",
     "npc_dota_hero_antimage",
+    "npc_dota_hero_oracle",
 }
 
 tSpellBookHero = {
@@ -1090,6 +1092,7 @@ tRemoveTheseModifiers = {
     "modifier_edmond_hate",
     "modifier_zhuge_liang_array_checker",
     "modifier_zhuge_liang_array_enemy",
+    "modifier_saito_style_active",
 }
 
 tLightningResist = {
@@ -1134,6 +1137,7 @@ tDivineHeroes = {
     "npc_dota_hero_enchantress",
     "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_beastmaster",
+    "npc_dota_hero_oracle",
 }
 
 tArthurHeroes = {
@@ -1144,6 +1148,7 @@ tArthurHeroes = {
 tLivingHumanHeroes = {
     "npc_dota_hero_naga_siren",
     "npc_dota_hero_disruptor",
+    "npc_dota_hero_dragon_knight",
 }
 
 tShinsengumi = {
@@ -1204,6 +1209,7 @@ tKnightClass = {
     "npc_dota_hero_tusk",
     "npc_dota_hero_death_prophet",
     "npc_dota_hero_terrorblade",
+    "npc_dota_hero_antimage",
 }
 
 tHorsemanClass = {
@@ -3586,6 +3592,7 @@ local heroNames = {
     ["npc_dota_hero_terrorblade"] = "Saitō Hajime",
     ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
     ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
+    ["npc_dota_hero_oracle"] = "Ishtar",
 }
 
 

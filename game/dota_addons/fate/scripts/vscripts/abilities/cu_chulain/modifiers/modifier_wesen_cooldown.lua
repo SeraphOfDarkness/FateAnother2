@@ -448,7 +448,7 @@ function kjlpluo1596:calcMMR(hero, role, head, threshold)
 end
 
 function kjlpluo1596:IsMVP(plyID)
-	if self.MVPA[1]['playerId'] == plyID then
+	if self.MVPA[1]['playerId'] == plyID or self.MVPB[1]['playerId'] == plyID then
 		return true 
 	end
 	return false
