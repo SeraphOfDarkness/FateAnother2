@@ -411,15 +411,6 @@ NobuAttribute = {
 	"nobu_combo",
 	attrCount = 5
 }
-SaitoAttribute = {
-	"saito_attribute_freedom",
-	"saito_attribute_sword",
-	"saito_attribute_memoir",
-	"saito_attribute_freestyle",
-	"saito_attribute_kunishige",
-	"saito_style",
-	attrCount = 5
-}
 MusashiAttribute = 
 {
 	"musashi_attributes_battle_continuation",
@@ -987,8 +978,6 @@ function FindAttribute(name)
 		attributes = RobinAttribute
 	elseif name == "npc_dota_hero_gyrocopter" then
 		attributes = NobuAttribute
-	elseif name == "npc_dota_hero_terrorblade" then
-		attributes = SaitoAttribute
 	elseif name == "npc_dota_hero_antimage" then
 		attributes = MusashiAttribute
 	elseif name == "npc_dota_hero_dragon_knight" then
