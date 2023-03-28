@@ -1597,38 +1597,71 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 		"Sex"			"Female"
 		"Class"			"Saber"
 		"Trait"			"Human" 
-		"Roles"			"Carry,AOE,Survivalbility" 	
+		"Roles"			"carry,mobility,tank" 	
 		"Role" 							
 		{
 			"1"
 			{			
 				"tank"	
 				{
-					"weight"	"40"	// weight to calculate
-					"criteria"	"1"
-					"dTake"		"100000000"	// > avg dmg taken(%max hp) per round
-					"Death"		"100000000"	// < death of total round
+					"weight"	"30"	// weight to calculate
+					"criteria"	"2"
+					"dTake"		"170"	// > avg dmg taken(%max hp) per round
+					"Death"		"80"	// < death of total round
 				}		
 			}
 			"2"	
 			{			
-				"control"	
+				"carry"
 				{
-					"weight"	"10"	// weight to calculate
-					"criteria"	"1"
-					"CC1"		"250000000"	// > avg CC duration per round
+					"weight"	"50"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"5000"	// > avg dmg deal per round
+					"KD"		"1.5"	// > total KD
+					"Assist"	"35"	// > Assist
 				}
 			}
 			"3"	
 			{			
-				"damage"	
+				"mobility"	
 				{
-					"weight"	"15"	// weight to calculate
-					"criteria"	"2"
-					"Assist"	"20"	// > Assist
-					"KD"		"15000000"	// < Kills of total round
+					"weight"	"10"	// weight to calculate
+					"criteria"	"1"
+					"Death"		"35"	// < death of total round
 				}
 			}
 		}
-	}
+	}	
+	"npc_dota_hero_oracle"			
+	{
+		"Sex"			"Female"
+		"Class"			"Archer"
+		"Trait"			"divine" 
+		"Roles"			"jumper,snipe" 	
+		"Role" 							
+		{
+			"1"
+			{			
+				"burst"	
+				{
+					"weight"	"50"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"4000"	// > avg dmg deal per round
+					"KD"		"1.5"	// > total KD
+					"Assist"	"38"	// > Assist
+				}		
+			}
+			"2"	
+			{			
+				"assassin"	
+				{
+					"weight"	"50"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"3000"	// > avg dmg deal per round
+					"KD"		"2.0"	// > total KD
+					"Death"		"50"	// < death of total round
+				}
+			}
+		}
+	}	
 }

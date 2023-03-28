@@ -46,6 +46,7 @@
 #base "heroes/npc_fate_hero_nobu.kv"
 #base "heroes/npc_fate_hero_mashu.kv"
 #base "heroes/npc_fate_hero_musashi.kv"
+#base "heroes/npc_fate_hero_ishtar.kv"
 
 "DOTAHeroes"
 {
