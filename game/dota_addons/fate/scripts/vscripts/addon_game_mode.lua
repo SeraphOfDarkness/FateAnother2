@@ -285,6 +285,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_atalanta.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_ishtar.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource("soundfile", "soundevents/hero_lancer.vsndevts", context)                
@@ -346,6 +347,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_naga_siren.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_sniper.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_oracle.vsndevts", context )
 
                         --============ Lancer ==============--  
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_beastmaster.vsndevts", context )

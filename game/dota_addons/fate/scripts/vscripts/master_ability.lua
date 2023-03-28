@@ -421,12 +421,22 @@ MusashiAttribute =
 	"musashi_ishana_daitenshou",
 	attrCount = 5
 }
+
 MashuAttribute = {
 	"mashu_attribute_barrel",
 	"mashu_attribute_shield",
 	"mashu_attribute_chalk",
 	"mashu_attribute_amalgam",
 	"mashu_combo",
+	attrCount = 4
+}
+
+IshtarAttribute = {
+	"ishtar_attribute_offering",
+	"ishtar_attribute_gems",
+	"ishtar_attribute_goddess",
+	"ishtar_attribute_venus",
+	"ishtar_combo",
 	attrCount = 4
 }
 
@@ -443,6 +453,8 @@ ChargeBuffReset = {
 	saber_alter_vortigern_upgrade = 3,
 	hassan_dirk = 4,
 	hassan_dirk_upgrade = 7,
+	nobu_dash = 3,
+	nobu_dash_upgrade = 3,
 }
 
 
@@ -982,6 +994,8 @@ function FindAttribute(name)
 		attributes = MusashiAttribute
 	elseif name == "npc_dota_hero_dragon_knight" then
 		attributes = MashuAttribute
+	elseif name == "npc_dota_hero_oracle" then
+		attributes = IshtarAttribute
     end
    
     return attributes
