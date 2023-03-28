@@ -466,14 +466,16 @@ function OnPassiveThink(keys)
 
 	if caster.IsGoddessAcquired == false then return end
 
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, buff_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	for k,v in pairs(targets) do
-		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			if IsFemaleServant(v) == false then
-				ability:ApplyDataDrivenModifier(caster, v, "modifier_ishtar_passive_buff", {duration = 1})
-			end
-       	end
-    end
+	if IsAlive(caster) then
+		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, buff_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		for k,v in pairs(targets) do
+			if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
+				if IsFemaleServant(v) == false then
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_ishtar_passive_buff", {duration = 1})
+				end
+	       	end
+	    end
+	end
 end
 
 function OnPassiveDamaged(keys)
@@ -527,17 +529,19 @@ function OnPassiveGemThink(keys)
 
 	if caster.IsOfferingAcquired == false then return end
 
-	stack = caster:GetModifierStackCount("modifier_ishtar_passive_gem_gain", caster) or 0
-	local newstack = stack + stack_gain
-	if(stack == time_per_gem) then
-		caster:SetModifierStackCount("modifier_ishtar_passive_gem_gain", caster, 0)
-		gemstack = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
-		if(gemstack < max_gem) then
-			gemstack = gemstack + 1
-			caster:SetModifierStackCount("modifier_ishtar_gem", caster, gemstack)
+	if IsAlive(caster) then
+		stack = caster:GetModifierStackCount("modifier_ishtar_passive_gem_gain", caster) or 0
+		local newstack = stack + stack_gain
+		if(stack == time_per_gem) then
+			caster:SetModifierStackCount("modifier_ishtar_passive_gem_gain", caster, 0)
+			gemstack = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
+			if(gemstack < max_gem) then
+				gemstack = gemstack + 1
+				caster:SetModifierStackCount("modifier_ishtar_gem", caster, gemstack)
+			end
+		else
+			caster:SetModifierStackCount("modifier_ishtar_passive_gem_gain", caster, newstack)
 		end
-	else
-		caster:SetModifierStackCount("modifier_ishtar_passive_gem_gain", caster, newstack)
 	end
 end
 
