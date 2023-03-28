@@ -53,7 +53,6 @@ softdispellable = {
     "modifier_replenishment_heal",
     "modifier_master_intervention",
 
-
     -- Debuff
     "modifier_kinghassan_dread",
     "modifier_kinghassan_flames_of_gehenna",
@@ -64,13 +63,11 @@ softdispellable = {
     "modifier_mordred_rampage_stack",
     "modifier_armor_reduction",
     "modifier_witchcraft_mr_reduction",
-    "modifier_atalanta_calydonian_hunt",
     "modifier_dirk_weakening_venom",
     "modifier_zhuge_liang_acid",
     "modifier_zhuge_liang_fire_arrow",
     "modifier_robin_roots_slow",
     "modifier_robin_hunter_rain_slow",
-    "modifier_binding_chains",
     "modifier_poison_cloud_debuff",
     "modifier_nobu_innovation_ms",
     "modifier_nobu_slow",
