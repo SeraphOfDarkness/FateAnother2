@@ -14568,6 +14568,133 @@
         "DOTA_Tooltip_musashi_modifier_wind_debuff"    "WIND DEBUFF"
         "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Revoked and Stunned for durations. "
 
+	  //====================================
+        //      Ishtar
+        //====================================
+        "npc_dota_hero_oracle"             "Ishtar"
+        "npc_dota_hero_oracle_summon"		"Servant <font color='#58ACFA'>Ishtar</font> has been summoned."
+        "npc_dota_hero_oracle_enable_combo"	"Enable Combo: Jabal Hamlin Breaker - Mountain Range-Shaking Firewood of Venus"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_ishtar_q"			"<font color='#9FFFCC'>Gem Creation</font>"
+        "DOTA_Tooltip_ability_ishtar_q_Description"		"Pay some gold and gain a gem stack. Gems powers up your ability. \n <font color='#58ACFA'>Venus Radiance</font>: Increased damage per gem count. \n <font color='#58ACFA'>An Gal Ta Ki Gal Šè</font>: Gain extra impact damage. \n <font color='#58ACFA'>Light of Venus</font>: Gain bonus damage percentage based on gems count."
+        "DOTA_Tooltip_ability_ishtar_q_Lore"    			"Gems value goes stonk."
+        "DOTA_Tooltip_ability_ishtar_q_cast_time"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_q_gem_cost"			"GEM COST:"
+        "DOTA_Tooltip_ability_ishtar_q_bonus_r_impact_per_gem"			"BONUS IMPACT DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_q_bonus_e_per_gem"			"BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_q_bonus_f_percentage_per_gem"			"%BONUS DAMAGE PERCENTAGE:"
+
+        "DOTA_Tooltip_Ability_ishtar_d"			"<font color='#9FFFCC'>Gems of Uruk</font>"
+        "DOTA_Tooltip_ability_ishtar_d_Description"		"Ishtar's obsession over gems allows her to keep a certain amount of gems to power up her abilities. Ishtar loses a percentage of gem on death."
+        "DOTA_Tooltip_ability_ishtar_d_Lore"    			"Gems value goes stonk."
+        "DOTA_Tooltip_ability_ishtar_d_max_gem"			"MAX GEMS:"
+        "DOTA_Tooltip_ability_ishtar_d_gem_loss"			"%GEM LOSS ON DEATH:"
+
+        "DOTA_Tooltip_Ability_ishtar_w"			"<font color='#9FFFCC'>Maanna, the Boat of Heaven</font>"
+        "DOTA_Tooltip_ability_ishtar_w_Description"		"Ishtar's dashes in a direction riding her giant bow, can be stopped at will, stops at being disabled. /n Expect horrible turns if you target too close."
+        "DOTA_Tooltip_ability_ishtar_w_Lore"    			"Helicopter helicopter."
+        "DOTA_Tooltip_ability_ishtar_w_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_w_dash_duration"			"DASH DURATION:"
+        "DOTA_Tooltip_ability_ishtar_w_dash_range"			"DASH RANGE:"
+
+        "DOTA_Tooltip_Ability_ishtar_e"			"<font color='#9FFFCC'>Venus Radiance</font>"
+        "DOTA_Tooltip_ability_ishtar_e_Description"		"Ishtar shoots a target with multiple rays of light."
+        "DOTA_Tooltip_ability_ishtar_e_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_e_damage"			"DAMAGER PER RAY:"
+        "DOTA_Tooltip_ability_ishtar_e_arrows"			"RAY AMOUNT:"
+        "DOTA_Tooltip_ability_ishtar_e_speed"			"RAY SPEED:"
+
+        "DOTA_Tooltip_Ability_ishtar_f"			"<font color='#9FFFCC'>Light of Venus</font>"
+        "DOTA_Tooltip_ability_ishtar_f_Description"		"<font color='#9FFFCC'>VECTOR ABILITY</font>.\n Ishtar shoots a target with a radiant ray, which bounce to a direction. If the bounce hits, it will spread and burst hitting all nearby enemies dealing damage.\n Shares level with <font color='#9FFFCC'>Maanna, the Boat of Heaven</font>."
+        "DOTA_Tooltip_ability_ishtar_f_radius"			"RADIUS:"
+        "DOTA_Tooltip_ability_ishtar_f_damage"			"DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_f_ricochet_damage_multiplier"			"RICOCHET DAMAGE MULTIPLIER:"
+        "DOTA_Tooltip_ability_ishtar_f_splash_radius"			"SPLASH RADIUS:"
+        "DOTA_Tooltip_ability_ishtar_f_speed"			"RAY SPEED:"
+
+        "DOTA_Tooltip_Ability_ishtar_r"			"<font color='#FFFFFF'>An Gal Ta Ki Gal Šè</font>"
+        "DOTA_Tooltip_ability_ishtar_r_Description"		"<font color='#9FFFCC'>VECTOR ABILITY</font>.\nIshtar charges up her giant bow, Maanna and proceed to shoots a giant arrow dealing damage on impact which then expldoe and deals extra area magical damage on impact. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Goddess of Venus</font>."
+        "DOTA_Tooltip_ability_ishtar_r_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_r_damage"			"ARROW DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_r_speed"			"ARROW SPEED:"
+        "DOTA_Tooltip_ability_ishtar_r_width"			"ARROW WIDTH:"
+        "DOTA_Tooltip_ability_ishtar_r_range_max"			"MAXIMUM RANGE:"
+        "DOTA_Tooltip_ability_ishtar_r_impact_radius"			"IMPACT RADIUS:"
+        "DOTA_Tooltip_ability_ishtar_r_damage_impact"			"IMPACT DAMAGE:"
+
+        "DOTA_Tooltip_Ability_ishtar_r_upgrade"			"<font color='#9FFFCC'>An Gal Ta Ki Gal Šè</font>"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_Description"		"<font color='#9FFFCC'>VECTOR ABILITY</font>.\n Right click this ability to set to auto-cast, when auto-cast is enabled ability will behave differently.\n<font color='#58ACFA'>Default mode (Autocast disabled)</font>: Ishtar charges up her giant bow, Maanna and proceed to shoots a giant arrow dealing damage on impact which then expldoe and deals extra area magical damage on impact. \n<font color='#58ACFA'>Venus mode (Autocast enabled)</font>: Ishtar charges up her giant bow longer, pushing her back while gaining invulnerability and shoots a giant arrow of venus for longer range and dealing extra impact damage."
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage"			"ARROW DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_speed"			"ARROW SPEED:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_width"			"ARROW WIDTH:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_range_max"			"MAXIMUM RANGE:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_impact_radius"			"IMPACT RADIUS:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage_impact"			"IMPACT DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_range"			"EXTRA RANGE:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_cast_delay"			"EXTRA CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_dash_back"			"DASHBACK:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_invul_duration"			"INVUL DURATION:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_impact_damage_percentage"			"%EXTRA IMPACT DAMAGE PERCENTAGE:"
+
+        "DOTA_Tooltip_Ability_ishtar_combo"			"<font color='#9FFFCC'>Jabal Hamrin Breaker - Mountain Range-Shaking Firewood of Venus</font>"
+        "DOTA_Tooltip_ability_ishtar_combo_Description"		"<font color='#9FFFCC'>VECTOR ABILITY</font>. <font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: W -> R in 5 seconds.</font>\n\n Ishtar channels a portal to targeted point, teleporting up and becoming invulnerable while charging up Maanna and preparing to shoot the power of venus, causing a huge explosion and dealing damage in the area then teleporting back. Affected area will burn and deal a small amount of damage per second. \n<font color='#9FFFCC'>Gain extra damage based on gem count</font>."
+        "DOTA_Tooltip_ability_ishtar_combo_cast_delay"			"CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_combo_speed"			"ARROW SPEED:"
+        "DOTA_Tooltip_ability_ishtar_combo_max_teleport_range"			"MAX TELEPORT RANGE:"
+        "DOTA_Tooltip_ability_ishtar_combo_speed"			"ARROW SPEED:"
+        "DOTA_Tooltip_ability_ishtar_combo_impact_radius"			"IMPACT RADIUS:"
+        "DOTA_Tooltip_ability_ishtar_combo_arrow_range"					"ARROW RANGE:"
+        "DOTA_Tooltip_ability_ishtar_combo_damage"					"DAMAGE:"
+        "DOTA_Tooltip_ability_ishtar_combo_damage_per_gem"			"BONUS DAMAGE PER GEM:"
+        "DOTA_Tooltip_ability_ishtar_combo_dps"					"DPS:"
+        "DOTA_Tooltip_ability_ishtar_combo_dps_duration"					"DPS DURATION:"
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_gems"			"<font color='#FFFFFF'>Attribute: Gems! More gems!!</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_gems_Description"		"<font color='#9FFFCC'>Gems of Uruk</font> : Gains extra maxmimum gem, and reduced gem loss penalty on death."
+        "DOTA_Tooltip_ability_ishtar_attribute_gems_reduced_gem_loss"			"%GEM LOSS ON DEATH:"
+        "DOTA_Tooltip_ability_ishtar_attribute_gems_bonus_max_gem"			"BONUS MAX GEMS:"
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_offering"			"<font color='#FFFFFF'>Attribute: Goddess Worthy Offerings</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_offering_Description"		"<font color='#9FFFCC'>Gems of Uruk</font> : Ishtar gains gem naturally overtime."
+        "DOTA_Tooltip_ability_ishtar_attribute_offering_Lore"		"Sorry, further subscription to your goddess would cost you one gem."
+        "DOTA_Tooltip_ability_ishtar_attribute_offering_gain_gem_each_second"			"GAIN A GEM EACH X SECOND:"
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_goddess"			"<font color='#FFFFFF'>Attribute: Manifestation of Beauty</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_Description"		"Ishtar now pasively buffs all her male ally around her with <font color='#FFFF28'>Mesmerizing Charm</font>. Ishtar now also recovers a percentage of damage taken from male heroes. \n<font color='#FFFF28'>Mesmerizing Charm</font>: Gaining extra magical resistance."
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_recover_damage_taken"			"%DAMAGE TAKEN RECOVERY FROM MALE HEROES:"
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_recovery_per_second"			"HEALTH RECOVERED PER SECOND:"
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_buff_male_mr"			"%BONUS MALE MR:"
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_buff_radius"			"BUFF RADIUS:"
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_venus"			"<font color='#FFFFFF'>Attribute: Goddess of Venus</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_Description"		"<font color='#9FFFCC'>An Gal Ta Ki Gal Šè</font> : Can now be autocast, allowing it to behave differently. When autocast is enabled, <font color='#9FFFCC'>An Gal Ta Ki Gal Šè</font> channels for an extra duration then gains extra range, impact damage and push Ishtar back while giving her invulnerability."
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_range"			"EXTRA RANGE:"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_cast_delay"			"EXTRA CAST DELAY:"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_dash_back"			"DASHBACK:"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_invul_duration"			"INVUL DURATION:"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_impact_damage_percentage"			"%EXTRA IMPACT DAMAGE PERCENTAGE:"
+
+        //====================================   MODIFIERS   ====================================
+
+		"DOTA_Tooltip_modifier_ishtar_gem"															"Gems of uruk"
+		"DOTA_Tooltip_modifier_ishtar_gem_Description"												"Gaining bonus."
+
+		"DOTA_Tooltip_modifier_ishtar_dashing"															"Dashing"
+
+		"DOTA_Tooltip_modifier_ishtar_combo_cooldown"															"Ishtar combo cooldown"
+		"DOTA_Tooltip_modifier_ishtar_combo_cooldown_Description"												"Combo on cooldown."
+
+		"DOTA_Tooltip_modifier_ishtar_casting"															"Charging up Maanna"
+
+		"DOTA_Tooltip_modifier_ishtar_passive_buff"															"Mesmerizing Charm"
+		"DOTA_Tooltip_modifier_ishtar_passive_buff_Description"												"Gaining extra Magic Resistance."
+
+		"DOTA_Tooltip_modifier_ishtar_damage_stack"															"Recovering damage"
+		"DOTA_Tooltip_modifier_ishtar_damage_stack_Description"												"Healing damage taken from male heroes."
+
         //====================================
         //      Idk what this is
         //====================================
