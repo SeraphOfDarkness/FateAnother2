@@ -16,6 +16,19 @@ function OnBirdSummon(keys)
 	end)
 end
 
+function GardenCheck(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+
+	if caster.HangingGardens:IsAlive() then
+		return
+	else
+		if caster:HasModifier("modifier_semiramis_mounted") then
+			caster:RemoveModifierByName("modifier_semiramis_mounted")
+		end
+	end
+end
+
 function OnLaserThink(keys)
 	local caster = keys.caster
 	local ability = keys.ability

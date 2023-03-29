@@ -104,6 +104,7 @@ function nobu_unifying_attribute:OnSpellStart()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.UnifyingAcquired) then
 		hero.UnifyingAcquired = true
+		hero:RemoveModifierByName("modifier_nobu_combo_window")
 	 
 		if hero.NobuActionAcquired then
 			UpgradeAttribute(hero, 'nobu_guns_action', 'nobu_guns_upgrade', true)
@@ -127,6 +128,8 @@ function nobu_independent_action:OnSpellStart()
 	local hero = caster.HeroUnit
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.NobuActionAcquired) then
+		hero:RemoveModifierByName("modifier_nobu_combo_window")
+		
 		hero.NobuActionAcquired = true
 		local show = true
 	 	if hero:GetAbilityByIndex(4):GetAbilityName() == "nobu_demon_king_close" then

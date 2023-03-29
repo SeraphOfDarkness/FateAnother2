@@ -64,6 +64,16 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
 				}	    		
+
+				"ThinkInterval"  		"2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+						"Function"		"GardenCheck"
+					}
+				}
 			}
 
 			"modifier_semiramis_class_assassin"

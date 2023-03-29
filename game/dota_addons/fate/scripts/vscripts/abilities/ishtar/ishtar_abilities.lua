@@ -301,7 +301,7 @@ function OnIshtarR(keys)
 		        bReplaceExisting = false,
 		        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		        iUnitTargetType = DOTA_UNIT_TARGET_HERO,
 		        fExpireTime = GameRules:GetGameTime() + 3.0,
 				bDeleteOnHit = true,
 				vVelocity = caster:GetForwardVector() * speed,		
@@ -466,7 +466,7 @@ function OnPassiveThink(keys)
 
 	if caster.IsGoddessAcquired == false then return end
 
-	if IsAlive(caster) then
+	if caster:IsAlive() then
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, buff_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 			if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
@@ -529,7 +529,7 @@ function OnPassiveGemThink(keys)
 
 	if caster.IsOfferingAcquired == false then return end
 
-	if IsAlive(caster) then
+	if caster:IsAlive() then
 		stack = caster:GetModifierStackCount("modifier_ishtar_passive_gem_gain", caster) or 0
 		local newstack = stack + stack_gain
 		if(stack == time_per_gem) then

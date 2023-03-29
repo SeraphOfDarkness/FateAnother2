@@ -1,3 +1,40 @@
+Ishtar E,F 
+Cast range + 100
+
+Ishtar W
+CD 21 19 17 15 13 -> 18 16 14 12 10
+
+Ishtar R
+I think no longer hit creep?
+
+Range 1750 -> 2000
+Damage impact 500 650 800 950 1100 -> 600 750 900 1050 1200
+
+Combo
+Damage 2000 -> 2500
+
+SA Venus 
+Extra impact dmg 10% -> 15%
+Extra range 650 -> 800
+=============================================================
+Mashu W
+Damage reduction -20 -25 -30 -35 -40 -> -20 -24 -28 -32 -36
+
+Mashu R
+Buff magic resist 8 12 16 20 24 -> 10 13 16 19 22 
+
+Mashu E
+Buff dmg reduction -12 -15 -18 -21 -24 -> -11 -14 -17 -20 -23
+==============================================================
+
+Attempt fix semiramis perma invul
+Attempt fix game not end
+Attempt fix nobu dash no damage from rifle
+Attempt fix Mashu castle from combo 
+
+Something something atlanta
+--------------
+
 ¯\_(ツ)_/¯
 
 --------------

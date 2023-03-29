@@ -2,6 +2,7 @@ nobu_dash = class({})
 nobu_dash_action = class({})
 nobu_dash_3000 = class({})
 nobu_dash_upgrade = class({})
+
 LinkLuaModifier("modifier_nobu_turnrate", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_dash_dmg", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_window", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
