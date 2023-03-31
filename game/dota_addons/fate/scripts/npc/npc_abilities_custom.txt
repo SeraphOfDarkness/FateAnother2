@@ -49,6 +49,7 @@
 #base "abilities/ascension/ascension_skill.kv"
 #base "abilities/musashi/musashi_abilities.kv"
 #base "abilities/ishtar/ishtar_abilities.kv"
+#base "abilities/atlanta_alter/atlanta_alter_abilities.kv"
 
 "DOTAAbilities"
 {

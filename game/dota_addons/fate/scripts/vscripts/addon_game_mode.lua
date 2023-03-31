@@ -316,6 +316,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_semiramis.vsndevts", context)
 
                         --============ Berserker ==============--     
+    PrecacheResource("soundfile", "soundevents/hero_atlanta_alter.vsndevts", context)   
     PrecacheResource("soundfile", "soundevents/hero_berserker.vsndevts", context)                
     PrecacheResource("soundfile", "soundevents/hero_lancelot.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_fran.vsndevts", context)
@@ -379,6 +380,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_phantom_assassin.vsndevts", context )
 
                         --============ Berserker ==============--      
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ursa.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts", context )    
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_sven.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_zuus.vsndevts", context )

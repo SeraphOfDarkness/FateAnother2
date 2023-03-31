@@ -45,5 +45,6 @@
 	"npc_dota_hero_gyrocopter"			"npc_dota_hero_nobu"
 	"npc_dota_hero_dragon_knight"		"npc_dota_hero_mashu"
 	"npc_dota_hero_antimage"			"npc_dota_hero_musashi"
-	"npc_dota_hero_oracle"				"npc_dota_hero_ishtar"
+	"npc_dota_hero_oracle"				"npc_dota_hero_ishtar"	
+	"npc_dota_hero_ursa"				"npc_dota_hero_atlanta_alter"
 }

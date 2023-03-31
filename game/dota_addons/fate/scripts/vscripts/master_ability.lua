@@ -440,6 +440,15 @@ IshtarAttribute = {
 	attrCount = 4
 }
 
+AtlantaAlterAttribute = {
+	"atalanta_evolution_attribute",
+	"atalanta_tornado_attribute",
+	"atalanta_vision_attribute",
+	"atalanta_moon_attribute",
+	"atalanta_skia",
+	attrCount = 4
+}
+
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
 	"modifier_vortigern_ferocity",
@@ -996,6 +1005,8 @@ function FindAttribute(name)
 		attributes = MashuAttribute
 	elseif name == "npc_dota_hero_oracle" then
 		attributes = IshtarAttribute
+	elseif name == "npc_dota_hero_ursa" then
+		attributes = AtlantaAlterAttribute
     end
    
     return attributes
