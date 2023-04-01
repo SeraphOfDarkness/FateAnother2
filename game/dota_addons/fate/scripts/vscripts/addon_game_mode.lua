@@ -93,6 +93,7 @@ ROUND_DURATION = 120
 FIRST_BLESSING_PERIOD = 300
 BLESSING_PERIOD = 480
 BLESSING_MANA_REWARD = 15
+DRAW_CHEST_DROP_PERIOD = 600
 SPAWN_POSITION_RADIANT_DM = Vector(-5400, 762, 376)
 SPAWN_POSITION_DIRE_DM = Vector(7200, 4250, 755)
 SPAWN_POSITION_T1_TRIO = Vector(-796,7032,512)
@@ -274,8 +275,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_nero.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)    
+    PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context) 
     PrecacheResource("soundfile", "soundevents/hero_musashi.vsndevts", context)
 
                         --============ Archer ==============--      
@@ -339,7 +339,6 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
-    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
 
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
@@ -739,6 +738,16 @@ function FateGameMode:OnGameInProgress()
 
                     return BLESSING_PERIOD
             end})
+            if string.match(GetMapName(), "fate_elim") then 
+                CreateUITimer("Draw Chest Drop Cooldown", DRAW_CHEST_DROP_PERIOD, "draw_chest_timer")
+                Timers:CreateTimer('draw_chest', {
+                    endTime = DRAW_CHEST_DROP_PERIOD,
+                    callback = function()
+                    
+                    self.bDrawChestDrop = true        
+
+                end})
+            end
         end
         if (_G.GameMap == "fate_trio_rumble_3v3v3v3" or _G.GameMap == "fate_ffa" or _G.GameMap == "fate_trio") then
             if ServerTables:GetAllTableValues("EventPadoru") ~= false then 
@@ -1781,6 +1790,9 @@ function FateGameMode:OnGameRulesStateChange(keys)
                     ServerTables:SetTableValue("GameMode", "mode", "draft", true)
                     --_G.DRAFT_MODE = true
                 else
+                    if self.votemodeResultTable.v_OPTION_3 >= 1 then
+                        ServerTables:SetTableValue("GameMode", "mode", "samehero", true)
+                    end
                     Selection = HeroSelectioN()
                     --Selection:UpdateTime()
                     --_G.DRAFT_MODE = false
@@ -2541,7 +2553,7 @@ function FateGameMode:OnPlayerReconnect(keys)
             end
             if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
                 CustomNetTables:SetTableValue("draft", "draftmode", {playerId = userid, reconnect = ply.reconnect + 1})
-            elseif ServerTables:GetTableValue("GameMode", "mode") == "classic" then 
+            elseif ServerTables:GetTableValue("GameMode", "mode") == "classic" or ServerTables:GetTableValue("GameMode", "mode") == "samehero" then 
                 CustomNetTables:SetTableValue("nselection", "hs", {playerId = userid, reconnect = ply.reconnect + 1})
                 print('panel show?')
             end
@@ -3530,6 +3542,8 @@ function FateGameMode:OnVoteMode(keys)
         self.votemodeResultTable.v_OPTION_1 = self.votemodeResultTable.v_OPTION_1+1
     elseif votemodeResult == 2 then
         self.votemodeResultTable.v_OPTION_2 = self.votemodeResultTable.v_OPTION_2+1
+    elseif votemodeResult == 3 then
+        self.votemodeResultTable.v_OPTION_3 = self.votemodeResultTable.v_OPTION_3+1
     end
 end
 
@@ -3887,6 +3901,7 @@ function FateGameMode:InitGameMode()
     self.votemodeResultTable = {
         v_OPTION_1 = 0, -- 12 kills
         v_OPTION_2 = 0,  -- 10
+        v_OPTION_3 = 0,  -- 10
     }
 
     self.voteBanHeroTable = 0
@@ -3895,6 +3910,9 @@ function FateGameMode:InitGameMode()
     -- Active Hero Map
     self.vPlayerHeroData = {}
     self.bPlayersInit = false
+    self.bDrawChestDrop = false
+    self.MVPA = {}
+    self.MVPB = {}
 
     ServerTables:CreateTable("GameMap", {map = _G.GameMap})
     ServerTables:CreateTable("GameState", {state = "FATE_PRE_GAME"})
@@ -3908,6 +3926,7 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})
     ServerTables:CreateTable("IsNewbie", {new = false})
+    ServerTables:CreateTable("MVP", {team1 = false, team2 = false, ffa = false})
 
     if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" then
         CustomNetTables:SetTableValue("mode", "mode", {mode = true})
@@ -3920,6 +3939,29 @@ function FateGameMode:InitGameMode()
     end
 
     
+end
+
+function FateGameMode:calcMVP()
+    print('cal MVP')
+    LoopOverPlayers(function(ply, plyID, playerHero)
+        playerHero.ServStat.death = playerHero.ServStat.death or 1
+        local mvp_point = (3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.ServStat.death) - (2 * playerHero.ServStat.tkill)
+        if playerHero:GetTeamNumber() == 2 then
+            table.insert(self.MVPA, {playerId = plyID, mvpPoint = mvp_point})
+        else
+            table.insert(self.MVPB, {playerId = plyID, mvpPoint = mvp_point})
+        end
+    end)
+
+    table.sort(self.MVPA, function(a,b) return a.mvpPoint > b.mvpPoint end)
+
+    table.sort(self.MVPB, function(a,b) return a.mvpPoint > b.mvpPoint end)
+
+    --[[for k,v in pairs (self.MVPA) do
+        print(k,v)
+    end]]
+    --print(self.MVPA[1]['playerId'])
+
 end
 
 function CountdownTimer()
@@ -4531,6 +4573,9 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         GameRules:SendCustomMessage("#Fate_Round_Draw", 0, 0)
         winnerEventData.winnerTeam = 2
         EmitAnnouncerSound("Game_Draw")
+        if self.bDrawChestDrop == false then 
+            self:calcMVP()
+        end
     elseif winner == 3 then
         GameRules:SendCustomMessage("#Fate_Round_Winner_1_By_Default", 0, 0)
         self.nRadiantScore = self.nRadiantScore + 1

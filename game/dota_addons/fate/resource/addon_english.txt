@@ -15028,7 +15028,6 @@
 		"DOTA_Tooltip_modifier_ishtar_damage_stack"															"Recovering damage"
 		"DOTA_Tooltip_modifier_ishtar_damage_stack_Description"												"Healing damage taken from male heroes."
 
-
 		//====================================
 		//	Apocrypha - Raging Cat
 		//====================================
@@ -16983,6 +16982,8 @@
 		"Fate_Pepe_Savior"			"PEPE Savior is here to protect all PEPEs. All PEPEs get bonus 10 CP while PEPE Savior get 2 CP per PEPE."
 		"Fate_Ban_Mode2"			"Ban Mode has been selected. Total Ban Heroes: 2"
 		"Fate_Ban_Mode4"			"Ban Mode has been selected. Total Ban Heroes: 4"
+		"Fate_Same_Hero_Mode"		"Same Hero Mode has been selected, some hero will be disabled."
+		"Fate_Classic_Mode"			"Classic Mode has been selected"
 
 		"Fate_Autobalance"	"Start Auto Balance Team."
 		"Player_Take_Avarice1"	"Total Avarice 1. All allies get 1 Master Mana and 300 gold at the start of round!"

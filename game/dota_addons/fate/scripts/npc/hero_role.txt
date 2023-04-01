@@ -1,18 +1,82 @@
-HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(snipe), support, 
-{									// tank(counter), burst(beam/jump/aoe), control, mobility
-	"npc_dota_hero_legion_commander"							// MMR base: win +10/ lose -10
-	{															// bonus MMR: 10 (cal from role and weight)
-		"Sex"			"Female"								// MMR MVP: 5 (most KDA from each team: 3K + A - 2D)
+HeroRoles  							
+{		
+	// Role of heroes in Fate will be use to calculate MMR	
+	// Role show in UI
+	//		- assassin : single target burst damage
+	//		- burst : burst aoe damage also include beam and jump
+	//		- beamer : beam like ability (long range linear projectile)
+	//		- counter : ability to return burst damage to attacker
+	//		- control : debuff AOE or multi target (single target debuff not include)
+	//		- carry : Ability to support AA scaling
+	//		- dps : high Damage Per Sec
+	//		- jumper : ability that need to jump and become invulnerable
+	//		- mobility : dash, location blink, high movespeed (target blink not include)
+	//		- reality_marble : hero is stronger in his zone
+	//		- survivality : self linken, self heal, BC
+	//		- support : buff, heal, dmg reduction to allies
+	//		- snipe : 1.5k range single target or 2k range aoe
+	//		- tank : self damage reduction, super regen
+	//
+	// Role to calculate MMR: some roles will be calculate under certain role
+	//		- Tank: tank + counter + survivality
+	//			- Focus on high dTake and low Death
+	//		- Burst: burst + beamer + jumper + aoe
+	//			- Focus on high dDeal, high KD ratio and medium Assist
+	//		- Carry: carry + reality_marble + dps
+	//			- Focus on high dDeal, medium KD ratio and low Death
+	//		- Assassin: assassin + snipe
+	//			- Focus on high KD ratio, low Death, medium dDeal
+	//		- Support
+	//			- Focus on high Assist, high heal/shield to allies, avarice taken, liken usage, ward usage
+	//		- Control
+	//			- Focus on high CC (stun, root, slow, silence, lock) time
+	//		- Mobility
+	//			- Focus on low Death
+	//
+	//	Base MMR = +10(win) and -10(lose)
+	//	Bonus MMR = 0 - 10 (calculate from role and weight)
+	//	MVP MMR = 5 (most KDA from each team: 3K + A - 2D)
+	//	Weight and Criteria
+	//	total weight = 100% and divide it in to each role
+	//	Each role has criterias, fulfil the criteria will get bonus MMR based on weight
+	//		- dDeal (damage Dealer) : has average damage deal more than certain damage will get MMR
+	//		- KD (Kill/Death ratio) : has KD ratio more than certain number will get MMR
+	//		- Assist : has total Assist more than certain number will get MMR
+	//		- dTake (damage taken) : has percentage of average damage taken per max hp more than certain number will get MMR
+	//		- Death : has percentage of total death per total round less than certain number will get MMR
+	//		- CC (control time) : has average control time more than certain number will get MMR
+	//		- Heal : has average heal amount (heal scroll include) more than certain number will get MMR
+	//		- Avarice : take avarice grail will get MMR
+	//		- Link : Use link per round more than certain number will get MMR
+	// 		- Ward : place ward per round more than certain number will get MMR
+	//
+	//	Trait : hero trait that affecting game
+	//		- arthur : Arthur and Artoria pendragon take bonus damage from Clarent Blood Arthur
+	//		- dragon : take bonus damage from Arondright Overload
+	//		- divine : Divinity take bonus damage from god slayer and some abilities
+	//		- human : Pseudo servant hero take damage from Avenger
+	//		- manaless : this hero has no mana (can not use Seal 4 and can not be burn mana)
+	//		- no_atk : this hero can not do normal attack
+	//		- god_slayer : this hero has ability/SA to deal bonus damage to Divinity
+	//		- female_slayer : this hero has ability/SA to take advantage on female
+	//		- human_slayer : this hero has ability/SA to deal bonus damage to Pseudo servant
+	//		- shinsengumi : this hero is consider as shinsengumi that can be gain some effect
+	//		- vampire : take bonus damage from Kyrie Eleision
+
+					
+	"npc_dota_hero_legion_commander"							
+	{															
+		"Sex"			"Female"								
 		"Class"			"Saber"	
-		"Trait"			"arthur,dragon" // trait affecting game	// Penalty: -1 (team kill: nuke)
-		"Roles"			"beamer,tank" 	// Show in tooltip 		// RQ: -Player Point and no +0 if won
-		"Role" 							// to calculate MMR 	// Tank: high dmg take(max hp + heal), low D
-		{ 														// Carry: high dmg deal, high KD, low D
-			"1"													// Assassin: high KD, low D, medium dmg deal
-			{													// Support: high A, high heal/shield, avarice, link, ward
-				"burst"											// Burst(AOE): high dmg deal, high KD, medium A
-				{												// Control: high CC(stun, root, slow, silence, lock) time
-					"weight"	"60"	// weight to calculate 	// Mobility: low D
+		"Trait"			"arthur,dragon" // trait affecting game	
+		"Roles"			"beamer,tank" 	// Show in tooltip 		
+		"Role" 							// to calculate MMR 	
+		{ 														
+			"1"													
+			{													
+				"burst"											
+				{												
+					"weight"	"60"	// weight to calculate 	
 					"criteria"	"3"
 					"dDeal"		"4500"	// > avg dmg deal per round == get mmr
 					"KD"		"1.5"	// > total KD 				== get mmr
@@ -29,8 +93,7 @@ HeroRoles  							// role for calculate: carry(reality marble/AA/dps), assassin(
 					"Death"		"80"	// < death of total round
 				}
 			}
-		}
-		
+		}	
 	}		
 	"npc_dota_hero_spectre"				
 	{

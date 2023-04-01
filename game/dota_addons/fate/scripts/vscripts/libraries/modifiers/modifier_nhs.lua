@@ -32,13 +32,15 @@ function HeroSelectioN:constructor()
 		self.NewbieBanPlayer = {}
 		self.BanHero = {}
 		self.BanVotedPlayer = {}
+		self.SameHeroVote = {}
+		self.SameHeroVotedPlayer = {}
         local heroList = LoadKeyValues("scripts/npc/herolist.txt")
         local heroList2 = LoadKeyValues("scripts/npc/herolist.txt")
         local heroes = LoadKeyValues("scripts/npc/heroes.txt")
         local skinList = LoadKeyValues("scripts/npc/skin.txt")
         local skinTier = LoadKeyValues("scripts/npc/skinaccess.txt")
         local testList = LoadKeyValues("scripts/npc/herotest.txt")
-        local roleList = LoadKeyValues("scripts/npc/hero_role.txt")
+        self.roleList = LoadKeyValues("scripts/npc/hero_role.txt")
         self.SpecBan = LoadKeyValues("scripts/npc/spec_ban.txt")
         self.NewbieBan = LoadKeyValues("scripts/npc/newbie_ban.txt")
         self.Unique = LoadKeyValues("scripts/npc/unique.txt")
@@ -63,6 +65,7 @@ function HeroSelectioN:constructor()
 		self.AutoBalance = 0
 		self.total_ban = GameRules.AddonTemplate.voteBanHeroTable or 0
 		self.ban = true
+		self.sameheromode = false
 		self.devPresence = false
 		self.pepelord = false
 		self.load_time = 5
@@ -90,6 +93,19 @@ function HeroSelectioN:constructor()
 		else
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Ban_Mode" .. self.total_ban} )
 		end
+
+		if ServerTables:GetTableValue("GameMode", "mode") == "samehero" then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Same_Hero_Mode"} )
+			self.sameheromode = true
+			self.AllHeroes["npc_dota_hero_chen"] = nil
+			self.AvailableHeroes["npc_dota_hero_chen"] = nil
+			self.AllHeroes["npc_dota_hero_ember_spirit"] = nil
+			self.AvailableHeroes["npc_dota_hero_ember_spirit"] = nil
+			self.AllHeroes["npc_dota_hero_vengefulspirit"] = nil
+			self.AvailableHeroes["npc_dota_hero_vengefulspirit"] = nil
+		else
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Clasic_Mode"} )
+		end
 		--[[for a,b in pairs (skinTier) do 
 			for c,d in pairs (b) do 
 				print(a,c,d)
@@ -104,7 +120,7 @@ function HeroSelectioN:constructor()
 
 		for key, value in pairs (self.AllHeroes) do
 			if value ~= 1 then return end
-			local hero_info = GetHeroInfo(key, heroes[key], roleList)
+			local hero_info = GetHeroInfo(key, heroes[key], self.roleList[key])
 			self.HeroInfo[key] = hero_info
 		end
 
@@ -265,6 +281,9 @@ function HeroSelectioN:constructor()
 	    self.SkinListener = CustomGameEventManager:RegisterListener("nselection_hero_ban", function(id, ...)
 	        Dynamic_Wrap(self, "OnBan")(self, ...) 
 	    end)
+	    self.SkinListener = CustomGameEventManager:RegisterListener("nselection_hero_same_hero", function(id, ...)
+	        Dynamic_Wrap(self, "OnSameHeroVote")(self, ...) 
+	    end)
 	    self.SummonListener = CustomGameEventManager:RegisterListener("nselection_hero_summon", function(id, ...)
 		    Dynamic_Wrap(self, "OnSummon")(self, ...) 
 		end)
@@ -278,6 +297,7 @@ function HeroSelectioN:constructor()
         CustomNetTables:SetTableValue("nselection", "skin", self.AvailableSkins)
         CustomNetTables:SetTableValue("nselection", "banhero", self.BanHero)
         CustomNetTables:SetTableValue("nselection", "votebanplayer", self.BanVotedPlayer)
+        CustomNetTables:SetTableValue("nselection", "sameherovoteplayer", self.SameHeroVotedPlayer)
 
         CustomNetTables:SetTableValue("nselection", "skintier", self.skintier)
         CustomNetTables:SetTableValue("nselection", "skinaccess", self.skinAccess)
@@ -294,6 +314,9 @@ function HeroSelectioN:constructor()
         
         CustomNetTables:SetTableValue("nselection", "panel", {game = "start"})
         CustomNetTables:SetTableValue("nselection", "si", self.Id)
+        if self.sameheromode == true then 
+        	CustomNetTables:SetTableValue("nselection", "mode", {mode="samehero"})
+        end
         
         --CustomGameEventManager:Send_ServerToAllClients( "new_hero_selection", {Selection = "new"} ) 
 
@@ -321,7 +344,11 @@ function HeroSelectioN:constructor()
 				        	GameRules:ForceGameStart()
 			    			CustomGameEventManager:Send_ServerToAllClients( "bgm_intro", {bgm=1} )	
 			    		end)
-		        		self:OnDCRandom()
+			    		if self.sameheromode == true then 
+			    			self:OnSameHeroVoteFinal()
+			    		else
+		        			self:OnDCRandom()
+		        		end
 		        		Timers:CreateTimer(self.strategy_time, function() 
 			    			self:OnSummonTimer()
 			    			GameRules.AddonTemplate:CheckCondition()
@@ -528,6 +555,52 @@ function HeroSelectioN:OnBan(args)
 	    --	self.total_ban = self.total_ban - 1
 	    --end
 	end
+end
+
+function HeroSelectioN:OnSameHeroVote(args)
+	local playerId = args.playerId
+    local hero = args.hero
+
+    print('player : ' .. playerId .. 'vote hero : ' .. hero)
+
+	self.SameHeroVotedPlayer[playerId] = playerId
+	CustomNetTables:SetTableValue("nselection", "sameherovoteplayer", self.SameHeroVotedPlayer)
+
+	self.SameHeroVote[hero] = (self.SameHeroVote[hero] or 0) + 1
+end
+
+function HeroSelectioN:OnSameHeroVoteFinal()
+	self.same_hero = {}
+
+	if self.SameHeroVote == {} then 
+		local hero_random = self:Random()
+		self.SameHeroVote[hero_random] = 1
+	end
+
+	for hero, vote_count in pairs(self.SameHeroVote) do 
+		print(hero, vote_count)
+		table.insert(self.same_hero, {hero = hero, votePoint = vote_count})
+	end
+
+	table.sort(self.same_hero, function(a,b) return a.votePoint > b.votePoint end)
+
+	Timers:CreateTimer(0.1, function()
+		local hero = self.same_hero[1]['hero']
+		local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player")
+		for i = 0, max_player - 1 do
+			if PlayerResource:IsValidPlayer(i) then
+				self.Picked[i] = hero
+			    self.SkinSelect[hero] = self:GetSkin(i, hero)
+			    if self.SkinSelect[hero] == nil then 
+			    	self.SkinSelect[hero] = 0
+			    end
+
+			    CustomNetTables:SetTableValue("nselection", "picked", self.Picked)
+			    CustomNetTables:SetTableValue("nselection", "skinselect", self.SkinSelect)
+			    CustomGameEventManager:Send_ServerToAllClients( "preheroselect",  {hero=hero,playerId=i}) 
+			end
+		end
+	end)
 end
 
 function HeroSelectioN:OnBanFinal()
@@ -1020,12 +1093,12 @@ function GetHeroInfo(D2hero, hero, roleList)
 		STR = str,
 		AGI = agi,
 		INT = int,
-		Class = roleList[D2hero]["Class"], --CheckClass(D2hero), 
-		Sex = roleList[D2hero]["Sex"], --CheckSex(D2hero),
+		Class = roleList["Class"], --CheckClass(D2hero), 
+		Sex = roleList["Sex"], --CheckSex(D2hero),
 		NP = GetUnitKV(hero, "NP"),
 		DIF = GetUnitKV(hero, "Difficult"),
-		Ty = roleList[D2hero]["Roles"], --GetUnitKV(hero, "SType"),
-		Tr = roleList[D2hero]["Trait"], --GetUnitKV(hero, "Trait")
+		Ty = roleList["Roles"], --GetUnitKV(hero, "SType"),
+		Tr = roleList["Trait"], --GetUnitKV(hero, "Trait")
 	}
 
 	--if GetUnitKV(hero, "AttributeNumber") == 5 then 
