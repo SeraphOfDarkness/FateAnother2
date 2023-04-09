@@ -2,54 +2,60 @@ LinkLuaModifier("modifier_atalanta_curse", "abilities/alter_atalanta/atalanta_cu
 LinkLuaModifier("modifier_atalanta_curse_passive", "abilities/alter_atalanta/atalanta_curse", LUA_MODIFIER_MOTION_NONE)
 
 atalanta_curse = class({})
+atalanta_curse_upgrade = class({})
 
-function atalanta_curse:GetIntrinsicModifierName()
-	return "modifier_atalanta_curse_passive"
-end
-
-function atalanta_curse:OnSpellStart()
-	local caster = self:GetCaster()
-	EmitGlobalSound("atalanta_skia_channel")
-	Timers:CreateTimer(5.0, function()
-		local units = FindUnitsInRadius(caster:GetTeam(),
-                                        caster:GetAbsOrigin(), 
-                                        nil, 
-                                        99999, 
-                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                                        DOTA_UNIT_TARGET_ALL, 
-                                        DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
-                                        0, 
-                                        false)
-		for _,unit in pairs(units) do
-			if not unit or unit:IsNull() or not unit:IsAlive() then return end
-			unit:RemoveModifierByName("modifier_atalanta_curse")
-        end
-    end)
-    if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
-			if caster:FindAbilityByName("atalanta_jump"):IsCooldownReady() 
-				and caster:FindAbilityByName("atalanta_skia"):IsCooldownReady()  
-		    	and caster:GetAbilityByIndex(2):GetName() == "atalanta_jump" then
-				caster:SwapAbilities("atalanta_jump", "atalanta_skia", false, true)
-				Timers:CreateTimer(4, function()
-					caster:SwapAbilities("atalanta_jump", "atalanta_skia", true, false)
-				end)
-			end
-		end
-end
-
-function atalanta_curse:Curse(target)
-	local caster = self:GetCaster()
-	local stacks = 0
-
-	if not target or not target:IsAlive() or target:IsNull() then return end
-
-	if target:HasModifier("modifier_atalanta_curse") then
-		stacks = target:FindModifierByName("modifier_atalanta_curse"):GetStackCount()
+function atalanta_curse_wrapper(ability)
+	function ability:GetIntrinsicModifierName()
+		return "modifier_atalanta_curse_passive"
 	end
 
-	target:AddNewModifier(caster, self, "modifier_atalanta_curse", {duration = self:GetSpecialValueFor("duration")})
-	target:FindModifierByName("modifier_atalanta_curse"):SetStackCount(stacks + 1)
+	function ability:OnSpellStart()
+		local caster = self:GetCaster()
+		EmitGlobalSound("atalanta_skia_channel")
+		Timers:CreateTimer(5.0, function()
+			local units = FindUnitsInRadius(caster:GetTeam(),
+	                                        caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        99999, 
+	                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+	                                        0, 
+	                                        false)
+			for _,unit in pairs(units) do
+				if not unit or unit:IsNull() or not unit:IsAlive() then return end
+				unit:RemoveModifierByName("modifier_atalanta_curse")
+	        end
+	    end)
+	    if caster:GetStrength() >= 24.1 and caster:GetAgility() >= 24.1 and caster:GetIntellect() >= 24.1 then		
+				if caster:FindAbilityByName("atalanta_jump"):IsCooldownReady() and not caster:HasModifier("modifier_atalanta_skia_cd")  
+					and caster:FindAbilityByName("atalanta_skia"):IsCooldownReady()  
+			    	and caster:GetAbilityByIndex(2):GetName() == "atalanta_jump" then
+					caster:SwapAbilities("atalanta_jump", "atalanta_skia", false, true)
+					Timers:CreateTimer(4, function()
+						caster:SwapAbilities("atalanta_jump", "atalanta_skia", true, false)
+					end)
+				end
+			end
+	end
+
+	function ability:Curse(target)
+		local caster = self:GetCaster()
+		local stacks = 0
+
+		if not target or not target:IsAlive() or target:IsNull() then return end
+
+		if target:HasModifier("modifier_atalanta_curse") then
+			stacks = target:FindModifierByName("modifier_atalanta_curse"):GetStackCount()
+		end
+
+		target:AddNewModifier(caster, self, "modifier_atalanta_curse", {duration = self:GetSpecialValueFor("duration")})
+		target:FindModifierByName("modifier_atalanta_curse"):SetStackCount(stacks + 1)
+	end
 end
+
+atalanta_curse_wrapper(atalanta_curse)
+atalanta_curse_wrapper(atalanta_curse_upgrade)
 
 modifier_atalanta_curse = class({})
 
@@ -95,7 +101,17 @@ function modifier_atalanta_curse:GetModifierIncomingDamage_Percentage(keys)
 end
 
 function modifier_atalanta_curse:OnDestroy()
-	DoDamage(self:GetCaster(), self:GetParent(), (self:GetAbility():GetSpecialValueFor("detonate_damage") + (self:GetCaster().VisionAcquired and 5 or 0))*self:GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	local caster = self:GetCaster()
+	local target = self:GetParent()
+
+	local curse_skill = caster:FindAbilityByName("atalanta_curse_upgrade")
+	if(curse_skill == nil) then
+		curse_skill = caster:FindAbilityByName("atalanta_curse")
+	end
+	local dmgval = curse_skill:GetSpecialValueFor("detonate_damage")*self:GetStackCount()
+	DoDamage(caster, target, dmgval, DAMAGE_TYPE_MAGICAL, 128, curse_skill, false)
+
+
     local particle_kill = "particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_kill.vpcf"
 	local particle_kill_fx = ParticleManager:CreateParticle(particle_kill, PATTACH_ABSORIGIN, self:GetParent())        
 	ParticleManager:SetParticleControlEnt(particle_kill_fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
@@ -104,13 +120,26 @@ function modifier_atalanta_curse:OnDestroy()
 	ParticleManager:ReleaseParticleIndex(particle_kill_fx)
 end
 
+function modifier_atalanta_curse:OnTakeDamage(args)
+	local caster = self:GetCaster()
+	local target = self:GetParent()
+
+	if not caster.EvolutionAcquired then return end
+	if args.attacker ~= caster then return end
+	if(  args.unit:GetTeam() == caster:GetTeam()) then return end
+	if args.damage_type == 2 then
+		caster:Heal(args.damage * 0.15, self:GetParent())
+	end
+end
+
 modifier_atalanta_curse_passive = class({})
 
-function modifier_atalanta_curse_passive:IsHidden() return true end
+function modifier_atalanta_curse_passive:IsHidden() return false end
+function modifier_atalanta_curse_passive:IsPermanent() return true end
 function modifier_atalanta_curse_passive:RemoveOnDeath() return false end
 function modifier_atalanta_curse_passive:DeclareFunctions()
-	return { --MODIFIER_EVENT_ON_ATTACK_LANDED,
-			--MODIFIER_EVENT_ON_TAKEDAMAGE
+	return { MODIFIER_EVENT_ON_ATTACK_LANDED,
+			MODIFIER_EVENT_ON_TAKEDAMAGE
 		}
 end
 
@@ -131,13 +160,13 @@ end]]
 function modifier_atalanta_curse_passive:OnAttackLanded(args)
 	if args.attacker ~= self:GetParent() then return end
 
-	if self:GetParent().EvolutionAcquired and args.target:HasModifier("modifier_atalanta_curse") then
-		self:GetParent():Heal(args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() + 10, self:GetParent())
-	end
-
 	if self:GetParent().TornadoAcquired then
+        local knockval = 0
+        knockval = self:GetParent():FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("attack_pull")
+        local knockvalbonus = self:GetParent():FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("attack_pull_from_curse")
+
 		args.target:RemoveModifierByName("modifier_knockback")
-		local knockback_pepega = (40 + (args.target:HasModifier("modifier_atalanta_curse") and args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() or 0)/2)
+		local knockback_pepega = (knockval + (args.target:HasModifier("modifier_atalanta_curse") and args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() or 0)*knockvalbonus)
 		 local knockback = { should_stun = false,
                         knockback_duration = 0.05,
                         duration = 0.05,
@@ -147,17 +176,13 @@ function modifier_atalanta_curse_passive:OnAttackLanded(args)
                         center_y = args.attacker:GetAbsOrigin().y,
                         center_z = args.attacker:GetAbsOrigin().z }
 
-		args.target:AddNewModifier(caster, self, "modifier_knockback", knockback)
+		args.target:AddNewModifier(self:GetParent(), self, "modifier_knockback", knockback)
 	end
 
-	self:GetAbility():Curse(args.target)
-end
-
-function modifier_atalanta_curse_passive:OnTakeDamage(args)
-	if not self:GetParent().EvolutionAcquired then return end
-	if args.attacker ~= self:GetParent() then return end
-	if(  args.unit:GetTeam() == self:GetParent():GetTeam()) then return end
-	if args.damage_type == 2 then
-		self:GetParent():Heal(args.damage*0.15, self:GetParent())
+	local caster = self:GetParent()
+	local curse_skill = caster:FindAbilityByName("atalanta_curse_upgrade")
+	if(curse_skill == nil) then
+		curse_skill = caster:FindAbilityByName("atalanta_curse")
 	end
+	curse_skill:Curse(args.target)
 end

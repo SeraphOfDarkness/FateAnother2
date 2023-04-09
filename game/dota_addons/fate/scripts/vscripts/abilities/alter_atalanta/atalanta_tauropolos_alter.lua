@@ -1,43 +1,48 @@
 LinkLuaModifier("modifier_tauropolos_alter", "abilities/alter_atalanta/atalanta_tauropolos_alter", LUA_MODIFIER_MOTION_NONE)
 
 atalanta_tauropolos_alter = class({})
+atalanta_tauropolos_alter_upgrade = class({})
 
-function atalanta_tauropolos_alter:CastFilterResult()
-	local caster = self:GetCaster()
-	
-	if caster:HasModifier("modifier_tauropolos_alter") then
-		return UF_FAIL_CUSTOM
-	end
+function atalanta_tauropolos_alter_wrapper(ability)
 
-	return UF_SUCCESS
-end
+    function ability:CastFilterResult()
+    	local caster = self:GetCaster()
+    	
+    	if caster:HasModifier("modifier_tauropolos_alter") then
+    		return UF_FAIL_CUSTOM
+    	end
 
-function atalanta_tauropolos_alter:GetCustomCastError()
-	return "Only one instance of Tauropolos can exist at one time"
-end
-
-function atalanta_tauropolos_alter:OnAbilityPhaseStart()
-    
-    if( self:GetCaster():HasModifier( "modifier_atalanta_jump")) then
-        
-         EmitSoundOn("atalanta_ultimate_"..math.random(1,3),  self:GetCaster())
-    else
-        self:GetCaster():EmitSound("atalanta_ultimate_"..math.random(1,3))
+    	return UF_SUCCESS
     end
-    return true
+
+    function ability:GetCustomCastError()
+    	return "Only one instance of Tauropolos can exist at one time"
+    end
+
+    function ability:OnAbilityPhaseStart()
+        if( self:GetCaster():HasModifier( "modifier_atalanta_jump")) then
+            EmitSoundOn("atalanta_ultimate_"..math.random(1,3),  self:GetCaster())
+        else
+            self:GetCaster():EmitSound("atalanta_ultimate_"..math.random(1,3))
+        end
+        return true
+    end
+
+    function ability:OnAbilityPhaseInterrupted()
+        self:GetCaster():StopSound("atalanta_ultimate_1")
+        self:GetCaster():StopSound("atalanta_ultimate_2")
+        self:GetCaster():StopSound("atalanta_ultimate_3")
+    end
+
+    function ability:OnSpellStart()
+    	local caster = self:GetCaster()
+    	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")})
+    end
+
 end
 
-function atalanta_tauropolos_alter:OnAbilityPhaseInterrupted()
-    self:GetCaster():StopSound("atalanta_ultimate_1")
-    self:GetCaster():StopSound("atalanta_ultimate_2")
-    self:GetCaster():StopSound("atalanta_ultimate_3")
-end
-
-function atalanta_tauropolos_alter:OnSpellStart()
-	local caster = self:GetCaster()
-
-	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")})
-end
+atalanta_tauropolos_alter_wrapper(atalanta_tauropolos_alter)
+atalanta_tauropolos_alter_wrapper(atalanta_tauropolos_alter_upgrade)
 
 modifier_tauropolos_alter = class({})
 function modifier_tauropolos_alter:IsHidden() return true end
@@ -125,10 +130,11 @@ function modifier_tauropolos_alter:OnIntervalThink()
 
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 100 or 0), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    		     	DoDamage(self.caster, unit, self.damage , DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
     		      	for i = 1,self:GetAbility():GetSpecialValueFor("curse_stacks") do
-    		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
-                        if self.caster.CursedMoonAcquired then
+                        if self.caster.VisionAcquired then
+                            self.caster:FindAbilityByName("atalanta_curse_upgrade"):Curse(unit)
+                        else
                             self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
                         end
     		 	    end

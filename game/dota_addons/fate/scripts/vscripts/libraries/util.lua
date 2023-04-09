@@ -71,6 +71,7 @@ softdispellable = {
     "modifier_poison_cloud_debuff",
     "modifier_nobu_innovation_ms",
     "modifier_nobu_slow",
+    "modifier_roar_slow",
 }
 -- Rule Breaker/ Gae Dearg remove modifier
 strongdispellable = {
@@ -131,6 +132,7 @@ strongdispellable = {
     "modifier_nobu_innovation_aura",
     "modifier_mashu_snowflake",
     "modifier_mashu_dmg_reduc",
+    "modifier_atalanta_ora"
 
     -- items
     "modifier_b_scroll",
@@ -230,6 +232,7 @@ cleansable = {
     "modifier_nobu_divinity_mark_activated",
     "modifier_mashu_taunt",
     "modifier_mashu_bunker_bolt_slow",
+    "modifier_atalanta_curse",
 }
 
 slowmodifier = {
@@ -294,6 +297,7 @@ slowmodifier = {
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
+    "modifier_roar_slow",
 }
 
 revokes = {
@@ -588,6 +592,7 @@ tModifierCooldown = {
     "modifier_mashu_combo_cooldown",
     "musashi_modifier_ishana_daitenshou_cooldown",
     "modifier_ishtar_combo_cooldown",
+    "modifier_atalanta_skia_cd",
 }
 
 CannotReset = {
@@ -798,6 +803,9 @@ CannotReset = {
     "musashi_mukyuu",
     "musashi_battle_continuation",
     "musashi_ishana_daitenshou",
+    "atalanta_skia",
+    "atalanta_curse",
+    "atalanta_curse_upgrade",
 }
 
 femaleservant = {
@@ -823,6 +831,7 @@ femaleservant = {
     "npc_dota_hero_dragon_knight",
     "npc_dota_hero_antimage",
     "npc_dota_hero_oracle",
+    "npc_dota_hero_ursa",
 }
 
 tSpellBookHero = {
@@ -1278,6 +1287,7 @@ tBerserkerClass = {
     "npc_dota_hero_sven",
     "npc_dota_hero_zuus",
     "npc_dota_hero_axe",
+    "npc_dota_hero_ursa",
 }
 
 tRulerClass = {
@@ -3569,6 +3579,7 @@ local heroNames = {
     ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
     ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
     ["npc_dota_hero_oracle"] = "Ishtar",
+    ["npc_dota_hero_ursa"] = "Atalanta Alter",
 }
 
 

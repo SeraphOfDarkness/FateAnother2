@@ -65,6 +65,10 @@ function atalanta_dash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	for i = 1,self:GetSpecialValueFor("curse_stacks") do
-		caster:FindAbilityByName("atalanta_curse"):Curse(hTarget)
+        if caster.VisionAcquired then
+			caster:FindAbilityByName("atalanta_curse_upgrade"):Curse(hTarget)
+        else
+			caster:FindAbilityByName("atalanta_curse"):Curse(hTarget)
+        end
 	end
 end

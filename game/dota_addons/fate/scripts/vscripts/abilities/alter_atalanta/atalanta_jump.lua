@@ -177,10 +177,15 @@ function modifier_atalanta_jump:PlayEffects()
                                             false)
 
 		for _,enemy in ipairs(enemies2) do
+                local knockval = 0
+                if self.parent.TornadoAcquired then
+                    knockval = self.parent:FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("e_pull")
+                end
+
 	            local knockback = { should_stun = self.parent.EvolutionAcquired,
 	                                knockback_duration = 0.5,
 	                                duration = 0.5,
-	                                knockback_distance = self.parent.TornadoAcquired and -300 or 0,
+	                                knockback_distance = -knockval,
 	                                knockback_height = self.parent.EvolutionAcquired and 50 or 0,
 	                                center_x = self.parent:GetAbsOrigin().x,
 	                                center_y = self.parent:GetAbsOrigin().y,
@@ -220,8 +225,18 @@ function modifier_atalanta_jump:PlayEffects()
                 ApplyDamage(damage_table)]]
             self.damage = self:GetAbility():GetSpecialValueFor("damage")
             DoDamage(self.parent, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-            for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.parent.TornadoAcquired and 5 or 0)) do
-            	self.parent:FindAbilityByName("atalanta_curse"):Curse(enemy)
+
+            local cursebonusval = 0
+            if self.parent.TornadoAcquired then
+                cursebonusval = self.parent:FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("e_extra_curse")
+            end
+
+            for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + cursebonusval) do
+                if self.parent.VisionAcquired then
+                    self.parent:FindAbilityByName("atalanta_curse_upgrade"):Curse(enemy)
+                else
+                    self.parent:FindAbilityByName("atalanta_curse"):Curse(enemy)
+                end
             end
         end
     end

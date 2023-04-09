@@ -119,15 +119,17 @@ end
 
 function modifier_atalanta_skia:OnDestroy()
 	self.parent = self:GetParent()
-	if not self.parent:IsAlive() then return end
+	local caster = self:GetParent()
 
-	ScreenShake(self.parent:GetOrigin(), 20, 2.0, 3.0, 2000, 0, true)
+	if caster:GetHealth() <= 1 then return end
+
+	ScreenShake(self:GetParent():GetAbsOrigin(), 20, 2.0, 3.0, 2000, 0, true)
 	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 	self.parent:EmitSound("Misc.Crash")
 	Timers:CreateTimer(0.3, function()
 		self.parent:EmitSound("atalanta_skia_pop")
-		self.parent:EmitSound("atalanta_skia_pop2")
 	end)
+	self.parent:EmitSound("atalanta_skia_pop2")
 
 	local hit_fx = ParticleManager:CreateParticle("particles/atalanta/atalanta_earthshock.vpcf", PATTACH_ABSORIGIN, self.parent )
 	ParticleManager:SetParticleControl( hit_fx, 0, self.parent:GetAbsOrigin())
@@ -155,10 +157,15 @@ function modifier_atalanta_skia:OnDestroy()
                                             false)
 
 		for _,enemy in ipairs(enemies2) do
+				local knockval = 0
+				if self.parent.TornadoAcquired then
+					knockval = self.parent:FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("combo_pull")
+				end
+
 	            local knockback = { should_stun = self.parent.EvolutionAcquired,
 	                                knockback_duration = 1.0,
 	                                duration = 1.0,
-	                                knockback_distance = self.parent.TornadoAcquired and -500 or 0,
+	                                knockback_distance = -knockval,
 	                                knockback_height = self.parent.EvolutionAcquired and 50 or 0,
 	                                center_x = self.parent:GetAbsOrigin().x,
 	                                center_y = self.parent:GetAbsOrigin().y,
@@ -182,7 +189,11 @@ function modifier_atalanta_skia:OnDestroy()
         self.damage = self:GetAbility():GetSpecialValueFor("damage")
         DoDamage(self.parent, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
         for i = 1,self:GetAbility():GetSpecialValueFor("curse_stacks") do
-        	self.parent:FindAbilityByName("atalanta_curse"):Curse(enemy)
+            if self.parent.VisionAcquired then
+                self.parent:FindAbilityByName("atalanta_curse_upgrade"):Curse(enemy)
+            else
+                self.parent:FindAbilityByName("atalanta_curse"):Curse(enemy)
+            end
         end
     end
 end

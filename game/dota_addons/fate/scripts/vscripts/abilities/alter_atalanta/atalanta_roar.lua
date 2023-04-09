@@ -1,57 +1,73 @@
 LinkLuaModifier("modifier_roar_slow", "abilities/alter_atalanta/atalanta_roar", LUA_MODIFIER_MOTION_NONE)
 
 atalanta_roar = class({})
+atalanta_roar_upgrade = class({})
 
-function atalanta_roar:OnAbilityPhaseStart()
-    self:GetCaster():EmitSound("atalanta_detonate")
-    return true
-end
+function atlanta_roar_wrapper(ability)
+	function ability:OnAbilityPhaseStart()
+	    self:GetCaster():EmitSound("atalanta_detonate")
+	    return true
+	end
 
-function atalanta_roar:OnAbilityPhaseInterrupted()
-    self:GetCaster():StopSound("atalanta_detonate")
-end
+	function ability:OnAbilityPhaseInterrupted()
+	    self:GetCaster():StopSound("atalanta_detonate")
+	end
 
-function atalanta_roar:OnSpellStart()
-	local caster = self:GetCaster()
-	local startpoint = caster:GetAbsOrigin() + caster:GetForwardVector()*10
-	local endpoint = caster:GetAbsOrigin() + caster:GetForwardVector()*self:GetSpecialValueFor("distance")
-	local width = self:GetSpecialValueFor("width")
+	function ability:OnSpellStart()
+		local caster = self:GetCaster()
+		local startpoint = caster:GetAbsOrigin() + caster:GetForwardVector()*10
+		local endpoint = caster:GetAbsOrigin() + caster:GetForwardVector()*self:GetSpecialValueFor("distance")
+		local width = self:GetSpecialValueFor("width")
 
-	local roar_fx = ParticleManager:CreateParticle("particles/atalanta/beastmaster_primal_roar.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl( roar_fx, 0, startpoint)
-	ParticleManager:SetParticleControl( roar_fx, 1, endpoint)
+		local roar_fx = ParticleManager:CreateParticle("particles/atalanta/beastmaster_primal_roar.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl( roar_fx, 0, startpoint)
+		ParticleManager:SetParticleControl( roar_fx, 1, endpoint)
 
-	Timers:CreateTimer(2, function()
-		ParticleManager:DestroyParticle(roar_fx, false)
-		ParticleManager:ReleaseParticleIndex(roar_fx)
-	end)
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(roar_fx, false)
+			ParticleManager:ReleaseParticleIndex(roar_fx)
+		end)
 
-	local enemies = FindUnitsInLine(caster:GetTeam(), startpoint, endpoint, nil, width, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
-	local count = (caster.TornadoAcquired and 5 or 0) + (caster.CursedMoonAcquired and #enemies or 0)
-	local stacks = self:GetSpecialValueFor("base_stacks")
-	local damage = self:GetSpecialValueFor("base_damage") + #enemies*(caster.EvolutionAcquired and self:GetSpecialValueFor("echo_damage") or 0)
-	for _,v in ipairs(enemies) do
-		 local knockback = { should_stun = false,
-                        knockback_duration = 0.2,
-                        duration = 0.2,
-                        knockback_distance = -(150 + (caster.TornadoAcquired and (v:HasModifier("modifier_atalanta_curse") and v:FindModifierByName("modifier_atalanta_curse"):GetStackCount() or 0) or 0)),
-                        knockback_height = 0,
-                        center_x = caster:GetAbsOrigin().x,
-                        center_y = caster:GetAbsOrigin().y,
-                        center_z = caster:GetAbsOrigin().z }
+		local enemies = FindUnitsInLine(caster:GetTeam(), startpoint, endpoint, nil, width, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 
-		v:AddNewModifier(caster, self, "modifier_knockback", knockback)
+        local cursebonusval = 0
+        if caster.TornadoAcquired then
+            cursebonusval = caster:FindAbilityByName("atalanta_passive_beast"):GetSpecialValueFor("q_extra_curse")
+        end
 
-		v:AddNewModifier(caster, self, "modifier_roar_slow", {duration = self:GetSpecialValueFor("duration")})
+		local count = cursebonusval + (caster.CursedMoonAcquired and #enemies or 0)
+		local stacks = self:GetSpecialValueFor("base_stacks")
+		local damage = self:GetSpecialValueFor("base_damage") + #enemies*(caster.CursedMoonAcquired and self:GetSpecialValueFor("echo_damage") or 0)
+		for _,v in ipairs(enemies) do
+			 local knockback = { should_stun = false,
+	                        knockback_duration = 0.2,
+	                        duration = 0.2,
+	                        knockback_distance = -(100 + (caster.TornadoAcquired and (v:HasModifier("modifier_atalanta_curse") and v:FindModifierByName("modifier_atalanta_curse"):GetStackCount() or 0) or 0)),
+	                        knockback_height = 0,
+	                        center_x = caster:GetAbsOrigin().x,
+	                        center_y = caster:GetAbsOrigin().y,
+	                        center_z = caster:GetAbsOrigin().z }
 
-		--giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration_locked"))
+			v:AddNewModifier(caster, self, "modifier_knockback", knockback)
 
-		DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		for i = 1,(count+stacks) do
-			caster:FindAbilityByName("atalanta_curse"):Curse(v)
-		end			
+			v:AddNewModifier(caster, self, "modifier_roar_slow", {duration = self:GetSpecialValueFor("duration")})
+
+			--giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration_locked"))
+
+			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			for i = 1,(count+stacks) do
+		        if caster.VisionAcquired then
+					caster:FindAbilityByName("atalanta_curse_upgrade"):Curse(v)
+		        else
+					caster:FindAbilityByName("atalanta_curse"):Curse(v)
+		        end
+			end			
+		end
 	end
 end
+
+atlanta_roar_wrapper(atalanta_roar)
+atlanta_roar_wrapper(atalanta_roar_upgrade)
 
 modifier_roar_slow = class({})
 

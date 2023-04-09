@@ -38,7 +38,11 @@ function atalanta_pull:OnSpellStart()
 	    enemy:AddNewModifier(caster, self, "modifier_atalanta_pull_slow", {duration = self:GetSpecialValueFor("slow_dur")})
 	    DoDamage(caster, enemy, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
         for i = 1,(self:GetSpecialValueFor("curse_stacks") + (caster.TornadoAcquired and 5 or 0)) do
-          	caster:FindAbilityByName("atalanta_curse"):Curse(enemy)
+	        if caster.VisionAcquired then
+				caster:FindAbilityByName("atalanta_curse_upgrade"):Curse(enemy)
+	        else
+				caster:FindAbilityByName("atalanta_curse"):Curse(enemy)
+	        end
         end
     end
     StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_2, rate=1.0})
