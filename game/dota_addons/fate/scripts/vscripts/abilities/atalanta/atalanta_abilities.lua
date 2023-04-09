@@ -1072,14 +1072,19 @@ end
 function OnCalydonianSnipeWindowCreate(keys)
 	local caster = keys.caster 
     local ply = caster:GetPlayerOwner()
+    if ply == nil then 
+        ply = PlayerResource:GetPlayer(caster:GetPlayerOwnerID())
+    end
 	caster:SwapAbilities("atalanta_calydonian_snipe", caster:GetAbilityByIndex(4):GetAbilityName(), true, false)
+
+    if not string.match(GetMapName(),"fate_elim") then return end
 
     --Convars:SetInt("dota_camera_distance", 1600)
     local count_tick = 0
     local max_tick = 10
-    caster.base_camera = Convars:GetInt("dota_camera_distance")
+    caster.base_camera = Convars:GetInt("dota_camera_distance") or 1600
     caster.bonus_camera = 150
-    caster.current_camera = Convars:GetInt("dota_camera_distance")
+    caster.current_camera = Convars:GetInt("dota_camera_distance") or 1600
 
     if caster.CameraTimerDown ~= nil then 
         Timers:RemoveTimer(caster.CameraTimerDown)
@@ -1105,7 +1110,12 @@ end
 function OnCalydonianSnipeWindowDestroy(keys)
 	local caster = keys.caster 
     local ply = caster:GetPlayerOwner()
+    if ply == nil then 
+        ply = PlayerResource:GetPlayer(caster:GetPlayerOwnerID())
+    end
 	caster:SwapAbilities("atalanta_calydonian_snipe", "fate_empty1", false, true)
+
+    if not string.match(GetMapName(),"fate_elim") then return end
 
     if caster.CameraTimerUp ~= nil then 
         Timers:RemoveTimer(caster.CameraTimerUp)

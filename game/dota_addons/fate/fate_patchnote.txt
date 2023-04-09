@@ -1,3 +1,33 @@
+Amakusa back to using R stacks for Black Key. Q wont target units in FOW.
+
+Musashi changes
+1. Hits required to use wave slash is now passive.
+2. Dai Go Sei (W) attack speed and damage increase from 10/20/30/40/50-> 20/40/60/80/100
+3. BC threshold decreased from 2500->2000
+4. Fix wave bugging skill slot
+
+Musashi changes
+1. Stats rescaled from STR 2.1->2.2, AGI 2.5->2.3, INT 1.4->1.5
+2. Accel Turn (Q) cd 35/30/25/20/15 -> 23/21/19/17/15
+3. Accel Turn (Q) damage 100/200/300/400/500 -> 200/250/300/350/400
+4. Accel Turn (Q) projectile speed 2000 -> 1500
+5. Dai Go Sei (W) damage 250 -> 50/100/150/200/250. Deals magical damage if target is creeps.
+6. Dai Go Sei (W) deals damage around 200 Aoe of target.
+7. Reworked Dai Go Sei (W) 2.5x crit on every 6/4 hits required -> release a pressure wave in line which deals magical damage.
+8. Swapped Niou Kurikara (E) slashing and post slashing damage reduction values.
+9. Tengan (D) base damage from 300->250
+10. Tengan (D) scale damage per AGI from 3.5->3
+11. Tengan SA recharge time increased from 15->20.
+12. Ganryuu Jima (R) dmg per slash from 450/550/650/750/850->400/500/600/700/800
+13. Ganryuu Jima (R) scale damage per AGI from 3.5->3
+14. Tengen No Hana (F) no longer usable with E or R and will not deal damage or stuns if used together.
+
+Bug fixes/skills interaction
+1. Fixed Execute not bypassing her Battle Continuation.
+2. Fixed Angra Verg not being able to mark or damage her while using Ganryuu Jima (R).
+3. Fixed combo phase 2 not bypassing some shield effects aka Avalon.
+4. Fixed combo not checking if hero is dead before phase 2.
+
 Ishtar E,F 
 Cast range + 100
 

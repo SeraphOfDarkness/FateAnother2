@@ -14170,342 +14170,6 @@
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute"							"Strategy" 
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_Description"				""
 
-		//=======================================================================================================
-		//	Saitō Hajime
-		//=======================================================================================================
-
-		//Hero
-		"npc_dota_hero_terrorblade"																	"Saitō Hajime"
-		"npc_dota_hero_terrorblade_summon"															"Servant <font color='#58ACFA'>Saitō Hajime</font> has been summoned."
-		"npc_dota_hero_terrorblade_enable_combo"													"Enable Combo: Undefeatable Style"
-
-		//Special Modifiers for Counting Some Keys.
-		"DOTA_Tooltip_modifier_saito_q_counter"														"[Q] Counter"
-		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"Flashblade's distance/damage is divided by this stack amount after a certain use."
-		"DOTA_Tooltip_modifier_saito_w_counter"														"[W] Counter"
-		"DOTA_Tooltip_modifier_saito_w_counter_Description"											"Steelwing's damage/stun duration is divided by this stack amount after a certain use."
-		"DOTA_Tooltip_modifier_saito_e_counter"														"[E] Counter"
-		"DOTA_Tooltip_modifier_saito_e_counter_Description"											"Shadowslash's initial damage/pull radius is divided by this stack amount after a certain use."
-
-		///ABILITIES///
-
-		//Flashblade
-		"DOTA_Tooltip_ability_saito_flashblade"														"<font color='#58ACFA'>Flashblade</font>"
-		"DOTA_Tooltip_ability_saito_flashblade_Description"											"Saitō lunges forward at the target point, creating afterimages every %image_creation_dist% units moved. Afterimage deals damage to nearby enemies, and roots them for %image_root_duration% seconds.\nLinked in level with <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>.\nThis ability's distance and damage will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
-		"DOTA_Tooltip_ability_saito_flashblade_Lore"												"Staggering blow that sets the air aflame."
-		"DOTA_Tooltip_ability_saito_flashblade_abilitycastpoint"									"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_flashblade_distance"											"DISTANCE:"
-		"DOTA_Tooltip_ability_saito_flashblade_speed"												"SPEED:"
-		//"DOTA_Tooltip_ability_saito_flashblade_image_root_duration"								""
-		//"DOTA_Tooltip_ability_saito_flashblade_image_duration"									""
-		"DOTA_Tooltip_ability_saito_flashblade_image_radius"										"RADIUS:"
-		"DOTA_Tooltip_ability_saito_flashblade_image_damage"										"DAMAGE PER HIT:"
-		//"DOTA_Tooltip_ability_saito_flashblade_image_creation_dist"								""
-		//"DOTA_Tooltip_ability_saito_flashblade_repeat_halver_count_need"							""
-		"DOTA_Tooltip_ability_saito_flashblade_combo_cooldown"										"COMBO COOLDOWN:"
-
-		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate"											"Flashblade Turn Rate"
-		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate_Description"								"Base turn rate increased to %dMODIFIER_PROPERTY_TURN_RATE_OVERRIDE%."
-
-		//Steelwing
-		"DOTA_Tooltip_ability_saito_steelwing"														"<font color='#58ACFA'>Steelwing</font>"
-		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance, dealing damage and stunning them.\nLinked in level with <font color='#58ACFA'>Flashblade</font> and <font color='#58ACFA'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
-		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"Slamming hard-edged wings of a bird taking flight."
-		"DOTA_Tooltip_ability_saito_steelwing_abilitycastpoint"										"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_steelwing_radius"												"RADIUS:"
-		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"STUN DURATION:"
-		"DOTA_Tooltip_ability_saito_steelwing_damage"												"DAMAGE:"
-		//"DOTA_Tooltip_ability_saito_steelwing_repeat_halver_count_need"							""
-		"DOTA_Tooltip_ability_saito_steelwing_combo_cooldown"										"COMBO COOLDOWN:"
-
-		"DOTA_Tooltip_modifier_saito_steelwing_mss"													"Steelwing Move Slow"
-		"DOTA_Tooltip_modifier_saito_steelwing_mss_Description"										"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-
-		//Shadowslash
-		"DOTA_Tooltip_ability_saito_shadowslash"													"<font color='#58ACFA'>Shadowslash</font>"
-		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, stunning and dealing %burst_damage_pct%%% of this ability's damage to all enemies within a %burst_radius% units around the hit targets.\nLinked in level with <font color='#58ACFA'>Flashblade</font> and <font color='#58ACFA'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
-		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"Light-speed assault invisible to the naked eye."
-		"DOTA_Tooltip_ability_saito_shadowslash_abilitycastpoint"									"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"PULL RADIUS:"
-		"DOTA_Tooltip_ability_saito_shadowslash_pull_damage"										"INITIAL DAMAGE:"
-		//"DOTA_Tooltip_ability_saito_shadowslash_burst_radius"										""
-		"DOTA_Tooltip_ability_saito_shadowslash_burst_stun_duration"								"STUN DURATION:"
-		"DOTA_Tooltip_ability_saito_shadowslash_burst_delay"										"DELAY:"
-		//"DOTA_Tooltip_ability_saito_shadowslash_burst_damage_pct"									""
-		//"DOTA_Tooltip_ability_saito_shadowslash_repeat_halver_count_need"							""
-		"DOTA_Tooltip_ability_saito_shadowslash_combo_cooldown"										"COMBO COOLDOWN:"
-
-		"DOTA_Tooltip_modifier_saito_shadowslash_mrr"												"Shadowslash Magic Resist Reduction"
-		"DOTA_Tooltip_modifier_saito_shadowslash_mrr_Description"									"Magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
-
-		//Mind's Eye (True)
-		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>Mind's Eye (True)</font>"
-		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be stunned and silenced every %silence_cooldown% seconds when they cast a spell, the stun and silence of allied heroes will not proc if they move too far from Saitō. Also, grants both of them bonus max health and increased health regen.\nSaitō can self-cast <font color='#58ACFA'>Mind’s Eye (True)</font> to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#9FFFCC'>Upgradable with Attribute: Memoir</font>."
-		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"Even the fiercely loyal Hijikata says that Saitō’s loyalty to the Shinsengumi is second-to-none and knows that he would never betray the Shinsengumi in any capacity."
-		"DOTA_Tooltip_ability_saito_mind_eye_Note0"													"Dispelled by <font color='#58ACFA'>Gáe Dearg</font> and <font color='#58ACFA'>Rule Breaker</font>."
-		"DOTA_Tooltip_ability_saito_mind_eye_abilitycastpoint"										"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_mind_eye_proc_radius"											"PROC RADIUS:"
-		"DOTA_Tooltip_ability_saito_mind_eye_duration"												"DURATION:"
-		//"DOTA_Tooltip_ability_saito_mind_eye_silence_cooldown"									""
-		"DOTA_Tooltip_ability_saito_mind_eye_silence_duration"										"STUN/SILENCE DURATION:"
-		"DOTA_Tooltip_ability_saito_mind_eye_hp_bonus"												"BONUS HEALTH:"
-		"DOTA_Tooltip_ability_saito_mind_eye_hp_regen"												"BONUS HEALTH REGEN:"
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_active"												"Mind's Eye (True)"
-		"DOTA_Tooltip_modifier_saito_mind_eye_active_Description"									"Enemies nearby will be silenced whenever they cast a spell."
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"Mind's Eye (True) Immunity"
-		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval_Description"								"All enemies have immunity from Mind's Eye (True) stun and silence."
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range"											"Mind's Eye (True) Proximity"
-		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range_Description"								"If you move too far away from Saitō, the stun and silence will not proc."
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_shell"												"Cicada Shell"
-		"DOTA_Tooltip_modifier_saito_mind_eye_shell_Description"									"Taking less damage."
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_linken"												"Cicada Shell Spell Block"
-		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"The next targeted spell will be blocked."
-
-		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"Snarksengumi"
-		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"Gaining bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility permanently from Hajime-chan."
-
-		//Freely Drawn Sword
-		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>Freely Drawn Sword</font>"
-		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#58ACFA'>PASSIVE</font>: <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times, and has a scaling %locker_time% cooldown before the next use that scales with each use by %locker_increaser% seconds.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#58ACFA'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less magical damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Freestyle</font>."
-		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
-		"DOTA_Tooltip_ability_saito_fds_abilitycastpoint"											"CAST POINT:"
-		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
-		//"DOTA_Tooltip_ability_saito_fds_check_interval"											""
-		//"DOTA_Tooltip_ability_saito_fds_check_decreaser"											""
-		"DOTA_Tooltip_ability_saito_fds_locker_time_combo"											"COMBO LOCK TIME:"
-		//"DOTA_Tooltip_ability_saito_fds_locker_time"												""
-		//"DOTA_Tooltip_ability_saito_fds_locker_increaser"											""
-		"DOTA_Tooltip_ability_saito_fds_active_duration"											"DURATION:"
-		"DOTA_Tooltip_ability_saito_fds_active_mp_gain"												"MANA GAIN PER HIT:"
-		//"DOTA_Tooltip_ability_saito_fds_active_hp_gain"											"HEALTH GAIN PER HIT:"
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"DAMAGE LOSS DURATION:"
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"MAX STACKS:"
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%DAMAGE LOSS PER STACK:"
-
-		"DOTA_Tooltip_modifier_saito_fds_cast_controller"											"Cast Controller"
-		"DOTA_Tooltip_modifier_saito_fds_cast_controller_Description"								"Displays the number of QWE currently being casted."
-
-		"DOTA_Tooltip_modifier_saito_fds_active"													"Freely Drawn Sword"
-		"DOTA_Tooltip_modifier_saito_fds_active_Description"										"If you have time to think, you have time to slice."
-
-		"DOTA_Tooltip_modifier_saito_fds_aura_sdr"													"Freely Drawn Sword Aura"
-		"DOTA_Tooltip_modifier_saito_fds_aura_sdr_Description"										"Reducing Magical Damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
-
-		"DOTA_Tooltip_modifier_saito_fds_active_sdr"												"Freely Drawn Sword Damage Loss"
-		"DOTA_Tooltip_modifier_saito_fds_active_sdr_Description"									"Reducing Magical Damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
-
-		//Formless
-		"DOTA_Tooltip_ability_saito_formless_invis"													"<font color='#58ACFA'>Formless</font>"
-		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"Turns Saitō invisible and grants bonus movement speed. If Saitō is revealed, invisibility will restore after the fade delay as long as <font color='#58ACFA'>Formless</font>’s duration has not expired.\nUpon cast, this ability is replaced by <font color='#58ACFA'>Formlessness</font>, while under the effects of <font color='#58ACFA'>Formless</font>.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Kijinmaru Kunishige</font>."
-		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"Saitō approaches the target in a unique way, different than rushing in with pure speed, and his moves distort the target’s perception of time and distance."
-		"DOTA_Tooltip_ability_saito_formless_invis_abilitycastpoint"								"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"DURATION:"
-		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%MOVEMENT SPEED:"
-		"DOTA_Tooltip_ability_saito_formless_invis_fade_delay"										"FADE DELAY:"
-
-		"DOTA_Tooltip_modifier_saito_formless_invis"												"Formless"
-		"DOTA_Tooltip_modifier_saito_formless_invis_Description"									"Invisible. Attacking temporarily removes invisibility. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-
-		//Formlessness
-		"DOTA_Tooltip_ability_saito_formless_slash"													"<font color='#58ACFA'>Formlessness</font>"
-		"DOTA_Tooltip_ability_saito_formless_slash_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Allows Saitō to cast this ability up to %max_slashes% times. The first slashes are a double slash, dealing damage and dimensionally locking the target for %lock_duration% seconds. Last slash deals more damage and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#58ACFA'>Formless</font> early.\n\n<font color='#9FFFCC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
-		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
-		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastpoint"								"CAST POINT:"
-		//"DOTA_Tooltip_ability_saito_formless_slash_max_slashes"									""
-		//"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
-		//"DOTA_Tooltip_ability_saito_formless_slash_lock_duration"									""
-		"DOTA_Tooltip_ability_saito_formless_slash_last_lock_duration"								"LOCK DURATION:"
-		"DOTA_Tooltip_ability_saito_formless_slash_slash_damage"									"DAMAGE PER SLASH:"
-		"DOTA_Tooltip_ability_saito_formless_slash_last_damage"										"LAST SLASH DAMAGE:"
-		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastrange"								"CAST RANGE:"
-
-		"DOTA_Tooltip_modifier_saito_formless_slash_counter"										"Formlessness Counter"
-		"DOTA_Tooltip_modifier_saito_formless_slash_counter_Description"							"Number of completed slashes from Formlessness."
-
-		//Tetra-Step
-		"DOTA_Tooltip_ability_saito_step"															"<font color='#FFB266'>Tetra-Step</font>"
-		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
-		"DOTA_Tooltip_ability_saito_step_Lore"														"To be formless is to be unmoving."
-		"DOTA_Tooltip_ability_saito_step_Note0"														"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
-		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_step_max_distance"												"RANGE:"
-		//"DOTA_Tooltip_ability_saito_step_min_distance"											""
-		//"DOTA_Tooltip_ability_saito_step_radius"													""
-		"DOTA_Tooltip_ability_saito_step_damage"													"DAMAGE:"
-		//"DOTA_Tooltip_ability_saito_step_stun_duration"											""
-
-		//Shieldbreaker
-		"DOTA_Tooltip_ability_saito_storm"															"<font color='#FFB266'>Shieldbreaker</font>"
-		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
-		"DOTA_Tooltip_ability_saito_storm_Lore"														"A special left-handed thrust variant of the Shinsengumi’s Hirazuki method."
-		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"CAST POINT:"
-		//"DOTA_Tooltip_ability_saito_storm_duration"												""
-		//"DOTA_Tooltip_ability_saito_storm_fly_duration"											""
-		//"DOTA_Tooltip_ability_saito_storm_stun_duration"											""
-		"DOTA_Tooltip_ability_saito_storm_damage"													"DAMAGE:"
-		//"DOTA_Tooltip_ability_saito_storm_pierce_range"											""
-		//"DOTA_Tooltip_ability_saito_storm_pierce_width"											""
-
-		//Blade Vortex
-		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#FFB266'>Blade Vortex</font>"
-		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away.\nLinked in level with <font color='#58ACFA'>Freely Drawn Sword</font>.\nDisabled during <font color='#FF04EF'>Combo: Undefeatable Style</font>."
-		"DOTA_Tooltip_ability_saito_vortex_Lore"													"Wha~at, this way is just more interesting to me."
-		"DOTA_Tooltip_ability_saito_vortex_Note0"													"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
-		"DOTA_Tooltip_ability_saito_vortex_abilitycastpoint"										"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"SLASH RADIUS:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_last_radius"										"LASH SLASH RADIUS:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_stun_duration"										"STUN DURATION:"
-		"DOTA_Tooltip_ability_saito_vortex_knockback_distance"										"KNOCKBACK DISTANCE:"
-		"DOTA_Tooltip_ability_saito_vortex_knockback_duration"										"KNOCKBACK DURATION:"
-		//"DOTA_Tooltip_ability_saito_vortex_slashes_count"											""
-		//"DOTA_Tooltip_ability_saito_vortex_slashes_interval"										""
-		"DOTA_Tooltip_ability_saito_vortex_slash_damage"											"DAMAGE PER SLASH:"
-		"DOTA_Tooltip_ability_saito_vortex_slash_last_damage"										"LAST SLASH DAMAGE:"
-		"DOTA_Tooltip_ability_saito_vortex_pull_speed"												"PULL SPEED PER SECOND:"
-
-		"DOTA_Tooltip_modifier_saito_vortex_slashing"												"Blade Vortex"
-		"DOTA_Tooltip_modifier_saito_vortex_slashing_Description"									"Slashing nearby enemies."
-
-		"DOTA_Tooltip_modifier_saito_vortex_pull"													"Blade Vortex Pull"
-		"DOTA_Tooltip_modifier_saito_vortex_pull_Description"										"Pulled."
-
-		///COMBO///
-
-		//Undefeatable Style
-		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>Combo: Undefeatable Style</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels mind and spirit through the blades to inflict pain at the enemy’s very core, granting a chance to apply silence and dealing bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of <font color='#58ACFA'>Freely Drawn Sword</font>.\nThe cast points of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font> are replaced with a fixed delay and cannot be interrupted, also reduces their cooldown for duration."
-		"DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
-		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
-		"DOTA_Tooltip_ability_saito_style_silence_chance"											"%PROC CHANCE:"
-		"DOTA_Tooltip_ability_saito_style_silence_duration"											"SILENCE DURATION:"
-		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%MAX HEALTH DAMAGE:"
-		//"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""
-		"DOTA_Tooltip_ability_saito_style_activation_steps_duration"								"ACTIVATION STEP DURATION:"
-		"DOTA_Tooltip_ability_saito_style_activation_duration"										"ACTIVATION DURATION:"
-		//"DOTA_Tooltip_ability_saito_style_activation_steps"										""
-
-		"DOTA_Tooltip_modifier_saito_style_combo_indicator"											"Undefeatable Style Combo"
-		"DOTA_Tooltip_modifier_saito_style_combo_indicator_Description"								"Displays the step duration, current step, combo window and cooldown."
-
-		"DOTA_Tooltip_modifier_saito_style_active"													"Undefeatable Style"
-		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan."
-
-		//One by One
-		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>One By One</font>"
-		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% blades of wind in all directions around him, dealing %damage% damage to any enemy units that collide with that. The impact of the wind blades is enough to knock those enemy units back for %knockback_duration% seconds, then reduces all types of their damage for %sdr_duration% seconds. The damage reduction starts at %sdr_max_value%%% and decreases over time to %sdr_min_value%%%.\nAn enemy unit can be hit by more than one wind blade per cast."
-		"DOTA_Tooltip_ability_saito_blast_Lore"														"If humans die, they lose, right? So in other words, if you don't die then you won't lose. That’s the innermost secret of the Invincible Blade. But who knows, ya'know?"
-		"DOTA_Tooltip_ability_saito_blast_abilitycastpoint"											"CAST POINT:"
-		"DOTA_Tooltip_ability_saito_blast_distance"													"DISTANCE:"
-		"DOTA_Tooltip_ability_saito_blast_speed"													"SPEED:"
-		//"DOTA_Tooltip_ability_saito_blast_radius_start"											"RADIUS START:"
-		//"DOTA_Tooltip_ability_saito_blast_radius_end"												"RADIUS END:"
-		//"DOTA_Tooltip_ability_saito_blast_damage"													""
-		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
-		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"KNOCKBACK DISTANCE:"
-		//"DOTA_Tooltip_ability_saito_blast_sdr_duration"											""
-		//"DOTA_Tooltip_ability_saito_blast_sdr_max_value"											""
-		//"DOTA_Tooltip_ability_saito_blast_sdr_min_value"											""
-		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
-
-		"DOTA_Tooltip_modifier_saito_blast_sdr"														"One By One Debuff"
-		"DOTA_Tooltip_modifier_saito_blast_sdr_Description"											"Reducing all types of damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
-
-		///ATTRIBUTES///
-
-		"DOTA_Tooltip_modifier_saito_attributes"													"Special Attribute"
-		"DOTA_Tooltip_modifier_saito_attributes_Description"										"Displayed after the SA is taken."
-
-		//Swords of Freedom
-		"DOTA_Tooltip_ability_saito_attribute_freedom"												"<font color='#9FFFCC'>Attribute: Swords of Freedom</font>"
-		"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"<font color='#58ACFA'>Flashblade</font>: disjoints projectiles upon cast and increases the base turn rate to %q_turn_rate% for %q_turn_rate_duration% seconds. Causes the afterimage created from this ability to launch enemies hit by it upwards for %q_knock_up_duration% seconds.\n<font color='#58ACFA'>Steelwing</font>: applies a movement speed slow to enemies hit by %w_ms_slow%%% for %w_ms_slow_duration% seconds.\n<font color='#58ACFA'>Shadowslash</font>: lowers magic resistance of enemies hit by %e_mr_reduction%%% for %e_mr_reduction_duration% seconds.\n<font color='#58ACFA'>Formlessness</font>: double slashes now also mini-stun the target for %fls_stun_duration% seconds with each attack. Last slash stuns the target for %fls_last_stun_duration% seconds."
-		"DOTA_Tooltip_ability_saito_attribute_freedom_Lore"											"Saitō’s style does not follow a specific discipline, and is unrestrained and free-spirited."
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate_duration"						""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate"								""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_duration"						""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_height"							""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow_duration"							""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow"									""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction_duration"					""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction"								""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_stun_duration"							""
-		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_last_stun_duration"						""
-
-		//Invincible Sword
-		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9FFFCC'>Attribute: Invincible Sword</font>"
-		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating combination with sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font>, and <font color='#58ACFA'>Shadowslash</font> in the interval, enabling <font color='#FFB266'>Tetra-Step</font>, <font color='#FFB266'>Shieldbreaker</font> and <font color='#FFB266'>Blade Vortex</font> for a short duration.\n<font color='#FFB266'>Tetra-Step</font>: teleports to the target location, dealing damage and stunning enemies.\n<font color='#FFB266'>Shieldbreaker</font>: thrusts blade forward at the target enemy, creating a beam that travels a certain range and stuns the primary target.\n<font color='#FFB266'>Blade Vortex</font>: slashes the surrounding area with the sword several times, each slash damaging nearby enemies, pulling them towards and mini-stunning them repeatedly.\n<font color='#58ACFA'>Flashblade</font>, <font color='#58ACFA'>Steelwing</font> and <font color='#58ACFA'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
-		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"This phrase describes Saitō’s extraordinary swordsmanship, said to be one of the finest in the Shinsengumi."
-		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"BONUS DAMAGE PER LEVEL:"
-		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"ENABLE DURATION:"
-
-		//Memoir
-		"DOTA_Tooltip_ability_saito_attribute_memoir"												"<font color='#9FFFCC'>Attribute: Memoir</font>"
-		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#58ACFA'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFFF28'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFFF28'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFFF28'>Snarksengumi</font>.\n<font color='#FFFF28'>Snarksengumi</font>: When used on Okita Souji, <font color='#58ACFA'>Mind’s Eye (True)</font> has a %me_okita_chance%%% chance to refresh all of her refreshable abilities and permanently increase her agility by %me_okita_agility%."
-		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"The lone Shinsengumi who fought through the turbulent age of the Bakumatsu and survived. No one knows about his true thoughts."
-		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
-		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_duration"							""
-		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_block"								""
-		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_chance"								""
-		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_agility"							""
-
-		//Freestyle
-		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"<font color='#9FFFCC'>Attribute: Freestyle</font>"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#58ACFA'>Freely Drawn Sword</font>: grants an aura that reduces the enemies magical damage when active, reduction is stronger at close range. Increases active duration by %fds_active_duration% seconds and passive time interval by %fds_check_interval% seconds, dealing spell damage to enemies with abilities also instantly restores health for each enemy hit."
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_Lore"										"Freestyle swordsmanship with no pattern, a unique fighting technique that is extremely difficult to predict."
-		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_duration"						""
-		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_check_interval"						""
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_hp_gain"							"HEALTH GAIN PER HIT:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction_range"		"AURA MIN RADIUS:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction_range"		"AURA MAX RADIUS:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction"				"%MIN DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%MAX DAMAGE REDUCTION:"
-
-		//Kijinmaru Kunishige
-		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"<font color='#9FFFCC'>Attribute: Kijinmaru Kunishige</font>"
-		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#58ACFA'>Formless</font>: reduces fade delay by %fli_fade_delay% seconds, giving %fli_evasion%%% evasion bonus.\n<font color='#58ACFA'>Formlessness</font>: slash and last slash gain bonus damage based on Saitō's attack damage and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increasing its cast range by %fls_cast_range%."
-		"DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"The beloved sword of the Shinsengumi’s Third Unit Captain."
-		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
-		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_evasion"								""
-		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_cast_range"							""
-		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_revoked_scale"						""
-		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_dmg_per_atk"							"%SLASH BONUS DMG PER ATK:"
-		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"%LAST SLASH BONUS DMG PER ATK:"
-
-		///DELIMITER///
-
-		//Hero Hype
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy"										"Saitō Hajime"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_Description"							"Servant Class : Saber\nType : Burst, Control, Support\nTrait : Male, Shinsengumi\nCombo : Undefeatable Style (Anti-Personnel)\n<font color='#FFB266'>Noble Phantasm : &#9733; &#9733; &#9733; &#9734; &#9734;</font>\n<font color='#9FFFCC'>Difficult : &#9733; &#9733; &#9733; &#9733; &#9733;</font>"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_hp"									"Base HP:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mana"									"Base Mana:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_hp_reg"								"Base HP Regen:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mana_reg"								"Base Mana Regen:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_atk"									"Base ATK:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_armor"								"Base Armor:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mr"									"%Base Magic Resistance:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_str"									"STR Per LVL:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_agi"									"AGI Per LVL:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_int"									"INT Per LVL:"
-
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft"										"Saitō Hajime"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_Description"							"Mana Cost : 20\nServant Class : Saber\nType : Burst, Control, Support\nTrait : Male, Shinsengumi\nCombo : Undefeatable Style (Anti-Personnel)\n<font color='#FFB266'>Noble Phantasm : &#9733; &#9733; &#9733; &#9734; &#9734;</font>\n<font color='#9FFFCC'>Difficult : &#9733; &#9733; &#9733; &#9733; &#9733;</font>"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_hp"									"Base HP:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mana"									"Base Mana:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_hp_reg"								"Base HP Regen:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mana_reg"								"Base Mana Regen:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_atk"									"Base ATK:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_armor"								"Base Armor:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mr"									"%Base Magic Resistance:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_str"									"STR Per LVL:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_agi"									"AGI Per LVL:"
-		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_int"									"INT Per LVL:"
-
 		//====================================
         //      Mashu
         //====================================
@@ -14714,193 +14378,179 @@
 		// MIYAMOTO MUSASHI
 		//=====================================================================================================
 		"npc_dota_hero_antimage"    "MIYAMOTO MUSASHI"
-        "npc_dota_hero_antimage_summon"    "<b><font color='SlateBlue'>MIYAMOTO MUSASHI</b></font> has been summoned."
-        "npc_dota_hero_antimage_enable_combo"    "Enable Combo: ISHANA DAITENSHOU SLASH THE VOID"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei"    "<b><font color='SandyBrown'>DAI GO SEI</b></font>"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_description"    "Blink to enemy and stun target enemy for short duration. 
- Increase her Attack Speed and Damage. 
- Deal critical damage on every few hits while TENGAN is active. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. 
- A stance that utilitize the main advantages of using two swords. "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "BONUS ATTACK SPEED: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusDmg"    "BONUS DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_StunDuration"    "STUN DURATION: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_HitsRequired"    "HITS REQUIRED: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_CriticalDmg"    "CRITICAL DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_accel_turn"    "<b><font color='DodgerBlue'>ACCEL TURN</b></font>"
-        "DOTA_Tooltip_Ability_musashi_accel_turn_description"    "Perform emergency dodge and dash back. 
- Deals damage to units in her path. "
-        "DOTA_Tooltip_Ability_musashi_accel_turn_Lore"    "Swimsuit Ishtar's skill that's been copied visually. 
- Even though Ishtar was the victim of plagiarism, the only thing she could manage to say was she's a genius!"
+        "npc_dota_hero_antimage_summon"    "<font color='SlateBlue'><b>MIYAMOTO MUSASHI</b></font> has been summoned."
+        "npc_dota_hero_antimage_enable_combo"    "Enable Combo: ISHANA DAITENSHOU - SLASH THE VOID 「」"
+        "DOTA_Tooltip_Ability_musashi_accel_turn"    "<font color='SandyBrown'><b>ACCEL TURN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_description"    "Uses her jetski to perform an emergency dodge and dashes back. 
+ Launches a wave of water which damage enemies in its path. 
+  Wave has %ProjectileRadius% AOE and speed of %ProjectileSpeed%."
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Lore"    "Swimsuit Ishtar's skill that's been copied visually. Even though Ishtar was the victim of plagiarism, the only thing she could manage to say was she's a genius!"
         "DOTA_Tooltip_Ability_musashi_accel_turn_Damage"    "DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_accel_turn_DashRange"    "DASH RANGE: "
-        "DOTA_Tooltip_Ability_musashi_accel_turn_DashSpeed"    "DASH SPEED: "
-        "DOTA_Tooltip_Ability_musashi_accel_turn_DashWidth"    "DASH WIDTH: "
-        "DOTA_Tooltip_Ability_musashi_tengan"    "<b><font color='DodgerBlue'>TENGAN</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tengan_description"    "Apply a buff on herself for durations. This buff have interactions with her other skills. Buff will be removed after casting E or R. 
- Q: Allows her to deal critical damage after every few hits. 
- E Allows her to deal BONUS PURE DMG on the last strike. 
- R Allows her to apply debuff on enemies in her path which explodes and deal BONUS PURE DMG after short delay. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: IMPROVE TENGAN</b></font"
-        "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. 
- TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome. "
-        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmg"    "BONUS DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_tengan_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_tengan_BonusPureDmgPerAgi"    "BONUS PURE DAMAGE PER AGI: "
-        "DOTA_Tooltip_Ability_musashi_tengan_MaxCharges"    "MAX CHARGES: "
-        "DOTA_Tooltip_Ability_musashi_tengan_RechargeTime"    "RECHARGE TIME: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<b><font color='Crimson'>NIOU KURIKARA</b></font>"
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "Slash few times to deal damage to an AOE. 
- These slashes cannot be stopped by herself once activated. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: MUKYUU AND ATTRIBUTES: GORIN NO SHO</b></font>"
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure. "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Range"    "RANGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei"    "<font color='DodgerBlue'><b>DAI GO SEI</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_description"    "Blinks to target and stuns target for %StunDuration% second. 
+ Deals damage to enemies within %Radius% AOE of target. Deals <font color='#c29c4a'><b>PURE DAMAGE</b></font> if target is hero and <font color='#5b93d1'><b>MAGICAL DAMAGE</b></font> if target is creep. 
+ Applies a buff on herself which increase her <font color='Lime'><b>DAMAGE</b></font> and <font color='Lime'><b>ATTACK SPEED</b></font> for %BuffDuration% seconds. 
+ On every few hits on an enemy hero, enables <font color='DodgerBlue'><b>DAI GO SEI - WAVE</b></font>. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. A stance that utilitize the main advantages of using two swords."
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "BONUS ATTACK SPEED: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkDmg"    "BONUS ATTACK DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Damage"    "DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_HitsRequired"    "HITS REQUIRED: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<font color='Crimson'><b>NIOU KURIKARA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "Slashes %SlashCount% times to deal damage to enemies within %Radius% AOE of target point. 
+ If <font color='SlateBlue'><b>TENGAN</b></font> is active, deals <font color='#c29c4a'><b>BONUS PURE DAMAGE</b></font> on her last slash. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: MUKYUU</b> and <b>ATTRIBUTES: GORIN NO SHO.</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure."
         "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgPerSlash"    "DAMAGE PER SLASH: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_SlashCount"    "SLASH COUNT: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Radius"    "RADIUS: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducWhileChannel"    "%DAMAGE REDUCTION WHILE CHANNELLING: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducFinishChannel"    "%DAMAGE REDUCTION BUFF: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_mukyuu"    "<b><font color='SlateBlue'>MUKYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "Become Invulnerable and Magic Immune for short durations. "
-        "DOTA_Tooltip_Ability_musashi_mukyuu_Lore"    "Musashi achieved realm of NOTHINGNESS, the ultimate mental state of a swordsman. One is NOTHING, thus INVINCIBLE. 
- Not even a slash that uses the Multi-Dimensional Refraction Phenomenon can reach someone who achieved realm of NOTHINGNESS. "
-        "DOTA_Tooltip_Ability_musashi_mukyuu_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<b><font color='SlateBlue'>TENGEN NO HANA</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_description"    "Apply a buff on herself and perform a circle slash around her to deal PURE DAMAGE and STUN enemies when the buff ends. Damage and stun duration ramp up based on the buff elapsed time. 
- This skill can be used again to remove the buff and deal damage earlier but the damage will be PENALIZED. "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Lore"    "A vibrant flower of tengen. Her sword reaches the realm of NOTHINGNESS. "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Radius"    "RADIUS: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_RampUpInterval"    "RAMP UP INTERVAL: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_1SecPercentage"    "%1 SEC Percentage: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_2SecPercentage"    "%2 SEC Percentage: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullDamage"    "FULL DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_StunDuration"    "STUN DURATION: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<b><font color='MediumSeaGreen'>GANRYUU JIMA</b></font>"
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "Dash towards location A. After reaching location A, she performs spinning slashes from A to B and B to A. 
- Deal damage to units in her spinning slashes path. 
- TENGEN NO HANA will be removed instantly upon cast. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReduceWhileSlashing"    "%DAMAGE REDUCTION WHILE SLASHING: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducePostSlashing"    "%DAMAGE REDUCTION POST SLASHING: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_BuffDuration"    "POST SLASHING BUFF DURATION: "
+        "DOTA_Tooltip_Ability_musashi_tengan"    "<font color='SlateBlue'><b>TENGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengan_description"    "Consumes a charge and apply a buff on herself for %BuffDuration% seconds. 
+ This buff have different interactions with her other skills. 
+ <font color='DodgerBlue'><b>DAI GO SEI (W):</b></font> Increases buff's <font color='Lime'><b>DAMAGE</b></font> and <font color='Lime'><b>ATTACK SPEED</b></font> by %TenganBonus%. 
+ <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Allows her to deal <font color='#c29c4a'><b>BONUS PURE DAMAGE</b></font> on her last slash. Buff will be removed upon usage. 
+ <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Apply debuff to enemies hit and deal <font color='#c29c4a'><b>PURE DAMAGE</b></font> after delay. Buff will be removed upon usage. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: IMPROVE TENGAN.</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome."
+        "DOTA_Tooltip_Ability_musashi_tengan_BaseDmg"    "BASE DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
+        "DOTA_Tooltip_Ability_musashi_tengan_RechargeTime"    "RECHARGE TIME: "
+        "DOTA_Tooltip_Ability_musashi_tengan_MaxCharges"    "MAX CHARGES: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "Dashes to target point. After reaching target point, perform spinning slashes towards aimed direction and back to target point. 
+ If <font color='SlateBlue'><b>TENGAN</b></font> is active, apply debuff on enemies which deals <font color='#c29c4a'><b>PURE DAMAGE</b></font> after %DebuffDmgDelay% second. 
+ <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_Lore"    "Let's, KENGOU BATTOU! Oh yeah, so sexy! My name is...Musashi Miyamoto!"
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DashSpeed"    "DASH SPEED: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DmgPerSlash"    "DAMAGE PER SLASH: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DebuffDmgDelay"    "DEBUFF DAMAGE DELAY: "
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRange"    "SLASH RANGE: "
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRadius"    "SLASH RADIUS: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DmgPerSlash"    "DAMAGE PER SLASH: "
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<b><font color='Crimson'>TENMA GOGAN</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "Consume all charges to gain offensive power momentarily. 
- Charges will not recharge until next round. 
- Change all slashes of E from MAGICAL to PURE. Bypass all shield effects. 
- Refresh R once. 
- Buff will be removed after casting E or R and a debuff will be applied to her. 
- She will be stunned and revoked during this debuff. BATTLE CONTINUATION cannot proc while this debuff exists. "
+        "DOTA_Tooltip_Ability_musashi_mukyuu"    "<font color='SlateBlue'><b>MUKYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "Become <font color='Gray'><b>INVULNERABLE</b></font> and <font color='Gray'><b>MAGIC IMMUNE</b></font> for %BuffDuration% second. 
+ Enables <font color='SlateBlue'><b>TENGEN NO HANA</b></font> after usage. 
+ <font color='SlateBlue'><b>TENGEN NO HANA:</b></font> Apply a buff on herself for %BuffDuration% seconds and perform a circle slash within %Radius% AOE of herself when the buff expires. 
+ Damages and stun duration ramps up every %RampUpInterval% second. 
+ Can be used earlier to detonate the buff earlier but damage and stun durations will be penalized. 
+ Will not deal damage or stun when used together with <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> or <font color='MediumSeaGreen'><b>GANRYUU JIMA (R)</b></font>."
+        "DOTA_Tooltip_Ability_musashi_mukyuu_Lore"    "Musashi achieved realm of NOTHINGNESS, the ultimate mental state of a swordsman. One is NOTHING, thus INVINCIBLE. 
+ Not even a slash that uses the Multi-Dimensional Refraction Phenomenon can reach someone who achieved realm of NOTHINGNESS."
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<font color='Crimson'><b>TENMA GOGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "Requires all <font color='SlateBlue'><b>TENGAN</b></font> charges to be activated. Consume all <font color='SlateBlue'><b>TENGAN</b></font> charges to buff her other skills for %BuffDuration% seconds. <font color='SlateBlue'><b>TENGAN</b></font> will not recharge for that round after usage. 
+ She will be stunned and revoked for %DebuffDuration% seconds when buff expires. 
+ <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
+ <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
         "DOTA_Tooltip_Ability_musashi_tenma_gogan_Lore"    "Musashi overloads her TENGAN to the verge of collapsing to gain abrupt offensive power momentarily. 
- TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions. "
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan_DebuffDuration"    "DEBUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<b><font color='SlateBlue'>BATTLE CONTINUATION</b></font>"
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and cannot be killed or healed for durations. Apply a heal on herself when the buff ends. 
- Cannot revive if damage higher than Damage Threshold or while TENMA GOGAN debuff exists. "
+ TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions."
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<font color='SlateBlue'><b>TENGEN NO HANA</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_description"    "Apply a buff on herself for %BuffDuration% seconds and perform a circle slash within %Radius% AOE of herself when the buff expires. 
+ Damages and stun duration ramps up every %RampUpInterval% second. 
+ Can be used earlier to detonate the buff earlier but damage and stun durations will be penalized. 
+ Will not deal damage or stun when used together with <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> or <font color='MediumSeaGreen'><b>GANRYUU JIMA (R)</b></font>."
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Lore"    "A vibrant flower of tengen. Her sword reaches the realm of NOTHINGNESS."
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullDamage"    "FULL DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_StunDuration"    "STUN DURATION: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_1SecPercentage"    "%1 SEC PERCENTAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_2SecPercentage"    "%2 SEC PERCENTAGE: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullPercentage"    "%FULL PERCENTAGE: "
+        "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<font color='SlateBlue'><b>BATTLE CONTINUATION</b></font>"
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and cannot be killed for %BuffDuration% seconds. 
+ Heals herself for %Heal% when buff ends. 
+ Cannot revive if <font color='Crimson'><b>TENMA GOGAN</b></font> debuff exists or damage is greater than %DmgThreshold%. 
+ TENGEN NO HANA will be automatically on her when activated."
         "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
  If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_Heal"    "HEAL: "
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_DmgThreshold"    "DAMAGE THRESHOLD: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<b><font color='Red'>ISHANA DAITENSHOU - SLASH THE VOID 「」"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<b><font color='Red'>COMBO SEQUENCE: D-Q->R. 
- Note: Sequence must be exact and casting any other skills will destroy the modifer. </b></font> 
- Marks target's location and perform NIOU KURIKARA while she charges her mana. 
- Dash towards enemy and perform slashes if target still within search radius when she finishes charging. 
- Deal damage based on enemy Max HP. If target HP falls below threshold, target will be executed. 
- If target survives the blow, target will receive debuff which reduce Max Hp and take increased damage until killed. "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave"    "<font color='DodgerBlue'><b>DAI GO SEI - WAVE</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_description"    "Uses her sword and slash the air to create a pressure wave up to %Range% range. Wave have an AOE of %ProjectileRadius% and speed of %ProjectileSpeed%. 
+ Each use increase mana cost by 100 and has max mana cost of 500. Mana cost will reset to 100 after 10 seconds of not using it. 
+ Has a base damage of 100 and increase by 100 per level of <font color='DodgerBlue'><b>DAI GO SEI</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_Damage"    "TOTAL DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BaseDamage"    "BASE DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromAtkDmg"    "BONUS DAMAGE FROM ATK DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromWBuff"    "BONUS DAMAGE FROM W BUFF: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<font color='Red'><b>ISHANA DAITENSHOU - SLASH THE VOID 「」</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<font color='Red'><b>COMBO SEQUENCE: D->W->R. This combo has 2 PHASES.</b></font> 
+ Note: Using any other skills in between the sequence will make combo sequence fail. 
+ <font color='Red'><b>PHASE 1: </b></font> 
+ Marks her target location and perform <font color='#c29c4a'><b>PURE DAMAGE</b></font> <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> on marked location. 
+ <font color='Red'><b>PHASE 2: </b></font> 
+ Phase 2 will fail if target is dead or not within %SearchRadius% AOE of marked location. 
+ Perform %QuickSlashCount% quick slashes at %QuickSlashInterval% interval and 1 Final Slash after %FinalSlashDmgDelay% second. Quick Slashes and Final Slash damage are based on target's MAX HP. These slashes bypass all damage reductions, link scroll and shield effects including Avalon. 
+ If target's HP falls below Execute Threshold, target will be killed. If target survives the slashes, a debuff will be applied on target until killed."
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_Lore"    "SLASH THE VOID 「」 - BEYOND ZERO"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_SearchRadius"    "SEARCH RADIUS: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_DashSpeed"    "DASH SPEED: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxNormalSlashCount"    "NORMAL SLASH COUNT: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_NormalSlashInterval"    "NORMAL SLASH INTERVAL: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_NormalSlashMaxHpPercent"    "%MAX HP AS NORMAL SLASH DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashDmgDelay"    "FINAL SLASH DELAY: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashMaxHpPercent"    "%MAX HP AS FINAL SLASH DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_QuickSlashMaxHpPercent"    "%QUICK SLASH DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashMaxHpPercent"    "%FINAL SLASH DAMAGE: "
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExecuteThresholdPercent"    "%EXECUTE THRESHOLD: "
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxHpReductionPercent"    "%MAX HP REDUCTION: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%INCREASED INCOMING DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<b><font color='Gold'>BATTLE CONTINUATION</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "Enable BATTLE CONTINUATION and apply TENGEN NO HANA on her automatically when it procs. 
- Musashi cannot be killed during this time. 
- Cannot proc while TENMA GOGAN DEBUFF exists."
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_Cooldown"    "COOLDOWN: "
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<b><font color='Gold'>IMPROVE TENGAN</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase TENGAN max charge and reduce TENGAN recharge time. Increase PURE DAMAGE from TENGAN buff. 
- Enable TENMA GOGAN which alters E and R. This skill can only be used once per round and TENGAN will not recharge after using it. 
- E: Change all slashes to PURE DMG and bypass invulnerable and shield effect. 
- R: Refresh R once."
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_BonusPureDmgPerAgi"    "BONUS PURE DAMAGE PER AGI: "
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_MaxCharges"    "MAX CHARGES: "
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_RechargeTime"    "RECHARGE TIME: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<b><font color='Gold'>GORIN NO SHO</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "Apply elemental effects in sequence to enemies when using Niou Kurikara. 
- EARTH: Slow enemies' movement speed. 
- WATER: Roots enemies and push them towards center. 
- FIRE: Apply Burn and Take Increased Damage to enemies. 
- WIND: Apply Stun and Revoke to enemies. "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_DebuffDuration"    "DEBUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_EarthSlow"    "%EARTH MOVEMENT SPEED SLOW: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_PushSpeed"    "WATER PUSH SPEED: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_FireBurnDuration"    "FIRE BURN DURATION: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_FireBurnDmgPerSec"    "BURN DAMAGE PER SECOND: "
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_WindDuration"    "WIND DEBUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<b><font color='Gold'>MUKYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "Enables MUKYUU and allow TENGAN NO HANA to be used after using MUKYUU. 
- Musashi receive reduced damage while casting NIOU KURIKARA. Gains Damage Reduction buff if NIOU KURIKARA is channelled successfully. 
- Enable TENGEN NO HANA: Deals damage and stun enemies around her when buff is removed. Damage and stun duration ramps up based on buff elapsed time."
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_DmgReducWhileChannel"    "%DAMAGE REDUCTION WHILE CHANNELLING: "
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_DmgReducFinishChannel"    "%DAMAGE REDUCTION BUFF: "
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_BuffDuration"    "BUFF DURATION: "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<b><font color='Gold'>NITEN ICHIRYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "Reduce hits required to proc critical damage when using DAI GO SEI. 
- Increase slash range, slash width, damage per slash of GANRYUU JIMA. "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_HitsRequired"    "HITS REQUIRED TO CRIT: "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_CriticalDmg"    "CRITICAL DAMAGE: "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_SlashRange"    "SLASH RANGE: "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_SlashRadius"    "SLASH RADIUS: "
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei"    "DAI GO SEI"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_description"    "Increase base damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% and attack speed %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
-        "DOTA_Tooltip_musashi_modifier_tengan"    "TENGAN"
-        "DOTA_Tooltip_musashi_modifier_mukyuu"    "MUKYUU"
-        "DOTA_Tooltip_musashi_modifier_mukyuu_description"    "INVULNERABLE and MAGIC IMMUNE."
-        "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "TENGEN NO HANA"
-        "DOTA_Tooltip_musashi_modifier_tengen_no_hana_description"    "Deal PURE DAMAGE and STUN enemies around her when buff ends."
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima"    "GANRYUU JIMA"
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff"    "GANRYUU JIMA DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff_description"    "Deal PURE DAMAGE when this debuff ends. "
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan"    "TENMA GOGAN"
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff"    "TENMA GOGAN DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "Stunned and Revoked. BATTLE CONTINUATION cannot proc."
-        "DOTA_Tooltip_musashi_modifier_battle_continuation"    "BATTLE CONTINUATION"
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_description"    "HP cannot go below %dMODIFIER_PROPERTY_MIN_HEALTH% and Healing is %dMODIFIER_PROPERTY_DISABLE_HEALING%."
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "BATTLE CONTINUATION COOLDOWN"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "ISHANA DAITENSHOU"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_cooldown"    "ISHANA DAITENSHOU COOLDOWN"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "ISHANA DAITENSHOU DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "Increase incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% and REDUCE MAX HP by %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%. 
- Last until killed"
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_channeling_buff"    "NIOU KURIKARA CHANNELLING BUFF"
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_channeling_buff_description"    "Reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postchannel_buff"    "NIOU KURIKARA POST CHANNEL BUFF"
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postchannel_buff_description"    "Reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-        "DOTA_Tooltip_musashi_modifier_earth_debuff"    "EARTH DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_earth_debuff_description"    "Movement Speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-        "DOTA_Tooltip_musashi_modifier_water_debuff"    "WATER DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_water_debuff_description"    "Rooted and pushed towards center point."
-        "DOTA_Tooltip_musashi_modifier_fire_debuff"    "FIRE DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "Receive burn damage and take increased damage for durations. "
-        "DOTA_Tooltip_musashi_modifier_wind_debuff"    "WIND DEBUFF"
-        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Revoked and Stunned for durations. "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%EXTRA INCOMING DAMAGE: "
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<font color='Gold'><b>BATTLE CONTINUATION</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "ENABLES <font color='SlateBlue'><b>BATTLE CONTINUATION.</b></font> 
+ <font color='SlateBlue'><b>BATTLE CONTINUATION: </b></font> Revive and cannot be killed for %BuffDuration% seconds. 
+ Heals herself for %Heal% HP when buff ends. 
+ Cannot revive if <font color='Crimson'><b>TENMA GOGAN</b></font> debuff exists or damage is greater than %DmgThreshold%. 
+ <font color='SlateBlue'><b>TENGEN NO HANA</b></font> will be automatically on her when activated. 
+ Has a cooldown of %Cooldown% seconds."
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<font color='Gold'><b>IMPROVE TENGAN</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase <font color='DodgerBlue'><b>DAI GO SEI</b></font> damage and attack speed bonus to %TenganBonus%. 
+ Increase <font color='SlateBlue'><b>TENGAN</b></font> damage by %BonusDmgPerAgi% per AGI. 
+ Increase <font color='SlateBlue'><b>TENGAN</b></font> max charges to %MaxCharges% and reduce recharge time to %RechargeTime% seconds. 
+ ENABLES <font color='Crimson'><b>TENMA GOGAN.</b></font> 
+ <font color='Crimson'><b>TENMA GOGAN:</b></font> Requires all <font color='SlateBlue'><b>TENGAN</b></font> charges to be activated. Consume all <font color='SlateBlue'><b>TENGAN</b></font> charges to buff her other skills for %BuffDuration% seconds. <font color='SlateBlue'><b>TENGAN</b></font> will not recharge for that round after usage. 
+ She will be stunned and revoked for %DebuffDuration% seconds when buff expires. 
+ <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
+ <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<font color='Gold'><b>GORIN NO SHO</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "Applies elemental debuffs in sequence to enemies hit by <font color='Crimson'><b>NIOU KURIKARA (E). </b></font> 
+ EARTH: Slows enemies' movement speed by %EarthSlow%%%. 
+ Water: Pushes enemies towards center point. 
+ Fire: Applies burn %FireBurnDmgPerSec% damage per second and increase damage taken by %FireIncreaseDmgTaken%%% for %FireBurnDuration% seconds. 
+ WIND: Stuns and revokes enemies for %WindDuration% seconds."
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<font color='Gold'><b>MUKYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "Enables <font color='SlateBlue'><b>MUKYUU: </b></font> Become <font color='Gray'><b>INVULNERABLE</b></font> and <font color='Gray'><b>MAGIC IMMUNE</b></font> for %MukyuuDuration% second. 
+ Gains <font color='Lime'><b>DAMAGE REDUCTION</b></font> while casting and after casting <font color='Crimson'><b>NIOU KURIKARA (E)</b></font>."
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<font color='Gold'><b>NITEN ICHIRYUU</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "Reduce <font color='DodgerBlue'><b>DAI GO SEI</b></font>'s hits required to enable <font color='DodgerBlue'><b>DAI GO SEI - WAVE </b></font> to %HitsRequired%. 
+ Increase <font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font> damage by %BonusDmgPerAgi% per AGI. 
+ Increase <font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font> range to %SlashRange% and Slash Radius to %SlashRadius%."
+        "DOTA_Tooltip_modifier_combo_sequence"    "Combo Sequence"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_hits_counter"    "Hits Counter"
+        "DOTA_Tooltip_modifier_ascended"    "Ascended"
+        "DOTA_Tooltip_modifier_ascended_description"    "Has custom particle effects."
+        "DOTA_Tooltip_musashi_modifier_accel_turn"    "Accel Turn"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei"    "Dai Go Sei"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_description"    "Increase attack speed and damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_slashing"    "Niou Kurikara"
+        "DOTA_Tooltip_musashi_modifier_earth_debuff"    "Niou Kurikara - EARTH"
+        "DOTA_Tooltip_musashi_modifier_earth_debuff_description"    "Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_water_debuff"    "Niou Kurikara - WATER"
+        "DOTA_Tooltip_musashi_modifier_water_debuff_description"    "Pushed towards target point of Niou Kurikara"
+        "DOTA_Tooltip_musashi_modifier_fire_debuff"    "Niou Kurikara - FIRE"
+        "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "Receive increased damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% and burn damage."
+        "DOTA_Tooltip_musashi_modifier_wind_debuff"    "Niou Kurikara - WIND"
+        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Stunned and revoked."
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff"    "Niou Kurikara Damage Reduction"
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff_description"    "Reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_tengan_chargecounter"    "Tengan Charges"
+        "DOTA_Tooltip_musashi_modifier_tengan"    "Tengan"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima"    "Ganryuu Jima"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff"    "Ganryuu Jima Debuff"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff_description"    "Receive PURE DAMAGE when debuff expires."
+        "DOTA_Tooltip_musashi_modifier_mukyuu"    "Mukyuu"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan"    "Tenma Gogan"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff"    "Tenma Gogan aftereffects"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "Stunned and revoked. BC cannot proc."
+        "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "Tengen No Hana"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_active"    "Battle Continuation active"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_active_description"    "Cannot be killed."
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "Battle Continuation cooldown"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter"    "Dai Go Sei - Wave Counter"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter_description"    "Each use increase mana cost by 100 and has max mana cost of 500. Mana cost reset to 100 after 10 seconds of not using it."
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "ISHANA DAITENSHOU - SLASH THE VOID 「」"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "Ishana Daitenshou debuff"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "Sealed in VOID realm. Max HP reduced by %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%. Takes %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% increased damage."
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_cooldown"    "Ishana Daitenshou Cooldown"
 
 		//====================================
         //      Ishtar

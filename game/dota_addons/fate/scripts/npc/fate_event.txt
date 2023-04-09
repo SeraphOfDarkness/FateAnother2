@@ -121,4 +121,13 @@ Event
 		"EventType"		"5" // Big board new + regist
 		"EventDetail"	"waifu_tour_01_guess"
 	}
+	"APRIL_FOOL"		
+	{
+		"EventName"		"april_fool"
+		"EventID"		"11"
+		"StartDate"		"01/04"
+		"EndDate"		"07/04"
+		"EventType"		"6" // NEW Mode
+		"EventDetail"	"same_hero_detail"
+	}
 }

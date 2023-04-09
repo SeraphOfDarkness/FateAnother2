@@ -1,5 +1,5 @@
 /** @noSelfInFile **/
-import { GetMaster1, InitSkillSlotChecker } from "@libs/skill_utils";
+import { ApplySaWhenRevived, GetMaster1, InitSkillSlotChecker } from "@libs/skill_utils";
 import { BaseAbility, BaseModifier, registerAbility, registerModifier } from "libs/dota_ts_adapter";
 import * as musashi_ability from "./musashi_abilities";
 import { BaseVectorAbility } from "@libs/vector_targeting_interface";
@@ -10,13 +10,14 @@ import { BaseVectorAbility } from "@libs/vector_targeting_interface";
 @registerAbility()
 export class musashi_attributes_battle_continuation extends BaseAbility
 {
+    Hero: CDOTA_BaseNPC | undefined;
+
     override OnSpellStart(): void
     {
         const Master2 = this.GetCaster();
-        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         const Master1 = GetMaster1(Master2)!;
         Master1.SetMana(Master1.GetMana() - this.GetManaCost(-1));
-        Hero.AddNewModifier(Master2, this, musashi_attribute_battle_continuation.name, {undefined});
+        ApplySaWhenRevived(Master2, this, musashi_attribute_battle_continuation.name);
     }
 }
 
@@ -58,10 +59,10 @@ export class musashi_attributes_improve_tengan extends BaseAbility
     override OnSpellStart(): void
     {
         const Master2 = this.GetCaster();
-        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         const Master1 = GetMaster1(Master2)!;
+        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         Master1.SetMana(Master1.GetMana() - this.GetManaCost(-1));
-        Hero.AddNewModifier(Master2, this, musashi_attribute_improve_tengan.name, {undefined});
+        ApplySaWhenRevived(Master2, this, musashi_attribute_improve_tengan.name);
         InitSkillSlotChecker(Hero, musashi_ability.musashi_tengan.name, musashi_ability.musashi_tenma_gogan.name, 0.03);
     }
 }
@@ -74,8 +75,8 @@ export class musashi_attribute_improve_tengan extends BaseModifier
     override OnCreated(): void
     {
         this.Caster = this.GetParent();
-        const TenganChargeCounter = this.Caster?.FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name);
-        TenganChargeCounter?.ForceRefresh();
+        const ModifierTenganChargeCounter = this.Caster?.FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name);
+        ModifierTenganChargeCounter?.ForceRefresh();
     }
 
     override GetModifierOverrideAbilitySpecial(event: ModifierOverrideAbilitySpecialEvent): 0 | 1
@@ -84,8 +85,8 @@ export class musashi_attribute_improve_tengan extends BaseModifier
 
         if (event.ability === Tengan)
         {
-            if (event.ability_special_value === "BonusPureDmgPerAgi" || event.ability_special_value === "MaxCharges" || 
-                event.ability_special_value === "RechargeTime")
+            if (event.ability_special_value === "BonusDmgPerAgi" || event.ability_special_value === "MaxCharges" || 
+                event.ability_special_value === "RechargeTime" || event.ability_special_value === "TenganBonus")
             {
                 return 1;
             }
@@ -98,9 +99,9 @@ export class musashi_attribute_improve_tengan extends BaseModifier
     {
         const Ability = this.GetAbility();
 
-        if (event.ability_special_value === "BonusPureDmgPerAgi")
+        if (event.ability_special_value === "BonusDmgPerAgi")
         {
-            return Ability?.GetSpecialValueFor("BonusPureDmgPerAgi")!;
+            return Ability?.GetSpecialValueFor("BonusDmgPerAgi")!;
         }
         else if (event.ability_special_value === "MaxCharges")
         {
@@ -109,6 +110,10 @@ export class musashi_attribute_improve_tengan extends BaseModifier
         else if (event.ability_special_value === "RechargeTime")
         {
             return Ability?.GetSpecialValueFor("RechargeTime")!;
+        }
+        else if (event.ability_special_value === "TenganBonus")
+        {
+            return Ability?.GetSpecialValueFor("TenganBonus")!;
         }
 
         return 0;
@@ -154,10 +159,9 @@ export class musashi_attributes_gorin_no_sho extends BaseAbility
     override OnSpellStart(): void
     {
         const Master2 = this.GetCaster();
-        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         const Master1 = GetMaster1(Master2)!;
         Master1.SetMana(Master1.GetMana() - this.GetManaCost(-1));
-        Hero.AddNewModifier(Master2, this, musashi_attribute_gorin_no_sho.name, {undefined});
+        ApplySaWhenRevived(Master2, this, musashi_attribute_gorin_no_sho.name);
     }
 }
 
@@ -199,11 +203,11 @@ export class musashi_attributes_mukyuu extends BaseAbility
     override OnSpellStart(): void
     {
         const Master2 = this.GetCaster();
-        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         const Master1 = GetMaster1(Master2)!;
+        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         Master1.SetMana(Master1.GetMana() - this.GetManaCost(-1));
         Hero.SwapAbilities(musashi_ability.musashi_mukyuu.name, "fate_empty1", true, false);
-        Hero.AddNewModifier(Master2, this, musashi_attribute_mukyuu.name, {undefined});
+        ApplySaWhenRevived(Master2, this, musashi_attribute_mukyuu.name);
     }
 }
 
@@ -217,7 +221,7 @@ export class musashi_attribute_mukyuu extends BaseModifier
 
         if (event.ability === Ability)
         {
-            if (event.ability_special_value === "DmgReducWhileChannel" || event.ability_special_value === "DmgReducFinishChannel" ||
+            if (event.ability_special_value === "DmgReduceWhileSlashing" || event.ability_special_value === "DmgReducePostSlashing" ||
                 event.ability_special_value === "BuffDuration")
             {
                 return 1;
@@ -231,13 +235,13 @@ export class musashi_attribute_mukyuu extends BaseModifier
     {
         const Ability = this.GetAbility();
 
-        if (event.ability_special_value === "DmgReducWhileChannel")
+        if (event.ability_special_value === "DmgReduceWhileSlashing")
         {
-            return Ability?.GetSpecialValueFor("DmgReducWhileChannel")!;
+            return Ability?.GetSpecialValueFor("DmgReduceWhileSlashing")!;
         }
-        else if (event.ability_special_value === "DmgReducFinishChannel")
+        else if (event.ability_special_value === "DmgReducePostSlashing")
         {
-            return Ability?.GetSpecialValueFor("DmgReducFinishChannel")!;
+            return Ability?.GetSpecialValueFor("DmgReducePostSlashing")!;
         }
         else if (event.ability_special_value === "BuffDuration")
         {
@@ -287,10 +291,9 @@ export class musashi_attributes_niten_ichiryuu extends BaseAbility
     override OnSpellStart(): void
     {
         const Master2 = this.GetCaster();
-        const Hero = Master2.GetPlayerOwner().GetAssignedHero();
         const Master1 = GetMaster1(Master2)!;
         Master1.SetMana(Master1.GetMana() - this.GetManaCost(-1));
-        Hero.AddNewModifier(Master2, this, musashi_attribute_niten_ichiryuu.name, {undefined});
+        ApplySaWhenRevived(Master2, this, musashi_attribute_niten_ichiryuu.name);
     }
 }
 
@@ -305,6 +308,9 @@ export class musashi_attribute_niten_ichiryuu extends BaseModifier
         const Caster = this.GetParent();
         this.DaiGoSei = Caster.FindAbilityByName(musashi_ability.musashi_dai_go_sei.name);
         this.GanryuuJima = Caster.FindAbilityByName(musashi_ability.musashi_ganryuu_jima.name) as musashi_ability.musashi_ganryuu_jima;
+        const ModifierDaiGoSeiHitsCounter = Caster.FindModifierByName(musashi_ability.musashi_modifier_dai_go_sei_hits_counter.name);
+        ModifierDaiGoSeiHitsCounter?.SetStackCount(0);
+        ModifierDaiGoSeiHitsCounter?.ForceRefresh();
         this.GanryuuJima.UpdateVectorValues();
     }
 
@@ -312,7 +318,7 @@ export class musashi_attribute_niten_ichiryuu extends BaseModifier
     {
         if (event.ability === this.DaiGoSei)
         {
-            if (event.ability_special_value === "HitsRequired" || event.ability_special_value === "CriticalDmg")
+            if (event.ability_special_value === "HitsRequired")
             {
                 return 1;
             }
@@ -338,10 +344,6 @@ export class musashi_attribute_niten_ichiryuu extends BaseModifier
             if (event.ability_special_value === "HitsRequired")
             {
                 return Ability?.GetSpecialValueFor("HitsRequired")!;
-            }
-            else if (event.ability_special_value === "CriticalDmg")
-            {
-                return Ability?.GetSpecialValueFor("CriticalDmg")!;
             }
         }
         else if (event.ability === this.GanryuuJima)

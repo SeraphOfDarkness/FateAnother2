@@ -1440,6 +1440,20 @@ do
     end
 end
 
+local function __TS__NumberToFixed(self, fractionDigits)
+    if math.abs(self) >= 1e+21 or self ~= self then
+        return tostring(self)
+    end
+    local f = math.floor(fractionDigits or 0)
+    if f < 0 or f > 99 then
+        error("toFixed() digits argument must be between 0 and 99", 0)
+    end
+    return string.format(
+        ("%." .. tostring(f)) .. "f",
+        self
+    )
+end
+
 local function __TS__ObjectDefineProperty(target, key, desc)
     local luaKey = type(key) == "number" and key + 1 or key
     local value = rawget(target, luaKey)
@@ -2412,6 +2426,7 @@ return {
   __TS__NumberIsFinite = __TS__NumberIsFinite,
   __TS__NumberIsNaN = __TS__NumberIsNaN,
   __TS__NumberToString = __TS__NumberToString,
+  __TS__NumberToFixed = __TS__NumberToFixed,
   __TS__ObjectAssign = __TS__ObjectAssign,
   __TS__ObjectDefineProperty = __TS__ObjectDefineProperty,
   __TS__ObjectEntries = __TS__ObjectEntries,

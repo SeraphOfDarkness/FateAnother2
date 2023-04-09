@@ -738,7 +738,7 @@ function FateGameMode:OnGameInProgress()
 
                     return BLESSING_PERIOD
             end})
-            if string.match(GetMapName(), "fate_elim") then 
+            --[[if string.match(GetMapName(), "fate_elim") then 
                 CreateUITimer("Draw Chest Drop Cooldown", DRAW_CHEST_DROP_PERIOD, "draw_chest_timer")
                 Timers:CreateTimer('draw_chest', {
                     endTime = DRAW_CHEST_DROP_PERIOD,
@@ -747,7 +747,7 @@ function FateGameMode:OnGameInProgress()
                     self.bDrawChestDrop = true        
 
                 end})
-            end
+            end]]
         end
         if (_G.GameMap == "fate_trio_rumble_3v3v3v3" or _G.GameMap == "fate_ffa" or _G.GameMap == "fate_trio") then
             if ServerTables:GetAllTableValues("EventPadoru") ~= false then 
@@ -3941,6 +3941,10 @@ function FateGameMode:InitGameMode()
     
 end
 
+function FateGameMode:calcMVPFFA()
+
+end
+
 function FateGameMode:calcMVP()
     print('cal MVP')
     LoopOverPlayers(function(ply, plyID, playerHero)
@@ -3961,6 +3965,16 @@ function FateGameMode:calcMVP()
         print(k,v)
     end]]
     --print(self.MVPA[1]['playerId'])
+    ServerTables:SetTableValue("MVP", "team1", self.MVPA[1]['playerId'], true)
+    ServerTables:SetTableValue("MVP", "team2", self.MVPB[1]['playerId'], true)
+
+end
+
+function FateGameMode:resetMVP()
+    self.MVPA = {}
+    self.MVPB = {}
+    ServerTables:SetTableValue("MVP", "team1", false, true)
+    ServerTables:SetTableValue("MVP", "team2", false, true)
 
 end
 
@@ -4945,6 +4959,9 @@ function FateGameMode:OnPlayerConnects()
                 print('No Newbie')
                 CustomGameEventManager:Send_ServerToAllClients( "availablemode", {dm = true} )
                 ServerTables:SetTableValue("GameModeChoice", "dm", true, true)
+                if ServerTables:GetTableValue("SameHero", "samehero") == true then
+                    CustomGameEventManager:Send_ServerToAllClients( "availablemode", {sh = true} )
+                end
             --end
         end
     end)

@@ -6,7 +6,194 @@ import { Sleep } from "@libs/sleep_timer";
 import { BaseVectorAbility } from "@libs/vector_targeting_interface";
 
 //======================================================================================================================
-// Miyamoto Musashi: Skill 1: Dai Go Sei (Q)
+// Miyamoto Musashi: Skill 1: Accel Turn (Q)
+//======================================================================================================================
+@registerAbility()
+export class musashi_accel_turn extends BaseAbility
+{
+    readonly SoundVoiceline: string = "antimage_anti_ability_manavoid_07";
+    readonly SoundSfx: string = "musashi_accel_turn_sfx";
+
+    Caster: CDOTA_BaseNPC | undefined;
+
+    Damage: number = 0;
+    DmgType: DamageTypes | undefined;
+    DmgFlag: DamageFlag | undefined;
+
+    override OnSpellStart(): void
+    {
+        this.Caster = this.GetCaster();
+        this.Caster.AddNewModifier(this.Caster, this, musashi_modifier_accel_turn.name, {undefined});
+        this.SetDamageParameters();
+        this.CreateProjectile();
+        this.PlaySound();
+    }
+
+    SetDamageParameters(): void
+    {
+        this.Damage = this.GetSpecialValueFor("Damage");
+        this.DmgType = this.GetAbilityDamageType();
+        this.DmgFlag = DamageFlag.NONE;
+    }
+
+    CreateProjectile(): void
+    {
+        let ParticleStr = "particles/custom/musashi/musashi_accel_turn_basic.vpcf";
+
+        if (this.Caster?.HasModifier("modifier_ascended"))
+        {
+            ParticleStr = "particles/custom/musashi/musashi_accel_turn_unique.vpcf";
+        }
+
+        const Direction = this.Caster?.GetForwardVector().__unm()!;
+
+        ProjectileManager.CreateLinearProjectile
+        (
+            {
+                EffectName: ParticleStr,
+                Ability: this,
+                Source: this.Caster!,
+                vSpawnOrigin: this.Caster?.GetAbsOrigin()!,
+                vVelocity: (Direction * this.GetSpecialValueFor("ProjectileSpeed")) as Vector,
+                fDistance: this.GetSpecialValueFor("Range"),
+                fStartRadius: this.GetSpecialValueFor("ProjectileRadius"),
+                fEndRadius: this.GetSpecialValueFor("ProjectileRadius"),
+                iUnitTargetTeam: this.GetAbilityTargetTeam(),
+                iUnitTargetFlags: this.GetAbilityTargetFlags(),
+                iUnitTargetType: this.GetAbilityTargetType(),
+            }
+        )
+    }
+    
+    override OnProjectileHit(target: CDOTA_BaseNPC): boolean | void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        DoDamage(this.Caster!, target, this.Damage, this.DmgType!, this.DmgFlag!, this, false);
+    }
+
+    PlaySound(): void
+    {
+        this.Caster?.EmitSound(this.SoundVoiceline);
+        this.Caster?.EmitSound(this.SoundSfx);
+    }
+
+    override GetCastRange(): number
+    {
+        if (IsServer())
+        {
+            return 0;
+        }
+        else
+        {
+            return this.GetSpecialValueFor("Range");
+        }
+    }
+}
+
+@registerModifier()
+export class musashi_modifier_accel_turn extends BaseModifier
+{
+    Caster: CDOTA_BaseNPC | undefined;
+    Ability: CDOTABaseAbility | undefined;
+
+    Direction: Vector = Vector(0, 0, 0);
+    UnitsTravelled: number = 0;
+    DashRange: number = 0;
+    DashSpeed: number = 0;
+
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Caster = this.GetCaster()!;
+        this.Ability = this.GetAbility();
+        this.Direction = this.Ability?.GetForwardVector().__unm()!;
+        this.DashRange = this.Ability?.GetSpecialValueFor("Range")!;
+        this.DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed")!;
+        ProjectileManager.ProjectileDodge(this.Caster);
+        this.StartIntervalThink(0.03);
+    }
+
+    override OnIntervalThink(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Caster?.SetForwardVector(this.Direction);
+        const CurrentOrigin = this.Caster?.GetAbsOrigin()!;
+        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * this.DashSpeed)) as Vector;
+        this.UnitsTravelled += ((NewPosition - CurrentOrigin) as Vector).Length2D();
+        this.Caster?.SetAbsOrigin(NewPosition);
+
+        if (this.UnitsTravelled >= this.DashRange)
+        {
+            this.Destroy();
+        }
+    }
+
+    override OnDestroy(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Caster?.SetForwardVector(this.Caster.GetAbsOrigin().Normalized());
+        FindClearSpaceForUnit(this.Caster!, this.Caster?.GetAbsOrigin()!, true);
+    }
+
+    override DeclareFunctions(): ModifierFunction[]
+    {
+        return [ModifierFunction.OVERRIDE_ANIMATION, ModifierFunction.OVERRIDE_ANIMATION_RATE];
+    }
+
+    override GetOverrideAnimation(): GameActivity
+    {
+        return GameActivity.DOTA_OVERRIDE_ABILITY_1;
+    }
+
+    override GetOverrideAnimationRate(): number
+    {
+        return 2;
+    }
+
+    override CheckState(): Partial<Record<ModifierState, boolean>>
+    {
+        const ModifierTable = 
+        {
+            [ModifierState.INVULNERABLE]: true,
+            [ModifierState.UNSELECTABLE]: true,
+            [ModifierState.UNTARGETABLE]: true,
+            [ModifierState.NO_HEALTH_BAR]: true,
+            [ModifierState.FLYING_FOR_PATHING_PURPOSES_ONLY]: true,
+            [ModifierState.COMMAND_RESTRICTED]: true,
+        }
+
+        return ModifierTable;
+    }
+
+    override IsPurgable(): boolean
+    {
+        return false;
+    }
+
+    override IsPurgeException(): boolean
+    {
+        return false;
+    }
+}
+
+//======================================================================================================================
+// Miyamoto Musashi: Skill 2: Dai Go Sei (W)
 //======================================================================================================================
 @registerAbility()
 export class musashi_dai_go_sei extends BaseAbility
@@ -15,39 +202,144 @@ export class musashi_dai_go_sei extends BaseAbility
     readonly SoundSfx: string = "musashi_dai_go_sei_sfx";
 
     Caster: CDOTA_BaseNPC | undefined;
-
-    override OnAbilityPhaseStart(): boolean
-    {
-        if (IsServer())
-        {
-            this.Caster = this.GetCaster();
-            
-            if (CheckComboStatsFulfilled(this.Caster) && !this.Caster.HasModifier(musashi_modifier_ishana_daitenshou_cooldown.name))
-            {
-                const SkillsSequence = [musashi_dai_go_sei.name];
-                InitComboSequenceChecker(this.Caster, SkillsSequence, musashi_ganryuu_jima.name, musashi_ishana_daitenshou.name, 5);
-            }
-        }
-
-        return true;
-    }
+    Victim: CDOTA_BaseNPC | undefined;
 
     override OnSpellStart(): void
     {
-        const Victim = this.GetCursorTarget()!;
+        this.Caster = this.GetCaster();
+        this.Victim = this.GetCursorTarget()!;
         const BuffDuration = this.GetSpecialValueFor("BuffDuration");
         const StunDuration = this.GetSpecialValueFor("StunDuration");
         this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_dai_go_sei.name, {duration: BuffDuration});
-        this.Caster?.SetAbsOrigin(Victim?.GetAbsOrigin());
+        this.Caster?.SetAbsOrigin(this.Victim?.GetAbsOrigin());
         FindClearSpaceForUnit(this.Caster!, this.Caster?.GetAbsOrigin()!, true);
-        Victim.AddNewModifier(this.Caster, this, "modifier_stunned", {duration: StunDuration});
+        this.Victim.AddNewModifier(this.Caster, this, "modifier_stunned", {duration: StunDuration});
+        this.DealDamage();
         this.PlaySound();
+    }
+
+    DealDamage(): void
+    {
+        const Damage = this.GetSpecialValueFor("Damage");
+        const Radius = this.GetSpecialValueFor("Radius");
+        let DmgType = DamageTypes.MAGICAL;
+        let DmgFlag = DamageFlag.NONE;
+        const Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.Victim?.GetAbsOrigin()!, undefined, Radius, 
+                                          this.GetAbilityTargetTeam(), this.GetAbilityTargetType(), this.GetAbilityTargetFlags(), 
+                                          FindOrder.ANY, false);
+
+        if (this.Victim?.IsHero() && this.Victim.IsRealHero())
+        {
+            DmgType = DamageTypes.PURE;
+            DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION;
+        }
+
+        for (const Iterator of Targets) 
+        {
+            DoDamage(this.Caster!, Iterator, Damage, DmgType, DmgFlag, this, false);    
+        }
     }
 
     PlaySound(): void
     {
         this.Caster?.EmitSound(this.SoundVoiceline);
         this.Caster?.EmitSound(this.SoundSfx);
+    }
+
+    override GetIntrinsicModifierName(): string
+    {
+        return musashi_modifier_dai_go_sei_hits_counter.name;
+    }
+}
+
+@registerModifier()
+export class musashi_modifier_dai_go_sei_hits_counter extends BaseModifier
+{
+    Caster: CDOTA_BaseNPC | undefined;
+    Ability: CDOTABaseAbility | undefined;
+
+    HitsRequired: number = 0;
+
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Caster = this.GetCaster();
+        this.Ability = this.GetAbility();
+        this.HitsRequired = this.Ability?.GetSpecialValueFor("HitsRequired")!;
+    }
+
+    override OnRefresh(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.OnCreated();
+    }
+
+    override OnAttackLanded(event: ModifierAttackEvent): void
+    {
+        if (!IsServer() || event.attacker !== this.Caster)
+        {
+            return;
+        }
+
+        if (event.target.IsHero() && event.target.IsRealHero())
+        {
+            if (this.GetStackCount() < this.HitsRequired)
+            {
+                this.IncrementStackCount();
+            }
+        }
+    }
+
+    override OnStackCountChanged(stackCount: number): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        if (stackCount === this.HitsRequired - 1)
+        {
+            InitSkillSlotChecker(this.Caster!, musashi_dai_go_sei.name, musashi_dai_go_sei_wave.name, 5);
+            this.SetStackCount(0);
+        }
+    }
+
+    override DeclareFunctions(): ModifierFunction[]
+    {
+        return [ModifierFunction.ON_ATTACK_LANDED];
+    }
+
+    override IsPurgable(): boolean
+    {
+        return false;
+    }
+
+    override IsPurgeException(): boolean
+    {
+        return false;
+    }
+
+    override IsPermanent(): boolean
+    {
+        return true;
+    }
+
+    override IsHidden(): boolean
+    {
+        if (this.GetStackCount() === 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
 
@@ -57,7 +349,7 @@ export class musashi_modifier_dai_go_sei extends BaseModifier
     Caster: CDOTA_BaseNPC | undefined;
     Ability: CDOTABaseAbility | undefined;
 
-    BonusDmg!: number;
+    BonusAtkDmg!: number;
     BonusAtkSpeed!: number;
 
     override OnCreated(): void
@@ -69,8 +361,11 @@ export class musashi_modifier_dai_go_sei extends BaseModifier
 
         this.Caster = this.GetCaster();
         this.Ability = this.GetAbility();
-        this.BonusDmg = this.Ability?.GetSpecialValueFor("BonusDmg")!;
+        this.BonusAtkDmg = this.Ability?.GetSpecialValueFor("BonusAtkDmg")!;
         this.BonusAtkSpeed = this.Ability?.GetSpecialValueFor("BonusAtkSpeed")!;
+        const ModifierTengan = this.Caster?.FindModifierByName(musashi_modifier_tengan.name) as musashi_modifier_tengan;
+        this.BonusAtkDmg += ModifierTengan?.TenganBonus ?? 0;
+        this.BonusAtkSpeed += ModifierTengan?.TenganBonus ?? 0;
         this.SetHasCustomTransmitterData(true);
         this.CreateParticle();
     }
@@ -83,13 +378,14 @@ export class musashi_modifier_dai_go_sei extends BaseModifier
         }
 
         this.OnCreated();
+        this.SendBuffRefreshToClients();
     }
     
     AddCustomTransmitterData()
     {
         const data = 
         {
-            BonusDmg: this.BonusDmg, 
+            BonusDmg: this.BonusAtkDmg, 
             BonusAtkSpeed: this.BonusAtkSpeed,
         };
         
@@ -98,31 +394,8 @@ export class musashi_modifier_dai_go_sei extends BaseModifier
 
     HandleCustomTransmitterData(data: ReturnType<this["AddCustomTransmitterData"]>): void
     {
-        this.BonusDmg = data.BonusDmg;
+        this.BonusAtkDmg = data.BonusDmg;
         this.BonusAtkSpeed = data.BonusAtkSpeed;
-    }
-
-    override OnAttackLanded(event: ModifierAttackEvent): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        if ((event.attacker == this.Caster && event.target.IsRealHero()) && this.Caster?.HasModifier(musashi_modifier_tengan.name))
-        {
-            this.IncrementStackCount();
-            const HitsRequired = this.Ability?.GetSpecialValueFor("HitsRequired");
-
-            if (this.GetStackCount() == HitsRequired)
-            {
-                this.SetStackCount(0);
-                const Damage = event.damage * this.Ability?.GetSpecialValueFor("CriticalDmg")!;
-                const DmgType = DamageTypes.PHYSICAL;
-                const DmgFlag = DamageFlag.NONE;
-                DoDamage(this.Caster, event.target, Damage, DmgType, DmgFlag, this.Ability!, false);
-            }
-        }
     }
 
     CreateParticle(): void
@@ -150,191 +423,20 @@ export class musashi_modifier_dai_go_sei extends BaseModifier
         this.AddParticle(BlueOrbParticle, false, false, -1, false, false);
         this.AddParticle(RedOrbParticle, false, false, -1, false, false);
     }
-
     
     override DeclareFunctions(): ModifierFunction[]
     {
-        return [ModifierFunction.PREATTACK_BONUS_DAMAGE, ModifierFunction.ATTACKSPEED_BONUS_CONSTANT, ModifierFunction.ON_ATTACK_LANDED];
+        return [ModifierFunction.PREATTACK_BONUS_DAMAGE, ModifierFunction.ATTACKSPEED_BONUS_CONSTANT];
     }
 
     override GetModifierPreAttack_BonusDamage(): number
     {
-        return this.BonusDmg;
+        return this.BonusAtkDmg;
     }
 
     override GetModifierAttackSpeedBonus_Constant(): number
     {
         return this.BonusAtkSpeed;
-    }
-
-    override IsPurgable(): boolean
-    {
-        return false;
-    }
-
-    override IsPurgeException(): boolean
-    {
-        return false;
-    }
-}
-
-//======================================================================================================================
-// Miyamoto Musashi: Skill 2: Accel Turn (W)
-//======================================================================================================================
-@registerAbility()
-export class musashi_accel_turn extends BaseAbility
-{
-    readonly SoundVoiceline: string = "antimage_anti_ability_manavoid_07";
-    readonly SoundSfx: string = "musashi_accel_turn_sfx";
-
-    Caster: CDOTA_BaseNPC | undefined;
-
-    override OnSpellStart(): void
-    {
-        this.Caster = this.GetCaster();
-        this.Caster.AddNewModifier(this.Caster, this, musashi_modifier_accel_turn.name, {undefined});
-        this.PlaySound();
-    }
-
-    PlaySound(): void
-    {
-        this.Caster?.EmitSound(this.SoundVoiceline);
-        this.Caster?.EmitSound(this.SoundSfx);
-    }
-
-    override GetCastRange(): number
-    {
-        if (IsServer())
-        {
-            return 0;
-        }
-        else
-        {
-            return this.GetSpecialValueFor("DashRange");
-        }
-    }
-}
-
-@registerModifier()
-export class musashi_modifier_accel_turn extends BaseModifier
-{
-    Caster: CDOTA_BaseNPC | undefined;
-    Ability: CDOTABaseAbility | undefined;
-
-    Direction: Vector = Vector(0, 0, 0);
-    StartPosition: Vector = Vector(0, 0, 0);
-    UnitsTravelled: number = 0;
-    DashRange: number = 0;
-
-    override OnCreated(): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        this.Caster = this.GetCaster();
-        this.Ability = this.GetAbility();
-        this.Direction = this.Ability?.GetForwardVector().__unm()!;
-        this.StartPosition = this.Caster?.GetAbsOrigin()!;
-        this.DashRange = this.Ability?.GetSpecialValueFor("DashRange")!;
-        this.CreateParticle();
-        this.StartIntervalThink(0.03);
-    }
-
-    override OnIntervalThink(): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        this.Caster?.SetForwardVector(this.Direction);
-        const CurrentOrigin = this.Caster?.GetAbsOrigin()!;
-        const DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed");
-        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * DashSpeed!)) as Vector;
-        this.UnitsTravelled += ((NewPosition - CurrentOrigin) as Vector).Length2D();
-        this.Caster?.SetAbsOrigin(NewPosition);
-
-        if (this.UnitsTravelled >= this.DashRange)
-        {
-            this.Destroy();
-        }
-    }
-
-    override OnDestroy(): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        this.DealDamage();
-        this.Caster?.SetForwardVector(this.Caster.GetAbsOrigin().Normalized());
-        FindClearSpaceForUnit(this.Caster!, this.Caster?.GetAbsOrigin()!, true);
-    }
-
-    DealDamage(): void
-    {
-        const DashWidth = this.Ability?.GetSpecialValueFor("DashWidth");
-        const Damage = this.Ability?.GetSpecialValueFor("Damage")!;
-        const DmgType = this.Ability?.GetAbilityDamageType()!;
-        const DmgFlag = DamageFlag.NONE;
-        const Targets = FindUnitsInLine(this.Caster?.GetTeam()!, this.StartPosition, this.Caster?.GetAbsOrigin()!, undefined, 
-                                        DashWidth!, this.Ability?.GetAbilityTargetTeam()!, this.Ability?.GetAbilityTargetType()!, 
-                                        this.Ability?.GetAbilityTargetFlags()!);
-        
-        for (const Iterator of Targets) 
-        {
-            DoDamage(this.Caster!, Iterator, Damage, DmgType, DmgFlag, this.Ability!, false);    
-        }
-    }
-
-    CreateParticle(): void
-    {
-        let ParticleStr = "particles/custom/musashi/musashi_accel_turn_basic.vpcf";
-
-        if (this.Caster?.HasModifier("modifier_ascended"))
-        {
-            ParticleStr = "particles/custom/musashi/musashi_accel_turn_unique.vpcf";
-        }
-
-        const Particle = ParticleManager.CreateParticle(ParticleStr, ParticleAttachment.WORLDORIGIN, this.Caster);
-        const ParticleSpeed = (this.Direction * 2000) as Vector;
-        ParticleManager.SetParticleControl(Particle, 0, this.Caster?.GetAbsOrigin()!);
-        ParticleManager.SetParticleControl(Particle, 1, ParticleSpeed);
-        this.AddParticle(Particle, false, false, -1, false, false);
-    }
-
-    override DeclareFunctions(): ModifierFunction[]
-    {
-        return [ModifierFunction.OVERRIDE_ANIMATION, ModifierFunction.OVERRIDE_ANIMATION_RATE];
-    }
-
-    override GetOverrideAnimation(): GameActivity
-    {
-        return GameActivity.DOTA_OVERRIDE_ABILITY_1;
-    }
-
-    override GetOverrideAnimationRate(): number
-    {
-        return 2;
-    }
-
-    override CheckState(): Partial<Record<ModifierState, boolean>>
-    {
-        const ModifierTable = 
-        {
-            [ModifierState.INVULNERABLE]: true,
-            [ModifierState.MAGIC_IMMUNE]: true,
-            [ModifierState.UNSELECTABLE]: true,
-            [ModifierState.UNTARGETABLE]: true,
-            [ModifierState.NO_HEALTH_BAR]: true,
-            [ModifierState.NO_UNIT_COLLISION]: true,
-            [ModifierState.COMMAND_RESTRICTED]: true,
-        }
-
-        return ModifierTable;
     }
 
     override IsPurgable(): boolean
@@ -355,14 +457,11 @@ export class musashi_modifier_accel_turn extends BaseModifier
 export class musashi_niou_kurikara extends BaseAbility
 {
     readonly SoundVoiceline: string = "antimage_anti_cast_03";
-    readonly SoundSfx: string = "musashi_niou_kurikara_sfx";
 
     Caster: CDOTA_BaseNPC | undefined;
     NiouSkill: musashi_niou | undefined;
     Niou: CDOTA_BaseNPC | undefined;
-    DmgReducBuff: CDOTA_Buff | undefined;
 
-    TargetAoe: Vector = Vector(0, 0, 0);
     Interval: number = 0;
     SlashCount: number = 0;
 
@@ -372,8 +471,7 @@ export class musashi_niou_kurikara extends BaseAbility
         this.NiouSkill = this.Caster.FindAbilityByName(musashi_niou.name) as musashi_niou;
         this.Caster.CastAbilityImmediately(this.NiouSkill, this.Caster.GetEntityIndex());
         this.Niou = this.NiouSkill.Niou;
-        this.TargetAoe = this.GetCursorPosition();
-        this.Niou?.FaceTowards(this.TargetAoe);
+        this.Niou?.FaceTowards(this.GetCursorPosition());
         return true;
     }
 
@@ -384,54 +482,95 @@ export class musashi_niou_kurikara extends BaseAbility
 
     override OnSpellStart(): void
     {
+        this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_niou_kurikara_slashing.name, {duration: 1.5});
         this.Niou?.StartGestureWithPlaybackRate(GameActivity.DOTA_CHANNEL_ABILITY_1, 1.1);
-        ++this.SlashCount;
-        this.Interval = 0.5;
-        this.DmgReducBuff = this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_niou_kurikara_channeling_buff.name, {undefined});
 
         if (!this.Caster?.HasModifier(musashi_modifier_ishana_daitenshou.name))
         {
-            EmitGlobalSound(this.SoundVoiceline);
+            this.Caster?.EmitSound(this.SoundVoiceline);
         }
     }
-
-    override OnChannelThink(interval: number): void
+    
+    override OnUpgrade(): void
     {
-        const SlashCount = this.GetSpecialValueFor("SlashCount");
-
-        if (this.Interval >= 0.5 && this.SlashCount <= SlashCount)
-        {
-            this.Interval = 0;
-            this.CreateParticle();
-            this.DealDamage();
-            EmitSoundOnLocationWithCaster(this.TargetAoe, this.SoundSfx, this.Caster!);
-        }
-
-        this.Interval += interval;
+        this.NiouSkill?.SetLevel(this.GetLevel());
     }
 
-    override OnChannelFinish(interrupted: boolean): void
+    override GetAOERadius(): number
     {
-        this.SlashCount = 0;
-        this.Interval = 0;
-        this.DmgReducBuff?.Destroy();
+        return this.GetSpecialValueFor("Radius");
+    }
+}
 
-        if (interrupted)
+@registerModifier()
+export class musashi_modifier_niou_kurikara_slashing extends BaseModifier
+{
+    readonly SoundSfx: string = "musashi_niou_kurikara_sfx";
+
+    Caster: CDOTA_BaseNPC | undefined;
+    Ability: CDOTABaseAbility | undefined;
+
+    TargetPoint: Vector = Vector(0, 0, 0);
+    SlashCount: number = 0;
+
+    override OnCreated(): void
+    {
+        if (!IsServer())
         {
-            this.NiouSkill?.DestroyNiou(0);
+            return;
         }
-        else
+
+        this.Caster = this.GetCaster();
+        this.Ability = this.GetAbility();
+        this.TargetPoint = this.Ability?.GetCursorPosition()!;
+        giveUnitDataDrivenModifier(this.Caster!, this.Caster!, "pause_sealdisabled", 1.5);
+        this.IncrementStackCount();
+        this.StartIntervalThink(0.5);
+    }
+
+    override OnIntervalThink(): void
+    {
+        if (!IsServer())
         {
-            this.NiouSkill?.DestroyNiou(1);
-            const BuffDuration = this.GetSpecialValueFor("BuffDuration");
-            this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_niou_kurikara_postchannel_buff.name, {duration: BuffDuration});
+            return;
         }
+
+        this.IncrementStackCount();
+    }
+
+    override OnStackCountChanged(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.DealDamage();
+        this.CreateParticle();
+        EmitSoundOnLocationWithCaster(this.TargetPoint, this.SoundSfx, this.Caster!);
+    }
+
+    override OnDestroy(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        const NiouSkill = this.Caster?.FindAbilityByName(musashi_niou.name) as musashi_niou;
+        NiouSkill.DestroyNiou(1);
+        const BuffDuration = this.Ability?.GetSpecialValueFor("BuffDuration");
+        this.Caster?.AddNewModifier(this.Caster, this.Ability, musashi_modifier_niou_kurikara_postslashing_buff.name, {duration: BuffDuration});
+        const ModifierIshanaDaitenshou = this.Caster?.FindModifierByName(musashi_modifier_ishana_daitenshou.name);
+        ModifierIshanaDaitenshou?.IncrementStackCount();
     }
 
     DealDamage(): void
     {
-        let DmgType = this.GetAbilityDamageType();
-        let TargetFlags = this.GetAbilityTargetFlags();
+        ++this.SlashCount;
+        const Damage = this.Ability?.GetSpecialValueFor("DmgPerSlash")!;
+        let DmgType = this.Ability?.GetAbilityDamageType()!;
+        let TargetFlags = this.Ability?.GetAbilityTargetFlags()!;
         let DmgFlag = DamageFlag.NONE;
         let Targets;
 
@@ -442,30 +581,35 @@ export class musashi_niou_kurikara extends BaseAbility
             TargetFlags = UnitTargetFlags.MAGIC_IMMUNE_ENEMIES;
         }
 
-        Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.TargetAoe, undefined, this.GetAOERadius(), this.GetAbilityTargetTeam(),
-                                    this.GetAbilityTargetType(), TargetFlags, FindOrder.ANY, false);
-        const Damage = this.GetSpecialValueFor("DmgPerSlash");
+        const HasGorinNoSho = this.Caster?.HasModifier("musashi_attribute_gorin_no_sho");
+        Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.TargetPoint, undefined, this.Ability?.GetAOERadius()!, 
+                                    this.Ability?.GetAbilityTargetTeam()!, this.Ability?.GetAbilityTargetType()!, TargetFlags,
+                                    FindOrder.ANY, false);
 
         for (const Iterator of Targets) 
         {
-            this.ApplyElementalDebuffs(Iterator);
-            DoDamage(this.Caster!, Iterator, Damage, DmgType, DmgFlag, this, false);
+            if (HasGorinNoSho)
+            {
+                this.ApplyElementalDebuffs(Iterator);
+            }
+            
+            DoDamage(this.Caster!, Iterator, Damage, DmgType, DmgFlag, this.Ability!, false);
         }
 
-        ++this.SlashCount;
         const ModifierTengan = this.Caster?.FindModifierByName(musashi_modifier_tengan.name) as musashi_modifier_tengan;
 
-        if (this.SlashCount == 5 && ModifierTengan)
+        if (this.SlashCount === 4 && ModifierTengan)
         { 
             DmgType = DamageTypes.PURE;
             DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION;
             TargetFlags = UnitTargetFlags.MAGIC_IMMUNE_ENEMIES;
-            Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.TargetAoe, undefined, this.GetAOERadius(), this.GetAbilityTargetTeam(),
-                                        this.GetAbilityTargetType(), TargetFlags, FindOrder.ANY, false);
+            Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.TargetPoint, undefined, this.Ability?.GetAOERadius()!, 
+                                        this.Ability?.GetAbilityTargetTeam()!, this.Ability?.GetAbilityTargetType()!, TargetFlags,
+                                        FindOrder.ANY, false);
 
             for (const Iterator of Targets) 
             {
-                DoDamage(this.Caster!, Iterator, ModifierTengan.BonusDmg, DmgType, DmgFlag, this, false);
+                DoDamage(this.Caster!, Iterator, ModifierTengan.BonusDmg, DmgType, DmgFlag, this.Ability!, false);
             }
 
             const ModifierTenmaGogan = this.Caster?.FindModifierByName(musashi_modifier_tenma_gogan.name);
@@ -477,13 +621,7 @@ export class musashi_niou_kurikara extends BaseAbility
     ApplyElementalDebuffs(Target: CDOTA_BaseNPC): void
     {
         const GorinNoSho = this.Caster?.FindModifierByName("musashi_attribute_gorin_no_sho");
-        
-        if (!GorinNoSho)
-        {
-            return;
-        }
-
-        const AttributeAbility = GorinNoSho.GetAbility();
+        const AttributeAbility = GorinNoSho?.GetAbility();
 
         switch(this.SlashCount)
         {
@@ -551,30 +689,50 @@ export class musashi_niou_kurikara extends BaseAbility
 
             const AoeParticle = ParticleManager.CreateParticle(AoeParticleStr, ParticleAttachment.WORLDORIGIN, this.Caster);
             const CrackParticle = ParticleManager.CreateParticle(CrackParticleStr, ParticleAttachment.WORLDORIGIN, this.Caster);
-            ParticleManager.SetParticleControl(CrackParticle, 0, this.TargetAoe);
-            ParticleManager.SetParticleControl(AoeParticle, 0, this.TargetAoe);
+            ParticleManager.SetParticleControl(CrackParticle, 0, this.TargetPoint);
+            ParticleManager.SetParticleControl(AoeParticle, 0, this.TargetPoint);
             ParticleManager.SetParticleControl(AoeParticle, 1, Vector(1.5, 0, 0));
-            ParticleManager.SetParticleControl(AoeParticle, 12, Vector(this.GetAOERadius(), 0, 0));
+            ParticleManager.SetParticleControl(AoeParticle, 12, Vector(this.Ability?.GetAOERadius(), 0, 0));
             
         }
         else
         {
             const AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_basic.vpcf";
             const AoeParticle = ParticleManager.CreateParticle(AoeParticleStr, ParticleAttachment.WORLDORIGIN, this.Caster);
-            ParticleManager.SetParticleControl(AoeParticle, 0, this.TargetAoe);
+            ParticleManager.SetParticleControl(AoeParticle, 0, this.TargetPoint);
             ParticleManager.SetParticleControl(AoeParticle, 1, Vector(1.5, 0, 0));
-            ParticleManager.SetParticleControl(AoeParticle, 2, Vector(this.GetAOERadius(), 0, 0));
+            ParticleManager.SetParticleControl(AoeParticle, 2, Vector(this.Ability?.GetAOERadius(), 0, 0));
         }
     }
 
-    override OnUpgrade(): void
+    override GetModifierIncomingDamage_Percentage(): number
     {
-        this.NiouSkill?.SetLevel(this.GetLevel());
+        return this.GetAbility()?.GetSpecialValueFor("DmgReduceWhileSlashing")!;
     }
 
-    override GetAOERadius(): number
+    override DeclareFunctions(): ModifierFunction[]
     {
-        return this.GetSpecialValueFor("Radius");
+        return [ModifierFunction.INCOMING_DAMAGE_PERCENTAGE, ModifierFunction.OVERRIDE_ANIMATION, ModifierFunction.OVERRIDE_ANIMATION_RATE];
+    }
+
+    override GetOverrideAnimation(): GameActivity
+    {
+        return GameActivity.DOTA_CHANNEL_ABILITY_1;
+    }
+
+    override GetOverrideAnimationRate(): number
+    {
+        return 0.5;
+    }
+
+    override IsPurgable(): boolean
+    {
+        return false;
+    }
+
+    override IsPurgeException(): boolean
+    {
+        return false;
     }
 }
 
@@ -584,6 +742,14 @@ export class musashi_niou_kurikara extends BaseAbility
 @registerModifier()
 export class musashi_modifier_earth_debuff extends BaseModifier
 {
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+    }
+
     override DeclareFunctions(): ModifierFunction[]
     {
         return [ModifierFunction.MOVESPEED_BONUS_PERCENTAGE];
@@ -598,8 +764,12 @@ export class musashi_modifier_earth_debuff extends BaseModifier
 @registerModifier()
 export class musashi_modifier_water_debuff extends BaseModifier
 {
+    Caster: CDOTA_BaseNPC | undefined;
+    Attribute: CDOTABaseAbility | undefined;
     Victim: CDOTA_BaseNPC | undefined;
-    Ability: CDOTABaseAbility | undefined;
+
+    TargetPoint: Vector = Vector(0, 0, 0);
+    PushSpeed: number = 0;
 
     override OnCreated(): void
     {
@@ -608,23 +778,31 @@ export class musashi_modifier_water_debuff extends BaseModifier
             return;
         }
 
-        const Caster = this.GetCaster();
+        this.Caster = this.GetCaster();
         this.Victim = this.GetParent();
-        this.Ability = Caster?.FindAbilityByName(musashi_niou_kurikara.name);
+        this.Attribute = this.GetAbility();
+        const ModifierNiouKurikara = this.Caster?.FindModifierByName(musashi_modifier_niou_kurikara_slashing.name) as 
+                                     musashi_modifier_niou_kurikara_slashing;
+        this.TargetPoint = ModifierNiouKurikara.TargetPoint;
+        this.PushSpeed = this.Attribute?.GetSpecialValueFor("PushSpeed")!;
+        this.Victim?.AddNewModifier(this.Caster, this.Attribute, "modifier_rooted", {duration: 1});
+        giveUnitDataDrivenModifier(this.Caster!, this.Victim, "locked", this.GetDuration());
         this.StartIntervalThink(0.03);
     }
 
     override OnIntervalThink(): void
     {
-        const Ability = this.GetAbility();
-        const TargetPoint = this.Ability?.GetCursorPosition()!;
+        if (!IsServer())
+        {
+            return;
+        }
+        
         const CurrentOrigin = this.Victim?.GetAbsOrigin()!;
-        const PushSpeed = Ability?.GetSpecialValueFor("PushSpeed")!;
-        const ForwardVector = ((TargetPoint - CurrentOrigin) as Vector).Normalized();
+        const ForwardVector = ((this.TargetPoint - CurrentOrigin) as Vector).Normalized();
         this.Victim?.SetForwardVector(ForwardVector);
-        const NewPosition = (CurrentOrigin + (this.Victim?.GetForwardVector()! * PushSpeed)) as Vector;
+        const NewPosition = (CurrentOrigin + (this.Victim?.GetForwardVector()! * this.PushSpeed)) as Vector;
         this.Victim?.SetAbsOrigin(NewPosition);
-        const VictimEntity = Entities.FindByNameWithin(undefined, this.Victim?.GetName()!, TargetPoint, PushSpeed);
+        const VictimEntity = Entities.FindByNameWithin(undefined, this.Victim?.GetName()!, this.TargetPoint, this.PushSpeed);
 
         if (VictimEntity)
         {
@@ -642,6 +820,16 @@ export class musashi_modifier_water_debuff extends BaseModifier
         this.Victim?.SetForwardVector(this.Victim.GetAbsOrigin().Normalized());
         FindClearSpaceForUnit(this.Victim!, this.Victim?.GetAbsOrigin()!, true);
     }
+
+    override CheckState(): Partial<Record<ModifierState, boolean>>
+    {
+        const ModifierTable = 
+        {
+            [ModifierState.FLYING_FOR_PATHING_PURPOSES_ONLY]: true,
+        }
+
+        return ModifierTable;
+    }
 }
 
 @registerModifier()
@@ -649,7 +837,12 @@ export class musashi_modifier_fire_debuff extends BaseModifier
 {
     Caster: CDOTA_BaseNPC | undefined;
     Ability: CDOTABaseAbility | undefined;
+
     Victim: CDOTA_BaseNPC | undefined;
+
+    Damage: number = 0;
+    DmgType: DamageTypes | undefined;
+    DmgFlag: DamageFlag | undefined;
 
     override OnCreated(): void
     {
@@ -662,8 +855,11 @@ export class musashi_modifier_fire_debuff extends BaseModifier
         this.Victim = this.GetParent();
         this.Ability = this.GetAbility();
         const DebuffDuration = this.Ability?.GetSpecialValueFor("DebuffDuration")!;
-        this.Victim.AddNewModifier(this.Caster, this.Ability, "modifier_stunned", {duration: DebuffDuration});
+        this.Damage = this.Ability?.GetSpecialValueFor("FireBurnDmgPerSec")!;
+        this.DmgType = DamageTypes.MAGICAL;
+        this.DmgFlag = DamageFlag.NONE;
         this.StartIntervalThink(DebuffDuration);
+        this.CreateParticle();
     }
 
     override OnIntervalThink(): void
@@ -673,15 +869,30 @@ export class musashi_modifier_fire_debuff extends BaseModifier
             return;
         }
 
-        const Damage = this.Ability?.GetSpecialValueFor("FireBurnDmgPerSec")!;
-        const DmgType = DamageTypes.MAGICAL;
-        const DmgFlag = DamageFlag.NONE;
-        DoDamage(this.Caster!, this.Victim!, Damage, DmgType, DmgFlag, this.Ability!, false);
+        DoDamage(this.Caster!, this.Victim!, this.Damage, this.DmgType!, this.DmgFlag!, this.Ability!, false);
     }
 
-    override IsStunDebuff(): boolean
+    CreateParticle(): void
     {
-        return true;
+        let ParticleStr = "particles/custom/musashi/musashi_niou_kurikara_fire_debuff_basic.vpcf";
+
+        if (this.Caster?.HasModifier("modifier_ascended"))
+        {
+            ParticleStr = "particles/custom/musashi/musashi_niou_kurikara_fire_debuff_unique.vpcf";
+        }
+
+        const Particle = ParticleManager.CreateParticle(ParticleStr, ParticleAttachment.POINT_FOLLOW, this.Victim);
+        this.AddParticle(Particle, false, false, -1, false, false);
+    }
+
+    override GetModifierIncomingDamage_Percentage(): number
+    {
+        return this.Ability?.GetSpecialValueFor("FireIncreaseDmgTaken")!;
+    }
+
+    override DeclareFunctions(): ModifierFunction[]
+    {
+        return [ModifierFunction.INCOMING_DAMAGE_PERCENTAGE];
     }
 }
 
@@ -711,48 +922,19 @@ export class musashi_modifier_wind_debuff extends BaseModifier
 // Miyamoto Musashi: Skill 3: Niou Kurikara (DAMAGE REDUCTION BUFFS)
 //======================================================================================================================
 @registerModifier()
-export class musashi_modifier_niou_kurikara_channeling_buff extends BaseModifier
+export class musashi_modifier_niou_kurikara_postslashing_buff extends BaseModifier
 {
-    override GetModifierIncomingDamage_Percentage(): number
+    override OnCreated(): void
     {
-        const Ability = this.GetAbility();
-        return Ability?.GetSpecialValueFor("DmgReducWhileChannel")!;
-    }
-
-    override DeclareFunctions(): ModifierFunction[]
-    {
-        return [ModifierFunction.INCOMING_DAMAGE_PERCENTAGE];
-    }
-
-    override CheckState(): Partial<Record<ModifierState, boolean>>
-    {
-        const ModifierTable =
+        if (!IsServer())
         {
-            [ModifierState.UNTARGETABLE]: true,
-            [ModifierState.UNSELECTABLE]: true,
-            [ModifierState.COMMAND_RESTRICTED]: true,
+            return;
         }
-
-        return ModifierTable;
     }
 
-    override IsPurgable(): boolean
-    {
-        return false;
-    }
-
-    override IsPurgeException(): boolean
-    {
-        return false;
-    }
-}
-
-@registerModifier()
-export class musashi_modifier_niou_kurikara_postchannel_buff extends BaseModifier
-{
     override GetModifierIncomingDamage_Percentage(): number
     {
-        return this.GetAbility()?.GetSpecialValueFor("DmgReducFinishChannel")!;
+        return this.GetAbility()?.GetSpecialValueFor("DmgReducePostSlashing")!;
     }
 
     override DeclareFunctions(): ModifierFunction[]
@@ -790,6 +972,12 @@ export class musashi_tengan extends BaseAbility
             this.Caster = this.GetCaster();
             this.ChargeCounter = this.Caster.FindModifierByName(musashi_modifier_tengan_chargecounter.name) as musashi_modifier_tengan_chargecounter;
 
+            if (CheckComboStatsFulfilled(this.Caster) && !this.Caster.HasModifier(musashi_modifier_ishana_daitenshou_cooldown.name))
+            {
+                const SkillsSequence = [musashi_tengan.name, musashi_dai_go_sei.name];
+                InitComboSequenceChecker(this.Caster, SkillsSequence, musashi_ganryuu_jima.name, musashi_ishana_daitenshou.name, 5);
+            }
+
             if (this.ChargeCounter.GetStackCount() > 0)
             {
                 return true;
@@ -806,9 +994,10 @@ export class musashi_tengan extends BaseAbility
         this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_tengan.name, {duration: BuffDuration});
         this.ChargeCounter?.RechargeTimer.push(RechargeTime);
         
-        if (this.ChargeCounter?.GetStackCount() == this.GetSpecialValueFor("MaxCharges") && this.Caster?.HasModifier("musashi_attribute_improve_tengan"))
+        if (this.ChargeCounter?.GetStackCount() === this.GetSpecialValueFor("MaxCharges") && 
+            this.Caster?.HasModifier("musashi_attribute_improve_tengan"))
         {
-            InitSkillSlotChecker(this.Caster, musashi_tengan.name, musashi_tenma_gogan.name, 5);
+            InitSkillSlotChecker(this.Caster, musashi_tengan.name, musashi_tenma_gogan.name, 2);
         }
 
         this.ChargeCounter?.DecrementStackCount();
@@ -863,7 +1052,7 @@ export class musashi_modifier_tengan_chargecounter extends BaseModifier
             return;
         }
 
-        if (this.GetStackCount() == 0)
+        if (this.GetStackCount() === 0)
         {
             this.Ability?.StartCooldown(this.RechargeTimer[0] ?? 0);
         }
@@ -875,7 +1064,7 @@ export class musashi_modifier_tengan_chargecounter extends BaseModifier
 
     override OnIntervalThink(): void
     {
-        if (!IsServer() || this.RechargeTimer.length == 0)
+        if (!IsServer() || this.RechargeTimer.length === 0)
         {
             return;
         }
@@ -885,7 +1074,7 @@ export class musashi_modifier_tengan_chargecounter extends BaseModifier
             --this.RechargeTimer[i];
         }
 
-        if (this.RechargeTimer[0] == 0)
+        if (this.RechargeTimer[0] === 0)
         {
             this.RechargeTimer.shift();
             this.IncrementStackCount();
@@ -914,6 +1103,7 @@ export class musashi_modifier_tengan extends BaseModifier
     Caster: CDOTA_BaseNPC | undefined;
 
     BonusDmg: number = 0;
+    TenganBonus: number = 0;
 
     override OnCreated(): void
     {
@@ -924,9 +1114,10 @@ export class musashi_modifier_tengan extends BaseModifier
 
         this.Caster = this.GetCaster();
         const Ability = this.GetAbility();
-        const BaseDmg = Ability?.GetSpecialValueFor("BonusDmg")!;
-        const BonusPureDmgPerAgi = Ability?.GetSpecialValueFor("BonusPureDmgPerAgi")!;
-        this.BonusDmg = BaseDmg + ((this.Caster as CDOTA_BaseNPC_Hero).GetAgility() * BonusPureDmgPerAgi);
+        const BaseDmg = Ability?.GetSpecialValueFor("BaseDmg")!;
+        const BonusDmgPerAgi = Ability?.GetSpecialValueFor("BonusDmgPerAgi")!;
+        this.TenganBonus = Ability?.GetSpecialValueFor("TenganBonus")!;
+        this.BonusDmg = BaseDmg + ((this.Caster as CDOTA_BaseNPC_Hero).GetAgility() * BonusDmgPerAgi);
         this.CreateParticle();
     }
 
@@ -989,20 +1180,9 @@ export class musashi_ganryuu_jima extends BaseAbility implements BaseVectorAbili
     SlashPosition: Vector = Vector(0, 0, 0);
     SecondSlashPosition: Vector = Vector(0, 0, 0);
 
-    override OnAbilityPhaseStart(): boolean
-    {
-        if (IsServer())
-        {
-            this.Caster = this.GetCaster();
-            const ModifierTengenNoHana = this.Caster.FindAbilityByName(musashi_modifier_tengen_no_hana.name);
-            ModifierTengenNoHana?.Destroy();
-        }
-        
-        return true;
-    }
-
     OnVectorCastStart(vStartLocation: Vector, vDirection: Vector): void
     {   
+        this.Caster = this.GetCaster();
         this.SetVector(vStartLocation, vDirection);
         const ModifierGanryuuJima = this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_ganryuu_jima.name, {undefined});
         ModifierGanryuuJima?.IncrementStackCount();
@@ -1143,7 +1323,7 @@ export class musashi_modifier_ganryuu_jima extends BaseModifier
             }
         }
 
-        if (stackCount == 1 || stackCount == 2)
+        if (stackCount === 1 || stackCount === 2)
         {
             const SlashBuff = this.Caster?.AddNewModifier(this.Caster, this.GanryuuJima, musashi_modifier_ganryuu_jima_slash.name, 
                               {undefined}) as musashi_modifier_ganryuu_jima_slash;
@@ -1162,9 +1342,9 @@ export class musashi_modifier_ganryuu_jima extends BaseModifier
         this.Caster?.SetForwardVector(this.Caster.GetAbsOrigin().Normalized());
         this.Caster?.StartGesture(GameActivity.DOTA_CAST_ABILITY_1);
         FindClearSpaceForUnit(this.Caster!, this.Caster?.GetAbsOrigin()!, true);
+        
         const ModifierTengan = this.Caster?.FindModifierByName(musashi_modifier_tengan.name);
         ModifierTengan?.Destroy();
-
         const ModifierTenmaGogan = this.Caster?.FindModifierByName(musashi_modifier_tenma_gogan.name);
 
         if (ModifierTenmaGogan)
@@ -1180,11 +1360,10 @@ export class musashi_modifier_ganryuu_jima extends BaseModifier
         const ModifierTable = 
         {
             [ModifierState.INVULNERABLE]: true,
-            [ModifierState.MAGIC_IMMUNE]: true,
             [ModifierState.UNSELECTABLE]: true,
             [ModifierState.UNTARGETABLE]: true,
             [ModifierState.NO_HEALTH_BAR]: true,
-            [ModifierState.NO_UNIT_COLLISION]: true,
+            [ModifierState.FLYING_FOR_PATHING_PURPOSES_ONLY]: true,
             [ModifierState.COMMAND_RESTRICTED]: true,
         }
 
@@ -1213,6 +1392,7 @@ export class musashi_modifier_ganryuu_jima_dash extends BaseModifier
 
     SlashRange: number = 0;
     UnitsTravelled: number = 0;
+    DashSpeed: number = 0;
 
     override OnCreated(): void
     {
@@ -1224,6 +1404,7 @@ export class musashi_modifier_ganryuu_jima_dash extends BaseModifier
         this.Caster = this.GetCaster();
         this.Ability = this.GetAbility();
         this.SlashRange = this.Ability?.GetSpecialValueFor("SlashRange")!;
+        this.DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed")!;
     }
 
     override OnIntervalThink(): void
@@ -1235,11 +1416,10 @@ export class musashi_modifier_ganryuu_jima_dash extends BaseModifier
 
         this.Caster?.SetForwardVector(this.NormalizedTargetPoint);
         const CurrentOrigin = this.Caster?.GetAbsOrigin()!;
-        const DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed")!;
-        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * DashSpeed)) as Vector;
+        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * this.DashSpeed)) as Vector;
         this.UnitsTravelled += ((NewPosition - CurrentOrigin) as Vector).Length2D();
         this.Caster?.SetAbsOrigin(NewPosition);
-        const Musashi = Entities.FindByNameWithin(undefined, this.Caster?.GetName()!, this.TargetPoint, DashSpeed);
+        const Musashi = Entities.FindByNameWithin(undefined, this.Caster?.GetName()!, this.TargetPoint, this.DashSpeed);
 
         if (Musashi || this.UnitsTravelled >= this.SlashRange)
         {
@@ -1303,6 +1483,7 @@ export class musashi_modifier_ganryuu_jima_slash extends BaseModifier
 
     SlashRange: number = 0;
     UnitsTravelled: number = 0;
+    DashSpeed: number = 0;
 
     override OnCreated(): void
     {
@@ -1315,6 +1496,7 @@ export class musashi_modifier_ganryuu_jima_slash extends BaseModifier
         this.Ability = this.GetAbility();
         this.StartPosition = this.Caster?.GetAbsOrigin()!;
         this.SlashRange = this.Ability?.GetSpecialValueFor("SlashRange")!;
+        this.DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed")!;
         this.Caster?.EmitSound(this.SoundSfx);
     }
 
@@ -1327,8 +1509,7 @@ export class musashi_modifier_ganryuu_jima_slash extends BaseModifier
 
         this.Caster?.SetForwardVector(this.TargetPoint);
         const CurrentOrigin = this.Caster?.GetAbsOrigin()!;
-        const DashSpeed = this.Ability?.GetSpecialValueFor("DashSpeed")!;
-        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * DashSpeed)) as Vector;
+        const NewPosition = (CurrentOrigin + (this.Caster?.GetForwardVector()! * this.DashSpeed)) as Vector;
         this.UnitsTravelled += ((NewPosition - CurrentOrigin) as Vector).Length2D();
         this.Caster?.SetAbsOrigin(NewPosition);
 
@@ -1354,9 +1535,9 @@ export class musashi_modifier_ganryuu_jima_slash extends BaseModifier
     
     DealDamage(): void
     {
-        const BaseDmg = this.Ability?.GetSpecialValueFor("DmgPerSlash")!;
+        const DmgPerSlash = this.Ability?.GetSpecialValueFor("DmgPerSlash")!;
         const BonusDmgPerAgi = this.Ability?.GetSpecialValueFor("BonusDmgPerAgi");
-        const Damage = BaseDmg + ((this.Caster as CDOTA_BaseNPC_Hero).GetAgility() * BonusDmgPerAgi!);
+        const Damage = DmgPerSlash + ((this.Caster as CDOTA_BaseNPC_Hero).GetAgility() * BonusDmgPerAgi!);
         const DmgType = this.Ability?.GetAbilityDamageType()!;
         const DmgFlag = DamageFlag.NONE;
         const Targets = FindUnitsInLine(this.Caster?.GetTeam()!, this.StartPosition, this.EndPosition, undefined, 
@@ -1370,14 +1551,14 @@ export class musashi_modifier_ganryuu_jima_slash extends BaseModifier
 
         if (this.Caster?.HasModifier(musashi_modifier_tengan.name))
         {
+            const DmgDelay = this.Ability?.GetSpecialValueFor("DebuffDmgDelay");
             const TargetFlags = UnitTargetFlags.MAGIC_IMMUNE_ENEMIES;
             const Targets = FindUnitsInLine(this.Caster.GetTeam(), this.StartPosition, this.EndPosition, undefined, 
                             this.Ability?.GetSpecialValueFor("SlashRadius")!, this.Ability?.GetAbilityTargetTeam()!, 
                             this.Ability?.GetAbilityTargetType()!, TargetFlags);
-            
+
             for (const Iterator of Targets) 
             {
-                const DmgDelay = this.Ability?.GetSpecialValueFor("DebuffDmgDelay");
                 Iterator.AddNewModifier(this.Caster, this.Ability, musashi_modifier_ganryuu_jima_debuff.name, {duration: DmgDelay});
             }
         }
@@ -1445,6 +1626,16 @@ export class musashi_modifier_ganryuu_jima_debuff extends BaseModifier
         const ModifierTengan = this.Caster?.FindModifierByName(musashi_modifier_tengan.name) as musashi_modifier_tengan;
         this.BonusDmg = ModifierTengan.BonusDmg;
         this.CreateParticle();
+    }
+
+    override OnRefresh(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.OnCreated();
     }
 
     override OnDestroy(): void
@@ -1564,6 +1755,7 @@ export class musashi_modifier_mukyuu extends BaseModifier
         {
             [ModifierState.INVULNERABLE]: true,
             [ModifierState.MAGIC_IMMUNE]: true,
+            [ModifierState.UNTARGETABLE]: true,
         }
 
         return ModifierTable;
@@ -1601,7 +1793,7 @@ export class musashi_tenma_gogan extends BaseAbility
 
     PlaySound(): void
     {
-        EmitGlobalSound(this.SoundVoiceline);
+        this.Caster?.EmitSound(this.SoundVoiceline);
         this.Caster?.EmitSound(this.SoundSfx);
     }
 }
@@ -1799,13 +1991,11 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
             }
             case 2:
             {
-                this.Percentage = this.Ability?.GetSpecialValueFor("FullDamage")!;
+                this.Percentage = this.Ability?.GetSpecialValueFor("FullPercentage")!;
                 this.Destroy();
                 break;
             }
         }
-
-        this.Percentage = this.Percentage / 100;
     }
 
     override OnDestroy(): void
@@ -1815,6 +2005,13 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
             return;
         }
 
+        if (this.Caster?.HasModifier(musashi_modifier_niou_kurikara_slashing.name) || 
+            this.Caster?.HasModifier(musashi_modifier_ganryuu_jima.name))
+        {
+            return;
+        }
+
+        this.Percentage = this.Percentage / 100;
         this.Caster?.StartGesture(GameActivity.DOTA_CAST_ABILITY_1);
         this.DealDamage();
         this.CreateAoeParticle();
@@ -1824,9 +2021,11 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
 
     DealDamage(): void
     {
-        const Damage = this.Percentage * 1000;
+        const FullDamage = this.Ability?.GetSpecialValueFor("FullDamage")!;
         const DmgType = DamageTypes.PURE;
         const DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION;
+        const Damage = this.Percentage * FullDamage;
+        const StunDuration = this.Ability?.GetSpecialValueFor("StunDuration")! * this.Percentage;
         const Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.Caster?.GetAbsOrigin()!, undefined, this.Radius, 
                                           this.Ability?.GetAbilityTargetTeam()!, this.Ability?.GetAbilityTargetType()!, 
                                           this.Ability?.GetAbilityTargetFlags()!, FindOrder.ANY, false);
@@ -1834,7 +2033,6 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
         for (const Iterator of Targets) 
         {
             DoDamage(this.Caster!, Iterator, Damage, DmgType, DmgFlag, this.Ability!, false);
-            const StunDuration = this.Ability?.GetSpecialValueFor("StunDuration")! * this.Percentage;
             Iterator.AddNewModifier(this.Caster, this.Ability, "modifier_stunned", {duration: StunDuration});
         }
     }
@@ -1878,6 +2076,7 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
         const MarkerParticle = ParticleManager.CreateParticle(MarkerParticleStr, ParticleAttachment.WORLDORIGIN, this.Caster);
         ParticleManager.SetParticleControl(Particle, 0, this.Caster?.GetAbsOrigin()!);
         ParticleManager.SetParticleControl(Particle, 2, Vector(this.Radius, this.Radius, this.Radius));
+        ParticleManager.SetParticleControl(MarkerParticle, 0, this.Caster?.GetAbsOrigin()!);
         ParticleManager.SetParticleControl(MarkerParticle, 2, Vector(this.Radius, this.Radius, this.Radius));
     }
 
@@ -1907,24 +2106,44 @@ export class musashi_battle_continuation extends BaseAbility
 @registerModifier()
 export class musashi_modifier_battle_continuation extends BaseModifier
 {
-    override OnTakeDamage(event: ModifierInstanceEvent): void
-    {
-        const Caster = this.GetCaster();
+    Caster: CDOTA_BaseNPC | undefined;
+    Ability: CDOTABaseAbility | undefined;
 
-        if (!IsServer() || event.unit != Caster || Caster.HasModifier("musashi_attribute_battle_continuation") || 
-            Caster.HasModifier(musashi_modifier_battle_continuation_cooldown.name))
+    override OnCreated(): void
+    {
+        if (!IsServer())
         {
             return;
         }
 
-        if (Caster.GetHealth() <= 0 && !Caster.HasModifier(musashi_modifier_tenma_gogan_debuff.name))
+        this.Caster = this.GetCaster();
+        this.Ability = this.GetAbility();
+    }
+
+    override OnTakeDamage(event: ModifierInstanceEvent): void
+    {
+        if (!IsServer() || event.unit !== this.Caster)
         {
-            const Ability = this.GetAbility();
-            const BuffDuration = Ability?.GetSpecialValueFor("BuffDuration");
-            Caster.SetHealth(1);
-            Caster?.AddNewModifier(Caster, Ability, musashi_modifier_battle_continuation_active.name, {duration: BuffDuration});
-            Caster?.AddNewModifier(Caster, Ability, musashi_modifier_battle_continuation_cooldown.name, {duration: Ability?.GetCooldown(1)});
-            Ability?.UseResources(true, false, true);
+            return;
+        }
+
+        const DmgThreshold = this.Ability?.GetSpecialValueFor("DmgThreshold")!;
+
+        if (!this.Caster.HasModifier("musashi_attribute_battle_continuation") || 
+            this.Caster.HasModifier(musashi_modifier_battle_continuation_cooldown.name) || 
+            this.Caster.HasModifier(musashi_modifier_tenma_gogan_debuff.name) || 
+            event.damage >= DmgThreshold || !IsRevivePossible(this.Caster))
+        {
+            return;
+        }
+
+        if (this.Caster.GetHealth() <= 0)
+        {
+            const BuffDuration = this.Ability?.GetSpecialValueFor("BuffDuration");
+            this.Caster.SetHealth(1);
+            this.Caster.AddNewModifier(this.Caster, this.Ability, musashi_modifier_battle_continuation_active.name, {duration: BuffDuration});
+            this.Caster.AddNewModifier(this.Caster, this.Ability, musashi_modifier_battle_continuation_cooldown.name, {duration: this.Ability?.GetCooldown(1)});
+            this.Ability?.UseResources(true, false, true);
         }
     }
 
@@ -1981,15 +2200,6 @@ export class musashi_modifier_battle_continuation_active extends BaseModifier
         this.Caster?.Purge(false, true, false, false, false);
         this.CreateParticle();
         this.PlaySound();
-
-        if (this.Caster?.HasModifier("musashi_attribute_mukyuu"))
-        {
-            InitSkillSlotChecker(this.Caster, musashi_mukyuu.name, musashi_tengen_no_hana.name, 5, true);
-        }
-        else
-        {
-            InitSkillSlotChecker(this.Caster!, "fate_empty1", musashi_tengen_no_hana.name, 5, true);
-        }
     }
 
     override OnDestroy(): void
@@ -2054,6 +2264,14 @@ export class musashi_modifier_battle_continuation_active extends BaseModifier
 @registerModifier()
 export class musashi_modifier_battle_continuation_cooldown extends BaseModifier
 {
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+    }
+
     override IsPurgable(): boolean
     {
         return false;
@@ -2076,6 +2294,300 @@ export class musashi_modifier_battle_continuation_cooldown extends BaseModifier
 }
 
 //======================================================================================================================
+// Miyamoto Musashi: Skill 11: Niou (Innate)
+//======================================================================================================================
+@registerAbility()
+export class musashi_niou extends BaseAbility
+{
+    Niou: CDOTA_BaseNPC | undefined;
+
+    override OnSpellStart(): void
+    {
+        const Caster = this.GetCaster();
+        this.Niou = CreateUnitByName("musashi_niou", Caster.GetAbsOrigin(), false, Caster, Caster, Caster.GetTeam());
+        let ModelScale = this.GetSpecialValueFor("ModelScale");
+
+        if (Caster.HasModifier(musashi_modifier_ishana_daitenshou.name))
+        {
+            ModelScale = 6;
+        }
+        
+        this.Niou.SetModelScale(ModelScale);
+        this.Niou.AddNewModifier(this.Niou, this, musashi_modifier_niou.name, {undefined});
+    }
+
+    async DestroyNiou(delay: number): Promise<void>
+    {
+        this.Niou?.ForceKill(false);
+        await Sleep(delay);
+        this.Niou?.Destroy();
+    }
+}
+
+@registerModifier()
+export class musashi_modifier_niou extends BaseModifier
+{
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+    }
+
+    override CheckState(): Partial<Record<ModifierState, boolean>>
+    {
+        const ModifierTable = 
+        {
+            [ModifierState.INVULNERABLE]: true,
+            [ModifierState.MAGIC_IMMUNE]: true,
+            [ModifierState.UNSELECTABLE]: true,
+            [ModifierState.UNTARGETABLE]: true,
+            [ModifierState.NO_HEALTH_BAR]: true,
+            [ModifierState.NO_UNIT_COLLISION]: true,
+            [ModifierState.NOT_ON_MINIMAP]: true,
+            [ModifierState.COMMAND_RESTRICTED]: true,
+        }
+
+        return ModifierTable;
+    }
+
+    override IsPurgable(): boolean
+    {
+        return false;
+    }
+
+    override IsPurgeException(): boolean
+    {
+        return false;
+    }
+
+    override IsPermanent(): boolean
+    {
+        return true;
+    }
+
+    override IsHidden(): boolean
+    {
+        return true;
+    }
+}
+
+//======================================================================================================================
+// Miyamoto Musashi: Skill 12: Dai Go Sei Wave (Innate W)
+//======================================================================================================================
+@registerAbility()
+export class musashi_dai_go_sei_wave extends BaseAbility
+{
+    readonly SoundVoiceline: string = "antimage_anti_ability_manavoid_08";
+    readonly SoundSfx: string = "musashi_dai_go_sei_wave_sfx";
+
+    Caster: CDOTA_BaseNPC | undefined;
+
+    Damage: number = 0;
+    DmgType: DamageTypes | undefined;
+    DmgFlag: DamageFlag | undefined;
+
+    override OnSpellStart(): void
+    {
+        this.Caster = this.GetCaster();
+        this.SetDamageParameters();
+        this.CreateProjectile();
+        this.PlaySound();
+    }
+
+    SetDamageParameters(): void
+    {
+        this.Damage = this.GetSpecialValueFor("Damage");
+        this.DmgType = this.GetAbilityDamageType();
+        this.DmgFlag = DamageFlag.NONE;
+    }
+
+    CreateProjectile(): void
+    {
+        let ParticleStr = "particles/custom/musashi/musashi_dai_go_sei_wave_basic.vpcf";
+
+        if (this.Caster?.HasModifier("modifier_ascended"))
+        {
+            ParticleStr = "particles/custom/musashi/musashi_dai_go_sei_wave_unique.vpcf";
+        }
+
+        const Direction = ((this.GetCursorTarget()?.GetAbsOrigin()! - this.Caster?.GetAbsOrigin()!) as Vector).Normalized();
+
+        ProjectileManager.CreateLinearProjectile
+        (
+            {
+                EffectName: ParticleStr,
+                Ability: this,
+                Source: this.Caster!,
+                vSpawnOrigin: this.Caster?.GetAbsOrigin()!,
+                vVelocity: (Direction * this.GetSpecialValueFor("ProjectileSpeed")) as Vector,
+                fDistance: this.GetSpecialValueFor("Range"),
+                fStartRadius: this.GetSpecialValueFor("ProjectileRadius"),
+                fEndRadius: this.GetSpecialValueFor("ProjectileRadius"),
+                iUnitTargetTeam: this.GetAbilityTargetTeam(),
+                iUnitTargetFlags: this.GetAbilityTargetFlags(),
+                iUnitTargetType: this.GetAbilityTargetType(),
+            }
+        )
+    }
+    
+    override OnProjectileHit(target: CDOTA_BaseNPC): boolean | void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        DoDamage(this.Caster!, target!, this.Damage, this.DmgType!, this.DmgFlag!, this, false);
+    }
+
+    PlaySound(): void
+    {
+        this.Caster?.EmitSound(this.SoundVoiceline);
+        this.Caster?.EmitSound(this.SoundSfx);
+    }
+
+    override GetIntrinsicModifierName(): string
+    {
+        return musashi_modifier_dai_go_sei_wave_counter.name;
+    }
+}
+
+@registerModifier()
+export class musashi_modifier_dai_go_sei_wave_counter extends BaseModifier
+{
+    Caster: CDOTA_BaseNPC | undefined;
+    Ability: CDOTABaseAbility | undefined;
+
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Caster = this.GetCaster();
+        this.Ability = this.GetAbility();
+        this.IncrementStackCount();
+    }
+
+    override OnStackCountChanged(stackCount: number): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.Ability?.SetLevel(stackCount + 1);
+        this.StartIntervalThink(10);
+    }
+
+    override OnIntervalThink(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+
+        this.StartIntervalThink(-1);
+        this.SetStackCount(0);
+        this.IncrementStackCount();
+    }
+
+    override OnAbilityFullyCast(event: ModifierAbilityEvent): void
+    {
+        if (!IsServer() || event.unit !== this.Caster || event.ability !== this.Ability)
+        {
+            return;
+        }
+
+        if (this.GetStackCount() < 5)
+        {
+            this.IncrementStackCount();
+        }
+    }
+
+    override GetModifierOverrideAbilitySpecialValue(event: ModifierOverrideAbilitySpecialEvent): number
+    {
+        const DaiGoSei = this.Caster?.FindAbilityByName(musashi_dai_go_sei.name);
+
+        if (event.ability_special_value === "Damage")
+        {
+            const BaseDmg = this.Ability?.GetSpecialValueFor("BaseDamage")!;
+            const BonusDmgFromAtkDmg = this.Ability?.GetSpecialValueFor("BonusDmgFromAtkDmg")!;
+            const BonusDmgFromWBuff = this.Ability?.GetSpecialValueFor("BonusDmgFromWBuff")!;
+            const Damage = BaseDmg + BonusDmgFromAtkDmg + BonusDmgFromWBuff;
+
+            return Damage;
+        }
+        else if (event.ability_special_value === "BaseDamage")
+        {
+            const AbilityLevel = DaiGoSei?.GetLevel()!;
+            return 100 * AbilityLevel;
+        }
+        else if (event.ability_special_value === "BonusDmgFromAtkDmg")
+        {
+            return this.Caster?.GetDamageMax()!;
+        }
+        else if (event.ability_special_value === "BonusDmgFromWBuff")
+        {
+            if (this.Caster?.HasModifier(musashi_modifier_dai_go_sei.name))
+            {
+                const BonusAtkDmg = DaiGoSei?.GetSpecialValueFor("BonusAtkDmg")!;
+                return 2 * BonusAtkDmg;
+            }
+        }
+        
+        return 0;
+    }
+
+    override GetModifierOverrideAbilitySpecial(event: ModifierOverrideAbilitySpecialEvent): 0 | 1
+    {
+        if (event.ability === this.Ability)
+        {
+            if (event.ability_special_value === "Damage" || event.ability_special_value === "BaseDamage" ||
+                event.ability_special_value === "BonusDmgFromAtkDmg" || event.ability_special_value === "BonusDmgFromWBuff")
+            {
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
+    override DeclareFunctions(): ModifierFunction[]
+    {
+        return [ModifierFunction.ON_ABILITY_FULLY_CAST, ModifierFunction.OVERRIDE_ABILITY_SPECIAL_VALUE, ModifierFunction.OVERRIDE_ABILITY_SPECIAL];
+    }
+
+    override IsPurgable(): boolean
+    {
+        return false;
+    }
+
+    override IsPurgeException(): boolean
+    {
+        return false;
+    }
+
+    override IsHidden(): boolean
+    {
+        if (this.GetStackCount() <= 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    override IsPermanent(): boolean
+    {
+        return true;
+    }
+}
+
+//======================================================================================================================
 // Miyamoto Musashi : Combo Skill : Ishana Daitenshou
 //======================================================================================================================
 @registerAbility()
@@ -2092,7 +2604,6 @@ export class musashi_ishana_daitenshou extends BaseAbility
         Caster.GiveMana(NiouKurikara?.GetManaCost(-1)!);
         Caster.AddNewModifier(Caster, this, musashi_modifier_ishana_daitenshou.name, {undefined});
         Caster.AddNewModifier(Caster, this, musashi_modifier_ishana_daitenshou_cooldown.name, {duration: this.GetCooldown(1)});
-        Caster.AddNewModifier(Caster, this, musashi_modifier_tengan.name, {undefined});
         this.PlaySound();
     }
     
@@ -2106,15 +2617,13 @@ export class musashi_ishana_daitenshou extends BaseAbility
 @registerModifier()
 export class musashi_modifier_ishana_daitenshou extends BaseModifier
 {
-    readonly SoundSfx: string = "musashi_ishana_daitenshou_sfx";
-
     Caster: CDOTA_BaseNPC | undefined;
     Ability: CDOTABaseAbility | undefined;
-    CastedNiouKurikara: boolean = false;
 
     Victim: CDOTA_BaseNPC | undefined;
     MarkerPosition: Vector = Vector(0, 0, 0);
     StartPosition: Vector = Vector(0, 0, 0);
+    SearchRadius: number = 0;
 
     override OnCreated(): void
     {
@@ -2130,38 +2639,8 @@ export class musashi_modifier_ishana_daitenshou extends BaseModifier
         this.MarkerPosition = this.Victim?.GetAbsOrigin()!;
         const NiouKurikara = this.Caster?.FindAbilityByName(musashi_niou_kurikara.name)!;
         this.Caster?.CastAbilityOnPosition(this.MarkerPosition, NiouKurikara, this.Caster.GetEntityIndex());
+        this.SearchRadius = this.Ability?.GetSpecialValueFor("SearchRadius")!;
         this.CreateParticle();
-        this.StartIntervalThink(0.03);
-    }
-
-    override OnIntervalThink(): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        if (this.Caster?.IsChanneling())
-        {
-            this.CastedNiouKurikara = true;
-        }
-
-        if (this.CastedNiouKurikara && !this.Caster?.IsChanneling())
-        {
-            const SearchRadius = this.Ability?.GetSpecialValueFor("SearchRadius")!;
-            const VictimEntity = Entities.FindByNameWithin(undefined, this.Victim?.GetName()!, this.MarkerPosition, SearchRadius);
-
-            if (VictimEntity)
-            {
-                this.StartIntervalThink(-1);
-                this.IncrementStackCount();
-                EmitGlobalSound(this.SoundSfx);
-            }
-            else
-            {
-                this.Destroy();
-            }
-        }
     }
 
     override OnStackCountChanged(stackCount: number): void
@@ -2175,7 +2654,17 @@ export class musashi_modifier_ishana_daitenshou extends BaseModifier
         {
             case 0:
             {
-                this.Caster?.AddNewModifier(this.Caster, this.Ability, musashi_modifier_ishana_daitenshou_dash.name, {undefined});
+                const VictimEntity = Entities.FindByNameWithin(undefined, this.Victim?.GetName()!, this.MarkerPosition, this.SearchRadius);
+
+                if (VictimEntity && this.Victim?.IsAlive())
+                {
+                    this.Caster?.AddNewModifier(this.Caster, this.Ability, musashi_modifier_ishana_daitenshou_dash.name, {undefined});
+                }
+                else
+                {
+                    this.Destroy();
+                }
+
                 break;
             }
             case 1:
@@ -2224,7 +2713,7 @@ export class musashi_modifier_ishana_daitenshou extends BaseModifier
             [ModifierState.UNSELECTABLE]: true,
             [ModifierState.UNTARGETABLE]: true,
             [ModifierState.NO_HEALTH_BAR]: true,
-            [ModifierState.NO_UNIT_COLLISION]: true,
+            [ModifierState.FLYING_FOR_PATHING_PURPOSES_ONLY]: true,
             [ModifierState.COMMAND_RESTRICTED]: true,
         }
 
@@ -2248,6 +2737,7 @@ export class musashi_modifier_ishana_daitenshou_dash extends BaseModifier
     Caster: CDOTA_BaseNPC | undefined;
     Victim: CDOTA_BaseNPC | undefined;
     ModifierIshanaDaitenshou: musashi_modifier_ishana_daitenshou | undefined;
+    DashSpeed: number = 0;
 
     override OnCreated(): void
     {
@@ -2257,6 +2747,7 @@ export class musashi_modifier_ishana_daitenshou_dash extends BaseModifier
         }
 
         this.Caster = this.GetCaster();
+        this.DashSpeed = this.GetAbility()?.GetSpecialValueFor("DashSpeed")!;
         this.ModifierIshanaDaitenshou = this.Caster?.FindModifierByName(musashi_modifier_ishana_daitenshou.name) as musashi_modifier_ishana_daitenshou;
         this.Victim = this.ModifierIshanaDaitenshou.Victim;
         this.StartIntervalThink(0.03);
@@ -2271,12 +2762,11 @@ export class musashi_modifier_ishana_daitenshou_dash extends BaseModifier
 
         const CasterAbsOrigin = this.Caster?.GetAbsOrigin()!;
         const VictimAbsOrigin = this.Victim?.GetAbsOrigin()!;
-        const DashSpeed = this.GetAbility()?.GetSpecialValueFor("DashSpeed")!;
         const Direction = ((VictimAbsOrigin - CasterAbsOrigin) as Vector).Normalized();
         this.Caster?.SetForwardVector(Direction);
-        const NewPosition = (CasterAbsOrigin + (this.Caster?.GetForwardVector()! * DashSpeed)) as Vector;
+        const NewPosition = (CasterAbsOrigin + (this.Caster?.GetForwardVector()! * this.DashSpeed)) as Vector;
         this.Caster?.SetAbsOrigin(NewPosition);
-        const Musashi = Entities.FindByNameWithin(undefined, this.Caster?.GetName()!, VictimAbsOrigin, DashSpeed);
+        const Musashi = Entities.FindByNameWithin(undefined, this.Caster?.GetName()!, VictimAbsOrigin, this.DashSpeed);
 
         if (Musashi)
         {
@@ -2305,17 +2795,25 @@ export class musashi_modifier_ishana_daitenshou_dash extends BaseModifier
     {
         return false;
     }
+
+    override IsHidden(): boolean
+    {
+        return true;
+    }
 }
 
 @registerModifier()
 export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
 {
+    readonly SoundSfx: string = "musashi_ishana_daitenshou_sfx";
+
     Caster: CDOTA_BaseNPC | undefined;
     Ability: CDOTABaseAbility | undefined;
 
     ModifierIshanaDaitenshou: musashi_modifier_ishana_daitenshou | undefined;
     Victim: CDOTA_BaseNPC | undefined;
-    NormalSlashCount: number = 0;
+    SlashCount: number = 0;
+    QuickSlashCount: number = 0;
     
     override OnCreated(): void
     {
@@ -2328,8 +2826,10 @@ export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
         this.Ability = this.GetAbility();
         this.ModifierIshanaDaitenshou = this.Caster?.FindModifierByName(musashi_modifier_ishana_daitenshou.name) as musashi_modifier_ishana_daitenshou;
         this.Victim = this.ModifierIshanaDaitenshou.Victim;
-        const NormalSlashInterval = this.Ability?.GetSpecialValueFor("NormalSlashInterval")!;
-        this.StartIntervalThink(NormalSlashInterval);
+        const QuickSlashInterval = this.Ability?.GetSpecialValueFor("QuickSlashInterval")!;
+        this.QuickSlashCount = this.Ability?.GetSpecialValueFor("QuickSlashCount")!;
+        this.StartIntervalThink(QuickSlashInterval);
+        EmitGlobalSound(this.SoundSfx);
     }
 
     override OnIntervalThink(): void
@@ -2339,12 +2839,10 @@ export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
             return;
         }
 
-        const NormalSlashCount = this.Ability?.GetSpecialValueFor("NormalSlashCount")!;
-
-        if (this.NormalSlashCount <= NormalSlashCount)
+        if (this.SlashCount < this.QuickSlashCount)
         {
             this.DealDamage();
-            ++this.NormalSlashCount;
+            ++this.SlashCount;
         }
         else
         {
@@ -2365,11 +2863,22 @@ export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
 
     DealDamage(): void
     {
-        const NormalSlashMaxHpPercent = this.Ability?.GetSpecialValueFor("NormalSlashMaxHpPercent")! / 100;
-        const Damage = this.Victim?.GetMaxHealth()! * NormalSlashMaxHpPercent;
+        const QuickSlashMaxHpPercent = this.Ability?.GetSpecialValueFor("QuickSlashMaxHpPercent")! / 100;
+        const Damage = this.Victim?.GetMaxHealth()! * QuickSlashMaxHpPercent;
         const DmgType = this.Ability?.GetAbilityDamageType()!;
         const DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.BYPASSES_INVULNERABILITY + DamageFlag.HPLOSS;
-        DoDamage(this.Caster!, this.Victim!, Damage, DmgType, DmgFlag, this.Ability!, false);
+        
+        ApplyDamage
+        (
+            {
+                victim: this.Victim!,
+                attacker: this.Caster!,
+                damage: Damage,
+                damage_type: DmgType,
+                damage_flags: DmgFlag,
+                ability: this.Ability!,
+            }
+        )
     }
 
     async PerformFinalSlash(): Promise<void>
@@ -2377,25 +2886,35 @@ export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
         const FinalSlashDmgDelay = this.Ability?.GetSpecialValueFor("FinalSlashDmgDelay")!;
         await Sleep(FinalSlashDmgDelay);
         const FinalSlashMaxHpPercent = this.Ability?.GetSpecialValueFor("FinalSlashMaxHpPercent")! / 100;
-        const ExecuteThresholdPercent = this.Ability?.GetSpecialValueFor("ExecuteThresholdPercent")! / 100;
+        const ExecuteThresholdPercent = this.Ability?.GetSpecialValueFor("ExecuteThresholdPercent")!;
         const Damage = this.Victim?.GetMaxHealth()! * FinalSlashMaxHpPercent;
         const DmgType = this.Ability?.GetAbilityDamageType()!;
         const DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.BYPASSES_INVULNERABILITY + DamageFlag.HPLOSS;
-        DoDamage(this.Caster!, this.Victim!, Damage, DmgType, DmgFlag, this.Ability!, false);
+
+        ApplyDamage
+        (
+            {
+                victim: this.Victim!,
+                attacker: this.Caster!,
+                damage: Damage,
+                damage_type: DmgType,
+                damage_flags: DmgFlag,
+                ability: this.Ability!,
+            }
+        )
+
         this.CreateParticle();
-
         const CurrentHealth = this.Victim?.GetHealthPercent()!;
-
+        
         if (CurrentHealth <= ExecuteThresholdPercent)
         {
             this.Victim?.Kill(this.Ability, this.Caster);
         }
         else
         {
-            const DebuffDuration = this.Ability?.GetSpecialValueFor("DebuffDuration");
-            const CurrentHealthPercent = this.Victim?.GetHealthPercent()! / 100;
-            this.Victim?.AddNewModifier(this.Caster, this.Ability, musashi_modifier_ishana_daitenshou_debuff.name, {duration: DebuffDuration});
-            const NewHealth = this.Victim?.GetMaxHealth()! * CurrentHealthPercent;
+            const CurrentHealthPercent = this.Victim?.GetHealthPercent()!;
+            this.Victim?.AddNewModifier(this.Caster, this.Ability, musashi_modifier_ishana_daitenshou_debuff.name, {undefined});
+            const NewHealth = this.Victim?.GetMaxHealth()! * CurrentHealthPercent / 100;
             this.Victim?.SetHealth(NewHealth);
         }
     }
@@ -2430,11 +2949,24 @@ export class musashi_modifier_ishana_daitenshou_slash extends BaseModifier
     {
         return false;
     }
+
+    override IsHidden(): boolean
+    {
+        return true;
+    }
 }
 
 @registerModifier()
 export class musashi_modifier_ishana_daitenshou_debuff extends BaseModifier
 {
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+    }
+
     override GetModifierExtraHealthPercentage(): number
     {
         return this.GetAbility()?.GetSpecialValueFor("MaxHpReductionPercent")!;
@@ -2469,6 +3001,13 @@ export class musashi_modifier_ishana_daitenshou_debuff extends BaseModifier
 @registerModifier()
 export class musashi_modifier_ishana_daitenshou_cooldown extends BaseModifier
 {
+    override OnCreated(): void
+    {
+        if (!IsServer())
+        {
+            return;
+        }
+    }
     override IsPurgable(): boolean
     {
         return false;
@@ -2487,77 +3026,5 @@ export class musashi_modifier_ishana_daitenshou_cooldown extends BaseModifier
     override RemoveOnDeath(): boolean
     {
         return false;
-    }
-}
-
-//======================================================================================================================
-// Miyamoto Musashi: Skill 10: Niou (Innate)
-//======================================================================================================================
-@registerAbility()
-export class musashi_niou extends BaseAbility
-{
-    Niou: CDOTA_BaseNPC | undefined;
-
-    override OnSpellStart(): void
-    {
-        const Caster = this.GetCaster();
-        this.Niou = CreateUnitByName("musashi_niou", Caster.GetAbsOrigin(), false, Caster, Caster, Caster.GetTeam());
-        let ModelScale = this.GetSpecialValueFor("ModelScale");
-
-        if (Caster.HasModifier(musashi_modifier_ishana_daitenshou.name))
-        {
-            ModelScale = 6;
-        }
-        
-        this.Niou.SetModelScale(ModelScale);
-        this.Niou.AddNewModifier(this.Niou, this, musashi_modifier_niou.name, {undefined});
-    }
-
-    async DestroyNiou(delay: number): Promise<void>
-    {
-        this.Niou?.ForceKill(false);
-        await Sleep(delay);
-        this.Niou?.Destroy();
-    }
-}
-
-@registerModifier()
-export class musashi_modifier_niou extends BaseModifier
-{
-    override CheckState(): Partial<Record<ModifierState, boolean>>
-    {
-        const ModifierTable = 
-        {
-            [ModifierState.INVULNERABLE]: true,
-            [ModifierState.MAGIC_IMMUNE]: true,
-            [ModifierState.UNSELECTABLE]: true,
-            [ModifierState.UNTARGETABLE]: true,
-            [ModifierState.NO_HEALTH_BAR]: true,
-            [ModifierState.NO_UNIT_COLLISION]: true,
-            [ModifierState.NOT_ON_MINIMAP]: true,
-            [ModifierState.COMMAND_RESTRICTED]: true,
-        }
-
-        return ModifierTable;
-    }
-
-    override IsPurgable(): boolean
-    {
-        return false;
-    }
-
-    override IsPurgeException(): boolean
-    {
-        return false;
-    }
-
-    override IsPermanent(): boolean
-    {
-        return true;
-    }
-
-    override IsHidden(): boolean
-    {
-        return true;
     }
 }

@@ -129,7 +129,6 @@ strongdispellable = {
     "modifier_robin_poison_smoke",
     "modifier_poisonous_bite_slow",
     "modifier_nobu_innovation_aura",
-    "modifier_saito_mind_eye_active",
     "modifier_mashu_snowflake",
     "modifier_mashu_dmg_reduc",
 
@@ -229,9 +228,6 @@ cleansable = {
     "modifier_poison_cloud_debuff",
     "modifier_poisonous_bite_slow",
     "modifier_nobu_divinity_mark_activated",
-    "modifier_saito_steelwing_mss",
-    "modifier_saito_shadowslash_mrr",
-    "modifier_saito_fds_active_sdr",
     "modifier_mashu_taunt",
     "modifier_mashu_bunker_bolt_slow",
 }
@@ -298,7 +294,6 @@ slowmodifier = {
     "modifier_poisonous_bite_slow",
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
-    "modifier_saito_steelwing_mss",
 }
 
 revokes = {
@@ -383,9 +378,7 @@ goesthruB = {
     "scathach_gae_bolg_upgrade_2",
     "scathach_gae_bolg_upgrade_3",
     "avenger_verg_avesta_upgrade",    
-    "avenger_verg_avesta",  
-    "saito_step",
-    "saito_vortex", 
+    "avenger_verg_avesta",
 }
 
 invis = {
@@ -592,7 +585,6 @@ tModifierCooldown = {
     "modifier_tiatum_umu_cooldown",
     "modifier_nobu_strategy_attribute_cooldown",
     "modifier_nobu_combo_cd",
-    "modifier_saito_style_combo_indicator",
     "modifier_mashu_combo_cooldown",
     "musashi_modifier_ishana_daitenshou_cooldown",
     "modifier_ishtar_combo_cooldown",
@@ -801,7 +793,6 @@ CannotReset = {
     "nobu_leader_of_innovation",
     "nobu_divinity_mark",
     "nobu_demon_king_open",
-    "saito_style",
     "mashu_combo",
     "musashi_tengan",
     "musashi_mukyuu",
@@ -1091,7 +1082,6 @@ tRemoveTheseModifiers = {
     "modifier_edmond_hate",
     "modifier_zhuge_liang_array_checker",
     "modifier_zhuge_liang_array_enemy",
-    "modifier_saito_style_active",
 }
 
 tLightningResist = {
@@ -1154,7 +1144,6 @@ tShinsengumi = {
     "npc_dota_hero_dark_willow",
     "okita_shinsengumi",
     "okita_hijikata",
-    "npc_dota_hero_terrorblade",
 }
 
 tSoldierAoTK = {
@@ -1207,7 +1196,6 @@ tKnightClass = {
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_tusk",
     "npc_dota_hero_death_prophet",
-    "npc_dota_hero_terrorblade",
     "npc_dota_hero_antimage",
 }
 
@@ -1239,7 +1227,6 @@ tSaberClass = {
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_lina",
     "npc_dota_hero_omniknight",
-    "npc_dota_hero_terrorblade",
     "npc_dota_hero_antimage",
 }
 
@@ -1843,15 +1830,6 @@ function IsSpellBlocked(target)
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_scathach_rune_of_protection")
-        return true
-    elseif target:HasModifier("modifier_saito_mind_eye_linken") then
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        target:RemoveModifierByName("modifier_saito_mind_eye_linken")
-        return true
-    elseif target:HasModifier("modifier_saito_style_active") then
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         return true
     else
         return false
@@ -3588,7 +3566,6 @@ local heroNames = {
     ["npc_dota_hero_necrolyte"] = "Hans Christian Andersen",
     ["npc_dota_hero_sniper"] = "Robin Hood",
     ["npc_dota_hero_gyrocopter"] = "Nobunaga",
-    ["npc_dota_hero_terrorblade"] = "Saitō Hajime",
     ["npc_dota_hero_dragon_knight"] = "Mash Kyrielight",
     ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
     ["npc_dota_hero_oracle"] = "Ishtar",

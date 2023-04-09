@@ -126,9 +126,9 @@ function OnRightHandStart(keys)
 		local re_ability = caster:GetAbilityByIndex(i)
 		if re_ability ~= nil and not re_ability:IsCooldownReady() then 
 			re_ability:EndCooldown()
-			if i < 3 then
-				AddRightHandStacks(caster, -1)
-			end
+			--if i < 3 then
+			AddRightHandStacks(caster, -1)
+			--end
 		end
 	end
 
@@ -635,7 +635,7 @@ function amakusa_black_key_passive:OnSpellStart()
 
 	if caster:HasModifier("modifier_right_hand") then 
 		stack_gain = ability:GetSpecialValueFor("stack_gain_r")
-		--AddRightHandStacks(caster, -1)
+		AddRightHandStacks(caster, -1)
 	end
 	print('active gain stack')
 	AddBlackKey(caster, stack_gain)
@@ -876,6 +876,12 @@ function amakusa_set_wrapper(ability)
 				black_key_counter = black_key_counter + 1
 
 				local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+				for i = 1, #enemies do
+					if not caster:CanEntityBeSeenByMyTeam(enemies[i]) then
+						enemies[i] = nil
+					end
+				end
+				--table.sort( enemies )
 				if #enemies > 0 then
 
 					local frontward = caster:GetForwardVector()

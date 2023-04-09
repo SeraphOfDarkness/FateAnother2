@@ -74,21 +74,18 @@ local musashi_attribute_improve_tengan = ____exports.musashi_attribute_improve_t
 musashi_attribute_improve_tengan.name = "musashi_attribute_improve_tengan"
 __TS__ClassExtends(musashi_attribute_improve_tengan, BaseModifier)
 function musashi_attribute_improve_tengan.prototype.OnCreated(self)
-    if not IsServer() then
-        return
-    end
     self.Caster = self:GetParent()
     local ____opt_0 = self.Caster
-    local TenganChargeCounter = ____opt_0 and ____opt_0:FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name)
-    if TenganChargeCounter ~= nil then
-        TenganChargeCounter:ForceRefresh()
+    local ModifierTenganChargeCounter = ____opt_0 and ____opt_0:FindModifierByName(musashi_ability.musashi_modifier_tengan_chargecounter.name)
+    if ModifierTenganChargeCounter ~= nil then
+        ModifierTenganChargeCounter:ForceRefresh()
     end
 end
 function musashi_attribute_improve_tengan.prototype.GetModifierOverrideAbilitySpecial(self, event)
     local ____opt_4 = self.Caster
     local Tengan = ____opt_4 and ____opt_4:FindAbilityByName(musashi_ability.musashi_tengan.name)
     if event.ability == Tengan then
-        if event.ability_special_value == "BonusPureDmgPerAgi" or event.ability_special_value == "MaxCharges" or event.ability_special_value == "RechargeTime" then
+        if event.ability_special_value == "BonusDmgPerAgi" or event.ability_special_value == "MaxCharges" or event.ability_special_value == "RechargeTime" or event.ability_special_value == "TenganBonus" then
             return 1
         end
     end
@@ -96,12 +93,14 @@ function musashi_attribute_improve_tengan.prototype.GetModifierOverrideAbilitySp
 end
 function musashi_attribute_improve_tengan.prototype.GetModifierOverrideAbilitySpecialValue(self, event)
     local Ability = self:GetAbility()
-    if event.ability_special_value == "BonusPureDmgPerAgi" then
-        return Ability and Ability:GetSpecialValueFor("BonusPureDmgPerAgi")
+    if event.ability_special_value == "BonusDmgPerAgi" then
+        return Ability and Ability:GetSpecialValueFor("BonusDmgPerAgi")
     elseif event.ability_special_value == "MaxCharges" then
         return Ability and Ability:GetSpecialValueFor("MaxCharges")
     elseif event.ability_special_value == "RechargeTime" then
         return Ability and Ability:GetSpecialValueFor("RechargeTime")
+    elseif event.ability_special_value == "TenganBonus" then
+        return Ability and Ability:GetSpecialValueFor("TenganBonus")
     end
     return 0
 end
@@ -192,7 +191,7 @@ function musashi_attribute_mukyuu.prototype.GetModifierOverrideAbilitySpecial(se
     local Caster = self:GetParent()
     local Ability = Caster:FindAbilityByName(musashi_ability.musashi_niou_kurikara.name)
     if event.ability == Ability then
-        if event.ability_special_value == "DmgReducWhileChannel" or event.ability_special_value == "DmgReducFinishChannel" or event.ability_special_value == "BuffDuration" then
+        if event.ability_special_value == "DmgReduceWhileSlashing" or event.ability_special_value == "DmgReducePostSlashing" or event.ability_special_value == "BuffDuration" then
             return 1
         end
     end
@@ -200,10 +199,10 @@ function musashi_attribute_mukyuu.prototype.GetModifierOverrideAbilitySpecial(se
 end
 function musashi_attribute_mukyuu.prototype.GetModifierOverrideAbilitySpecialValue(self, event)
     local Ability = self:GetAbility()
-    if event.ability_special_value == "DmgReducWhileChannel" then
-        return Ability and Ability:GetSpecialValueFor("DmgReducWhileChannel")
-    elseif event.ability_special_value == "DmgReducFinishChannel" then
-        return Ability and Ability:GetSpecialValueFor("DmgReducFinishChannel")
+    if event.ability_special_value == "DmgReduceWhileSlashing" then
+        return Ability and Ability:GetSpecialValueFor("DmgReduceWhileSlashing")
+    elseif event.ability_special_value == "DmgReducePostSlashing" then
+        return Ability and Ability:GetSpecialValueFor("DmgReducePostSlashing")
     elseif event.ability_special_value == "BuffDuration" then
         return Ability and Ability:GetSpecialValueFor("BuffDuration")
     end
@@ -255,11 +254,18 @@ function musashi_attribute_niten_ichiryuu.prototype.OnCreated(self)
     local Caster = self:GetParent()
     self.DaiGoSei = Caster:FindAbilityByName(musashi_ability.musashi_dai_go_sei.name)
     self.GanryuuJima = Caster:FindAbilityByName(musashi_ability.musashi_ganryuu_jima.name)
+    local ModifierDaiGoSeiHitsCounter = Caster:FindModifierByName(musashi_ability.musashi_modifier_dai_go_sei_hits_counter.name)
+    if ModifierDaiGoSeiHitsCounter ~= nil then
+        ModifierDaiGoSeiHitsCounter:SetStackCount(0)
+    end
+    if ModifierDaiGoSeiHitsCounter ~= nil then
+        ModifierDaiGoSeiHitsCounter:ForceRefresh()
+    end
     self.GanryuuJima:UpdateVectorValues()
 end
 function musashi_attribute_niten_ichiryuu.prototype.GetModifierOverrideAbilitySpecial(self, event)
     if event.ability == self.DaiGoSei then
-        if event.ability_special_value == "HitsRequired" or event.ability_special_value == "CriticalDmg" then
+        if event.ability_special_value == "HitsRequired" then
             return 1
         end
     elseif event.ability == self.GanryuuJima then
@@ -274,8 +280,6 @@ function musashi_attribute_niten_ichiryuu.prototype.GetModifierOverrideAbilitySp
     if event.ability == self.DaiGoSei then
         if event.ability_special_value == "HitsRequired" then
             return Ability and Ability:GetSpecialValueFor("HitsRequired")
-        elseif event.ability_special_value == "CriticalDmg" then
-            return Ability and Ability:GetSpecialValueFor("CriticalDmg")
         end
     elseif event.ability == self.GanryuuJima then
         if event.ability_special_value == "SlashRange" then
