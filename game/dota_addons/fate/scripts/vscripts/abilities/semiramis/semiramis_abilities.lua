@@ -20,8 +20,12 @@ function GardenCheck(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 
-	if caster.HangingGardens:IsAlive() then
-		return
+	if caster.HangingGardens == nil then
+		return 0
+	end
+
+	if caster.HangingGardens:IsAlive() and not caster.HangingGardens:IsNull() then
+		return 0
 	else
 		if caster:HasModifier("modifier_semiramis_mounted") then
 			caster:RemoveModifierByName("modifier_semiramis_mounted")
@@ -465,7 +469,7 @@ function MassRecallThink(keys)
 	local caster = keys.target
 	local ability = keys.ability 
 
-	caster.RecallTimer = caster.RecallTimer + 1
+	caster.RecallTimer = caster.RecallTimer + 0.5
 end
 
 function OnRecallTakeDamage(keys)
@@ -483,12 +487,13 @@ function OnRecallDestroy(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local max_range = keys.MaxRange
+	local delay = ability:GetSpecialValueFor("delay")
 
 	if target.IsMRecallCanceled then
 		return
 	end
 
-	if target.RecallTimer < 4 then
+	if target.RecallTimer < delay then
 		return
 	end
 

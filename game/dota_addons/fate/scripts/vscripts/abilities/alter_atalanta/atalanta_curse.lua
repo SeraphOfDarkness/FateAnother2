@@ -42,12 +42,15 @@ function atalanta_curse_wrapper(ability)
 	function ability:Curse(target)
 		local caster = self:GetCaster()
 		local stacks = 0
+		local max_stack = self:GetSpecialValueFor("max_stack")
 
 		if not target or not target:IsAlive() or target:IsNull() then return end
 
 		if target:HasModifier("modifier_atalanta_curse") then
 			stacks = target:FindModifierByName("modifier_atalanta_curse"):GetStackCount()
 		end
+
+		if stacks >= max_stack  then return end
 
 		target:AddNewModifier(caster, self, "modifier_atalanta_curse", {duration = self:GetSpecialValueFor("duration")})
 		target:FindModifierByName("modifier_atalanta_curse"):SetStackCount(stacks + 1)

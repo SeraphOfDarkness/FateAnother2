@@ -132,7 +132,7 @@ strongdispellable = {
     "modifier_nobu_innovation_aura",
     "modifier_mashu_snowflake",
     "modifier_mashu_dmg_reduc",
-    "modifier_atalanta_ora"
+    "modifier_atalanta_ora",
 
     -- items
     "modifier_b_scroll",

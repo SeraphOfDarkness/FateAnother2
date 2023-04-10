@@ -1,4 +1,3 @@
-
 HeroesID
 {
 	"01"		"npc_dota_hero_legion_commander"

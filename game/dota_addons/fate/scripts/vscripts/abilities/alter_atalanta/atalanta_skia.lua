@@ -121,11 +121,17 @@ function modifier_atalanta_skia:OnDestroy()
 	self.parent = self:GetParent()
 	local caster = self:GetParent()
 
-	if caster:GetHealth() <= 1 then return end
+	if caster:GetHealth() <= 1 then 
+		return 0
+	end
 
 	ScreenShake(self:GetParent():GetAbsOrigin(), 20, 2.0, 3.0, 2000, 0, true)
-	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 	self.parent:EmitSound("Misc.Crash")
+	Timers:CreateTimer(0.05, function()
+		FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+	end)
 	Timers:CreateTimer(0.3, function()
 		self.parent:EmitSound("atalanta_skia_pop")
 	end)

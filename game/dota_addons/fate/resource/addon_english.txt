@@ -14740,14 +14740,17 @@
 		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
 		"DOTA_Tooltip_Ability_atalanta_curse_duration"	"Curse duration:"
 		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%Damage amplify per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"		
+		"DOTA_Tooltip_Ability_atalanta_curse_max_stack"	"Max stack:"
 
 		"DOTA_Tooltip_Ability_atalanta_curse_upgrade"	"<font color='#9FFFCC'>Curse of the Calydonian Boar</font>"
 		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces. If a target has a certain stacks or more, Atalanta will gain vision of the target. \n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting.\nCannot be reset."
 		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_duration"	"Curse duration:"
 		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_amplify_per_stack"	"%Damage amplify per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_detonate_damage"	"Active damage per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_vision"	"Stack for vision:"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_detonate_damage"	"Active damage per stack:"		
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_max_stack"	"Max stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_vision"	"Stack for vision:"	
+
 
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "<font color='#58ACFA'>Tauropolos - Arrow Rain</font>"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."

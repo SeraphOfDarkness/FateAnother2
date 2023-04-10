@@ -1,3 +1,18 @@
+New hero, Atalanta Alter
+Expect bugs, oof
+*SPECIAL THANKS TO SEVA FOR ALLOWING ME TO PORT*
+
+Sememeramis
+Recall now no longer meme
+
+Ishtar R 
+Range + 400
+Speed - 500
+
+Gem scaling for damage now works properly
+
+=============================================================
+
 Amakusa back to using R stacks for Black Key. Q wont target units in FOW.
 
 Musashi changes

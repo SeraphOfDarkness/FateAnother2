@@ -335,7 +335,7 @@ function OnIshtarRHit(keys)
 
 	local gem_ability = caster:FindAbilityByName("ishtar_q")
 	stack = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
-	local scale = gem_ability:GetSpecialValueFor("bonus_r_impact_per_gem")
+	local scale = gem_ability:GetSpecialValueFor("bonus_r_impact_per_gem") * stack
 	damage_impact = damage_impact + scale
 
 	if mode == true then

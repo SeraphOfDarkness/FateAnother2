@@ -255,11 +255,11 @@
 		"BGM3"	"3. [Fate/Zero] Emiya -time alter-"
 		"BGM4"	"4. Warming up Disaster (Tomorrow's Collapse) | Melty Blood: Type Lumina [OST]"
 		"BGM5"	"5. Fate/Grand Order - Six Tail Tamamo Vitch Koyanskaya Theme"
-		"BGM6"	"6. Actions in the Lower World | Melty Blood: Type Lumina [OST]"
+		"BGM6"	"6. Melty Blood Type Lumina OST  A Fateful Crossroads"
 		"BGM7"	"7. [Fate/Grand Order] Oberon Battle OST"
 		"BGM8"	"8. Last Stardust -Fate/Stay Night: Unlimited Blade Works"
-		"BGM9"	"9. Blazing Ashes II -Fate/Stay Night: Unlimited Blade Works"
-		"BGM10"	"10. On the Battlefield -Fate/Zero"
+		"BGM9"	"9. Melty Blood Type Lumina OST  The Astral Prison"
+		"BGM10"	"10. FateUnlimited Codes-Mighty Wind"
 		"BGM11"	"11. The Battle Is to The Strong -Fate/Zero"
 		"BGM12"	"12. This Day, And Never Again -Fate/Zero"
 		"BGM13"	"13. Absolute Demonic Front -Fate/Grand Order (Babylonia)"
@@ -397,7 +397,7 @@ Rule
 \nFilo for servant voice clips ported from other series.
 \nEYEOFLIE for Okita's model and animations.
 \nKaiserraiser and ZeFiRoFT for Drake and Scathach's model and animations.
-\nSeva (Fate/Balance) for Modred.
+\nSeva (Fate/Balance) for Modred, Atalantat Alter.
 \nZlodemon (Fate/Balance) for Nobunaga.
 \nTranslation volunteers: MENTAL OUT|食蜂操祈, Marcellus, Mucya, SasakiSaki, Com, Beato, Amano Jack, AMATERASU, Matka Tvoja, RyuDo, GISH, Goeniko, TITAN_BIGDICK, Ecuayos
 \nVarious other Type-Moon games such as Unlimited Codes and Extella which I shamelessly ripped audios from... plz no lawsuit.
