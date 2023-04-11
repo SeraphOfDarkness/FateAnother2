@@ -1,3 +1,14 @@
+
+Add New Draw MVP Bounty (Test)
+After 6th round, if there is draw game, the MVP of each team will get Bounty Mark debuff
+Bounty Mark Debuff: can be seen by enemies 
+Bounty Reward list
+-regen 5 master hp to all players in team
+-regen 5 master mana to all players in team
+-get 3000 gold to all players in team
+If Killer also have Bounty Mark, the round will end with Killer team's won
+
+-----------------------------------
 New hero, Atalanta Alter
 Expect bugs, oof
 *SPECIAL THANKS TO SEVA FOR ALLOWING ME TO PORT*
