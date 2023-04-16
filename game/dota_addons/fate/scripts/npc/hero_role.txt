@@ -1663,35 +1663,35 @@ HeroRoles
 		"Roles"			"carry,mobility,tank" 	
 		"Role" 							
 		{
-			"1"
-			{			
-				"tank"	
-				{
-					"weight"	"30"	// weight to calculate
-					"criteria"	"2"
-					"dTake"		"170"	// > avg dmg taken(%max hp) per round
-					"Death"		"80"	// < death of total round
-				}		
-			}
-			"2"	
+			"1"	
 			{			
 				"carry"
 				{
-					"weight"	"50"	// weight to calculate
-					"criteria"	"3"
-					"dDeal"		"5000"	// > avg dmg deal per round
+					"weight"	"60"	// weight to calculate
+					"criteria"	"1"
+					"dDeal"		"4000"	// > avg dmg deal per round
 					"KD"		"1.5"	// > total KD
 					"Assist"	"35"	// > Assist
 				}
 			}
-			"3"	
+			"2"	
 			{			
 				"mobility"	
 				{
-					"weight"	"10"	// weight to calculate
-					"criteria"	"1"
+					"weight"	"20"	// weight to calculate
+					"criteria"	"2"
 					"Death"		"35"	// < death of total round
 				}
+			}
+			"3"
+			{			
+				"tank"	
+				{
+					"weight"	"20"	// weight to calculate
+					"criteria"	"3"
+					"dTake"		"170"	// > avg dmg taken(%max hp) per round
+					"Death"		"80"	// < death of total round
+				}		
 			}
 		}
 	}	

@@ -1,3 +1,35 @@
+Musashi changes
+1. MR reduced from 20% -> 15%
+2. Tengen No Hana Pure -> Magical
+3. Dai Go Sei-Wave mana cost reduced from 100/200/300/400/500 -> 100/150/200/250/300
+4. Battle continuation no longer self heal at the end.
+5. Battle continuation damage threshold  reduced from 2000 -> 1750
+6. Accel turn (Q) no longer have Invulnerable while dashing
+7. Niou Kurikara SA - Wind from Stun and Revoke -> Stun only
+8. Combo max hp debuff and extra damage taken reduced from 25% -> 15%
+
+Bug fix/Misc 
+1. Fixed Scath's gate not executing Musashi
+2. Added fail-safe checker to GanryuuJima (R) and Combo dash to prevent permanent invulnerable bug.
+3. Added CN tooltips for Musashi.
+
+KH R
+Cast delay 1.1 -> 0.95
+Damage -50
+Stun -0.1
+
+Ishtar Q
+Gem scale for R 30 35 40 45 50 -> 20 25 30 35 40
+
+Atlanta alter
+D - Curse
+Max stack 40 -> 70
+
+R
+Base damage + 25
+
+Combo
+Damage 2000 -> 2750
 
 Add New Draw MVP Bounty (Test)
 After 6th round, if there is draw game, the MVP of each team will get Bounty Mark debuff

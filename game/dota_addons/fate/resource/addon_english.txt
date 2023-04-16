@@ -100,6 +100,12 @@
 
 		"DOTA_Tooltip_modifier_dragon_b"						"Dragon Servant"
 		"DOTA_Tooltip_modifier_dragon_b_Description"			"+%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP Regen, +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% Mana Regen"
+		
+		"DOTA_Tooltip_modifier_mvp_marker1"						"Bounty Mark" 
+		"DOTA_Tooltip_modifier_mvp_marker1_Description"			"This Hero has been mark, killing this hero will get extra reward."
+
+		"DOTA_Tooltip_modifier_mvp_marker2"						"Bounty Mark" 
+		"DOTA_Tooltip_modifier_mvp_marker2_Description"			"This Hero has been mark, killing this hero will get extra reward."
 	
 		"DOTA_Tooltip_modifier_death_tracker"						"Deaths"
 		"DOTA_Tooltip_modifier_death_tracker_Description"			"People die if they are killed."
@@ -14392,7 +14398,7 @@
  Deals damage to enemies within %Radius% AOE of target. Deals <font color='#c29c4a'><b>PURE DAMAGE</b></font> if target is hero and <font color='#5b93d1'><b>MAGICAL DAMAGE</b></font> if target is creep. 
  Applies a buff on herself which increase her <font color='Lime'><b>DAMAGE</b></font> and <font color='Lime'><b>ATTACK SPEED</b></font> for %BuffDuration% seconds. 
  On every few hits on an enemy hero, enables <font color='DodgerBlue'><b>DAI GO SEI - WAVE</b></font>. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
+<font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. A stance that utilitize the main advantages of using two swords."
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "BONUS ATTACK SPEED: "
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkDmg"    "BONUS ATTACK DAMAGE: "
@@ -14401,7 +14407,7 @@
         "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<font color='Crimson'><b>NIOU KURIKARA</b></font>"
         "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "Slashes %SlashCount% times to deal damage to enemies within %Radius% AOE of target point. 
  If <font color='SlateBlue'><b>TENGAN</b></font> is active, deals <font color='#c29c4a'><b>BONUS PURE DAMAGE</b></font> on her last slash. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: MUKYUU</b> and <b>ATTRIBUTES: GORIN NO SHO.</b></font>"
+<font color='Gold'>Upgradeable with <b>ATTRIBUTES: MUKYUU</b> and <b>ATTRIBUTES: GORIN NO SHO.</b></font>"
         "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure."
         "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgPerSlash"    "DAMAGE PER SLASH: "
         "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReduceWhileSlashing"    "%DAMAGE REDUCTION WHILE SLASHING: "
@@ -14410,10 +14416,10 @@
         "DOTA_Tooltip_Ability_musashi_tengan"    "<font color='SlateBlue'><b>TENGAN</b></font>"
         "DOTA_Tooltip_Ability_musashi_tengan_description"    "Consumes a charge and apply a buff on herself for %BuffDuration% seconds. 
  This buff have different interactions with her other skills. 
- <font color='DodgerBlue'><b>DAI GO SEI (W):</b></font> Increases buff's <font color='Lime'><b>DAMAGE</b></font> and <font color='Lime'><b>ATTACK SPEED</b></font> by %TenganBonus%. 
- <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Allows her to deal <font color='#c29c4a'><b>BONUS PURE DAMAGE</b></font> on her last slash. Buff will be removed upon usage. 
- <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Apply debuff to enemies hit and deal <font color='#c29c4a'><b>PURE DAMAGE</b></font> after delay. Buff will be removed upon usage. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: IMPROVE TENGAN.</b></font>"
+<font color='DodgerBlue'><b>DAI GO SEI (W):</b></font> Increases buff's <font color='Lime'><b>DAMAGE</b></font> and <font color='Lime'><b>ATTACK SPEED</b></font> by %TenganBonus%. 
+<font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Allows her to deal <font color='#c29c4a'><b>BONUS PURE DAMAGE</b></font> on her last slash. Buff will be removed upon usage. 
+<font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Apply debuff to enemies hit and deal <font color='#c29c4a'><b>PURE DAMAGE</b></font> after delay. Buff will be removed upon usage. 
+<font color='Gold'>Upgradeable with <b>ATTRIBUTES: IMPROVE TENGAN.</b></font>"
         "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome."
         "DOTA_Tooltip_Ability_musashi_tengan_BaseDmg"    "BASE DAMAGE: "
         "DOTA_Tooltip_Ability_musashi_tengan_BonusDmgPerAgi"    "BONUS DAMAGE PER AGI: "
@@ -14422,7 +14428,7 @@
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font>"
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "Dashes to target point. After reaching target point, perform spinning slashes towards aimed direction and back to target point. 
  If <font color='SlateBlue'><b>TENGAN</b></font> is active, apply debuff on enemies which deals <font color='#c29c4a'><b>PURE DAMAGE</b></font> after %DebuffDmgDelay% second. 
- <font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
+<font color='Gold'>Upgradeable with <b>ATTRIBUTES: NITEN ICHIRYUU.</b></font>"
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_Lore"    "Let's, KENGOU BATTOU! Oh yeah, so sexy! My name is...Musashi Miyamoto!"
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRange"    "SLASH RANGE: "
         "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRadius"    "SLASH RADIUS: "
@@ -14431,7 +14437,7 @@
         "DOTA_Tooltip_Ability_musashi_mukyuu"    "<font color='SlateBlue'><b>MUKYUU</b></font>"
         "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "Become <font color='Gray'><b>INVULNERABLE</b></font> and <font color='Gray'><b>MAGIC IMMUNE</b></font> for %BuffDuration% second. 
  Enables <font color='SlateBlue'><b>TENGEN NO HANA</b></font> after usage. 
- <font color='SlateBlue'><b>TENGEN NO HANA:</b></font> Apply a buff on herself for %BuffDuration% seconds and perform a circle slash within %Radius% AOE of herself when the buff expires. 
+<font color='SlateBlue'><b>TENGEN NO HANA:</b></font> Apply a buff on herself for %BuffDuration% seconds and perform a circle slash within %Radius% AOE of herself when the buff expires. 
  Damages and stun duration ramps up every %RampUpInterval% second. 
  Can be used earlier to detonate the buff earlier but damage and stun durations will be penalized. 
  Will not deal damage or stun when used together with <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> or <font color='MediumSeaGreen'><b>GANRYUU JIMA (R)</b></font>."
@@ -14440,8 +14446,8 @@
         "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<font color='Crimson'><b>TENMA GOGAN</b></font>"
         "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "Requires all <font color='SlateBlue'><b>TENGAN</b></font> charges to be activated. Consume all <font color='SlateBlue'><b>TENGAN</b></font> charges to buff her other skills for %BuffDuration% seconds. <font color='SlateBlue'><b>TENGAN</b></font> will not recharge for that round after usage. 
  She will be stunned and revoked for %DebuffDuration% seconds when buff expires. 
- <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
- <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
+<font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
+<font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
         "DOTA_Tooltip_Ability_musashi_tenma_gogan_Lore"    "Musashi overloads her TENGAN to the verge of collapsing to gain abrupt offensive power momentarily. 
  TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions."
         "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<font color='SlateBlue'><b>TENGEN NO HANA</b></font>"
@@ -14456,16 +14462,15 @@
         "DOTA_Tooltip_Ability_musashi_tengen_no_hana_2SecPercentage"    "%2 SEC PERCENTAGE: "
         "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullPercentage"    "%FULL PERCENTAGE: "
         "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<font color='SlateBlue'><b>BATTLE CONTINUATION</b></font>"
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and cannot be killed for %BuffDuration% seconds. 
- Heals herself for %Heal% when buff ends. 
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "Revive and set HP to 1 and cannot be healed or damaged for %BuffDuration% seconds. 
  Cannot revive if <font color='Crimson'><b>TENMA GOGAN</b></font> debuff exists or damage is greater than %DmgThreshold%. 
  TENGEN NO HANA will be automatically on her when activated."
         "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
  If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave"    "<font color='DodgerBlue'><b>DAI GO SEI - WAVE</b></font>"
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_description"    "Uses her sword and slash the air to create a pressure wave up to %Range% range. Wave have an AOE of %ProjectileRadius% and speed of %ProjectileSpeed%. 
- Each use increase mana cost by 100 and has max mana cost of 500. Mana cost will reset to 100 after 10 seconds of not using it. 
- Has a base damage of 100 and increase by 100 per level of <font color='DodgerBlue'><b>DAI GO SEI</b></font>"
+ Each use increase mana cost by 50 and has max mana cost of 300. Mana cost will reset to 100 after 10 seconds of not using it. 
+ Has a base damage of 100 and increase by 100 per level of <font color='DodgerBlue'><b>DAI GO SEI</b></font>."
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_Damage"    "TOTAL DAMAGE: "
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BaseDamage"    "BASE DAMAGE: "
         "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromAtkDmg"    "BONUS DAMAGE FROM ATK DAMAGE: "
@@ -14473,9 +14478,9 @@
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<font color='Red'><b>ISHANA DAITENSHOU - SLASH THE VOID 「」</b></font>"
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<font color='Red'><b>COMBO SEQUENCE: D->W->R. This combo has 2 PHASES.</b></font> 
  Note: Using any other skills in between the sequence will make combo sequence fail. 
- <font color='Red'><b>PHASE 1: </b></font> 
+<font color='Red'><b>PHASE 1:</b></font>
  Marks her target location and perform <font color='#c29c4a'><b>PURE DAMAGE</b></font> <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> on marked location. 
- <font color='Red'><b>PHASE 2: </b></font> 
+<font color='Red'><b>PHASE 2:</b></font>
  Phase 2 will fail if target is dead or not within %SearchRadius% AOE of marked location. 
  Perform %QuickSlashCount% quick slashes at %QuickSlashInterval% interval and 1 Final Slash after %FinalSlashDmgDelay% second. Quick Slashes and Final Slash damage are based on target's MAX HP. These slashes bypass all damage reductions, link scroll and shield effects including Avalon. 
  If target's HP falls below Execute Threshold, target will be killed. If target survives the slashes, a debuff will be applied on target until killed."
@@ -14486,32 +14491,35 @@
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxHpReductionPercent"    "%MAX HP REDUCTION: "
         "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%EXTRA INCOMING DAMAGE: "
         "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<font color='Gold'><b>BATTLE CONTINUATION</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "ENABLES <font color='SlateBlue'><b>BATTLE CONTINUATION.</b></font> 
- <font color='SlateBlue'><b>BATTLE CONTINUATION: </b></font> Revive and cannot be killed for %BuffDuration% seconds. 
- Heals herself for %Heal% HP when buff ends. 
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "ENABLES <font color='SlateBlue'><b>BATTLE CONTINUATION.</b></font>
+<font color='SlateBlue'><b>BATTLE CONTINUATION:</b></font> Revive and Set HP to 1 and cannot be healed or damaged for %BuffDuration% seconds. 
  Cannot revive if <font color='Crimson'><b>TENMA GOGAN</b></font> debuff exists or damage is greater than %DmgThreshold%. 
- <font color='SlateBlue'><b>TENGEN NO HANA</b></font> will be automatically on her when activated. 
+<font color='SlateBlue'><b>TENGEN NO HANA</b></font> will be automatically on her when activated. 
  Has a cooldown of %Cooldown% seconds."
         "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<font color='Gold'><b>IMPROVE TENGAN</b></font>"
         "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase <font color='DodgerBlue'><b>DAI GO SEI</b></font> damage and attack speed bonus to %TenganBonus%. 
  Increase <font color='SlateBlue'><b>TENGAN</b></font> damage by %BonusDmgPerAgi% per AGI. 
  Increase <font color='SlateBlue'><b>TENGAN</b></font> max charges to %MaxCharges% and reduce recharge time to %RechargeTime% seconds. 
- ENABLES <font color='Crimson'><b>TENMA GOGAN.</b></font> 
- <font color='Crimson'><b>TENMA GOGAN:</b></font> Requires all <font color='SlateBlue'><b>TENGAN</b></font> charges to be activated. Consume all <font color='SlateBlue'><b>TENGAN</b></font> charges to buff her other skills for %BuffDuration% seconds. <font color='SlateBlue'><b>TENGAN</b></font> will not recharge for that round after usage. 
+ ENABLES <font color='Crimson'><b>TENMA GOGAN.</b></font>
+<font color='Crimson'><b>TENMA GOGAN:</b></font> Requires all <font color='SlateBlue'><b>TENGAN</b></font> charges to be activated. Consume all <font color='SlateBlue'><b>TENGAN</b></font> charges to buff her other skills for %BuffDuration% seconds. <font color='SlateBlue'><b>TENGAN</b></font> will not recharge for that round after usage. 
  She will be stunned and revoked for %DebuffDuration% seconds when buff expires. 
- <font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
- <font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
+<font color='Crimson'><b>NIOU KURIKARA (E):</b></font> Changes all slashes to <font color='#c29c4a'><b>PURE DAMAGE</b></font>. Buff will be removed upon usage. 
+<font color='MediumSeaGreen'><b>GANRYUU JIMA (R):</b></font> Allows R to be used twice. Buff will be removed upon usage."
         "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<font color='Gold'><b>GORIN NO SHO</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "Applies elemental debuffs in sequence to enemies hit by <font color='Crimson'><b>NIOU KURIKARA (E). </b></font> 
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "Applies elemental debuffs in sequence to enemies hit by <font color='Crimson'><b>NIOU KURIKARA (E).</b></font>
  EARTH: Slows enemies' movement speed by %EarthSlow%%%. 
  Water: Pushes enemies towards center point. 
  Fire: Applies burn %FireBurnDmgPerSec% damage per second and increase damage taken by %FireIncreaseDmgTaken%%% for %FireBurnDuration% seconds. 
- WIND: Stuns and revokes enemies for %WindDuration% seconds."
+ WIND: Stuns enemies for %WindDuration% seconds."
         "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<font color='Gold'><b>MUKYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "Enables <font color='SlateBlue'><b>MUKYUU: </b></font> Become <font color='Gray'><b>INVULNERABLE</b></font> and <font color='Gray'><b>MAGIC IMMUNE</b></font> for %MukyuuDuration% second. 
- Gains <font color='Lime'><b>DAMAGE REDUCTION</b></font> while casting and after casting <font color='Crimson'><b>NIOU KURIKARA (E)</b></font>."
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "Enables <font color='SlateBlue'><b>MUKYUU:</b></font> Become <font color='Gray'><b>INVULNERABLE</b></font> and <font color='Gray'><b>MAGIC IMMUNE</b></font> for %MukyuuDuration% second. 
+ Enables <font color='SlateBlue'><b>TENGEN NO HANA</b></font> after usage. 
+<font color='SlateBlue'><b>TENGEN NO HANA:</b></font> Apply a buff on herself for %BuffDuration% seconds and perform a circle slash within %Radius% AOE of herself when the buff expires. 
+ Damages and stun duration ramps up every %RampUpInterval% second. 
+ Can be used earlier to detonate the buff earlier but damage and stun durations will be penalized. 
+ Will not deal damage or stun when used together with <font color='Crimson'><b>NIOU KURIKARA (E)</b></font> or <font color='MediumSeaGreen'><b>GANRYUU JIMA (R)</b></font>."
         "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<font color='Gold'><b>NITEN ICHIRYUU</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "Reduce <font color='DodgerBlue'><b>DAI GO SEI</b></font>'s hits required to enable <font color='DodgerBlue'><b>DAI GO SEI - WAVE </b></font> to %HitsRequired%. 
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "Reduce <font color='DodgerBlue'><b>DAI GO SEI</b></font>'s hits required to enable <font color='DodgerBlue'><b>DAI GO SEI - WAVE</b></font> to %HitsRequired%. 
  Increase <font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font> damage by %BonusDmgPerAgi% per AGI. 
  Increase <font color='MediumSeaGreen'><b>GANRYUU JIMA</b></font> range to %SlashRange% and Slash Radius to %SlashRadius%."
         "DOTA_Tooltip_modifier_combo_sequence"    "Combo Sequence"
@@ -14529,7 +14537,7 @@
         "DOTA_Tooltip_musashi_modifier_fire_debuff"    "Niou Kurikara - FIRE"
         "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "Receive increased damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% and burn damage."
         "DOTA_Tooltip_musashi_modifier_wind_debuff"    "Niou Kurikara - WIND"
-        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Stunned and revoked."
+        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "Stunned."
         "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff"    "Niou Kurikara Damage Reduction"
         "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff_description"    "Reduce incoming damage by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
         "DOTA_Tooltip_musashi_modifier_tengan_chargecounter"    "Tengan Charges"
@@ -14543,10 +14551,10 @@
         "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "Stunned and revoked. BC cannot proc."
         "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "Tengen No Hana"
         "DOTA_Tooltip_musashi_modifier_battle_continuation_active"    "Battle Continuation active"
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_active_description"    "Cannot be killed."
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_active_description"    "Set MAX HP to 1 and cannot be healed."
         "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "Battle Continuation cooldown"
         "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter"    "Dai Go Sei - Wave Counter"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter_description"    "Each use increase mana cost by 100 and has max mana cost of 500. Mana cost reset to 100 after 10 seconds of not using it."
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter_description"    "Each use increase mana cost by 50 and has max mana cost of 300. Mana cost reset to 100 after 10 seconds of not using it."
         "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "ISHANA DAITENSHOU - SLASH THE VOID 「」"
         "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "Ishana Daitenshou debuff"
         "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "Sealed in VOID realm. Max HP reduced by %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%. Takes %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% increased damage."
@@ -14686,35 +14694,23 @@
 		"npc_dota_hero_ursa_hype"	""
 		"npc_dota_hero_ursa_bio"	""
 
-		"DOTA_Tooltip_Ability_atalanta_roar"	"<font color='#58ACFA'>Roar</font>"
-		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Roars loudly, slowing down all the enemies in the path, damaging, pulling and applying stacks of <font color='#FFFF28'>Curse of the Calydonian Boar</font>."
+		"DOTA_Tooltip_Ability_atalanta_roar"	"Roar"
+		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down all the enemies in the path, damaging, pulling and cursing them."
 		"DOTA_Tooltip_Ability_atalanta_roar_base_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_roar_cast_range"	"Roar cast range:"
 		"DOTA_Tooltip_Ability_atalanta_roar_distance"	"Roar distance:"
 		"DOTA_Tooltip_Ability_atalanta_roar_width"	"Roar width:"
-		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%MS slow:"
-		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"ASPD slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%Movespeed slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"Attackspeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_duration"	"Slow duration:"
 		//"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
-
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade"	"<font color='#9FFFCC'>Roar</font>"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_Description"	"Roars loudly, slowing down all the enemies in the path, damaging, pulling and applying stacks of <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Deals more echoing damage based on amount of enemies hit."
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_base_damage"	"Damage:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_echo_damage"	"Echo damage:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_cast_range"	"Roar cast range:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_distance"	"Roar distance:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_width"	"Roar width:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_ms_slow"	"%MS slow:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_as_slow"	"ASPD slow:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_duration"	"Slow duration:"
-		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
 		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional magic damage with her attacks.\nDeals 1 additional damage per curse stack."
 		"DOTA_Tooltip_Ability_atalanta_ora_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_ora_base_damage"	"Base damage:"
-		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"ASPD bonus:"
+		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"Attackspeed bonus:"
 		"DOTA_Tooltip_Ability_atalanta_ora_attack_range_bonus"	"Attack range bonus:"
 		//"DOTA_Tooltip_Ability_atalanta_ora_base_attack_count" "Base attack count:"
 		//"DOTA_Tooltip_Ability_atalanta_ora_attack_rate"	"Attack rate:"
@@ -14736,23 +14732,13 @@
 		"DOTA_Tooltip_Ability_atalanta_jump_radius"	"Radius:"
 		"DOTA_Tooltip_Ability_atalanta_jump_curse_stacks"	"Curse stack count:"
 
-		"DOTA_Tooltip_Ability_atalanta_curse"	"<font color='#58ACFA'>Curse of the Calydonian Boar</font>"
-		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
+		"DOTA_Tooltip_Ability_atalanta_curse"	"Curse of the Calydonian Boar"
+		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"Passive: By attacking or by using abilities Atalanta curses her enemies for 20 seconds. Each stack of curse increases damage dealt to the target by 0.5%%, twice more if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\nActive: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
 		"DOTA_Tooltip_Ability_atalanta_curse_duration"	"Curse duration:"
-		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%Damage amplify per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"		
-		"DOTA_Tooltip_Ability_atalanta_curse_max_stack"	"Max stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%%Damage amplify per stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"
 
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade"	"<font color='#9FFFCC'>Curse of the Calydonian Boar</font>"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces. If a target has a certain stacks or more, Atalanta will gain vision of the target. \n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting.\nCannot be reset."
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_duration"	"Curse duration:"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_amplify_per_stack"	"%Damage amplify per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_detonate_damage"	"Active damage per stack:"		
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_max_stack"	"Max stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_vision"	"Stack for vision:"	
-
-
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "<font color='#58ACFA'>Tauropolos - Arrow Rain</font>"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "Tauropolos - Arrow Rain"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_damage"	"Damage per arrow:"
@@ -14760,71 +14746,30 @@
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_explosion_radius"	"Arrow damage radius:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_curse_stacks"	"Curse stack count per arrow:"
 
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade" "<font color='#9FFFCC'>Tauropolos - Arrow Rain</font>"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_duration"	"Duration:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_damage"	"Damage per arrow:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_max_dist"	"Radius:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_explosion_radius"	"Arrow damage radius:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_curse_stacks"	"Curse stack count per arrow:"
-
 		"DOTA_Tooltip_Ability_atalanta_skia"	"Combo - Tauropolos Skia Thermokrasia"
-		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 25 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
+		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
 		"DOTA_Tooltip_Ability_atalanta_skia_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_skia_radius"	"Radius:"
 		"DOTA_Tooltip_Ability_atalanta_skia_curse_stacks"	"Curse stack count:"
 		"DOTA_Tooltip_Ability_atalanta_skia_fly_duration"	"Fly duration:"
 
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"<font color='#9FFFCC'>Attribute: Self-Evolution</font>"
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta now heals herself with damages by 10% of magical damage she dealt.\n<font color='#58ACFA'>Crossing Arcadia</font>: Stun all enemies in radius for 0.5 seconds.\n <font color='#58ACFA'>Tauropolos Skia Thermocrasia</font>: Stun all enemies in radius for 0.5 seconds."
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"Attribute: Self-Evolution"
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 0.5 seconds."
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_radius"	"Crossing Arcadia stun radius:"
 
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"<font color='#9FFFCC'>Attribute: Beast of the hunt</font>"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Atalanta gains <font color='#58ACFA'>Beast of the hunt</font>.\n <font color='#58ACFA'>Beast of the hunt</font>: Atalanta's base attack pull target towards her. Increased from curse stack amount on target. \n<font color='#58ACFA'>Crossing Arcadia</font>: pulls enemies towards Atalanta and applies extra curse stacks.\n<font color='#58ACFA'>Tauropolos Skia Thermokrasia</font>: pulls enemies in radius towards Atalanta.\n<font color='#58ACFA'>Roar</font>: pulls its targets by the bonus distance equal to the Curse stacks on them and applies extra curse stacks."
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_e_pull"	"Crossing Arcadia pull:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_e_extra_curse"	"Crossing Arcadia bonus curse:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_q_pull"	"Roar pull:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_q_extra_curse"	"Roar bonus curse:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_combo_pull"	"Tauropolos Skia Thermokrasia pull:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_attack_pull"	"Attacks pull:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_attack_pull_from_curse"	"Attacks bonus pull from curse:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"Attribute: Tornado Beast"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Atalanta's attacks pull their targets by 40 + (target Curse stacks)/2 towards Atalanta. Attack of the Beast works same.\nCrossing Arcadia pulls all enemies in bigger radius towards Atalanta and applies 5 more stacks.\nTauropolos Skia Thermocrasia pulls all enemies in radius towards Atalanta.\nRoar pulls its targets by the bonus distance equal to the Curse stacks on them and applies 5 more stacks."
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_arcadia_pull"	"Crossing Arcadia pull and pull radius:"
+		//"DOTA_Tooltip_Ability_atalanta_tornado_attribute_pull_pull"	"Hunter's Curse pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_skia_pull"	"Combo pull:"
 
-		"DOTA_Tooltip_Ability_atalanta_passive_beast"	"<font color='#9FFFCC'> Beast of the hunt</font>"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_Description"	"\n<font color='#58ACFA'>PASSIVE</font>: Atalanta's base attack pull target towards her. Increased from curse stack amount on target. \n<font color='#58ACFA'>Crossing Arcadia</font>: pulls enemies towards Atalanta and applies extra curse stacks.\n<font color='#58ACFA'>Tauropolos Skia Thermokrasia</font>: pulls enemies in radius towards Atalanta.\n<font color='#58ACFA'>Roar</font>: pulls its targets by the bonus distance equal to the Curse stacks on them and applies extra curse stacks."
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_e_pull"	"Crossing Arcadia pull:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_e_extra_curse"	"Crossing Arcadia bonus curse:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_q_pull"	"Roar pull:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_q_extra_curse"	"Roar bonus curse:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_combo_pull"	"Tauropolos Skia Thermokrasia pull:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_attack_pull"	"Attacks pull:"
-		"DOTA_Tooltip_Ability_atalanta_passive_beast_attack_pull_from_curse"	"Attacks bonus pull from curse:"
-
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"<font color='#9FFFCC'>Attribute: Beastly Enchancement</font>"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"<font color='#58ACFA'>Curse of the Calydonian Boar</font>: If Atalanta is alive, position each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically. Curse explosion will deal additional damage per stack. Gain bonus duration."
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_extra_curse_damage"	"Extra damage:"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_curse_vision"	"Stack for vision:"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_curse_bonus_duration"	"Bonus duration:"
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"Attribute: Beastly Enchancement"
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
 		
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"<font color='#9FFFCC'>Attribute: Cursed Moon</font>"
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"<font color='#58ACFA'>Roar</font>: Deals bonus damage and applies bonus Curse stack per each unit in its radius.\n<font color='#58ACFA'>Tauropolos - Arrow Rain</font>: applies more Curse stacks per impact and deals additional damage per impact."
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 100 additional damage per impact."
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_roar_damage"	"Roar bonus damage per unit:"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_curse"	"Tauropolos bonus curse stacks:"
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_bonus_damage"	"Tauropolos bonus damage per arrow:"
-
-        //====================================   MODIFIERS   ====================================
-
-		"DOTA_Tooltip_modifier_atalanta_skia_cd"															"Tauropolos Skia Thermocrasia Cooldown"
-
-		"DOTA_Tooltip_modifier_atalanta_ora"															"Attack of the beast buff"
-		"DOTA_Tooltip_modifier_atalanta_ora_Description"												"Being enraged."
-
-		"DOTA_Tooltip_modifier_atalanta_ora"															"Attack of the beast buff"
-		"DOTA_Tooltip_modifier_atalanta_ora_Description"												"Being enraged."
-
-		"DOTA_Tooltip_modifier_atalanta_curse"															"Curse of the Calydonian Boar"
-		"DOTA_Tooltip_modifier_atalanta_curse_Description"												"Taking amplified damage, might take burst damage."
-
-		"DOTA_Tooltip_modifier_roar_slow"															"Slowed from roar"
-		"DOTA_Tooltip_modifier_roar_slow_Description"												"Slowed."
 
         //====================================
         //      Idk what this is

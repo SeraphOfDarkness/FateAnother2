@@ -170,10 +170,6 @@ export class musashi_modifier_accel_turn extends BaseModifier
     {
         const ModifierTable = 
         {
-            [ModifierState.INVULNERABLE]: true,
-            [ModifierState.UNSELECTABLE]: true,
-            [ModifierState.UNTARGETABLE]: true,
-            [ModifierState.NO_HEALTH_BAR]: true,
             [ModifierState.FLYING_FOR_PATHING_PURPOSES_ONLY]: true,
             [ModifierState.COMMAND_RESTRICTED]: true,
         }
@@ -899,17 +895,14 @@ export class musashi_modifier_fire_debuff extends BaseModifier
 @registerModifier()
 export class musashi_modifier_wind_debuff extends BaseModifier
 {
-    override OnCreated(): void
+    override CheckState(): Partial<Record<ModifierState, boolean>>
     {
-        if (!IsServer())
+        const ModifierTable = 
         {
-            return;
+            [ModifierState.STUNNED]: true,
         }
 
-        const Caster = this.GetCaster();
-        const Victim = this.GetParent();
-        const DebuffDuration = this.GetDuration();
-        giveUnitDataDrivenModifier(Caster!, Victim!, "pause_sealdisabled", DebuffDuration);
+        return ModifierTable;
     }
 
     override IsStunDebuff(): boolean
@@ -1184,7 +1177,7 @@ export class musashi_ganryuu_jima extends BaseAbility implements BaseVectorAbili
     {   
         this.Caster = this.GetCaster();
         this.SetVector(vStartLocation, vDirection);
-        const ModifierGanryuuJima = this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_ganryuu_jima.name, {undefined});
+        const ModifierGanryuuJima = this.Caster?.AddNewModifier(this.Caster, this, musashi_modifier_ganryuu_jima.name, {duration: 10});
         ModifierGanryuuJima?.IncrementStackCount();
         EmitGlobalSound(this.SoundVoiceline);
     }
@@ -2022,8 +2015,8 @@ export class musashi_modifier_tengen_no_hana extends BaseModifier
     DealDamage(): void
     {
         const FullDamage = this.Ability?.GetSpecialValueFor("FullDamage")!;
-        const DmgType = DamageTypes.PURE;
-        const DmgFlag = DamageFlag.NO_SPELL_AMPLIFICATION;
+        const DmgType = this.Ability?.GetAbilityDamageType()!;
+        const DmgFlag = DamageFlag.NONE;
         const Damage = this.Percentage * FullDamage;
         const StunDuration = this.Ability?.GetSpecialValueFor("StunDuration")! * this.Percentage;
         const Targets = FindUnitsInRadius(this.Caster?.GetTeam()!, this.Caster?.GetAbsOrigin()!, undefined, this.Radius, 
@@ -2200,18 +2193,6 @@ export class musashi_modifier_battle_continuation_active extends BaseModifier
         this.Caster?.Purge(false, true, false, false, false);
         this.CreateParticle();
         this.PlaySound();
-    }
-
-    override OnDestroy(): void
-    {
-        if (!IsServer())
-        {
-            return;
-        }
-
-        const Ability = this.GetAbility();
-        const Heal = Ability?.GetSpecialValueFor("Heal")!;
-        this.Caster?.Heal(Heal, Ability);
     }
 
     PlaySound(): void
@@ -2602,7 +2583,7 @@ export class musashi_ishana_daitenshou extends BaseAbility
         const NiouKurikara = Caster.FindAbilityByName(musashi_niou_kurikara.name);
         NiouKurikara?.EndCooldown();
         Caster.GiveMana(NiouKurikara?.GetManaCost(-1)!);
-        Caster.AddNewModifier(Caster, this, musashi_modifier_ishana_daitenshou.name, {undefined});
+        Caster.AddNewModifier(Caster, this, musashi_modifier_ishana_daitenshou.name, {duration: 10});
         Caster.AddNewModifier(Caster, this, musashi_modifier_ishana_daitenshou_cooldown.name, {duration: this.GetCooldown(1)});
         this.PlaySound();
     }

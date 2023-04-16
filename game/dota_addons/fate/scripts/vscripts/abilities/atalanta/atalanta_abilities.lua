@@ -1082,9 +1082,11 @@ function OnCalydonianSnipeWindowCreate(keys)
     --Convars:SetInt("dota_camera_distance", 1600)
     local count_tick = 0
     local max_tick = 10
-    caster.base_camera = Convars:GetInt("dota_camera_distance") or 1600
+    caster.base_camera = 1600
     caster.bonus_camera = 150
-    caster.current_camera = Convars:GetInt("dota_camera_distance") or 1600
+    caster.current_camera = caster.current_camera or 1900
+
+    if caster.current_camera >= 1900 then return end
 
     if caster.CameraTimerDown ~= nil then 
         Timers:RemoveTimer(caster.CameraTimerDown)
@@ -1099,7 +1101,7 @@ function OnCalydonianSnipeWindowCreate(keys)
             if count_tick == max_tick then 
                 return nil 
             end
-            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, 1600 + (max_tick * caster.bonus_camera))
+            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, caster.base_camera + (max_tick * caster.bonus_camera))
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033
@@ -1133,7 +1135,7 @@ function OnCalydonianSnipeWindowDestroy(keys)
             if count_tick == 10 then 
                 return nil 
             end
-            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, 1600)
+            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, caster.base_camera)
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033

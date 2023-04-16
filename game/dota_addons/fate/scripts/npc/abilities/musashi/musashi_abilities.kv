@@ -444,9 +444,9 @@
 		//Targeting-----------------------------------------------------------------------------------------------------
 	    "AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_PURE"
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_NONE"
+	    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
@@ -518,9 +518,8 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"BuffDuration"				"3.5"
-			"Heal"						"500"
-			"DmgThreshold"				"2000"
+			"BuffDuration"				"3"
+			"DmgThreshold"				"1750"
 		}
 
 		//Precache------------------------------------------------------------------------------------------------------
@@ -592,7 +591,7 @@
 		"LevelsBetweenUpgrades"			"1"
 	
 		//Casting-------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"         		"100 200 300 400 500"
+		"AbilityManaCost"         		"100 150 200 250 300"
 		"AbilityCastRange"				"1000"
 		"AbilityCastRangeBuffer"		"250"
 		"AbilityCastPoint"				"0.2"
@@ -683,8 +682,8 @@
 			"FinalSlashDmgDelay"		"0.5"
 			"FinalSlashMaxHpPercent"	"25"
 			"ExecuteThresholdPercent"	"25"
-			"MaxHpReductionPercent"		"-25"
-			"ExtraIncomingDmgPercent"	"25"
+			"MaxHpReductionPercent"		"-15"
+			"ExtraIncomingDmgPercent"	"15"
 			"DashSpeed"					"60"
 		}
 
@@ -747,9 +746,8 @@
 	    //AbilityMechanics----------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"BuffDuration"				"3.5"
-			"Heal"						"500"
-			"DmgThreshold"				"2000"
+			"BuffDuration"				"3"
+			"DmgThreshold"				"1750"
 			"Cooldown"					"120"
 		}
 

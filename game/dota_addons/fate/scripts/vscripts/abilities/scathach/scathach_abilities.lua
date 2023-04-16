@@ -1351,7 +1351,7 @@ function OnGateOfSkyCast (keys)
 							if IsUnExecute(v) then
 								DoDamage(caster, v, dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 							else
-								giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
+								giveUnitDataDrivenModifier(caster, v, "can_be_executed", 0.033)
 								v:Execute(ability, caster, { bExecution = true })
 							end
 							
