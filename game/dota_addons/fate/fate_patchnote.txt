@@ -1,3 +1,392 @@
+
+     ------ Fix ----
+Fix Master SA
+Fix INT inc MR 
+Fix Camera Distance
+Fix free item purchase when dead/missing item transfer
+Fix Avalon not deal damage when hit target
+Fix Zhuge's ambush not break when atk or skill
+
+     ---- System ---
+Presence Resonator now grant vision to nearest enemy hero for 2sec
+(Remind that E scroll and Assassin Class hero can block Presence Resonator)
+MVP Bounty only available in Draft Mode
+New Season (Reset MMR)
+Reward 
+3000+ MMR get 4000 CP
+2000+ MMR get 3000 CP
+1500+ MMR get 2000 CP
+1200+ MMR get 1000 CP
+
+    ----- Item  ----
+-Sentry Ward
+Vision Range: 25 >> 200
+True Sight Range: 1400 >> 1200
+
+-Ward Familiar
+Vision Range: 1400 >> 1200
+Max Stock: 7 >> 5
+
+-Scout
+Cooldown: 20 >> 5s    
+
+    ------ Servant ------
+Artoria
+-Avalon
+Slash Damage: 800 1000 1200 1400 1600 >> 800 950 1100 1250 1400
+-Combo Max Excalibur
+Cooldown: 150 >> 180
+-Attribute: Improve Excalibur
+Bonus Max Excalibur: 5500 >> 4500
+-Attribute: Everdistance Utopia
+Bonus HP Regen: 500 >> 300
+-Attribute: Chivalry
+Cost: 10 >> 8
+-Attribute: Strike Air (REWORK)
+Invisible air can get Condensed Air max stack: 3
+Strike Air Dmg: 600 + ((Q + W) x 100) >> 600 + (Strike Air lvl x 100) + (AGI x 7) + (Condensed Air stack x 3)
+Strike Air Wall Dmg: 400 >> 200
+Strike Air Upstream Damage: 150 + (1.5 x ATK) >> (Stack x 150) + (1.5 x ATK)
+
+Artoria Alter
+-Derange
+Bonus MS: 3 6 9 12 15 >> 4 8 12 16 20
+-Combo MMB
+moderate damage: 75% >> 85%
+low damage: 50% >> 70%
+-Attribute: Mana Shroud
+Derange gain bonus MR: 3 6 9 12 15
+-Attribute: Air Burst (NEW SA & Skill)
+Cost: 10
+Enable Air Burst after using Derange
+Send a wave of black energy
+Cast: 0.3s
+Mana Cost 400
+Damage: 500 + (INT x 10)
+Distance: 1000
+Cooldown: 40s
+
+Cu Chulainn
+-Attribute: Heart Seeker
+Gae Bolg Cast Time reduction: 0 >> 0.2s
+
+Medusa
+-Attribute: Riding
+Medusa gain passive bonus movespeed 30
+Medusa gains Riding Buff at the end of Combo Bellerophon 2
+
+Atalanta
+-Celestial Arrow (REWORK)
+Passive: + attack range
+Autocast: fire an arrow deal bonus damage
+Active: power shot
+Cooldown: 6
+mana Cost: 50
+Max Charge: 3
+charge regen time: 2
+Attribute: Dipper
+No longer inc Phoebus (R)
+Q, D, normal attack also count to bonus arrow
+Attribute: Hunter Mark
+Cost: 13 >> 15
+Phoebus increase arrow dmg per ATK: 30%
+-Combo Phoebus Snipe
+Cooldown: 140 >> 180
+
+Medea
+-Hecatic Greae
+Dmg per Beam: 300 330 360 390 420 >> 250 280 310 340 390
+-Combo Hecatic Graea Powered
+Cooldown: 150 >> 180
+
+Sasaki
+-Attribute: Ganryu
+TG bonus damage per ATK per slash: 50% >> 35%
+
+Hassan
+-Zabaniya
+Projectile Speed: 950 >> 1200
+-Combo Delusion Illusion
+Projectile Speed: 800 >> 1200
+Cooldown: 150 >> 180
+-Attribute: Protection from wind
+Penalty MR: -20% >> 0%
+-Attribute : Shadow Strike
+Bonus Combo damage: 50 >> 100
+
+Heracles
+-Berserk
+Cooldown: 25 >> 28
+-Nine Lives
+Cooldown: 40 >> 42
+-Combo Mad Man Roar 
+Cooldown: 120 >> 150
+
+Gilgamesh
+-Combo Max Enuma
+Cooldown: 160 >> 180
+-Combo Final Hour
+Cooldown: 160 >> 180
+-Attribute: Power of Sumer
+Cost: 11 >> 13
+
+Emiya
+-Sword Barrage Confine
+Armor Reduction: 50% >> 30%
+-Attribute: Improve Projection
+Sword Barrage Confine MR reduction: 40% >> 30%
+
+Angra mainyu
+-Demon Core
+HP Regen: 3 6 9 12 15 >> 5 7 9 11 13
+-Attribute: Avenger
+Verg Bonus Return Damage: 25% >> 20%
+
+Lancelot 
+-Eternal Arms Mastership
+Parry damage: 50 >> 35
+-Combo Air Raid and Arondight Overload
+Cooldown: 150 >> 180
+-Attribute: Blessing of Fairy
+Magic Immune Duration: 3.5 >> 3
+-Attribute: Knight of the Lake
+Double Edge increase attack speed by 50%
+
+Iskandar
+-Brilliance of the king
+Cooldown: 15 >> 10
+Start Cooldown: 2 >> 1
+-Combo Annihilation
+Cooldown: 140 >> 150
+-Attribute: Thunder god wrath
+Cost: 16 >> 15
+Iskandar become CC Immune while on cart
+-Attribute: Via Expugnatio
+Charge damage per movespeed: 90% >> 95%
+-Attribute: Beyond the Time
+Bonus HP: 20% >> 23%
+
+Nero 
+-Aestus Domus Aurea
+Debuff: 10% 15% 20% 25% 30% >> 13% 16% 19% 22% 25%
+-Combo Luas Saint Cladius
+Cooldown: 120 >> 150
+-Attribute: Imperial Privilege
+New Cooldown: 15s >> 25s
+-Attribute: Soverign's Glory
+Aestus Domus Aurea Bonus Radius: 150 >> 100
+Bonus Debuff: 0 >> 5%
+
+Gawain
+-Numeral of Saint become Innate skill (NEW)
+When Sun appear, Gawain gains +3 HP regen, +3 Mana Regen, +3 STR
+-Combo
+Cooldown: 150 >> 180
+-Attribute: Nightless Charisma
+Cost: 10 >> 8
+Bonus ATK: 20 >> 50
+Bonus ASPD: 40% >> 80%
+-Attribute: Improve Numeral of the Saint
+Cost: 16 >> 12
+
+Gilles
+Now can attack (REWORK)
+Attack Range: 50 >> 650
+Attack Damage: 42-43
+Attack Rate: 1
+Primary Stat: STR >> INT
+Stat
+STR: 2
+AGI: 2 >> 1
+INT: 0 >> 3
+Can Upgrade INT but INT not provide Max mana and mana regen
+-Combo L'Arret de Mort
+Combo Requirement : 30STR + 30AGI >> 25STR + 25AGI + 25INT
+Cooldown: 150 >> 180
+-Attribute: Outer God (gilles_grief,kv, gilles_grief.lua, gilles_torment.lua, gilles_torment.kv, gilles_smother.kv, gilles_smother.lua, gilles_misery.kv, gilles_misery.lua, gilles_hysteria.lua, gilles_hysteria.kv, rlyeh_text.lua/kv)
+Grief: deal bonus pure damage based on Gilles's INT x 1
+Torment: increase total damage based on Gilles's INT x 2
+Smother: increase explode damage based on Gilles's INT x 1
+Misery: increase duration based on Gilles's INT x 0.01
+Hysteria: deal bonus pure damage to target enemy based on Gilles's INT x 1
+
+Tamamo no Mae 
+-Curse Charm
+Cooldown: 40 >> 30s
+-Combo
+Cooldown: 120 >> 150s
+-Attribute: Spirit Theft
+Mana Drain: 25 + (0.5 x INT) >> 20 + (0.4 x INT)
+-Attribute: Territory Creation
+Amaterasu Silence: 2.0 >> 1.5
+
+Jeanne
+-Purge the Unjust
+Cooldown: 10 9 8 7 6 5 >> 11 10 9 8 7 6
+-God's Resolution
+Bonus Active MR: 40% >> 30%
+-Luminosite Eternelle
+Damage Reduction: 10 15 20 25 30 >> 13 16 19 22 25
+
+Astolfo
+-Casa Di Logistilla
+Cooldown: 60 >> 70
+Duration: 3.5 >> 3.0
+-Hipogriff: Vanish
+Expel Time: 1.5 >> 1.2
+-La black Luna
+Silence Radius: 300 375 450 525 600 >> 300 350 400 450 500
+-Combo : Hipogriff: Ride
+Cooldown: 150 >> 180
+-Attribute: Monstrous Strength
+Bonus STR: 8 >> 10
+-Attribute: Evaporation of Sanity
+Casa Dilogistilla Active MR: 100% >> 90%
+
+Nursery Rhime 
+-Attribute: Nightmare
+The Plains of Water bonus INT: 1.0 >> 1.5
+
+Vlad
+-Attribute : Innocent Monster
+Cost: 17 >> 18
+-Attribute : Instant Curse
+Bonus Shield per Bleed stack: 8 >> 10
+-Attribute : Bloodletter
+Blood letter Max Stack consume: 30 >> 40
+
+Li Shuwen
+-Combo Raging Dragon Strike
+Cooldown: 120 >> 150
+3rd Strikes bonus damage per ATK: 50% >> 100% 
+-Attribute: Improve Martial Arts (REWORK)
+Passive: Cosmic Orbit, Fierce Tiger Strike, No Second Strike, Raging Dragon Strike will apply Mark of Fatality with 1s cooldown
+Active: apply 2 stacks of Mark of Fatality
+Cosmic Orbit, Fierce Tiger Strike, No Second Strike, Raging Dragon Strike deal bonus damage based on Mark of Fatality's stack: 5%
+
+Karna
+-Brahmastra
+Cooldown: 9 >> 11
+-Vasavi Shakti
+Cast Range: 1300 >> 1250
+-Attribute : Discernment of the Poor
+Duration: 4 >> 3
+Cooldown: 45 >> 60
+
+Kuro
+-Sharing of Pain
+Cooldown: 40 >> 30
+-Combo : Fake Unlimited Blade Works
+Cooldown: 120 >> 160
+-Attribute : Overedge
+Cost: 15 >> 13
+
+Okita
+-Mumyo Sandanzuki
+Dash Distance: 900 >> 950
+Delay between each damage: 0.1 >> 0.2
+-Attribute : Persistence
+Cost: 9 >> 7
+
+Drake
+-Voyager of Storm
+Cooldown: 100 >> 90
+-Pistol
+Mana Cost per bullet: 10 15 20 25 30 >> 10
+
+Scathach
+-Attribute : Primeval Rune
+Cost: 16 >> 15
+-Attribute : Branch of Tonelico
+Cost: 17 >> 16
+-Attribute : Wisdom of haunt ground
+Cost: 17 >> 14
+
+Jack The Ripper
+-Ghost Walk
+Blink Distance: 500 >> 850
+-Combo Whitechapel
+Cooldown: 120 >> 150
+
+Mordred
+-Attribute: Improve Pedigree
+Cost: 10 >> 7
+-Attribute: Rampaging Warrior
+shield amount: 300 >> 350
+
+Frankenstein
+-Galvanism
+Electric Spark slow: 10% >> 15%
+-Electric Field
+Bonus Armor/MR per Bioelectricity use: 1 2 3 4 5 >> 2 3 4 5 6
+
+Diarmuid 
+-Combo : Rampant Warrior
+Cooldown: 140 >> 150
+-Attribute: Improve Mind Eye
+Passive Vision: 800 >> 1000
+
+Lu Bu 
+-Circular Blade
+Cooldown: 13 >> 11
+-God Force
+God STR duration: 20 >> 25
+
+Elizabeth
+-Attribute : Mental Disorder
+Cost: 11 >> 7
+-Attribute : Sadism Charisma
+Bonus ATK: 20% >> 30%
+
+Amakusa
+-Combo: Kyrie Elesion
+Vampire get slow, root and lock
+human get slow
+the other get slow and lock
+-Attribute: Baptism Rite
+Black Key: Set Bonus damage per INT: 0.5 >> 0.4
+Black Key: Bombard Bonus Damage: 200 >> 150
+
+Edmond Dantes (edmond_abilities.kv)
+-Monte Cristo Mythology
+Cooldown: 50 >> 43
+-Attribute: Avenger
+Cost: 15 >> 13
+-Attribute: Determination of Steel
+Cost: 10 >> 9
+Attribute : Wisdom of Predictment
+Cost: 19 >> 16
+
+Zhuge Liang 
+-Combo Thunder Storm Array
+AOE: 800 >> 600
+-Attribute : Chu Shi Biao
+Offense formation :Bonus Spell Amplification: 5%
+-Attribute : Improve Discern Eye
+Cost: 10 >> 8
+
+Robin
+-Combo Yew Bow, Bow of Prayer
+Cooldown: 145 >> 150
+-Attribute: Taxine of The Yew Tree
+Yew Bow Bonus Poison damage per sec per INT: 1.0 >> 1.5
+
+Nobunaga 
+-Three Line Formation
+Distance: 1500 >> 1400
+-Attribute: 3000 Worlds
+Three Line Formation Pure Damage: 20% >> 15%
+
+Hans Christian Anderson 
+-Combo
+Cooldown: 160 >> 180
+
+King Hassan 
+-Beheader
+Bonus damage per stack: 40 >> 30
+
+
+--------------------------
 Musashi changes
 1. MR reduced from 20% -> 15%
 2. Tengen No Hana Pure -> Magical
