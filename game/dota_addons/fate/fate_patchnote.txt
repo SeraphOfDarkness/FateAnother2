@@ -203,7 +203,7 @@ Can Upgrade INT but INT not provide Max mana and mana regen
 -Combo L'Arret de Mort
 Combo Requirement : 30STR + 30AGI >> 25STR + 25AGI + 25INT
 Cooldown: 150 >> 180
--Attribute: Outer God (gilles_grief,kv, gilles_grief.lua, gilles_torment.lua, gilles_torment.kv, gilles_smother.kv, gilles_smother.lua, gilles_misery.kv, gilles_misery.lua, gilles_hysteria.lua, gilles_hysteria.kv, rlyeh_text.lua/kv)
+-Attribute: Outer God 
 Grief: deal bonus pure damage based on Gilles's INT x 1
 Torment: increase total damage based on Gilles's INT x 2
 Smother: increase explode damage based on Gilles's INT x 1
@@ -384,7 +384,6 @@ Cooldown: 160 >> 180
 King Hassan 
 -Beheader
 Bonus damage per stack: 40 >> 30
-
 
 --------------------------
 Musashi changes

@@ -378,6 +378,21 @@
 				"var_type"			"FIELD_FLOAT"
 				"duration"			"4"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"active_stack"		"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_dmg"			"5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown"			"1.0"
+			}
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -447,6 +462,12 @@
 				{
 					"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "1"
 				}
+			}
+			"modifier_mark_of_fatality_cooldown"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"%cooldown"
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
 			"modifier_martial_arts_critical"
 			{
@@ -3632,7 +3653,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastRangeBuffer"		"1500"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"150"
 		"AbilityManaCost"				"200"
 		
 		// Ability special
@@ -3702,7 +3723,7 @@
 			"13"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"third_strike_bonus_damage"				"80"
+				"third_strike_bonus_damage"				"100"
 			}
 			
 			"14"
@@ -3859,7 +3880,7 @@
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"third_strike_bonus_damage"				"50"
+				"third_strike_bonus_damage"				"100"
 			}
 			"13"
 			{
@@ -3970,7 +3991,7 @@
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"third_strike_bonus_damage"				"50"
+				"third_strike_bonus_damage"				"100"
 			}
 			"13"
 			{
@@ -4104,7 +4125,27 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"martial_art_active"		"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"martial_art_bonus_crit_chance"		"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"martial_art_bonus_dmg"		"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"martial_art_cooldown"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"martial_art_bonus_silence"		"5"
 			}
 			"04"
 			{

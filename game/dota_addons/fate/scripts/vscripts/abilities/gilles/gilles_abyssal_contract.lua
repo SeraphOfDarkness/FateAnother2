@@ -127,7 +127,7 @@ function gilles_abyssal_contract_wrapper(ability)
 								
 				end
 
-				if math.ceil(hCaster:GetStrength()) >= 30 and math.ceil(hCaster:GetAgility()) >= 30 then
+				if math.ceil(hCaster:GetStrength()) >= 25 and math.ceil(hCaster:GetAgility()) >= 25 and math.ceil(hCaster:GetIntellect()) >= 25 then
 					if hCaster:FindAbilityByName("gille_larret_de_mort"):IsCooldownReady() and not hCaster:HasModifier("modifier_larret_de_mort_cooldown") and not hCaster:HasModifier("modifier_gilles_rlyeh_text_window") then
 						hCaster:AddNewModifier(hCaster, self, "modifier_gilles_combo_window", { Duration = 4})
 					end

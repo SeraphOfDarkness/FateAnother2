@@ -811,6 +811,9 @@ function OnBelle2Start(keys)
 			caster:PreventDI(false)
 			caster:SetPhysicsVelocity(Vector(0,0,0))
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			if caster.IsRidingAcquired then
+				caster:FindAbilityByName(caster.WSkill):ApplyDataDrivenModifier(caster, caster, "modifier_medusa_riding_passive", {})
+			end
 		end)
 	end})
 

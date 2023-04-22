@@ -43,6 +43,10 @@ function OnDerangeStart(keys)
 
 	caster:EmitSound("Saber_Alter.Derange")
 	caster:EmitSound("saber_alter_other_01")
+
+	if caster.IsAirBurstAcquired and not caster:HasModifier("modifier_air_burst_cooldown") then 
+		ability:ApplyDataDrivenModifier( caster, caster, "modifier_air_burst_window", {} )
+	end
 end
 
 function OnDerangeAttackStart(keys)
@@ -608,6 +612,71 @@ function OnDexHit(keys)
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 end
 
+function OnAirBurstWindow(keys)
+	local caster = keys.caster 
+	caster:SwapAbilities(caster.DSkill, "saber_alter_air_burst", false, true)
+end
+
+function OnAirBurstDestroy(keys)
+	local caster = keys.caster 
+	caster:SwapAbilities(caster.DSkill, "saber_alter_air_burst", true, false)
+end
+
+function OnAirBurstDied(keys)
+	local caster = keys.caster 
+	caster:RemoveModifierByName("modifier_air_burst_window")
+end
+
+function OnAirBurstStart(keys)
+	local caster = keys.caster
+	local ability = keys.ability 
+	local speed = ability:GetSpecialValueFor("speed")
+	local range = ability:GetSpecialValueFor("range")
+	local width = ability:GetSpecialValueFor("width")
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_air_burst_cooldown", {Duration=ability:GetCooldown(1)})
+	caster:RemoveModifierByName("modifier_air_burst_window")
+
+	EmitGlobalSound("Saber.Caliburn")
+
+	local air_burst = 
+	{
+		Ability = ability,
+        EffectName = "particles/custom/saber_alter/saber_alter_x_burst_air.vpcf",
+        iMoveSpeed = speed,
+        vSpawnOrigin = caster:GetAbsOrigin(),
+        fDistance = range - width + 100,
+        fStartRadius = width,
+        fEndRadius = width,
+        Source = caster,
+        bHasFrontalCone = true,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        fExpireTime = GameRules:GetGameTime() + 2.0,
+		bDeleteOnHit = false,
+		vVelocity = caster:GetForwardVector() * speed
+	}	
+
+	caster.air_burst = ProjectileManager:CreateLinearProjectile(air_burst)
+end
+
+function OnAirBurstHit(keys)
+	local caster = keys.caster
+	local target = keys.target
+
+	if not IsValidEntity(target) or target:IsNull() then return end
+
+	local ability = keys.ability 
+
+	local based_damage = ability:GetSpecialValueFor("based_damage")
+	local bonus_int = ability:GetSpecialValueFor("bonus_int")
+	local damage = based_damage + (bonus_int * caster:GetIntellect())
+
+	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+end
+
 	--[[
 	local vortigernBeam =
 	{
@@ -740,11 +809,18 @@ function OnImproveManaShroundAcquired(keys)
 
 		UpgradeAttribute(hero, 'saber_alter_mana_shroud', 'saber_alter_mana_shroud_upgrade', true)
 		hero:RemoveModifierByName("modifier_mana_shroud")
+		hero.DSkill = "saber_alter_mana_shroud_upgrade"
 
 		if hero.IsManaBlastAcquired then 
 			UpgradeAttribute(hero, 'saber_alter_mana_burst_upgrade_2', 'saber_alter_mana_burst_upgrade_3', true)	
+			UpgradeAttribute(hero, 'saber_alter_derange_burst', 'saber_alter_derange_upgrade', true)	
+			hero.QSkill = "saber_alter_derange_upgrade"
+			hero.WSkill = "saber_alter_mana_burst_upgrade_3"
 		else
 			UpgradeAttribute(hero, 'saber_alter_mana_burst', 'saber_alter_mana_burst_upgrade_1', true)
+			UpgradeAttribute(hero, 'saber_alter_derange', 'saber_alter_derange_shroud', true)
+			hero.QSkill = "saber_alter_derange_shroud"
+			hero.WSkill = "saber_alter_mana_burst_upgrade_1"	
 		end
 
 		NonResetAbility(hero)
@@ -770,12 +846,18 @@ function OnManaBlastAcquired(keys)
 		hero.ManaBlastCount = 0
 
 		UpgradeAttribute(hero, 'saber_alter_max_mana_burst', 'saber_alter_max_mana_burst_upgrade', false)	
-		UpgradeAttribute(hero, 'saber_alter_derange', 'saber_alter_derange_upgrade', true)	
+		
 
 		if hero.IsManaShroudImproved then 
 			UpgradeAttribute(hero, 'saber_alter_mana_burst_upgrade_1', 'saber_alter_mana_burst_upgrade_3', true)	
+			UpgradeAttribute(hero, 'saber_alter_derange_shroud', 'saber_alter_derange_upgrade', true)
+			hero.QSkill = "saber_alter_derange_upgrade"
+			hero.WSkill = "saber_alter_mana_burst_upgrade_3"
 		else
 			UpgradeAttribute(hero, 'saber_alter_mana_burst', 'saber_alter_mana_burst_upgrade_2', true)	
+			UpgradeAttribute(hero, 'saber_alter_derange', 'saber_alter_derange_burst', true)	
+			hero.QSkill = "saber_alter_derange_burst"
+			hero.WSkill = "saber_alter_mana_burst_upgrade_2"
 		end
 
 		NonResetAbility(hero)
@@ -797,8 +879,11 @@ function OnImproveFerocityAcquired(keys)
 		UpgradeAttribute(hero, 'saber_alter_unleashed_ferocity', 'saber_alter_unleashed_ferocity_upgrade', true)
 		UpgradeAttribute(hero, 'saber_alter_vortigern', 'saber_alter_vortigern_upgrade', true)
 
-		hero:SetModifierStackCount("modifier_vortigern_ferocity_base", hero, 3)
-		hero:SetModifierStackCount("modifier_vortigern_ferocity_show", hero, 3)
+		--hero:SetModifierStackCount("modifier_vortigern_ferocity_base", hero, 3)
+		--hero:SetModifierStackCount("modifier_vortigern_ferocity_show", hero, 3)
+
+		hero.ESkill = "saber_alter_vortigern_upgrade"
+		hero.FSkill = "saber_alter_unleashed_ferocity_upgrade"
 
 		NonResetAbility(hero)
 
@@ -820,6 +905,25 @@ function OnDarklightAcquired(keys)
 		hero:FindAbilityByName("saber_alter_darklight_passive"):SetLevel(1)
 
 		UpgradeAttribute(hero, 'saber_alter_excalibur', 'saber_alter_excalibur_upgrade', true)
+
+		hero.ESkill = "saber_alter_excalibur_upgrade"
+		
+		NonResetAbility(hero)
+
+		-- Set master 1's mana 
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	end
+end
+
+function OnAirBurstAcquired(keys)
+	local caster = keys.caster
+	local ply = caster:GetPlayerOwner()
+	local hero = caster.HeroUnit
+
+	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsAirBurstAcquired) then
+
+		hero.IsAirBurstAcquired = true
 		
 		NonResetAbility(hero)
 

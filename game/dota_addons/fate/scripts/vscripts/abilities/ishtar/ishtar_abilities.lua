@@ -8,7 +8,11 @@ function OnIshtarDead(keys)
 	if stack == 1 then
 		newstack = 0
 	else
+		if caster.IsGemsAcquired then
 		newstack = stack / 2
+		else
+		newstack = 0
+		end
 	end
 	caster:SetModifierStackCount("modifier_ishtar_gem", caster, newstack)
 end
@@ -224,6 +228,16 @@ function OnIshtarR(keys)
 		local extra_range = ability:GetSpecialValueFor("extra_range")
 		local extra_cast_delay = ability:GetSpecialValueFor("extra_cast_delay")
 
+		local gem_cost_per_r = ability:GetSpecialValueFor("gem_cost_per_r")
+		stack = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
+		if(stack > 0) then
+			stack = stack - gem_cost_per_r
+			caster.IsBonusR = true
+		else
+			caster.IsBonusR = false
+		end
+		caster:SetModifierStackCount("modifier_ishtar_gem", caster, stack)
+
 		range_max = range_max + extra_range
 		cast_delay = cast_delay + extra_cast_delay
 
@@ -341,6 +355,10 @@ function OnIshtarRHit(keys)
 	if mode == true then
 		local extra_impact_damage_percentage = ability:GetSpecialValueFor("extra_impact_damage_percentage")
 		damage_impact = damage_impact + damage_impact * extra_impact_damage_percentage / 100
+		if caster.IsBonusR then
+			local bonus_r_damage = ability:GetSpecialValueFor("bonus_r_damage")
+			damage_impact = damage_impact + bonus_r_damage
+		end
 	end
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

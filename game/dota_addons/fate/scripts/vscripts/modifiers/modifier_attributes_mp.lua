@@ -25,10 +25,10 @@ function modifier_attributes_mp:GetModifierManaBonus()
     local parent = self:GetParent()
     --if parent:GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_INTELLECT then
     if IsValidEntity(parent) and not parent:IsNull() then
-      self:SetStackCount(-1 * parent:GetIntellect())
+      self:SetStackCount(11 * parent:GetIntellect())
     end    
   end
-  return self:GetStackCount()
+  return -self:GetStackCount()
 end
 
 

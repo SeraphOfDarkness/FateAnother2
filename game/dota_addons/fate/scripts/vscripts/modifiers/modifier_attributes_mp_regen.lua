@@ -26,7 +26,11 @@ function modifier_attributes_mp_regen:GetModifierConstantManaRegen()
   if IsServer() then
     local parent = self:GetParent()
     if IsValidEntity(parent) and not parent:IsNull() then
-      self:SetStackCount(parent:GetIntellect() * 15)
+      if IsManaLess(parent) then 
+        self:SetStackCount(parent:GetIntellect() * -5)
+      else
+        self:SetStackCount(parent:GetIntellect() * 15)
+      end
     end
   end
   return self:GetStackCount() / 100

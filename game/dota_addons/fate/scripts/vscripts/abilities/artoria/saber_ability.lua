@@ -64,6 +64,25 @@ function CreateWind(keys)
 	end)
 end
 
+function AddAirStack(caster,stack)
+	local ability = caster:FindAbilityByName("saber_strike_air_upstream")
+	local max_stack = ability:GetSpecialValueFor("max_stack")
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_strike_air_upstream_ready", {})
+	local current_stack = caster:GetModifierStackCount("modifier_strike_air_upstream_ready", caster) or 0
+
+	current_stack = current_stack + stack 
+
+	if current_stack > max_stack then 
+		caster:SetModifierStackCount("modifier_strike_air_upstream_ready", caster, max_stack)
+		return
+	elseif max_stack <= 0 then 
+		caster:RemoveModifierByName("modifier_strike_air_upstream_ready")
+	else
+		caster:SetModifierStackCount("modifier_strike_air_upstream_ready", caster, current_stack)
+	end
+end
+
 function InvisibleAirPull(keys)
 	local target = keys.target
 	local caster = keys.caster
@@ -91,7 +110,7 @@ function InvisibleAirPull(keys)
 
 	DoDamage(caster, target , keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 	if caster.bIsUpstreamAcquired then
-		caster:FindAbilityByName("saber_strike_air_upstream"):ApplyDataDrivenModifier(caster, caster, "modifier_strike_air_upstream_ready", {})
+		AddAirStack(caster,1)
 	end
 
 	if IsValidEntity(target) and target:IsAlive() then
@@ -710,7 +729,7 @@ function AvalonDash(caster, attacker, counterdamage, ability)
         FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
 		-- Original function
-		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 			if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
 	        	v:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
@@ -821,11 +840,14 @@ function StrikeAirPush(keys)
 	local ability = keys.ability
 	local base_damage = ability:GetSpecialValueFor("base_damage")
 	local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+	local bonus_agi = ability:GetSpecialValueFor("bonus_agi")
+	local bonus_stack = ability:GetSpecialValueFor("bonus_stack")
+	local stack = caster:GetModifierStackCount("modifier_strike_air_upstream_ready", caster) or 0
 	local knock = ability:GetSpecialValueFor("knock")
 	if target == nil then return end
 
 	if IsWindProtect(target) then return end
-	local totalDamage = base_damage + ((caster:GetAbilityByIndex(0):GetLevel() + caster:GetAbilityByIndex(1):GetLevel()) * bonus_damage)
+	local totalDamage = base_damage + (caster:GetAbilityByIndex(0):GetLevel() * bonus_damage) + (bonus_agi * caster:GetAgility()) + (stack * bonus_stack)
 	--if (target:GetName() == "npc_dota_hero_bounty_hunter" and target.IsPFWAcquired) then return end
 	--[[if caster.IsChivalryAcquired then
 		totalDamage = base_damage + ((caster:FindAbilityByName("saber_invisible_air_upgrade"):GetLevel() + caster:FindAbilityByName("saber_caliburn_upgrade"):GetLevel()) * bonus_damage)
@@ -837,22 +859,22 @@ function StrikeAirPush(keys)
 	local WallDamage = keys.WallDamage
 	local WallStun = keys.WallStun
 
-	DoDamage(keys.caster, target, totalDamage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	DoDamage(caster, target, totalDamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	if IsValidEntity(target) and target:IsAlive() then
-		giveUnitDataDrivenModifier(keys.caster, keys.target, "pause_sealenabled", 0.5)
+		giveUnitDataDrivenModifier(caster, target, "pause_sealenabled", 0.5)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_strike_air_target_VFX", {})
 
-	    local pushTarget = Physics:Unit(keys.target)
-	    keys.target:PreventDI()
-	    keys.target:SetPhysicsFriction(0)
+	    local pushTarget = Physics:Unit(target)
+	    target:PreventDI()
+	    target:SetPhysicsFriction(0)
 		local vectorC = (keys.target:GetAbsOrigin() - keys.caster:GetAbsOrigin()) 
 		-- get the direction where target will be pushed back to
 		local vectorB = vectorC - vectorA
-		keys.target:SetPhysicsVelocity(vectorB:Normalized() * 1000)
-	    keys.target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-		local initialUnitOrigin = keys.target:GetAbsOrigin()
+		target:SetPhysicsVelocity(vectorB:Normalized() * 1000)
+	    target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+		local initialUnitOrigin = target:GetAbsOrigin()
 		
-		keys.target:OnPhysicsFrame(function(unit) -- pushback distance check
+		target:OnPhysicsFrame(function(unit) -- pushback distance check
 			if IsValidEntity(unit) and not unit:IsNull() then
 				local unitOrigin = unit:GetAbsOrigin()
 				local diff = unitOrigin - initialUnitOrigin
@@ -867,7 +889,7 @@ function StrikeAirPush(keys)
 			end
 		end)
 		
-		keys.target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+		target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
 			if IsValidEntity(unit) and not unit:IsNull() then
 				unit:SetBounceMultiplier(0)
 				unit:PreventDI(false)
@@ -918,9 +940,10 @@ function OnUpstreamHit(keys)
 	local knockup_duration = ability:GetSpecialValueFor("knockup_duration")
 	local ad_ratio = ability:GetSpecialValueFor("ad_ratio")
 	local base_damage = ability:GetSpecialValueFor("base_damage")
+	local stack = caster:GetModifierStackCount("modifier_strike_air_upstream_ready", caster) or 1
 	--if keys.target:GetName() == "npc_dota_hero_bounty_hunter" and keys.target.IsPFWAcquired then return end
 	-- particle
-	local damage = caster:GetAttackDamage() * ad_ratio + base_damage
+	local damage = caster:GetAttackDamage() * ad_ratio + (base_damage * stack)
 
 	local upstreamFx = ParticleManager:CreateParticle( "particles/custom/saber/strike_air_upstream/strike_air_upstream.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl( upstreamFx, 0, target:GetAbsOrigin() )

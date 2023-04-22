@@ -30,18 +30,29 @@ function OnFairyDamageTaken(keys)
 end
 
 function OnDayTime(caster)
-	if caster:GetModifierStackCount("modifier_gawain_saint_bonus", caster) == 0 then
-		caster:EmitSound("Gawain_Trigger2")
+	if caster.IsNumeralSaintAcquired then 
+		if caster:GetModifierStackCount("modifier_gawain_saint_bonus", caster) == 0 then
+			caster:EmitSound("Gawain_Trigger2")
+		end
+		local ability = caster:GetAbilityByIndex(3)
+		local sun_stack = ability:GetSpecialValueFor("sun_stack")
+		caster:SetModifierStackCount("modifier_gawain_saint_bonus", caster, sun_stack)
+		caster:CalculateStatBonus(true)
+	else
+		local ability = caster:FindAbilityByName("gawain_numeral_saint")
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gawain_saint_bonus", {})
+		caster:CalculateStatBonus(true)
 	end
-	local ability = caster:FindAbilityByName("gawain_numeral_saint")
-	local sun_stack = ability:GetSpecialValueFor("sun_stack")
-	caster:SetModifierStackCount("modifier_gawain_saint_bonus", caster, sun_stack)
-	caster:CalculateStatBonus(true)
 end
 
 function OnNightTime(caster)
-	caster:SetModifierStackCount("modifier_gawain_saint_bonus", caster, 0)
-	caster:CalculateStatBonus(true)
+	if caster.IsNumeralSaintAcquired then 
+		caster:SetModifierStackCount("modifier_gawain_saint_bonus", caster, 0)
+		caster:CalculateStatBonus(true)
+	else
+		caster:RemoveModifierByName("modifier_gawain_saint_bonus")
+		caster:CalculateStatBonus(true)
+	end
 end
 
 function OnDevoteUpgrade(keys)
@@ -726,15 +737,15 @@ function GenerateArtificialSun(caster, ability, duration)
 	caster.ArtificialSun:SetDayTimeVisionRange(radius)
 	caster.ArtificialSun:SetNightTimeVisionRange(radius)
 	
-	if caster.IsNumeralSaintAcquired then 
+	--if caster.IsNumeralSaintAcquired then 
 		OnDayTime(caster)
-	end
+	--end
 	ability:ApplyDataDrivenModifier(caster, caster.ArtificialSun, "modifier_artificial_sun", {Duration = duration})
 	Timers:CreateTimer(duration, function()
-		if not caster.IsKnightOfTheSunAcquired and not IsValidEntity(caster.ArtificialSun) then
-			if caster.IsNumeralSaintAcquired then 
+		if --[[not caster.IsKnightOfTheSunAcquired and]] not IsValidEntity(caster.ArtificialSun) then
+			--if caster.IsNumeralSaintAcquired then 
 				OnNightTime(caster)
-			end
+			--end
 		end
 	end)
 end
@@ -1090,8 +1101,8 @@ function OnNoSAcquired(keys)
 
 		hero.IsNumeralSaintAcquired = true
 		
-		hero:FindAbilityByName("gawain_numeral_saint"):SetLevel(1)
-		hero:SwapAbilities("gawain_numeral_saint", "fate_empty1", true, false)
+		UpgradeAttribute(hero, 'gawain_numeral_saint', 'gawain_numeral_saint_upgrade', true)
+		hero:FindAbilityByName("gawain_numeral_saint_upgrade"):ApplyDataDrivenModifier(hero, hero, "modifier_gawain_saint_bonus", {})
 
 		NonResetAbility(hero)
 

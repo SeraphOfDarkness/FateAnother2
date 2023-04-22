@@ -6,6 +6,8 @@ LinkLuaModifier("modifier_a_scroll_sated", "items/modifiers/modifier_a_scroll_sa
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_resonator_cooldown", "abilities/general/modifiers/modifier_resonator_cooldown", LUA_MODIFIER_MOTION_NONE)
 
+ServantAttribute = LoadKeyValues("scripts/npc/servant_attribute.txt")
+
 SaberAttribute = {
 	"saber_attribute_improve_excalibur",
 	"saber_attribute_improve_instinct",
@@ -411,6 +413,15 @@ NobuAttribute = {
 	"nobu_combo",
 	attrCount = 5
 }
+SaitoAttribute = {
+	"saito_attribute_freedom",
+	"saito_attribute_sword",
+	"saito_attribute_memoir",
+	"saito_attribute_freestyle",
+	"saito_attribute_kunishige",
+	"saito_style",
+	attrCount = 5
+}
 MusashiAttribute = 
 {
 	"musashi_attributes_battle_continuation",
@@ -421,7 +432,6 @@ MusashiAttribute =
 	"musashi_ishana_daitenshou",
 	attrCount = 5
 }
-
 MashuAttribute = {
 	"mashu_attribute_barrel",
 	"mashu_attribute_shield",
@@ -430,7 +440,6 @@ MashuAttribute = {
 	"mashu_combo",
 	attrCount = 4
 }
-
 IshtarAttribute = {
 	"ishtar_attribute_offering",
 	"ishtar_attribute_gems",
@@ -464,6 +473,8 @@ ChargeBuffReset = {
 	hassan_dirk_upgrade = 7,
 	nobu_dash = 3,
 	nobu_dash_upgrade = 3,
+	atalanta_celestial_arrow = 3,
+	atalanta_celestial_arrow_upgrade = 3,
 }
 
 
@@ -846,8 +857,9 @@ function OnPRStart(keys)
     	--[[if not CanBeDetected(target) and target:IsInvisible() then
 
     	else
-    		target:AddNewModifier(hero, nil, "modifier_vision_provider", { Duration = 1 })
+    		
     	end]]
+    	target:AddNewModifier(hero, nil, "modifier_vision_provider", { Duration = 2 })
 	    --hero:AddNewModifier(target, nil, "modifier_vision_provider", { Duration = 2 })
     end
     
@@ -863,9 +875,33 @@ end
 
 function AddMasterAbility(master, name)
     --local ply = master:GetPlayerOwner()
-    local attributeTable = FindAttribute(name)
-    if attributeTable == nil then return end
-    LoopThroughAttr(master, attributeTable)
+    --local attributeTable = FindAttribute(name)
+    --if attributeTable == nil then return end
+    --LoopThroughAttr(master, attributeTable)
+
+    master:AddAbility(ServantAttribute[name]["SA2"])
+    master:AddAbility(ServantAttribute[name]["SA3"])
+    master:AddAbility(ServantAttribute[name]["SA4"])
+    master:AddAbility(ServantAttribute[name]["SA5"])
+    master:AddAbility(ServantAttribute[name]["SA1"])
+    master:SwapAbilities(ServantAttribute[name]["SA1"], "twin_gate_portal_warp", true, true)
+    master:AddAbility(ServantAttribute[name]["SCombo"])
+    master:SwapAbilities(ServantAttribute[name]["SCombo"], "twin_gate_portal_warp", true, true)
+    master:FindAbilityByName(ServantAttribute[name]["SCombo"]):StartCooldown(9999) 
+    
+    --[[local i = 0
+    for k,v in pairs(ServantAttribute[name]) do 
+    	print(k,v)
+    	master:AddAbility(v)
+    	local sa = master:GetAbilityByIndex(i):GetAbilityName()
+    	master:SwapAbilities(v, sa, true, false)
+    	print(sa)
+    	i = i + 1
+    	if k == "SCombo" then 
+    		master:FindAbilityByName(v):StartCooldown(9999) 
+    	end
+    end]]
+    master:RemoveAbility("twin_gate_portal_warp")
 	master:AddAbility("master_strength")
 	master:AddAbility("master_agility")
 	master:AddAbility("master_intelligence")
@@ -999,6 +1035,8 @@ function FindAttribute(name)
 		attributes = RobinAttribute
 	elseif name == "npc_dota_hero_gyrocopter" then
 		attributes = NobuAttribute
+	elseif name == "npc_dota_hero_terrorblade" then
+		attributes = SaitoAttribute
 	elseif name == "npc_dota_hero_antimage" then
 		attributes = MusashiAttribute
 	elseif name == "npc_dota_hero_dragon_knight" then
@@ -1222,7 +1260,7 @@ function OnIntelligenceGain(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 
-	if IsManaLess(hero) then
+	if IsManaLess(hero) and not string.match(hero:GetName(), "shaman") then
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Intelligence")
 		caster:GiveMana(1)
 		return

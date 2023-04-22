@@ -24,6 +24,8 @@ function gilles_eye_for_art_attribute:OnSpellStart()
 			hero:SwapAbilities("gilles_eye_for_art_passive", "fate_empty1", true, false)
 		end
 
+		hero.FSkill = "gilles_eye_for_art_passive"
+
 		NonResetAbility(hero)
 
 		-- Set master 1's mana 
@@ -40,20 +42,28 @@ function gilles_outer_god_attribute:OnSpellStart()
 
 		hero.IsOuterGodAcquired = true
 
-		hero:AddAbility("gilles_prelati_spellbook_upgrade")
-		hero:FindAbilityByName("gilles_prelati_spellbook_upgrade"):SetLevel(1)
-		if not hero:FindAbilityByName("gilles_prelati_spellbook"):IsCooldownReady() then 
-			hero:FindAbilityByName("gilles_prelati_spellbook_upgrade"):StartCooldown(hero:FindAbilityByName("gilles_prelati_spellbook"):GetCooldownTimeRemaining())
+		if hero:HasModifier("modifier_gilles_rlyeh_text_window") then 
+			UpgradeAttribute(hero, 'gilles_grief', 'gilles_grief_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_torment', 'gilles_torment_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_smother', 'gilles_smother_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_misery', 'gilles_misery_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_hysteria', 'gilles_hysteria_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_prelati_spellbook', 'gilles_prelati_spellbook_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_rlyeh_text_open', 'gilles_rlyeh_text_open_upgrade', false)
+		else
+			UpgradeAttribute(hero, 'gilles_grief', 'gilles_grief_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_torment', 'gilles_torment_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_smother', 'gilles_smother_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_misery', 'gilles_misery_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_hysteria', 'gilles_hysteria_upgrade', false)
+			UpgradeAttribute(hero, 'gilles_prelati_spellbook', 'gilles_prelati_spellbook_upgrade', true)
+			UpgradeAttribute(hero, 'gilles_rlyeh_text_open', 'gilles_rlyeh_text_open_upgrade', true)
 		end
 
-		if hero:HasModifier("modifier_gilles_rlyeh_text_window") then 
-			hero:FindAbilityByName("gilles_prelati_spellbook_upgrade"):SetHidden(true)
-		else
-			hero:SwapAbilities("gilles_prelati_spellbook_upgrade", "gilles_prelati_spellbook", true, false)
-		end
+		hero.WSkill = "gilles_rlyeh_text_open_upgrade"
+		hero.DSkill = "gilles_prelati_spellbook_upgrade"
 
 		hero:RemoveAbility("gilles_prelati_spellbook")
-
 		hero:AddNewModifier(hero, hero:FindAbilityByName("gilles_prelati_spellbook_upgrade"), "modifier_prelati_regen", {})
 
 		NonResetAbility(hero)
@@ -72,19 +82,13 @@ function gilles_demonic_horde_attribute:OnSpellStart()
 
 		hero.IsDemonicHordeAcquired = true
 
-		hero:AddAbility("gilles_summon_jellyfish_upgrade")
-		hero:FindAbilityByName("gilles_summon_jellyfish_upgrade"):SetLevel(hero:FindAbilityByName("gilles_summon_jellyfish"):GetLevel())
-		if not hero:FindAbilityByName("gilles_summon_jellyfish"):IsCooldownReady() then 
-			hero:FindAbilityByName("gilles_summon_jellyfish_upgrade"):StartCooldown(hero:FindAbilityByName("gilles_summon_jellyfish"):GetCooldownTimeRemaining())
-		end
-
 		if hero:HasModifier("modifier_gilles_rlyeh_text_window") then 
-			hero:FindAbilityByName("gilles_summon_jellyfish_upgrade"):SetHidden(true)
+			UpgradeAttribute(hero, 'gilles_summon_jellyfish', 'gilles_summon_jellyfish_upgrade', false)
 		else
-			hero:SwapAbilities("gilles_summon_jellyfish_upgrade", "gilles_summon_jellyfish", true, false)
+			UpgradeAttribute(hero, 'gilles_summon_jellyfish', 'gilles_summon_jellyfish_upgrade', true)
 		end
 
-		hero:RemoveAbility("gilles_summon_jellyfish")
+		hero.QSkill = "gilles_summon_jellyfish_upgrade"
 
 		NonResetAbility(hero)
 
@@ -102,19 +106,13 @@ function gilles_sunken_city_attribute:OnSpellStart()
 
 		hero.IsSunkenCityAcquired = true
 
-		hero:AddAbility("gilles_cthulhu_favour_upgrade")
-		hero:FindAbilityByName("gilles_cthulhu_favour_upgrade"):SetLevel(hero:FindAbilityByName("gilles_cthulhu_favour"):GetLevel())
-		if not hero:FindAbilityByName("gilles_cthulhu_favour"):IsCooldownReady() then 
-			hero:FindAbilityByName("gilles_cthulhu_favour_upgrade"):StartCooldown(hero:FindAbilityByName("gilles_cthulhu_favour"):GetCooldownTimeRemaining())
-		end
-
 		if hero:HasModifier("modifier_gilles_rlyeh_text_window") then 
-			hero:FindAbilityByName("gilles_cthulhu_favour_upgrade"):SetHidden(true)
+			UpgradeAttribute(hero, 'gilles_cthulhu_favour', 'gilles_cthulhu_favour_upgrade', false)
 		else
-			hero:SwapAbilities("gilles_cthulhu_favour_upgrade", "gilles_cthulhu_favour", true, false)
+			UpgradeAttribute(hero, 'gilles_cthulhu_favour', 'gilles_cthulhu_favour_upgrade', true)
 		end
 
-		hero:RemoveAbility("gilles_cthulhu_favour")
+		hero.ESkill = "gilles_cthulhu_favour_upgrade"
 
 		NonResetAbility(hero)
 
@@ -132,19 +130,13 @@ function gilles_abyssal_connection_attribute:OnSpellStart()
 
 		hero.IsAbyssalConnectionAcquired = true
 
-		hero:AddAbility("gilles_abyssal_contract_upgrade")
-		hero:FindAbilityByName("gilles_abyssal_contract_upgrade"):SetLevel(hero:FindAbilityByName("gilles_abyssal_contract"):GetLevel())
-		if not hero:FindAbilityByName("gilles_abyssal_contract"):IsCooldownReady() then 
-			hero:FindAbilityByName("gilles_abyssal_contract_upgrade"):StartCooldown(hero:FindAbilityByName("gilles_abyssal_contract"):GetCooldownTimeRemaining())
-		end
-
 		if hero:HasModifier("modifier_gilles_rlyeh_text_window") then 
-			hero:FindAbilityByName("gilles_abyssal_contract_upgrade"):SetHidden(true)
+			UpgradeAttribute(hero, 'gilles_abyssal_contract', 'gilles_abyssal_contract_upgrade', false)
 		else
-			hero:SwapAbilities("gilles_abyssal_contract_upgrade", "gilles_abyssal_contract", true, false)
+			UpgradeAttribute(hero, 'gilles_abyssal_contract', 'gilles_abyssal_contract_upgrade', true)
 		end
 
-		hero:RemoveAbility("gilles_abyssal_contract")
+		hero.RSkill = "gilles_abyssal_contract_upgrade"
 
 		NonResetAbility(hero)
 

@@ -1,48 +1,54 @@
 gilles_hysteria = class({})
+gilles_hysteria_upgrade = class({})
 modifier_gilles_hysteria = class({})
 
 LinkLuaModifier("modifier_gilles_hysteria", "abilities/gilles/gilles_hysteria", LUA_MODIFIER_MOTION_NONE)
 
-function gilles_hysteria:CastFilterResultTarget(hTarget)
-	if hTarget:GetName() == "npc_dota_ward_base" or hTarget == self:GetCaster() or hTarget:HasModifier("modifier_gilles_hysteria") then 
-		return UF_FAIL_CUSTOM 
-	else
-		local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
-	
-		return filter
+function hysteria_wrapper(abil)
+	function abil:CastFilterResultTarget(hTarget)
+		if hTarget:GetName() == "npc_dota_ward_base" or hTarget == self:GetCaster() or hTarget:HasModifier("modifier_gilles_hysteria") then 
+			return UF_FAIL_CUSTOM 
+		else
+			local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+		
+			return filter
+		end
+	end
+
+	function abil:IsHiddenAbilityCastable()
+		return true
+	end
+
+	function abil:GetCustomCastErrorTarget(hTarget)
+		if hTarget:GetName() == "npc_dota_ward_base" then
+			return "Cannot target wards"
+		elseif hTarget == self:GetCaster() then
+			return "Cannot target self"
+		elseif hTarget:HasModifier("modifier_gilles_hysteria") then
+			return "Already affected by Hysteria"
+		else
+			return "Invalid Target"
+		end
+	end
+
+	--[[function gilles_hysteria:GetManaCost(iLevel)
+		return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
+	end]]
+
+	function abil:OnSpellStart()
+		local hCaster = self:GetCaster()
+		local hTarget = self:GetCursorTarget()
+		
+		--EmitSoundOnLocationWithCaster(vTargetLocation, "Hero_Nevermore.Shadowraze", hCaster)
+
+		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { AttackSpeed = self:GetSpecialValueFor("attack_speed"),
+																			Damage = self:GetSpecialValueFor("damage"),
+																		 	Duration = self:GetSpecialValueFor("duration") })
 	end
 end
 
-function gilles_hysteria:IsHiddenAbilityCastable()
-	return true
-end
-
-function gilles_hysteria:GetCustomCastErrorTarget(hTarget)
-	if hTarget:GetName() == "npc_dota_ward_base" then
-		return "Cannot target wards"
-	elseif hTarget == self:GetCaster() then
-		return "Cannot target self"
-	elseif hTarget:HasModifier("modifier_gilles_hysteria") then
-		return "Already affected by Hysteria"
-	else
-		return "Invalid Target"
-	end
-end
-
---[[function gilles_hysteria:GetManaCost(iLevel)
-	return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
-end]]
-
-function gilles_hysteria:OnSpellStart()
-	local hCaster = self:GetCaster()
-	local hTarget = self:GetCursorTarget()
-	
-	--EmitSoundOnLocationWithCaster(vTargetLocation, "Hero_Nevermore.Shadowraze", hCaster)
-
-	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { AttackSpeed = self:GetSpecialValueFor("attack_speed"),
-																		Damage = self:GetSpecialValueFor("damage"),
-																	 	Duration = self:GetSpecialValueFor("duration") })
-end
+hysteria_wrapper(gilles_hysteria)
+hysteria_wrapper(gilles_hysteria_upgrade)
 
 function modifier_gilles_hysteria:DeclareFunctions()
 	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
@@ -82,8 +88,15 @@ if IsServer() then
 		end
 		
 		DoDamage(hCaster, self.hTarget, fDamage, DAMAGE_TYPE_PURE, 0, hAbility, false)
-		
-		
+
+		if hCaster.IsOuterGodAcquired then
+			local bonus_int = hAbility:GetSpecialValueFor("bonus_int")
+			local damage = bonus_int * hCaster:GetIntellect()
+			if hCaster:GetTeam() ~= self.hTarget:GetTeam() then 
+				DoDamage(hCaster, self.hTarget, damage, DAMAGE_TYPE_PURE, 0, hAbility, false)
+			end
+		end
+			
 		if self.hTarget.Particle ~= nil then
 			ParticleManager:DestroyParticle(self.hTarget.Particle, true)
 			ParticleManager:ReleaseParticleIndex(self.hTarget.Particle)

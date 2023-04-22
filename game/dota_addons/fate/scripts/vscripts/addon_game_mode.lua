@@ -339,6 +339,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_kunkka.vsndevts", context )
 
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
@@ -879,9 +880,9 @@ function FateGameMode:OnPlayerChat(keys)
     -- Get the player entity for the user speaking
     local text = keys.text
     --SendChatToPanorama(text)
-    --for k,v in pairs(keys) do
-    --    print(k,v)
-    --end
+    for k,v in pairs(keys) do
+        print(k,v)
+    end
     local userID = keys.userid
     --local is_team = keys.teamonly -- 0 == all, 1 == ally
     local playerid = keys.playerid
@@ -1032,7 +1033,7 @@ function FateGameMode:OnPlayerChat(keys)
                 hero.MasterUnit:SetHealth(1000)
                 hero.MasterUnit2:SetMaxHealth(1000)
                 hero.MasterUnit2:SetHealth(1000)
-                if IsManaLess(hero) then -- hero:GetName() == "npc_dota_hero_juggernaut"
+                if IsManaLess(hero) and not string.match(hero:GetName(),"shaman") then -- hero:GetName() == "npc_dota_hero_juggernaut"
                     hero:SetBaseStrength(30)
                     hero:SetBaseAgility(30)
                 else
@@ -1906,9 +1907,9 @@ function FateGameMode:OnHeroInGame(hero)
 
     PlayerTables:SetTableValue("hHero", "hhero", hero:entindex(), hero:GetPlayerOwnerID(), true)
 
-    if HasSpellBook(hero) then 
+    --if HasSpellBook(hero) then 
         GenerateAbilitiesData(hero)
-    end
+    --end
 
     hero.defaultSendGold = 300
     hero.CStock = 10
@@ -2856,32 +2857,8 @@ function FateGameMode:OnItemPurchased( keys )
             end
         end
     end
-    if not hero:IsAlive() and hero:GetItemInSlot(6) ~= nil then 
-        local space_item = nil
-        local backpack_item = hero:GetItemInSlot(6)
-        local free_slot = nil
-        for j = 0,5 do
-            if hero:GetItemInSlot(j + 9) == nil then 
-                space_item = true 
-                free_slot = j + 9
-                break
-            end
-        end
-        if backpack_item ~= nil and backpack_item:GetName() == itemName and backpack_item:GetPurchaseTime() == GameRules:GetGameTime() and space_item ~= nil then 
-            hero:SwapItems(6, free_slot)
-            CheckItemCombinationInStash(hero)
-            SaveStashState(hero)
-        else
-            hero:GetItemInSlot(6):RemoveSelf()
-            SendErrorMessage(hero:GetPlayerOwnerID(), "#No_Items_Found")
-            hero:SetGold(0, false)
-            hero:SetGold(hero:GetGold() + itemCost, true)
-            if isPriceIncreased then
-                hero:SetGold(0, false)
-                hero:SetGold(hero:GetGold() + (itemCost * 0.5), true)
-            end
-        end
-    elseif (ply.bIsNewItemSystemDisabled and ply.bIsNewItemSystemDisabled == true) or not hero:IsAlive() then
+    
+    if (ply.bIsNewItemSystemDisabled and ply.bIsNewItemSystemDisabled == true) or not hero:IsAlive() then
         CheckItemCombination(hero)
         CheckItemCombinationInStash(hero)
         SaveStashState(hero)
@@ -3341,9 +3318,9 @@ function FateGameMode:OnEntityKilled( keys )
                             GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
                             GameRules:SendCustomMessage("<font color='#000000'>Black Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
                             self:FinishRound(false, 1)
-                            self:rewardMVP()
+                            self:rewardMVP(killerEntity:GetTeamNumber())
                         else
-                            self:rewardMVP()
+                            self:rewardMVP(killerEntity:GetTeamNumber())
                             GameRules:SendCustomMessage("<font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> has been hunted down, All Black Faction players get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
                         end
                     elseif EntIndexToHScript(ServerTables:GetTableValue("MVP", "team2")) == killedUnit then 
@@ -3351,9 +3328,9 @@ function FateGameMode:OnEntityKilled( keys )
                             GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
                             GameRules:SendCustomMessage("<font color='#FF0000'>Red Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
                             self:FinishRound(false, 0)
-                            self:rewardMVP()
+                            self:rewardMVP(killerEntity:GetTeamNumber())
                         else
-                            self:rewardMVP()
+                            self:rewardMVP(killerEntity:GetTeamNumber())
                             GameRules:SendCustomMessage("<font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> has been hunted down, All Red Faction player get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
                         end
                     end
@@ -3778,6 +3755,8 @@ function FateGameMode:InitGameMode()
     end
 
     -- Set game rules
+    GameRules:SetCustomGameAllowBattleMusic(false)
+    GameRules:SetCustomGameAllowHeroPickMusic(false)
     GameRules:SetUseUniversalShopMode(true)
     GameRules:SetSameHeroSelectionEnabled(true)
     GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_wisp")
@@ -3980,37 +3959,43 @@ function FateGameMode:startMVPMark()
     print('cal MVP')
     GameRules:SendCustomMessage("#Fate_MVP_Mark_Start", 0, 0)
     ServerTables:SetTableValue("MVP", "draw", true, true)
-    self:LoopOverPlayers(function(player, playerID, playerHero)
-        if PlayerResource:IsValidPlayerID(playerID) then
+    --local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player")
+    for i = 0, 13 do
+        if PlayerResource:IsValidPlayerID(i) then
+            local playerHero = PlayerResource:GetSelectedHeroEntity(i)
+            --print(playerHero:GetName())
             playerHero.ServStat.death = playerHero.ServStat.death or 0
             playerHero.ServStat.kill = playerHero.ServStat.kill or 0
             playerHero.ServStat.assist = playerHero.ServStat.assist or 0
-            local mvp_point = (3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.ServStat.death) - (2 * playerHero.ServStat.tkill)
-            if playerHero:GetTeamNumber() == 2 then
-                table.insert(self.MVPA, {playerId = player, mvpPoint = mvp_point, hero = playerHero})
-            else
-                table.insert(self.MVPB, {playerId = player, mvpPoint = mvp_point, hero = playerHero})
+            local mvp_point = math.max((3 * playerHero.ServStat.kill) + playerHero.ServStat.assist - (2 * playerHero.ServStat.death) - (2 * playerHero.ServStat.tkill), 1)
+
+            if PlayerResource:GetTeam(i) == 2 then
+                table.insert(self.MVPA, {playerId = i, mvpPoint = mvp_point, hero = playerHero})
+            elseif PlayerResource:GetTeam(i) == 3 then
+                table.insert(self.MVPB, {playerId = i, mvpPoint = mvp_point, hero = playerHero})
             end
         end
-    end)
+    end
 
     table.sort(self.MVPA, function(a,b) return a.mvpPoint > b.mvpPoint end)
 
     table.sort(self.MVPB, function(a,b) return a.mvpPoint > b.mvpPoint end)
 
-    --[[for k,v in pairs (self.MVPA) do
-        print(k,v)
-    end]]
-    --print(self.MVPA[1]['playerId'])
     ServerTables:SetTableValue("MVP", "team1", self.MVPA[1]['hero']:entindex(), true)
     ServerTables:SetTableValue("MVP", "team2", self.MVPB[1]['hero']:entindex(), true)
 
-    local hMVPA = self.MVPA[1]['hero']
-    local hMVPB = self.MVPB[1]['hero']
-    giveUnitDataDrivenModifier(hMVPA, hMVPB, "modifier_mvp_marker1", PRE_ROUND_DURATION + ROUND_DURATION)
-    giveUnitDataDrivenModifier(hMVPB, hMVPA, "modifier_mvp_marker2", PRE_ROUND_DURATION + ROUND_DURATION)
+    --local hMVPA = self.MVPA[1]['hero']
+    --local hMVPB = self.MVPB[1]['hero']
+    local duration = PRE_ROUND_DURATION + ROUND_DURATION
 
+    Timers:CreateTimer(PRE_ROUND_DURATION, function()
+        local hMVPA = EntIndexToHScript(ServerTables:GetTableValue("MVP", "team1"))
+        local hMVPB = EntIndexToHScript(ServerTables:GetTableValue("MVP", "team2"))
+        giveUnitDataDrivenModifier(hMVPA, hMVPB, "modifier_mvp_marker1", ROUND_DURATION)
+        giveUnitDataDrivenModifier(hMVPB, hMVPA, "modifier_mvp_marker2", ROUND_DURATION)
+    end)
     local reward = {}
+    --local random = RandomInt(1, 3)
 
     for k,v in pairs(self.MVPHuntReward) do 
         --print(k,v)
@@ -4045,6 +4030,8 @@ function FateGameMode:rewardMVP(iTeam)
     local reward_table = ServerTables:GetTableValue("MVP", "reward")
     local reward_id = reward_table.ID
     local reward_object = reward_table.Reward
+    print("id " .. reward_id)
+    print("reward +" .. reward_object .. reward_table.RewardType)
 
     self:LoopOverPlayers(function(player, playerID, playerHero)
         if playerHero:GetTeamNumber() == iTeam then 
@@ -4052,7 +4039,7 @@ function FateGameMode:rewardMVP(iTeam)
                 playerHero.MasterUnit:GiveMana(reward_object)
                 playerHero.MasterUnit2:GiveMana(reward_object)
             elseif reward_id == 2 then 
-                playerHero.MasterUnit:Heal(reward_object, nil)
+                playerHero.MasterUnit:Heal(reward_object, playerHero.MasterUnit)
             elseif reward_id == 3 then 
                 playerHero:SetGold(0, false)
                 playerHero:SetGold(playerHero:GetGold() + reward_object, true)
@@ -4324,8 +4311,10 @@ function FateGameMode:InitializeRound()
         end
     end
 
-    if self.nCurrentRound >= 6 and (self.nDireScore == self.nRadiantScore) then
-        self:startMVPMark()
+    if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
+        if self.nCurrentRound >= 6 and (self.nDireScore == self.nRadiantScore) then
+            self:startMVPMark()
+        end
     end
 
     -- Set up heroes for new round
@@ -4980,6 +4969,7 @@ function FateGameMode:CaptureGameMode()
         mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.2)
         mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 1)
         mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.2)
+        mode:SetAlwaysShowPlayerNames(true)
         --screw 7.23
         mode:SetCustomXPRequiredToReachNextLevel( XP_TABLE )
         mode:SetUseCustomHeroLevels ( true )

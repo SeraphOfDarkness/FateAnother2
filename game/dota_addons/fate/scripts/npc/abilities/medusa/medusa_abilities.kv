@@ -810,6 +810,11 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"bonus_ms"				"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"riding_ms"				"800"
 			}
 			"04"
@@ -849,6 +854,18 @@
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "%riding_ms" 
 				    "MODIFIER_PROPERTY_MOVESPEED_MAX" "%riding_ms"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%riding_ms"
+				}
+			}
+			"modifier_medusa_ms_passive"
+			{
+				"IsDebuff"		"0"
+				"IsBuff"		"1"
+				"IsHidden"		"1"
+				"Passive"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_ms"
 				}
 			}
 		}
@@ -1654,6 +1671,11 @@
 
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"passive_ms"		"30"
+			}
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"

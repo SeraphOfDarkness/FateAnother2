@@ -2,14 +2,16 @@ atalanta_evolution_attribute = class({})
 
 function atalanta_evolution_attribute:OnSpellStart()
 	local caster = self:GetCaster()
-	--local ply = caster:GetPlayerOwner()
-	local hero = caster.HeroUnit--caster:GetPlayerOwner():GetAssignedHero() (what? okay, i just fixed the bug someone told me "is unfixable, surrender". Or am i wrong? ok, let's just see.)
+	local ply = caster:GetPlayerOwner()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
-	hero.EvolutionAcquired = true
+	if not MasterCannotUpgrade(hero, caster, self, hero.EvolutionAcquired) then
+		hero.EvolutionAcquired = true
 
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+		-- Set master 1's mana 
+		local master = hero.MasterUnit
+		master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+	end
 end
 
 atalanta_moon_attribute = class({})

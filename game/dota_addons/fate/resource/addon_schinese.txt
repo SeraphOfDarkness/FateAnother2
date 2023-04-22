@@ -1489,7 +1489,7 @@
 		///////////////////////// Combo /////////////////////////
 
 		"DOTA_Tooltip_Ability_medusa_bellerophon_2"				"<font color='#FF04EF'>连击技能: 加强骑英之缰绳</font>"	
-		"DOTA_Tooltip_ability_medusa_bellerophon_2_Description"	"<font color='#FF04EF'>连击释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 7秒内Q - E -> W  </font>\n美杜莎以音速向前冲刺，对路径上所有敌人造成大量伤害和 <font color='#FF3399'>眩晕</font>.\n\n<font color='#9FFFCC'>可选属性升级: 骑乘</font>."
+		"DOTA_Tooltip_ability_medusa_bellerophon_2_Description"	"<font color='#FF04EF'>连击释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 7秒内Q - W -> E  </font>\n美杜莎以音速向前冲刺，对路径上所有敌人造成大量伤害和 <font color='#FF3399'>眩晕</font>.\n\n<font color='#9FFFCC'>可选属性升级: 骑乘</font>."
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_Note0"	"无法被刷新."
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_Lore"	""
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_cast_delay"	"施法时间:"
@@ -1499,7 +1499,7 @@
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_stun"	"眩晕时间:"
 
 		"DOTA_Tooltip_Ability_medusa_bellerophon_2_upgrade"				"<font color='#FF04EF'>连击技能: 贝勒罗丰 II</font>"	
-		"DOTA_Tooltip_ability_medusa_bellerophon_2_upgrade_Description"	"<font color='#FF04EF'>连击释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 7秒内Q - E -> W  </font>\n 美杜莎以音速向前冲刺，对路径上所有敌人造成基于她 <font color='#80FF00'>敏捷</font> 的大量伤害和 <font color='#FF3399'>眩晕</font>."
+		"DOTA_Tooltip_ability_medusa_bellerophon_2_upgrade_Description"	"<font color='#FF04EF'>连击释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 7秒内Q - W -> E  </font>\n 美杜莎以音速向前冲刺，对路径上所有敌人造成基于她 <font color='#80FF00'>敏捷</font> 的大量伤害和 <font color='#FF3399'>眩晕</font>."
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_upgrade_Note0"	"无法被刷新."
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_upgrade_Lore"	""
 		"DOTA_Tooltip_ability_medusa_bellerophon_2_upgrade_cast_delay"	"施法时间:"
@@ -12811,7 +12811,7 @@
         "DOTA_Tooltip_ability_nobu_expanding_attribute"				"<font color='#9FFFCC'>属性: 魔王的展开</font>"
         "DOTA_Tooltip_ability_nobu_expanding_attribute_Description"	"<font color='#58ACFA'>魔王</font>: 信长可以进一步改变她的性格, 获得魔王能力的额外效果. 具体在法术书."
 
-        "DOTA_Tooltip_ability_nobu_3000_attribute"				"<font color='#9FFFCC'>属性: 三千世界</font>"
+        "DOTA_Tooltip_ability_nobu_3000_attribute"				"<font color='#9FFFCC'>属性: 3000世界</font>"
         "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"<font color='#58ACFA'>段击战术</font>: 织田信长的三段击战术的子彈改为激光, 並且刺穿敌人.连击技能和大絕的部分伤害视为纯粹伤害.\n <font color='#58ACFA'>冲刺</font>: 冲刺结束时，信長附近会出现两支步枪, 击退 800 范围内的敌人."
         "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%纯粹伤害:"
         "DOTA_Tooltip_ability_nobu_3000_attribute_dmg_mod"						"冲刺後步枪伤害:"
@@ -13066,19 +13066,19 @@
 
         /////////////////// Attribute //////////////////////////
 
-        "DOTA_Tooltip_Ability_kinghassan_attribute_oldman"					"<font color='#9FFFCC'>属性: 山中老人</font>"
+        "DOTA_Tooltip_Ability_kinghassan_attribute_oldman"					"<font color='#9FFFCC'>Attribute: 山中老人</font>"
         "DOTA_Tooltip_ability_kinghassan_attribute_oldman_Description"		"<font color='#58ACFA'>Azrael</font>: 造成额外魔法伤害基于王哈桑的 <font color='#80FF00'>敏捷</font> \n<font color='#58ACFA'>死亡挥击</font>: 增加伤害和格挡."
         "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_damage"  	"死告天使额外魔法伤害 :"
         "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_agi"  		"死告天使每点敏捷额外纯粹伤害:"
         "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_dread_dmg"  	"挥击额外伤害:"
         "DOTA_Tooltip_ability_kinghassan_attribute_oldman_bonus_dread_block"  	"挥击额外格挡:"
 
-        "DOTA_Tooltip_Ability_kinghassan_attribute_presence"					"<font color='#9FFFCC'>属性: 气息遮断</font>"
+        "DOTA_Tooltip_Ability_kinghassan_attribute_presence"					"<font color='#9FFFCC'>Attribute: 气息遮断</font>"
         "DOTA_Tooltip_ability_kinghassan_attribute_presence_Description"		"<font color='#58ACFA'>死亡逼近</font>: 增加移动速度.\n<font color='#58ACFA'>死亡降临</font>: 增加施法距离."
         "DOTA_Tooltip_ability_kinghassan_attribute_presence_movespeed_bonus"  	"%移动速度加成:"
         "DOTA_Tooltip_ability_kinghassan_attribute_presence_range"  			"死亡降临距离:"
 
-        "DOTA_Tooltip_Ability_kinghassan_attribute_boundary"					"<font color='#9FFFCC'>属性: 立于境界</font>"
+        "DOTA_Tooltip_Ability_kinghassan_attribute_boundary"					"<font color='#9FFFCC'>Attribute: 立于境界</font>"
         "DOTA_Tooltip_ability_kinghassan_attribute_boundary_Description"		"可以使用<font color='#FFB266'>斩首者</font> 和 <font color='#FFB266'>立于境界层数</font>. \n<font color='#FFB266'>斩首者</font>: 王哈桑刺向目标心脏再到脖子。在造成魔法伤害的同时闪現至目标基于 <font color='#FFFF28'>立于境界层数</font> 和 <font color='#FF3399'>暈眩</font> 目标敌人. \n 當 <font color='#FFFF28'>气息遮断</font> 被激活, <font color='#FFB266'>斩首者</font>的施法距离等同 <font color='#58ACFA'>死亡降临</font>的閃現距离. \n 當目标死於 <font color='#FFB266'>斩首者</font> 会刷新它的冷却时间. \n<font color='#FFB266'>立于境界层数</font>: 王哈桑获得 <font color='#FFFF28'>立于境界层数</font> 每当他击杀任何一位英雄. \n<font color='#FFFF28'>立于境界层数</font>: 增加王哈桑 <font color='#80FF00'>敏捷</font>. \n<font color='#FF04EF'>死告天使-亚兹拉尔</font>: 如果这次打击会使目标的生命值降低到低於 <font color='#FFFF28'>立于境界层数</font>, 目标會被立即杀死."
         "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_damage"  	"斩首者基础伤害:"
         "DOTA_Tooltip_ability_kinghassan_attribute_boundary_beheader_damage_stack"  	"每层斩首者额外伤害:"
@@ -13089,7 +13089,7 @@
         "DOTA_Tooltip_ability_kinghassan_attribute_boundary_bonus_agi_kill"  	"每层境界获得敏捷:"
         "DOTA_Tooltip_ability_kinghassan_attribute_boundary_combo_hb_stack"  	"%每层处决阈值:"
 
-        "DOTA_Tooltip_Ability_kinghassan_attribute_abyss"					"<font color='#9FFFCC'>属性: 死亡深渊</font>"
+        "DOTA_Tooltip_Ability_kinghassan_attribute_abyss"					"<font color='#9FFFCC'>Attribute: 死亡深渊</font>"
         "DOTA_Tooltip_ability_kinghassan_attribute_abyss_Description"		"<font color='#58ACFA'>晚钟</font>: 在获得的同时增加持续时间 <font color='#FFFF28'>死亡深渊</font> 当死于 <font color='#FFFF28'>晚钟</font>. \n<font color='#FFFF28'>死亡深渊</font>: <font color='#FFFF28'>复活</font> 王哈桑會在持续时间结束內根性 而且王哈桑會对附近所有敌人造成等同于他损失的生命值的伤害."
         "DOTA_Tooltip_ability_kinghassan_attribute_abyss_bonus_duration"  	"晚钟额外持续时间:"
         "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_health"  	"复活生命:"
@@ -13098,7 +13098,7 @@
         "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_radius"  	"复活伤害半径:"
         "DOTA_Tooltip_ability_kinghassan_attribute_abyss_revive_cooldown"  	"死亡深渊冷却时间:"
 
-        "DOTA_Tooltip_Ability_kinghassan_attribute_body"					"<font color='#9FFFCC'>属性: 天性的肉體</font>"
+        "DOTA_Tooltip_Ability_kinghassan_attribute_body"					"<font color='#9FFFCC'>Attribute: 天性的肉體</font>"
         "DOTA_Tooltip_ability_kinghassan_attribute_body_Description"		"<font color='#58ACFA'>地狱之火</font>: 增加持续时间, 每秒治疗和伤害基于王哈桑的 <font color='#FF0000'>力量</font>."
         "DOTA_Tooltip_ability_kinghassan_attribute_body_bonus_duration"  	"额外持续时间:"
         "DOTA_Tooltip_ability_kinghassan_attribute_body_bonus_heal_str"  	"每点力量额外治疗:"
@@ -13689,7 +13689,6 @@
         "DOTA_Tooltip_ability_hans_biography_Description"		"<font color='#58ACFA'>[1级]</font> : 安徒生在脱离战斗时迅速恢复法力, 基于他的 <font color='#00F7FF'>智力</font>. \n<font color='#58ACFA'>[2级]</font>: 提升 <font color='#58ACFA'>高速咏唱</font>, 现在不再消耗法力和不用施法, 施法距离增加 <font color='#E5CCFF'>400</font> 并减少目标冷却时间. 同时增加安徒生的属性 <font color='#E5CCFF'>3</font>. \n <font color='#58ACFA'>[3級]</font> : 增加安徒生魔法抗性 <font color='#E5CCFF'>10</font>% 和移动速度 <font color='#E5CCFF'>40</font>. \n <font color='#58ACFA'>[4級]</font> : 解锁 <font color='#58ACFA'>名著 - 国王的新衣</font>. 还可以进一步增加安徒生属性 <font color='#E5CCFF'>2</font>. \n <font color='#58ACFA'>[5級]</font> : 增加攻击性法术造成的伤害 <font color='#58ACFA'>名著 - 打开</font>  <font color='#E5CCFF'>250</font>."
         "DOTA_Tooltip_ability_hans_biography_Note0"	"脱离战斗需要在800范围左右没有任何敌人."
 
-
         ///////////////////// Special Skill ///////////////
 
         "DOTA_Tooltip_Ability_hans_masterpiece_thumbelina"				"<font color='#FFB266'>名著 - 拇指姑娘</font>"
@@ -13839,296 +13838,6 @@
         "DOTA_Tooltip_ability_hans_attribute_territory_cast_delay"  			"施法延迟:"
         "DOTA_Tooltip_ability_hans_attribute_territory_cooldown"  			"冷却:"
         "DOTA_Tooltip_ability_hans_attribute_territory_revoke_duration"  			"禁咒持续时间:"
-
- //====================================
-        //      伊絲塔
-        //====================================
-        "npc_dota_hero_oracle"             "伊絲塔"
-        "npc_dota_hero_oracle_summon"		"从者 <font color='#58ACFA'>伊絲塔</font> 已被召唤."
-        "npc_dota_hero_oracle_enable_combo"	"激活连击技能: 艾比夫山粉碎者 - 山脉震撼明星之薪"
-
-        ////////////////// INNATE ///////////////////
-
-        "DOTA_Tooltip_Ability_ishtar_q"			"<font color='#9FFFCC'>宝石塑造</font>"
-        "DOTA_Tooltip_ability_ishtar_q_Description"		"支付金币并获得一颗宝石. 宝石会加强你的技能. \n <font color='#58ACFA'>金星光辉</font>: 每颗宝石增加伤害. \n <font color='#58ACFA'>山脉震撼明星之薪</font>: 获得额外的爆炸伤害. \n <font color='#58ACFA'>金星之光</font>: 根据宝石数量获得额外百分比伤害."
-        "DOTA_Tooltip_ability_ishtar_q_Lore"    			"Gems value goes stonk."
-        "DOTA_Tooltip_ability_ishtar_q_cast_time"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_q_gem_cost"			"宝石成本:"
-        "DOTA_Tooltip_ability_ishtar_q_bonus_r_impact_per_gem"			"额外爆炸伤害:"
-        "DOTA_Tooltip_ability_ishtar_q_bonus_e_per_gem"			"額外傷害:"
-        "DOTA_Tooltip_ability_ishtar_q_bonus_f_percentage_per_gem"			"%额外伤害百分比:"
-
-        "DOTA_Tooltip_Ability_ishtar_d"			"<font color='#9FFFCC'>乌鲁克的宝石</font>"
-        "DOTA_Tooltip_ability_ishtar_d_Description"		"伊絲塔对宝石的痴迷使她能够保留一定数量的宝石来增强她的能力。伊絲塔在死亡时失去一定比例的宝石."
-        "DOTA_Tooltip_ability_ishtar_d_Lore"    			"Gems value goes stonk."
-        "DOTA_Tooltip_ability_ishtar_d_max_gem"			"最大數量宝石:"
-        "DOTA_Tooltip_ability_ishtar_d_gem_loss"			"%死亡时宝石丢失:"
-
-        "DOTA_Tooltip_Ability_ishtar_w"			"<font color='#9FFFCC'>天舟马安娜</font>"
-        "DOTA_Tooltip_ability_ishtar_w_Description"		"伊絲塔骑着她的巨弓朝一个方向冲刺，可以随意停止. /n 如果你的目标太近，预计会发生可怕的转弯."
-        "DOTA_Tooltip_ability_ishtar_w_Lore"    			"伊絲塔直升机."
-        "DOTA_Tooltip_ability_ishtar_w_cast_delay"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_w_dash_duration"			"冲刺持续时间:"
-        "DOTA_Tooltip_ability_ishtar_w_dash_range"			"冲刺范围:"
-
-        "DOTA_Tooltip_Ability_ishtar_e"			"<font color='#9FFFCC'>金星光辉</font>"
-        "DOTA_Tooltip_ability_ishtar_e_Description"		"伊絲塔使用多重光线射向一个目标."
-        "DOTA_Tooltip_ability_ishtar_e_cast_delay"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_e_damage"			"每条光线伤害:"
-        "DOTA_Tooltip_ability_ishtar_e_arrows"			"光线数量:"
-        "DOTA_Tooltip_ability_ishtar_e_speed"			"光线速度:"
-
-        "DOTA_Tooltip_Ability_ishtar_f"			"<font color='#9FFFCC'>金星之光</font>"
-        "DOTA_Tooltip_ability_ishtar_f_Description"		"<font color='#9FFFCC'>矢量能力</font>.\n 伊絲塔使用辐射射线射向一个目标，该射线会弹回一个方向. 如果反弹命中, 它会扩散和爆炸對附近的所有敌人并造成伤害.\n 此技能等級与 <font color='#9FFFCC'>天舟马安娜</font>相同."
-        "DOTA_Tooltip_ability_ishtar_f_radius"			"范围:"
-        "DOTA_Tooltip_ability_ishtar_f_damage"			"傷害:"
-        "DOTA_Tooltip_ability_ishtar_f_ricochet_damage_multiplier"			"每次跳弹伤害加倍:"
-        "DOTA_Tooltip_ability_ishtar_f_splash_radius"			"飞溅范围:"
-        "DOTA_Tooltip_ability_ishtar_f_speed"			"射线速度:"
-
-        "DOTA_Tooltip_Ability_ishtar_r"			"<font color='#FFFFFF'>山脉震撼明星之薪</font>"
-        "DOTA_Tooltip_ability_ishtar_r_Description"		"伊絲塔为她的巨弓马安娜充能，并射出一支巨大的箭，對击中目標造成伤害，然后爆炸并在击中时對目標区域造成额外的魔法伤害. \n\n<font color='#9FFFCC'>可选属性升级: 金星女神</font>."
-        "DOTA_Tooltip_ability_ishtar_r_cast_delay"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_r_damage"			"箭伤害:"
-        "DOTA_Tooltip_ability_ishtar_r_speed"			"箭速度:"
-        "DOTA_Tooltip_ability_ishtar_r_width"			"箭宽度:"
-        "DOTA_Tooltip_ability_ishtar_r_range_max"			"最大范围:"
-        "DOTA_Tooltip_ability_ishtar_r_impact_radius"			"爆炸范围:"
-        "DOTA_Tooltip_ability_ishtar_r_damage_impact"			"爆炸伤害:"
-
-        "DOTA_Tooltip_Ability_ishtar_r_upgrade"			"<font color='#9FFFCC'>山脉震撼明星之薪</font>"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_Description"		"右键单击此技能以转换模式，技能的行为会有所不同.\n<font color='#58ACFA'>默认模式</font>: 伊絲塔为她的巨弓马安娜充能，并射出一支巨大的箭，對击中目標造成伤害，然后爆炸并在击中时對目標区域造成额外的魔法伤害. \n<font color='#58ACFA'>金星模式</font>: 伊絲塔为她的巨弓马安娜充能而且充能时间更长，後座力将她向后推，同时无法被伤害，并射出一支巨大的金星之箭，射程更远，并造成额外的爆炸伤害."
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_cast_delay"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage"			"箭伤害:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_speed"			"箭速度:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_width"			"箭宽度:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_range_max"			"最大范围:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_impact_radius"			"爆炸范围:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage_impact"			"爆炸伤害:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_range"			"额外范围:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_cast_delay"			"额外施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_dash_back"			"后退:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_invul_duration"			"無敵时间:"
-        "DOTA_Tooltip_ability_ishtar_r_upgrade_extra_impact_damage_percentage"			"%额外爆炸伤害百分比:"
-
-        "DOTA_Tooltip_Ability_ishtar_combo"			"<font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font>"
-        "DOTA_Tooltip_ability_ishtar_combo_Description"		"<font color='#9FFFCC'>矢量能力</font>. \n<font color='#FF04EF'>连击技能使用需求: 全属性25.</font>\n<font color='#FF04EF'>技能顺序: W -> R 3秒内.</font> \n 伊絲塔引导传送门到目标点，向上传送并变得 <font color='#FFFF28'>无法被伤害</font> 和 <font color='#FFFF28'>无法被指定</font> 为玛安娜充能的同时，一边准备射出金星之力，引发巨大的爆炸并造成伤害基于 <font color='#FFFF28'>宝石</font>數量. 受影响的区域会燃烧并每秒造成少量伤害.  \n 伊絲塔将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到她传送到目标位置 \n 施放此技能后，伊什塔尔会传送回原来的位置."
-        "DOTA_Tooltip_ability_ishtar_combo_cast_delay"			"施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_combo_max_teleport_range"	"最大传送范围:"
-        "DOTA_Tooltip_ability_ishtar_combo_speed"				"箭速度:"
-        "DOTA_Tooltip_ability_ishtar_combo_impact_radius"		"范围:"
-        "DOTA_Tooltip_ability_ishtar_combo_arrow_range"			"箭范围:"
-        "DOTA_Tooltip_ability_ishtar_combo_damage"				"箭伤害:"
-        "DOTA_Tooltip_ability_ishtar_combo_damage_per_gem"		"每颗宝石额外箭伤害:"
-        "DOTA_Tooltip_ability_ishtar_combo_dps"					"每秒燃烧伤害:"
-        "DOTA_Tooltip_ability_ishtar_combo_dps_duration"		"燃烧时间:"
-
-        "DOTA_Tooltip_Ability_ishtar_attribute_gems"			"<font color='#FFFFFF'>属性: 宝石！更多宝石！！</font>"
-        "DOTA_Tooltip_ability_ishtar_attribute_gems_Description"		"<font color='#9FFFCC'>乌鲁克的宝石</font> : 获得额外的最大宝石，并减少死亡时的宝石损失."
-        "DOTA_Tooltip_ability_ishtar_attribute_gems_reduced_gem_loss"			"%死亡时宝石丢失:"
-        "DOTA_Tooltip_ability_ishtar_attribute_gems_bonus_max_gem"			"額外最大數量宝石:"
-
-        "DOTA_Tooltip_Ability_ishtar_attribute_offering"			"<font color='#FFFFFF'>属性: 女神值得奉献</font>"
-        "DOTA_Tooltip_ability_ishtar_attribute_offering_Description"		"<font color='#9FFFCC'>乌鲁克的宝石</font> : 伊絲塔在一段时间会自然获得宝石."
-        "DOTA_Tooltip_ability_ishtar_attribute_offering_Lore"		"抱歉，订阅你的女神会花费你一颗宝石."
-        "DOTA_Tooltip_ability_ishtar_attribute_offering_gain_gem_each_second"			"每x秒获得一颗宝石:"
-
-        "DOTA_Tooltip_Ability_ishtar_attribute_goddess"			"<font color='#FFFFFF'>属性: 美之显现</font>"
-        "DOTA_Tooltip_ability_ishtar_attribute_goddess_Description"		"伊絲塔现在使她周围的所有男性盟友拥有 <font color='#FFFF28'>迷人的魅力</font>. 伊絲塔现在会从男性英雄身上恢复一定比例的伤害. \n<font color='#FFFF28'>迷人的魅力</font>: 获得额外的魔法抗性."
-        "DOTA_Tooltip_ability_ishtar_attribute_goddess_recover_damage_taken"			"%从男性英雄那里恢复伤害:"
-        "DOTA_Tooltip_ability_ishtar_attribute_goddess_recovery_per_second"			"每秒恢复生命:"
-        "DOTA_Tooltip_ability_ishtar_attribute_goddess_buff_male_mr"			"%男性额外的魔法抗性:"
-        "DOTA_Tooltip_ability_ishtar_attribute_goddess_buff_radius"			"增益范围:"
-
-        "DOTA_Tooltip_Ability_ishtar_attribute_venus"			"<font color='#FFFFFF'>属性: 金星女神</font>"
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_Description"		"<font color='#9FFFCC'>山脉震撼明星之薪</font> : 现在可以转换形态，使其表现不同。 <font color='#9FFFCC'>山脉震撼明星之薪</font> 更长施法时间并获得额外的射程、爆炸伤害并给予她无法被伤害的同时后座力会将伊絲塔向后推."
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_range"			"额外范围:"
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_cast_delay"			"额外施法延迟:"
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_dash_back"			"后退:"
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_invul_duration"			"無敵时间:"
-        "DOTA_Tooltip_ability_ishtar_attribute_venus_extra_impact_damage_percentage"			"%额外爆炸伤害百分比:"
-		
-		
-		//=====================================================================================================
-		// MIYAMOTO MUSASHI 宫本武藏
-		//=====================================================================================================
-		"npc_dota_hero_antimage"    "宫本武藏"
-        "npc_dota_hero_antimage_summon"    "<font color='SlateBlue'><b>宫本武藏</b></font> 已被召唤。"
-        "npc_dota_hero_antimage_enable_combo"    "激发宝具技能: 伊舍那大天象 - 虚空之斩 「」"
-        "DOTA_Tooltip_Ability_musashi_accel_turn"    "<font color='SandyBrown'><b>加速过弯</b></font>"
-        "DOTA_Tooltip_Ability_musashi_accel_turn_description"    "使用水上摩托然后向后退。
- 溅起一波水并对敌人造成伤害。
- 水波有 %ProjectileRadius% AOE 和 %ProjectileSpeed% 速度。"
-        "DOTA_Tooltip_Ability_musashi_accel_turn_Lore"    "Swimsuit Ishtar's skill that's been copied visually. Even though Ishtar was the victim of plagiarism, the only thing she could manage to say was she's a genius!"
-        "DOTA_Tooltip_Ability_musashi_accel_turn_Damage"    "伤害: "
-        "DOTA_Tooltip_Ability_musashi_accel_turn_Range"    "距离: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei"    "<font color='DodgerBlue'><b>第五势</b></font>"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_description"    "闪现在目标旁并把目标眩晕 %StunDuration% 秒。
- 在目标 %Radius% AOE 范围里对敌人造成伤害。如果目标是英雄对敌人造成 <font color='#c29c4a'><b>真伤</b></font>, 如果目标是非英雄则对敌人造成 <font color='#5b93d1'><b>魔伤</b></font>。
- 增加 <font color='Lime'><b>攻击力</b></font> 和 <font color='Lime'><b>攻速</b></font>, 持续 %BuffDuration% 秒。
- 每攻击敌人几次, 可以使用 <font color='DodgerBlue'><b>第五盛</b></font>。
-<font color='Gold'>可以使用 <b>技能属性: 二天一流<b> 来增强。</font>"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. A stance that utilitize the main advantages of using two swords."
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "增加攻速: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkDmg"    "增加攻击力: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Damage"    "伤害: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_HitsRequired"    "所需攻击次数: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<font color='Crimson'><b>仁王俱利伽</b></font>"
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "斩 %SlashCount% 次并对 %Radius% AOE 范围里的敌人造成伤害。
- 如果 <font color='SlateBlue'><b>天眼</b></font> 开着, 则在最后一刀对敌人造成 <font color='#c29c4a'><b>额外真伤</b></font>。
-<font color='Gold'>可以使用 <b>技能属性: 无空</b> 和 <b>技能属性: 五轮之书</b>来增强。</font>"
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure."
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgPerSlash"    "每刀伤害: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReduceWhileSlashing"    "%使用中减伤: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducePostSlashing"    "%使用后减伤: "
-        "DOTA_Tooltip_Ability_musashi_niou_kurikara_BuffDuration"    "减伤持续时间: "
-        "DOTA_Tooltip_Ability_musashi_tengan"    "<font color='SlateBlue'><b>天眼</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tengan_description"    "消耗一层来开启天眼, 持续 %BuffDuration% 秒。
- 天眼开着时, 其他技能会有不同效果。
-<font color='DodgerBlue'><b>第五势 (W):</b></font> 额外增加 <font color='Lime'><b>攻击力</b></font> 和 <font color='Lime'><b>攻速</b></font> 于 %TenganBonus%。
-<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 在最后一刀造成 <font color='#c29c4a'><b>额外真伤</b></font>。使用后, 天眼效果会消失。
-<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 对敌人给与负面状态。过了迟延时间, 负面状态会引爆并造成 <font color='#c29c4a'><b>真伤</b></font>。使用后, 天眼效果会消失。
-<font color='Gold'>可以使用 <b>技能属性: 增强天眼</b></font> 来增强。"
-        "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome."
-        "DOTA_Tooltip_Ability_musashi_tengan_BaseDmg"    "基础伤害: "
-        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmgPerAgi"    "每敏捷力额外伤害: "
-        "DOTA_Tooltip_Ability_musashi_tengan_RechargeTime"    "每层回复时间: "
-        "DOTA_Tooltip_Ability_musashi_tengan_MaxCharges"    "最大层数: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<font color='MediumSeaGreen'><b>破魔剑 谨承</b></font>"
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "冲向地点。到地点之后, 对定标使用来回旋风斩。
- 如果 <font color='SlateBlue'><b>天眼</b></font> 开着, 给与敌人负面状态。负面状态会在引爆时造成 <font color='#c29c4a'><b>真伤</b></font>。负面状态会在 %DebuffDmgDelay% 秒后引爆。
-<font color='Gold'>可以使用 <b>技能属性: 二天一流</b> 来增强。</font>"
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_Lore"    "Let's, KENGOU BATTOU! Oh yeah, so sexy! My name is...Musashi Miyamoto!"
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRange"    "旋风斩距离: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRadius"    "旋风斩范围: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DmgPerSlash"    "每刀伤害: "
-        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_BonusDmgPerAgi"    "每敏捷力额外伤害: "
-        "DOTA_Tooltip_Ability_musashi_mukyuu"    "<font color='SlateBlue'><b>无空</b></font>"
-        "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "变 <font color='Gray'><b>无敌</b></font> 和 <font color='Gray'><b>魔法免疫</b></font>, 持续 %BuffDuration% 秒。
- 使用后, 可以使用 <font color='SlateBlue'><b>天元之花</b></font>。
-<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
- 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
- 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
- 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
-        "DOTA_Tooltip_Ability_musashi_mukyuu_Lore"    "Musashi achieved realm of NOTHINGNESS, the ultimate mental state of a swordsman. One is NOTHING, thus INVINCIBLE. 
- Not even a slash that uses the Multi-Dimensional Refraction Phenomenon can reach someone who achieved realm of NOTHINGNESS."
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<font color='Crimson'><b>天魔轰眼</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "需要 <font color='SlateBlue'><b>天眼</b></font> 全层数来开启。开启时, <font color='SlateBlue'><b>天眼</b></font> 全层数会被消耗, 持续 %BuffDuration% 秒。使用天魔轰眼后, <font color='SlateBlue'><b>天眼</b></font> 不会回层直到下一轮。
- 天魔轰眼效果消失时, 武藏会被眩晕和禁咒 %DebuffDuration% 秒。 
-<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 全斩伤害变成 <font color='#c29c4a'><b>真伤</b></font>。 使用后, 天魔轰眼效果会消失。
-<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 能够连续使用R 两次。使用后, 天魔轰眼效果会消失。"
-        "DOTA_Tooltip_Ability_musashi_tenma_gogan_Lore"    "Musashi overloads her TENGAN to the verge of collapsing to gain abrupt offensive power momentarily. 
- TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions."
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<font color='SlateBlue'><b>天元之花</b></font>"
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_description"    "<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
- 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
- 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
- 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Lore"    "A vibrant flower of tengen. Her sword reaches the realm of NOTHINGNESS."
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullDamage"    "最大伤害: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_StunDuration"    "最大眩晕时间: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_1SecPercentage"    "%1秒比率: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_2SecPercentage"    "%2秒比率: "
-        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullPercentage"    "%最大比率: "
-        "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<font color='SlateBlue'><b>战斗续行</b></font>"
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "复活并把生命值定在1, 效果持续 %BuffDuration% 秒。效果持续中不能回复生命值。
- 如果拥有 <font color='Crimson'><b>天魔轰眼</b></font> 负面状态或所受的伤害大过 %DmgThreshold% 则不能复活。
- 复活时, 天元之花会自动加在身上。"
-        "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
- If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave"    "<font color='DodgerBlue'><b>第五盛</b></font>"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_description"    "对空使出斩击并造成一波气压斩。气压斩有 %Range% 距离。 气压斩有 %ProjectileRadius% AOE 范围和 %ProjectileSpeed% 速度。
- 每使用一波气压斩则会增加所需魔力。 所需魔力会在10秒后重置回100。
- 每一等 <font color='DodgerBlue'><b>第五势</b></font> 会增加100伤害。"
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_Damage"    "总伤害: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BaseDamage"    "基础伤害: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromAtkDmg"    "每攻击力额外伤害: "
-        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromWBuff"    "第五势正面效果额外伤害: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<font color='Red'><b>伊舍那大天象 - 虚空之斩「」</b></font>"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<font color='Red'><b>宝具技能顺序: D->W->R。这宝具有两阶段。</b></font> 
- 备注: 顺序中使用其他技能会让激发宝具失败。
-<font color='Red'><b>第一阶段:</b></font>
- 锁定目标的位置并使用 <font color='#c29c4a'><b>真伤</b></font> <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 在其位置。
-<font color='Red'><b>第二阶段:</b></font>
- 如果敌人死了或走出 %SearchRadius% AOE 定位位置第二阶段则会失败。
- 冲向目标并使出 %QuickSlashCount% 次快速斩。快速斩以每 %QuickSlashInterval% 秒造成伤害。快速斩使用 %FinalSlashDmgDelay% 秒后, 则对目标使出最后一刀。这些斩击会以敌人最大生命值造成伤害。斩击会穿过减伤, 联通卷, 阿瓦容. 
- 如果目标生命值低于即杀值, 目标会被即杀。 如果敌人生存下来, 则在敌人身上加负面效果。负面效果持续到被杀为止。"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_Lore"    "SLASH THE VOID 「」 - BEYOND ZERO"
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_QuickSlashMaxHpPercent"    "%快速斩伤害: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashMaxHpPercent"    "%最后一刀伤害: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExecuteThresholdPercent"    "%即杀值: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxHpReductionPercent"    "%减少最大生命值: "
-        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%增加所受伤害: "
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<font color='Gold'><b>战斗续行</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "激发 <font color='SlateBlue'><b>战斗续行。</b></font>
-<font color='SlateBlue'><b>战斗续行:</b></font> 复活并把生命值定在1, 效果持续 %BuffDuration% 秒。效果持续中不能回复生命值。
- 如果拥有 <font color='Crimson'><b>天魔轰眼</b></font> 负面状态或所受的伤害大过 %DmgThreshold% 则不能复活。
- 复活时, 天元之花会自动加在身上。
- 冷却时间 %Cooldown% 秒。"
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<font color='Gold'><b>增强天眼</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase <font color='DodgerBlue'><b>第五势</b></font> 攻击力和攻速至 %TenganBonus%. 
- 增加 <font color='SlateBlue'><b>天眼</b></font> 伤害于 %BonusDmgPerAgi% 每敏捷力。
- 增加 <font color='SlateBlue'><b>天眼</b></font> 最大层数至 %MaxCharges% 并减少层数回复时间至 %RechargeTime% 秒。 
- 激发 <font color='Crimson'><b>天魔轰眼。</b></font>
-<font color='Crimson'><b>天魔轰眼:</b></font> 需要 <font color='SlateBlue'><b>天眼</b></font> 全层数来开启。开启时, <font color='SlateBlue'><b>天眼</b></font> 全层数会被消耗, 持续 %BuffDuration% 秒。使用天魔轰眼后, <font color='SlateBlue'><b>天眼</b></font> 不会回层直到下一轮。
- 天魔轰眼效果消失时, 武藏会被眩晕和禁咒 %DebuffDuration% 秒。 
-<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 全斩伤害变成 <font color='#c29c4a'><b>真伤</b></font>。 使用后, 天魔轰眼效果会消失。
-<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 能够连续使用R 两次。使用后, 天魔轰眼效果会消失。"
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<font color='Gold'><b>五轮之书</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "把元素负面状态加在被 <font color='Crimson'><b>仁王俱利伽 (E)击中的敌人身上</b></font>。
- 土: 减低敌人移动速度于 %EarthSlow%%%. 
- 水: 把敌人推向中心点。 
- 火: 烧伤敌人并造成每秒 %FireBurnDmgPerSec% 伤害。增加所受伤害于 %FireIncreaseDmgTaken%%%。效果持续 %FireBurnDuration% 秒。
- 风: 眩晕敌人 %WindDuration% 秒。"
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<font color='Gold'><b>无空</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "变 <font color='Gray'><b>无敌</b></font> 和 <font color='Gray'><b>魔法免疫</b></font>, 持续 %BuffDuration% 秒。
- 使用后, 可以使用 <font color='SlateBlue'><b>天元之花</b></font>。
-<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
- 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
- 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
- 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<font color='Gold'><b>二天一流</b></font>"
-        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "减少 <font color='DodgerBlue'><b>第五势</b></font> 所需攻击数来使用 <font color='DodgerBlue'><b>第五盛</b></font> 至 %HitsRequired%。 
- 增加 <font color='MediumSeaGreen'><b>破魔剑 谨承</b></font> 伤害于 %BonusDmgPerAgi% 每敏捷力。 
- 增加 <font color='MediumSeaGreen'><b>破魔剑 谨承</b></font> 旋风斩距离至 %SlashRange% 和旋风斩范围至 %SlashRadius%。"
-        "DOTA_Tooltip_modifier_combo_sequence"    "宝具技能顺序"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_hits_counter"    "攻击数"
-        "DOTA_Tooltip_modifier_ascended"    "霊基再臨"
-        "DOTA_Tooltip_modifier_ascended_description"    "Has custom particle effects."
-        "DOTA_Tooltip_musashi_modifier_accel_turn"    "加速过弯"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei"    "第五势"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_description"    "增加攻击力和攻速于 %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_slashing"    "使用仁王俱利伽中"
-        "DOTA_Tooltip_musashi_modifier_earth_debuff"    "五轮之书 - 土"
-        "DOTA_Tooltip_musashi_modifier_earth_debuff_description"    "减低移动速度 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-        "DOTA_Tooltip_musashi_modifier_water_debuff"    "五轮之书 - 水"
-        "DOTA_Tooltip_musashi_modifier_water_debuff_description"    "被推向中心点"
-        "DOTA_Tooltip_musashi_modifier_fire_debuff"    "五轮之书 - 火"
-        "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "增加所受伤害 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% 并受灼伤伤害。"
-        "DOTA_Tooltip_musashi_modifier_wind_debuff"    "五轮之书 - 风"
-        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "眩晕"
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff"    "仁王俱利伽减伤"
-        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff_description"    "减低所受伤害 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-        "DOTA_Tooltip_musashi_modifier_tengan_chargecounter"    "天眼层数"
-        "DOTA_Tooltip_musashi_modifier_tengan"    "天眼"
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima"    "使用破魔剑 谨承中"
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff"    "破魔剑 谨承 负面效果"
-        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff_description"    "负面效果消失时会受真伤伤害"
-        "DOTA_Tooltip_musashi_modifier_mukyuu"    "无空"
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan"    "天魔轰眼"
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff"    "天魔轰眼 负面效果"
-        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "眩晕和禁咒。战斗续行不能使用。"
-        "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "天元之花"
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_active"    "战斗续行"
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_active_description"    "生命值定值在1并且不能回复生命值。"
-        "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "战斗续行中"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter"    "第五盛"
-        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter_description"    "每使用一波气压斩则会增加所需魔力。 所需魔力会在10秒后重置回100。"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "伊舍那大天象 - 虚空之斩 「」"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "伊舍那大天象 - 虚空之斩 「」 负面效果"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "被封印在虚无界. 最大生命值减少 %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%. 增加所受伤害于 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 。"
-        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_cooldown"    "伊舍那大天象 - 虚空之斩 「」冷却中"
-
 
 		//=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)

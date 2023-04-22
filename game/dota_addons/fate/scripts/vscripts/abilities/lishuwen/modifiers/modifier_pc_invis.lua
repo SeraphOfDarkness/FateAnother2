@@ -386,9 +386,9 @@ function iupoasldm:checkupdate(pId)
 			end
 		end
 	end
-	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 2 then
+	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 3 then
 		self.jyiowe[pId].STT.mcs = {
-			MRC = 2,
+			MRC = 3,
 			kda = 0, 
 			tdc = 0, 
 			tdk = 0, 
@@ -398,6 +398,15 @@ function iupoasldm:checkupdate(pId)
 			twn = 0, 
 			wrp = 0
 		}
+		if self.jyiowe[pId].STT.MRT >= 3000 then 
+			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 4000
+		elseif self.jyiowe[pId].STT.MRT >= 2000 then 
+			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 3000
+		elseif self.jyiowe[pId].STT.MRT >= 1500 then 
+			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 2000
+		elseif self.jyiowe[pId].STT.MRT >= 1100 then 
+			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 1000
+		end
 		self.jyiowe[pId].STT.MRT = 1000
 		for k,v in pairs (self.jyiowe[pId].STT.gmy) do
 			self:aonmh99(v)

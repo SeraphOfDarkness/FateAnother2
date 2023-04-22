@@ -1,48 +1,53 @@
 gilles_grief = class({})
+gilles_grief_upgrade = class({})
 modifier_gilles_grief = class({})
 
 LinkLuaModifier("modifier_gilles_grief", "abilities/gilles/gilles_grief", LUA_MODIFIER_MOTION_NONE)
 
-function gilles_grief:CastFilterResultTarget(hTarget)
-	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+function grief_wrapper(abil)
+	function abil:CastFilterResultTarget(hTarget)
+		local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
 
-	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" or hTarget == self:GetCaster() then 
-			return UF_FAIL_CUSTOM 
+		if(filter == UF_SUCCESS) then
+			if hTarget:GetName() == "npc_dota_ward_base" or hTarget == self:GetCaster() then 
+				return UF_FAIL_CUSTOM 
+			else
+				return UF_SUCCESS
+			end
 		else
-			return UF_SUCCESS
+			return filter
 		end
-	else
-		return filter
+	end
+
+	function abil:IsHiddenAbilityCastable()
+		return true
+	end
+
+	function abil:GetCustomCastErrorTarget(hTarget)
+		return "Invalid Target"
+	end
+
+	--[[function gilles_grief:GetManaCost(iLevel)
+		return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
+	end]]
+
+	function abil:GetAOERadius()
+		return self:GetSpecialValueFor("radius")
+	end
+
+	function abil:OnSpellStart()
+		local hCaster = self:GetCaster()
+		local hTarget = self:GetCursorTarget()
+		
+		EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Grief_Cast", hCaster)
+
+		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_grief", { Damage = self:GetSpecialValueFor("damage"),
+																		 Duration = self:GetSpecialValueFor("duration") })
 	end
 end
 
-function gilles_grief:IsHiddenAbilityCastable()
-	return true
-end
-
-function gilles_grief:GetCustomCastErrorTarget(hTarget)
-	return "Invalid Target"
-end
-
---[[function gilles_grief:GetManaCost(iLevel)
-	return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
-end]]
-
-function gilles_grief:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
-end
-
-function gilles_grief:OnSpellStart()
-	local hCaster = self:GetCaster()
-	local hTarget = self:GetCursorTarget()
-	
-	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Grief_Cast", hCaster)
-
-	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_grief", { Damage = self:GetSpecialValueFor("damage"),
-																	 Duration = self:GetSpecialValueFor("duration") })
-end
-
+grief_wrapper(gilles_grief)
+grief_wrapper(gilles_grief_upgrade)
 
 if IsServer() then 
 	function modifier_gilles_grief:OnCreated(args)
@@ -63,6 +68,7 @@ if IsServer() then
 		local hAbility = self:GetAbility()
 		local fDamage = self.Damage
 		local target = self:GetParent()
+		local bonus_damage = 0
 
 		if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
 
@@ -76,6 +82,11 @@ if IsServer() then
 	 	ParticleManager:SetParticleControl(particleIndex, 0, self:GetParent():GetAbsOrigin()) 
 
         DoDamage(hCaster, target, fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+        if hCaster.IsOuterGodAcquired then
+        	local bonus_int = hAbility:GetSpecialValueFor("bonus_void_int")
+        	bonus_damage = bonus_int * hCaster:GetIntellect()
+        	DoDamage(hCaster, target, bonus_damage, DAMAGE_TYPE_PURE, 0, hAbility, false)
+        end
 
 		if IsValidEntity(target) and self:GetParent():IsAlive() then
 			local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) * hAbility:GetSpecialValueFor("void_damage") / 100
@@ -89,6 +100,9 @@ if IsServer() then
 			for _,v in pairs(tTargets) do
 				if IsValidEntity(v) and not v:IsNull() and v ~= self:GetParent() then
 					DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+					if hCaster.IsOuterGodAcquired then
+						DoDamage(hCaster, target, bonus_damage, DAMAGE_TYPE_PURE, 0, hAbility, false)
+        			end
 				end
 			end
 

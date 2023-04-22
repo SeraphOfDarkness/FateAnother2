@@ -1155,14 +1155,14 @@ function OnSandanzukiHit(keys)
 	        OnTennenAttack(newkeys)
 	    end
     end)
-    Timers:CreateTimer(delay_duration + 0.1, function()
+    Timers:CreateTimer(delay_duration + 0.2, function()
         if IsValidEntity(target) and not target:IsNull() then
 	        target:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 	        DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
 	        OnTennenAttack(newkeys)
 	    end
     end)
-    Timers:CreateTimer(delay_duration + 0.2, function()
+    Timers:CreateTimer(delay_duration + 0.4, function()
         if IsValidEntity(target) and not target:IsNull() then
 	        target:EmitSound("Tsubame_Focus")
 	        DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)

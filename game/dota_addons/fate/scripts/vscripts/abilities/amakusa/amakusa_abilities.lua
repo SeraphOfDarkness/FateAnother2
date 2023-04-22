@@ -569,6 +569,7 @@ function OnKyrieHit(keys)
 	if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
 
 	local max_mark = ability:GetSpecialValueFor("max_mark")
+	local slow_dur = ability:GetSpecialValueFor("slow_dur")
 	local dmg_per_mark = ability:GetSpecialValueFor("dmg_per_mark") / 100
 	local dmg_vamp = ability:GetSpecialValueFor("dmg_vamp") / 100
 	local dmg_human = ability:GetSpecialValueFor("dmg_human") / 100
@@ -591,8 +592,17 @@ function OnKyrieHit(keys)
 		if not target:HasModifier("modifier_amakusa_baptism_mark") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_amakusa_baptism_mark", {})
 		end
-
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_amakusa_baptism_mark_slow", {})
+	
+		if IsVampire(target) then 
+			giveUnitDataDrivenModifier(caster, target, "rooted", slow_dur)
+			giveUnitDataDrivenModifier(caster, target, "locked", slow_dur)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_amakusa_baptism_mark_slow", {})
+		elseif IsHuman(target) then 
+			giveUnitDataDrivenModifier(caster, target, "locked", slow_dur)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_amakusa_baptism_mark_slow", {})
+		else
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_amakusa_baptism_mark_slow", {})
+		end
 
 		local current_stack = target:GetModifierStackCount("modifier_amakusa_baptism_mark", caster) or 0
 		target:SetModifierStackCount("modifier_amakusa_baptism_mark", caster, current_stack + 1)

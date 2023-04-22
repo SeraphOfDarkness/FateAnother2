@@ -1,9 +1,10 @@
 if not Attributes then
     Attributes = class({})
 	--LinkLuaModifier("modifier_attributes_hp", "modifiers/modifier_attributes_hp", LUA_MODIFIER_MOTION_NONE)
-	--LinkLuaModifier("modifier_attributes_mp", "modifiers/modifier_attributes_mp", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier("modifier_attributes_mp", "modifiers/modifier_attributes_mp", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_attributes_hp_regen", "modifiers/modifier_attributes_hp_regen", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_attributes_mp_regen", "modifiers/modifier_attributes_mp_regen", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_attributes_mr", "modifiers/modifier_attributes_mr", LUA_MODIFIER_MOTION_NONE)
 	--LinkLuaModifier("modifier_attributes_as", "modifiers/modifier_attributes_as", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_attributes_ms", "modifiers/modifier_attributes_ms", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_attributes_hp_regen_adjustment", "modifiers/modifier_attributes_hp_regen_adjustment", LUA_MODIFIER_MOTION_NONE)
@@ -87,10 +88,13 @@ function Attributes:ModifyBonuses(hero)
 	hero.additional_hp_regen_adjustment = Attributes.additional_hp_regen_adjustment
 
 	--hero:AddNewModifier(hero,nil,"modifier_attributes_hp",{})
-	--hero:AddNewModifier(hero,nil,"modifier_attributes_mp",{})
+    if hero:GetName() == "npc_dota_hero_shadow_shaman" then
+	   hero:AddNewModifier(hero,nil,"modifier_attributes_mp",{})
+    end
 	hero:AddNewModifier(hero,nil,"modifier_attributes_hp_regen",{})
     --hero:AddNewModifier(hero,nil,"modifier_attributes_hp_regen_adjustment",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_mp_regen",{})
+    hero:AddNewModifier(hero,nil,"modifier_attributes_mr",{})
     --hero:AddNewModifier(hero,nil,"modifier_attributes_mp_regen_adjustment",{})
 	--hero:AddNewModifier(hero,nil,"modifier_attributes_as",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_ms",{})

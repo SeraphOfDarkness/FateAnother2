@@ -497,12 +497,14 @@ function OnRecallDestroy(keys)
 		return
 	end
 
-	local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
-	if distance <= max_range then
-		target:EmitSound("Semi.GardenMassTeleportPull")
-		if caster:IsAlive() and target:IsAlive() then
-			target:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(200))
-			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	if IsInSameRealm(target:GetAbsOrigin() , caster:GetAbsOrigin()) then
+		local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
+		if distance <= max_range then
+			target:EmitSound("Semi.GardenMassTeleportPull")
+			if caster:IsAlive() and target:IsAlive() then
+				target:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(200))
+				FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+			end
 		end
 	end
 end

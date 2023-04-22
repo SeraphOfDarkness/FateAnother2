@@ -1,0 +1,281 @@
+"DOTAAbilities"
+{
+	/=================================================================================================================
+	// Muramasa - Chant (Q) 
+	//=================================================================================================================
+	"muramasa_chant"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/nobu/nobu_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"4"
+		"AbilityCastPoint"				"0.1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"chant_duration"	"5 5.5 6 6.5 7"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"marble_duration"	"7 8 9 10 11"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/muramasa/muramasa_abilities"
+				"Function"		"OnChant"
+			}
+		}		
+		"Modifiers"
+		{
+			"modifier_muramasa_chant"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%chant_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_muramasa_marble"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%marble_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					//  "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow"
+				}	
+			}
+		}
+	}
+
+	/=================================================================================================================
+	// Muramasa - dash (W) 
+	//=================================================================================================================
+	"muramasa_dash"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/muramasa/muramasa_dash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/nobu/nobu_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"30 28 26 24 22"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dash_speed"		"900"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 175 250 325 400"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_radius"		"275"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_prison"		"200 225 250 275 300"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lock_duration"		"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range"				"400"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range_marble"		"700"
+			}
+		}
+	}
+
+	/=================================================================================================================
+	// Muramasa - cut (e) 
+	//=================================================================================================================
+	"muramasa_cut"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/nobu/nobu_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"400"
+		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"25 23 21 19 17"
+		"AbilityCastPoint"				"0.2"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"		"0.45"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"400 500 600 700 800"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"marble_bonus"		"0.3"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cone_range"		"300"
+			}
+		}
+	}
+
+	/=================================================================================================================
+	// Muramasa - upgrade (d) 
+	//=================================================================================================================
+	"muramasa_d"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/nobu/nobu_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"400"
+		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"25 23 21 19 17"
+		"AbilityCastPoint"				"0.2"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"		"0.45"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"400 500 600 700 800"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"marble_bonus"		"0.3"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cone_range"		"300"
+			}
+		}
+	}
+
+	/=================================================================================================================
+	// Muramasa - Tsumukari Muramasa (R) 
+	//=================================================================================================================
+	"muramasa_r"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/nobu/nobu_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"39 38 37 36 35"
+		"AbilityCastPoint"				"0.1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"		"0.25"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_pure"		"400 475 550 625 700"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_magical"	"600 725 850 975 1100"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay_explosion"	"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow"				"30 35 40 45 50"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence"			"0.6"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"debuff_duration"	"1"
+			}
+		}
+	}
+}

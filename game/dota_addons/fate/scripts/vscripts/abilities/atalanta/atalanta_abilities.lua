@@ -118,9 +118,9 @@ function ShootArrow(keys)
         ShootAoEArrow(keys)
     end
 
-    --[[if caster.IsArrowsOfTheBigDipperAcquired and not keys.DontCountArrow then
-        CheckBonusArrow(keys)
-    end]]
+    if caster.IsArrowsOfTheBigDipperAcquired and keys.DontCountArrow == false then
+        CheckBonusArrow(keys, true)
+    end
 end
 
 function CreateShockRing(caster, facing)
@@ -234,9 +234,9 @@ function ShootAoEArrow(keys)
     end)
 end
 
-function CheckBonusArrow(keys)
+function CheckBonusArrow(keys, bIsLine)
 	local caster = keys.caster
-    local ability = keys.ability
+    local ability = caster:FindAbilityByName("atalanta_arrows_of_the_big_dipper")
     local target = keys.target
 
     local arrowsUsed = caster:GetModifierStackCount("modifier_arrows_of_big_dipper", caster) or 0
@@ -253,12 +253,26 @@ function CheckBonusArrow(keys)
         end
         copyKeys.DontCountArrow = true 
         copyKeys.DontUseArrow = true ]]
-        for i = 1, bonus_arrow do
-			Timers:CreateTimer(interval * i, function()
-			    --ShootArrow(copyKeys)
-                caster:PerformAttack( target, true, true, true, true, true, false, false )
-		    end)
-		end	
+        if bIsLine == true then 
+            local copyKeys = {}
+            for k,v in pairs(keys) do
+                copyKeys[k] = v
+            end
+            copyKeys.DontCountArrow = true 
+            copyKeys.DontUseArrow = true 
+            for i = 1, bonus_arrow do
+                Timers:CreateTimer(interval * i, function()
+                    ShootArrow(copyKeys)
+                end)    
+            end 
+        else
+            for i = 1, bonus_arrow do
+    			Timers:CreateTimer(interval * i, function()
+    			    --ShootArrow(copyKeys)
+                    caster:PerformAttack( target, true, true, true, true, true, false, false )
+    		    end)
+    		end	
+        end
 
         arrowsUsed = 0
     end
@@ -462,6 +476,7 @@ function OnCrossingArcadiaStart(keys)
                 Facing = facing,
                 DontUseArrow = true,
                 IsPhoebus = true,
+                DontCountArrow = false,
             }
             if i % 3 == 1 then 
             	arrowKeys.Position = position + Vector(-offset, -offset, 0)
@@ -473,11 +488,11 @@ function OnCrossingArcadiaStart(keys)
 
             ShootArrow(arrowKeys)
 
-            if caster.IsArrowsOfTheBigDipperAcquired then
+            --[[if caster.IsArrowsOfTheBigDipperAcquired then
                 local arrowsUsed = caster:GetModifierStackCount("modifier_arrows_of_big_dipper", caster) or 0
                 arrowsUsed = arrowsUsed + 1
                 caster:SetModifierStackCount("modifier_arrows_of_big_dipper", caster, arrowsUsed)
-            end
+            end]]
         end)
     end
 
@@ -614,10 +629,17 @@ function OnCelestialArrowAttack(keys)
 
     if target == nil then return end
 
+    if ability:GetAutoCastState() == false then 
+        caster:SetRangedProjectileName('particles/custom/atalanta/normal_arrow.vpcf')
+        return 
+    else
+        caster:SetRangedProjectileName('particles/custom/atalanta/atalanta_green_arrow.vpcf')
+    end
+
     if IsValidEntity(target) and target:IsAlive() then
         local attack_damage = keys.AttackDamage 
         local damage = ability:GetSpecialValueFor("damage")
-        local mana_cost = ability:GetManaCost(ability:GetLevel())
+        local mana_cost = ability:GetSpecialValueFor("mana_cost")
         if caster.IsArrowsOfTheBigDipperAcquired then 
             local bonus_damage_per_atk = ability:GetSpecialValueFor("bonus_damage_per_atk") / 100 
             damage = damage + (bonus_damage_per_atk * caster:GetAverageTrueAttackDamage(caster))
@@ -629,13 +651,17 @@ function OnCelestialArrowAttack(keys)
     end
 end
 
---[[function OnCelestialArrowStart(keys)
+function OnCelestialArrowStart(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local aoe = ability:GetSpecialValueFor("width")
-	local range = ability:GetSpecialValueFor("range")
+	local range = ability:GetSpecialValueFor("distance")
 	local var = false
     local effect = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+
+    if (ability:GetCurrentAbilityCharges() > 0) then
+        ability:EndCooldown()
+    end
 
     if caster:HasModifier("modifier_atalanta_tauropolos") then        
         effect = "particles/custom/atalanta/atalanta_arrow_10stack.vpcf"
@@ -658,10 +684,17 @@ end
         AoE = aoe,
 	    Range = range,
 	    Linear = true,
-        DontUseArrow = var
+        DontUseArrow = var,
+        DontCountArrow = false
     }
 
     ShootArrow(arrow_fire)
+
+    --[[if caster.IsArrowsOfTheBigDipperAcquired then
+        local arrowsUsed = caster:GetModifierStackCount("modifier_arrows_of_big_dipper", caster) or 0
+        arrowsUsed = arrowsUsed + 1
+        caster:SetModifierStackCount("modifier_arrows_of_big_dipper", caster, arrowsUsed)
+    end]]
 end
 
 function OnCelestialArrowHit(keys)
@@ -670,28 +703,32 @@ function OnCelestialArrowHit(keys)
 	local target = keys.target 
 	--if target == nil then return end
 
-	local damage = ability:GetSpecialValueFor("damage") / 100 * caster:GetAverageTrueAttackDamage(caster)
+	local damage = ability:GetSpecialValueFor("shot_damage") / 100 * caster:GetAverageTrueAttackDamage(caster)
+    local bonus_damage = ability:GetSpecialValueFor("damage")
 
-    AddHuntStack(caster, target, 1)
+    --AddHuntStack(caster, target, 1)
 
 	if caster.IsArrowsOfTheBigDipperAcquired then
-		local damage_magic = ability:GetSpecialValueFor("damage_magic") / 100 * caster:GetAverageTrueAttackDamage(caster)
+        local bonus_damage_per_atk = ability:GetSpecialValueFor("bonus_damage_per_atk") / 100 
+        bonus_damage = bonus_damage + (bonus_damage_per_atk * caster:GetAverageTrueAttackDamage(caster))
+		--[[local damage_magic = ability:GetSpecialValueFor("damage") / 100 * caster:GetAverageTrueAttackDamage(caster)
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
 		DoDamage(caster, target, damage_magic, DAMAGE_TYPE_MAGICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
 	else
-		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
-	end]]
-
+		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)]]
+	end
+    DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
+    DoDamage(caster, target, bonus_damage, DAMAGE_TYPE_MAGICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
     
-    --[[if target:IsRealHero() then
+    if target:IsRealHero() then
         if caster.first_hit == false and not target:HasModifier("modifier_atalanta_calydonian_hunt_root_cooldown") then
     	   AddHuntStack(caster, target, 1)
            caster.first_hit = true 
         end
     else
         AddHuntStack(caster, target, 1)
-    end]]
---end
+    end
+end
 
 function OnCalydonianHuntStart(keys)
 	local caster = keys.caster 
@@ -927,7 +964,7 @@ function OnPhoebusHit(keys)
     local damage = ability:GetSpecialValueFor("arrows_damage")
     local aoe = ability:GetSpecialValueFor("arrow_aoe")
 
-    if caster.IsArrowsOfTheBigDipperAcquired then 
+    if caster.IsHuntersMarkAcquired then
         local bonus_damage = ability:GetSpecialValueFor("bonus_damage_per_atk") / 100 * caster:GetAverageTrueAttackDamage(caster)
         damage = damage + bonus_damage
     end
@@ -1082,11 +1119,9 @@ function OnCalydonianSnipeWindowCreate(keys)
     --Convars:SetInt("dota_camera_distance", 1600)
     local count_tick = 0
     local max_tick = 10
-    caster.base_camera = 1600
+    caster.base_camera = Convars:GetInt("dota_camera_distance") or 1600
     caster.bonus_camera = 150
-    caster.current_camera = caster.current_camera or 1900
-
-    if caster.current_camera >= 1900 then return end
+    caster.current_camera = Convars:GetInt("dota_camera_distance") or 1600
 
     if caster.CameraTimerDown ~= nil then 
         Timers:RemoveTimer(caster.CameraTimerDown)
@@ -1101,7 +1136,7 @@ function OnCalydonianSnipeWindowCreate(keys)
             if count_tick == max_tick then 
                 return nil 
             end
-            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, caster.base_camera + (max_tick * caster.bonus_camera))
+            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, 1600 + (max_tick * caster.bonus_camera))
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033
@@ -1135,7 +1170,7 @@ function OnCalydonianSnipeWindowDestroy(keys)
             if count_tick == 10 then 
                 return nil 
             end
-            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, caster.base_camera)
+            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, 1600)
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033
@@ -1468,7 +1503,6 @@ function OnArrowsOfTheBigDipperAcquired(keys)
     	hero:FindAbilityByName("atalanta_arrows_of_the_big_dipper"):SetLevel(1)
 
         UpgradeAttribute(hero, "atalanta_celestial_arrow", "atalanta_celestial_arrow_upgrade", true)
-        UpgradeAttribute(hero, "atalanta_phoebus_catastrophe_barrage", "atalanta_phoebus_catastrophe_barrage_upgrade", true)
 
     	NonResetAbility(hero)
 
@@ -1492,6 +1526,7 @@ function OnHuntersMarkAcquired(keys)
     	hero.IsHuntersMarkAcquired = true 
 
         UpgradeAttribute(hero, "atalanta_calydonian_hunt", "atalanta_calydonian_hunt_upgrade", true)
+        UpgradeAttribute(hero, "atalanta_phoebus_catastrophe_barrage", "atalanta_phoebus_catastrophe_barrage_upgrade", true)
 
     	NonResetAbility(hero)
 

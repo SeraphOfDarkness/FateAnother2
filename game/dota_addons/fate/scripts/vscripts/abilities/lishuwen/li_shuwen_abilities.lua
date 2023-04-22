@@ -48,10 +48,20 @@ function OnDualClassThink(keys)
 	caster:SetModifierStackCount("modifier_lishuwen_dual_class_atk", caster, str)
 end
 
-function ApplyMarkOfFatality(caster,target)
+function ApplyMarkOfFatality(caster,target,bActive)
 	local abil = caster:FindAbilityByName("lishuwen_martial_arts")
 	if abil == nil then 
 		abil = caster:FindAbilityByName("lishuwen_martial_arts_upgrade")
+	end
+
+	if bActive == true then 
+
+	else
+		if target:HasModifier("modifier_mark_of_fatality_cooldown") then 
+			return
+		else
+			abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality_cooldown", {}) 
+		end
 	end
 
 	-- add new stack
@@ -59,6 +69,10 @@ function ApplyMarkOfFatality(caster,target)
 	target:RemoveModifierByName("modifier_mark_of_fatality") 
 	abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality", {}) 
 	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
+	--[[if (currentStack + 1) % 5 == 0 then 
+		local silence_duration = ability:GetSpecialValueFor("silence_duration")
+		giveUnitDataDrivenModifier(caster, target, "silenced", silence_duration)
+	end]]
 end
 
 function OnMartialStart(keys)
@@ -70,7 +84,14 @@ function OnMartialStart(keys)
 	LishuwenCheckCombo(caster, ability)
 
 	giveUnitDataDrivenModifier(caster, target, "silenced", silence_duration)
-	ApplyMarkOfFatality(caster,target)
+	ApplyMarkOfFatality(caster,target,true)
+
+	if caster.bIsMartialArtsImproved then 
+		local active_stack = ability:GetSpecialValueFor("active_stack")
+		for i = 1, active_stack - 1 do
+			ApplyMarkOfFatality(caster,target,true)
+		end
+	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lishuwen_martial_art_cooldown", {Duration= ability:GetCooldown(1)})
 
@@ -85,7 +106,7 @@ function OnMartialDetect(keys)
 	local target = keys.unit 
 
 	if not ability:IsItem() and not IsSpellBook(ability:GetAbilityName()) then 
-		ApplyMarkOfFatality(caster,target)
+		ApplyMarkOfFatality(caster,target, true)
 	end
 end
 
@@ -119,6 +140,9 @@ function OnMartialAttackLanded(keys)
 	end
 
 	if caster.bIsMartialArtsImproved then 
+		if caster.bIsMartialArtsImproved then
+			ApplyMarkOfFatality(caster, target, false)
+		end
 		if target:HasModifier("modifier_no_second_strike_shock") then
 			if not IsManaLess(target) then
 				local mana_drain = ability:GetSpecialValueFor("mana_drain")
@@ -200,6 +224,10 @@ function OnCosmicOrbitAttackLanded(keys)
 		caster:RemoveModifierByName("modifier_lishuwen_cosmic_orbit")
 		caster:RemoveModifierByName("modifier_lishuwen_cosmic_orbit_attack")
 		caster:RemoveModifierByName("modifier_lishuwen_cosmic_orbit_speed")
+	end
+
+	if caster.bIsMartialArtsImproved then
+		ApplyMarkOfFatality(caster, target, false)
 	end
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
@@ -438,6 +466,10 @@ function tigerstrikewrapper(TPM)
 			target:AddNewModifier(caster, self, "modifier_tiger_strikes_marker", {Duration = self:GetSpecialValueFor("window_duration")})
 		end
 
+		if caster.bIsMartialArtsImproved then
+			ApplyMarkOfFatality(caster, target, false)
+		end
+
 		if not IsImmuneToSlow(target) then 
 			target:AddNewModifier(caster, self, "modifier_tiger_first_strike_slow", {Duration = self:GetSpecialValueFor("slow_duration"),
 																			   SlowPct = self:GetSpecialValueFor("slow_amount")})
@@ -490,6 +522,10 @@ function tigerstrikewrapper(TPM)
 			else 
 				damage = damage * (self:GetSpecialValueFor("damage_penalty") / 100 )
 			end
+		end
+
+		if caster.bIsMartialArtsImproved then
+			ApplyMarkOfFatality(caster, target, false)
 		end
 
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
@@ -557,6 +593,10 @@ function tigerstrikewrapper(TPM)
 				caster:FindAbilityByName('lishuwen_tiger_strike_berserk'):EndCooldown()
 				caster:FindAbilityByName('lishuwen_tiger_strike_berserk'):StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))
 			end
+		end
+
+		if caster.bIsMartialArtsImproved then
+			ApplyMarkOfFatality(caster, target, false)
 		end
 
 		if caster.bIsFuriousChainAcquired then 
@@ -1177,7 +1217,7 @@ function OnNSSStart(keys)
 	if IsSpellBlocked(target) then return end
 
 	if caster.bIsMartialArtsImproved then
-		ApplyMarkOfFatality(caster, target)
+		ApplyMarkOfFatality(caster, target, false)
 	end
 	-- do damage and apply CC
 
@@ -1321,7 +1361,7 @@ function OnDragonStrike1Start(keys)
 		local endpoint = nil
 		for k,v in pairs(caster.targetTable) do
 			
-			ApplyMarkOfFatality(caster, v)
+			ApplyMarkOfFatality(caster, v, true)
 			endpoint = v:GetAbsOrigin()
 			local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, v )
 			ParticleManager:SetParticleControl( trailFx, 1, startpoint )
@@ -1496,7 +1536,7 @@ function OnDragonStrike3Start(keys)
 		if target ~= nil then
 			if IsValidEntity(target) and not target:IsNull() then
 			--print(target:GetName() .. counter)
-				ApplyMarkOfFatality(caster, target)
+				ApplyMarkOfFatality(caster, target, true)
 				DoCompositeDamage(caster, target, keys.Damage, DAMAGE_TYPE_COMPOSITE, 0, keys.ability, false)
 			end
 		end

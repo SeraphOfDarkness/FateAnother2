@@ -2433,6 +2433,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"crit_dmg"				"150"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_amp"				"5"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -2518,6 +2523,12 @@
  						}
    			        }			
 				}
+			}
+			"modifier_zhuge_spell_amp"
+			{
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Duration"		"%duration"
 			}
 		}
 	}
@@ -3223,7 +3234,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"800"
+				"radius"				"600"
 			}
 			"04"
 			{
@@ -3556,6 +3567,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"crit_dmg"				"150"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_amp"				"5"
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -3596,7 +3612,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"8"
 
 		"precache"
 		{

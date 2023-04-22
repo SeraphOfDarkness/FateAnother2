@@ -90,7 +90,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/nero_imperial_privilege"
 		"MaxLevel"						"1"
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"25"
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
@@ -558,6 +558,11 @@
 
 		"AbilitySpecial"
 		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown"				"25"
+			}
 		}
 		
 		"OnSpellStart"
@@ -602,6 +607,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"revive_health"			"100"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown"				"130"
+			}
 		}
 		
 		"OnSpellStart"
@@ -639,7 +649,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_aoe"				"150"
+				"bonus_aoe"				"100"
 			}
 			"02"
 			{
@@ -649,7 +659,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mr_reduction"					"5"
+				"mr_reduction"			"5"
 			}
 			"04"
 			{

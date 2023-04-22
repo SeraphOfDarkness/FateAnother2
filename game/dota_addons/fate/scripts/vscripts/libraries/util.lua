@@ -482,7 +482,7 @@ donotlevel = {
     "okita_sandanzuki_charge3",
     "gilles_eye_for_art_passive", 
     "iskandar_arrow_bombard", 
-    "gawain_numeral_saint",
+    --"gawain_numeral_saint",
     "gawain_blessing_of_fairy",
     "gawain_blade_of_the_devoted_light",
     "gawain_excalibur_galatine_light",
@@ -520,6 +520,7 @@ tModifierCooldown = {
     "modifier_strike_air_cooldown",
     "modifier_instinct_cooldown",
     "modifier_max_excalibur_cooldown",
+    "modifier_air_burst_cooldown",
     "modifier_hrunting_cooldown",
     "modifier_arrow_rain_cooldown",
     "modifier_retreat_root_cooldown",
@@ -1940,6 +1941,8 @@ function IsImmuneToCC(target)
     elseif target:HasModifier("modifier_bathory_berserk") then
         return true
     elseif target:HasModifier("modifier_edmond_monte_cristo") and target.IsDeterminationAcquired then
+        return true 
+    elseif target:HasModifier("modifier_gordius_wheel") and target.IsThundergodAcquired then
         return true
     elseif target:GetUnitName() == "bathory_iron_maiden" then
         return true
@@ -2085,7 +2088,7 @@ function CalculateDamagePreReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 --hUnit:GetMagicalArmorValue()
 		return fDamage * (1 + fMagicRes)
 	end
 	
@@ -2100,7 +2103,7 @@ function CalculateDamagePostReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 --hUnit:GetMagicalArmorValue()
 		return fDamage * (1 - fMagicRes)
 	end
 	
@@ -2273,7 +2276,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
    -- if target == nil then return end 
     local IsAbsorbed = false
     local IsBScrollIgnored = false
-    local MR = target:GetMagicalArmorValue() 
+    local MR = target:GetBaseMagicalResistanceValue()/100 --target:GetMagicalArmorValue() 
     dmg_flag = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
 
     if target:GetName() == "npc_dota_ward_base" or target:GetUnitName() == "ward_familiar" or target:GetUnitName() == "sentry_familiar" then
@@ -2354,6 +2357,17 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if IsProjectileParry(target) then 
             dmg = 0 
         end
+    end
+
+    if source:HasModifier("modifier_zhuge_spell_amp") then 
+        local spell_amp = source:GetModifierStackCount("modifier_zhuge_spell_amp", nil) / 100
+        dmg = dmg * (1 + spell_amp)
+    end
+
+    if target:HasModifier("modifier_mark_of_fatality") and source.bIsMartialArtsImproved then 
+        local fatal_stack = target:GetModifierStackCount("modifier_mark_of_fatality", source)
+        local bonus_fatal = source:GetAbilityByIndex(3):GetSpecialValueFor("bonus_dmg") / 100
+        dmg = dmg * (1 + (fatal_stack * bonus_fatal))
     end
 
     if dmg_type == DAMAGE_TYPE_MAGICAL then
@@ -2442,7 +2456,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR 
         end 
         local originalDamage = dmg - target.ZhugeShield * 1/(1-reduction)
         target.ZhugeShield = target.ZhugeShield - dmg * (1-reduction)
@@ -2464,7 +2478,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR
         end 
         local originalDamage = dmg - target.rhoShieldAmount * 1/(1-reduction)
         target.rhoShieldAmount = target.rhoShieldAmount - dmg * (1-reduction)
@@ -2490,7 +2504,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue()
+            reduction = MR
         end
         local originalDamage = dmg - target.CurseShieldAmount * 1/(1-reduction)
         target.CurseShieldAmount = target.CurseShieldAmount - dmg * (1-reduction)
@@ -2512,7 +2526,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR
         end 
         local originalDamage = dmg - target.argosShieldAmount * 1/(1-reduction)
         target.argosShieldAmount = target.argosShieldAmount - dmg * (1-reduction)
@@ -2559,7 +2573,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR
         end 
         local originalDamage = dmg - target.argosShieldAmount * 1/(1-reduction)
         target.argosShieldAmount = target.argosShieldAmount - dmg * (1-reduction)
@@ -2579,7 +2593,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR 
         end 
         local originalDamage = dmg - target.SemiShieldAmount * 1/(1-reduction)
         target.SemiShieldAmount = target.SemiShieldAmount - dmg * (1-reduction)
@@ -2601,7 +2615,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR 
         end 
         local originalDamage = dmg - target.SeiganShield * 1/(1-reduction)
         target.SeiganShield = target.SeiganShield - dmg * (1-reduction)
@@ -2623,7 +2637,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = MR
         end 
         if source:HasModifier("modifier_edmond_vengeance") then 
             dmg = dmg * 0.5 
@@ -2644,7 +2658,6 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if target:GetName() == "npc_dota_hero_sven" and target.IsBlessingOfFairyAcquired and not target:HasModifier("modifier_blessing_of_fairy_cooldown") and dmg_type == DAMAGE_TYPE_MAGICAL then
         local fairy = target:FindAbilityByName("lancelot_blessing_of_fairy")
         local health_threshold = fairy:GetSpecialValueFor("damage_threshold")
-        local MR = target:GetMagicalArmorValue() 
         --print('lancelot MR = ' .. MR)
         local dmg_deal = dmg * (1-MR) 
         if target:HasModifier("modifier_double_edge_damage_amp") then 
@@ -3931,7 +3944,7 @@ function GenerateAbilitiesData(hTarget)
     hTarget.DSkill = hTarget:GetAbilityByIndex(3):GetAbilityName()
     hTarget.FSkill = hTarget:GetAbilityByIndex(4):GetAbilityName()
     hTarget.RSkill = hTarget:GetAbilityByIndex(5):GetAbilityName()
-    --hTarget.ComboSkill = GetUnitKV(hTarget:GetUnitName(), "Combo")
+    hTarget.ComboSkill = GetUnitKV(hTarget:GetUnitName(), "Combo")
 end
 
 function IsKnockbackImmune(hTarget)

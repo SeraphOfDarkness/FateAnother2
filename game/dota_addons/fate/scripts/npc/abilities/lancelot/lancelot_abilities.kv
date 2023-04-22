@@ -27,7 +27,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dmg_block"			"50"
+				"dmg_block"			"35"
 			}
 		}
 		
@@ -110,7 +110,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dmg_block"			"50"
+				"dmg_block"			"35"
 			}
 			"08"
 			{
@@ -220,7 +220,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"			"3.5"
+				"duration"			"3"
 			}
 		}
 		
@@ -559,6 +559,10 @@
 				"Duration"			"%duration"
 				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1_END"
 				"AnimationPlaybackRate" 		"0.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -749,6 +753,7 @@
 				}
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%ms_debuff" 
 				}
 				"ThinkInterval"  	"%interval"
@@ -2682,7 +2687,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_aspd"			"250"
+				"max_aspd"			"300"
 			}
 			"02"
 			{
@@ -2702,7 +2707,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_aspd"				"50 80 110 140 170"
+				"base_aspd"				"100 130 160 190 220"
 			}
 			"06"
 			{
@@ -3681,7 +3686,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"150"
+		"AbilityCooldown"				"180"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3781,7 +3786,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"150.0"
+		"AbilityCooldown"				"180.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3979,7 +3984,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"magic_immune_duration"				"3.5"
+				"magic_immune_duration"				"3"
 			}
 			"01"
 			{
@@ -4131,6 +4136,11 @@
 
 		"AbilitySpecial"
 		{
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_aspd"			"50"
+			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"

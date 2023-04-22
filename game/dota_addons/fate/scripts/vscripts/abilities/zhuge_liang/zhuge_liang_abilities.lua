@@ -720,7 +720,7 @@ function OnAmbushBreak(keys)
 	local caster = keys.caster 
 	local source = keys.attacker
 	local target = keys.unit 
-	source:RemoveModifierByName("modifier_zhuge_liang_ambush")
+	target:RemoveModifierByName("modifier_zhuge_liang_ambush")
 end
 
 function OnAmbushAttack(keys)
@@ -752,7 +752,11 @@ function OnOffenseStart(keys)
 
 	caster.IsCommandUse = true
 
-	if not caster.IsLetterAcquired then
+	if caster.IsLetterAcquired then
+		local spell_amp = ability:GetSpecialValueFor("spell_amp")
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_zhuge_spell_amp", {})
+		target:SetModifierStackCount("modifier_zhuge_spell_amp", caster, spell_amp)
+	else
 		caster:RemoveModifierByName("modifier_zhuge_liang_war_command_check")
 	end
 end

@@ -66,6 +66,7 @@ function modifier_atalanta_curse:IsHidden() return false end
 function modifier_atalanta_curse:IsDebuff() return true end
 function modifier_atalanta_curse:DeclareFunctions()
 	return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+			MODIFIER_EVENT_ON_TAKEDAMAGE,
 			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION}
 end
 

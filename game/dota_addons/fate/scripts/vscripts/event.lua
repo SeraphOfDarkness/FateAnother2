@@ -198,6 +198,23 @@ function FateEvent:RegistEvent(EventID, EventType, EventContents)
 				end
 			end)
 		end]]
+	elseif EventType == 6 then  -- same hero event
+		ServerTables:CreateTable("SameHero", {samehero = true})
+		--ServerTables:CreateTable("Event" .. EventContents.EventID, {})
+		print('same hero enable')
+		local event = {
+			EventName = EventContents.EventName,
+			EventType = EventContents.EventType,
+			EventID = EventContents.EventID,
+			StartDate = EventContents.StartDate,
+			EndDate = EventContents.EndDate,
+			EventDetail = EventContents.EventDetail
+		}
+		ServerTables:CreateTable("Event" .. EventContents.EventID, event)
+		--[[local skin = ServerTables:GetAllTableValues("EventPadoru")
+		for a,b in pairs(skin) do 
+			print(a,b)
+		end]]
 	end
 end
 

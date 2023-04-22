@@ -467,15 +467,17 @@
 	{
 	    "BaseClass"						    "ability_datadriven"
 	    "MaxLevel"						    "5"
-	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	    "AbilityTextureName"			 	"windrunner_powershot"
 	    "AbilityCastAnimation"      		"ACT_DOTA_ATTACK"
 	    "AbilityUnitDamageType"    			"DAMAGE_TYPE_MAGICAL"
-	    "AbilityCastPoint"				 	"0"
-	    "AbilityCastRange"					"0"
-	    "AbilityCooldown"				   	"0"
-	    "AbilityManaCost"				   	"10"
+	    "AbilityCastPoint"				 	"0.3"
+	    "AbilityCastRange"					"990 1030 1070 1110 1150"
+	    "AbilityCooldown"				   	"6"
+	    "AbilityManaCost"				   	"50"
 	    "LevelsBetweenUpgrades"		 		"1"
+	    "AbilityCharges"					"3"
+		"AbilityChargeRestoreTime"			"2"
 
 	    "precache"
 	    {
@@ -505,31 +507,36 @@
 		        "var_type"				  	"FIELD_INTEGER"
 		        "mana_cost"					"10"
 		    }
-		    //"03"
-		    //{
-		    //    "var_type"				  	"FIELD_INTEGER"
-		        //"width"						"120"
-		    //}
-		    //"04"
-		    //{
-		    //    "var_type"					"FIELD_FLOAT"
-		        //"base_cast"					"0.3"
-		    //}
-		   // "04"
-		    //{
-		    //    "var_type"					"FIELD_FLOAT"
-		        //"min_cast"					"0.1"
-		    //}
-		    //"05"
-		    //{
-		    //    "var_type"					"FIELD_FLOAT"
-		        //"cast_reduction"			"0.66"
-		    //}
-		    //"08"
-		    //{
-		    //    "var_type"            		"FIELD_INTEGER"
-		        //"damage"              		"100"
-		    //}
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "distance"					"990 1030 1070 1110 1150"
+		    }
+		    "03"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "width"						"120"
+		    }
+		    "04"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "base_cast"					"0.3"
+		    }
+		    "04"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "min_cast"					"0.1"
+		    }
+		    "05"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "cast_reduction"			"0.66"
+		    }
+		    "08"
+		    {
+		        "var_type"            		"FIELD_INTEGER"
+		        "shot_damage"              	"100"
+		    }
 		    //"11"
 		    //{
 		    //    "var_type"                    "FIELD_FLOAT"
@@ -544,52 +551,52 @@
 	    		//"Function"		"OnCelestialArrowUpgrade"
 	    	//}
 	    //}
-	    //"OnAbilityPhaseStart"
-	    //{
-	    	//"RunScript"
-	    	//{
-	    		//"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    		//"Function"		"OnCelestialArrowCast"
-	    	//}
+	    "OnAbilityPhaseStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
+	    		"Function"		"OnCelestialArrowCast"
+	    	}
 	    	//"RunScript"
 	    	//{
 	    		//"ScriptFile"	"abilities/atalanta/atalanta_abilities"
 	    		//"Function"		"OnArrowCheck"
 	    	//}
-	    //}
-	    "OnToggleOn"
-	    {
-	    	"RunScript"
-	    	{
-	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    		"Function"		"OnCelestialArrowToggleOn"
-	    	}
 	    }
-	    "OnToggleOff"
-	    {
-	    	"RunScript"
-	    	{
-	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    		"Function"		"OnCelestialArrowToggleOff"
-	    	}
-	    }
-	    //"OnSpellStart"
+	    //"OnToggleOn"
 	    //{
 	    //	"RunScript"
 	    //	{
 	    //		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    //		"Function"		"OnCelestialArrowStart"
+	    //		"Function"		"OnCelestialArrowToggleOn"
 	    //	}
 	    //}
-	    //"OnProjectileHitUnit"
+	    //"OnToggleOff"
 	    //{
-	    //	"DeleteOnHit"	"0"
 	    //	"RunScript"
 	    //	{
 	    //		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    //		"Function"		"OnCelestialArrowHit"
-	    //	}
-	    //}
+	    //		"Function"		"OnCelestialArrowToggleOff"
+	   // 	}
+	   // }
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
+	    		"Function"		"OnCelestialArrowStart"
+	    	}
+	    }
+	    "OnProjectileHitUnit"
+	    {
+	    	"DeleteOnHit"	"0"
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
+	    		"Function"		"OnCelestialArrowHit"
+	    	}
+	    }
 	    "Modifiers"
 	    {
 	    	"modifier_celestial_arrow_buff"
@@ -597,18 +604,11 @@
 	    		"Passive"			"1"
 	    		"IsHidden"			"1"
 	    		"IsDebuff"			"0"
-	    		//"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
+	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"Properties"
 	    		{
 	    			"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%range"
 	    		}
-	    	}
-	    	"modifier_celestial_arrow_damage"
-	    	{
-	    		"Passive"			"0"
-	    		"IsHidden"			"0"
-	    		"IsDebuff"			"0"
-	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"OnAttackLanded"
 	    		{
 	    			"RunScript"
@@ -619,6 +619,22 @@
 	    			}
 	    		}
 	    	}
+	    	//"modifier_celestial_arrow_damage"
+	    	//{
+	    	//	"Passive"			"0"
+	    	//	"IsHidden"			"0"
+	    	//	"IsDebuff"			"0"
+	    	//	"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	    	//	"OnAttackLanded"
+	    	//	{
+	    	//		"RunScript"
+	    	//		{
+	    	//			"ScriptFile"	"abilities/atalanta/atalanta_abilities"
+	    	//			"Function"		"OnCelestialArrowAttack"
+	    	//			"AttackDamage"	"%attack_damage"
+	    	//		}
+	    	//	}
+	    	//}
 	    }
   	}
 
@@ -739,15 +755,17 @@
 	{
 	    "BaseClass"						    "ability_datadriven"
 	    "MaxLevel"						    "5"
-	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 	    "AbilityTextureName"			 	"windrunner_powershot"
 	    "AbilityCastAnimation"      		"ACT_DOTA_ATTACK"
 	    "AbilityUnitDamageType"    			"DAMAGE_TYPE_MAGICAL"
-	    "AbilityCastPoint"				 	"0"
-	    "AbilityCastRange"					"0"
-	    "AbilityCooldown"				   	"0"
-	    "AbilityManaCost"				   	"10"
+	    "AbilityCastPoint"				 	"0.3"
+	    "AbilityCastRange"					"990 1030 1070 1110 1150"
+	    "AbilityCooldown"				   	"6"
+	    "AbilityManaCost"				   	"50"
 	    "LevelsBetweenUpgrades"		 		"1"
+	    "AbilityCharges"					"3"
+		"AbilityChargeRestoreTime"			"2"
 
 	    "precache"
 	    {
@@ -772,33 +790,72 @@
 	        	"var_type"        			"FIELD_INTEGER"
 	        	"damage"    				"30 40 50 60 70"
 	      	}
+	      	"03"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "bonus_damage_per_atk"		"10"
+		    }
 		    "03"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
 		        "mana_cost"					"10"
 		    }
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "distance"					"990 1030 1070 1110 1150"
+		    }
 		    "03"
 		    {
 		        "var_type"				  	"FIELD_INTEGER"
-		        "bonus_damage_per_atk"		"10"
+		        "width"						"120"
 		    }
-
+		    "04"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "base_cast"					"0.3"
+		    }
+		    "04"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "min_cast"					"0.1"
+		    }
+		    "05"
+		    {
+		        "var_type"					"FIELD_FLOAT"
+		        "cast_reduction"			"0.66"
+		    }
+		    "08"
+		    {
+		        "var_type"            		"FIELD_INTEGER"
+		        "shot_damage"              	"100"
+		    }
 	    }
 
-	    "OnToggleOn"
+	    "OnAbilityPhaseStart"
 	    {
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    		"Function"		"OnCelestialArrowToggleOn"
+	    		"Function"		"OnCelestialArrowCast"
 	    	}
 	    }
-	    "OnToggleOff"
+
+	    "OnSpellStart"
 	    {
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
-	    		"Function"		"OnCelestialArrowToggleOff"
+	    		"Function"		"OnCelestialArrowStart"
+	    	}
+	    }
+	    "OnProjectileHitUnit"
+	    {
+	    	"DeleteOnHit"	"0"
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"abilities/atalanta/atalanta_abilities"
+	    		"Function"		"OnCelestialArrowHit"
 	    	}
 	    }
 
@@ -809,18 +866,11 @@
 	    		"Passive"			"1"
 	    		"IsHidden"			"1"
 	    		"IsDebuff"			"0"
-	    		//"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
+	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"Properties"
 	    		{
 	    			"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%range"
 	    		}
-	    	}
-	    	"modifier_celestial_arrow_damage"
-	    	{
-	    		"Passive"			"0"
-	    		"IsHidden"			"0"
-	    		"IsDebuff"			"0"
-	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"OnAttackLanded"
 	    		{
 	    			"RunScript"
@@ -1698,7 +1748,7 @@
 	    }
   	}
   	//=======================================
-	// Atalanta: Phoebus Catastrophe: Barrage (Big Dipper SA)
+	// Atalanta: Phoebus Catastrophe: Barrage (Hunter's Mark)
 	//=======================================
 	"atalanta_phoebus_catastrophe_barrage_upgrade"
 	{
@@ -2047,7 +2097,7 @@
 	    "AbilityUnitDamageType"       	"DAMAGE_TYPE_MAGICAL"
 	    "AOERadius"						"%arrow_aoe"
 	    "AbilityCastPoint"				"1.0"
-	    "AbilityCooldown"				"140"
+	    "AbilityCooldown"				"180"
 	    "AbilityManaCost"				"300"
 	    "AbilityCastRange"				"3000"
 
@@ -2183,11 +2233,6 @@
 		        "var_type"            		"FIELD_INTEGER"
 		        "arrow_damage_magic"              "10"
 		    }
-		    "11"
-		    {
-		        "var_type"                    "FIELD_FLOAT"
-		        "phoebus_bonus_damage_per_atk"		"30"
-		    }
 	    }
 	    "OnSpellStart"
 	    {
@@ -2212,7 +2257,7 @@
 	    
 	    "AbilityCastPoint"				"0.0"
 	    "AbilityCooldown"				"9999"
-	    "AbilityManaCost"				"13"
+	    "AbilityManaCost"				"15"
 
 	    "precache"
 	    {
@@ -2250,6 +2295,11 @@
 	        	"var_type"          "FIELD_INTEGER"
 	        	"slow_duration"     "3"
 	      	}
+	      	"11"
+		    {
+		        "var_type"                    "FIELD_FLOAT"
+		        "phoebus_bonus_damage_per_atk"		"30"
+		    }
 	    }
 	    "OnSpellStart"
 	    {

@@ -325,27 +325,27 @@ function OnWindProtectionThink(keys)
 			if stacks - 1 == 0 then 
 				caster:RemoveModifierByName("modifier_wind_protection_bonus")
 			end
-		else
+		--[[else
 			if not caster:HasModifier("modifier_wind_protection_penalty") then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_wind_protection_penalty", {})
 			end
 			local debuff_stacks = caster:GetModifierStackCount("modifier_wind_protection_penalty", caster) or 0 
-			caster:SetModifierStackCount("modifier_wind_protection_penalty", caster, math.min(max_debuff_stacks, debuff_stacks + 1) )
+			caster:SetModifierStackCount("modifier_wind_protection_penalty", caster, math.min(max_debuff_stacks, debuff_stacks + 1) )]]
 		end
 	elseif caster.bIsVisibleToEnemy == false then
-		if caster:HasModifier("modifier_wind_protection_penalty") then
+		--[[if caster:HasModifier("modifier_wind_protection_penalty") then
 			local stacks = caster:GetModifierStackCount("modifier_wind_protection_penalty", caster)
 			caster:SetModifierStackCount("modifier_wind_protection_penalty", caster, math.max(0, stacks - 1))
 			if stacks - 1 == 0 then 
 				caster:RemoveModifierByName("modifier_wind_protection_penalty")
 			end
-		else
+		else]]
 			if not caster:HasModifier("modifier_wind_protection_bonus") then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_wind_protection_bonus", {})
 			end
 			local stacks = caster:GetModifierStackCount("modifier_wind_protection_bonus", caster) or 0 
 			caster:SetModifierStackCount("modifier_wind_protection_bonus", caster, math.min(max_stacks, stacks + 1))
-		end
+		--end
 	end
 end
 
@@ -840,11 +840,8 @@ end
 function OnZabStart(keys)
 	local caster = keys.caster
 	local target = keys.target
-	local projectileSpeed = 950
-
-	if caster.IsShadowStrikeAcquired then
-		projectileSpeed = 750
-	end
+	local ability = keys.ability 
+	local projectileSpeed = ability:GetSpecialValueFor("speed")
 
 	caster:EmitSound("Hero_Nightstalker.Trickling_Fear")
 
@@ -1042,7 +1039,7 @@ function CreateDIDummy(keys, target)
 		Ability = keys.ability,
 		EffectName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf",
 		vSourceLoc = nil,
-		iMoveSpeed = 800,
+		iMoveSpeed = 1200,
 		bDrawsOnMinimap = false, 
 		bVisibleToEnemies = true,
 		bProvidesVision = false, 

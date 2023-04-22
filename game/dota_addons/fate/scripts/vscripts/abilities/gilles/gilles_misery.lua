@@ -1,4 +1,5 @@
 gilles_misery = class({})
+gilles_misery_upgrade = class({})
 modifier_gilles_misery = class({})
 
 LinkLuaModifier("modifier_gilles_misery", "abilities/gilles/gilles_misery", LUA_MODIFIER_MOTION_NONE)
@@ -7,29 +8,40 @@ LinkLuaModifier("modifier_gilles_misery", "abilities/gilles/gilles_misery", LUA_
 	return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
 end]]
 
-function gilles_misery:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
-end
+function misery_wrapper(abil)
+	function abil:GetAOERadius()
+		return self:GetSpecialValueFor("radius")
+	end
 
-function gilles_misery:IsHiddenAbilityCastable()
-	return true
-end
+	function abil:IsHiddenAbilityCastable()
+		return true
+	end
 
-function gilles_misery:OnSpellStart()
-	local hCaster = self:GetCaster()
-	local vTargetLocation = self:GetCursorPosition()
-	
-	EmitSoundOnLocationWithCaster(vTargetLocation, "Gilles_Misery_Cast", hCaster)
+	function abil:OnSpellStart()
+		local hCaster = self:GetCaster()
+		local vTargetLocation = self:GetCursorPosition()
+		local duration = self:GetSpecialValueFor("duration")
 
-	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vTargetLocation, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if hCaster.IsOuterGodAcquired then
+			local bonus_int = self:GetSpecialValueFor("bonus_int")
+			duration = duration + (bonus_int * hCaster:GetIntellect())
+		end
 		
-	for _,v in pairs(tEnemies) do
-		
-		if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
-			v:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  self:GetSpecialValueFor("duration") + 0.033})
+		EmitSoundOnLocationWithCaster(vTargetLocation, "Gilles_Misery_Cast", hCaster)
+
+		local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vTargetLocation, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			
+		for _,v in pairs(tEnemies) do
+			
+			if IsValidEntity(v) and not v:IsNull() and not v:IsMagicImmune() then
+				v:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  duration + 0.033})
+			end
 		end
 	end
 end
+
+misery_wrapper(gilles_misery)
+misery_wrapper(gilles_misery_upgrade)
 
 function modifier_gilles_misery:DeclareFunctions()
 	return { MODIFIER_EVENT_ON_TAKEDAMAGE }
