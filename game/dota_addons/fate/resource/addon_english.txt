@@ -98,14 +98,14 @@
 		"DOTA_Tooltip_modifier_divine_b"						"Divinity Servant"
 		"DOTA_Tooltip_modifier_divine_b_Description"			"+%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% Damage Reduction."
 
-		"DOTA_Tooltip_modifier_dragon_b"						"Dragon Servant"
-		"DOTA_Tooltip_modifier_dragon_b_Description"			"+%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP Regen, +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% Mana Regen"
-		
 		"DOTA_Tooltip_modifier_mvp_marker1"						"Bounty Mark" 
 		"DOTA_Tooltip_modifier_mvp_marker1_Description"			"This Hero has been mark, killing this hero will get extra reward."
 
 		"DOTA_Tooltip_modifier_mvp_marker2"						"Bounty Mark" 
 		"DOTA_Tooltip_modifier_mvp_marker2_Description"			"This Hero has been mark, killing this hero will get extra reward."
+
+		"DOTA_Tooltip_modifier_dragon_b"						"Dragon Servant"
+		"DOTA_Tooltip_modifier_dragon_b_Description"			"+%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP Regen, +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% Mana Regen"
 	
 		"DOTA_Tooltip_modifier_death_tracker"						"Deaths"
 		"DOTA_Tooltip_modifier_death_tracker_Description"			"People die if they are killed."
@@ -400,7 +400,7 @@
 		//////////////////// Special Ability /////////////////////////
 
 		"DOTA_Tooltip_Ability_saber_strike_air"				"<font color='#FFB266'>Strike Air</font>"
-		"DOTA_Tooltip_ability_saber_strike_air_description"	"After charging delay, Artoria unleashes a destructive gale dealing damage and <font color='#FF3399'>pushing back</font> all enemies in the path. \nEnemies knocked into a wall are <font color='#FF3399'>stunned</font> and take bonus damage. \n Artoria is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from Master until she finishes charging. \nDAMAGE : %base_damage% + (<font color='#58ACFA'>Caliburn</font>'s Lvl + <font color='#58ACFA'>Invisible Air</font>'s Lvl) x %bonus_damage%."
+		"DOTA_Tooltip_ability_saber_strike_air_description"	"After charging delay, Artoria unleashes a destructive gale, dealing damage based on <font color='#58ACFA'>Invisible Air</font>'s level, Artoria's <font color='#80FF00'>AGI</font> and <font color='#FFFF28'>Condensed Air</font>'s stack while <font color='#FF3399'>knocking</font> back all enemies.\nEnemies knocked into a wall takes additional damage and are <font color='#FF3399'>stunned</font> for short duration. \n Using <font color='#58ACFA'>Invisible Air</font> will grant a stack of <font color='#FFFF28'>Condensed Air</font>. \n Artoria is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from Master until she finishes charging. \n STRIKE AIR DAMAGE: %base_damage% + (<font color='#58ACFA'>Invisible Air</font>'s LVL x %bonus_damage%) + (AGI x bonus_agi) + (Stack x %bonus_stack%)"
 		"DOTA_Tooltip_ability_saber_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
 		"DOTA_Tooltip_ability_saber_strike_air_length"		"RANGE:"
 		"DOTA_Tooltip_ability_saber_strike_air_cast_time"		"CHARGE DELAY:"
@@ -457,7 +457,8 @@
 		"DOTA_Tooltip_Ability_saber_attribute_everdistant_utopia_regen" "HEALTH REGENERATION: "
 
 		"DOTA_Tooltip_Ability_saber_attribute_strike_air"				"<font color='#9FFFCC'>Strike Air</font>"
-		"DOTA_Tooltip_ability_saber_attribute_strike_air_Description"	"Enables <font color='#FFB266'>Strike Air</font> and <font color='#FFB266'>Strike Air-Upstream</font>.\n<font color='#FFB266'>Strike Air</font>: Artoria unleashes a destructive gale from her sword, dealing %base_damage% damage plus %bonus_damage% per level of <font color='#58ACFA'>Invisible Air</font> and <font color='#58ACFA'>Caliburn</font> while <font color='#FF3399'>knocking</font> back all enemies caught within for %knock% range.\nEnemies knocked into a wall takes additional %wall_bonus_damage% damage and are <font color='#FF3399'>stunned</font> for %wall_stun% seconds. \n<font color='#FFB266'>Strike Air-Upstream : </font>Everytime <font color='#58ACFA'>Invisible Air</font> is actived, first base attack will deal bonus magic damage %base_up_damage% + (%ad_ratio% x attack damage) and <font color='#FF3399'>knocking</font> enemy into the air for %knockup_duration%s."
+		"DOTA_Tooltip_ability_saber_attribute_strike_air_Description"	"Enables <font color='#FFB266'>Strike Air</font> and <font color='#FFB266'>Strike Air-Upstream</font>.\n<font color='#FFB266'>Strike Air</font>: Artoria unleashes a destructive gale from her sword, dealing damage based on <font color='#58ACFA'>Invisible Air</font>'s level, Artoria's <font color='#80FF00'>AGI</font> and <font color='#FFFF28'>Condensed Air</font>'s stack while <font color='#FF3399'>knocking</font> back all enemies.\nEnemies knocked into a wall takes additional damage and are <font color='#FF3399'>stunned</font> for short duration. \n Using <font color='#58ACFA'>Invisible Air</font> will grant a stack of <font color='#FFFF28'>Condensed Air</font>. \n STRIKE AIR DAMAGE: %base_damage% + (Q's LVL x %bonus_damage%) + (AGI x bonus_agi) + (Stack x %bonus_stack%) \n WALL DAMAGE: %wall_bonus_damage% \n<font color='#FFB266'>Strike Air-Upstream:</font> Artoria's normal attacks consumes <font color='#FFFF28'>Condensed Air</font>'s stack and deal bonus magic damage and <font color='#FF3399'>knocking</font> enemy into the air. \n STRIKE AIR UPSTREAM DAMAGE: (%base_up_damage% x Stack) + (ATK x %ad_ratio%)"
+		"DOTA_Tooltip_Ability_saber_attribute_strike_air_max_stack"		"CONDENSCED AIR MAX STACK:"
 		//"DOTA_Tooltip_Ability_saber_attribute_strike_air_base_damage"		"BASE DAMAGE:"
 		//"DOTA_Tooltip_Ability_saber_attribute_strike_air_bonus_damage"			"ATTACK DAMAGE RATIO:"
 		//"DOTA_Tooltip_Ability_saber_attribute_strike_air_knock"			"KNOCKUP DURATION:"
@@ -484,7 +485,7 @@
 		"DOTA_Tooltip_saber_strike_air_anim_vfx"                                          "Saber Strike Air Anim Vfx"
 		"DOTA_Tooltip_saber_strike_air_anim_vfx_Description"                              ""
 
-		"DOTA_Tooltip_modifier_strike_air_upstream_ready"                                 "Strike Air Upstream Ready"
+		"DOTA_Tooltip_modifier_strike_air_upstream_ready"                                 "Condensed Air"
 		"DOTA_Tooltip_modifier_strike_air_upstream_ready_Description"                     ""
 
 		///////////////// Debuff /////////////////////////
@@ -932,7 +933,7 @@
 		/////////////////////// Basic ////////////////////////////////
 		
 		"DOTA_Tooltip_Ability_saber_alter_derange"			"<font color='#58ACFA'>Derange</font>"
-		"DOTA_Tooltip_ability_saber_alter_derange_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed and attack damage while her normal attack reduces target's armor. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Mana Blast</font>"
+		"DOTA_Tooltip_ability_saber_alter_derange_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed and attack damage while her normal attack reduces target's armor. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Mana Blast and Improve Mana Shroud</font>"
 		"DOTA_Tooltip_ability_saber_alter_derange_Lore"	"Succumb to darkness."
 		"DOTA_Tooltip_ability_saber_alter_derange_duration"			"DERANGE DURATION:"
 		"DOTA_Tooltip_ability_saber_alter_derange_aspd_modifier"	"%BONUS ATTACK SPEED:"
@@ -940,8 +941,31 @@
 		"DOTA_Tooltip_ability_saber_alter_derange_dmg_modifier"		"%BONUS ATTACK:"
 		"DOTA_Tooltip_ability_saber_alter_derange_armor_reduction"	"ARMOR REDUCTION:"
 
+		"DOTA_Tooltip_Ability_saber_alter_derange_shroud"			"<font color='#9FFFCC'>Derange</font>"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed, magic resistance and attack damage while her normal attack reduces target's armor. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Mana Blast</font>"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_Lore"	"Succumb to darkness."
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_duration"			"DERANGE DURATION:"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_aspd_modifier"	"%BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_mspd_modifier"	"%BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_dmg_modifier"		"%BONUS ATTACK:"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_bonus_mr"			"%BONUS MAGIC RESIST:"
+		"DOTA_Tooltip_ability_saber_alter_derange_shroud_armor_reduction"	"ARMOR REDUCTION:"
+
+		"DOTA_Tooltip_Ability_saber_alter_derange_burst"			"<font color='#9FFFCC'>Derange</font>"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration and <font color='#FFFF28'>Mana Catalysts</font>'s stacks. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed and attack damage while her normal attack reduces target's armor. \n<font color='#FFFF28'>Mana Catalysts</font>: Increase Artoria's movespeed.  \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Mana Shroud</font>"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_Lore"	"Succumb to darkness."
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_duration"	"DERANGE DURATION:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_aspd_modifier"	"%BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_mspd_modifier"	"%BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_dmg_modifier"		"%BONUS ATTACK:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_armor_reduction"	"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_min_charge"	"MIN MANA CATALYST GAIN:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_max_charge"		"MAX MANA CATALYST GAIN:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_maximum_charges"	"MAX MANA CATALYST STACKS:"
+		"DOTA_Tooltip_ability_saber_alter_derange_burst_bonus_ms"	"BONUS MOVESPEED PER MANA CATALYST:"
+
 		"DOTA_Tooltip_Ability_saber_alter_derange_upgrade"			"<font color='#9FFFCC'>Derange</font>"
-		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration and <font color='#FFFF28'>Mana Catalysts</font>'s stacks. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed and attack damage while her normal attack reduces target's armor. \n<font color='#FFFF28'>Mana Catalysts</font>: Increase Artoria's movespeed."
+		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_Description"	"Artoria gains <font color='#FFFF28'>Derange</font> for a duration and <font color='#FFFF28'>Mana Catalysts</font>'s stacks. \n<font color='#FFFF28'>Derange</font>: Increase Artoria's movespeed, attackspeed, magic resistance and attack damage while her normal attack reduces target's armor. \n<font color='#FFFF28'>Mana Catalysts</font>: Increase Artoria's movespeed."
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_Lore"	"Succumb to darkness."
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_duration"	"DERANGE DURATION:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_aspd_modifier"	"%BONUS ATTACK SPEED:"
@@ -949,6 +973,7 @@
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_dmg_modifier"		"%BONUS ATTACK:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_armor_reduction"	"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_min_charge"	"MIN MANA CATALYST GAIN:"
+		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_bonus_mr"			"%BONUS MAGIC RESIST:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_max_charge"		"MAX MANA CATALYST GAIN:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_maximum_charges"	"MAX MANA CATALYST STACKS:"
 		"DOTA_Tooltip_ability_saber_alter_derange_upgrade_bonus_ms"	"BONUS MOVESPEED PER MANA CATALYST:"
@@ -1030,6 +1055,17 @@
 		"DOTA_Tooltip_ability_saber_alter_excalibur_upgrade_length"	"RANGE:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_upgrade_Note0"	"Artoria is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from Master until she finishes casting."
 
+		/////////////////////////// Special //////////////////////////
+
+		"DOTA_Tooltip_Ability_saber_alter_air_burst"				"<font color='#FFB266'>Mana Burst (Slash)</font>"
+		"DOTA_Tooltip_ability_saber_alter_air_burst_description"	"Artoria unleashes a black energy, dealing damage based on Artoria's <font color='#00F7FF'>INT</font> to all enemies along the path. "
+		"DOTA_Tooltip_ability_saber_alter_air_burst_Lore"		""
+		"DOTA_Tooltip_ability_saber_alter_air_burst_cast"			"CAST TIME:"
+		"DOTA_Tooltip_ability_saber_alter_air_burst_range"			"DISTANCE:"
+		"DOTA_Tooltip_ability_saber_alter_air_burst_based_damage"	"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_air_burst_bonus_int"		"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_saber_alter_air_burst_Note0"			"Cannot be reset."
+
 		/////////////////////////// Combo /////////////////////////
 
 		"DOTA_Tooltip_Ability_saber_alter_max_mana_burst"		"<font color='#FF04EF'>Combo: Max Mana Burst</font>"
@@ -1087,14 +1123,18 @@
 		"DOTA_Tooltip_modifier_max_mana_burst_cooldown"                                   "Max Mana Burst Cooldown"
 		"DOTA_Tooltip_modifier_max_mana_burst_cooldown_Description"                       ""
 
+		"DOTA_Tooltip_modifier_air_burst_cooldown"                                   "Mana Burst (Slash) Cooldown"
+		"DOTA_Tooltip_modifier_air_burst_cooldown_Description"                       ""
+
 		///////////////////////// Special Attribute //////////////////////
 
 		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_shroud"					"<font color='#9FFFCC'>Attribute: Improve Mana Shroud</font>"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_Description"		"<font color='#FFFFFF'>Mana Shroud</font>: Increase bonus mana regen, Artoria gains bonus armor and max mana. \n<font color='#58ACFA'>Mana Burst</font>: Increase radius and grants its bonus damage based on Artoria's <font color='#00F7FF'>INT</font>."
+		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_Description"		"<font color='#FFFFFF'>Mana Shroud</font>: Increase bonus mana regen, Artoria gains bonus armor and max mana. \n<font color='#58ACFA'>Mana Burst</font>: Increase radius and grants its bonus damage based on Artoria's <font color='#00F7FF'>INT</font>. \n<font color='#58ACFA'>Derange</font>: Artoria gain bonus magic resistance."
 		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_mana"			"MANA SHROUD BONUS MANA:"
 		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_armor"		"MANA SHROUD BONUS ARMOR:"
 		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_mana_reg"		"MANA SHROUD BONUS MANA REGEN:"
 		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_radius"		"MANA BURST BONUS RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_mr"			"%DERANCE BONUS MAGIC RESIST:"
 		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_mana_burst_int_ratio"	"MANA BURST BONUS DAMAGE PER INT:"
 
 		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast"				"<font color='#9FFFCC'>Attribute: Mana Blast</font>"
@@ -1123,6 +1163,14 @@
 		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_crit_rate"		"%DARKLIGHT CRITICAL CHANCE:"
 		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_crit_damage"		"%DARKLIGHT CRITICAL DAMAGE"
 		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_excalibur_bonus_damage"		"%EXCALIBUR BONUS MAX MANA DAMAGE:"
+
+		"DOTA_Tooltip_Ability_saber_alter_attribute_air_burst"					"<font color='#9FFFCC'>Attribute: Mana Burst (Slash)</font>"
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_Description"		"Enables <font color='#FFB266'>Mana Burst (Slash)</font> while <font color='#58ACFA'>Derange</font> is being used. \n<font color='#FFB266'>Mana Burst (Slash)</font>: Artoria unleashes a black energy, dealing damage based on Artoria's <font color='#00F7FF'>INT</font> to all enemies along the path."
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_cast"			"CAST TIME:"
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_range"		"DISTANCE:"
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_based_damage"	"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_bonus_int"	"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_saber_alter_attribute_air_burst_cooldown"		"COOLDOWN:"
 		
 		//=================================================================================================================
 		//	Lancer
@@ -1377,8 +1425,9 @@
 		"DOTA_Tooltip_ability_lancer_attribute_death_flight_bonus_range"	"BONUS CAST RANGE:"
 
 		"DOTA_Tooltip_Ability_lancer_attribute_the_heartseeker"				"<font color='#9FFFCC'>Attribute: The Heartseeker</font>"
-		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_Description"	"<font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>: Increases the target's health threshold for <font color='#FF3399'>Heartbreak</font>. \n<font color='#FF04EF'>Wesen Gae Bolg</font>: Increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> and the spear will always strike its target even if Cu Chulainn is dead."
+		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_Description"	"<font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>: Reduce its cast time and increases the target's health threshold for <font color='#FF3399'>Heartbreak</font>. \n<font color='#FF04EF'>Wesen Gae Bolg</font>: Increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> and the spear will always strike its target even if Cu Chulainn is dead."
 		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_Lore"			"The heart of his opponent has already been pierced as Cu Chulainn declares. He merely thrust his opponent as an act of formality."
+		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_gb_cast"					"GAE BOLG CAST TIME REDUCTION:"
 		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_heartbreak_threshold"	"%GAE BOLG BONUS HEARTBREAK THRESHOLD:"
 		"DOTA_Tooltip_ability_lancer_attribute_the_heartseeker_combo_heartbreak"		"%WESEN GAE BOLG BONUS HEARTBREAK THRESHOLD:"
 
@@ -1629,7 +1678,8 @@
 		"DOTA_Tooltip_ability_medusa_attribute_improve_mystic_eyes_active_cooldown"	"ACTIVE COOLDOWN:"	
 
 		"DOTA_Tooltip_Ability_medusa_attribute_riding"				"<font color='#9FFFCC'>Attribute: Riding</font>"
-		"DOTA_Tooltip_ability_medusa_attribute_riding_Description"	"<font color='#58ACFA'>Bellerophon</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>. \n<font color='#FF04EF'>Bellerophon 2</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>. \n<font color='#58ACFA'>High Speed Movement</font>: At the end of dash, Medusa gains <font color='#FFFF28'>Riding</font> for short durations. \n<font color='#FFFF28'>Riding</font>: Medusa has an absolute movemnet speed that cannot be slowed down."
+		"DOTA_Tooltip_ability_medusa_attribute_riding_Description"	"Medusa gains passive movespeed. \n<font color='#58ACFA'>Bellerophon</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>. \n<font color='#FF04EF'>Bellerophon 2</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>, Medusa gains <font color='#FFFF28'>Riding</font> for short durations at the end of dash. \n<font color='#58ACFA'>High Speed Movement</font>: At the end of dash, Medusa gains <font color='#FFFF28'>Riding</font> for short durations. \n<font color='#FFFF28'>Riding</font>: Medusa has an absolute movemnet speed that cannot be slowed down."
+		"DOTA_Tooltip_ability_medusa_attribute_riding_passive_ms"		"PASSIVE MOVESPEED:"
 		"DOTA_Tooltip_ability_medusa_attribute_riding_bonus_belle_damage"	"BELLEROPHONE BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_medusa_attribute_riding_belle_damage"		"BELLEROPHONE BONUS DAMAGE PER AGI:"
 		"DOTA_Tooltip_ability_medusa_attribute_riding_bonus_belle2_damage"		"BELLEROPHONE 2 BONUS DAMAGE:"
@@ -3598,10 +3648,11 @@
         "DOTA_Tooltip_ability_lancelot_attribute_knight_of_owner_arsenal_Description"       "<font color='#58ACFA'>Level 1</font>: Enable <font color='#FFB266'>Knight of Owner (Arsenal)</font>, increases all Noble Phantasms within <font color='#58ACFA'>Knight of Owner</font>'s and <font color='#FFB266'>Knight of Owner (Arsenal)</font>'s level by 1. \n<font color='#FFB266'>Knight of Owner (Arsenal)</font>: <font color='#E5CCFF'>SPELLBOOK</font> : Allows Lancelot to execute Noble Phantasms of other Servants as his own. Can unlock up to 5 abilities as skill level increases. \n All Noble Phantasms are fixed at Level 1. \nLevel 1 : <font color='#58ACFA'>Caliburn</font> \nLevel 2 : <font color='#58ACFA'>Vajra</font> \nLevel 3 : <font color='#58ACFA'>Rosa Ichthys</font> \nLevel 4 : <font color='#58ACFA'>Brahmastra Kundala</font> \nLevel 5 : <font color='#58ACFA'>Gae Dearg</font> \n <font color='#58ACFA'>Knight of Owner</font> shared its level to <font color='#FFB266'>Knight of Owner (Arsenal)</font>. \n<font color='#58ACFA'>Level 2</font>: Increases all Noble Phantasms within <font color='#58ACFA'>Knight of Owner</font>'s level by 1 and <font color='#FFB266'>Knight of Owner (Arsenal)</font>'s level by 2. \nThis attribute may be bought up to twice. \nCannot be taken together with <font color='#9FFFCC'>Attribute: Improve Knight of Owner</font>"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"<font color='#9FFFCC'>Attribute: Knight of the Lake</font>"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"<font color='#58ACFA'>Double Edge</font>: Lancelot gains <font color='#FFFF28'>Mad Enhancement</font>. \n<font color='#FFFF28'>Mad Enhancement</font>: Lancelot becomes <font color='#FFFF28'>immune</font> to most of crowd control while <font color='#FF3399'>revoke</font> from Master. \n<font color='#58ACFA'>Arondight</font>: <font color='#FFFF28'>Arondight</font> grant double parameters and increase Lancelot's health regen and mana regen. \n Enable <font color='#FF04EF'>Combo: Arondight - Overload</font> \n <font color='#FF04EF'>Combo: Arondight - Overload : Combo Requirement : 25 all stats</font> \n<font color='#FF04EF'>Combo Sequence : R - W -> E in 3 seconds</font> \n Lancelot supercharges Arondight. then slashes down to target area, dealing physical damage based on his attack damage and <font color='#FF3399'>stunning</font> to all enemies. \n After a brief delay, charging magical enegy leak out, dealing magical damage based on his max mana. \n Arondight's slash deal magical damage to dragon's blood Servants (Artoria, Mordred, Artoria(Alter), Elizabeth Bathory) instead."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"<font color='#58ACFA'>Double Edge</font>: Increase bonus attackspeed while Lancelot gains <font color='#FFFF28'>Mad Enhancement</font>. \n<font color='#FFFF28'>Mad Enhancement</font>: Lancelot becomes <font color='#FFFF28'>immune</font> to most of crowd control while <font color='#FF3399'>revoke</font> from Master. \n<font color='#58ACFA'>Arondight</font>: <font color='#FFFF28'>Arondight</font> grant double parameters and increase Lancelot's health regen and mana regen. \n Enable <font color='#FF04EF'>Combo: Arondight - Overload</font> \n <font color='#FF04EF'>Combo: Arondight - Overload : Combo Requirement : 25 all stats</font> \n<font color='#FF04EF'>Combo Sequence : R - W -> E in 3 seconds</font> \n Lancelot supercharges Arondight. then slashes down to target area, dealing physical damage based on his attack damage and <font color='#FF3399'>stunning</font> to all enemies. \n After a brief delay, charging magical enegy leak out, dealing magical damage based on his max mana. \n Arondight's slash deal magical damage to dragon's blood Servants (Artoria, Mordred, Artoria(Alter), Elizabeth Bathory) instead."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_magic_immune_dur"		"Magic Immune Duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Note0"				"Dragon Trait servants are Artoria, Artoria Alter, Mordred."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_bonus_aspd"         	"%DOUBLE EDGE BONUS ATTACKSPEED:"
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_hp_mp_regen"         	"ARONDIGHT HEALTH/MANA REGEN:"
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_cast_delay"         	"OVERLOAD CAST DELAY:"
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_radius"         		"OVERLOAD AOE:"
@@ -4279,33 +4330,57 @@
         "DOTA_Tooltip_ability_gilles_summon_jellyfish_upgrade_Lore"  		"The nightmare corpse-city of R'lyeh…was built in measureless eons behind history by the vast, loathsome shapes that seeped down from the dark stars. There lay great Cthulhu and his hordes, hidden in green slimy vaults"
 
  		"DOTA_Tooltip_Ability_gilles_rlyeh_text_open"				"<font color='#58ACFA'>R'lyeh's Text</font>"
-        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: Opens up the spellbook of Prelati, enabling the usage of the following dark magics: \n<font color='#58ACFA'>Torment</font>: Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage over time. Target also takes bonus damage while moving. \n<font color='#58ACFA'>Smother</font>: Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage while the target will be <font color='#FF3399'>stunned</font> for a short duration. \n<font color='#58ACFA'>Hysteria</font>: Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health \n<font color='#58ACFA'>Grief</font>: Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health. \n<font color='#58ACFA'>Misery</font>: Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>."
+        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: Opens up the spellbook of Prelati, enabling the usage of the following dark magics: \n<font color='#58ACFA'>Torment</font>: Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage over time. Target also takes bonus damage while moving. \n<font color='#58ACFA'>Smother</font>: Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage while the target will be <font color='#FF3399'>stunned</font> for a short duration. \n<font color='#58ACFA'>Hysteria</font>: Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health \n<font color='#58ACFA'>Grief</font>: Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health. \n<font color='#58ACFA'>Misery</font>: Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."
         "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Lore"			"Within its pages are various forbidden ways to please an evil god."
         "DOTA_Tooltip_Ability_gilles_rlyeh_text_open_Note0"			"Each ability has their own independent cooldown and cost %mana_cost%%% mana to use."
+
+        "DOTA_Tooltip_Ability_gilles_rlyeh_text_open_upgrade"				"<font color='#9FFFCC'>R'lyeh's Text</font>"
+        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_upgrade_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: Opens up the spellbook of Prelati, enabling the usage of the following dark magics: \n<font color='#58ACFA'>Torment</font>: Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage over time. Target also takes bonus damage while moving. \n<font color='#58ACFA'>Smother</font>: Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage while the target will be <font color='#FF3399'>stunned</font> for a short duration. \n<font color='#58ACFA'>Hysteria</font>: Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health \n<font color='#58ACFA'>Grief</font>: Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health. \n<font color='#58ACFA'>Misery</font>: Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>. "
+        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_upgrade_Lore"			"Within its pages are various forbidden ways to please an evil god."
+        "DOTA_Tooltip_Ability_gilles_rlyeh_text_open_upgrade_Note0"			"Each ability has their own independent cooldown and cost %mana_cost%%% mana to use."
 
         "DOTA_Tooltip_Ability_gilles_rlyeh_text_close"				"<font color='#58ACFA'>R'lyeh's Text</font>"
         "DOTA_Tooltip_ability_gilles_rlyeh_text_close_Description"	"Close R'lyeh's Text."
         "DOTA_Tooltip_ability_gilles_rlyeh_text_close_Lore"			"And thus the outer gods claim the sanity of another."
 
         "DOTA_Tooltip_Ability_gilles_torment"     					"<font color='#58ACFA'>Torment</font>"
-        "DOTA_Tooltip_ability_gilles_torment_Description" 			"Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage over time. Target also takes bonus damage while moving."
+        "DOTA_Tooltip_ability_gilles_torment_Description" 			"Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage over time. Target also takes bonus damage while moving. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."
         "DOTA_Tooltip_ability_gilles_torment_radius"  				"AOE:"
         "DOTA_Tooltip_ability_gilles_torment_duration"  			"DURATION:"
         "DOTA_Tooltip_ability_gilles_torment_damage"  				"BASE DAMAGE:"
         "DOTA_Tooltip_ability_gilles_torment_distance_damage"  		"%BONUS DAMAGE PER DISTANCE:"
         "DOTA_Tooltip_ability_gilles_torment_Lore"  				"To run from the outer gods is to fall pray to its insanity."
 
+        "DOTA_Tooltip_Ability_gilles_torment_upgrade"     				"<font color='#9FFFCC'>Torment</font>"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_Description" 		"Applied <font color='#FF3399'>Torment Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Torment Curse</font>: Target takes damage based on Gilles's <font color='#00F7FF'>INT</font> over time. Target also takes bonus damage while moving. "
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_radius"  			"AOE:"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_duration"  		"DURATION:"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_damage"  			"BASE DAMAGE:"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_bonus_int"  		"BONUS BASE DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_distance_damage"  	"%BONUS DAMAGE PER DISTANCE:"
+        "DOTA_Tooltip_ability_gilles_torment_upgrade_Lore"  			"To run from the outer gods is to fall pray to its insanity."
+
         "DOTA_Tooltip_Ability_gilles_smother"     					"<font color='#58ACFA'>Smother</font>"
-        "DOTA_Tooltip_ability_gilles_smother_Description" 			"Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage while the target will be <font color='#FF3399'>stunned</font> for a short duration."
+        "DOTA_Tooltip_ability_gilles_smother_Description" 			"Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage while the target will be <font color='#FF3399'>stunned</font> for a short duration. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."
         "DOTA_Tooltip_ability_gilles_smother_damage"  				"BASE DAMAGE:"
         "DOTA_Tooltip_ability_gilles_smother_duration"  			"DURATION:"
         "DOTA_Tooltip_ability_gilles_smother_stun_duration"  		"STUN DURATION:"
         "DOTA_Tooltip_ability_gilles_smother_radius"  				"AOE:"
-        "DOTA_Tooltip_ability_gilles_smother_explosion_damage"  	"BONUS DAMAGE PER ABILITY USE:"
+        "DOTA_Tooltip_ability_gilles_smother_explosion_damage"  	"EXPLODE DAMAGE WHEN ABILITY USE:"
         "DOTA_Tooltip_ability_gilles_smother_Lore"  				"One should never make any sound, no matter the horror that lies in their eyes."
 
+        "DOTA_Tooltip_Ability_gilles_smother_upgrade"     					"<font color='#9FFFCC'>Smother</font>"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_Description" 			"Applied <font color='#FF3399'>Smother Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Smother Curse</font>: Target takes damage over time. If target cast an ability, all nearby enemies takes bonus damage based on Gilles's <font color='#00F7FF'>INT</font> while the target will be <font color='#FF3399'>stunned</font> for a short duration."
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_damage"  				"BASE DAMAGE:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_duration"  			"DURATION:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_stun_duration"  		"STUN DURATION:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_radius"  				"AOE:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_explosion_damage"  	"EXPLODE DAMAGE WHEN ABILITY USE:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_bonus_int"  			"BONUS EXPLODE DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_gilles_smother_upgrade_Lore"  				"One should never make any sound, no matter the horror that lies in their eyes."
+
         "DOTA_Tooltip_Ability_gilles_hysteria"     					"<font color='#58ACFA'>Hysteria</font>"
-        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health."        
+        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."        
         "DOTA_Tooltip_ability_gilles_hysteria_attack_speed"  	"%BONUS ATTACK SPEED:"
         "DOTA_Tooltip_ability_gilles_hysteria_duration"  		"DURATION:"
         "DOTA_Tooltip_ability_gilles_hysteria_stun_duration"  	"STUN DURATION:"
@@ -4313,8 +4388,18 @@
         "DOTA_Tooltip_ability_gilles_hysteria_Lore"  				"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
         "DOTA_Tooltip_ability_gilles_hysteria_Note0"  				"Cannot be used on a target already affected by Hysteria."
 
+        "DOTA_Tooltip_Ability_gilles_hysteria_upgrade"     					"<font color='#9FFFCC'>Hysteria</font>"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_Description" 			"Applied <font color='#FF3399'>Hysteria</font> to target for durations. \n<font color='#FF3399'>Hysteria</font>: Increase target's attack speed. At the end of duration, target will be <font color='#FF3399'>stunned</font> and take pure damage based on target's missing health. if target is enemy, deal bonus pure damage based on Gilles's <font color='#00F7FF'>INT</font>."        
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_attack_speed"  	"%BONUS ATTACK SPEED:"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_duration"  		"DURATION:"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_stun_duration"  	"STUN DURATION:"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_damage"  			"%BONUS DAMAGE PER MISSING HEALTH:"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_bonus_int"  		"BONUS PURE DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_Lore"  				"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
+        "DOTA_Tooltip_ability_gilles_hysteria_upgrade_Note0"  				"Cannot be used on a target already affected by Hysteria."
+
         "DOTA_Tooltip_Ability_gilles_grief"     					"<font color='#58ACFA'>Grief</font>"
-        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health."        
+        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."        
         "DOTA_Tooltip_ability_gilles_grief_damage"					"TARGET DAMAGE:"
         "DOTA_Tooltip_ability_gilles_grief_duration"  				"CURSE DURATION:"
         "DOTA_Tooltip_ability_gilles_grief_stun_duration"  			"STUN DURATION:"
@@ -4323,14 +4408,32 @@
         "DOTA_Tooltip_ability_gilles_grief_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
         "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Using this ability on the same target refreshes its delay duration."
 
+        "DOTA_Tooltip_Ability_gilles_grief_upgrade"     					"<font color='#9FFFCC'>Grief</font>"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_Description" 			"Applied <font color='#FF3399'>Grief Curse</font> to target for durations. \n<font color='#FF3399'>Grief Curse</font>: At the end of duration, target takes pure damage based on Gilles's <font color='#00F7FF'>INT</font> and <font color='#FF3399'>stun</font> while all nearby enemies take magic damage based on target's missing health and pure damage based on Gilles's <font color='#00F7FF'>INT</font>. "        
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_damage"					"TARGET DAMAGE:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_duration"  				"CURSE DURATION:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_stun_duration"  			"STUN DURATION:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_radius"  				"EXPLODE RADIUS:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_void_damage"  			"%EXPLODE DAMAGE PER MISSING HEALTH:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_bonus_void_int"  		"BONUS PURE DAMAGE PER INT:"
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
+        "DOTA_Tooltip_ability_gilles_grief_upgrade_Note0"  					"Using this ability on the same target refreshes its delay duration."
+
         "DOTA_Tooltip_Ability_gilles_misery"     					"<font color='#58ACFA'>Misery</font>"
-        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>."
+        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Outer God's Favour</font>."
         "DOTA_Tooltip_ability_gilles_misery_duration"  				"DURATION:"
         "DOTA_Tooltip_ability_gilles_misery_radius"  				"AOE:"
         "DOTA_Tooltip_ability_gilles_misery_Lore"  					"A suffering from the outer god's torment is merely the prelude to another."
+
+        "DOTA_Tooltip_Ability_gilles_misery_upgrade"     					"<font color='#9FFFCC'>Misery</font>"
+        "DOTA_Tooltip_ability_gilles_misery_upgrade_Description" 			"Applied <font color='#FF3399'>Misery Curse</font> to all enemies inside target area for durations based on Gilles's <font color='#00F7FF'>INT</font>. \n<font color='#FF3399'>Misery Curse</font>: When target takes damage, target will be <font color='#FF3399'>ministunned</font>. "
+        "DOTA_Tooltip_ability_gilles_misery_upgrade_duration"  		"DURATION:"
+        "DOTA_Tooltip_ability_gilles_misery_upgrade_bonus_int"  	"BONUS DURATION PER INT:"
+        "DOTA_Tooltip_ability_gilles_misery_upgrade_radius"  		"AOE:"
+        "DOTA_Tooltip_ability_gilles_misery_upgrade_Lore"  			"A suffering from the outer god's torment is merely the prelude to another."
  	
         "DOTA_Tooltip_Ability_gilles_cthulhu_favour"     			"<font color='#58ACFA'>Cthulu's Favour</font>"
-        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm. After a brief delay, countless tentacles sprout from within the circle, <font color='#FF3399'>ministunning</font> and dealing damage to enemies from where they sprout. \n The tentacles remain until the portal closes and will attack enemies nearby its reach. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Sunken City of R'lyeh</font>."
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm. After a brief delay, countless tentacles sprout from within the circle, <font color='#FF3399'>ministunning</font> and dealing damage to enemies from where they sprout. \n The tentacles remain until the portal closes and will attack enemies nearby its reach. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Sunken City of R'lyeh</font>. "
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_radius"			"AREA OF EFFECT:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_spawn_damage"	"SPAWN DAMAGE:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_duration"		"PORTAL DURATION:"
@@ -4507,7 +4610,7 @@
         "DOTA_Tooltip_Ability_gilles_eye_for_art_attribute_duration"		"VISION DURATION:"
  		
  		"DOTA_Tooltip_Ability_gilles_outer_god_attribute"				"<font color='#9FFFCC'>Attribute: Outer God's Favour</font>"
- 		"DOTA_Tooltip_Ability_gilles_outer_god_attribute_Description"	"<font color='#FFFFFF'>Prelati's Spellbook</font>: Increases maximum mana, mana regeneration and decrease <font color='#FF3399'>Prelati Mana Regen Block</font>'s duration."
+ 		"DOTA_Tooltip_Ability_gilles_outer_god_attribute_Description"	"<font color='#FFFFFF'>Prelati's Spellbook</font>: Increases maximum mana, mana regeneration and decrease <font color='#FF3399'>Prelati Mana Regen Block</font>'s duration. \n<font color='#58ACFA'>Torment</font>: \n<font color='#58ACFA'>Smother</font>: \n<font color='#58ACFA'>Hysteria</font>: \n<font color='#58ACFA'>Grief</font>: \n<font color='#58ACFA'>Misery</font>: Increase duration based on Gilles's <font color='#00F7FF'>INT</font>"
  		"DOTA_Tooltip_ability_gilles_outer_god_attribute_Lore"			"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."
  		"DOTA_Tooltip_ability_gilles_outer_god_attribute_regen_pct"		"%PASSIVE MANA REGEN:"
  		"DOTA_Tooltip_ability_gilles_outer_god_attribute_block_duration""MANA REGENERATION PAUSE DURATION:"
@@ -4666,7 +4769,7 @@
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Note0"		"Iskandar's movement speed may exceed 550 hard cap during duration."
 
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel_upgrade"     "<font color='#9FFFCC'>Gordius Wheel</font>"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_upgrade_Description" "Iskandar gains <font color='#FFFF28'>Gordius Wheel</font> for duration. \n<font color='#FFFF28'>Gordius Wheel</font>: Iskandar rides on battle chariot, gaining bonus movespeed every second, bonus armor and magic resistance that diminishes over duration. \n All enemies nearby takes damage based on how close they are to Iskandar every second. \n The Divine Bull trample all enemies while thunder strikes to random nearby enemy, dealing damage based on target's current health and <font color='#FF3399'>slowing</font> them. \n While Gordius Wheel persists, <font color='#58ACFA'>Army of the King</font> cannot be cast."
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_upgrade_Description" "Iskandar gains <font color='#FFFF28'>Gordius Wheel</font> for duration. \n<font color='#FFFF28'>Gordius Wheel</font>: Iskandar rides on battle chariot, gaining bonus movespeed every second, bonus armor and magic resistance that diminishes over duration while becoming <font color='#FFFF28'>immune</font> to most of crowd control. \n All enemies nearby takes damage based on how close they are to Iskandar every second. \n The Divine Bull trample all enemies while thunder strikes to random nearby enemy, dealing damage based on target's current health and <font color='#FF3399'>slowing</font> them. \n While Gordius Wheel persists, <font color='#58ACFA'>Army of the King</font> cannot be cast."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_upgrade_Lore"	"When getting in Iskandar's path of domination, one should be prepared for the mighty stomp of divine bulls."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_upgrade_cast_delay"   "CAST DELAY:"   
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_upgrade_duration"     "DURATION:"
@@ -4902,7 +5005,7 @@
         "DOTA_Tooltip_Ability_iskandar_attribute_improve_charisma_bonus_damage"		"%BONUS ATTACK DAMAGE:"
 
         "DOTA_Tooltip_Ability_iskandar_attribute_thundergods_wrath"          "<font color='#9FFFCC'>Attribute: Thundergod's Wrath</font>"
-        "DOTA_Tooltip_ability_iskandar_attribute_thundergods_wrath_Description"       "<font color='#58ACFA'>Gordius Wheel</font>: Stomps all nearby enemies, dealing physical damage while thunder strikes to random enemy, <font color='#FF3399'>slowing</font> and dealing magic damage based on target's current health."
+        "DOTA_Tooltip_ability_iskandar_attribute_thundergods_wrath_Description"       "<font color='#58ACFA'>Gordius Wheel</font>: Iskandar becomes <font color='#FFFF28'>immune</font> to most of crowd control while stomping all nearby enemies, dealing physical damage while thunder strikes to random enemy, <font color='#FF3399'>slowing</font> and dealing magic damage based on target's current health."
         "DOTA_Tooltip_Ability_iskandar_attribute_thundergods_wrath_damage"          "STOMP DAMAGE:"
         "DOTA_Tooltip_Ability_iskandar_attribute_thundergods_wrath_radius"          "STOMP RADIUS:"
         "DOTA_Tooltip_Ability_iskandar_attribute_thundergods_wrath_thunder_damage"  "%THUNDER DAMAGE:"
@@ -5150,16 +5253,19 @@
         "DOTA_Tooltip_Ability_nero_attribute_aestus_estus_rosa_slow_dur"	"ROSA SLOW DURATION:"
 
         "DOTA_Tooltip_Ability_nero_attribute_improve_imperial_privilege"          "<font color='#9FFFCC'>Attribute: Improve Imperial Privilege</font>"
-        "DOTA_Tooltip_ability_nero_attribute_improve_imperial_privilege_Description"       "Empowers the effect of innate abilities inside <font color='#FFFFFF'>Imperial Privilege</font>. \n<font color='#FFFFFF'>Eternal Arms Mastership</font>: increase parry damage based on her <font color='#FF0000'>STR</font> and Nero's basic attacks have chance to deal critical strikes. \n<font color='#FFFFFF'>Golden Rule</font>: Increases income per second and hero kill bounty. \n<font color='#FFFFFF'>Martial Arts</font>: Increase search radius. \n<font color='#FFFFFF'>Mind's Eye</font>: Increase damage per <font color='#80FF00'>AGI</font>. \n<font color='#FFFFFF'>Clairvoyance</font>: Increase sight radius and can detect <font color='#FFFF28'>invisible</font> units. "    
+        "DOTA_Tooltip_ability_nero_attribute_improve_imperial_privilege_Description"       "Empowers the effect of innate abilities inside <font color='#FFFFFF'>Imperial Privilege</font> while reducing its cooldown. \n<font color='#FFFFFF'>Eternal Arms Mastership</font>: increase parry damage based on her <font color='#FF0000'>STR</font> and Nero's basic attacks have chance to deal critical strikes. \n<font color='#FFFFFF'>Golden Rule</font>: Increases income per second and hero kill bounty. \n<font color='#FFFFFF'>Martial Arts</font>: Increase search radius. \n<font color='#FFFFFF'>Mind's Eye</font>: Increase damage per <font color='#80FF00'>AGI</font>. \n<font color='#FFFFFF'>Clairvoyance</font>: Increase sight radius and can detect <font color='#FFFF28'>invisible</font> units. " 
+        "DOTA_Tooltip_Ability_nero_attribute_improve_imperial_privilege_cooldown"	"NEW COOLDOWN:"   
 
         "DOTA_Tooltip_Ability_nero_attribute_invictus_spiritus"					"<font color='#9FFFCC'>Attribute: Invictus Spiritus</font>"
         "DOTA_Tooltip_ability_nero_attribute_invictus_spiritus_Description"		"Enable <font color='#FFB266'>Invictus Spiritus</font> \n<font color='#FFB266'>Invictus Spiritus</font>: <font color='#58ACFA'>PASSIVE</font>: When Nero recieve a fatal damage and Nero is not <font color='#FF3399'>revoked</font> from Master, Nero will be <font color='#FFFF28'>revived</font> after delay."  
         "DOTA_Tooltip_Ability_nero_attribute_invictus_spiritus_revive_health"	"%REVIVE HEALTH:"
         "DOTA_Tooltip_Ability_nero_attribute_invictus_spiritus_delay"		"REVIVE DELAY:"
+        "DOTA_Tooltip_Ability_nero_attribute_invictus_spiritus_cooldown"	"REVIVE COOLDOWN:"
 
         "DOTA_Tooltip_Ability_nero_attribute_soverigns_glory"				"<font color='#9FFFCC'>Attribute: Soverign's Glory</font>"
-        "DOTA_Tooltip_ability_nero_attribute_soverigns_glory_Description"	"<font color='#58ACFA'>Aestus Domus Aurea</font>: Fixed cooldown of <font color='#58ACFA'>Très Fontaine Ardent</font>, <font color='#58ACFA'>Gladiusanus Blauserum</font> and <font color='#58ACFA'>Rosa Ichthys</font>. \n Increases Aestus Domus Aurea's size and Nero gains <font color='#FFFF28'>Aestus Domus Aurea Nero</font>. \n<font color='#FFFF28'>Aestus Domus Aurea Nero</font>: Increase Nero's armor, magic resistance and movespeed."  
-        "DOTA_Tooltip_Ability_nero_attribute_soverigns_glory_cd_reduction"		"FIX COOLDOWN:"
+        "DOTA_Tooltip_ability_nero_attribute_soverigns_glory_Description"	"<font color='#58ACFA'>Aestus Domus Aurea</font>: Fixed cooldown of <font color='#58ACFA'>Très Fontaine Ardent</font>, <font color='#58ACFA'>Gladiusanus Blauserum</font> and <font color='#58ACFA'>Rosa Ichthys</font>. \n Increases Aestus Domus Aurea's size and <font color='#FF3399'>Aestus Domus Aurea</font> debuff while Nero gaining <font color='#FFFF28'>Aestus Domus Aurea Nero</font>. \n<font color='#FFFF28'>Aestus Domus Aurea Nero</font>: Increase Nero's armor, magic resistance and movespeed."  
+        "DOTA_Tooltip_Ability_nero_attribute_soverigns_glory_cd_reduction"		"FIX COOLDOWN:" 
+        "DOTA_Tooltip_Ability_nero_attribute_soverigns_glory_mr_reduction"		"%BONUS ARMOR/MR/SPEED REDUCTION:"
         "DOTA_Tooltip_Ability_nero_attribute_soverigns_glory_bonus_aoe"			"THEATRE BONUS RADIUS:"
 
 		///////////////////////// Unused /////////////////////////
@@ -5219,6 +5325,17 @@
 		"npc_dota_hero_omniknight_2"	"[Legend] Summer Gawain"
 		"npc_dota_hero_omniknight_summon"		"Servant <font color='#58ACFA'>Gawain</font> has been summoned."
 		"npc_dota_hero_omniknight_enable_combo"	"Enable Combo: The Resurrected Sword of Victory"
+
+		////////////////////////// Innate ////////////////////////////////
+
+		"DOTA_Tooltip_Ability_gawain_numeral_saint"        			"<font color='#FFFFFF'>Numeral of the Saint</font>"
+        "DOTA_Tooltip_ability_gawain_numeral_saint_Description"   	"<font color='#58ACFA'>PASSIVE</font>: Gawain gains <font color='#FFFF28'>Numeral of the Saint</font> when Artificial Sun is present. \n<font color='#FFFF28'>Numeral of the Saint</font>: Increase Gawain's <font color='#FF0000'>STR</font>, health regeneration and mana regeneration. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Numeral of the Saint</font>."
+        "DOTA_Tooltip_ability_gawain_numeral_saint_bonus_stat"   	"BONUS STR/HP REGEN/MANA REGEN:"
+
+        "DOTA_Tooltip_Ability_gawain_numeral_saint_upgrade"        			"<font color='#9FFFCC'>Numeral of the Saint</font>"
+        "DOTA_Tooltip_ability_gawain_numeral_saint_upgrade_Description"   	"<font color='#58ACFA'>PASSIVE</font>: Gawain gains <font color='#FFFF28'>Numeral of the Saint</font>. \n<font color='#FFFF28'>Numeral of the Saint</font>: Increase Gawain's <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font>, <font color='#00F7FF'>INT</font>, %bonus_stat% armor, %bonus_stat%%% magic resistance, %bonus_stat% health regeneration, %bonus_stat% mana regeneration, %bonus_stat%%% movespeed and %bonus_speed%%% attack speed. \n <font color='#FFFF28'>Numeral of the Saint</font>'s stacks increase when Artificial Sun is present."
+        "DOTA_Tooltip_ability_gawain_numeral_saint_upgrade_bonus_stat"   	"BONUS STR/AGI/INT:"
+        "DOTA_Tooltip_ability_gawain_numeral_saint_upgrade_sun_stack"   	"SUN BONUS STACKS:"
 
 		////////////////////// Basic ////////////////////////////////////
 
@@ -5448,11 +5565,6 @@
 
         //////////////////// Special Ability ////////////////////////////////////
 
-        "DOTA_Tooltip_Ability_gawain_numeral_saint"        			"<font color='#FFB266'>Numeral of the Saint</font>"
-        "DOTA_Tooltip_ability_gawain_numeral_saint_Description"   	"<font color='#58ACFA'>PASSIVE</font>: Gawain gains <font color='#FFFF28'>Numeral of the Saint</font>. \n<font color='#FFFF28'>Numeral of the Saint</font>: Increase Gawain's <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font>, <font color='#00F7FF'>INT</font>, %bonus_stat% armor, %bonus_stat%%% magic resistance, %bonus_stat% health regeneration, %bonus_stat% mana regeneration, %bonus_stat%%% movespeed and %bonus_speed%%% attack speed. \n <font color='#FFFF28'>Numeral of the Saint</font>'s stacks increase when Artificial Sun is present."
-        "DOTA_Tooltip_ability_gawain_numeral_saint_bonus_stat"   	"BONUS STR/AGI/INT:"
-        "DOTA_Tooltip_ability_gawain_numeral_saint_sun_stack"   	"SUN BONUS STACKS:"
-
         "DOTA_Tooltip_Ability_gawain_blessing_of_fairy"        				"<font color='#FFB266'>Blessing of the Fairy</font>"
         "DOTA_Tooltip_ability_gawain_blessing_of_fairy_Description"   		"<font color='#58ACFA'>PASSIVE</font>: when Gawain recieve a fatal blow or his health is below threshold, Gawain will be <font color='#FFFF28'>revived</font> and gains <font color='#FFFF28'>Blessing of the Fairy</font> for a short duration. \n<font color='#FFFF28'>Blessing of the Fairy</font>: Increase Gawain's health regeneration."
         "DOTA_Tooltip_ability_gawain_blessing_of_fairy_Note0"				"Applies a <font color='#FFFF28'>strong dispel</font> when triggered."
@@ -5565,9 +5677,9 @@
 		"DOTA_Tooltip_ability_gawain_attribute_blessing_of_fairy_regen_amount"		"BONUS HEALTH REGEN:"
 		"DOTA_Tooltip_ability_gawain_attribute_blessing_of_fairy_duration"			"REGEN DURATION:"
 
-		"DOTA_Tooltip_Ability_gawain_attribute_numeral_saint"        			"<font color='#9FFFCC'>Attribute: Numeral of the Saint</font>"
-        "DOTA_Tooltip_ability_gawain_attribute_numeral_saint_Description"   	"Enable <font color='#FFB266'>Numeral of the Saint</font> \n<font color='#FFB266'>Numeral of the Saint</font>:<font color='#58ACFA'>PASSIVE</font>: Gawain gains <font color='#FFFF28'>Numeral of the Saint</font>. \n<font color='#FFFF28'>Numeral of the Saint</font>: Increase Gawain's <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font>, <font color='#00F7FF'>INT</font>, %bonus_stat% armor, %bonus_stat%%% magic resistance, %bonus_stat% health regeneration, %bonus_stat% mana regeneration, %bonus_stat%%% movespeed and %bonus_speed%%% attack speed. \n <font color='#FFFF28'>Numeral of the Saint</font>'s stacks increase when Artificial Sun is present."
-        "DOTA_Tooltip_Ability_gawain_attribute_numeral_saint_bonus_stat"       "BONUS STR/AGI/INT"
+		"DOTA_Tooltip_Ability_gawain_attribute_numeral_saint"        			"<font color='#9FFFCC'>Attribute: Improved Numeral of the Saint</font>"
+        "DOTA_Tooltip_ability_gawain_attribute_numeral_saint_Description"   	"<font color='#FFFFFF'>Numeral of the Saint</font>: Gawain has <font color='#FFFF28'>Numeral of the Saint</font> with out Artificial Sun, <font color='#FFFF28'>Numeral of the Saint</font> also increase Gawain's <font color='#80FF00'>AGI</font>, <font color='#00F7FF'>INT</font>, %bonus_stat% armor, %bonus_stat%%% magic resistance, %bonus_stat%%% movespeed and %bonus_speed%%% attack speed. \n <font color='#FFFF28'>Numeral of the Saint</font>'s stacks increase when Artificial Sun is present."
+        "DOTA_Tooltip_Ability_gawain_attribute_numeral_saint_bonus_stat"       "BONUS AGI/INT"
         "DOTA_Tooltip_Ability_gawain_attribute_numeral_saint_sun_stack"   	"SUN BONUS STACKS:"
 
         "DOTA_Tooltip_Ability_gawain_attribute_belt"					"<font color='#9FFFCC'>Attribute: Belt of Bertilak</font>"
@@ -6285,23 +6397,26 @@
         ///////// Innate /////////////////////
 
         "DOTA_Tooltip_Ability_lishuwen_martial_arts"				"<font color='#FFFFFF'>Chinese Martial Arts</font>"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Apply <font color='#FF3399'>Mark of Fatality</font> to the enemy that casting ability near Li Shuwen. \n<font color='#58ACFA'>ACTIVE:</font> Apply <font color='#FF3399'>silence</font> and <font color='#FF3399'>Mark of Fatality</font> to the target for short duration. \n<font color='#FF3399'>Mark of Fatality</font>: Li Shuwen gains vision over the target, and Li Shuwen's normal attacks has chance deal critically strike to the target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Chinese Martial Arts</font>."
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Enemy that casting ability near Li Shuwen will get <font color='#FF3399'>Mark of Fatality</font>'s stack. \n<font color='#58ACFA'>ACTIVE:</font> Apply <font color='#FF3399'>silence</font> and <font color='#FF3399'>Mark of Fatality</font> to the target for short duration. \n<font color='#FF3399'>Mark of Fatality</font>: Li Shuwen gains vision over the target, and Li Shuwen's normal attacks has chance deal critically strike to the target. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Chinese Martial Arts</font>."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_Lore"			"Seeing is believing. Feeling is enlightment."
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_search_radius"		"PASSIVE RADIUS:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_search_radius"		"PASSIVE DETECT RADIUS:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_duration"			"MARK OF FATALITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_rate_percentage"	"%MARK OF FATALITY CRIT. RATE:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_damage"	"%MARK OF FATALITY CRIT. DAMAGE:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"ACTIVE SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade"				"<font color='#9FFFCC'>Chinese Martial Arts</font>"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_Description"	"<font color='#58ACFA'>PASSIVE:</font> Apply <font color='#FF3399'>Mark of Fatality</font> to the enemy that casting ability near Li Shuwen. \n<font color='#58ACFA'>ACTIVE:</font> Apply <font color='#FF3399'>silence</font> and <font color='#FF3399'>Mark of Fatality</font> to the target for short duration. \n<font color='#FF3399'>Mark of Fatality</font>: Li Shuwen gains vision over the target, and Li Shuwen's normal attacks has chance deal critically strike to the target. \n Li Shuwen's normal attack burn <font color='#FF3399'>No Second Strike Shocked</font> target's mana."
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_Description"	"<font color='#58ACFA'>PASSIVE:</font> Enemy that casting ability near Li Shuwen will get <font color='#FF3399'>Mark of Fatality</font>'s stack. \n<font color='#58ACFA'>Cosmic Orbit, Fierce Tiger Strike, No Second Strike</font> and <font color='#FF04EF'>Raging Dragon Strike</font> will apply <font color='#FF3399'>Mark of Fatality</font>'s stack with cooldown. \n<font color='#58ACFA'>ACTIVE:</font> Apply <font color='#FF3399'>silence</font> and <font color='#FF3399'>Mark of Fatality</font> to the target for short duration. \n<font color='#FF3399'>Mark of Fatality</font>: Li Shuwen gains vision over the target, , Li Shuwen's normal attacks has chance deal critically strike to the target. \n<font color='#58ACFA'>Cosmic Orbit, Fierce Tiger Strike, No Second Strike</font> and <font color='#FF04EF'>Raging Dragon Strike</font> deal bonus damage based on <font color='#FF3399'>Mark of Fatality</font>'s stack. \n Li Shuwen's normal attack burn <font color='#FF3399'>No Second Strike Shocked</font> target's mana."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_Lore"			"Seeing is believing. Feeling is enlightment."
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_search_radius"		"PASSIVE RADIUS:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_duration"			"MARK OF FATALITY DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_search_radius"	"PASSIVE DETECT RADIUS:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_duration"		"MARK OF FATALITY DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_active_stack"	"ACTIVE MARK OF FATALITY STACK:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_bonus_dmg"		"%BONUS DAMAGE PER MARK OF FATALITY:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_cooldown"		"PASSIVE MARK OF FATALITY COOLDOWN:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_critical_rate_percentage"	"%MARK OF FATALITY CRIT. RATE:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_bonus_crit_rate_per_stack"	"%BONUS CRIT. RATE PER STACK:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_critical_damage"	"%MARK OF FATALITY CRIT. DAMAGE:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_silence_duration"	"SILENCE DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_silence_duration"	"ACTIVE SILENCE DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_upgrade_mana_drain"	"MANA BURN PER ATTACK:"
 
         ///////// Basic /////////////////////
@@ -6567,11 +6682,14 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_mana_ratio"		"%SHOCK DAMAGE PER MANA BURN:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"<font color='#9FFFCC'>Attribute: Improve Chinese Martial Arts</font>"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"<font color='#58ACFA'>Cosmic Orbit</font>: Increased <font color='#FFFF28'>Cosmic Orbit</font>'s stacks. \n<font color='#58ACFA'>Sphere Boundary</font>: <font color='#FFFF28'>Sphere Boundary Boost</font> increase Li Shuwen's attack damage. \n<font color='#58ACFA'>No Second Strike</font>: Increase punch damage based on <font color='#FFFF28'>Cosmic Orbit</font>'s stacks. \n <font color='#58ACFA'>Chinese Martial Arts</font>: Increase searching range, <font color='#FF3399'>Mark of Fatality</font>'s duration and critical chance based on <font color='#FF3399'>Mark of Fatality</font>'s stacks. \n Li Shuwen's normal attack burns target's mana that applied with <font color='#FF3399'>No Second Strike Shock</font>."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"<font color='#58ACFA'>Cosmic Orbit</font>: Increased <font color='#FFFF28'>Cosmic Orbit</font>'s stacks. \n<font color='#58ACFA'>Sphere Boundary</font>: <font color='#FFFF28'>Sphere Boundary Boost</font> increase Li Shuwen's attack damage. \n<font color='#58ACFA'>No Second Strike</font>: Increase punch damage based on <font color='#FFFF28'>Cosmic Orbit</font>'s stacks. \n <font color='#58ACFA'>Chinese Martial Arts</font>: Increase searching range, <font color='#FF3399'>Mark of Fatality</font>'s stack and duration, critical chance based on <font color='#FF3399'>Mark of Fatality</font>'s stacks. \n<font color='#58ACFA'>Cosmic Orbit, Fierce Tiger Strike, No Second Strike</font> and <font color='#FF04EF'>Raging Dragon Strike</font> will apply <font color='#FF3399'>Mark of Fatality</font>'s stack with cooldown while dealing bonus damage based on <font color='#FF3399'>Mark of Fatality</font>'s stack. \n Li Shuwen's normal attack burns target's mana that applied with <font color='#FF3399'>No Second Strike Shock</font>."
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_cosmic_orbit_bonus_attack""COSMIC ORBIT BONUS ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_sphere_bonus_attack"		"SPHERE BOUNDARY BONUS ATTACK DAMAGE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_search"	"CHINESE MARTIAL ARTS SEARCH RANGE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_duration"	"MARK OF FATALITY DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_active"	"ACTIVE MARK OF FATALITY STACK:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_bonus_dmg"	"%BONUS DAMAGE PER MARK OF FATALITY:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_cooldown"		"PASSIVE MARK OF FATALITY COOLDOWN:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_martial_art_bonus_crit_chance"	"%MARK OF FATALITY BONUS CRIT. RATE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_mana_burn"		"MANA BURN PER ATTACK:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_qi_per_stack"	"NO SECOND STRIKE BONUS DAMAGE PER STACK:"
@@ -7680,16 +7798,25 @@
         //////////////////////////// Basic ///////////////////////////
 
         "DOTA_Tooltip_ability_atalanta_celestial_arrow"         "<font color='#58ACFA'>Celestial Arrow</font>"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_Description"  "<font color='#58ACFA'>PASSIVE:</font>: Increase Atalanta's attack range. \n<font color='#58ACFA'>TOGGLE:</font>: Atalanta's attack deal bonus magical damage. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Arrows of The Big Dipper</font>." 
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_Description"  "<font color='#58ACFA'>PASSIVE:</font>: Increase Atalanta's attack range. \n<font color='#58ACFA'>AUTO CAST:</font>: Atalanta's attack deal bonus magical damage. \n<font color='#58ACFA'>ACTIVE:</font>: Fires an single powerful shot, dealing physical equal to Atalanta's attack damage and bonus magical damage to all enemies in a straight line. \n Consume <font color='#FFFF28'>Celestial Arrow</font>'s stack will refresh its cooldown. \n While Atalanta has <font color='#FFFF28'>Tauropolos</font>, <font color='#58ACFA'>Celestial Arrow</font>'s cast time is reduced based on Atalanta's <font color='#80FF00'>AGI</font>. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Arrows of The Big Dipper</font>." 
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_range"        "PASSIVE BONUS RANGE:"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_damage"       "BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_damage"       "AUTO CAST BONUS MAGIC DAMAGE:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_mana_cost"    "AUTO CAST MANA COST:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_distance"     "POWER SHOT RANGE:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_base_cast"    "POWER SHOT MAXIMUM CAST TIME:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_min_cast"     "POWER SHOT MINIMUM CAST TIME:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_shot_damage"  "%POWER SHOT DAMAGE PER ATK:"
      
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade"   "<font color='#9FFFCC'>Celestial Arrow</font>"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_Description"   "<font color='#58ACFA'>PASSIVE:</font>: Increase Atalanta's attack range. \n<font color='#58ACFA'>TOGGLE:</font>: Atalanta's attack deal bonus magical damage based on Atalanta's attack."
-        //"DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_bonus_damage"  "BONUS ATTACK:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_Description"   "<font color='#58ACFA'>PASSIVE:</font>: Increase Atalanta's attack range. \n<font color='#58ACFA'>AUTO CAST:</font>: Atalanta's attack deal bonus magical damage based on Atalanta's attack. \n<font color='#58ACFA'>ACTIVE:</font>: Fires an single powerful shot, dealing physical equal to Atalanta's attack damage and bonus magical damage to all enemies in a straight line. \n Consume <font color='#FFFF28'>Celestial Arrow</font>'s stack will refresh its cooldown. \n While Atalanta has <font color='#FFFF28'>Tauropolos</font>, <font color='#58ACFA'>Celestial Arrow</font>'s cast time is reduced based on Atalanta's <font color='#80FF00'>AGI</font>."
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_range"         "PASSIVE BONUS RANGE:"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_damage"        "BONUS DAMAGE:"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_bonus_damage_per_atk"  "%BONUS DAMAGE PER ATTACK:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_damage"        "AUTO CAST BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_bonus_damage_per_atk"  "%AUTO CAST BONUS DAMAGE PER ATTACK:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_mana_cost"    "AUTO CAST MANA COST:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_distance"     "POWER SHOT RANGE:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_base_cast"    "POWER SHOT MAXIMUM CAST TIME:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_min_cast"     "POWER SHOT MINIMUM CAST TIME:"
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_upgrade_shot_damage"  "%POWER SHOT DAMAGE PER ATK:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt"		"<font color='#58ACFA'>Calydonian Hunt</font>"
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt_Description"			"<font color='#58ACFA'>PASSIVE:</font> Enemies wounded by Atalanta's arrows gains <font color='#FF3399'>Calydonian Hunt</font>'s stack for durations. \n<font color='#FF3399'>Calydonian Hunt</font>: When stack reach certain number, target will be <font color='#FF3399'>rooted</font> and applied <font color='#FF3399'>Calydonian Vision</font> for a short duration. \n<font color='#58ACFA'>ACTIVE:</font> Applied <font color='#FF3399'>Calydonian Vision</font> to all detectable enemy around Atalanta and removes <font color='#FF3399'>Calydonian Hunt Root Cooldown</font> to nearby enemies. \n<font color='#FF3399'>Calydonian Vision</font>: Atalanta gains vision over target. The Debuff will be removed when enemy go out of max radius or turn in to <font color='#FFFF28'>invisible</font>. \n Assassin class servant that is currently <font color='#FFFF28'>invisible</font> can not be revealed. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Hunter's Mark</font>."
@@ -7724,7 +7851,7 @@
         "DOTA_Tooltip_ability_atalanta_tauropolos_bonus_range"          "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage"                       "<font color='#58ACFA'>Phoebus Catastrophe: Barrage</font>"
-        "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage_Description"           "A barrage of arrows rains on the area after a delay. Arrows deal magic damage, apply <font color='#FF3399'>Calydonian Hunt</font> and <font color='#FF3399'>slow</font> enemies on hit while dealing shockwave damage to all enemies within target area. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Arrows of The Big Dipper</font>."
+        "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage_Description"           "A barrage of arrows rains on the area after a delay. Arrows deal magic damage, apply <font color='#FF3399'>Calydonian Hunt</font> and <font color='#FF3399'>slow</font> enemies on hit while dealing shockwave damage to all enemies within target area. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Hunter's Mark</font>."
         "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage_Lore"                  "Very well, it's the time to hunt then. This is an offering to the two Gods. Phoebus Catastrophe!"
         "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage_range"                 "CAST RANGE:"
         "DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_barrage_aoe"                   "AOE:"
@@ -7835,19 +7962,20 @@
         ///////////////////////////// Special Attribute ////////////////////////////
 
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper"					"<font color='#9FFFCC'>Attribute: Arrows Of The Big Dipper</font>"
-        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"<font color='#58ACFA'>Celestial Arrow</font>: Increase bonus damage based on Atalanta's attack damage. \n <font color='#58ACFA'>Phoebus Catastrophe: Barrage</font>: deal bonus damage based on Atalanta's attack. \n Enable <font color='#FFB266'>Arrows Of The Big Dipper</font> \n<font color='#FFB266'>Arrows Of The Big Dipper</font>: When %dipper_require_arrow%th arrows are fired, automatically fire bonus %dipper_bonus_arrow% arrows."
+        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"<font color='#58ACFA'>Celestial Arrow</font>: Increase bonus damage based on Atalanta's attack damage.  \n Enable <font color='#FFB266'>Arrows Of The Big Dipper</font> \n<font color='#FFB266'>Arrows Of The Big Dipper</font>: When %dipper_require_arrow%th arrows are fired, automatically fire bonus %dipper_bonus_arrow% arrows."
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_arrow_damage_magic"	"%CELESTIAL ARROW BONUS DAMAGE PER ATK:"
-        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_phoebus_bonus_damage_per_atk"	"%PHOEBUS BONUS DAMAGE PER ATK PER ARROW:"
+        
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Lore"				"Her hunt is blessed by the Goddess of Hunt herself."
 
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark"                      "<font color='#9FFFCC'>Attribute: Hunter's Mark</font>"
-        "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_Description"          "<font color='#58ACFA'>Calydonian Hunt</font>: Increases vision radius, vision duration and reduces the root cooldown and applied <font color='#FF3399'>Calydonian Slow</font> to nearby enemies."
+        "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_Description"          "<font color='#58ACFA'>Calydonian Hunt</font>: Increases vision radius, vision duration and reduces the root cooldown and applied <font color='#FF3399'>Calydonian Slow</font> to nearby enemies. \n <font color='#58ACFA'>Phoebus Catastrophe: Barrage</font>: deal bonus damage based on Atalanta's attack."
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_bonus_duration"      	"VISION BONUS DURATION:"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_bonus_vision"      	"VISION BONUS RADIUS:"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_cooldown_reduction"  	"ROOT COOLDOWN REDUCTION:"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_aoe"    	  		"SLOW RADIUS:"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_amount"    	  	"%SLOW:"
 		"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_duration"    	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_phoebus_bonus_damage_per_atk"	"%PHOEBUS BONUS DAMAGE PER ATK PER ARROW:"
 		"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_Lore"					"Servants are just humanoid boars."
 
         "DOTA_Tooltip_ability_atalanta_attribute_golden_apple"								"<font color='#9FFFCC'>Attribute: Golden Apple</font>"
@@ -12202,7 +12330,7 @@
 		"DOTA_Tooltip_ability_amakusa_twin_arm_upgrade_slow"		"%BLACKHOLE SLOW:"
 
 		"DOTA_Tooltip_Ability_amakusa_baptism"		"<font color='#FF04EF'>Combo: Kyrie Elesion</font>"
-		"DOTA_Tooltip_ability_amakusa_baptism_Description"	"<font color='#FF04EF'>Combo Requirement : 25 all stats</font> and <font color='#9FFFCC'>Attribute: Baptism Rite</font> \n<font color='#FF04EF'>Combo Sequence : E - D -> E in 3 seconds</font> \n Amakusa gains <font color='#FFFF28'>Baptism Rite</font>'s stacks for durations while enable <font color='#FFB266'>Kyrie Elesion - Chant</font>. \n<font color='#FFB266'>Kyrie Elesion - Chant</font>: Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum health and <font color='#FF3399'>slowing</font> target for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire Trait: Vlad, Elizabeth Bathory, Medusa. \n Human Trait: Chloe von Einzbern."
+		"DOTA_Tooltip_ability_amakusa_baptism_Description"	"<font color='#FF04EF'>Combo Requirement : 25 all stats</font> and <font color='#9FFFCC'>Attribute: Baptism Rite</font> \n<font color='#FF04EF'>Combo Sequence : E - D -> E in 3 seconds</font> \n Amakusa gains <font color='#FFFF28'>Baptism Rite</font>'s stacks for durations while enable <font color='#FFB266'>Kyrie Elesion - Chant</font>. \n<font color='#FFB266'>Kyrie Elesion - Chant</font>: Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum health and <font color='#FF3399'>slowing, locking and rooting</font> target based on his trait for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire Trait get slow, lock, root: Vlad, Elizabeth Bathory, Medusa. \n Human Trait get slow: Chloe von Einzbern, Zhuge Liang, Mashu. \n Other Trait get slow and lock"
 		"DOTA_Tooltip_ability_amakusa_baptism_Lore"	"" 
 		"DOTA_Tooltip_ability_amakusa_baptism_duration"		"BAPTISM RITE DURATION:"
 		"DOTA_Tooltip_ability_amakusa_baptism_cooldown"		"KYRIE ELESION CHANT COOLDOWN:"
@@ -12212,10 +12340,10 @@
 		"DOTA_Tooltip_ability_amakusa_baptism_dmg_vamp"		"%KYRIE ELESION CHANT MAX HP DAMAGE TO VAMPIRE:"
 		"DOTA_Tooltip_ability_amakusa_baptism_dmg_human"	"%KYRIE ELESION CHANT MAX HP DAMAGE TO HUMAN:"
 		"DOTA_Tooltip_ability_amakusa_baptism_slow"			"%KYRIE ELESION CHANT SLOW:"
-		"DOTA_Tooltip_ability_amakusa_baptism_slow_dur"		"KYRIE ELESION CHANT SLOW DURATION:"
+		"DOTA_Tooltip_ability_amakusa_baptism_slow_dur"		"KYRIE ELESION CHANT SLOW/LOCK/ROOT DURATION:"
 
 		"DOTA_Tooltip_Ability_amakusa_baptism_chant"		"<font color='#FF04EF'>Kyrie Elesion - Chant</font>"
-		"DOTA_Tooltip_ability_amakusa_baptism_chant_Description"	"Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum health and <font color='#FF3399'>slowing</font> target for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire Trait: Vlad, Elizabeth Bathory, Medusa. \n Human Trait: Chloe von Einzbern."
+		"DOTA_Tooltip_ability_amakusa_baptism_chant_Description"	"Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum health and <font color='#FF3399'>slowing, locking and rooting</font> target based on his trait for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire Trait get slow, lock, root: Vlad, Elizabeth Bathory, Medusa. \n Human Trait get slow: Chloe von Einzbern, Zhuge Liang, Mashu. \n Other Trait get slow and lock"
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_Lore"	"" 
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_range"			"CAST RANGE:"
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_max_mark"		"TOTAL STACKS:"
@@ -12223,7 +12351,7 @@
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_dmg_vamp"		"%MAX HP DAMAGE TO VAMPIRE:"
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_dmg_human"		"%MAX HP DAMAGE TO HUMAN:"
 		"DOTA_Tooltip_ability_amakusa_baptism_chant_slow"			"%SLOW:"
-		"DOTA_Tooltip_ability_amakusa_baptism_chant_slow_dur"		"SLOW DURATION:"
+		"DOTA_Tooltip_ability_amakusa_baptism_chant_slow_dur"		"SLOW/LOCK/ROOT DURATION:"
 
 		////////////////////// Buff /////////////////////
 
@@ -12304,7 +12432,7 @@
 		"DOTA_Tooltip_Ability_amakusa_attribute_identify_cooldown"			"PING COOLDOWN:"
 
 		"DOTA_Tooltip_Ability_amakusa_attribute_church"		"<font color='#9FFFCC'>Attribute: Baptism Rite</font>"
-		"DOTA_Tooltip_ability_amakusa_attribute_church_Description"	"<font color='#58ACFA'>Black Key: Set</font>: Increase damage based on Amakusa's <font color='#00F7FF'>INT</font>. \n<font color='#58ACFA'>Black Key: Bombard</font>: Increase damage. \n Enable <font color='#FF04EF'>Combo: Kyrie Elesion</font> \n<font color='#FF04EF'>Combo Requirement : 25 all stats</font> and <font color='#9FFFCC'>Attribute: Baptism Rite</font> \n<font color='#FF04EF'>Combo Sequence : E - D -> E in 3 seconds</font> \n Amakusa gains <font color='#FFFF28'>Baptism Rite</font>'s stacks for durations while enable <font color='#FFB266'>Kyrie Elesion - Chant</font>. \n<font color='#FFB266'>Kyrie Elesion - Chant</font>: Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum health and <font color='#FF3399'>slowing</font> target for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire Trait: Vlad, Elizabeth Bathory, Medusa. \n Human Trait: Chloe von Einzbern."
+		"DOTA_Tooltip_ability_amakusa_attribute_church_Description"	"<font color='#58ACFA'>Black Key: Set</font>: Increase damage based on Amakusa's <font color='#00F7FF'>INT</font>. \n<font color='#58ACFA'>Black Key: Bombard</font>: Increase damage. \n Enable <font color='#FF04EF'>Combo: Kyrie Elesion</font> \n<font color='#FF04EF'>Combo Requirement : 25 all stats</font> and <font color='#9FFFCC'>Attribute: Baptism Rite</font> \n<font color='#FF04EF'>Combo Sequence : E - D -> E in 3 seconds</font> \n Amakusa gains <font color='#FFFF28'>Baptism Rite</font>'s stacks for durations while enable <font color='#FFB266'>Kyrie Elesion - Chant</font>. \n<font color='#FFB266'>Kyrie Elesion - Chant</font>: Amakusa throws a Black Key with purify power, dealing pure damage based on target's maximum hp with <font color='#FF3399'>slowing, locking and rooting</font> based on target trait for a short durations. \n Using <font color='#FFB266'>Kyrie Elesion - Chant</font> will consumes <font color='#FFFF28'>Baptism Rite</font>'s stack. \n The target that being hit with all of <font color='#FFB266'>Kyrie Elesion - Chant</font> will be <font color='#FF3399'>Purify</font>. \n<font color='#FF3399'>Purify</font>: Target will be instant killed without condition. \n Vampire: Vlad, Elizabeth, Medusa. \n Human: Kuro, Zhuge Liang, Mashu."
 		"DOTA_Tooltip_ability_amakusa_attribute_church_Lore"	"" 
 		"DOTA_Tooltip_ability_amakusa_attribute_church_set_int_damage"		"SET BONUS DAMAGE PER INT:"
 		"DOTA_Tooltip_ability_amakusa_attribute_church_bombard_damage"		"BOMBARD BONUS DAMAGE:"
@@ -12316,7 +12444,7 @@
 		"DOTA_Tooltip_ability_amakusa_attribute_church_chant_dmg_vamp"		"%KYRIE ELESION CHANT MAX HP DAMAGE TO VAMPIRE:"
 		"DOTA_Tooltip_ability_amakusa_attribute_church_chant_dmg_human"		"%KYRIE ELESION CHANT MAX HP DAMAGE TO HUMAN:"
 		"DOTA_Tooltip_ability_amakusa_attribute_church_chant_slow"			"%KYRIE ELESION CHANT SLOW:"
-		"DOTA_Tooltip_ability_amakusa_attribute_church_chant_slow_dur"		"KYRIE ELESION CHANT SLOW DURATION:"
+		"DOTA_Tooltip_ability_amakusa_attribute_church_chant_slow_dur"		"KYRIE ELESION CHANT SLOW/LOCK/ROOT DURATION:"
 
 		"DOTA_Tooltip_Ability_amakusa_attribute_anti_ruler"		"<font color='#9FFFCC'>Attribute: Anti-Ruler Aptitude</font>"
 		"DOTA_Tooltip_Ability_amakusa_attribute_anti_ruler_Description"	"<font color='#58ACFA'>God's Resolution</font>: <font color='#FFFF28'>God's Resolution</font>'s light damage become pure and <font color='#FF3399'>revoked</font> target for a short duration. \n Enable <font color='#FFB266'>Anti-Ruler Aptitude</font>. \n<font color='#FFB266'>Anti-Ruler Aptitude</font>: <font color='#58ACFA'>PASSIVE</font>: Amakusa's attacks deal bonus magic damage to Ruler Class Hero. \n Ruler: Jeanne D'arc"
@@ -12780,7 +12908,7 @@
 		"DOTA_Tooltip_Ability_zhuge_liang_war_command_Note0"			""
 
 		"DOTA_Tooltip_Ability_zhuge_liang_war_command_upgrade"				"<font color='#9FFFCC'>Tactician Advice</font>"
-		"DOTA_Tooltip_ability_zhuge_liang_war_command_upgrade_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: Collection of tactics that Zhuge Liang can advice. \n<font color='#58ACFA'>Ambush</font>: Target will be <font color='#FFFF28'>invisible</font> for durations. \n<font color='#58ACFA'>Offensive Formation</font>: Increase target's attack and attack speed for durations, normal attacks also deal critical damage. \n<font color='#58ACFA'>Defensive Formation</font>: Increase armor and magic resist for durations while providing shield. \n Only one type of <font color='#FFFF28'>Tactician Advice</font> can be applied to target. \n All abilities can not apply to Zhuge Liang."
+		"DOTA_Tooltip_ability_zhuge_liang_war_command_upgrade_Description"	"<font color='#E5CCFF'>SPELLBOOK</font>: Collection of tactics that Zhuge Liang can advice. \n<font color='#58ACFA'>Ambush</font>: Target will be <font color='#FFFF28'>invisible</font> for durations. \n<font color='#58ACFA'>Offensive Formation</font>: Increase target's attack, attack speed and spell amplification for durations, normal attacks also deal critical damage. \n<font color='#58ACFA'>Defensive Formation</font>: Increase armor and magic resist for durations while providing shield. \n Only one type of <font color='#FFFF28'>Tactician Advice</font> can be applied to target. \n All abilities can not apply to Zhuge Liang."
 		"DOTA_Tooltip_Ability_zhuge_liang_war_command_upgrade_Note0"			""
 
 		"DOTA_Tooltip_Ability_zhuge_liang_ambush"				"<font color='#58ACFA'>Ambush</font>"
@@ -12805,13 +12933,14 @@
 		"DOTA_Tooltip_ability_zhuge_liang_offense_bonus_aspd"	"%BONUS ATTACKSPEED:"
 
 		"DOTA_Tooltip_Ability_zhuge_liang_offense_upgrade"				"<font color='#9FFFCC'>Offensive Formation</font>"
-		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_Description"	"Target gains <font color='#FFFF28'>Offensive Formation</font> for durations. \n<font color='#FFFF28'>Offensive Formation</font>: Increase target's attack damage and attack speed while target's normal attack has a chance to deal critical damage on base attack."
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_Description"	"Target gains <font color='#FFFF28'>Offensive Formation</font> for durations. \n<font color='#FFFF28'>Offensive Formation</font>: Increase target's attack damage, attack speed and spell amplification while target's normal attack has a chance to deal critical damage on base attack."
 		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_Lore"			""
 		"DOTA_Tooltip_Ability_zhuge_liang_offense_upgrade_duration"		"DURATION:"
 		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_bonus_atk"	"%BONUS ATTACK:"
 		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_bonus_aspd"	"%BONUS ATTACKSPEED:"
 		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_crit_rate"	"%CRITICAL RATE:"
-		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_crit_dmg"		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_crit_dmg"		"%CRITICAL DAMAGE:" 
+		"DOTA_Tooltip_ability_zhuge_liang_offense_upgrade_spell_amp"	"%SPELL AMPLIFICATION:"
 
 		"DOTA_Tooltip_Ability_zhuge_liang_defense"				"<font color='#58ACFA'>Defensive Formation</font>"
 		"DOTA_Tooltip_ability_zhuge_liang_defense_Description"	"Target gains <font color='#FFFF28'>Defensive Formation</font> for durations. \n<font color='#FFFF28'>Defensive Formation</font>: Increase target's armor and magic resist. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Chu Shi Biao</font>."
@@ -12959,7 +13088,7 @@
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_stratagems_wood_aoe"		"WOOD TRAP BONUS AOE:"
 
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_letter"		"<font color='#9FFFCC'>Attribute: Chu Shi Biao</font>"
-		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_Description"	"<font color='#58ACFA'>Tactician Advice</font>: All abilities inside spellbook are no longer shared their cooldown while improving effects of abilities inside spellbook. \n<font color='#58ACFA'>Ambush Formation</font>: Increase its duration while target's next attack applies <font color='#FF3399'>Surprise Attack</font> to enemy target. \n<font color='#FF3399'>Surprise Attack</font>: Reduce target's armor and magic resistance. \n<font color='#58ACFA'>Offensive Formation</font>: Increase bonus attack damage and attack speed while target's normal attack has a chance to deal critical damage. \n<font color='#58ACFA'>Defensive Formation</font>: Increase bonus armor and magic resistance its damage while applying <font color='#FFFF28'>Defensive Shield</font> for durations. \n<font color='#FFFF28'>Defensive Shield</font>: Absorbing certain amount of damage."
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_Description"	"<font color='#58ACFA'>Tactician Advice</font>: All abilities inside spellbook are no longer shared their cooldown while improving effects of abilities inside spellbook. \n<font color='#58ACFA'>Ambush Formation</font>: Increase its duration while target's next attack applies <font color='#FF3399'>Surprise Attack</font> to enemy target. \n<font color='#FF3399'>Surprise Attack</font>: Reduce target's armor and magic resistance. \n<font color='#58ACFA'>Offensive Formation</font>: Increase bonus attack damage, attack speed and spell amplification while target's normal attack has a chance to deal critical damage. \n<font color='#58ACFA'>Defensive Formation</font>: Increase bonus armor and magic resistance its damage while applying <font color='#FFFF28'>Defensive Shield</font> for durations. \n<font color='#FFFF28'>Defensive Shield</font>: Absorbing certain amount of damage."
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_Lore"	"" 
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_ambush_dur"			"AMBUSH BONUS DURATION:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_ambush_debuff"		"SURPRISE ATTACK ARMOR/MAGIC RESISTANCE REDUCTION:"
@@ -12967,6 +13096,7 @@
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_atk"					"%OFFENSIVE BONUS ATTACK/ATTACK SPEED:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_crit_rate"			"%OFFENSIVE CRITICAL RATE:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_crit_dmg"			"%OFFENSIVE CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_spell_amp"			"%OFFENSIVE SPELL AMPLIFICATION:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_def"					"%DEFENSIVE BONUS ARMOR/MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_shield"				"DEFENSIVE SHIELD AMOUNT:"
 		"DOTA_Tooltip_ability_zhuge_liang_attribute_letter_shield_dur"			"DEFENSIVE SHIELD DURATION:"
@@ -13569,7 +13699,7 @@
         ////////////////// INNATE ///////////////////
 
         "DOTA_Tooltip_Ability_robin_faceless_king"				"<font color='#FFFFFF'>Faceless King</font>"
-        "DOTA_Tooltip_ability_robin_faceless_king_Description"		"<font color='#58ACFA'>PASSIVE</font>: Give passive evasion also when taking damage, Robin can gain <font color='#FFFF28'>Faceless King</font> buff for durations and this ability on cooldown. \n<font color='#FFFF28'>Faceless King</font>: Robin becomes <font color='#FFFF28'>invisible</font> until next spellcast or he attacks. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Improve Faceless King</font>."
+        "DOTA_Tooltip_ability_robin_faceless_king_Description"		"<font color='#58ACFA'>PASSIVE</font>: Give passive evasion also when taking damage, Robin can gain <font color='#FFFF28'>Faceless King</font> buff for durations and this ability on cooldown. \n<font color='#FFFF28'>Faceless King</font>: Robin becomes <font color='#FFFF28'>invisible</font> until next spellcast or he attacks. \n\n<font color='#9FFFCC'>Upgradable with Attribute: No May Face King</font>."
         "DOTA_Tooltip_ability_robin_faceless_king_Lore"    			"Robin's primary weapon, ambush."
         "DOTA_Tooltip_ability_robin_faceless_king_Note0"    			"Cannot be reset."
         "DOTA_Tooltip_ability_robin_faceless_king_evasion"				"%PASSIVE EVASION:"
@@ -13755,7 +13885,7 @@
         ////////////////// Combo ///////////////////
 
         "DOTA_Tooltip_Ability_robin_combo"				"<font color='#FF04EF'>Yew Bow - Bow of Prayer</font>"
-        "DOTA_Tooltip_ability_robin_combo_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : E -> R in 5 seconds</font> .\n Robin shoots the Yew Bow, the bow of prayer to target location which then explodes dealing magical damage in an area. Growing a poisonous yew tree in the point the arrow landed, dealing more damage per second to all enemies in the area. If any enemies hit have either <font color='#FF3399'>Yew Bow poison</font> or <font color='#FF3399'>Roots of Yew Tree Slow</font> or <font color='#FF3399'>Mandrake Root Gas</font> debuffs they will cause a chain reaction of poison dealing extra magical damage in an area around them. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Taxine of Yew Tree</font>."
+        "DOTA_Tooltip_ability_robin_combo_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : E -> R in 5 seconds</font> .\n Robin shoots the Yew Bow, the bow of prayer to target location which then explodes dealing magical damage in an area. Growing a poisonous yew tree in the point the arrow landed, dealing more damage per second to all enemies in the area. \n If any enemies hit have either <font color='#FF3399'>Yew Bow poison</font> or <font color='#FF3399'>Roots of Yew Tree Slow</font> or <font color='#FF3399'>Mandrake Root Gas</font> debuffs they will cause a chain reaction of poison dealing extra magical damage in an area around them. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Taxine of Yew Tree</font>."
         "DOTA_Tooltip_ability_robin_combo_cast_delay"			"CAST DELAY:"
         "DOTA_Tooltip_ability_robin_combo_cast_range"			"CAST RANGE:"
         "DOTA_Tooltip_ability_robin_combo_damage"				"PLANT DAMAGE:"
@@ -13768,7 +13898,7 @@
         "DOTA_Tooltip_ability_robin_combo_chain_poison_radius"	"CHAIN DAMAGE AOE:"
 
         "DOTA_Tooltip_Ability_robin_combo_upgrade"				"<font color='#FF04EF'>Yew Bow - Bow of Prayer</font>"
-        "DOTA_Tooltip_ability_robin_combo_upgrade_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : E -> R in 5 seconds</font> .\n Robin shoots the Yew Bow, the bow of prayer to target location which then explodes dealing magical damage in an area. Growing a poisonous yew tree in the point the arrow landed, dealing more damage per second to all enemies in the area based on Robin's <font color='#00F7FF'>INT</font>. If any enemies hit have either <font color='#FF3399'>Yew Bow poison</font> or <font color='#FF3399'>Roots of Yew Tree Slow</font> or <font color='#FF3399'>Mandrake Root Gas</font> debuffs they will cause a chain reaction of poison dealing extra magical damage in an area around them."
+        "DOTA_Tooltip_ability_robin_combo_upgrade_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : E -> R in 5 seconds</font> .\n Robin shoots the Yew Bow, the bow of prayer to target location which then explodes dealing magical damage in an area. Growing a poisonous yew tree in the point the arrow landed, dealing more damage per second to all enemies in the area based on Robin's <font color='#00F7FF'>INT</font>. \n If any enemies hit have either <font color='#FF3399'>Yew Bow poison</font> or <font color='#FF3399'>Roots of Yew Tree Slow</font> or <font color='#FF3399'>Mandrake Root Gas</font> debuffs they will cause a chain reaction of poison dealing extra magical damage in an area around them."
         "DOTA_Tooltip_ability_robin_combo_upgrade_cast_delay"			"CAST DELAY:"
         "DOTA_Tooltip_ability_robin_combo_upgrade_cast_range"			"CAST RANGE:"
         "DOTA_Tooltip_ability_robin_combo_upgrade_damage"				"PLANT DAMAGE:"
@@ -14694,23 +14824,35 @@
 		"npc_dota_hero_ursa_hype"	""
 		"npc_dota_hero_ursa_bio"	""
 
-		"DOTA_Tooltip_Ability_atalanta_roar"	"Roar"
-		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down all the enemies in the path, damaging, pulling and cursing them."
+		"DOTA_Tooltip_Ability_atalanta_roar"	"<font color='#58ACFA'>Roar</font>"
+		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Roars loudly, slowing down all the enemies in the path, damaging, pulling and applying stacks of <font color='#FFFF28'>Curse of the Calydonian Boar</font>."
 		"DOTA_Tooltip_Ability_atalanta_roar_base_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_roar_cast_range"	"Roar cast range:"
 		"DOTA_Tooltip_Ability_atalanta_roar_distance"	"Roar distance:"
 		"DOTA_Tooltip_Ability_atalanta_roar_width"	"Roar width:"
-		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%Movespeed slow:"
-		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"Attackspeed slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%MS slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"ASPD slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_duration"	"Slow duration:"
 		//"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
+
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade"	"<font color='#9FFFCC'>Roar</font>"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_Description"	"Roars loudly, slowing down all the enemies in the path, damaging, pulling and applying stacks of <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Deals more echoing damage based on amount of enemies hit."
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_base_damage"	"Damage:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_echo_damage"	"Echo damage:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_cast_range"	"Roar cast range:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_distance"	"Roar distance:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_width"	"Roar width:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_ms_slow"	"%MS slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_as_slow"	"ASPD slow:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_duration"	"Slow duration:"
+		"DOTA_Tooltip_Ability_atalanta_roar_upgrade_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
 		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional magic damage with her attacks.\nDeals 1 additional damage per curse stack."
 		"DOTA_Tooltip_Ability_atalanta_ora_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_ora_base_damage"	"Base damage:"
-		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"Attackspeed bonus:"
+		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"ASPD bonus:"
 		"DOTA_Tooltip_Ability_atalanta_ora_attack_range_bonus"	"Attack range bonus:"
 		//"DOTA_Tooltip_Ability_atalanta_ora_base_attack_count" "Base attack count:"
 		//"DOTA_Tooltip_Ability_atalanta_ora_attack_rate"	"Attack rate:"
@@ -14732,13 +14874,23 @@
 		"DOTA_Tooltip_Ability_atalanta_jump_radius"	"Radius:"
 		"DOTA_Tooltip_Ability_atalanta_jump_curse_stacks"	"Curse stack count:"
 
-		"DOTA_Tooltip_Ability_atalanta_curse"	"Curse of the Calydonian Boar"
-		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"Passive: By attacking or by using abilities Atalanta curses her enemies for 20 seconds. Each stack of curse increases damage dealt to the target by 0.5%%, twice more if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\nActive: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
+		"DOTA_Tooltip_Ability_atalanta_curse"	"<font color='#58ACFA'>Curse of the Calydonian Boar</font>"
+		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
 		"DOTA_Tooltip_Ability_atalanta_curse_duration"	"Curse duration:"
-		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%%Damage amplify per stack:"
-		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%Damage amplify per stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"		
+		"DOTA_Tooltip_Ability_atalanta_curse_max_stack"	"Max stack:"
 
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "Tauropolos - Arrow Rain"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade"	"<font color='#9FFFCC'>Curse of the Calydonian Boar</font>"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_Description"	"<font color='#58ACFA'>PASSIVE</font>: By attacking or by using abilities Atalanta applies <font color='#FFFF28'>Curse of the Calydonian Boar</font>. Each stack of curse increases damage dealt to the target, double if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces. If a target has a certain stacks or more, Atalanta will gain vision of the target. \n<font color='#58ACFA'>ACTIVE</font>: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting.\nCannot be reset."
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_duration"	"Curse duration:"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_amplify_per_stack"	"%Damage amplify per stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_detonate_damage"	"Active damage per stack:"		
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_max_stack"	"Max stack:"
+		"DOTA_Tooltip_Ability_atalanta_curse_upgrade_vision"	"Stack for vision:"	
+
+
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "<font color='#58ACFA'>Tauropolos - Arrow Rain</font>"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_damage"	"Damage per arrow:"
@@ -14746,30 +14898,71 @@
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_explosion_radius"	"Arrow damage radius:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_curse_stacks"	"Curse stack count per arrow:"
 
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade" "<font color='#9FFFCC'>Tauropolos - Arrow Rain</font>"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_duration"	"Duration:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_damage"	"Damage per arrow:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_max_dist"	"Radius:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_explosion_radius"	"Arrow damage radius:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_upgrade_curse_stacks"	"Curse stack count per arrow:"
+
 		"DOTA_Tooltip_Ability_atalanta_skia"	"Combo - Tauropolos Skia Thermokrasia"
-		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
+		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 25 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
 		"DOTA_Tooltip_Ability_atalanta_skia_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_skia_radius"	"Radius:"
 		"DOTA_Tooltip_Ability_atalanta_skia_curse_stacks"	"Curse stack count:"
 		"DOTA_Tooltip_Ability_atalanta_skia_fly_duration"	"Fly duration:"
 
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"Attribute: Self-Evolution"
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 0.5 seconds."
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_radius"	"Crossing Arcadia stun radius:"
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"<font color='#9FFFCC'>Attribute: Self-Evolution</font>"
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta now heals herself with damages by 10% of magical damage she dealt.\n<font color='#58ACFA'>Crossing Arcadia</font>: Stun all enemies in radius for 0.5 seconds.\n <font color='#58ACFA'>Tauropolos Skia Thermocrasia</font>: Stun all enemies in radius for 0.5 seconds."
 
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"Attribute: Tornado Beast"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Atalanta's attacks pull their targets by 40 + (target Curse stacks)/2 towards Atalanta. Attack of the Beast works same.\nCrossing Arcadia pulls all enemies in bigger radius towards Atalanta and applies 5 more stacks.\nTauropolos Skia Thermocrasia pulls all enemies in radius towards Atalanta.\nRoar pulls its targets by the bonus distance equal to the Curse stacks on them and applies 5 more stacks."
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_arcadia_pull"	"Crossing Arcadia pull and pull radius:"
-		//"DOTA_Tooltip_Ability_atalanta_tornado_attribute_pull_pull"	"Hunter's Curse pull:"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_skia_pull"	"Combo pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"<font color='#9FFFCC'>Attribute: Beast of the hunt</font>"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Atalanta gains <font color='#58ACFA'>Beast of the hunt</font>.\n <font color='#58ACFA'>Beast of the hunt</font>: Atalanta's base attack pull target towards her. Increased from curse stack amount on target. \n<font color='#58ACFA'>Crossing Arcadia</font>: pulls enemies towards Atalanta and applies extra curse stacks.\n<font color='#58ACFA'>Tauropolos Skia Thermokrasia</font>: pulls enemies in radius towards Atalanta.\n<font color='#58ACFA'>Roar</font>: pulls its targets by the bonus distance equal to the Curse stacks on them and applies extra curse stacks."
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_e_pull"	"Crossing Arcadia pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_e_extra_curse"	"Crossing Arcadia bonus curse:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_q_pull"	"Roar pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_q_extra_curse"	"Roar bonus curse:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_combo_pull"	"Tauropolos Skia Thermokrasia pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_attack_pull"	"Attacks pull:"
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_attack_pull_from_curse"	"Attacks bonus pull from curse:"
 
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"Attribute: Beastly Enchancement"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
+		"DOTA_Tooltip_Ability_atalanta_passive_beast"	"<font color='#9FFFCC'> Beast of the hunt</font>"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_Description"	"\n<font color='#58ACFA'>PASSIVE</font>: Atalanta's base attack pull target towards her. Increased from curse stack amount on target. \n<font color='#58ACFA'>Crossing Arcadia</font>: pulls enemies towards Atalanta and applies extra curse stacks.\n<font color='#58ACFA'>Tauropolos Skia Thermokrasia</font>: pulls enemies in radius towards Atalanta.\n<font color='#58ACFA'>Roar</font>: pulls its targets by the bonus distance equal to the Curse stacks on them and applies extra curse stacks."
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_e_pull"	"Crossing Arcadia pull:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_e_extra_curse"	"Crossing Arcadia bonus curse:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_q_pull"	"Roar pull:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_q_extra_curse"	"Roar bonus curse:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_combo_pull"	"Tauropolos Skia Thermokrasia pull:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_attack_pull"	"Attacks pull:"
+		"DOTA_Tooltip_Ability_atalanta_passive_beast_attack_pull_from_curse"	"Attacks bonus pull from curse:"
+
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"<font color='#9FFFCC'>Attribute: Beastly Enchancement</font>"
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"<font color='#58ACFA'>Curse of the Calydonian Boar</font>: If Atalanta is alive, position each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically. Curse explosion will deal additional damage per stack. Gain bonus duration."
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_extra_curse_damage"	"Extra damage:"
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_curse_vision"	"Stack for vision:"
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_curse_bonus_duration"	"Bonus duration:"
 		
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 100 additional damage per impact."
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"<font color='#9FFFCC'>Attribute: Cursed Moon</font>"
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"<font color='#58ACFA'>Roar</font>: Deals bonus damage and applies bonus Curse stack per each unit in its radius.\n<font color='#58ACFA'>Tauropolos - Arrow Rain</font>: applies more Curse stacks per impact and deals additional damage per impact."
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_roar_damage"	"Roar bonus damage per unit:"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_curse"	"Tauropolos bonus curse stacks:"
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_bonus_damage"	"Tauropolos bonus damage per arrow:"
+
+        //====================================   MODIFIERS   ====================================
+
+		"DOTA_Tooltip_modifier_atalanta_skia_cd"															"Tauropolos Skia Thermocrasia Cooldown"
+
+		"DOTA_Tooltip_modifier_atalanta_ora"															"Attack of the beast buff"
+		"DOTA_Tooltip_modifier_atalanta_ora_Description"												"Being enraged."
+
+		"DOTA_Tooltip_modifier_atalanta_ora"															"Attack of the beast buff"
+		"DOTA_Tooltip_modifier_atalanta_ora_Description"												"Being enraged."
+
+		"DOTA_Tooltip_modifier_atalanta_curse"															"Curse of the Calydonian Boar"
+		"DOTA_Tooltip_modifier_atalanta_curse_Description"												"Taking amplified damage, might take burst damage."
+
+		"DOTA_Tooltip_modifier_roar_slow"															"Slowed from roar"
+		"DOTA_Tooltip_modifier_roar_slow_Description"												"Slowed."
 
         //====================================
         //      Idk what this is
@@ -16641,7 +16834,8 @@
 		"Fate_Ban_Mode2"			"Ban Mode has been selected. Total Ban Heroes: 2"
 		"Fate_Ban_Mode4"			"Ban Mode has been selected. Total Ban Heroes: 4"
 		"Fate_Same_Hero_Mode"		"Same Hero Mode has been selected, some hero will be disabled."
-		"Fate_Classic_Mode"			"Classic Mode has been selected"
+		"Fate_Clasic_Mode"			"Classic Mode has been selected"
+		"Fate_MVP_Mark_Start"		"<font color='#FFFF28'>Bounty Mark</font> is enable at this round."
 
 		"Fate_Autobalance"	"Start Auto Balance Team."
 		"Player_Take_Avarice1"	"Total Avarice 1. All allies get 1 Master Mana and 300 gold at the start of round!"
