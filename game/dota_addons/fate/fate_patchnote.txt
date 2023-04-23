@@ -1,4 +1,14 @@
 
+Presence Resonator start cooldown: 30 >> 7s
+Fix Artoria's Condense Air stack expired
+Fix Lubu SA4 not calculate damage
+
+Atalanta 
+-Celestial Arrow
+Active mana cost: 50 >> 10
+Max charge: 3 >> 6
+
+
      ------ Fix ----
 Fix Master SA
 Fix INT inc MR 
