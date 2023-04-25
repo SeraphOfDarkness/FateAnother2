@@ -2402,7 +2402,7 @@ function musashi_modifier_battle_continuation.prototype.OnTakeDamage(self, event
         )
         local ____opt_430 = self.Ability
         if ____opt_430 ~= nil then
-            ____opt_430:UseResources(true, false, true)
+            ____opt_430:UseResources(true, false, false, true)
         end
     end
 end

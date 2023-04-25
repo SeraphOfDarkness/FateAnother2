@@ -2136,7 +2136,7 @@ export class musashi_modifier_battle_continuation extends BaseModifier
             this.Caster.SetHealth(1);
             this.Caster.AddNewModifier(this.Caster, this.Ability, musashi_modifier_battle_continuation_active.name, {duration: BuffDuration});
             this.Caster.AddNewModifier(this.Caster, this.Ability, musashi_modifier_battle_continuation_cooldown.name, {duration: this.Ability?.GetCooldown(1)});
-            this.Ability?.UseResources(true, false, true);
+            this.Ability?.UseResources(true, false, false, true)
         }
     }
 
