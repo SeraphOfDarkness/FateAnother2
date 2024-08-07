@@ -6,6 +6,8 @@ LinkLuaModifier("modifier_a_scroll_sated", "items/modifiers/modifier_a_scroll_sa
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_resonator_cooldown", "abilities/general/modifiers/modifier_resonator_cooldown", LUA_MODIFIER_MOTION_NONE)
 
+require('abilities/fran/fran_abilities')
+
 ServantAttribute = LoadKeyValues("scripts/npc/servant_attribute.txt")
 
 SaberAttribute = {
@@ -458,6 +460,24 @@ AtlantaAlterAttribute = {
 	attrCount = 4
 }
 
+MuramasaAttribute = {
+	"muramasa_pride",
+	"muramasa_tameshi_mono",
+	"muramasa_karmic_vision",
+	"muramasa_blaze",
+	"muramasa_combo",
+	attrCount = 4
+}
+
+KiyohimeAttribute = {
+	"kiyo_sa_1",
+	"kiyo_sa_2",
+	"kiyo_sa_3",
+	"kiyo_sa_4",
+	"kiyo_combo",
+	attrCount = 4
+}
+
 ChargeBasedBuffs = {
 	"modifier_tiger_strike_tracker",
 	"modifier_vortigern_ferocity",
@@ -473,10 +493,12 @@ ChargeBuffReset = {
 	hassan_dirk_upgrade = 7,
 	nobu_dash = 3,
 	nobu_dash_upgrade = 3,
-	atalanta_celestial_arrow = 3,
-	atalanta_celestial_arrow_upgrade = 3,
+	atalanta_celestial_arrow = 5,
+	atalanta_celestial_arrow_upgrade = 5,
+	diarmuid_warriors_charge_upgrade = 2,
+	muramasa_dash = 2,
+	muramasa_dash_upgrade = 2,
 }
-
 
 function OnSeal1Start(keys)
 	local caster = keys.caster
@@ -545,6 +567,9 @@ end
 function ResetAbilities(hero)
 	-- Reset all resetable abilities
 	RemoveChargeModifiers(hero)
+	--[[if hero:GetName() == "npc_dota_hero_zuus" then 
+		AddElectricCharge({caster = hero}, 13)
+	end]]
 	for i=0, 26 do 
 		local ability = hero:GetAbilityByIndex(i)
 		if ability ~= nil then
@@ -574,7 +599,7 @@ function ResetMasterAbilities(hero)
 	masterUnit:FindAbilityByName("cmd_seal_3"):EndCooldown()
 	masterUnit:FindAbilityByName("cmd_seal_4"):EndCooldown()
 	masterUnit:FindAbilityByName("master_presence_resonator"):EndCooldown()
-	masterUnit:FindAbilityByName("master_presence_resonator"):StartCooldown(42)
+	masterUnit:FindAbilityByName("master_presence_resonator"):StartCooldown(22)
 	masterUnit:FindAbilityByName("cmd_seal_5"):EndCooldown()
 
 	--[[for i=0, 14 do
@@ -709,7 +734,7 @@ function OnSeal3Start(keys)
 
 	local particle = ParticleManager:CreateParticle("particles/items2_fx/urn_of_shadows_heal_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
 	ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin())
-	hero:ApplyHeal(hero:GetMaxHealth(), hero)
+	hero:FateHeal(hero:GetMaxHealth(), hero, false)
 
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
@@ -821,7 +846,8 @@ function OnPRStart(keys)
     if #heroTable > 0 then
     	if #heroTable == 1 then 
     		target = heroTable[1]
-	    	MinimapEvent( hero:GetTeamNumber(), hero, target:GetAbsOrigin().x, target:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_ENEMY_TELEPORTING, 2)
+    		target:AddNewModifier(hero, nil, "modifier_vision_provider", { Duration = 2 })
+	    	MinimapEvent( hero:GetTeamNumber(), hero, target:GetAbsOrigin().x, target:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_RADAR, 2)
     	else
     		local nearestHero = heroTable[1]
     		local nearestDistance = (heroTable[1]:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D()
@@ -850,7 +876,8 @@ function OnPRStart(keys)
 	    	--SpawnAttachedVisionDummy(hero, target, 100, 4, true)
 	    	--SpawnAttachedVisionDummy(target, hero, 100, 4, true)    	
 	    	target:AddNewModifier(hero, nil, "modifier_resonator_cooldown", { Duration = 5 })
-	    	MinimapEvent( hero:GetTeamNumber(), hero, target:GetAbsOrigin().x, target:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_ENEMY_TELEPORTING, 2)
+	    	target:AddNewModifier(hero, nil, "modifier_vision_provider", { Duration = 2 })
+	    	MinimapEvent( hero:GetTeamNumber(), hero, target:GetAbsOrigin().x, target:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_RADAR, 2)
     	end    	
     	local target_master_ability = target.MasterUnit:FindAbilityByName(ability:GetName())
 
@@ -859,7 +886,7 @@ function OnPRStart(keys)
     	else
     		
     	end]]
-    	target:AddNewModifier(hero, nil, "modifier_vision_provider", { Duration = 2 })
+    	
 	    --hero:AddNewModifier(target, nil, "modifier_vision_provider", { Duration = 2 })
     end
     
@@ -878,15 +905,23 @@ function AddMasterAbility(master, name)
     --local attributeTable = FindAttribute(name)
     --if attributeTable == nil then return end
     --LoopThroughAttr(master, attributeTable)
-
-    master:AddAbility(ServantAttribute[name]["SA2"])
-    master:AddAbility(ServantAttribute[name]["SA3"])
-    master:AddAbility(ServantAttribute[name]["SA4"])
-    master:AddAbility(ServantAttribute[name]["SA5"])
-    master:AddAbility(ServantAttribute[name]["SA1"])
-    master:SwapAbilities(ServantAttribute[name]["SA1"], "twin_gate_portal_warp", true, true)
-    master:AddAbility(ServantAttribute[name]["SCombo"])
-    master:SwapAbilities(ServantAttribute[name]["SCombo"], "twin_gate_portal_warp", true, true)
+    if master:GetAbilityByIndex(0) == nil then 
+    	master:AddAbility(ServantAttribute[name]["SA1"])
+    	master:AddAbility(ServantAttribute[name]["SA2"])
+	    master:AddAbility(ServantAttribute[name]["SA3"])
+	    master:AddAbility(ServantAttribute[name]["SA4"])
+	    master:AddAbility(ServantAttribute[name]["SA5"])
+	    master:AddAbility(ServantAttribute[name]["SCombo"])
+    else
+	    master:AddAbility(ServantAttribute[name]["SA2"])
+	    master:AddAbility(ServantAttribute[name]["SA3"])
+	    master:AddAbility(ServantAttribute[name]["SA4"])
+	    master:AddAbility(ServantAttribute[name]["SA5"])
+	    master:AddAbility(ServantAttribute[name]["SA1"])
+	    master:SwapAbilities(ServantAttribute[name]["SA1"], "twin_gate_portal_warp", true, true)
+	    master:AddAbility(ServantAttribute[name]["SCombo"])
+	    master:SwapAbilities(ServantAttribute[name]["SCombo"], "twin_gate_portal_warp", true, true)
+	end
     master:FindAbilityByName(ServantAttribute[name]["SCombo"]):StartCooldown(9999) 
     
     --[[local i = 0
@@ -1045,6 +1080,10 @@ function FindAttribute(name)
 		attributes = IshtarAttribute
 	elseif name == "npc_dota_hero_ursa" then
 		attributes = AtlantaAlterAttribute
+	elseif name == "npc_dota_hero_kunkka" then
+		attributes = MuramasaAttribute
+	elseif name == "npc_dota_hero_void_spirit" then
+		attributes = KiyohimeAttribute
     end
    
     return attributes
@@ -1326,6 +1365,8 @@ function OnDamageGain(keys)
 		primaryStat = hero:GetAgility()
 	elseif attr == 2 then
 		primaryStat = hero:GetIntellect()
+	else
+		primaryStat = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect()) * 0.7
 	end
 
 	hero:SetBaseDamageMax(hero:GetBaseDamageMax() - math.floor(primaryStat) + 3)
@@ -1354,17 +1395,17 @@ function OnArmorGain(keys)
 	if hero.ARMORgained == nil then
 		hero.ARMORgained = 1
 	else 
-		if hero.ARMORgained < 50 then
+		if hero.ARMORgained < 30 then
 			hero.ARMORgained = hero.ARMORgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
 	end 
 	hero.ServStat:addArmor()
 	--NotifyManaAndShard(hero)
-	local armor = hero.BaseArmor + (hero:GetAgility() * 0.04) + (hero.ARMORgained * 2.0)
+	local armor = hero.BaseArmor + (hero:GetAgility() * 0.04) + (hero.ARMORgained * 1.5)
 	hero:SetPhysicalArmorBaseValue(armor) 
 	hero:CalculateStatBonus(true)
 
@@ -1551,7 +1592,9 @@ function OnAvariceAcquired(keys)
 							elseif team == 3 then 
 								ServerTables:SetTableValue("avarice", "Dire", true, true) 
 							end
-						else]]if playerHero.AvariceCount == 4 then 
+						else]]
+					if string.match(GetMapName(), "fate_elim") then
+						if playerHero.AvariceCount == 4 then 
 							if IsManaLess(playerHero) then
 								playerHero:AddAbility("avarice_4_no_mana")
 								playerHero:FindAbilityByName("avarice_4_no_mana"):SetLevel(1)
@@ -1560,10 +1603,25 @@ function OnAvariceAcquired(keys)
 								playerHero:FindAbilityByName("avarice_4"):SetLevel(1)
 							end
 						end
-					--end
+					end
 				end
 			end
 		end
+	end
+
+	if string.match(GetMapName(), "fate_elim") then
+		local team = caster:GetTeamNumber()
+		local radiant_avarice = ServerTables:GetTableValue("avarice", "Radiant")
+		local dire_avarice = ServerTables:GetTableValue("avarice", "Dire")
+		if team == 2 then
+			radiant_avarice = radiant_avarice + 1
+		elseif team == 3 then 		
+			dire_avarice = dire_avarice + 1			
+		end
+		ServerTables:SetTableValue("avarice", "Radiant", radiant_avarice, true) 
+		ServerTables:SetTableValue("avarice", "Dire", dire_avarice, true) 
+
+		CustomGameEventManager:Send_ServerToAllClients("avarice_upgrade", {radiant_avarice = radiant_avarice, dire_avarice = dire_avarice})
 	end
 
 	CustomGameEventManager:Send_ServerToPlayer(ply, "avarice_declare", {avarice = hero.AvariceCount})
@@ -1679,7 +1737,7 @@ function OnPresenceDetectionThink(keys)
 		hasSpecialPresenceDetection = true
 	end
 
-	if GameRules:GetGameTime() < RoundStartTime + 60 then
+	if GameRules:GetGameTime() < RoundStartTime + 30 then
 		if hasSpecialPresenceDetection == false then return end 
 	end
 

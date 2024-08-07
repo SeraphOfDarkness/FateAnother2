@@ -1,5 +1,4 @@
 "CustomHeroList"
 {
-	"npc_dota_hero_oracle"			"1"
-	"npc_dota_hero_ursa"			"1"
+	"npc_dota_hero_muerta"			"1"
 }

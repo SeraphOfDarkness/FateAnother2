@@ -40,6 +40,7 @@
 	"npc_dota_hero_legion_commander_6" // Arthur Pendragon
 	{
 		"99999999999"		"1"
+		"238102534"		"1" //Rorax
 	}
 	"npc_dota_hero_spectre_1" // Casual Dress Artoria(Alter)
 	{
@@ -55,6 +56,10 @@
 		"937095899"			"1" //Ab
 		"171622143"			"1" //Mafu
 	}
+	"npc_dota_hero_spectre_3" // Summer Artoria(Alter)
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_phantom_lancer_1" // Moon Cell Cu Chulainn
 	{
 		"99999999999"		"1"
@@ -63,6 +68,20 @@
 	"npc_dota_hero_phantom_lancer_2" // Lancer Card Illya
 	{
 		"99999999999"		"1"
+	}
+	"npc_dota_hero_phantom_lancer_3" // Lancer Card Rin
+	{
+		"99999999999"		"1"
+		"116623791"			"1" // Mu
+		"39181514"			"1" // NISE
+		"206236138"			"1" //Eli
+		"194317463"			"1" //yo
+		"141743726"			"1" //Mike
+		"65177003"			"1" //Gura
+		"124254168"			"1" //
+		"919069943"			"1" //Sana
+		"129880666"			"1" //V
+		"156994691"			"1" //LiuXin
 	}
 	"npc_dota_hero_tusk_1" // Casual Mordred
 	{
@@ -80,6 +99,10 @@
 		"238102534"			"1" //RoRax
 		"767728007"			"1" //Fannie
 		"357580928"			"1" //Non Player
+	}
+	"npc_dota_hero_tusk_3" // Summer Mordred
+	{
+		"99999999999"		"1"
 	}
 	"npc_dota_hero_ember_spirit_1" // Counter Guardian Emiya
 	{
@@ -130,6 +153,15 @@
 	{
 		"99999999999"		"1"
 	}
+	"npc_dota_hero_doom_bringer_2" // Bonk Doge
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_doom_bringer_3" // [Limited] Guts
+	{
+		"99999999999"		"1"
+		"181266012"			"1"
+	}
 	"npc_dota_hero_dark_willow_1" // Sakura Okita 
 	{
 		"99999999999"		"1"
@@ -161,6 +193,10 @@
 		"131975343"			"1" //I_AM_SHADOW
 		"767728007"			"1" //Fannie
 		"863517475"			"1" //Matthew
+	}
+	"npc_dota_hero_juggernaut_1" // Pepesaki
+	{
+		"99999999999"		"1"
 	}
 	"npc_dota_hero_chen_1" // Salaryman Iskandar
 	{
@@ -199,7 +235,10 @@
 		"99999999999"		"1"
 		"171622143"			"1" //Mafu
 	}
-	
+	"npc_dota_hero_ursa_1"		// Aromor Atalanta Alter
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_templar_assassin_1" // Medusa Lily
 	{
 		"99999999999"		"1"
@@ -292,6 +331,15 @@
 		"99999999999"		"1"
 		"863517475"			"1" //Matthew
 	}
+	"npc_dota_hero_bloodseeker_3" // Old Li
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_bloodseeker_4" // Coated Old Li
+	{
+		"99999999999"		"1"
+		"238102534"			"1" // Rorax
+	}
 	"npc_dota_hero_queenofpain_1" // Schoolgirl Astolfo
 	{
 		"99999999999"		"1"
@@ -302,6 +350,14 @@
 		"767728007"			"1" //Fannie
 		"126863914"			"1" //Yui_sys
 		"67723765"			"1" //Jimmy hiphop
+	}
+	"npc_dota_hero_queenofpain_3" // sailor Astolfo
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_queenofpain_4" // summer Astolfo
+	{
+		"99999999999"		"1"
 	}
 	"npc_dota_hero_shadow_shaman_1" // Abyssal Gilles
 	{
@@ -317,6 +373,10 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_death_prophet_2" // Kilenc Elizabeth
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_death_prophet_3" // Summer Elizabeth
 	{
 		"99999999999"		"1"
 	}
@@ -352,6 +412,10 @@
 		"200974450"			"1" //CaptGuardian
 		"767728007"			"1" //Fannie
 	}
+	"npc_dota_hero_beastmaster_3" // Super Karna
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_windrunner_1" // Alice NR
 	{
 		"99999999999"		"1"
@@ -381,6 +445,10 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_axe_2" // Mecha Lu Bu
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_axe_3" // Dynasty Warrior Lu Bu
 	{
 		"99999999999"		"1"
 	}
@@ -415,6 +483,38 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_disruptor_1" // Waver Velvet
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_disruptor_2" // Koihime Koumei
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_void_spirit_1" // swimming suit kiyo
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_nyx_assassin_1" // white meltryllis
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_zuus_1" // Gladiator Fran
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_oracle_1" // Zettai Ryouiki Rin Isthar
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_sniper_1" // Capeless Robin Hood
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_sniper_2" // Casual Robin
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_sniper_3" // Ninja Robin
 	{
 		"99999999999"		"1"
 	}

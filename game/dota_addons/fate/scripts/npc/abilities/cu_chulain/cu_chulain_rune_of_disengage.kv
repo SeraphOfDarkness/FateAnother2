@@ -1,41 +1,60 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Lancer : Rune of Disengage
+	// Lancer : Disengage
 	//=================================================================================================================
-	"cu_chulain_rune_of_disengage"
+	"cu_chulain_disengage"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/cu_chulain/cu_chulain_rune_of_disengage"
 		"MaxLevel"						"5"
-		"RequiredLevel"					"25"
+		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"phantom_lancer_juxtapose"
 		
 		"AbilityCastPoint"				"0.3"
 		"AbilityManaCost"				"100"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"15 14 13 12 11"
 
 		"precache"
 		{
-			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+
 		}
-		"AbilitySpecial"
+		"AbilityValues"
+        {
+            "distance" "600 700 800 900 1000"
+        }
+	}
+	//=================================================================================================================
+	// Lancer : Disengage (Rune Magic SA)
+	//=================================================================================================================
+	"cu_chulain_disengage_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_rune_of_disengage"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"phantom_lancer_juxtapose"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityManaCost"				"100"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCooldown"				"15 14 13 12 11"
+
+		"precache"
 		{
-			"01"
-			{
-				"var_type" 		"FIELD_INTEGER"
-				"distance"		"600 700 800 900 1000"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cooldown"		"30"
-			}
+
 		}
+		"AbilityValues"
+        {
+            "distance" "600 700 800 900 1000"
+            "heal" "300 350 400 450 500"
+        }
 	}
 }

@@ -306,7 +306,7 @@ function OnBGStart(keys)
 			goto excludetarget 
 		end
 		
-		if caster.IsSealAcquired then
+		if caster.IsMysticEyeImproved then
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_upgrade", {}) 
 			if v:HasModifier("modifier_mystic_eye_enemy_active") then 
 				ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_stone", {}) 
@@ -330,6 +330,8 @@ function OnBloodfortCast( keys )
 	ParticleManager:SetParticleControl( caster.sparkFxIndex, 0, caster:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( caster.sparkFxIndex, 1, caster:GetAbsOrigin() )
 
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bloodfort_tracker", {Duration=ability:GetSpecialValueFor("delay") - 0.04})
+
 end
 
 function OnBloodfortInterrupt(keys)
@@ -342,6 +344,11 @@ end
 function OnBloodfortStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+
+	if caster:HasModifier("modifier_bloodfort_tracker") then 
+		OnBloodfortInterrupt(keys)
+		return nil 
+	end
 	
 	ParticleManager:DestroyParticle( caster.sparkFxIndex, true )
 	ParticleManager:ReleaseParticleIndex( caster.sparkFxIndex )
@@ -402,7 +409,7 @@ function OnBloodfortStart(keys)
 				ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_slow", {}) 
 			end
 
-			v:SpendMana(mp_absorb, nil)
+			v:SpendMana(mp_absorb, ability)
 				
 			caster:ApplyHeal(absorb, caster)
 			caster:GiveMana(mp_absorb)
@@ -460,7 +467,7 @@ function OnBloodfortSuck(keys)
 				ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_slow", {}) 
 			end
 
-			v:SpendMana(mp_absorb, nil)
+			v:SpendMana(mp_absorb, ability)
 			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			
 			caster:ApplyHeal(absorb, caster)
@@ -511,174 +518,6 @@ function OnBloodfortDeath(keys)
 	target:RemoveSelf()
 end
 
-function OnBelleCast(keys)
-	local caster = keys.caster
-	local ability = keys.ability 
-	local targetPoint = ability:GetCursorPosition()
-	local origin = caster:GetAbsOrigin()
-	if (origin - targetPoint):Length2D() > 3000 or not IsInSameRealm(origin, targetPoint) or GridNav:IsBlocked(targetPoint) or not GridNav:IsTraversable(targetPoint) then 
-		caster:Stop()
-		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Target_Location")
-		return
-	end
-end
-
-function OnBelleStart(keys)
-	local caster = keys.caster
-	local ability = keys.ability 
-	local targetPoint = ability:GetCursorPosition()
-	local radius = ability:GetSpecialValueFor("radius")
-	local damage = ability:GetSpecialValueFor("damage")
-	local stun_duration = ability:GetSpecialValueFor("stun_duration")
-	local origin = caster:GetAbsOrigin()
-	local initialPosition = origin
-	local ascendCount = 0
-	local descendCount = 0
-	if caster.IsRidingAcquired then 
-		local bonus_agi = ability:GetSpecialValueFor("bonus_agi")
-		damage = damage + (bonus_agi * caster:GetAgility())
-	end
-	
-	local dist = (origin - targetPoint):Length2D() 
-	--local dmgdelay = dist * 0.000416
-	local hero_pause = 1.3
-	local dmgdelay = 0.05
-	
-	-- Attach particle
-	local belleFxIndex = ParticleManager:CreateParticle( "particles/custom/rider/rider_bellerophon_1_alternate.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster )
-	ParticleManager:SetParticleControlEnt( belleFxIndex, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", origin, true )
-	ParticleManager:SetParticleControlEnt( belleFxIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", origin, true )
-	Timers:CreateTimer(hero_pause + dmgdelay, function()
-		ParticleManager:DestroyParticle( belleFxIndex, false )
-		ParticleManager:ReleaseParticleIndex( belleFxIndex )
-	end)
-	
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", hero_pause)
-	Timers:CreateTimer(0.5, function()
-		if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
-			EmitGlobalSound("Rider.Lily.Bellerophon") 
-		else
-			EmitGlobalSound("Medusa_Bellerophon") 
-		end
-		
-	end)
-
-	local descendVec = Vector(0,0,0)
-	descendVec = (targetPoint - Vector(origin.x, origin.y, 1150)):Normalized()
-	Timers:CreateTimer(function()
-		if ascendCount == 23 then return end
-		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,50))
-		ascendCount = ascendCount + 1
-		return 0.033
-	end)
-
-
-	Timers:CreateTimer(1.0, function()
-		local origin = caster:GetAbsOrigin()
-
-		if (origin - targetPoint):Length2D() > 2000 then return end
-		if descendCount == 9 then 
-			ParticleManager:DestroyParticle(caster.pegasus_particle, true)
-			ParticleManager:ReleaseParticleIndex(caster.pegasus_particle)
-			return nil
-		end
-		if descendCount == 0 then 
-			local angle = caster:GetAnglesAsVector().y
-			print('angle ' .. angle)
-			local particle_name = "particles/custom/medusa/medusa_pegasus.vpcf"
-			caster.pegasus_particle = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
-			ParticleManager:SetParticleControl(caster.pegasus_particle, 0, origin)
-			ParticleManager:SetParticleControl(caster.pegasus_particle, 1, (targetPoint - origin):Normalized() * (dist/0.3))
-			ParticleManager:SetParticleControl(caster.pegasus_particle, 5, Vector(0,0,angle + 180))
-
-		end
-
-		caster:SetAbsOrigin(Vector(origin.x + descendVec.x * dist/6 ,
-									origin.y + descendVec.y * dist/6,
-									origin.z - 127))
-		descendCount = descendCount + 1
-		return 0.033
-	end)
-
-	-- this is when Rider makes a landing 
-	Timers:CreateTimer(hero_pause, function() 
-		local origin = caster:GetAbsOrigin()
-		if (origin - targetPoint):Length2D() < 2000 then 
-			-- set unit's final position first before checking if IsInSameRealm
-			-- to allow Belle across river etc
-			-- only if it is across realms do we try to adjust position
-			caster:SetAbsOrigin(targetPoint)
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-			local currentPosition = caster:GetAbsOrigin()
-			if not IsInSameRealm(currentPosition, initialPosition) then
-				local diffVector = currentPosition - initialPosition
-				local normalisedVector = diffVector:Normalized()
-				local length = diffVector:Length2D()
-				local newPosition = currentPosition
-				while length >= 0
-					and (not IsInSameRealm(currentPosition, initialPosition)
-						or GridNav:IsBlocked(currentPosition)
-						or not GridNav:IsTraversable(currentPosition)
-					)
-				do
-					currentPosition = currentPosition - normalisedVector * 10
-					length = length - 10
-				end
-				caster:SetAbsOrigin(currentPosition)
-				FindClearSpaceForUnit(caster, currentPosition, true)
-			end
-		else
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-		end
-		caster:EmitSound("Misc.Crash")
-		giveUnitDataDrivenModifier(caster, caster, "jump_pause_postlock", dmgdelay)
-	end)
-
-	-- this is when the damage actually applies(Put slam effect here)
-	Timers:CreateTimer(hero_pause + dmgdelay, function()		
-		-- Crete particle
-		local belleImpactFxIndex = ParticleManager:CreateParticle( "particles/custom/rider/rider_bellerophon_1_impact.vpcf", PATTACH_ABSORIGIN, caster )
-		ParticleManager:SetParticleControl( belleImpactFxIndex, 0, targetPoint)
-		ParticleManager:SetParticleControl( belleImpactFxIndex, 1, Vector( radius, radius, radius ) )
-		
-		Timers:CreateTimer( 1, function()
-			ParticleManager:DestroyParticle( belleImpactFxIndex, false )
-			ParticleManager:ReleaseParticleIndex( belleImpactFxIndex )
-		end)
-
-		local max_counter = 2 
-		local interval = 0.03
-		local damage_counter = 0
-
-		Timers:CreateTimer('medusa_bell_dmg' .. caster:GetPlayerOwnerID(), {
-			endTime = interval,
-			callback = function()
-            if damage_counter >= max_counter or not caster:IsAlive() then return end
-            
-			local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			for k,v in pairs(targets) do
-
-				if not IsValidEntity(v) or string.match(v:GetName(), "ward") or v:IsNull() or not v:IsAlive() or v:IsMagicImmune() then 
-					goto excludetarget 
-				end
-
-				if not v:HasModifier("modifier_belle_hit_check") then
-					v:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
-			    	ability:ApplyDataDrivenModifier(caster, v, "modifier_belle_hit_check", {})
-			    	DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				end
-
-				::excludetarget::
-		    end
-		    damage_counter = damage_counter + 1
-
-            return interval
-        end})
-
-
-	    ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
-	end)
-end
 
 -- Particle for starting to cast belle2
 function OnBelle2Cast( keys )
@@ -691,6 +530,8 @@ function OnBelle2Cast( keys )
 
 	caster.chargeFxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_invoker/invoker_emp_charge.vpcf", PATTACH_ABSORIGIN, caster )
 	caster.eyeFxIndex = ParticleManager:CreateParticle( "particles/items_fx/dust_of_appearance_true_sight.vpcf", PATTACH_ABSORIGIN, caster )
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bellerophon_2_tracker", {Duration=ability:GetSpecialValueFor("cast_delay") - 0.04})
 end
 
 function OnBelle2Interrupt(keys)
@@ -706,6 +547,11 @@ end
 function OnBelle2Start(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+
+	if caster:HasModifier("modifier_bellerophon_2_tracker") then 
+		OnBelle2Interrupt(keys)
+		return nil 
+	end
 
 	caster:FindAbilityByName(caster.WSkill):StartCooldown(caster:FindAbilityByName(caster.WSkill):GetCooldown(caster:FindAbilityByName(caster.WSkill):GetLevel()))
 	
@@ -945,7 +791,9 @@ function OnImproveMysticEyesAcquired(keys)
 		hero.IsMysticEyeImproved = true
 
 		UpgradeAttribute(hero, 'medusa_mystic_eye', 'medusa_mystic_eye_upgrade', true)
+		UpgradeAttribute(hero, 'medusa_breaker_gorgon', 'medusa_breaker_gorgon_upgrade', true)
 		hero.FSkill = "medusa_mystic_eye_upgrade"
+		hero.ESkill = "medusa_breaker_gorgon_upgrade"
 
 		NonResetAbility(hero)
 
@@ -998,9 +846,8 @@ function OnSealAcquired(keys)
 
 		hero.IsSealAcquired = true
 
-		UpgradeAttribute(hero, 'medusa_breaker_gorgon', 'medusa_breaker_gorgon_upgrade', true)
+		
 		UpgradeAttribute(hero, 'medusa_bloodfort_andromeda', 'medusa_bloodfort_andromeda_upgrade', true)
-		hero.ESkill = "medusa_breaker_gorgon_upgrade"
 		hero.DSkill = "medusa_bloodfort_andromeda_upgrade"
 
 		NonResetAbility(hero)
@@ -1021,6 +868,8 @@ function OnMonstrousStrengthAcquired(keys)
 		hero.IsMonstrousStrengthAcquired = true
 
 		hero:FindAbilityByName("medusa_monstrous_strength_passive"):SetLevel(1)
+		UpgradeAttribute(hero, 'medusa_nail_swing', 'medusa_nail_swing_upgrade', true)
+		hero.FSkill = "medusa_nail_swing_upgrade"
 		--hero:SwapAbilities("medusa_monstrous_strength_passive", "fate_empty1", true, false) 
 
 		NonResetAbility(hero)
@@ -1030,3 +879,232 @@ function OnMonstrousStrengthAcquired(keys)
 		master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 	end
 end
+
+--ATTEMPT ON LUA
+
+modifier_belle_hit_check = class({})
+function modifier_belle_hit_check:IsHidden()
+	return true 
+end
+
+function modifier_belle_hit_check:RemoveOnDeath()
+	return true
+end
+
+function modifier_belle_hit_check:GetDuration()
+	return 0.11
+end
+
+LinkLuaModifier("modifier_belle_hit_check", "abilities/medusa/medusa_abilities", LUA_MODIFIER_MOTION_NONE)
+medusa_bellerophon = class({})
+medusa_bellerophon_upgrade = class({})
+
+function medusa_bellerophon_wrapper(ability)
+    function ability:GetAbilityTextureName()
+        if self:GetCaster():HasModifier("modifier_alternate_04") then
+            return "custom/medusa/medusa_bellerophon2"
+        else
+            return "custom/medusa/medusa_bellerophon"
+        end
+    end    
+
+    function ability:GetChannelTime()
+        return self:GetSpecialValueFor("cast_time")
+    end
+
+    function ability:GetAOERadius()
+        return self:GetSpecialValueFor("radius")
+    end
+
+    function ability:CastFilterResultLocation(hLocation)
+        local caster = self:GetCaster()
+        if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+            return UF_FAIL_CUSTOM
+        elseif IsOutOfMap(hLocation) then 
+            return UF_FAIL_CUSTOM
+        else
+            return UF_SUCESS
+        end
+    end
+
+    function ability:GetCustomCastErrorLocation(hLocation)
+        return "#Invalid_Target_Location"
+    end
+
+    --[[function ability:OnAbilityPhaseStart()
+    	local caster = self:GetCaster()
+		local ability = self
+		local targetPoint = ability:GetCursorPosition()
+		local origin = caster:GetAbsOrigin()
+		if (origin - targetPoint):Length2D() > 3000 or not IsInSameRealm(origin, targetPoint) or GridNav:IsBlocked(targetPoint) or not GridNav:IsTraversable(targetPoint) then 
+			caster:Stop()
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Target_Location")
+			return
+		end
+    end]]
+
+    function ability:OnSpellStart()
+	local caster = self:GetCaster()
+	local ability = self 
+	local targetPoint = ability:GetCursorPosition()
+	local radius = ability:GetSpecialValueFor("radius")
+	local damage = ability:GetSpecialValueFor("damage")
+	local stun_duration = ability:GetSpecialValueFor("stun_duration")
+	local origin = caster:GetAbsOrigin()
+	local initialPosition = origin
+	local ascendCount = 0
+	local descendCount = 0
+	if caster.IsRidingAcquired then 
+		local bonus_agi = ability:GetSpecialValueFor("bonus_agi")
+		damage = damage + (bonus_agi * caster:GetAgility())
+	end
+	
+	local dist = (origin - targetPoint):Length2D() 
+	--local dmgdelay = dist * 0.000416
+	local hero_pause = 1.3
+	local dmgdelay = 0.05
+	
+	-- Attach particle
+	local belleFxIndex = ParticleManager:CreateParticle( "particles/custom/rider/rider_bellerophon_1_alternate.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster )
+	ParticleManager:SetParticleControlEnt( belleFxIndex, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", origin, true )
+	ParticleManager:SetParticleControlEnt( belleFxIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", origin, true )
+	Timers:CreateTimer(hero_pause + dmgdelay, function()
+		ParticleManager:DestroyParticle( belleFxIndex, false )
+		ParticleManager:ReleaseParticleIndex( belleFxIndex )
+	end)
+	
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", hero_pause)
+	Timers:CreateTimer(0.5, function()
+		if caster:HasModifier('modifier_alternate_01') or caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_04') then 
+			EmitGlobalSound("Rider.Lily.Bellerophon") 
+		else
+			EmitGlobalSound("Medusa_Bellerophon") 
+		end
+		
+	end)
+
+	local descendVec = Vector(0,0,0)
+	descendVec = (targetPoint - Vector(origin.x, origin.y, 1150)):Normalized()
+	Timers:CreateTimer(function()
+		if ascendCount == 23 then return end
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,50))
+		ascendCount = ascendCount + 1
+		return 0.033
+	end)
+
+
+	Timers:CreateTimer(1.0, function()
+		local origin = caster:GetAbsOrigin()
+
+		if (origin - targetPoint):Length2D() > 2000 then return end
+		if descendCount == 9 then 
+			ParticleManager:DestroyParticle(caster.pegasus_particle, true)
+			ParticleManager:ReleaseParticleIndex(caster.pegasus_particle)
+			return nil
+		end
+		if descendCount == 0 then 
+			local angle = caster:GetAnglesAsVector().y
+			print('angle ' .. angle)
+			local particle_name = "particles/custom/medusa/medusa_pegasus.vpcf"
+			caster.pegasus_particle = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
+			ParticleManager:SetParticleControl(caster.pegasus_particle, 0, origin)
+			ParticleManager:SetParticleControl(caster.pegasus_particle, 1, (targetPoint - origin):Normalized() * (dist/0.3))
+			ParticleManager:SetParticleControl(caster.pegasus_particle, 5, Vector(0,0,angle + 180))
+
+		end
+
+		caster:SetAbsOrigin(Vector(origin.x + descendVec.x * dist/6 ,
+									origin.y + descendVec.y * dist/6,
+									origin.z - 127))
+		descendCount = descendCount + 1
+		return 0.033
+	end)
+
+	-- this is when Rider makes a landing 
+	Timers:CreateTimer(hero_pause, function() 
+		local origin = caster:GetAbsOrigin()
+		if (origin - targetPoint):Length2D() < 2000 then 
+			-- set unit's final position first before checking if IsInSameRealm
+			-- to allow Belle across river etc
+			-- only if it is across realms do we try to adjust position
+			caster:SetAbsOrigin(targetPoint)
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			local currentPosition = caster:GetAbsOrigin()
+			if not IsInSameRealm(currentPosition, initialPosition) then
+				local diffVector = currentPosition - initialPosition
+				local normalisedVector = diffVector:Normalized()
+				local length = diffVector:Length2D()
+				local newPosition = currentPosition
+				while length >= 0
+					and (not IsInSameRealm(currentPosition, initialPosition)
+						or GridNav:IsBlocked(currentPosition)
+						or not GridNav:IsTraversable(currentPosition)
+					)
+				do
+					currentPosition = currentPosition - normalisedVector * 10
+					length = length - 10
+				end
+				caster:SetAbsOrigin(currentPosition)
+				FindClearSpaceForUnit(caster, currentPosition, true)
+			end
+			if IsOutOfMap(caster:GetOrigin()) then 
+	            local border = GetBorderMap(caster:GetOrigin())
+	            caster:SetAbsOrigin(border)
+	            FindClearSpaceForUnit(caster, border, true)
+	        end
+		else
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+		end
+		caster:EmitSound("Misc.Crash")
+		giveUnitDataDrivenModifier(caster, caster, "jump_pause_postlock", dmgdelay)
+	end)
+
+	-- this is when the damage actually applies(Put slam effect here)
+	Timers:CreateTimer(hero_pause + dmgdelay, function()		
+		-- Crete particle
+		local belleImpactFxIndex = ParticleManager:CreateParticle( "particles/custom/rider/rider_bellerophon_1_impact.vpcf", PATTACH_ABSORIGIN, caster )
+		ParticleManager:SetParticleControl( belleImpactFxIndex, 0, targetPoint)
+		ParticleManager:SetParticleControl( belleImpactFxIndex, 1, Vector( radius, radius, radius ) )
+		
+		Timers:CreateTimer( 1, function()
+			ParticleManager:DestroyParticle( belleImpactFxIndex, false )
+			ParticleManager:ReleaseParticleIndex( belleImpactFxIndex )
+		end)
+
+		local max_counter = 3 
+		local interval = 0.03
+		local damage_counter = 0
+
+		Timers:CreateTimer('medusa_bell_dmg' .. caster:GetPlayerOwnerID(), {
+			endTime = interval,
+			callback = function()
+            if damage_counter >= max_counter or not caster:IsAlive() then return end
+            
+			local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for k,v in pairs(targets) do
+
+				if not IsValidEntity(v) or string.match(v:GetName(), "ward") or v:IsNull() or not v:IsAlive() or v:IsMagicImmune() then 
+					goto excludetarget 
+				end
+
+				if not v:HasModifier("modifier_belle_hit_check") then
+					v:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
+    				v:AddNewModifier(caster, ability, "modifier_belle_hit_check", {Duration = 0.1})
+			    	DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				end
+
+				::excludetarget::
+		    end
+		    damage_counter = damage_counter + 1
+
+            return interval
+        end})
+
+
+	    ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
+		end)
+    end
+end
+
+medusa_bellerophon_wrapper(medusa_bellerophon)
+medusa_bellerophon_wrapper(medusa_bellerophon_upgrade)

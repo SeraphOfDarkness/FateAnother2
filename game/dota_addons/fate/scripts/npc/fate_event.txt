@@ -25,6 +25,7 @@ Event
 		{
 			"1"	"item_padoru_hat" // PADORU change model
 		}
+		"DetailLength"	"600"
 	}
 	"HNY_22"		
 	{
@@ -66,11 +67,12 @@ Event
 		"EventName"		"chinese_new_year"
 		"EventID"		"06"
 		"StartDate"		"31/01/22"
-		"EndDate"		"03/02/22"
+		"EndDate"		"12/02/22"
 		"EventType"		"1" // Unlock Skin for duration
 		"EventSkin"		
 		{
 			"1"	"022" // Boss Li
+			"2"	"093" // [Legend] Coated Old Li
 		}
 	}
 	"VLT_22"		
@@ -78,7 +80,7 @@ Event
 		"EventName"		"Valentine"
 		"EventID"		"07"
 		"StartDate"		"13/02"
-		"EndDate"		"16/02"
+		"EndDate"		"20/02"
 		"EventType"		"1" // Unlock Skin for duration
 		"EventSkin"		
 		{
@@ -93,7 +95,7 @@ Event
 		"EventName"		"Summer"
 		"EventID"		"08"
 		"StartDate"		"13/04"
-		"EndDate"		"17/04"
+		"EndDate"		"24/04"
 		"EventType"		"1" // Unlock Skin for duration
 		"EventSkin"		
 		{
@@ -101,6 +103,12 @@ Event
 			"2"	"048" // Summer Drake
 			"3"	"017" // Summer Dress Nero
 			"4"	"053" // Summer Scathach
+			"5"	"071" // Summer Tamamo
+			"6"	"088" // Summer Astolfo
+			"7"	"089" // Summer Elizabeth Bathory
+			"8"	"082" // Summer Mordred
+			"9"	"081" // Summer Artoria Alter
+			"10""080" // Swimsuit Kiyohime Lancer
 		}
 	}
 	"WAIFU_TOUR_01"		
@@ -111,6 +119,8 @@ Event
 		"EndDate"		"11/10/22"
 		"EventType"		"5" // Big board new + regist
 		"EventDetail"	"waifu_tour_01_detail"
+		"LinkSolo"		""
+		"LinkTeam"		""
 	}
 	"WAIFU_TOUR_GUESS_01"		
 	{
@@ -120,6 +130,8 @@ Event
 		"EndDate"		"14/10/22"
 		"EventType"		"5" // Big board new + regist
 		"EventDetail"	"waifu_tour_01_guess"
+		"LinkSolo"		""
+		"LinkTeam"		""
 	}
 	"APRIL_FOOL"		
 	{
@@ -129,5 +141,17 @@ Event
 		"EndDate"		"07/04"
 		"EventType"		"6" // NEW Mode
 		"EventDetail"	"same_hero_detail"
+	}
+	"FATE_TOUR_03"		
+	{
+		"EventName"		"fate_tour"
+		"EventID"		"12"
+		"StartDate"		"26/10/23"
+		"EndDate"		"03/11/23"
+		"EventType"		"5" // Big board new + regist
+		"EventDetail"	"fate_tour_03_detail"
+		"LinkSolo"		"https://forms.gle/hSZedXX8Tu9RfG72A"
+		"LinkTeam"		"https://forms.gle/5MFkZ5Wss8V8Sav57"
+		"DetailLength"	"900"
 	}
 }

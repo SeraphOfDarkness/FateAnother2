@@ -122,8 +122,8 @@ function nobu_3000_wrapper(ability)
                 if(self.dummies[i] == nil ) then return end
                 Timers:CreateTimer(0.0165 * i, function()
                     if(self.dummies[i] == nil ) then return end
-                    local facing =  self.dummies[i]:GetForwardVector()
-                    facing.z = 0
+                    --local facing =  self.dummies[i]:GetForwardVector()
+                    --facing.z = 0
                     if(self.caster.is3000Acquired) then
                         self.dummies[i]:EmitSound("nobu_shoot_laser")
                     else
@@ -228,9 +228,11 @@ function nobu_3000_wrapper(ability)
             local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
 
             for k,v in pairs(targets) do   
-                local pure_perc = self:GetSpecialValueFor("pure_perc") / 100
-                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage * (1-pure_perc), DAMAGE_TYPE_PHYSICAL, 0)
-                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
+                local armor_dmg = self:GetSpecialValueFor("armor_dmg")
+                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, math.max(v:GetPhysicalArmorValue(false) * armor_dmg, 5), DAMAGE_TYPE_MAGICAL, 0)
+                --local pure_perc = self:GetSpecialValueFor("pure_perc") / 100
+                hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage, DAMAGE_TYPE_PHYSICAL, 0)
+                --hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(v, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
 
                 if hCaster.ISDOW then
                     hCaster:FindAbilityByName(hCaster.DSkill):DOWShoot()
@@ -278,13 +280,13 @@ function nobu_3000_wrapper(ability)
         local damage = hCaster:FindAbilityByName(hCaster.DSkill):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
 
         if hCaster.is3000Acquired then
-            local pure_perc = self:GetSpecialValueFor("pure_perc") / 100
-            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * (1-pure_perc), DAMAGE_TYPE_PHYSICAL, 0)
-            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage * pure_perc, DAMAGE_TYPE_PURE, 0)
-        else
-            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)  
+            local armor_dmg = self:GetSpecialValueFor("armor_dmg")
+            hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, target:GetPhysicalArmorValue(false) * armor_dmg, DAMAGE_TYPE_MAGICAL, 0)
+        else           
             target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         end
+
+        hCaster:FindAbilityByName(hCaster.DSkill):GunDoDamage(target, self, damage, DAMAGE_TYPE_PHYSICAL, 0)  
 
         if hCaster.StrategyAcquired and hCaster.IsStrategyReady then
             hCaster:FindAbilityByName("nobu_strat"):ApplyStrategy()

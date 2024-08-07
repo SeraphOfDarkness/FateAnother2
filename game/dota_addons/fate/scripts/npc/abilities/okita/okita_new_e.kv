@@ -1,0 +1,97 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Okita Souji : Flashy Slash (E)
+	//=================================================================================================================
+	"okita_new_e"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_abilities"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/okita/okita_flash"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"100"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"12 12 11 11 10"
+
+		"AbilityValues"
+		{
+			"exhaust"				"5"
+			"leap_range"			"500"
+			"base_damage"			"200 220 240 260 280"
+			"slash_range"			"400 430 460 490 520"
+			"slash_angle"			"140"
+			"dash_range"			"550"
+			"thrust_damage"			"400 420 440 460 480"
+			"thrust_range"			"600"
+			"thrust_width"			"250"
+			"thrust_stun"			"1.0"
+			"cast_anim_cd"			"0.35"
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji : Flashy Slash (E) (Tennen SA)
+	//=================================================================================================================
+	"okita_new_e_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_abilities"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/okita/okita_flash"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"100"
+		"AbilityCastRange"				"500"
+		"AbilityCooldown"				"12 12 11 11 10"
+
+		"AbilityValues"
+		{
+			"exhaust"				"5"
+			"leap_range"			"500"
+			"base_damage"			"200 220 240 260 280"
+			"bonus_damage"			"10"
+			"bonus_agi"				"1 2 3 4 5"
+			"tennen_duration"		"20"
+			"slash_range"			"400 430 460 490 520"
+			"slash_angle"			"140"
+			"dash_range"			"550"
+			"thrust_damage"			"400 420 440 460 480"
+			"thrust_range"			"600"
+			"thrust_width"			"250"
+			"thrust_stun"			"1.0"
+			"beam_range"			"1000"
+			"beam_width"			"250"
+			"beam_base_damage"		"500"
+			"beam_atk_dmg"			"300"
+			"beam_bonus_agi"		"5"
+			"beam_cooldown"			"30"
+			"cast_anim_cd"			"0.35"
+			"cast_rdr_agi"			"0.002"
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji : Beam (E)
+	//=================================================================================================================
+	"okita_beam"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_abilities"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/okita/okita_flash"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		//"AbilityManaCost"				"100"
+		//"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"3"
+	}
+}

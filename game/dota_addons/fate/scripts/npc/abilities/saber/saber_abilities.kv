@@ -10,31 +10,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/saber_charisma"
 		"MaxLevel"						"1"
-		//"DisplayAdditionalHeroes"   	"1"
-		"precache"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
 		{
-			"particle"					"particles/items2_fx/rod_of_atos_debuff_glow.vpcf"
-			"particle"					"particles/items2_fx/rod_of_atos_debuff_ground.vpcf"
-		}
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"Range"					"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_ms"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"		"10"
-			}
-		}
+			"Range"				"1000"
+			"bonus_ms"			"10"
+			"bonus_aspd"		"10"
+		}	
 		
 		"Modifiers"
 		{
@@ -85,15 +68,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/saber_instinct"
 		"MaxLevel"						"1"
-		
-		"AbilitySpecial"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion_rate"			"15"
-			}
-		}
+			"evasion_rate"			"15"
+		}	
 		
 		"Modifiers"
 		{
@@ -119,41 +99,16 @@
 		"AbilityTextureName"			"custom/saber_instinct"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"20"
-		"precache"
-		{
-			"particle"		"particles/items_fx/immunity_sphere_buff.vpcf"
-			"particle"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-		}
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion_rate"			"35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_rate"				"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spellshield_duration"	"1.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"20"
-			}
-		}
-		
+			"evasion_rate"			"35"
+			"crit_rate"				"45"
+			"crit_multiplier"		"200"
+			"spellshield_duration"	"1.5"
+			"cooldown"				"20"
+		}	
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -284,43 +239,14 @@
 		"AbilityCooldown"				"5.0 5.0 5.0 5.0 5.0"
 		"AbilityManaCost"				"100"
 		
-		// Ability special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 250 300 350 400"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"700"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"		"10 20 30 40 50"
-			}
-		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"						
-		{
-			"particle"				"particles/econ/items/windrunner/windrunner_cape_sparrowhawk/windrunner_windrun_blur_sparrowhawk.vpcf"
-			"particle"				"particles/custom/saber/saber_invisible_air_trail.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
-		}
-		
+			"bonus_damage"		"10 20 30 40 50"
+			"range"				"1000"
+			"speed"				"700"
+			"damage"			"200 250 300 350 400"
+		}	
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -430,43 +356,14 @@
 		"AbilityCooldown"				"5.0 5.0 5.0 5.0 5.0"
 		"AbilityManaCost"				"100"
 		
-		// Ability special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"350 400 450 500 550"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"700"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"		"10 20 30 40 50"
-			}
-		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"						
-		{
-			"particle"				"particles/econ/items/windrunner/windrunner_cape_sparrowhawk/windrunner_windrun_blur_sparrowhawk.vpcf"
-			"particle"				"particles/custom/saber/saber_invisible_air_trail.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
-		}
-		
+			"bonus_damage"		"10 20 30 40 50"
+			"range"				"1000"
+			"speed"				"700"
+			"damage"			"350 400 450 500 550"
+		}	
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -568,16 +465,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK" // Change the animation from "ACT_DOTA_CAST_ABILITY_1" to match the timing of the ability
 		"AnimationPlaybackRate" 		"1.2"
 		"AOERadius"						"%radius"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_impact.vpcf"
-			"particle"				"particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_birds.vpcf"
-			"particle"				"particles/custom/saber/caliburn/explosion.vpcf"
-			"particle"				"particles/custom/saber/caliburn/slash.vpcf"
-		}
-		
-		
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"250"
@@ -593,59 +481,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"400 460 520 580 640"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"aoe_damage_percent"	"0.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"200"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"200"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"600"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_damage_percent_tooltip"	"50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_amount"	"-35 -40 -45 -50 -55"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"3"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mini_stun"			"0.1"
-			}
+			"range"				"200"
+			"radius"			"200"
+			"damage"			"400 460 520 580 640"
+			"mini_stun"			"0.1"
+			"aoe_damage_percent"	"0.5"
+			"aoe_damage_percent_tooltip"	"50"
+			"slow_amount"		"-35 -40 -45 -50 -55"
+			"slow_duration"		"3"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
 
 		"OnSpellStart"
 		{
@@ -719,16 +565,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK" // Change the animation from "ACT_DOTA_CAST_ABILITY_1" to match the timing of the ability
 		"AnimationPlaybackRate" 		"1.2"
 		"AOERadius"						"%radius"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_impact.vpcf"
-			"particle"				"particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_birds.vpcf"
-			"particle"				"particles/custom/saber/caliburn/explosion.vpcf"
-			"particle"				"particles/custom/saber/caliburn/slash.vpcf"
-		}
-		
-		
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"250"
@@ -744,59 +581,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"600 660 720 780 840"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"aoe_damage_percent"	"0.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"200"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"200"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"600"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_damage_percent_tooltip"	"50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_amount"		"-50 -55 -60 -65 -70"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_duration"		"3"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mini_stun"			"0.1"
-			}
+			"range"				"200"
+			"radius"			"200"
+			"damage"			"600 660 720 780 840"
+			"mini_stun"			"0.1"
+			"aoe_damage_percent"	"0.5"
+			"aoe_damage_percent_tooltip"	"50"
+			"slow_amount"		"-50 -55 -60 -65 -70"
+			"slow_duration"		"3"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
 
 		"OnSpellStart"
 		{
@@ -871,69 +666,24 @@
 		"AbilityTextureName"			"custom/saber_excalibur"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1.1"				// Adjust playback rate to reflect the ability was 0.9
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
-			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_beam.vpcf"
-			"particle"				"particles/custom/saber_excalibur_charge.vpcf"
-			"particle"				"particles/custom/saber_excalibur.vpcf"
-			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
-			"particle"				"particles/custom/saber/excalibur/shockwave.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_sparks.vpcf"
-		}
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1800"
 		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"37.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		// AbilitySpecial
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"1.9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1800"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"750 975 1200 1425 1650"
-			}
-			// Extra variables
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pause_duration"		"4.0"
-			}
+			"cast_delay"			"1.9"
+			"width"					"400"
+			"length"				"1800"
+			"speed"					"1200"
+			"damage"				"750 975 1200 1425 1650"
+			"pause_duration"		"3.6"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------		
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1128,74 +878,23 @@
 		"AbilityTextureName"			"custom/saber_excalibur"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1.1"				// Adjust playback rate to reflect the ability was 0.9
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
-			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_beam.vpcf"
-			"particle"				"particles/custom/saber_excalibur_charge.vpcf"
-			"particle"				"particles/custom/saber_excalibur.vpcf"
-			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
-			"particle"				"particles/custom/saber/excalibur/shockwave.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_sparks.vpcf"
-		}
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityCastRange"				"1800"
 		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"37.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		// AbilitySpecial
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"1.9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1800"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"850 1075 1300 1525 1750"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"30"
-			}
-			// Extra variables
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pause_duration"		"3.6"
-			}
+			"cast_delay"			"1.9"
+			"width"					"400"
+			"length"				"1800"
+			"speed"					"1200"
+			"damage"				"850 1075 1300 1525 1750"
+			"bonus_mana"			"25"
+			"pause_duration"		"3.6"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------		
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1391,58 +1090,22 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AnimationPlaybackRate" 		"1"
-		"precache"
-		{
-			"particle"					"particles/custom/saber_avalon_floor.vpcf"
-			"particle"					"particles/custom/saber_avalon_impact.vpcf"
-			"particle"					"particles/custom/saber_avalon_explosion.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-		}
-		
-		// Cast
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastRange"				"3000"
 		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"400"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"3000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_threshold"		"300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 950 1100 1250 1400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aoe"					"250"
-			}
+			"duration"				"5.0"
+			"damage_threshold"		"300"
+			"range"					"3000"
+			"aoe"					"250"
+			"damage"				"800 930 1060 1190 1320"
+			"stun_duration"			"1.0"
 		}
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
+
 		"OnSpellStart"
 		{
 		
@@ -1488,6 +1151,21 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+				}
+			}
+			"modifier_saber_avalon_dash"
+			{
+				"Duration"			"0.4"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/artoria/saber_ability"
+						"Function"		"OnAvalonCounter"
+					}
 				}
 			}
 
@@ -1543,58 +1221,23 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AnimationPlaybackRate" 		"1"
-		"precache"
-		{
-			"particle"					"particles/custom/saber_avalon_floor.vpcf"
-			"particle"					"particles/custom/saber_avalon_impact.vpcf"
-			"particle"					"particles/custom/saber_avalon_explosion.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-		}
-		
-		// Cast
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"400"
 		"AbilityCastRange"				"3000"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"3000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_threshold"		"300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"2.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 950 1100 1250 1400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"300"
-			}
+			"duration"				"5.0"
+			"regen"					"300"
+			"damage_threshold"		"300"
+			"range"					"3000"
+			"aoe"					"250"
+			"damage"				"800 930 1060 1190 1320"
+			"stun_duration"			"1.0"
 		}
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
+		
 		"OnSpellStart"
 		{
 		
@@ -1640,6 +1283,21 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+				}
+			}
+			"modifier_saber_avalon_dash"
+			{
+				"Duration"			"0.4"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/artoria/saber_ability"
+						"Function"		"OnAvalonCounter"
+					}
 				}
 			}
 
@@ -1709,29 +1367,13 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"12"
 
-		"precache"
+		"AbilityValues"
 		{
+			"excal_bonus_damage"			"100"
+			"excal_bonus_mana"				"25"
+			"max_excal_bonus_damage"		"4500"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"excal_bonus_damage"				"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"excal_bonus_mana"				"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_excal_bonus_damage"			"4500"
-			}
-		}
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1758,39 +1400,15 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"10"
 
-		"precache"
+		"AbilityValues"
 		{
+			"evasion_rate"			"35"
+			"crit_rate"				"45"
+			"crit_multiplier"		"200"
+			"spellshield_duration"	"1.5"
+			"cooldown"				"20"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion_rate"			"35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_rate"				"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spellshield_duration"	"1.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"20"
-			}
-		}
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1817,29 +1435,13 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"8"
 
-		"precache"
+		"AbilityValues"
 		{
+			"invis_air_bonus_damage"	"150"
+			"caliburn_bonus_damage"		"200"
+			"caliburn_slow"				"15"
 		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"invis_air_bonus_damage"	"150"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caliburn_bonus_damage"		"200"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"caliburn_slow"				"15"
-			}
-		}
-		
+			
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1866,87 +1468,23 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"15"
 
-		"precache"
+		"AbilityValues"
 		{
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"5000"				// I think it's better to reduce the speed, 10000 is too fast and projectile will not show up
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"0.90"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_bonus_damage"		"200"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wall_stun"				"2.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"600"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_agi"				"7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stack"			"100"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stack"				"3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knock"					"500"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ad_ratio"				"1.5"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"knockup_duration"		"1.25"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_up_damage"		"150"
-			}
+			"cast_time"				"0.90"
+			"width"					"400"
+			"length"				"1200"
+			"speed"					"5000"
+			"base_damage"			"600"	
+			"bonus_damage"			"100"
+			"bonus_agi"				"7"
+			"bonus_stack"			"100"
+			"knock"					"500"
+			"wall_bonus_damage"		"200"
+			"wall_stun"				"2.0"
+			"max_stack"				"3"
+			"base_up_damage"		"150"
+			"ad_ratio"				"1.5"
+			"knockup_duration"		"1.25"
 		}
 		
 		"OnSpellStart"
@@ -1972,91 +1510,27 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityTextureName"			"custom/saber_strike_air"
-		"precache"
-		{
-			"particle"				"particles/custom/saber_strike_air_blast.vpcf"
-			"particle"				"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
-			"particle"				"particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
-			"particle"				"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-		}
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"5000"				// I think it's better to reduce the speed, 10000 is too fast and projectile will not show up
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"0.90"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_bonus_damage"		"200"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wall_stun"				"2.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"600"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_agi"				"7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stack"			"100"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knock"					"500"
-			}
+			"cast_time"				"0.90"
+			"width"					"400"
+			"length"				"1200"
+			"speed"					"5000"
+			"base_damage"			"600"	
+			"bonus_damage"			"100"
+			"bonus_agi"				"7"
+			"bonus_stack"			"100"
+			"knock"					"500"
+			"wall_bonus_damage"		"200"
+			"wall_stun"				"2.0"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2133,17 +1607,9 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"15"
 
-		"precache"
+		"AbilityValues"
 		{
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"300"
-			}
+			"regen"					"300"
 		}
 
 		"OnSpellStart"
@@ -2165,35 +1631,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/saber_strike_air"
 		"MaxLevel"						"1"
-		"precache"
-		{
-			"particle"				"particles/custom/saber/strike_air_upstream/strike_air_upstream.vpcf"
-		}
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stack"				"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ad_ratio"				"1.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"knockup_duration"		"1.25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"150"
-			}
+			"max_stack"				"3"
+			"base_damage"			"150"
+			"ad_ratio"				"1.5"
+			"knockup_duration"		"1.25"
 		}
-		
+				
 		"Modifiers"
 		{
 			"modifier_strike_air_upstream_ready"
@@ -2202,7 +1648,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"IsBuff"			"1"
 				"IsHidden"			"0"
-				"Duration"			"3.0"
+				//"Duration"			"3.0"
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -2232,69 +1678,21 @@
 		"AbilityTextureName"			"custom/saber_max_excalibur"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"0.9"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
-			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_beam.vpcf"
-			"particle"				"particles/custom/saber_excalibur.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_charge.vpcf"
-			"particle"				"particles/custom/saber_excalibur_circle.vpcf"
-			"parictle"				"particles/custom/saber_excalibur_max_rock_emitter.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_burn.vpcf"
-			"particle"				"particles/custom/screen_yellow_splash.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/charge.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versiona.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versionc.vpcf"
-			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.1"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"180"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
-		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"2500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"9000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"2500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"600"
-			}
+			"cast_time"				"3.0"
+			"range"					"2500"
+			"width"					"600"
+			"speed"					"9000"
+			"damage"				"2500"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2472,69 +1870,21 @@
 		"AbilityTextureName"			"custom/saber_max_excalibur"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"0.9"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
-			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_beam.vpcf"
-			"particle"				"particles/custom/saber_excalibur.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_charge.vpcf"
-			"particle"				"particles/custom/saber_excalibur_circle.vpcf"
-			"parictle"				"particles/custom/saber_excalibur_max_rock_emitter.vpcf"
-			"particle"				"particles/custom/saber_excalibur_max_burn.vpcf"
-			"particle"				"particles/custom/screen_yellow_splash.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/charge.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versiona.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versionc.vpcf"
-			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.1"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"180"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		// Ability Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"2500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"9000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"7000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"600"
-			}
+			"cast_time"				"3.0"
+			"range"					"2500"
+			"width"					"600"
+			"speed"					"9000"
+			"damage"				"7000"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2697,4 +2047,73 @@
 			}
 		}
 	}	
+	//=======================================
+	// Precache
+	//=======================================
+	"saber_precache"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/medusa/medusa_attribute_monstrous_strength"
+
+		"precache"
+		{
+			"model"					"models/artoria/casual_saber/casual_saber_by_zefiroft.vmdl"
+			"model"					"models/artoria/suit_saber/artoria_suit_by_zefiroft.vmdl"
+			"model"					"models/artoria/crown_saber_by_zefiroft.vmdl"
+			"model"					"models/artoria/saber_lily/artoria_lily_by_zefiroft.vmdl"
+			"model"					"models/artoria/dress_saber/artoria_dress_by_zefiroft.vmdl"
+			"model"					"models/arthur/arthur_by_zefiroft.vmdl"
+			"particle"				"particles/items2_fx/rod_of_atos_debuff_glow.vpcf"
+			"particle"				"particles/items2_fx/rod_of_atos_debuff_ground.vpcf"
+			"particle"				"particles/items_fx/immunity_sphere_buff.vpcf"
+			"particle"				"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+			"particle"				"particles/econ/items/windrunner/windrunner_cape_sparrowhawk/windrunner_windrun_blur_sparrowhawk.vpcf"
+			"particle"				"particles/custom/saber/saber_invisible_air_trail.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_impact.vpcf"
+			"particle"				"particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_birds.vpcf"
+			"particle"				"particles/custom/saber/caliburn/explosion.vpcf"
+			"particle"				"particles/custom/saber/caliburn/slash.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_beam.vpcf"
+			"particle"				"particles/custom/saber_excalibur_charge.vpcf"
+			"particle"				"particles/custom/saber_excalibur.vpcf"
+			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
+			"particle"				"particles/custom/saber/excalibur/shockwave.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_sparks.vpcf"
+			"particle"				"particles/custom/saber/strike_air_upstream/strike_air_upstream.vpcf"
+			"particle"				"particles/custom/saber_avalon_floor.vpcf"
+			"particle"				"particles/custom/saber_avalon_impact.vpcf"
+			"particle"				"particles/custom/saber_avalon_explosion.vpcf"
+			"particle"				"particles/custom/saber_strike_air_blast.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
+			"particle"				"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+			"particle"				"particles/custom/saber_excalibur_max_beam.vpcf"
+			"particle"				"particles/custom/saber_excalibur.vpcf"
+			"particle"				"particles/custom/saber_excalibur_max_charge.vpcf"
+			"particle"				"particles/custom/saber_excalibur_circle.vpcf"
+			"parictle"				"particles/custom/saber_excalibur_max_rock_emitter.vpcf"
+			"particle"				"particles/custom/saber_excalibur_max_burn.vpcf"
+			"particle"				"particles/custom/screen_yellow_splash.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/charge.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versiona.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versionc.vpcf"
+			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
+			"particle"  			"particles/custom/saber/arthur_combo_spiral.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+			"soundfile" 			"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+		}
+	}
 }

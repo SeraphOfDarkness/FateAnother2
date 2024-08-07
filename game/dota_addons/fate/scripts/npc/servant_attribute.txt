@@ -48,8 +48,8 @@ ServantAttribute
 	"npc_dota_hero_dark_willow"			
 	{
 		"SA1"	"okita_attribute_kyokuji"
-		"SA2"	"okita_attribute_persistence"
-		"SA3"	"okita_attribute_peerless"
+		"SA2"	"okita_attribute_headband"
+		"SA3"	"okita_attribute_tennen"
 		"SA4"	"okita_attribute_mind_eye"
 		"SA5"	"okita_attribute_kiku_ichimonji"
 		"SCombo"	"okita_zekken"
@@ -70,7 +70,7 @@ ServantAttribute
 		"SA3"	"gilgamesh_attribute_rain_of_swords"
 		"SA4"	"gilgamesh_attribute_sword_of_creation"
 		"SA5"	"fate_empty1"
-		"SCombo"	"hassan_combo"
+		"SCombo"	"gilgamesh_max_enuma_elish"
 	}
 	"npc_dota_hero_drow_ranger"			
 	{
@@ -384,7 +384,7 @@ ServantAttribute
 		"SA2"	"mashu_attribute_shield"
 		"SA3"	"mashu_attribute_chalk"
 		"SA4"	"mashu_attribute_amalgam"
-		"SA5"	"fate_empty1"
+		"SA5"	"mashu_attribute_defense"
 		"SCombo"	"mashu_combo"
 	}
 	"npc_dota_hero_antimage"			
@@ -398,20 +398,56 @@ ServantAttribute
 	}
 	"npc_dota_hero_oracle"			
 	{
-		"SA1"	"ishtar_attribute_offering"
-		"SA2"	"ishtar_attribute_gems"
-		"SA3"	"ishtar_attribute_goddess"
-		"SA4"	"ishtar_attribute_venus"
-		"SA5"	"fate_empty1"
+		"SA1"	"ishtar_attribute_gems"
+		"SA2"	"ishtar_attribute_goddess"
+		"SA3"	"ishtar_attribute_crown"
+		"SA4"	"ishtar_attribute_mana_burst"
+		"SA5"	"ishtar_attribute_venus"
 		"SCombo"	"ishtar_combo"
 	}
 	"npc_dota_hero_ursa"			
 	{
 		"SA1"	"atalanta_evolution_attribute"
-		"SA2"	"atalanta_tornado_attribute"
-		"SA3"	"atalanta_vision_attribute"
-		"SA4"	"atalanta_moon_attribute"
+		"SA2"	"atalanta_beast_attribute"
+		"SA3"	"atalanta_moon_attribute"
+		"SA4"	"atalanta_logic_attribute"
+		"SA5"	"atalanta_bow_attribute"
+		"SCombo"	"atalanta_alter_skia"
+	}
+	"npc_dota_hero_kunkka"			
+	{
+		"SA1"	"muramasa_pride"
+		"SA2"	"muramasa_tameshi_mono"
+		"SA3"	"muramasa_karmic_vision"
+		"SA4"	"muramasa_blaze"
 		"SA5"	"fate_empty1"
-		"SCombo"	"atalanta_skia"
+		"SCombo"	"muramasa_combo"
+	}
+	"npc_dota_hero_void_spirit"			
+	{
+		"SA1"	"kiyo_sa_1"
+		"SA2"	"kiyo_sa_2"
+		"SA3"	"kiyo_sa_3"
+		"SA4"	"kiyo_sa_4"
+		"SA5"	"kiyo_sa_5"
+		"SCombo"	"kiyo_combo"
+	}
+	"npc_dota_hero_nyx_assassin"
+	{
+		"SA1"	"melt_attribute_melt_virus"
+		"SA2"	"melt_attribute_composite"
+		"SA3"	"melt_attribute_crime"
+		"SA4"	"melt_attribute_sadistic"
+		"SA5"	"melt_attribute_saint_graph"
+		"SCombo"	"melt_combo"
+	}
+	"npc_dota_hero_muerta"
+	{
+		"SA1"	"billy_sa_hand"
+		"SA2"	"billy_sa_pistol"
+		"SA3"	"billy_sa_thunderer"
+		"SA4"	"billy_sa_eagle_eyes"
+		"SA5"	"billy_sa_gambit"
+		"SCombo"	"billy_combo"
 	}
 }

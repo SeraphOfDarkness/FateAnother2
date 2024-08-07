@@ -52,7 +52,7 @@ function mmhiiouioa:initialize()
 	    self.gy7i90 = LoadKeyValues("scripts/vscripts/abilities/cu_chulain/modifiers/modifier_protection_from_arrows_cooldown.kv")
 	    self.kyi877 = {}
 	    self.adfop = {}
-	    self:bs8954(3)
+	    self:bs8954()
 
 	    
 	--end
@@ -79,6 +79,7 @@ function mmhiiouioa:bs8954(iReloads)
                 self.kyi877 = hData
                 self:checkupdate()
                 self:a6485vvsq()
+                return false
             else
             	--[[for i = 0, DOTA_MAX_PLAYERS - 1 do
             		if PlayerResource:IsValidPlayerID(i) and not PlayerResource:IsFakeClient(i) then
@@ -88,6 +89,7 @@ function mmhiiouioa:bs8954(iReloads)
                 SendChatToPanorama('Server: Load Failed - Could not find any data')
             	print("Server Load Fail")
             	self:a7sbku9()
+            	return false
             end
         else
         	--[[for i = 0, DOTA_MAX_PLAYERS - 1 do
@@ -97,11 +99,12 @@ function mmhiiouioa:bs8954(iReloads)
             end]]
 
         	print("Server: Load Failed - Unable to contact server")
-        	if type(iReloads) == "number" and iReloads > 0 then
+        	if iReloads ~= nil and type(iReloads) == "number" and iReloads > 0 then
         		SendChatToPanorama('Server: Load Failed - Unable to contact server, Reload: ' .. iReloads)
                 print(iReloads, "RLD")
                 iReloads = iReloads - 1
                 self:bs8954(iReloads)
+                return false
             else
             	return false
             end

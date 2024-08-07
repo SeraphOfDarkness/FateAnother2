@@ -9120,12 +9120,13 @@
         "DOTA_Tooltip_ability_jtr_attribute_murderer_on_misty_night_recharge_time"	"埋伏冷却:"
 
         //================================================================================================================
-		//	Sakura Saber
+		//	冲田总司
 		//================================================================================================================
 		"npc_dota_hero_dark_willow"			"冲田总司"
 		"npc_dota_hero_dark_willow_1"			"[普通] 樱花冲田"
+		"npc_dota_hero_dark_willow_2"			"[传说] 冲田总司 Alter"
 		"npc_dota_hero_dark_willow_summon"		"从者 <font color='#58ACFA'>冲田总司</font> 已经被召唤."
-		"npc_dota_hero_dark_willow_enable_combo"	"激活连击技能: 绝剑·无穷三段"
+		"npc_dota_hero_dark_willow_enable_combo"	"激活连击技能: 绝剑·无穹三段"
 
 		"okita_flag"						"新选组旗帜"
 		"okita_shinsengumi"					"新选组"
@@ -9134,8 +9135,8 @@
 		///////////////////////// Innate //////////////////////////////////////
 		
 		"DOTA_Tooltip_Ability_okita_weak_constitution"				"<font color='#FFFFFF'>病弱</font>"
-		"DOTA_Tooltip_ability_okita_weak_constitution_Description"	"<font color='#58ACFA'>被动</font>: 冲田每次攻击或使用技能都会获得 <font color='#FF3399'>病弱</font>层数. \n<font color='#FF3399'>病弱</font>: 当达到一定层数后，冲田会开始咳血, 失去生命值并 <font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>虚弱</font> . \n<font color='#FF3399'>虚弱</font>: 降低冲田攻速,移速, 魔抗, 护甲和攻击. \n 根据最后的<font color='#FF3399'>病弱</font>层数决定咳嗽延迟和眩晕长度. \n\n<font color='#9FFFCC'>可选属性升级: 坚持不懈</font>. \n 冲田在技能持续时忍受病弱状态."
-		"DOTA_Tooltip_ability_okita_weak_constitution_Lore"				"Okita Souji's weak body cause by Tuberculosis can make her stop her action from any moment."
+		"DOTA_Tooltip_ability_okita_weak_constitution_Description"	"<font color='#58ACFA'>被动</font>: 冲田每次攻击或使用技能都会获得 <font color='#FF3399'>病弱</font>层数. \n<font color='#FF3399'>病弱</font>: 当达到一定层数后, 冲田会开始咳血, 失去生命值并 <font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>虚弱</font> 一段時間. \n<font color='#FF3399'>虚弱</font>: 降低冲田攻速,移速, 魔抗, 护甲和攻击. \n 根据最后的 <font color='#FF3399'>病弱</font>层数决定咳嗽延迟和眩晕长度.  \n 冲田在技能持续时忍受病弱状态."
+		"DOTA_Tooltip_ability_okita_weak_constitution_Lore"			"冲田总司因肺结核导致身体虚弱，随时可能停止行动."
 		"DOTA_Tooltip_ability_okita_weak_constitution_exhaust"		"每次攻击叠加病弱:"
 		"DOTA_Tooltip_ability_okita_weak_constitution_base_cough_delay"	"最大咳嗽延迟:"
 		"DOTA_Tooltip_ability_okita_weak_constitution_base_cough"	"最小咳血层数:"
@@ -9152,8 +9153,8 @@
 		"DOTA_Tooltip_ability_okita_weak_constitution_stun_duration"	"眩晕持续时间:"
 
 		"DOTA_Tooltip_Ability_okita_weak_constitution_upgrade"				"<font color='#9FFFCC'>病弱</font>"
-		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_Description"	"<font color='#58ACFA'>被动</font>: 冲田每次攻击或使用技能都会获得 <font color='#FF3399'>病弱</font>层数. \n<font color='#FF3399'>病弱</font>: 当达到一定层数后，冲田会开始咳血, 失去生命值并 <font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>虚弱</font> . \n<font color='#FF3399'>虚弱</font>: 降低冲田攻速,移速, 魔抗, 护甲和攻击. \n 根据最后的<font color='#FF3399'>病弱</font>层数决定咳嗽延迟和眩晕长度. \n 冲田在技能持续时忍受病弱状态."
-		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_Lore"				"Okita Souji's weak body cause by Tuberculosis can make her stop her action from any moment."
+		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_Description"	"<font color='#58ACFA'>被动</font>: 冲田每次攻击或使用技能都会获得 <font color='#FF3399'>病弱</font> 层数. \n<font color='#FF3399'>病弱</font>: 当达到一定层数后, 冲田会开始咳血, 失去生命值并 <font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>虚弱</font> 一段時間. \n<font color='#FF3399'>虚弱</font>: 降低冲田攻速,移速, 魔抗, 护甲和攻击. \n 根据最后的 <font color='#FF3399'>病弱</font>层数决定咳嗽延迟和眩晕长度. \n 冲田在技能持续时忍受病弱状态."
+		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_Lore"			"冲田总司因肺结核导致身体虚弱，随时可能停止行动."
 		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_exhaust"		"每次攻击叠加病弱:"
 		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_base_cough_delay"	"最大咳嗽延迟:"
 		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_base_cough"	"最小咳血层数:"
@@ -9170,136 +9171,166 @@
 		"DOTA_Tooltip_ability_okita_weak_constitution_upgrade_stun_duration"	"眩晕持续时间:"
 
 		"DOTA_Tooltip_Ability_okita_flag_of_sincerity"				"<font color='#FFFFFF'>诚之旗</font>"
-		"DOTA_Tooltip_ability_okita_flag_of_sincerity_Description"	"冲田插下 <font color='#99FF33'>诚之旗</font> 并召唤 <font color='#99FF33'>新选组</font> 队员. \n如果旗帜被毁，所有<font color='#99FF33'>新选组</font> 都会消失. \n\n<font color='#9FFFCC'>可选属性升级: 誓言的羽织</font>. \n 如果冲田在旗帜范围内咳血，<font color='#99FF33'>新选组</font> 会获得 <font color='#FFFF28'>兄弟情</font> 状态. \n<font color='#FFFF28'>兄弟情</font>: 增加 <font color='#99FF33'>新选组</font>的攻击, 攻速和移速."
-		"DOTA_Tooltip_ability_okita_flag_of_sincerity_Lore"				"标示着“诚”一文字的新选组队旗。"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_Description"	"冲田插下 <font color='#99FF33'>诚之旗</font> 并召唤 <font color='#99FF33'>新选组</font> 成员围绕旗帜. \n 如果旗帜被毁，所有 <font color='#99FF33'>新选组</font> 都会消失. \n 冲田获得 <font color='#FFFF28'>兄弟情</font> 当在旗帜区域内. \n<font color='#FFFF28'>兄弟情</font>: 增加冲田的移动速度、攻击速度和攻击伤害. \n\n<font color='#9FFFCC'>可选属性升级: 觉悟的护额</font>."
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_Lore"				"标示着“诚”一文字的新选组队旗."
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_cast_delay"		"施法时间:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_radius"			"旗帜范围:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_min_summon"		"最低召唤数:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_max_summon"		"最大召唤数:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_flag_health"		"旗帜生命:"
 		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_duration"			"持续时间:"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_buff_aspd"		"%增益攻速:"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_buff_ms"			"增益移动速度:"
+		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_buff_atk"			"%增益攻击伤害:"
 
 		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_upgrade"				"<font color='#9FFFCC'>诚之旗</font>"
-		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_Description"	"冲田插下 <font color='#99FF33'>诚之旗</font> 并召唤 <font color='#99FF33'>新选组</font> 队员. \n冲田有概率召唤 <font color='#99FF33'>土方岁三</font>. \n如果旗帜被毁，所有<font color='#99FF33'>新选组</font> 都会消失. \n 如果冲田在旗帜范围内咳血，<font color='#99FF33'>新选组</font> 会获得 <font color='#FFFF28'>兄弟情</font> 状态. \n<font color='#FFFF28'>兄弟情</font>: 增加 <font color='#99FF33'>新选组</font>的攻击, 攻速和移速."
-		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_Lore"				"标示着“诚”一文字的新选组队旗。"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_Description"	"冲田插下 <font color='#99FF33'>诚之旗</font> 并召唤 <font color='#99FF33'>新选组</font> 成员围绕旗帜. \n 如果旗帜被毁，所有 <font color='#99FF33'>新选组</font> 都会消失. \n 冲田获得 <font color='#FFFF28'>兄弟情</font> 当在旗帜区域内. \n 当冲田有 <font color='#FFFF28'>誓言的羽织</font>, 所有 <font color='#99FF33'>新选组</font> 成员也获得 <font color='#FFFF28'>兄弟情</font>. \n<font color='#FFFF28'>兄弟情</font>: 增加移动速度、攻击速度、攻击伤害, 生命回复、法力回复并 <font color='#FFFF28'>免疫</font> 大多数控制技能."
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_Lore"				"标示着“诚”一文字的新选组队旗."
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_cast_delay"		"施法时间:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_radius"			"旗帜范围:"
-		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_summon_chance"	"%土方召唤概率:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_min_summon"		"最低召唤数:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_max_summon"		"最大召唤数:"
 		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_flag_health"		"旗帜生命:"
 		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_upgrade_duration"			"持续时间:"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_buff_aspd"		"%增益攻速:"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_buff_ms"			"增益移动速度:"
+		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_upgrade_buff_atk"			"%增益攻击伤害:"
+		"DOTA_Tooltip_ability_okita_flag_of_sincerity_upgrade_buff_hp_reg"		"增益额外生命回复:"
+		"DOTA_Tooltip_Ability_okita_flag_of_sincerity_upgrade_buff_mana_reg"	"增益额外法力回复:"
 
 		///////////////////////// Basic //////////////////////////////////////////
 		
 		"DOTA_Tooltip_Ability_okita_shukuchi"					"<font color='#58ACFA'>缩地</font>"
-		"DOTA_Tooltip_ability_okita_shukuchi_Description"		"冲田闪现到目标区域并获得 <font color='#FFFF28'>隐形</font> 和 <font color='#FFFF28'>呼吸</font> . \n<font color='#FFFF28'>隐形</font>: 增加移动速度同时<font color='#FFFF28'>隐身</font>. \n<font color='#FFFF28'>呼吸</font>: 增加攻速. \n\n<font color='#9FFFCC'>可选属性升级: Kyokuchi</font>."
-		"DOTA_Tooltip_ability_okita_shukuchi_Lore"			""
+		"DOTA_Tooltip_ability_okita_shukuchi_Description"		"冲田闪现到目标区域并获得 <font color='#FFFF28'>缩地無形</font> 和 <font color='#FFFF28'>缩地呼吸</font> 一段时间. \n<font color='#FFFF28'>缩地無形</font>: 增加冲田移动速度同时 <font color='#FFFF28'>隐身</font>. \n<font color='#FFFF28'>缩地呼吸</font>: 增加冲田攻速. \n\n<font color='#9FFFCC'>可选属性升级: 极地</font>."
+		"DOTA_Tooltip_ability_okita_shukuchi_Lore"			"冲田使用脚步移动、身体移动、呼吸和技术来缩短距离"
 		"DOTA_Tooltip_Ability_okita_shukuchi_exhaust"		"病弱堆叠:"
 		"DOTA_Tooltip_Ability_okita_shukuchi_leap_range"	"闪现距离:"
 		"DOTA_Tooltip_Ability_okita_shukuchi_invis_duration""隐身持续时间:"
-		"DOTA_Tooltip_Ability_okita_shukuchi_buff_duration"	"呼吸持续时间:"
-		"DOTA_Tooltip_Ability_okita_shukuchi_bonus_aspd"	"%呼吸额外攻速:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_buff_duration"	"缩地呼吸持续时间:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_bonus_aspd"	"%缩地呼吸额外攻速:"
 
 		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade"					"<font color='#9FFFCC'>缩地</font>"
-		"DOTA_Tooltip_ability_okita_shukuchi_upgrade_Description"		"冲田闪现到目标区域并获得 <font color='#FFFF28'>隐形</font> 和 <font color='#FFFF28'>呼吸</font> . \n<font color='#FFFF28'>隐形</font>: 增加移动速度同时<font color='#FFFF28'>隐身</font>. \n<font color='#FFFF28'>呼吸</font>:增加攻速 ，普通攻击造成暴击."
-		"DOTA_Tooltip_ability_okita_shukuchi_upgrade_Lore"			""
+		"DOTA_Tooltip_ability_okita_shukuchi_upgrade_Description"		"冲田闪现到目标区域并获得 <font color='#FFFF28'>缩地無形</font> 和 <font color='#FFFF28'>缩地呼吸</font> 一段时间. \n<font color='#FFFF28'>缩地無形</font>: 增加冲田移动速度同时 <font color='#FFFF28'>隐身</font>. \n<font color='#FFFF28'>缩地呼吸</font>: 增加冲田攻速和冲田的普通攻击会造成暴击伤害."
+		"DOTA_Tooltip_ability_okita_shukuchi_upgrade_Lore"			"冲田使用脚步移动、身体移动、呼吸和技术来缩短距离"
 		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_exhaust"		"病弱堆叠:"
 		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_leap_range"	"闪现距离:"
 		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_invis_duration""隐身持续时间:"
-		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_buff_duration"	"呼吸持续时间:"
-		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_bonus_aspd"	"%呼吸额外攻速:"
-		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_crit_dmg"		"%暴击伤害:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_buff_duration"	"缩地呼吸持续时间:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_bonus_aspd"	"%缩地呼吸额外攻速:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_upgrade_crit_dmg"		"%缩地呼吸暴击伤害:"
 
-		"DOTA_Tooltip_Ability_okita_tennen"				"<font color='#58ACFA'>天然理心流</font>"
-		"DOTA_Tooltip_ability_okita_tennen_Description"	"<font color='#58ACFA'>被动</font>:冲田每次普通攻击获得 <font color='#FFFF28'>天然理心流</font>层数. \n<font color='#FFFF28'>天然理心流</font>: 增加冲田的<font color='#80FF00'>敏捷</font>. \n<font color='#58ACFA'>主动</font>: 冲田获得 <font color='#FFFF28'>天然理心流</font>状态. \n<font color='#FFFF28'>天然理心流</font>: 增加攻击伤害."
-		"DOTA_Tooltip_ability_okita_tennen_Lore"				"冲田从童年开始就掌握的第一种剑术。"
-		"DOTA_Tooltip_Ability_okita_tennen_agi_duration"	"被动持续时间:"
-		"DOTA_Tooltip_Ability_okita_tennen_exhaust"			"病弱堆叠:"
-		"DOTA_Tooltip_Ability_okita_tennen_duration"		"主动持续时间:"
-		"DOTA_Tooltip_ability_okita_tennen_base_atk"		"主动每次攻击获得攻击力:"
-		"DOTA_Tooltip_ability_okita_tennen_bonus_agi"		"被动每次攻击获得敏捷:"
-		"DOTA_Tooltip_ability_okita_tennen_max_stacks"		"被动最大敏捷层数:"	
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths"					"<font color='#58ACFA'>誓言的羽织</font>"
+		"DOTA_Tooltip_ability_okita_coat_of_oaths_Description"		"冲田 <font color='#FFFF28'>消除</font> <font color='#FF3399'>缓速</font> 效果的同时获得 <font color='#FFFF28'>誓言的羽织</font> 一段时间. \n<font color='#FFFF28'>誓言的羽织</font>: 增加冲田的魔法抗性和护甲，同时防止 <font color='#FF3399'>病弱</font>. \n\n<font color='#9FFFCC'>可选属性升级: 觉悟的护额</font>."
+		"DOTA_Tooltip_ability_okita_coat_of_oaths_Lore"			""
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_duration"		"持续时间:"
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_bonus_mr"		"额外魔法抗性:"
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_bonus_armor"	"额外护甲:"
 
-		"DOTA_Tooltip_Ability_okita_hira_seigan"				"<font color='#58ACFA'>香取神道流</font>"
-		"DOTA_Tooltip_ability_okita_hira_seigan_Description"	"<font color='#58ACFA'>持续施法</font>: 冲田在持续施法时获得 <font color='#FFFF28'>青眼之构</font>. \n<font color='#FFFF28'>青眼之构</font>: 减少对冲田的伤害. \n 当中断或受到高于阈值的伤害, 冲田砍向附近所有敌人，根据施法时间造成魔法伤害. \n 完成后, 冲田在前方创造一个光束，造成纯粹伤害."
-		"DOTA_Tooltip_ability_okita_hira_seigan_Lore"			"是的，我不发光炮."
-		"DOTA_Tooltip_Ability_okita_hira_seigan_exhaust"		"病弱堆叠:"
-		"DOTA_Tooltip_Ability_okita_hira_seigan_dmg_reduction"	"%减少伤害:"
-		"DOTA_Tooltip_Ability_okita_hira_seigan_duration"		"持续施法时间:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_dmg_threshold"	"反击阈值:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_radius"			"反击范围:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_base_damage"	"基础伤害:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_charge_damage"	"每秒额外伤害:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_beam_damage"	"光束伤害:"
-		"DOTA_Tooltip_ability_okita_hira_seigan_beam_range"		"光束距离:"
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_upgrade"					"<font color='#9FFFCC'>誓言的羽织</font>"
+		"DOTA_Tooltip_ability_okita_coat_of_oaths_upgrade_Description"		"冲田 <font color='#FFFF28'>消除</font> 所有 <font color='#FF3399'>負面</font> 效果的同时获得 <font color='#FFFF28'>誓言的羽织</font> 一段时间. \n<font color='#FFFF28'>誓言的羽织</font>: 增加冲田的魔法抗性和护甲，同时防止 <font color='#FF3399'>病弱</font>. "
+		"DOTA_Tooltip_ability_okita_coat_of_oaths_upgrade_Lore"			""
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_upgrade_duration"		"持续时间:"
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_upgrade_bonus_mr"		"额外魔法抗性:"
+		"DOTA_Tooltip_Ability_okita_coat_of_oaths_upgrade_bonus_armor"	"额外护甲:"
+
+		"DOTA_Tooltip_Ability_okita_new_e"						"<font color='#58ACFA'>超越苍穹</font>"
+		"DOTA_Tooltip_ability_okita_new_e_Description"			"<font color='#58ACFA'>连锁</font>: 冲田能够瞬间 <font color='#FFFF28'>闪现</font> 至目标进行最多6次砍击, 每次砍击都会刷新其冷却时间. \n<font color='#58ACFA'>第1 - 第4次砍击</font>: <font color='#9FFFCC'>矢量技能</font>: 冲田 <font color='#FFFF28'>闪现</font> 到目标并砍击目标矢量位置, 並且造成魔法伤害. \n<font color='#58ACFA'>第5次砍击</font> <font color='#9FFFCC'>矢量技能</font>: 冲田 <font color='#FFFF28'>闪现</font> 到目标位置並 <font color='#FFFF28'>冲刺</font> 至目标矢量位置，对路径上的所有敌人造成魔法伤害. \n 冲田将会 <font color='#FFFF28'>无法选取</font> 和 <font color='#FFFF28'>无敌</font> 当正在冲刺. \n<font color='#58ACFA'>第6次砍击</font>: 冲田将剑刺向目标位置，造成魔法伤害和 <font color='#FF3399'>暈眩</font> 所有敌人. \n\n<font color='#9FFFCC'>可选属性升级: 天然理心流</font>."
+		"DOTA_Tooltip_ability_okita_new_e_Lore"				""
+		"DOTA_Tooltip_Ability_okita_new_e_exhaust"			"病弱堆叠:"
+		"DOTA_Tooltip_Ability_okita_new_e_leap_range"		"闪现距离:"
+		"DOTA_Tooltip_Ability_okita_new_e_base_damage"		"砍击/冲刺伤害:"
+		"DOTA_Tooltip_Ability_okita_new_e_slash_range"		"砍击范围:"
+		"DOTA_Tooltip_Ability_okita_new_e_dash_range"		"冲刺距离:"
+		"DOTA_Tooltip_Ability_okita_new_e_thrust_damage"	"剑刺伤害:"
+		"DOTA_Tooltip_Ability_okita_new_e_thrust_range"		"剑刺范围:"
+		"DOTA_Tooltip_Ability_okita_new_e_thrust_stun"		"剑刺暈眩时间:"
+
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade"				"<font color='#9FFFCC'>超越苍穹</font>"
+		"DOTA_Tooltip_ability_okita_new_e_upgrade_Description"		"<font color='#58ACFA'>连锁</font>: 冲田能够瞬间 <font color='#FFFF28'>闪现</font> 至目标进行最多6次砍击, 每次砍击都会刷新其冷却时间並且获得 <font color='#FFFF28'>天然理心流</font> 层数一段时间. \n<font color='#58ACFA'>第1 - 第4次砍击</font>: <font color='#9FFFCC'>矢量技能</font>: 冲田 <font color='#FFFF28'>闪现</font> 到目标并砍击目标矢量位置, 並且造成魔法伤害. \n<font color='#58ACFA'>第5次砍击</font> <font color='#9FFFCC'>矢量技能</font>: 冲田 <font color='#FFFF28'>闪现</font> 到目标位置並 <font color='#FFFF28'>冲刺</font> 至目标矢量位置, 对路径上的所有敌人造成魔法伤害. \n<font color='#FFB266'>闪光光束</font>: 冲田向目标位置发射一道光束，根据她的 <font color='#80FF00'>敏捷</font> 造成伤害并攻击路径上的所有敌人. \n<font color='#58ACFA'>第6次砍击</font>: 冲田将剑刺向目标位置，造成魔法伤害和 <font color='#FF3399'>暈眩</font> 所有敌人. \n<font color='#FFFF28'>天然理心流</font>: 冲田获得额外 <font color='#80FF00'>敏捷</font> 並且每次斩击都会造成更大伤害. \n 冲田将会使用 <font color='#58ACFA'>第6次砍击</font> 如果 <font color='#FFB266'>闪光光束</font> 正在冷却. \n<font color='#58ACFA'>超越苍穹</font> 根据她 <font color='#80FF00'>敏捷</font> 尽可能减少施法动画时间. \n光束伤害: %beam_base_damage% + (ATK x %beam_atk_dmg%%%) + (<font color='#80FF00'>AGI</font> x %beam_bonus_agi%) "
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_exhaust"			"病弱堆叠:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_leap_range"		"闪现距离:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_base_damage"		"砍击/冲刺伤害:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_slash_range"		"砍击范围:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_dash_range"		"冲刺距离:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_thrust_damage"	"剑刺伤害:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_thrust_range"		"剑刺范围:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_thrust_stun"		"剑刺暈眩时间:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_thrust_range"		"剑刺距离:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_beam_range"		"光束距离:" 
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_beam_cooldown"	"光束冷却:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_bonus_damage"		"%天然理心流每次斩击更多伤害:"
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_bonus_agi"		"天然理心流每层额外敏捷:" 
+		"DOTA_Tooltip_Ability_okita_new_e_upgrade_tennen_duration"	"天然理心流持续时间:"
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"				"<font color='#58ACFA'>无明三段突</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_Description"	"冲田使用她的终极剑术，无明三段突.使用之前必须完成三步 \n<font color='#58ACFA'>第一步</font>: 冲田<font color='#FFFF28'>无法选中</font> 并冲刺 %distance% 距离. \n<font color='#58ACFA'>第二步</font>: 冲田<font color='#FFFF28'>无法选中</font>并以更快速度冲刺 %distance% 距离. \n<font color='#58ACFA'>第三步</font>: 冲田 <font color='#FFFF28'>无敌</font>且<font color='#FFFF28'>无法选中</font>，并以最快速度冲刺%distance% 距离，造成多段有延迟的纯粹伤害. \n\n<font color='#9FFFCC'>可选属性升级: 菊一文字则宗</font>. \n 完成三步最多 %window_duration%秒. 冲田完成三步之前会被<font color='#FF3399'>缠绕</font>."
-		"DOTA_Tooltip_ability_okita_sandanzuki_Lore"				"非凡的天才剑士冲田总司使用的一种剑术。 由三段突刺组成。"
+		"DOTA_Tooltip_ability_okita_sandanzuki_Description"	"<font color='#58ACFA'>连锁</font>: 冲田使用她的终极剑术, 无明三段突. 使用之前必须完成三步. \n<font color='#58ACFA'>第一步</font>: 冲田 <font color='#FFFF28'>无法选中</font> 并冲刺 %distance% 距离. \n<font color='#58ACFA'>第二步</font>: 冲田 <font color='#FFFF28'>无法选中</font> 并以更快速度冲刺 %distance% 距离. \n<font color='#58ACFA'>第三步</font>: 冲田 <font color='#FFFF28'>无敌</font> 且 <font color='#FFFF28'>无法选中</font> ，并以最快速度冲刺 %distance% 距离，造成多段有延迟的纯粹伤害. \n\n<font color='#9FFFCC'>可选属性升级: 菊一文字则宗</font>. \n 完成三步最多 %window_duration% 秒. 冲田完成三步之前会被 <font color='#FF3399'>缠绕</font> ."
+		"DOTA_Tooltip_ability_okita_sandanzuki_Lore"				"非凡的天才剑士冲田总司使用的一种剑术。 由三段突刺组成."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_exhaust"			"病弱堆叠:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_cast_delay"		"施法延迟:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_base_damage"		"每段伤害:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_delay_duration"	"第三步伤害延迟时间:"
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki_upgrade"				"<font color='#9FFFCC'>无明三段突</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_Description"	"冲田使用她的终极剑术，无明三段突.使用之前必须完成三步 \n<font color='#58ACFA'>第一步</font>: 冲田<font color='#FFFF28'>无法选中</font> 并冲刺 %distance% 距离. \n<font color='#58ACFA'>第二步</font>: 冲田<font color='#FFFF28'>无法选中</font>并以更快速度冲刺 %distance% 距离. \n<font color='#58ACFA'>第三步</font>: 冲田 <font color='#FFFF28'>无敌</font>且<font color='#FFFF28'>无法选中</font>，并以最快速度冲刺%distance% 距离，造成三段基于她 <font color='#80FF00'>敏捷</font>的纯粹伤害. \n 完成三步最多 %window_duration%秒. 冲田完成三步之前会被<font color='#FF3399'>缠绕</font>."
-		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_Lore"				"非凡的天才剑士冲田总司使用的一种剑术。 由三段突刺组成。"
+		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_Description"	"冲田使用她的终极剑术, 无明三段突. 使用之前必须完成三步. \n<font color='#58ACFA'>第一步</font>: 冲田 <font color='#FFFF28'>无法选中</font> 并冲刺 %distance% 距离. \n<font color='#58ACFA'>第二步</font>: 冲田 <font color='#FFFF28'>无法选中</font> 并以更快速度冲刺 %distance% 距离. \n<font color='#58ACFA'>第三步</font>: 冲田 <font color='#FFFF28'>无敌</font> and <font color='#FFFF28'>无法选中</font> ，并以最快速度冲刺 %distance% 距离， 造成多段有延迟的纯粹伤害基于冲田的 <font color='#80FF00'>敏捷</font>. \n 完成三步最多 %window_duration% 秒. 冲田完成三步之前会被 <font color='#FF3399'>缠绕</font> ."
+		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_Lore"				"非凡的天才剑士冲田总司使用的一种剑术。 由三段突刺组成."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_upgrade_exhaust"			"病弱堆叠:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_cast_delay"		"施法延迟:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_base_damage"		"每段伤害:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_bonus_agi_ratio"	"每点敏捷每段额外伤害:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_upgrade_delay_duration"	"第三步伤害延迟时间:"
 
-		"DOTA_Tooltip_Ability_okita_sandanzuki_charge1"				"<font color='#58ACFA'无明三段突</font>-<font color='#FF9900'>(第一步)</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_charge1_Description"	"<font color='#58ACFA'>壹之突刺</font>:冲田总司处于<font color='#FFFF28'>无法被定身</font>状态下并以 %dash_speed% 的速度冲刺 %distance% 距离 ."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_charge1"				"<font color='#58ACFA'>无明三段突</font> <font color='#FF9900'>(第一步)</font>"
+		"DOTA_Tooltip_ability_okita_sandanzuki_charge1_Description"	"<font color='#58ACFA'>壹之突刺</font>: 冲田总司处于 <font color='#FFFF28'>无法选中</font> 状态下并以 %dash_speed% 的速度冲刺 %distance% 距离."
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge1_Lore"				""
 		"DOTA_Tooltip_Ability_okita_sandanzuki_charge1_exhaust"			"病弱叠加:"
 
-		"DOTA_Tooltip_Ability_okita_sandanzuki_charge2"				"<font color='#58ACFA'无明三段突</font>-<font color='#FF9900'>(第二步)</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_charge2_Description"	"<font color='#58ACFA'>贰之突刺</font>:冲田总司处于 <font color='#FFFF28'>无法被定身</font>状态下并以 %dash_speed% 的速度冲刺 %distance% 距离"
+		"DOTA_Tooltip_Ability_okita_sandanzuki_charge2"				"<font color='#58ACFA'>无明三段突</font> <font color='#FF9900'>(第二步)</font>"
+		"DOTA_Tooltip_ability_okita_sandanzuki_charge2_Description"	"<font color='#58ACFA'>贰之突刺</font>: 冲田总司处于 <font color='#FFFF28'>无法选中</font> 状态下并以 %dash_speed% 的速度冲刺 %distance% 距离."
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge2_Lore"				""
 		"DOTA_Tooltip_Ability_okita_sandanzuki_charge2_exhaust"			"病弱叠加:"
 
-		"DOTA_Tooltip_Ability_okita_sandanzuki_charge3"				"<font color='#58ACFA'无明三段突</font>-<font color='#FF9900'>(第三步)</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_Description"	"<font color='#58ACFA'>参之突刺</font>:冲田总司处于<font color='#FFFF28'>无法被定身</font> 和 <font color='#FFFF28'>无敌</font>状态下并以 %dash_speed% 的速度冲刺 %distance% 距离并在短暂延迟后造成物理、魔法、纯粹伤害。 \n\n<font color='#9FFFCC'>可升级的特殊属性: 菊一文字则宗</font>."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_charge3"				"<font color='#58ACFA'>无明三段突</font> <font color='#FF9900'>(第三步)</font>"
+		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_Description"	"<font color='#58ACFA'>参之突刺</font>: 冲田总司处于 <font color='#FFFF28'>无法选中</font> 和 <font color='#FFFF28'>无敌</font> 状态下并以 %dash_speed% 的速度冲刺 %distance% 距离并在短暂延迟后造成纯粹伤害. \n\n<font color='#9FFFCC'>可升级属性: 菊一文字则宗</font>."
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_Lore"				""
 		"DOTA_Tooltip_Ability_okita_sandanzuki_charge3_exhaust"			"病弱叠加:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_base_damage"		"每段伤害:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_delay_duration"	"伤害延迟时间:"
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki_charge3_upgrade"				"<font color='#9FFFCC'>无明三段突</font> <font color='#FF9900'>(第三步)</font>"
-		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_Description"	"<font color='#58ACFA'>参之突刺</font>: 冲田总司处于<font color='#FFFF28'>无法被定身</font> 和 <font color='#FFFF28'>无敌</font>状态下并以以 %dash_speed% 的速度冲刺 %distance% 距离并在短暂延迟后造成基于<font color='#80FF00'>敏捷</font>系数的物理、魔法、纯粹伤害."
+		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_Description"	"<font color='#58ACFA'>参之突刺</font>: 冲田总司处于 <font color='#FFFF28'>无法选中</font> 和 <font color='#FFFF28'>无敌</font> 状态下并以 %dash_speed% 的速度冲刺 %distance% 距离并在短暂延迟后造成基于冲田总司 <font color='#80FF00'>敏捷</font>的纯粹伤害."
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_Lore"				""
 		"DOTA_Tooltip_Ability_okita_sandanzuki_charge3_upgrade_exhaust"			"病弱叠加:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_base_damage"		"每段伤害:"
-		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_bonus_agi_ratio"	"敏捷系数:"
+		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_bonus_agi_ratio"	"每点敏捷额外伤害:"
 		"DOTA_Tooltip_ability_okita_sandanzuki_charge3_upgrade_delay_duration"	"伤害延迟时间:"
 
 		//////////////////// Special Ability /////////////////////////////////////////////
 
 		"DOTA_Tooltip_Ability_okita_mind_eye"				"<font color='#FFB266'>心眼(伪)</font>"
-		"DOTA_Tooltip_ability_okita_mind_eye_Description"	"冲田短时间内获得<font color='#FFFF28'>心眼</font> . \n<font color='#FFFF28'>心眼</font>: 冲田免疫所有投射物, 闪避所有普通攻击并<font color='#FFFF28'>阻挡</font> 下一个物品和技能. \n 受到伤害后，冲田短时间内 <font color='#FFFF28'>无敌</font>."
+		"DOTA_Tooltip_ability_okita_mind_eye_Description"	"冲田短时间内获得 <font color='#FFFF28'>心眼</font> . \n<font color='#FFFF28'>心眼</font>: 冲田免疫所有投射物, 闪避所有普通攻击并 <font color='#FFFF28'>阻挡</font> 下一个物品和技能. \n 受到伤害后, 冲田短时间内 <font color='#FFFF28'>无敌</font>. "
 		"DOTA_Tooltip_ability_okita_mind_eye_duration"			"持续时间:"
 		"DOTA_Tooltip_ability_okita_mind_eye_distance"			"后撤距离:"
+
+		"DOTA_Tooltip_Ability_okita_hira_seigan_stop"				"<font color='#FFB266'>心眼取消</font>"
+		"DOTA_Tooltip_ability_okita_hira_seigan_stop_Description"	"取消技能"
 
 		////////////////////// Unit Ability ////////////////////////////////////////
 
 		"DOTA_Tooltip_Ability_okita_shinsengumi_passive"				"<font color='#FFFFFF'>新选组</font>"
-		"DOTA_Tooltip_ability_okita_shinsengumi_passive_Description"	"这是新选组, 只能在<font color='#FFFFFF'>诚之旗</font>范围内活动."
+		"DOTA_Tooltip_ability_okita_shinsengumi_passive_Description"	"这是新选组, 只能在 <font color='#FFFFFF'>诚之旗</font>范围内活动."
 
 		"DOTA_Tooltip_Ability_okita_head_shinsengumi_passive"				"<font color='#FFFFFF'>新选组队长</font>"
-		"DOTA_Tooltip_ability_okita_head_shinsengumi_passive_Description"	"这是新选组队长. 可以在<font color='#FFFFFF'>诚之旗</font>外活动."
+		"DOTA_Tooltip_ability_okita_head_shinsengumi_passive_Description"	"这是新选组队长. 可以在 <font color='#FFFFFF'>诚之旗</font>外活动."
 
 		"DOTA_Tooltip_Ability_okita_law_of_shinsengumi_passive"				"<font color='#FFB266'>新选组的规则</font>"
-		"DOTA_Tooltip_ability_okita_law_of_shinsengumi_passive_Description"	"<font color='#58ACFA'>光环</font>: 所有附近的<font color='#99FF33'>新选组</font> 获得<font color='#FFFF28'>新选组的规则</font>. \n<font color='#FFFF28'>新选组的规则</font>:增加攻速, 移速和攻击."
+		"DOTA_Tooltip_ability_okita_law_of_shinsengumi_passive_Description"	"<font color='#58ACFA'>光环</font>: 所有附近的 <font color='#99FF33'>新选组</font> 获得 <font color='#FFFF28'>新选组的规则</font>. \n<font color='#FFFF28'>新选组的规则</font>: 增加攻速, 移速和攻击."
 		"DOTA_Tooltip_Ability_okita_law_of_shinsengumi_passive_radius"		"光环范围:"
 		"DOTA_Tooltip_Ability_okita_law_of_shinsengumi_passive_buff_aspd"	"%额外攻速:"
 		"DOTA_Tooltip_Ability_okita_law_of_shinsengumi_passive_buff_ms"		"%额外移速:"
 		"DOTA_Tooltip_Ability_okita_law_of_shinsengumi_passive_buff_atk"	"%额外攻击:"
 
 		"DOTA_Tooltip_Ability_okita_hijikata_undying_sincerity"				"<font color='#58ACFA'>永远的新选组</font>"
-		"DOTA_Tooltip_ability_okita_hijikata_undying_sincerity_Description"	"土方冲向敌人, 造成纯粹伤害并<font color='#FF3399'>眩晕</font>."
+		"DOTA_Tooltip_ability_okita_hijikata_undying_sincerity_Description"	"土方冲向敌人, 造成纯粹伤害并 <font color='#FF3399'>眩晕</font> 目标一段时间."
 		"DOTA_Tooltip_ability_okita_hijikata_undying_sincerity_cast_delay"	"施法延迟:"
 		"DOTA_Tooltip_ability_okita_hijikata_undying_sincerity_range"	"最大距离:"
 		"DOTA_Tooltip_ability_okita_hijikata_undying_sincerity_damage"	"伤害:"
@@ -9307,9 +9338,9 @@
 
 		////////////////////// Combo ////////////////////////////////////////
 
-		"DOTA_Tooltip_Ability_okita_zekken"				"<font color='#FF04EF'>连击技能: 绝剑·无穷三段</font>"
-		"DOTA_Tooltip_ability_okita_zekken_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 4秒内W -> R </font> \n 冲田使用她最强剑技 绝剑·无穷三段. \n 冲田冲向目标区域并寻找敌人作为目标, <font color='#FF3399'>击飞</font> 目标和周围所有敌人. \n 之后刺穿所有敌人, 造成纯粹伤害和 <font color='#FF3399'>眩晕</font>, 结束后回到起始位置. \n 如果目标仍然存活, 冲田向目标发射一束黑光, 对沿途所有敌人造成魔法伤害. \n 冲田释放完成前 <font color='#FFFF28'>无敌</font>, <font color='#FFFF28'>无法选中</font>且 <font color='#FF3399'>禁咒</font>. \n\n<font color='#9FFFCC'>可选属性升级: 菊一文字则宗</font>."
-		"DOTA_Tooltip_ability_okita_zekken_Lore"				"我乃魔神(人)Sa……不，是Alterego，冲田Alter亲"
+		"DOTA_Tooltip_Ability_okita_zekken"				"<font color='#FF04EF'>连击技能: 绝剑·无穹三段</font>"
+		"DOTA_Tooltip_ability_okita_zekken_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 4秒内W -> R </font> \n 冲田使用她最强剑技 绝剑·无穹三段. \n 冲田冲向目标区域并寻找敌人作为目标, 然后攻击并 <font color='#FF3399'>击飞</font> 目标和周围所有敌人. \n 之后刺穿所有敌人, 造成纯粹伤害和 <font color='#FF3399'>眩晕</font>, 结束后回到起始位置. \n 如果目标仍然存活, 冲田向目标发射一束黑光, 对沿途所有敌人造成魔法伤害. \n 冲田释放完成前 <font color='#FFFF28'>无敌</font>, <font color='#FFFF28'>无法选中</font> 且 <font color='#FF3399'>禁咒</font>. \n\n<font color='#9FFFCC'>可选属性升级: 菊一文字则宗</font>."
+		"DOTA_Tooltip_ability_okita_zekken_Lore"				"我乃魔神(人)Sa……不，是Alterego，冲田Alter亲."
 		"DOTA_Tooltip_Ability_okita_zekken_exhaust"				"病弱层数堆叠:"
 		"DOTA_Tooltip_Ability_okita_zekken_distance"			"冲刺距离:"
 		"DOTA_Tooltip_ability_okita_zekken_dmg"					"%每点攻击斩击伤害:"
@@ -9319,9 +9350,9 @@
 		"DOTA_Tooltip_ability_okita_zekken_beam_damage"			"光束伤害:"
 		"DOTA_Tooltip_ability_okita_zekken_beam_distance"		"光束距离:"
 
-		"DOTA_Tooltip_Ability_okita_zekken_upgrade"				"<font color='#FF04EF'>隐藏: 绝剑·无穹三段</font>"
-		"DOTA_Tooltip_ability_okita_zekken_upgrade_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 4秒内W -> R </font> \n 冲田使用她最强剑技 绝剑·无穷三段. \n 冲田冲向目标区域并寻找敌人作为目标, <font color='#FF3399'>击飞</font> 目标和周围所有敌人. \n 之后刺穿所有敌人, 造成纯粹伤害和 <font color='#FF3399'>眩晕</font>, 结束后回到起始位置. \n 如果目标仍然存活, 冲田向目标发射一束黑光, 对沿途所有敌人造成基于她<font color='#80FF00'>敏捷</font> 的魔法伤害 \n 冲田释放完成前 <font color='#FFFF28'>无敌</font>, <font color='#FFFF28'>无法选中</font>且 <font color='#FF3399'>禁咒</font>."
-		"DOTA_Tooltip_ability_okita_zekken_upgrade_Lore"				"我乃魔神(人)Sa……不，是Alterego，冲田Alter"
+		"DOTA_Tooltip_Ability_okita_zekken_upgrade"				"<font color='#FF04EF'>连击技能: 绝剑·无穹三段</font>"
+		"DOTA_Tooltip_ability_okita_zekken_upgrade_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 4秒内W -> R </font> \n 冲田冲向目标区域并寻找敌人作为目标, 然后攻击并 <font color='#FF3399'>击飞</font> 目标和周围所有敌人. \n 之后刺穿所有敌人, 造成纯粹伤害和 <font color='#FF3399'>眩晕</font>, 结束后回到起始位置. \n 如果目标仍然存活, 冲田向目标发射一束黑光, 对沿途所有敌人造成魔法伤害基于冲田的 <font color='#80FF00'>敏捷</font> . \n 冲田释放完成前 <font color='#FFFF28'>无敌</font>, <font color='#FFFF28'>无法选中</font> 且 <font color='#FF3399'>禁咒</font> ."
+		"DOTA_Tooltip_ability_okita_zekken_upgrade_Lore"				"我乃魔神(人)Sa……不，是Alterego，冲田Alter亲."
 		"DOTA_Tooltip_Ability_okita_zekken_upgrade_exhaust"				"病弱层数堆叠:"
 		"DOTA_Tooltip_Ability_okita_zekken_upgrade_distance"			"冲刺距离:"
 		"DOTA_Tooltip_ability_okita_zekken_upgrade_dmg"					"%每点攻击斩击伤害:"
@@ -9329,19 +9360,22 @@
 		"DOTA_Tooltip_Ability_okita_zekken_upgrade_radius"				"斩击距离:"
 		"DOTA_Tooltip_ability_okita_zekken_upgrade_last_hit_damage"		"冲刺伤害:"
 		"DOTA_Tooltip_ability_okita_zekken_upgrade_beam_damage"			"光束伤害:"
-		"DOTA_Tooltip_ability_okita_zekken_upgrade_beam_kiku_agi_ratio"	"每点敏捷光束额外伤害:"
-		"DOTA_Tooltip_ability_okita_zekken_upgrade_beam_distance"		"光束距离:"
+		"DOTA_Tooltip_ability_okita_zekken_upgrade_beam_kiku_agi_ratio"	"每点敏捷光束伤害:"
+		"DOTA_Tooltip_ability_okita_zekken_upgrade_beam_distance"		"光束范围:"
 
 		/////////////////// Buff /////////////////////
 
-		"DOTA_Tooltip_modifier_weak_buff"				"兄弟情"
-		"DOTA_Tooltip_modifier_weak_buff_Description"	"提升 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%%% 移速和 %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力"
+		"DOTA_Tooltip_modifier_okita_headband"				"兄弟情"
+		"DOTA_Tooltip_modifier_okita_headband_Description"	"提升 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移速和 %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力"
+
+		"DOTA_Tooltip_modifier_okita_headband_upgrade"				"兄弟情"
+		"DOTA_Tooltip_modifier_okita_headband_upgrade_Description"	"提升 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移速和, %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命回复和 %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 法力回复"
 
 		"DOTA_Tooltip_modifier_law_of_shinsengumi_buff"				"新选组的规则"
 		"DOTA_Tooltip_modifier_law_of_shinsengumi_buff_Description"	"提升 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%%% 移速和 %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力"
 		
 		"DOTA_Tooltip_modifier_shukuchi_invis"				"缩地隐形"
-		"DOTA_Tooltip_modifier_shukuchi_invis_Description"	"隐身和移动速度"
+		"DOTA_Tooltip_modifier_shukuchi_invis_Description"	"隐身并提升移动速度"
 
 		"DOTA_Tooltip_modifier_shukuchi_breath"				"缩地呼吸"
 		"DOTA_Tooltip_modifier_shukuchi_breath_Description"	"提升 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
@@ -9349,17 +9383,20 @@
 		"DOTA_Tooltip_modifier_tennen_base"					"天然理心流主动"
 		"DOTA_Tooltip_modifier_tennen_base_Description"	"提升 %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力"
 		
-		"DOTA_Tooltip_modifier_tennen_passive"						"天然理心流被动"
-		"DOTA_Tooltip_modifier_tennen_passive_Description"			"每次攻击提升 %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷"
+		"DOTA_Tooltip_modifier_okita_tennen_count"						"天然理心流被动"
+		"DOTA_Tooltip_modifier_okita_tennen_count_Description"			"每层可获得额外敏捷" 
 
-		"DOTA_Tooltip_modifier_hira_seigan_thinker"						"青眼之构"
-		"DOTA_Tooltip_modifier_hira_seigan_thinker_Description"			"降低 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害。"
+		"DOTA_Tooltip_modifier_okita_flash_tracker"						"超越苍穹"
+		"DOTA_Tooltip_modifier_okita_flash_tracker_Description"			""
+
+		"DOTA_Tooltip_modifier_hira_seigan_shield"						"Hira Seigan"
+		"DOTA_Tooltip_modifier_hira_seigan_shield_Description"			"吸收伤害"
 
 		"DOTA_Tooltip_modifier_okita_mind_eye"						"心眼"
-		"DOTA_Tooltip_modifier_okita_mind_eye_Description"			"闪避下个目标技能。"
+		"DOTA_Tooltip_modifier_okita_mind_eye_Description"			"阻挡下一个目标法术"
 
 		"DOTA_Tooltip_modifier_coat_of_oaths"						"誓言的羽织"
-		"DOTA_Tooltip_modifier_coat_of_oaths_Description"			"提升 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔抗, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
+		"DOTA_Tooltip_modifier_coat_of_oaths_Description"			"提升 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 
 		"DOTA_Tooltip_modifier_sandanzuki_window"						"三段突时间"
 		"DOTA_Tooltip_modifier_sandanzuki_window_Description"			""
@@ -9367,53 +9404,60 @@
 		//////////////////// Debuff //////////////////////
 
 		"DOTA_Tooltip_modifier_weak_constitution"						"虚弱"
-		"DOTA_Tooltip_modifier_weak_constitution_Description"			"降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔抗 和 %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力"
+		"DOTA_Tooltip_modifier_weak_constitution_Description"			"降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔抗 and %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% 攻击力"
 
 		"DOTA_Tooltip_modifier_weak_constitution_progress"				"病弱层数"
-		"DOTA_Tooltip_modifier_weak_constitution_progress_Description"	"请忍受...我的身体！"
+		"DOTA_Tooltip_modifier_weak_constitution_progress_Description"	"请忍受...我的身体!"
 
 		//////////////////// Cooldown ///////////////////
 
 		"DOTA_Tooltip_modifier_okita_mind_eye_cooldown"						"心眼冷却"
 		"DOTA_Tooltip_modifier_okita_mind_eye_cooldown_Description"			""
 
-		"DOTA_Tooltip_modifier_zekken_cooldown"						"绝剑·无穷三段冷却"
+		"DOTA_Tooltip_modifier_zekken_cooldown"						"绝剑·无穹三段冷却"
 		"DOTA_Tooltip_modifier_zekken_cooldown_Description"			""
+
+		"DOTA_Tooltip_modifier_okita_beam_cooldown"						"超越苍穹:光束冷却"
+		"DOTA_Tooltip_modifier_okita_beam_cooldown_Description"			""
 
 		///////////////////////////////// Special Attribute ////////////////////////////
 
-		"DOTA_Tooltip_Ability_okita_attribute_coat_of_oaths"				"<font color='#9FFFCC'>属性: 誓言的羽织</font>"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_Description"	"激活 <font color='#FFB266'>誓言的羽织</font> \n<font color='#FFB266'>誓言的羽织</font>:<font color='#58ACFA'>被动</font>: 冲田获得 <font color='#FFFF28'>誓言的羽织</font>. \n<font color='#FFFF28'>誓言的羽织</font>: 增加护甲和魔抗.  \n<font color='#FFFFFF'>诚之旗</font>: 增加旗帜生命值，范围，召唤数量，并有概率召唤<font color='#99FF33'>土方岁三</font>."
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_Lore"			"浅葱色的羽织。幕末时撼动首都的斩人集团“新选组”的著名装扮，昇华为宝具后的结果，装备之时，她的能力参数会向上提升。"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_bonus_mr"	"%额外魔法抗性:"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_bonus_armor""额外护甲:"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_flag_bonus_summon""旗帜额外召唤:"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_flag_health""旗帜额外生命:"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_flag_range""旗帜额外范围:"
-		"DOTA_Tooltip_ability_okita_attribute_coat_of_oaths_flag_summon_chance""%召唤土方岁三概率:"
+		"DOTA_Tooltip_Ability_okita_attribute_headband"				"<font color='#9FFFCC'>属性: 觉悟的护额</font>"
+		"DOTA_Tooltip_ability_okita_attribute_headband_Description"	"<font color='#FFFFFF'>诚之旗</font>: 增加旗帜的生命值、范围、持续时间和召唤. \n 当冲田有 <font color='#FFFF28'>誓言的羽织</font>, 所有 <font color='#99FF33'>新选组</font> 成员也获得 <font color='#FFFF28'>兄弟情</font>. \n<font color='#FFFF28'>兄弟情</font>: 获得生命回复、法力回复并 <font color='#FFFF28'>免疫</font> 大多数控制技能. \n<font color='#58ACFA'>誓言的羽织</font>: 冲田 <font color='#FFFF28'>消除</font> 所有 <font color='#FF3399'>負面</font> 效果同时增加其持续时间."
+		"DOTA_Tooltip_ability_okita_attribute_headband_flag_radius"			"旗帜额外范围:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_flag_duration"		"旗帜额外持续时间:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_flag_summon"			"旗帜额外召唤:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_flag_hp"				"旗帜额外生命:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_buff_hp_reg"			"增益额外生命回复:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_buff_mana_reg"		"增益额外法力回复:"
+		"DOTA_Tooltip_ability_okita_attribute_headband_coat_bonus_dur"		"誓言的羽织额外持续时间:"
 
 		"DOTA_Tooltip_Ability_okita_attribute_mind_eye"				"<font color='#9FFFCC'>属性: 心眼(伪)</font>"
-		"DOTA_Tooltip_ability_okita_attribute_mind_eye_Description"	"激活 <font color='#FFB266'>心眼（伪）</font>. \n<font color='#FFB266'>心眼（伪）</font>: 冲田短时间内获得<font color='#FFFF28'>心眼</font> . \n<font color='#FFFF28'>心眼</font>: 冲田免疫所有投射物, 闪避所有普通攻击并<font color='#FFFF28'>阻挡</font> 下一个物品和技能. \n 受到伤害后，冲田短时间内 <font color='#FFFF28'>无敌</font>."
+		"DOTA_Tooltip_ability_okita_attribute_mind_eye_Description"	"激活 <font color='#FFB266'>心眼 (伪)</font>. \n<font color='#FFB266'>心眼 (伪)</font>: 冲田短时间内获得 <font color='#FFFF28'>心眼</font> . \n<font color='#FFFF28'>心眼</font>: 冲田免疫所有投射物, 闪避所有普通攻击并 <font color='#FFFF28'>阻挡</font> 下一个物品和技能. \n 受到伤害后，冲田短时间内 <font color='#FFFF28'>无敌</font>."
 		"DOTA_Tooltip_ability_okita_attribute_mind_eye_duration"			"持续时间:"
 		"DOTA_Tooltip_ability_okita_attribute_mind_eye_distance"			"后撤距离:"
 
 		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji"				"<font color='#9FFFCC'>属性: 菊一文字则宗</font>"
-		"DOTA_Tooltip_ability_okita_attribute_kiku_ichimonji_Description"	"<font color='#58ACFA'>无明三段突</font>: 增加基于冲田 <font color='#80FF00'>敏捷</font>的伤害. \n<font color='#FF04EF'>绝剑·无穷三段</font>: 基于冲田<font color='#80FF00'>敏捷</font>增加光束伤害."
+		"DOTA_Tooltip_ability_okita_attribute_kiku_ichimonji_Description"	"<font color='#58ACFA'>无明三段突</font>: 增加基于冲田 <font color='#80FF00'>敏捷</font>的伤害. \n<font color='#FF04EF'>绝剑·无穹三段</font>: 基于冲田 <font color='#80FF00'>敏捷</font>增加光束伤害."
 		"DOTA_Tooltip_ability_okita_attribute_kiku_ichimonji_Lore"			"冲田总司最爱的武士刀."
 		"DOTA_Tooltip_ability_okita_attribute_kiku_ichimonji_mumyo_bonus_agi_ratio"	"无明三段突每点敏捷增加每段伤害:"
 		"DOTA_Tooltip_ability_okita_attribute_kiku_ichimonji_zekken_bonus_agi_ratio"	"无穷三段每点敏捷增加光束伤害:"
 
-		"DOTA_Tooltip_Ability_okita_attribute_persistence"				"<font color='#9FFFCC'>属性: 坚持不懈</font>"
-		"DOTA_Tooltip_ability_okita_attribute_persistence_Description"	"<font color='#FFFFFF'>病弱</font>: 增加最大咳嗽层数并增加回复速度."
-		"DOTA_Tooltip_ability_okita_attribute_persistence_max_cough"	"最大咳嗽层数:"
-		"DOTA_Tooltip_ability_okita_attribute_persistence_bonus_recovery""额外回复速度:"
-
-		"DOTA_Tooltip_Ability_okita_attribute_kyokuji"				"<font color='#9FFFCC'>属性: 升级缩地</font>"
-		"DOTA_Tooltip_ability_okita_attribute_kyokuji_Description"	"<font color='#58ACFA'>缩地</font>:增加闪现距离和<font color='#FFFF28'>呼吸</font>持续时间. \n<font color='#FFFF28'>呼吸</font>: 增加攻速 ，普通攻击造成暴击."
-		"DOTA_Tooltip_ability_okita_attribute_kyokuji_Lore"			"更高等级的缩地"
+		"DOTA_Tooltip_Ability_okita_attribute_kyokuji"				"<font color='#9FFFCC'>属性: 极地</font>"
+		"DOTA_Tooltip_ability_okita_attribute_kyokuji_Description"	"<font color='#58ACFA'>缩地</font>: 增加闪现距离和 <font color='#FFFF28'>缩地呼吸</font>持续时间. \n<font color='#FFFF28'>缩地呼吸</font>: 冲田的普通攻击会造成暴击伤害."
+		"DOTA_Tooltip_ability_okita_attribute_kyokuji_Lore"			"极地是更高等级的缩地"
 		"DOTA_Tooltip_ability_okita_attribute_kyokuji_bonus_distance"	"额外闪现距离:"
 		"DOTA_Tooltip_ability_okita_attribute_kyokuji_bonus_duration"	"呼吸额外持续时间:"
 		"DOTA_Tooltip_ability_okita_attribute_kyokuji_crit_dmg"			"%呼吸暴击伤害:"
+
+		"DOTA_Tooltip_Ability_okita_attribute_tennen"				"<font color='#9FFFCC'>属性: 天然理心流</font>"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_Description"	"<font color='#58ACFA'>超越苍穹</font>: 每次超越苍穹击中时，冲田总司获得 <font color='#FFFF28'>天然理心流</font> 层数. \n<font color='#FFFF28'>天然理心流</font>: 冲田总司获得额外 <font color='#80FF00'>敏捷</font> 並且每次斩击都会造成更大伤害. \n激活 <font color='#FFB266'>闪光光束</font> 在 <font color='#58ACFA'>第5次砍击</font> \n<font color='#FFB266'>闪光光束</font>: 冲田向目标位置发射一道光束, 造成纯粹伤害根据冲田的 <font color='#80FF00'>敏捷</font> ,并攻击路径上的所有敌人. \n 冲田将会使用 <font color='#58ACFA'>第6次砍击</font> 如果 <font color='#FFB266'>闪光光束</font> 正在冷却. \n<font color='#58ACFA'>超越苍穹</font> 根据她的 <font color='#80FF00'>敏捷</font>尽可能减少施法动画时间. \n光束伤害: %beam_base_damage% + (ATK x %beam_atk_dmg%%%) + (<font color='#80FF00'>AGI</font> x %beam_bonus_agi%) "
+		"DOTA_Tooltip_ability_okita_attribute_tennen_tennen_agi"		"天然理心流每层额外敏捷:"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_tennen_dur"		"天然理心流持续时间:"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_bonus_flash"		"%天然理心流每次斩击更多伤害:"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_beam_distance"		"光束距离:"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_beam_cd"			"光束冷却:"
+		"DOTA_Tooltip_ability_okita_attribute_tennen_cast_rdr_agi"		"每点敏捷减少动画时间:"
 
 		//=================================================================================================================
 		//	Rider (Extra, Extella Link)
@@ -12158,6 +12202,341 @@
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_stat"		"额外的统计资料:"
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_radius"	"额外半径:"
 
+		//=======================================================================================================
+		//	Saitō Hajime
+		//=======================================================================================================
+
+		//Hero
+		"npc_dota_hero_terrorblade"																	"齋藤一"
+		"npc_dota_hero_terrorblade_summon"															"仆人 <font color='#58ACFA'>齋藤一</font> 已经被传唤了。"
+		"npc_dota_hero_terrorblade_enable_combo"													"启用连击: 常胜的风格"
+
+		//Special Modifiers for Counting Some Keys.
+		"DOTA_Tooltip_modifier_saito_q_counter"														"[Q]防毒"
+		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"闪光刀的距离/伤害在一定使用后除以该堆叠量。"
+		"DOTA_Tooltip_modifier_saito_w_counter"														"[W]防毒"
+		"DOTA_Tooltip_modifier_saito_w_counter_Description"											"钢翼的的伤害/眩晕持续时间在特定使用后除以该叠加量。"
+		"DOTA_Tooltip_modifier_saito_e_counter"														"[E]防毒"
+		"DOTA_Tooltip_modifier_saito_e_counter_Description"											"影子斜杠的初始伤害/拉动半径在使用一定时间后会被这个叠加量所分割。"
+
+		///ABILITIES///
+
+		//Flashblade
+		"DOTA_Tooltip_ability_saito_flashblade"														"<font color='#58ACFA'>闪光刀</font>"
+		"DOTA_Tooltip_ability_saito_flashblade_Description"											"齋藤在目标点向前猛冲，每移动一个%image_creation_dist%单位都会产生残影。残影对附近的敌人造成伤害，并将它们植根%image _root_ duration%秒。\n与<font color='#58ACFA'>钢翼</font>和<font color='#58ACFA'>影子斜杠</font>的等级相关。\n如果连续使用%repeat_halver_count_need%或更多次，该能力的距离和伤害将逐渐减少。\n\n<font color='#9FFFCC'>可通过属性升级: 自由之剑和无敌之剑</font>。"
+		"DOTA_Tooltip_ability_saito_flashblade_Lore"												"踉跄的一击，让空气燃烧起来。"
+		"DOTA_Tooltip_ability_saito_flashblade_abilitycastpoint"									"施法点:"
+		"DOTA_Tooltip_ability_saito_flashblade_distance"											"距离:"
+		"DOTA_Tooltip_ability_saito_flashblade_speed"												"速度:"
+		//"DOTA_Tooltip_ability_saito_flashblade_image_root_duration"								""
+		//"DOTA_Tooltip_ability_saito_flashblade_image_duration"									""
+		"DOTA_Tooltip_ability_saito_flashblade_image_radius"										"半径:"
+		"DOTA_Tooltip_ability_saito_flashblade_image_damage"										"每一击的伤害:"
+		//"DOTA_Tooltip_ability_saito_flashblade_image_creation_dist"								""
+		//"DOTA_Tooltip_ability_saito_flashblade_repeat_halver_count_need"							""
+		"DOTA_Tooltip_ability_saito_flashblade_combo_cooldown"										"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate"											"闪光刀转动率"
+		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate_Description"								"基本转弯率提高到%dMODIFIER_PROPERTY_TURN_RATE_OVERRIDE%。"
+
+		//Steelwing
+		"DOTA_Tooltip_ability_saito_steelwing"														"<font color='#58ACFA'>钢翼</font>"
+		"DOTA_Tooltip_ability_saito_steelwing_Description"											"齋藤将他的刄砍向地面，将附近所有的敌人击退到一个固定的距离，造成伤害并使他们眩晕。\n与<font color='#58ACFA'>闪电刀</font>和<font color='#58ACFA'>影子斜杠</font>相联系的水平。\n如果连续使用%repeat_halver_count_need%或更多次数，该能力的伤害和眩晕持续时间将逐渐减少。\n\n<font color='#9FFFCC'>可通过属性升级: 自由之剑和无敌之剑</font>。"
+		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"猛然间，鸟儿飞翔的翅膀硬了起来。"
+		"DOTA_Tooltip_ability_saito_steelwing_abilitycastpoint"										"施法点:"
+		"DOTA_Tooltip_ability_saito_steelwing_radius"												"半径:"
+		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"眩晕时间:"
+		"DOTA_Tooltip_ability_saito_steelwing_damage"												"损害:"
+		//"DOTA_Tooltip_ability_saito_steelwing_repeat_halver_count_need"							""
+		"DOTA_Tooltip_ability_saito_steelwing_combo_cooldown"										"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_steelwing_mss"													"钢翼移动缓慢"
+		"DOTA_Tooltip_modifier_saito_steelwing_mss_Description"										"移动速度减慢%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%。"
+
+		//Shadowslash
+		"DOTA_Tooltip_ability_saito_shadowslash"													"<font color='#58ACFA'>影子斜杠</font>"
+		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"齋藤砍杀他周围的所有敌人，并将敌人拉向他，造成伤害。短暂的延迟后，对目标施加一阵二次伤害，使被击中的目标周围%burst_radius%单位内的所有敌人眩晕并造成此能力的%burst_damage_pct%%伤害。\n与<font color='#58ACFA'>闪光刀</font>和<font color='#58ACFA'>钢翼</font>相连。\n如果连续使用%repeat_halver_count_need%或更多次，该能力的初始伤害和拉动半径将逐渐减少。\n\n<font color='#9FFFCC'>可通过属性升级: 自由之剑和无敌之剑</font>。"
+		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"肉眼看不见的光速突击。"
+		"DOTA_Tooltip_ability_saito_shadowslash_abilitycastpoint"									"施法点:"
+		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"拉动半径:"
+		"DOTA_Tooltip_ability_saito_shadowslash_pull_damage"										"初始损害:"
+		//"DOTA_Tooltip_ability_saito_shadowslash_burst_radius"										""
+		"DOTA_Tooltip_ability_saito_shadowslash_burst_stun_duration"								"眩晕持续时间:"
+		"DOTA_Tooltip_ability_saito_shadowslash_burst_delay"										"延迟:"
+		//"DOTA_Tooltip_ability_saito_shadowslash_burst_damage_pct"									""
+		//"DOTA_Tooltip_ability_saito_shadowslash_repeat_halver_count_need"							""
+		"DOTA_Tooltip_ability_saito_shadowslash_combo_cooldown"										"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_shadowslash_mrr"												"影子斜杠射魔法抵抗力降低"
+		"DOTA_Tooltip_modifier_saito_shadowslash_mrr_Description"									"魔法抵抗力降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%。"
+
+		//Mind's Eye (True)
+		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>心灵之眼 (真)</font>"
+		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"为齋藤和一个盟友英雄的周围注入一个负面的debuff光环，当他们施法时，每隔%silence_cooldown%秒就会使附近的一个敌人被击晕并被沉默。同时，给予他们两个人最大的健康奖励和增加健康再生。如果你离斋藤一太远，则不会触发眩晕和沈默。\n齋藤可以自我施放<font color='#58ACFA'>心灵之眼 (真)</font>来祝福自己和%AbilityCastRange%范围内最近的盟友英雄。\n\n<font color='#9FFFCC'>可升级的属性: 回忆录</font>。"
+		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"即使是忠诚度很高的土方也说，齋藤对新选组的忠诚度是首屈一指的，并知道他绝不会以任何身份背叛新选组。"
+		"DOTA_Tooltip_ability_saito_mind_eye_Note0"													"此状态会被<font color='#58ACFA'>破魔的红蔷薇</font>和<font color='#58ACFA'>破除万物戒律之符</font>解除。"
+		"DOTA_Tooltip_ability_saito_mind_eye_abilitycastpoint"										"铸造点:"
+		"DOTA_Tooltip_ability_saito_mind_eye_proc_radius"											"PROC 半径:"
+		"DOTA_Tooltip_ability_saito_mind_eye_duration"												"半径:"
+		//"DOTA_Tooltip_ability_saito_mind_eye_silence_cooldown"									""
+		"DOTA_Tooltip_ability_saito_mind_eye_silence_duration"										"眩晕/静默持续时间:"
+		"DOTA_Tooltip_ability_saito_mind_eye_hp_bonus"												"奖金的健康:"
+		"DOTA_Tooltip_ability_saito_mind_eye_hp_regen"												"奖金健康再生:"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_active"												"心灵之眼 (真)"
+		"DOTA_Tooltip_modifier_saito_mind_eye_active_Description"									"每当附近的敌人施展法术时，他们会被沉默。"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"心灵之眼（真）豁免权"
+		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval_Description"								"免受心灵之眼（真）的眩晕和沉默。"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range"											"心灵之眼（真）接近度"
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range_Description"								"如果你离斋藤一太远，则不会触发眩晕和沈默。"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_shell"												"蝉壳"
+		"DOTA_Tooltip_modifier_saito_mind_eye_shell_Description"									"受到的伤害更少。"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_linken"												"蝉壳法术块"
+		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"下一个目标法术将被阻断。"
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"Snarksengumi"
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"从齋藤那里永久地获得额外的%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%敏捷性。"
+
+		//Freely Drawn Sword
+		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>自由拔剑</font>"
+		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#58ACFA'>被动的</font>: <font color='#58ACFA'>闪光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>阴影闪耀</font>分享冷却时间，可以施放多达%max_casts%的次数，并且在下一次使用前有%locker_time%的冷却时间，每次使用都会有%locker_increaser%的秒。\n所有这些能力都必须在一定的时间间隔内同时使用，如果你不能配合时间间隔，它们就会进入冷却状态。\n时间间隔从%check_interval%秒开始，每次同时使用这些能力时，时间间隔会减少%check_decreaser%秒。\n<font color='#58ACFA'>积极</font>: 激活后，每当齋藤用能力对敌人造成伤害时，他就会对他击中的敌人施加一个叠加的debuff，使他们的魔法伤害减少，叠加后，每击中一个敌方英雄就会立即恢复法力。\n\n<font color='#9FFFCC'>可通过属性升级: 自由风格</font>。"
+		"DOTA_Tooltip_ability_saito_fds_Lore"														"一种拔剑术，当使用者在每只手拔出剑鞘时，可以自由改变形式。"
+		"DOTA_Tooltip_ability_saito_fds_abilitycastpoint"											"铸造点:"
+		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
+		//"DOTA_Tooltip_ability_saito_fds_check_interval"											""
+		//"DOTA_Tooltip_ability_saito_fds_check_decreaser"											""
+		"DOTA_Tooltip_ability_saito_fds_locker_time_combo"											"连击锁时间:"
+		//"DOTA_Tooltip_ability_saito_fds_locker_time"												""
+		//"DOTA_Tooltip_ability_saito_fds_locker_increaser"											""
+		"DOTA_Tooltip_ability_saito_fds_active_duration"											"持续时间:"
+		"DOTA_Tooltip_ability_saito_fds_active_mp_gain"												"每一击的法力增益:"
+		//"DOTA_Tooltip_ability_saito_fds_active_hp_gain"											"每一击的健康增益:"
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"损害损失持续时间:"
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"最大堆积量:"
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%每叠的损坏损失:"
+
+		"DOTA_Tooltip_modifier_saito_fds_cast_controller"											"铸件控制器"
+		"DOTA_Tooltip_modifier_saito_fds_cast_controller_Description"								"显示目前正在投掷的QWE的数量。"
+
+		"DOTA_Tooltip_modifier_saito_fds_active"													"自由拔剑"
+		"DOTA_Tooltip_modifier_saito_fds_active_Description"										"如果你有时间思考，你就有时间切菜。"
+
+		"DOTA_Tooltip_modifier_saito_fds_aura_sdr"													"自由拔剑的光环"
+		"DOTA_Tooltip_modifier_saito_fds_aura_sdr_Description"										"减少所受的魔法伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
+
+		"DOTA_Tooltip_modifier_saito_fds_active_sdr"												"自由拔剑伤害损失"
+		"DOTA_Tooltip_modifier_saito_fds_active_sdr_Description"									"减少所受的魔法伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
+
+		//Formless
+		"DOTA_Tooltip_ability_saito_formless_invis"													"<font color='#58ACFA'>无形</font>"
+		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"使齋藤隐身并给予额外的移动速度。如果斋藤被揭露，只要<font color='#58ACFA'>无形</font>的持续时间没有过期，隐身就会在淡化延迟后恢复。\n施放后，在<font color='#58ACFA'>无形</font>的作用下，此能力会被<font color='#58ACFA'>无形</font>取代。\n\n<font color='#9FFFCC'>可升级的属性: Kijinmaru Kunishige</font>。"
+		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"斋藤以一种独特的方式接近目标，与纯粹的速度冲进去不同，他的动作扭曲了目标对时间和距离的感知。"
+		"DOTA_Tooltip_ability_saito_formless_invis_abilitycastpoint"								"铸造点:"
+		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"持续时间:"
+		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%运动速度:"
+		"DOTA_Tooltip_ability_saito_formless_invis_fade_delay"										"褪色延时:"
+
+		"DOTA_Tooltip_modifier_saito_formless_invis"												"无形"
+		"DOTA_Tooltip_modifier_saito_formless_invis_Description"									"无敌。攻击会暂时消除隐身状态。移动速度增加%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%。"
+
+		//Formlessness
+		"DOTA_Tooltip_ability_saito_formless_slash"													"<font color='#58ACFA'>无形</font>"
+		"DOTA_Tooltip_ability_saito_formless_slash_Description"										"斋藤释放了一个特殊的动作，反向和斜向切割。允许齋藤施展此能力的次数最多为%max_slashes%。第一刀是双刀，造成伤害并维度锁定目标，持续时间为%lock_duration%秒。最后一刀造成更多的伤害，并对目标进行维度锁定，持续时间更长。\n使用最后一条斜线将提前结束<font color='#58ACFA'>无形</font>的期限。\n\n<font color='#9FFFCC'>可通过属性升级: 自由之剑和Kijinmaru Kunishige</font>。"
+		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"无论目标使用何种近战武器，无论是长矛、剑还是其他什么，齋藤总是从任何距离先下手为强，无视目标的伸手。"
+		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastpoint"								"铸造点:"
+		//"DOTA_Tooltip_ability_saito_formless_slash_max_slashes"									""
+		//"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
+		//"DOTA_Tooltip_ability_saito_formless_slash_lock_duration"									""
+		"DOTA_Tooltip_ability_saito_formless_slash_last_lock_duration"								"锁定时间:"
+		"DOTA_Tooltip_ability_saito_formless_slash_slash_damage"									"每一刀的伤害:"
+		"DOTA_Tooltip_ability_saito_formless_slash_last_damage"										"最后一刀的伤害:"
+		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastrange"								"铸造范围:"
+
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter"										"无形的计数器"
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter_Description"							"从无形中完成砍杀的数量。"
+
+		//Tetra-Step
+		"DOTA_Tooltip_ability_saito_step"															"<font color='#FFB266'>Tetra-步</font>"
+		"DOTA_Tooltip_ability_saito_step_Description"												"瞬移到目标地点，对%radius%的效果区域内的敌人造成伤害和眩晕，持续时间为%stun_duration%秒。\n与<font color='#58ACFA'>自由拔剑</font>的水平相联系。\n在 <font color='#FF04EF'>连击: 常胜的风格</font>期间禁用。"
+		"DOTA_Tooltip_ability_saito_step_Lore"														"无形的就是不动。"
+		"DOTA_Tooltip_ability_saito_step_Note0"														"伤害不会被<font color='#FFFFFF'>B卷轴</font>减少。"
+		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"铸造点:"
+		"DOTA_Tooltip_ability_saito_step_max_distance"												"范围:"
+		//"DOTA_Tooltip_ability_saito_step_min_distance"											""
+		//"DOTA_Tooltip_ability_saito_step_radius"													""
+		"DOTA_Tooltip_ability_saito_step_damage"													"损害:"
+		//"DOTA_Tooltip_ability_saito_step_stun_duration"											""
+
+		//Shieldbreaker
+		"DOTA_Tooltip_ability_saito_storm"															"<font color='#FFB266'>破盾者</font>"
+		"DOTA_Tooltip_ability_saito_storm_Description"												"齋藤将他的刀向前刺向目标敌人，产生一道光束，在%pierce_range%范围内移动，并使主要目标眩晕%stun_duration%秒。\n与<font color='#58ACFA'>自由拔剑</font>的水平相联系。\n在<font color='#FF04EF'>连击: 常胜的风格</font>期间禁用。"
+		"DOTA_Tooltip_ability_saito_storm_Lore"														"新选组平月法的一种特殊的左手推力变体。"
+		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"铸造点:"
+		//"DOTA_Tooltip_ability_saito_storm_duration"												""
+		//"DOTA_Tooltip_ability_saito_storm_fly_duration"											""
+		//"DOTA_Tooltip_ability_saito_storm_stun_duration"											""
+		"DOTA_Tooltip_ability_saito_storm_damage"													"破坏力:"
+		//"DOTA_Tooltip_ability_saito_storm_pierce_range"											""
+		//"DOTA_Tooltip_ability_saito_storm_pierce_width"											""
+
+		//Blade Vortex
+		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#FFB266'>刀片涡流</font>"
+		"DOTA_Tooltip_ability_saito_vortex_Description"												"齋藤用他的刀砍了他周围的区域%slashes_count%次，每一刀都会伤害附近的敌人，把他们拉向他，反复对他们进行小型眩晕。最后一刀的半径更大，造成更多的伤害并击退敌人，将他们砍走。\n与<font color='#58ACFA'>自由拔剑</font>的水平相联系。\n在<font color='#FF04EF'>连击: 常胜的风格</font>期间禁用。"
+		"DOTA_Tooltip_ability_saito_vortex_Lore"													"什么~，这种方式对我来说就是更有趣。"
+		"DOTA_Tooltip_ability_saito_vortex_Note0"													"伤害不会被<font color='#FFFFFF'>B卷轴</font>减少。"
+		"DOTA_Tooltip_ability_saito_vortex_abilitycastpoint"										"铸造点:"
+		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"牵引半径:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"斜线半径:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_last_radius"										"鞭斜线半径:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_stun_duration"										"眩晕持续时间:"
+		"DOTA_Tooltip_ability_saito_vortex_knockback_distance"										"击退距离:"
+		"DOTA_Tooltip_ability_saito_vortex_knockback_duration"										"击退持续时间:"
+		//"DOTA_Tooltip_ability_saito_vortex_slashes_count"											""
+		//"DOTA_Tooltip_ability_saito_vortex_slashes_interval"										""
+		"DOTA_Tooltip_ability_saito_vortex_slash_damage"											"每一刀的伤害:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_last_damage"										"最后一刀的伤害:"
+		"DOTA_Tooltip_ability_saito_vortex_pull_speed"												"每秒拉动速度:"
+
+		"DOTA_Tooltip_modifier_saito_vortex_slashing"												"刀片涡流"
+		"DOTA_Tooltip_modifier_saito_vortex_slashing_Description"									"砍伤附近的敌人。"
+
+		"DOTA_Tooltip_modifier_saito_vortex_pull"													"刀片涡流拉动"
+		"DOTA_Tooltip_modifier_saito_vortex_pull_Description"										"被拉走。"
+
+		///COMBO///
+
+		//Undefeatable Style
+		"DOTA_Tooltip_ability_saito_style"															"<font color='#FF04EF'>连击: 常胜的风格</font>"
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#FF04EF'>连击要求: 所有数据达到25或以上。</font>\n<font color='#FF04EF'>连击顺序: F - D -> F在激活步骤中。</font>\n齋藤通过刀刃引导心灵和精神，在敌人的核心部位造成痛苦，有机会应用沉默，并对齋藤的攻击或能力所造成的任何伤害造成额外伤害。\n在此能力持续期间，阻挡大多数目标法术，并使<font color='#58ACFA'>自由拔剑</font>的健康和法力值加倍。\n<font color='#58ACFA'>光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>的施法点被替换有固定的延迟且不能被打断，还会减少其持续时间的冷却时间。"
+		"DOTA_Tooltip_ability_saito_style_Lore"														"没有形式，我的剑是无形的。随着它的流动，它体现了所有的可能性。这就是为什么我的剑无人能及!"
+		"DOTA_Tooltip_ability_saito_style_abilitycastpoint"											"铸造点:"
+		"DOTA_Tooltip_ability_saito_style_duration"													"持续时间:"
+		"DOTA_Tooltip_ability_saito_style_silence_chance"											"%PROC机会:"
+		"DOTA_Tooltip_ability_saito_style_silence_duration"											"静默持续时间:"
+		"DOTA_Tooltip_ability_saito_style_hp_damage"												"%最大健康损害的:"
+		//"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""
+		"DOTA_Tooltip_ability_saito_style_activation_steps_duration"								"激活步骤持续时间:"
+		"DOTA_Tooltip_ability_saito_style_activation_duration"										"激活时间:"
+		//"DOTA_Tooltip_ability_saito_style_activation_steps"										""
+
+		"DOTA_Tooltip_modifier_saito_style_combo_indicator"											"不可战胜的风格连击"
+		"DOTA_Tooltip_modifier_saito_style_combo_indicator_Description"								"显示步骤持续时间、当前步骤、组合窗口和冷却时间。"
+
+		"DOTA_Tooltip_modifier_saito_style_active"													"常胜的风格"
+		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan。"
+
+		//One by One
+		"DOTA_Tooltip_ability_saito_blast"															"<font color='#FFB266'>一对一</font>"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"斋藤一在他的周围释放%radial_count%一股强大的风刃，造成%damage%对其碰撞的任何敌方单位造成伤害。光是风刃的冲击力就足以将那些敌方单位击退%knockback_duration%秒，然后减少所有类型的伤害持續%sdr_duration%秒。\n傷害減少從%sdr_max_value%%%並隨著時間減少到%sdr_min_value%%%。\n一个敌方单位可以被多于一个风刃击中。"
+		"DOTA_Tooltip_ability_saito_blast_Lore"														"如果人死了，他们就输了，对吧?所以换句话说，如果你不死，你就不会输。这就是无敌之刃的最奥义。但是谁知道呢，你知道吗？"
+		"DOTA_Tooltip_ability_saito_blast_distance"													"距离:"
+		"DOTA_Tooltip_ability_saito_blast_speed"													"速度:"
+		"DOTA_Tooltip_ability_saito_blast_radius_start"												"半径起点:"
+		"DOTA_Tooltip_ability_saito_blast_radius_end"												"結束半徑:"
+		//"DOTA_Tooltip_ability_saito_blast_damage"													""
+		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
+		"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"击退距离:"
+		//"DOTA_Tooltip_ability_saito_blast_sdr_duration"											""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_max_value"											""
+		//"DOTA_Tooltip_ability_saito_blast_sdr_min_value"											""
+		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
+
+		"DOTA_Tooltip_modifier_saito_blast_sdr"														"一对一减益"
+		"DOTA_Tooltip_modifier_saito_blast_sdr_Description"											"减少所有类型的伤害%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%。"
+
+		///ATTRIBUTES///
+
+		"DOTA_Tooltip_modifier_saito_attributes"													"特殊属性"
+		"DOTA_Tooltip_modifier_saito_attributes_Description"										"在采取SA后显示。"
+
+		//Swords of Freedom
+		"DOTA_Tooltip_ability_saito_attribute_freedom"												"<font color='#9FFFCC'>属性: 自由之剑</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"<font color='#58ACFA'>闪光刀</font>: 在施放时将投射物分开，并将基础转身率提高到%q_turn_rate%，持续时间为%q_turn_rate_duration%秒。导致该能力产生的残影将被其击中的敌人向上发射，持续%q_knock_up_duration%秒。\n<font color='#58ACFA'>钢翼</font>: 对被%w_ms_slow%%击中的敌人施加移动速度减缓，持续%w_ms_slow_duration%秒。\n<font color='#58ACFA'>影子斜杠</font>: 使被击中的敌人的魔法抗性降低%e_mr_reduction%%，持续%e_mr_reduction_duration%秒。\n<font color='#58ACFA'>无形</font>: 双斜线现在也会在每次攻击中对目标进行%fls_stun_duration%的小型眩晕。最后一刀使目标眩晕%fls_last_stun_duration%秒。"
+		"DOTA_Tooltip_ability_saito_attribute_freedom_Lore"											"齋藤的风格不遵循特定的纪律，无拘无束，自由奔放。"
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate"								""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_height"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow"									""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction_duration"					""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction"								""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_stun_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_last_stun_duration"						""
+
+		//Invincible Sword
+		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9FFFCC'>属性: 无敌之剑</font>"
+		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"用顺序启动一个连击: Q -> W，给斋藤提供一套新的能力，以取代上次使用的<font color='#58ACFA'>闪光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>在区间内，启用<font color='#FFB266'>Tetra-步</font>，<font color='#FFB266'>破盾者</font>，和<font color='#FFB266'>刀片涡流</font>短时间内。\n<font color='#FFB266'>Tetra-步</font>: 瞬移到目标地点，对敌人造成伤害和眩晕。\n<font color='#FFB266'>破盾者</font>: 将刀刃向前刺向目标敌人，形成一道光束，在一定范围内传播并使主要目标眩晕。\n<font color='#FFB266'>刀片涡流</font>: 用剑多次砍击周围的区域，每次砍击都会对附近的敌人造成伤害，将他们拉向并反复进行小型眩晕。\n<font color='#58ACFA'>闪光刀</font>，<font color='#58ACFA'>钢翼</font>，和<font color='#58ACFA'>影子斜杠</font>: 获得基于齋藤等级的额外伤害。"
+		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"这句话描述了齋藤的非凡剑术，据说是新选组中最优秀的剑术之一。"
+		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"每级奖励伤害:"
+		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"启用时间:"
+
+		//Memoir
+		"DOTA_Tooltip_ability_saito_attribute_memoir"												"<font color='#9FFFCC'>属性: 回忆录</font>"
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#58ACFA'>心灵之眼 (真)</font>: 对齋藤和目标盟友施加强大的驱散，并给他们两人<font color='#FFFF28'>蝉壳</font>，持续%me_shell_duration%秒。增加最大健康奖励%me_hp_bonus%。\n<font color='#FFFF28'>蝉壳</font>: 提供%me_shell_block%%%的伤害抗性并每%me_shell_duration%秒格挡一次最有针对性的法术。\n启用特殊效果: <font color='#FFFF28'>Snarksengumi</font>。\n<font color='#FFFF28'>Snarksengumi</font>: 当对冲田总司使用时，<font color='#58ACFA'>心灵之眼（真）</font>有%me_okita_chance%%的机会刷新她所有可刷新的能力，并永久增加她的敏捷度%me_okita_agility%。"
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"孤独的新选组，在动荡的幕末时代战斗并幸存下来。没有人知道他的真实想法。"
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_block"								""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_chance"								""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_agility"							""
+
+		//Freestyle
+		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"<font color='#9FFFCC'>属性: 自由泳</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#58ACFA'>自由拔剑</font>: 授予一个光环，在激活时减少敌人的魔法伤害，在近距离时减少效果更强。将主动持续时间增加%fds_active_duration%秒，被动时间间隔增加%fds_check_interval%秒，对有能力的敌人造成法术伤害，也为每个被击中的敌人即时恢复健康。"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_Lore"										"没有模式的自由式剑术，是一种极难预测的独特战斗技巧。"
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_check_interval"						""
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_hp_gain"							"每一击的健康增益:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction_range"		"光环最小半径:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction_range"		"光环最高半径:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction"				"%最少伤害减少:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%最大伤害减少:"
+
+		//Kijinmaru Kunishige
+		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"<font color='#9FFFCC'>属性: Kijinmaru Kunishige</font>"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#58ACFA'>无形</font>: 减少%fli_fade_delay%秒的淡化延迟，给予%fli_evasion%%的闪避奖励。\n<font color='#58ACFA'>无形</font>: 斩击和最后一击获得基于齋藤攻击伤害的额外伤害，并对被撤销的敌人和非英雄单位造成%fls_revoked_scale%x的伤害，也使其施法范围增加%fls_cast_range%。"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"新选组第三部队队长的心爱之剑。"
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_evasion"								""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_cast_range"							""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_revoked_scale"						""
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_dmg_per_atk"							"%每次攻击都会产生额外的伤害:"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"%最后一刀每次攻击都有额外伤害:"
+
+		///DELIMITER///
+
+		//Hero Hype
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy"										"齋藤一"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_Description"							"仆人等级：剑兵\n类型：爆裂，控制，支持\n特质：男性，新选组\n连击：常胜的风格 (反人员)\n<font color='#FFB266'>宝具：&#9733; &#9733; &#9733; &#9734; &#9734;</font>\n<font color='#9FFFCC'>困难：&#9733; &#9733; &#9733; &#9733; &#9733;</font>"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_hp"									"基础HP:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mana"									"基本法力值:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_hp_reg"								"基础HP再生:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mana_reg"								"基础法力再生:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_atk"									"基础ATK:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_armor"								"基础护甲:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_mr"									"%基础魔抗:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_str"									"每LVL的STR:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_agi"									"每LVL的AGI:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_dummy_int"									"每LVL的INT:"
+
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft"										"齋藤一"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_Description"							"法力成本：20\n仆人等级：剑兵\n类型：爆裂，控制，支持\n特质：男性，新选组\n连击：常胜的风格 (反人员)\n<font color='#FFB266'>宝具：&#9733; &#9733; &#9733; &#9734; &#9734;</font>\n<font color='#9FFFCC'>困难：&#9733; &#9733; &#9733; &#9733; &#9733;</font>"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_hp"									"基础HP:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mana"									"基本法力值:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_hp_reg"								"基础HP再生:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mana_reg"								"基础法力再:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_atk"									"基础ATK:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_armor"								"基础护甲:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_mr"									"%基础魔抗:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_str"									"每LVL的STR:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_agi"									"每LVL的AGI:"
+		"DOTA_Tooltip_Ability_npc_dota_hero_terrorblade_draft_int"									"每LVL的INT:"
+
 		//====================================
         //      Mashu
         //====================================
@@ -13838,6 +14217,1195 @@
         "DOTA_Tooltip_ability_hans_attribute_territory_cast_delay"  			"施法延迟:"
         "DOTA_Tooltip_ability_hans_attribute_territory_cooldown"  			"冷却:"
         "DOTA_Tooltip_ability_hans_attribute_territory_revoke_duration"  			"禁咒持续时间:"
+
+        "npc_dota_hero_antimage"    "宫本武藏"
+        "npc_dota_hero_antimage_summon"    "<font color='SlateBlue'><b>宫本武藏</b></font> 已被召唤。"
+        "npc_dota_hero_antimage_enable_combo"    "激发宝具技能: 伊舍那大天象 - 虚空之斩 「」"
+        "DOTA_Tooltip_Ability_musashi_accel_turn"    "<font color='SandyBrown'><b>加速过弯</b></font>"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_description"    "使用水上摩托然后向后退。
+ 溅起一波水并对敌人造成伤害。
+ 水波有 %ProjectileRadius% AOE 和 %ProjectileSpeed% 速度。"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Lore"    "Swimsuit Ishtar's skill that's been copied visually. Even though Ishtar was the victim of plagiarism, the only thing she could manage to say was she's a genius!"
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Damage"    "伤害: "
+        "DOTA_Tooltip_Ability_musashi_accel_turn_Range"    "距离: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei"    "<font color='DodgerBlue'><b>第五势</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_description"    "闪现在目标旁并把目标眩晕 %StunDuration% 秒。
+ 在目标 %Radius% AOE 范围里对敌人造成伤害。如果目标是英雄对敌人造成 <font color='#c29c4a'><b>真伤</b></font>, 如果目标是非英雄则对敌人造成 <font color='#5b93d1'><b>魔伤</b></font>。
+ 增加 <font color='Lime'><b>攻击力</b></font> 和 <font color='Lime'><b>攻速</b></font>, 持续 %BuffDuration% 秒。
+ 每攻击敌人几次, 可以使用 <font color='DodgerBlue'><b>第五盛</b></font>。
+<font color='Gold'>可以使用 <b>技能属性: 二天一流<b> 来增强。</font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Lore"    "Musashi assumes her NITEN ICHIRYUU stance to maximize attack power and speed. A stance that utilitize the main advantages of using two swords."
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkSpeed"    "增加攻速: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_BonusAtkDmg"    "增加攻击力: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_Damage"    "伤害: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_HitsRequired"    "所需攻击次数: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara"    "<font color='Crimson'><b>仁王俱利伽</b></font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_description"    "斩 %SlashCount% 次并对 %Radius% AOE 范围里的敌人造成伤害。
+ 如果 <font color='SlateBlue'><b>天眼</b></font> 开着, 则在最后一刀对敌人造成 <font color='#c29c4a'><b>额外真伤</b></font>。
+<font color='Gold'>可以使用 <b>技能属性: 无空</b> 和 <b>技能属性: 五轮之书</b>来增强。</font>"
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_Lore"    "The NIOU appearing behind her is just a side effect of her swords preassure."
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgPerSlash"    "每刀伤害: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReduceWhileSlashing"    "%使用中减伤: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_DmgReducePostSlashing"    "%使用后减伤: "
+        "DOTA_Tooltip_Ability_musashi_niou_kurikara_BuffDuration"    "减伤持续时间: "
+        "DOTA_Tooltip_Ability_musashi_tengan"    "<font color='SlateBlue'><b>天眼</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengan_description"    "消耗一层来开启天眼, 持续 %BuffDuration% 秒。
+ 天眼开着时, 其他技能会有不同效果。
+<font color='DodgerBlue'><b>第五势 (W):</b></font> 额外增加 <font color='Lime'><b>攻击力</b></font> 和 <font color='Lime'><b>攻速</b></font> 于 %TenganBonus%。
+<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 在最后一刀造成 <font color='#c29c4a'><b>额外真伤</b></font>。使用后, 天眼效果会消失。
+<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 对敌人给与负面状态。过了迟延时间, 负面状态会引爆并造成 <font color='#c29c4a'><b>真伤</b></font>。使用后, 天眼效果会消失。
+<font color='Gold'>可以使用 <b>技能属性: 增强天眼</b></font> 来增强。"
+        "DOTA_Tooltip_Ability_musashi_tengan_Lore"    "Musashi uses her TENGAN to see through enemies defence. TENGAN are MYSTIC EYES which allows user to see an outcome out of many possibilities and focus on the means of achieving it to produce an inevitable outcome."
+        "DOTA_Tooltip_Ability_musashi_tengan_BaseDmg"    "基础伤害: "
+        "DOTA_Tooltip_Ability_musashi_tengan_BonusDmgPerAgi"    "每敏捷力额外伤害: "
+        "DOTA_Tooltip_Ability_musashi_tengan_RechargeTime"    "每层回复时间: "
+        "DOTA_Tooltip_Ability_musashi_tengan_MaxCharges"    "最大层数: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima"    "<font color='MediumSeaGreen'><b>破魔剑 谨承</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_description"    "冲向地点。到地点之后, 对定标使用来回旋风斩。
+ 如果 <font color='SlateBlue'><b>天眼</b></font> 开着, 给与敌人负面状态。负面状态会在引爆时造成 <font color='#c29c4a'><b>真伤</b></font>。负面状态会在 %DebuffDmgDelay% 秒后引爆。
+<font color='Gold'>可以使用 <b>技能属性: 二天一流</b> 来增强。</font>"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_Lore"    "Let's, KENGOU BATTOU! Oh yeah, so sexy! My name is...Musashi Miyamoto!"
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRange"    "旋风斩距离: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_SlashRadius"    "旋风斩范围: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_DmgPerSlash"    "每刀伤害: "
+        "DOTA_Tooltip_Ability_musashi_ganryuu_jima_BonusDmgPerAgi"    "每敏捷力额外伤害: "
+        "DOTA_Tooltip_Ability_musashi_mukyuu"    "<font color='SlateBlue'><b>无空</b></font>"
+        "DOTA_Tooltip_Ability_musashi_mukyuu_description"    "变 <font color='Gray'><b>无敌</b></font> 和 <font color='Gray'><b>魔法免疫</b></font>, 持续 %BuffDuration% 秒。
+ 使用后, 可以使用 <font color='SlateBlue'><b>天元之花</b></font>。
+<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
+ 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
+ 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
+ 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
+        "DOTA_Tooltip_Ability_musashi_mukyuu_Lore"    "Musashi achieved realm of NOTHINGNESS, the ultimate mental state of a swordsman. One is NOTHING, thus INVINCIBLE. 
+ Not even a slash that uses the Multi-Dimensional Refraction Phenomenon can reach someone who achieved realm of NOTHINGNESS."
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan"    "<font color='Crimson'><b>天魔轰眼</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_description"    "需要 <font color='SlateBlue'><b>天眼</b></font> 全层数来开启。开启时, <font color='SlateBlue'><b>天眼</b></font> 全层数会被消耗, 持续 %BuffDuration% 秒。使用天魔轰眼后, <font color='SlateBlue'><b>天眼</b></font> 不会回层直到下一轮。
+ 天魔轰眼效果消失时, 武藏会被眩晕和禁咒 %DebuffDuration% 秒。 
+<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 全斩伤害变成 <font color='#c29c4a'><b>真伤</b></font>。 使用后, 天魔轰眼效果会消失。
+<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 能够连续使用R 两次。使用后, 天魔轰眼效果会消失。"
+        "DOTA_Tooltip_Ability_musashi_tenma_gogan_Lore"    "Musashi overloads her TENGAN to the verge of collapsing to gain abrupt offensive power momentarily. 
+ TENGAN were honed to its utmost limits momentarily to see through enemies' each and every defensive actions."
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana"    "<font color='SlateBlue'><b>天元之花</b></font>"
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_description"    "<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
+ 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
+ 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
+ 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_Lore"    "A vibrant flower of tengen. Her sword reaches the realm of NOTHINGNESS."
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullDamage"    "最大伤害: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_StunDuration"    "最大眩晕时间: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_1SecPercentage"    "%1秒比率: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_2SecPercentage"    "%2秒比率: "
+        "DOTA_Tooltip_Ability_musashi_tengen_no_hana_FullPercentage"    "%最大比率: "
+        "DOTA_Tooltip_Ability_musashi_battle_continuation"    "<font color='SlateBlue'><b>战斗续行</b></font>"
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_description"    "复活并把生命值定在1, 效果持续 %BuffDuration% 秒。效果持续中不能回复生命值。
+ 如果拥有 <font color='Crimson'><b>天魔轰眼</b></font> 负面状态或所受的伤害大过 %DmgThreshold% 则不能复活。
+ 复活时, 天元之花会自动加在身上。"
+        "DOTA_Tooltip_Ability_musashi_battle_continuation_Lore"    "Tries every dirty trick in the book to survive. 
+ If I win at the end, I'm the winner, right? That's why I have to run away now! After all, if I'm dead, I can't win at the end, Can I?"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave"    "<font color='DodgerBlue'><b>第五盛</b></font>"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_description"    "对空使出斩击并造成一波气压斩。气压斩有 %Range% 距离。 气压斩有 %ProjectileRadius% AOE 范围和 %ProjectileSpeed% 速度。
+ 每使用一波气压斩则会增加所需魔力。 所需魔力会在10秒后重置回100。
+ 每一等 <font color='DodgerBlue'><b>第五势</b></font> 会增加100伤害。"
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_Damage"    "总伤害: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BaseDamage"    "基础伤害: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromAtkDmg"    "每攻击力额外伤害: "
+        "DOTA_Tooltip_Ability_musashi_dai_go_sei_wave_BonusDmgFromWBuff"    "第五势正面效果额外伤害: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou"    "<font color='Red'><b>伊舍那大天象 - 虚空之斩「」</b></font>"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_description"    "<font color='Red'><b>宝具技能顺序: D->W->R。这宝具有两阶段。</b></font> 
+ 备注: 顺序中使用其他技能会让激发宝具失败。
+<font color='Red'><b>第一阶段:</b></font>
+ 锁定目标的位置并使用 <font color='#c29c4a'><b>真伤</b></font> <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 在其位置。
+<font color='Red'><b>第二阶段:</b></font>
+ 如果敌人死了或走出 %SearchRadius% AOE 定位位置第二阶段则会失败。
+ 冲向目标并使出 %QuickSlashCount% 次快速斩。快速斩以每 %QuickSlashInterval% 秒造成伤害。快速斩使用 %FinalSlashDmgDelay% 秒后, 则对目标使出最后一刀。这些斩击会以敌人最大生命值造成伤害。斩击会穿过减伤, 联通卷, 阿瓦容. 
+ 如果目标生命值低于即杀值, 目标会被即杀。 如果敌人生存下来, 则在敌人身上加负面效果。负面效果持续到被杀为止。"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_Lore"    "SLASH THE VOID 「」 - BEYOND ZERO"
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_QuickSlashMaxHpPercent"    "%快速斩伤害: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_FinalSlashMaxHpPercent"    "%最后一刀伤害: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExecuteThresholdPercent"    "%即杀值: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_MaxHpReductionPercent"    "%减少最大生命值: "
+        "DOTA_Tooltip_Ability_musashi_ishana_daitenshou_ExtraIncomingDmgPercent"    "%增加所受伤害: "
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation"    "<font color='Gold'><b>战斗续行</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_battle_continuation_description"    "激发 <font color='SlateBlue'><b>战斗续行。</b></font>
+<font color='SlateBlue'><b>战斗续行:</b></font> 复活并把生命值定在1, 效果持续 %BuffDuration% 秒。效果持续中不能回复生命值。
+ 如果拥有 <font color='Crimson'><b>天魔轰眼</b></font> 负面状态或所受的伤害大过 %DmgThreshold% 则不能复活。
+ 复活时, 天元之花会自动加在身上。
+ 冷却时间 %Cooldown% 秒。"
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan"    "<font color='Gold'><b>增强天眼</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_improve_tengan_description"    "Increase <font color='DodgerBlue'><b>第五势</b></font> 攻击力和攻速至 %TenganBonus%. 
+ 增加 <font color='SlateBlue'><b>天眼</b></font> 伤害于 %BonusDmgPerAgi% 每敏捷力。
+ 增加 <font color='SlateBlue'><b>天眼</b></font> 最大层数至 %MaxCharges% 并减少层数回复时间至 %RechargeTime% 秒。 
+ 激发 <font color='Crimson'><b>天魔轰眼。</b></font>
+<font color='Crimson'><b>天魔轰眼:</b></font> 需要 <font color='SlateBlue'><b>天眼</b></font> 全层数来开启。开启时, <font color='SlateBlue'><b>天眼</b></font> 全层数会被消耗, 持续 %BuffDuration% 秒。使用天魔轰眼后, <font color='SlateBlue'><b>天眼</b></font> 不会回层直到下一轮。
+ 天魔轰眼效果消失时, 武藏会被眩晕和禁咒 %DebuffDuration% 秒。 
+<font color='Crimson'><b>仁王俱利伽 (E):</b></font> 全斩伤害变成 <font color='#c29c4a'><b>真伤</b></font>。 使用后, 天魔轰眼效果会消失。
+<font color='MediumSeaGreen'><b>破魔剑 谨承 (R):</b></font> 能够连续使用R 两次。使用后, 天魔轰眼效果会消失。"
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho"    "<font color='Gold'><b>五轮之书</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_gorin_no_sho_description"    "把元素负面状态加在被 <font color='Crimson'><b>仁王俱利伽 (E)击中的敌人身上</b></font>。
+ 土: 减低敌人移动速度于 %EarthSlow%%%. 
+ 水: 把敌人推向中心点。 
+ 火: 烧伤敌人并造成每秒 %FireBurnDmgPerSec% 伤害。增加所受伤害于 %FireIncreaseDmgTaken%%%。效果持续 %FireBurnDuration% 秒。
+ 风: 眩晕敌人 %WindDuration% 秒。"
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu"    "<font color='Gold'><b>无空</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_mukyuu_description"    "变 <font color='Gray'><b>无敌</b></font> 和 <font color='Gray'><b>魔法免疫</b></font>, 持续 %BuffDuration% 秒。
+ 使用后, 可以使用 <font color='SlateBlue'><b>天元之花</b></font>。
+<font color='SlateBlue'><b>天元之花:</b></font> 在自身上加正面状态, 持续 %BuffDuration% 秒。当正面效果消失时, 在自身 %Radius% AOE 范围里使出旋斩。
+ 每 %RampUpInterval% 秒, 伤害和眩晕效果会倍增。
+ 可以使用此技能来提早引爆但伤害和眩晕效果会消弱。
+ 引爆时, 如果使用着 <font color='Crimson'><b>仁王俱利伽 (E)</b></font> 或 <font color='MediumSeaGreen'><b>破魔剑 谨承(R)</b></font> 则不会造成伤害和眩晕效果。"
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu"    "<font color='Gold'><b>二天一流</b></font>"
+        "DOTA_Tooltip_Ability_musashi_attributes_niten_ichiryuu_description"    "减少 <font color='DodgerBlue'><b>第五势</b></font> 所需攻击数来使用 <font color='DodgerBlue'><b>第五盛</b></font> 至 %HitsRequired%。 
+ 增加 <font color='MediumSeaGreen'><b>破魔剑 谨承</b></font> 伤害于 %BonusDmgPerAgi% 每敏捷力。 
+ 增加 <font color='MediumSeaGreen'><b>破魔剑 谨承</b></font> 旋风斩距离至 %SlashRange% 和旋风斩范围至 %SlashRadius%。"
+        "DOTA_Tooltip_modifier_combo_sequence"    "宝具技能顺序"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_hits_counter"    "攻击数"
+        "DOTA_Tooltip_modifier_ascended"    "霊基再臨"
+        "DOTA_Tooltip_modifier_ascended_description"    "Has custom particle effects."
+        "DOTA_Tooltip_musashi_modifier_accel_turn"    "加速过弯"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei"    "第五势"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_description"    "增加攻击力和攻速于 %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_slashing"    "使用仁王俱利伽中"
+        "DOTA_Tooltip_musashi_modifier_earth_debuff"    "五轮之书 - 土"
+        "DOTA_Tooltip_musashi_modifier_earth_debuff_description"    "减低移动速度 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_water_debuff"    "五轮之书 - 水"
+        "DOTA_Tooltip_musashi_modifier_water_debuff_description"    "被推向中心点"
+        "DOTA_Tooltip_musashi_modifier_fire_debuff"    "五轮之书 - 火"
+        "DOTA_Tooltip_musashi_modifier_fire_debuff_description"    "增加所受伤害 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% 并受灼伤伤害。"
+        "DOTA_Tooltip_musashi_modifier_wind_debuff"    "五轮之书 - 风"
+        "DOTA_Tooltip_musashi_modifier_wind_debuff_description"    "眩晕"
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff"    "仁王俱利伽减伤"
+        "DOTA_Tooltip_musashi_modifier_niou_kurikara_postslashing_buff_description"    "减低所受伤害 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_musashi_modifier_tengan_chargecounter"    "天眼层数"
+        "DOTA_Tooltip_musashi_modifier_tengan"    "天眼"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima"    "使用破魔剑 谨承中"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff"    "破魔剑 谨承 负面效果"
+        "DOTA_Tooltip_musashi_modifier_ganryuu_jima_debuff_description"    "负面效果消失时会受真伤伤害"
+        "DOTA_Tooltip_musashi_modifier_mukyuu"    "无空"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan"    "天魔轰眼"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff"    "天魔轰眼 负面效果"
+        "DOTA_Tooltip_musashi_modifier_tenma_gogan_debuff_description"    "眩晕和禁咒。战斗续行不能使用。"
+        "DOTA_Tooltip_musashi_modifier_tengen_no_hana"    "天元之花"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_active"    "战斗续行"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_active_description"    "生命值定值在1并且不能回复生命值。"
+        "DOTA_Tooltip_musashi_modifier_battle_continuation_cooldown"    "战斗续行中"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter"    "第五盛"
+        "DOTA_Tooltip_musashi_modifier_dai_go_sei_wave_counter_description"    "每使用一波气压斩则会增加所需魔力。 所需魔力会在10秒后重置回100。"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou"    "伊舍那大天象 - 虚空之斩 「」"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff"    "伊舍那大天象 - 虚空之斩 「」 负面效果"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_debuff_description"    "被封印在虚无界. 最大生命值减少 %dMODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE%%%. 增加所受伤害于 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 。"
+        "DOTA_Tooltip_musashi_modifier_ishana_daitenshou_cooldown"    "伊舍那大天象 - 虚空之斩 「」冷却中"
+
+        //====================================
+        //      伊絲塔
+        //====================================
+        "npc_dota_hero_oracle"             "伊絲塔"
+        "npc_dota_hero_oracle_summon"		"从者 <font color='#58ACFA'>伊絲塔</font> 已被召唤."
+        "npc_dota_hero_oracle_enable_combo"	"激活连击技能: 艾比夫山粉碎者 - 山脉震撼明星之薪"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_ishtar_d"			"<font color='#FFFFFF'>宝石塑造</font>"
+        "DOTA_Tooltip_ability_ishtar_d_Description"		"<font color='#58ACFA'>被动</font>: 伊丝塔最多可收集 %max_gem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>主动</font>: 伊丝塔支付 %gem_cost% 金币來获得 %gem_gain% <font color='#FFFF28'>宝石</font>
+        <font color='#FFFF28'>宝石</font> 将会用作 <font color='#FFFFFF'>宝石使用</font> 來提升伊丝塔的所有技能.
+        伊丝塔死亡时将会失去 %gem_loss%%% <font color='#FFFF28'>宝石</font> .
+        <font color='#9FFFCC'>可升级属性: 乌鲁克宝石</font>."
+        "DOTA_Tooltip_ability_ishtar_d_Lore"    			"宝石价值飙升."
+
+        "DOTA_Tooltip_Ability_ishtar_d_upgrade"			"<font color='#9FFFCC'>宝石塑造</font>"
+        "DOTA_Tooltip_ability_ishtar_d_upgrade_Description"		"<font color='#58ACFA'>被动</font>: 伊丝塔可以收集无限數量 <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>主动</font>: 伊丝塔支付 %gem_cost% 金币來获得 %gem_gain% <font color='#FFFF28'>宝石</font>
+        <font color='#FFFF28'>宝石</font> 将会用作 <font color='#FFFFFF'>宝石使用</font> 來增强伊丝塔的所有技能.
+        伊丝塔死亡时将会失去 %gem_loss%%% <font color='#FFFF28'>宝石</font>."
+        "DOTA_Tooltip_ability_ishtar_d_upgrade_Lore"    			"宝石价值飙升."
+
+        "DOTA_Tooltip_Ability_ishtar_f"			"<font color='#FFFFFF'>宝石使用</font>"
+        "DOTA_Tooltip_ability_ishtar_f_Description"		"<font color='#58ACFA'>切换</font>: 伊丝塔使用 <font color='#FFFF28'>宝石使用</font> 只要伊丝塔身上持有 <font color='#FFFF28'>宝石</font>.
+        <font color='#FFFF28'>宝石使用</font>: 消耗 <font color='#FFFF28'>宝石</font> 來增强伊丝塔的技能.
+        <font color='#58ACFA'>金星之光</font>: 每消耗一颗<font color='#FFFF28'>宝石</font> 可发射 %QArrow% 额外的魔法箭. 最多消耗 %QGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>天舟马安娜</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可增加 %WDamage% 伤害和 %WKnock% <font color='#FF3399'>击退</font> 距离. 最多消耗 %WGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>金星光辉</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可发射 %EArrows% 额外的魔法射线. 最多消耗 %EGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>山脉震撼明星之薪</font>: 伊丝塔不再 <font color='#58ACFA'>充能</font> 并跳到空中向目标区域发射巨型箭矢, 每消耗一颗 <font color='#FFFF28'>宝石</font> 可发射 %RArrow% 额外的魔法箭. 额外的魔法箭会在目标区域内的随机位置, 造成 %RArrowDamage% 伤害 %RArrowAoe% 范围. 最多 %RGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可增加 %CDamage% 伤害. 发动后伊丝塔将消耗所有 <font color='#FFFF28'>宝石</font>.
+        <font color='#9FFFCC'>可升级属性: 魔力放出（宝石）</font>."
+
+        "DOTA_Tooltip_Ability_ishtar_f_upgrade"			"<font color='#9FFFCC'>宝石使用</font>"
+        "DOTA_Tooltip_ability_ishtar_f_upgrade_Description"		"<font color='#58ACFA'>切换</font>: 伊丝塔使用 <font color='#FFFF28'>宝石使用</font> 只要伊丝塔身上持有 <font color='#FFFF28'>宝石</font>.
+        <font color='#FFFF28'>宝石使用</font>: 消耗 <font color='#FFFF28'>宝石</font> 來增强伊丝塔的技能.
+        <font color='#58ACFA'>金星之光</font>: 每消耗一颗<font color='#FFFF28'>宝石</font> 可发射 %QArrow% 额外的魔法箭. 最多消耗 %QGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>天舟马安娜</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可增加 %WDamage% 伤害並且减少 %WBonusBlock%%% 受到伤害和 %WKnock% <font color='#FF3399'>击退</font> 距离. 最多消耗 %WGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>金星光辉</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可发射 %EArrows% 额外的魔法射线,并将每个目标的最大射线数量增加至 %EMax%. 最多消耗 %EGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>山脉震撼明星之薪</font>: 伊丝塔不再 <font color='#58ACFA'>充能</font> 并跳到空中向目标区域发射巨型箭矢, 每消耗一颗 <font color='#FFFF28'>宝石</font> 可发射 %RArrow% 额外的魔法箭. 额外的魔法箭会在目标区域内的随机位置, 造成 %RArrowDamage% 伤害 %RArrowAoe% 范围. 最多 %RGem% <font color='#FFFF28'>宝石</font>.
+        <font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font>: 每消耗一颗 <font color='#FFFF28'>宝石</font> 可增加 %CDamage% 伤害. 发动后伊丝塔将消耗所有 <font color='#FFFF28'>宝石</font>.
+        <font color='#58ACFA'>金星之光, 金星光辉</font> 和 <font color='#58ACFA'>山脉震撼明星之薪</font> 的箭将施加 <font color='#FF3399'>魔力放出</font> 持续 %FDuration% 秒.
+        當 <font color='#FF3399'>魔力放出</font> 达到 %FStack% 层, 目标将会受到 %FDamage% 伤害和 <font color='#FF3399'>暈眩</font> %FStun% 秒."
+
+
+        ////////////////// BASIC //////////////////
+
+        "DOTA_Tooltip_Ability_ishtar_q"					"<font color='#58ACFA'>金星之光</font>"
+        "DOTA_Tooltip_ability_ishtar_q_Description"		"伊丝塔在她面前发射 %arrow% 魔法箭, 对路径上的敌人造成魔法伤害.
+        <font color='#FF9900'>宝石消耗: 发射 <font color='#FFFFFF'>%GemArrow%</font> 额外魔法箭,每一颗 <font color='#FFFF28'>宝石</font> 消耗</font>.
+        <font color='#9FFFCC'>可升级属性: 金星女神</font>."
+        "DOTA_Tooltip_ability_ishtar_q_cast_delay"					"施法延迟:"
+        "DOTA_Tooltip_ability_ishtar_q_distance"					"距离:"
+        "DOTA_Tooltip_ability_ishtar_q_damage"						"每支箭的伤害:"
+        "DOTA_Tooltip_ability_ishtar_q_gem_consume"					"最大使用宝石:"
+        "DOTA_Tooltip_ability_ishtar_q_GemArrow"					"每颗宝石额外魔法箭:"
+
+        "DOTA_Tooltip_Ability_ishtar_q_upgrade"					"<font color='#9FFFCC'>金星之光</font>"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_Description"		"伊丝塔在她面前发射 %arrow% 魔法箭, 对路径上的敌人造成魔法伤害基于她的 <font color='#80FF00'>敏捷</font> .
+        <font color='#FF9900'>宝石消耗: 发射 <font color='#FFFFFF'>%GemArrow%</font> 额外魔法箭,每一颗 <font color='#FFFF28'>宝石</font> 消耗</font>."
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_cast_delay"					"施法延迟:"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_distance"					"距离:"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_damage"						"每支箭的伤害:"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_bonus_agi"					"每点敏捷额外伤害:"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_gem_consume"					"最大使用宝石:"
+        "DOTA_Tooltip_ability_ishtar_q_upgrade_GemArrow"					"每颗宝石额外魔法箭:"
+        
+        "DOTA_Tooltip_Ability_ishtar_w"			"<font color='#58ACFA'>天舟马安娜</font>"
+        "DOTA_Tooltip_ability_ishtar_w_Description"		"<font color='#58ACFA'>引导</font>: 伊丝塔获得 <font color='#FFFF28'>马安娜骑乘</font> 并启用 <font color='#58ACFA'>马安娜骑乘- 停止</font> 技能 %dash_duration% 秒.
+        <font color='#FFFF28'>马安娜骑乘</font>: 伊丝塔骑着她的巨弓绕着目标位置绕圈同时減少 %damage_reduction%%% 受到伤害. 伊丝塔在碰撞时也会对敌人造成伤害.
+        <font color='#58ACFA'>马安娜骑乘- 停止</font>: 立即停止骑乘.
+        <font color='#FF9900'>宝石消耗: 造成 <font color='#FFFFFF'>%gem_damage%</font> 额外伤害, 同時 <font color='#FF3399'>击退</font> <font color='#FFFFFF'>%gem_knock%</font> 距离和減少 <font color='#FFFFFF'>%GemReduction%%%</font> 受到伤害, 每一颗 <font color='#FFFF28'>宝石</font> 消耗</font>."
+        "DOTA_Tooltip_ability_ishtar_w_Lore"    			"天舟马安娜直升機."
+        "DOTA_Tooltip_ability_ishtar_w_damage"				"伤害:"
+        "DOTA_Tooltip_ability_ishtar_w_dash_range"			"冲刺距离:"
+        "DOTA_Tooltip_ability_ishtar_w_gem_consume"			"最大使用宝石:"
+
+        "DOTA_Tooltip_Ability_ishtar_e"			"<font color='#58ACFA'>金星光辉</font>"
+        "DOTA_Tooltip_ability_ishtar_e_Description"		"施法 %delay% 秒后, 伊丝塔发射 %arrows% 条光线对目标区域内的敌人造成魔法伤害.
+        单个目标最多受到 %MaxArrow% 条光线.
+        如果敌人离开区域超过 %max_range% 距离, 光线将随机击中地面.
+        <font color='#FF9900'>宝石消耗: 发射 <font color='#FFFFFF'>%GemArrows%</font> 额外光线, 每一颗 <font color='#FFFF28'>宝石</font> 消耗</font>.
+        <font color='#9FFFCC'>可升级属性: 金星女神</font>."
+        "DOTA_Tooltip_ability_ishtar_e_range"			"施法距离:"
+        "DOTA_Tooltip_ability_ishtar_e_aoe"				"範圍:"
+        "DOTA_Tooltip_ability_ishtar_e_damage"			"每条光线的伤害:"
+        "DOTA_Tooltip_ability_ishtar_e_gem_consume"			"最大使用宝石:"
+
+        "DOTA_Tooltip_Ability_ishtar_e_upgrade"			"<font color='#9FFFCC'>金星光辉</font>"
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_Description"		"施法 %delay% 秒后, 伊丝塔发射 %arrows% 条光线, 对目标範圍内的敌人造成魔法伤害基于她的 <font color='#80FF00'>敏捷</font>.
+        单个目标最多受到 %MaxArrow% 条光线.
+        如果敌人离开区域超过 %max_range% 距离, 光线将随机击中地面.
+        <font color='#FF9900'>宝石消耗: 发射 <font color='#FFFFFF'>%GemArrows%</font> 额外光线, 每一颗 <font color='#FFFF28'>宝石</font> 消耗</font>."
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_range"			"施法距离:"
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_aoe"				"範圍:"
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_damage"			"每条光线的伤害:"
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_bonus_agi"		"每点敏捷额外伤害:"
+        "DOTA_Tooltip_ability_ishtar_e_upgrade_gem_consume"			"最大使用宝石:"
+
+
+        "DOTA_Tooltip_Ability_ishtar_r"					"<font color='#58ACFA'>山脉震撼明星之薪</font>"
+        "DOTA_Tooltip_ability_ishtar_r_Description"		"<font color='#58ACFA'>充能</font>: 伊丝塔为她的巨弓玛安娜充能, 然后射出一支巨箭到 %range% 距离, 造成魔法伤害然后爆炸，并且在击中时對目標 %impact_radius% 范围区域造成额外的魔法伤害.
+        伊丝塔需要至少 %min_channel% 秒充能时间才能发射巨箭. 伊丝塔最多可充能至 %max_channel% 秒.
+        巨箭最远可以射至额外 %range_bonus_channel% 距离, 額外 %speed_bonus_channel% 速度并造成额外 %damage_bonus_channel% 爆炸伤害基于充能时间. 
+        <font color='#FF9900'>宝石消耗: 伊丝塔不再 <font color='#58ACFA'>充能</font> 并跳到空中向目标区域发射巨型箭矢, 并发射 <font color='#FFFFFF'>%gem_bonus_arrow%</font> 额外的魔法箭,每消耗一颗 <font color='#FFFF28'>宝石</font> 额外的魔法箭会在目标区域内的随机位置, 造成 <font color='#FFFFFF'>%GemArrowDamage%</font> 伤害 <font color='#FFFFFF'>%gem_arrow_aoe%</font> 范围</font>.
+        伊丝塔将会 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>不可选取</font> 直至落地. 
+        <font color='#9FFFCC'>可升级属性: 金星女神</font>."
+        "DOTA_Tooltip_ability_ishtar_r_damage"				"击中伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_damage_impact"		"爆炸伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_gem_burst_damage"	"使用宝石后的伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_gem_delay"			"使用宝石后的施法时间:"
+        "DOTA_Tooltip_ability_ishtar_r_gem_range"			"使用宝石后的施法距离:"
+        "DOTA_Tooltip_ability_ishtar_r_gem_aoe"				"使用宝石后的範圍:"
+        "DOTA_Tooltip_ability_ishtar_r_gem_consume"			"最大使用宝石:"
+
+        "DOTA_Tooltip_Ability_ishtar_r_upgrade"					"<font color='#9FFFCC'>山脉震撼明星之薪</font>"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_Description"		"<font color='#58ACFA'>充能</font>: 伊丝塔为她的巨弓玛安娜充能, 然后射出一支巨箭到 %range% 距离, 造成魔法伤害然后爆炸，并且在击中时對目標 %impact_radius% 范围区域造成额外的魔法伤害基于她的 <font color='#80FF00'>敏捷</font>.
+        伊丝塔需要至少 %min_channel% 秒充能时间才能发射巨箭. 伊丝塔最多可充能至 %max_channel% 秒.
+        巨箭最远可以射至额外 %range_bonus_channel% 距离, 額外 %speed_bonus_channel% 速度并造成额外 %damage_bonus_channel% 爆炸伤害基于充能时间. 
+        <font color='#FF9900'>宝石消耗: 伊丝塔不再 <font color='#58ACFA'>充能</font> 并跳到空中向目标区域发射巨型箭矢造成魔法伤害基于伊丝塔 <font color='#80FF00'>敏捷</font> 并发射 <font color='#FFFFFF'>%gem_bonus_arrow%</font> 额外的魔法箭,每消耗一颗 <font color='#FFFF28'>宝石</font> 额外的魔法箭会在目标区域内的随机位置, 造成 <font color='#FFFFFF'>%GemArrowDamage%</font> 伤害 <font color='#FFFFFF'>%gem_arrow_aoe%</font> 范围</font>.
+        伊丝塔将会 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>不可选取</font> 直至落地."
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage"				"击中伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_damage_impact"		"爆炸伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_gem_burst_damage"	"使用宝石后的伤害:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_gem_delay"			"使用宝石后的施法时间:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_gem_range"			"使用宝石后的施法距离:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_gem_aoe"				"使用宝石后的範圍:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_gem_consume"			"最大使用宝石:"
+        "DOTA_Tooltip_ability_ishtar_r_upgrade_bonus_agi"			"每点敏捷额外伤害:"
+
+        ////////////////////////// COMBO /////////////////////////////
+
+        "DOTA_Tooltip_Ability_ishtar_combo"			"<font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font>"
+        "DOTA_Tooltip_ability_ishtar_combo_Description"		"<font color='#FF04EF'>技能释放条件: 25全属性.</font>
+        <font color='#FF04EF'>技能顺序: 4秒内 Q-D->R .</font> 
+        伊丝塔穿越传送门到地图中心持续 %delay_before_tele% 秒, 传送后伊丝塔获得所有可见敌方视野同时启用 <font color='#58ACFA'>艾比夫山粉碎者 - 山脈震撼明星之薪射击</font> 持续 %reveal% 秒.
+        <font color='#58ACFA'>艾比夫山粉碎者 - 山脈震撼明星之薪射击</font>: 选择目标区域. 如果这个技能限时内没有使用, 伊丝塔会随机瞄准敌方英雄的位置.
+        当完成充能 %cast% 秒, 伊丝塔将金星的力量射向目标区域, 引发巨大爆炸并造成伤害基于伊丝塔 <font color='#FFFF28'>宝石</font>.
+        受影响的区域将燃烧并每秒造成少量伤害.   
+        伊丝塔将会 <font color='#FF3399'>暈眩</font> 直到她进入传送门并且变为 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>不可选取</font> 同时漂浮在天空上.
+		伊丝塔完成该技能后将会传送回原始位置.
+		<font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font> 无法在结界内使用并且 <font color='#58ACFA'>艾比夫山粉碎者 - 山脉震撼明星之薪射击</font> 不能射击结界内."
+        "DOTA_Tooltip_ability_ishtar_combo_aoe"					"範圍:"
+        "DOTA_Tooltip_ability_ishtar_combo_damage"				"基础伤害:"
+        "DOTA_Tooltip_ability_ishtar_combo_GemDamage"			"每颗宝石额外伤害:"
+        "DOTA_Tooltip_ability_ishtar_combo_dps"					"每秒燃伤伤害:"
+        "DOTA_Tooltip_ability_ishtar_combo_dps_duration"		"燃烧持续时间:"
+
+        ///////////////////////// ATTRIBUTE ////////////////////////////
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_gems"			"<font color='#9FFFCC'>属性: 乌鲁克的宝石</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_gems_Description"		"<font color='#FFFFFF'>宝石塑造</font>: 伊丝塔支付 %gem_cost% 金币來获得 %gem_gain% <font color='#FFFF28'>宝石</font>. 伊丝塔可以收集无限數量 <font color='#FFFF28'>宝石</font>.
+        伊丝塔死亡时将会失去 %gem_loss%%% <font color='#FFFF28'>宝石</font> ."
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_goddess"			"<font color='#FFFFFF'>属性: 美之显现</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_goddess_Description"		"激活 <font color='#FFB266'>美之显现</font>.
+        <font color='#FFB266'>美之显现</font>: <font color='#58ACFA'>被动光环</font>: 所有男性盟友 %buff_radius% 范围内获得 <font color='#FFFF28'>迷人的魅力</font> 伊丝塔能够从敌方男性英雄受到的伤害中恢复 %recover_damage_taken%%% 的生命值.
+        <font color='#FFFF28'>迷人的魅力</font>: 给予 %buff_male_mr%%% 魔法抗性.
+        每秒生命回复量不能超过 %recovery_per_second%."
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_crown"			"<font color='#9FFFCC'>属性: 闪耀的大王冠</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_crown_Description"		"激活 <font color='#FFB266'>闪耀的大王冠</font>.
+        <font color='#FFB266'>闪耀的大王冠</font>: <font color='#58ACFA'>被动</font>: 伊丝塔获得 %gold_gain% 黄金每秒, %bonus_ms% 额外移动速度, %vision% 视野范围. 伊丝塔的普通攻击获得 <font color='#FFFF28'>闪耀的大王冠标记</font> 层数持续 %duration% 秒.
+        <font color='#FFFF28'>闪耀的大王冠标记</font> 當达到 %atk_count% 层, 伊丝塔将消耗 %gem_consume% <font color='#FFFF28'>宝石</font> 並对敌方目标发射 %total_arrow% 条光线, 造成 %arrow_dmg% 魔法伤害."
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_mana_burst"			"<font color='#9FFFCC'>属性: 魔力放出（宝石）</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_mana_burst_Description"		"<font color='#58ACFA'>金星之光</font>: 发射 %q_arrow% 额外魔法箭,每一颗 <font color='#FFFF28'>宝石</font> 消耗.
+        <font color='#58ACFA'>天舟马安娜</font>: 增加 %w_bonus_block%%% 伤害减免, 每一颗 <font color='#FFFF28'>宝石</font> 消耗.
+        <font color='#58ACFA'>金星光辉</font>: 发射 %e_arrows% 额外的魔法射线, 每消耗一颗 <font color='#FFFF28'>宝石</font> 将每个目标的最大射线数量增加至 %e_max%. 
+        <font color='#58ACFA'>山脉震撼明星之薪</font>: 增加魔法箭 %r_arrow_damage% 伤害.
+        <font color='#FF04EF'>艾比夫山粉碎者 - 山脉震撼明星之薪</font>: 增加额外伤害 %c_damage% , 每消耗一颗 <font color='#FFFF28'>宝石</font> .
+        <font color='#58ACFA'>金星之光, 金星光辉</font> 和 <font color='#58ACFA'>山脉震撼明星之薪</font> 的箭将施加 <font color='#FF3399'>魔力放出</font> 持续 %f_duration% 秒.
+        當 <font color='#FF3399'>魔力放出</font> 达到 %f_stack% 层, 目标将会受到 %f_damage% 伤害和 <font color='#FF3399'>暈眩</font> %f_stun% 秒."
+
+        "DOTA_Tooltip_Ability_ishtar_attribute_venus"			"<font color='#9FFFCC'>属性: 金星女神</font>"
+        "DOTA_Tooltip_ability_ishtar_attribute_venus_Description"		"<font color='#58ACFA'>金星之光</font>: 增加魔法箭的伤害根据 %q_agi% x <font color='#80FF00'>敏捷</font>
+        <font color='#58ACFA'>金星光辉</font>: 增加光线伤害根据 %e_agi% x <font color='#80FF00'>敏捷</font>
+        <font color='#58ACFA'>山脉震撼明星之薪</font>: 增加爆炸伤害根据 %r_agi% x <font color='#80FF00'>敏捷</font>"
+
+        //====================================   MODIFIERS   ====================================
+
+		"DOTA_Tooltip_modifier_ishtar_gem"								"宝石"
+		"DOTA_Tooltip_modifier_ishtar_gem_Description"					""
+
+		"DOTA_Tooltip_modifier_ishtar_gem_consume"						"宝石使用"
+		"DOTA_Tooltip_modifier_ishtar_gem_consume_Description"			"消耗宝石来提升能力"
+
+		"DOTA_Tooltip_modifier_ishtar_mana_burst_gem"					"魔力放出 (宝石)"
+		"DOTA_Tooltip_modifier_ishtar_mana_burst_gem_Description"		""
+
+		"DOTA_Tooltip_modifier_ishtar_mana_burst_debuff"				"魔力放出"
+		"DOTA_Tooltip_modifier_ishtar_mana_burst_debuff_Description"	""
+
+		"DOTA_Tooltip_modifier_ishtar_w_dash"							"冲刺中"
+
+		"DOTA_Tooltip_modifier_ishtar_beauty"							"美之显现"
+		"DOTA_Tooltip_modifier_ishtar_beauty_Description"				"伊丝塔从男性身上回复生命"
+
+		"DOTA_Tooltip_modifier_ishtar_beauty_male"						"迷人的魅力"
+		"DOTA_Tooltip_modifier_ishtar_beauty_male_Description"			"给予额外魔法抗性"
+
+		"DOTA_Tooltip_modifier_ishtar_crown"							"闪耀的大王冠"
+		"DOTA_Tooltip_modifier_ishtar_crown_Description"				"增加每秒黄金、移动速度和视野"
+
+		"DOTA_Tooltip_modifier_ishtar_crown_tracker"						"闪耀的大王冠标记"
+		"DOTA_Tooltip_modifier_ishtar_crown_tracker_Description"			""
+		
+
+		"DOTA_Tooltip_modifier_ishtar_casting"															"玛安娜充能中"
+
+		"DOTA_Tooltip_modifier_ishtar_passive_buff"															"迷人的魅力"
+		"DOTA_Tooltip_modifier_ishtar_passive_buff_Description"												"给予额外魔法抗性."
+
+		"DOTA_Tooltip_modifier_ishtar_damage_stack"															"回复生命"
+		"DOTA_Tooltip_modifier_ishtar_damage_stack_Description"												"回复受到男性英雄的伤害."
+
+		"DOTA_Tooltip_modifier_ishtar_combo_cooldown"					"艾比夫山粉碎者 - 山脉震撼明星之薪冷卻"
+		"DOTA_Tooltip_modifier_ishtar_combo_cooldown_Description"		"伊丝塔Combo冷卻."
+
+		//====================================
+		//	阿塔兰塔〔Alter〕
+		//====================================
+		"npc_dota_hero_ursa"		"阿塔兰塔(Alter)"
+		"npc_dota_hero_ursa_1"		"[英雄] 灵衣阿塔兰塔 Alter"
+		"npc_dota_hero_ursa_summon"		"从者 <font color='#58ACFA'>阿塔兰塔 (Alter)</font> 已被召唤."
+        "npc_dota_hero_ursa_enable_combo"	"激活 连击技能: 暗天蚀射"
+
+		"npc_dota_hero_ursa_hype"	""
+		"npc_dota_hero_ursa_bio"	""
+
+		////////////////// Innate /////////////
+
+		"DOTA_Tooltip_Ability_atalanta_alter_curse"	"<font color='#FFFFFF'>卡吕冬野猪的诅咒</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_Description"	"<font color='#58ACFA'>被动</font>: 攻击或使用技能 (<font color='#58ACFA'>咆哮, 越过阿卡迪亚, 暗天之弓 - 箭雨</font> 或者 <font color='#FF04EF'>暗天蚀射</font>) 阿塔兰塔会对敌人施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数 %curse_duration% 秒. 
+		<font color='#58ACFA'>主动</font>: 引爆 %active_search% 范围的敌人身上所有诅咒. 阿塔兰塔会吸收所有诅咒并且转化成 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FF3399'>卡吕冬野猪的诅咒</font>: 当诅咒达到 %curse_max_stack% 层或时间耗尽时,诅咒将会爆炸并且对目标造成魔法伤害. 
+		如果阿塔兰塔停留在受诅咒目标 %passive_search% 范围内，并且已有目标视野, 阿塔兰塔将吸收诅咒并获得 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FFFF28'>诅咒能量</font>: 当诅咒能量达到 %energy_stack% 层, 阿塔兰塔获得 <font color='#FFFF28'>邪恶野兽</font> 持续 %evil_duration% 秒. 
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔的攻击造成 %evil_dmg% 额外魔法伤害. 阿塔兰塔的攻击同样会造成 <font color='#FFFFFF'>100%%</font> 溅射伤害和 %evil_splash% 溅射范围. 阿塔兰塔的攻击和技能将对敌人施加 <font color='#FFFFFF'>2</font> 次 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数.
+		阿塔兰塔无法获得 <font color='#FFFF28'>诅咒能量</font>层数当正在处于 <font color='#FFFF28'>邪恶野兽</font>.
+		所有 <font color='#FFFF28'>诅咒能量</font>层数将会重置当阿塔兰塔結束 <font color='#FFFF28'>邪恶野兽</font>
+		<font color='#9FFFCC'>可升级属性: 诅咒之月和自我进化</font>.
+		诅咒伤害: %curse_dmg% x 层数"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_1"	"<font color='#9FFFCC'>卡吕冬野猪的诅咒</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_1_Description"	"<font color='#58ACFA'>被动</font>: 攻击或使用技能(<font color='#58ACFA'>咆哮, 越过阿卡迪亚, 暗天之弓 - 箭雨</font> 或者 <font color='#FF04EF'>暗天蚀射</font>) 阿塔兰塔会对敌人施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数 %curse_duration% 秒. 
+		<font color='#58ACFA'>主动</font>: 引爆 %active_search% 范围的敌人身上所有诅咒. 阿塔兰塔会吸收所有诅咒并且转化成 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FF3399'>卡吕冬野猪的诅咒</font>: 当诅咒达到 %curse_max_stack% 层或时间耗尽时, 诅咒将会爆炸并且对目标造成魔法伤害基于阿塔兰塔的 <font color='#80FF00'>敏捷</font> . 阿塔兰塔能够获得目标视野當目标超过 %vision% 层数.
+		如果阿塔兰塔停留在受诅咒目标 %passive_search% 范围内，并且已有目标视野, 阿塔兰塔将吸收诅咒并获得 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FFFF28'>诅咒能量</font>: 当诅咒能量达到 %energy_stack% 层, 阿塔兰塔获得 <font color='#FFFF28'>邪恶野兽</font> 持续 %evil_duration% 秒.
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔的攻击造成 %evil_dmg% 额外魔法伤害. 阿塔兰塔的攻击同样会造成 <font color='#FFFFFF'>100%%</font> 溅射伤害和 %evil_splash% 溅射范围. 阿塔兰塔的攻击和技能将对敌人施加 <font color='#FFFFFF'>2</font> 次 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数.
+		阿塔兰塔无法获得 <font color='#FFFF28'>诅咒能量</font>层数当正在处于 <font color='#FFFF28'>邪恶野兽</font>.
+		所有 <font color='#FFFF28'>诅咒能量</font>层数将会重置当阿塔兰塔結束 <font color='#FFFF28'>邪恶野兽</font>
+		<font color='#9FFFCC'>可升级属性: 自我进化</font>.
+		诅咒伤害: (%curse_dmg% x <font color='#FF3399'>层数</font>) + (%curse_dmg_agi% x <font color='#80FF00'>敏捷</font>)"
+		
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_2"	"<font color='#9FFFCC'>卡吕冬野猪的诅咒</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_2_Description"	"<font color='#58ACFA'>被动</font>: 攻击或使用技能(<font color='#58ACFA'>咆哮, 越过阿卡迪亚, 暗天之弓 - 箭雨</font> 或者 <font color='#FF04EF'>暗天蚀射</font>) 阿塔兰塔会对敌人施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数 %curse_duration% 秒. 
+		<font color='#58ACFA'>主动</font>: 引爆 %active_search% 范围的敌人身上所有诅咒. 阿塔兰塔会吸收所有诅咒并且转化成 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FF3399'>卡吕冬野猪的诅咒</font>: 当诅咒达到 %curse_max_stack% 层或时间耗尽时, 诅咒将会爆炸并且对目标造成魔法伤害. 
+		如果阿塔兰塔停留在受诅咒目标 %passive_search% 范围内，并且已有目标视野, 阿塔兰塔将吸收诅咒并获得 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FFFF28'>诅咒能量</font>: 当诅咒能量达到 %energy_stack% 层, 阿塔兰塔获得 <font color='#FFFF28'>邪恶野兽</font> 持续 %evil_duration% 秒.
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔获得 <font color='#FFFFFF'>1%%</font> 攻击力並基据 <font color='#FFFF28'>诅咒能量</font>层数最大可增加至100. 阿塔兰塔的攻击造成 %evil_dmg% 额外魔法伤害. 阿塔兰塔的攻击同样会造成 <font color='#FFFFFF'>100%%</font> 溅射伤害和 %evil_splash% 溅射范围. 阿塔兰塔的攻击和技能将对敌人施加 <font color='#FFFFFF'>2</font> 次 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数.
+		所有 <font color='#FFFF28'>诅咒能量</font>层数将会重置当阿塔兰塔結束 <font color='#FFFF28'>邪恶野兽</font>
+		<font color='#9FFFCC'>可升级属性: 诅咒之月</font>.
+		诅咒伤害: %curse_dmg% x 层数"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_3"	"<font color='#9FFFCC'>卡吕冬野猪的诅咒</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_curse_upgrade_3_Description"	"<font color='#58ACFA'>被动</font>: 攻击或使用技能(<font color='#58ACFA'>咆哮, 越过阿卡迪亚, 暗天之弓 - 箭雨</font> 或者 <font color='#FF04EF'>暗天蚀射</font>) 阿塔兰塔会对敌人施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数 %curse_duration% 秒. 
+		<font color='#58ACFA'>主动</font>: 引爆 %active_search% 范围的敌人身上所有诅咒. 阿塔兰塔会吸收所有诅咒并且转化成 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FF3399'>卡吕冬野猪的诅咒</font>: 当诅咒达到 %curse_max_stack% 层或时间耗尽时, 诅咒将会爆炸并且对目标造成魔法伤害基于阿塔兰塔的 <font color='#80FF00'>敏捷</font> . 阿塔兰塔能够获得目标视野當目标超过 %vision% 层数.
+		如果阿塔兰塔停留在受诅咒目标 %passive_search% 范围内，并且已有目标视野, 阿塔兰塔将吸收诅咒并获得 <font color='#FFFF28'>诅咒能量</font> 层数. 
+		<font color='#FFFF28'>诅咒能量</font>: 当诅咒能量达到 %energy_stack% 层, 阿塔兰塔获得 <font color='#FFFF28'>邪恶野兽</font> 持续 %evil_duration% 秒. 
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔获得 <font color='#FFFFFF'>1%%</font> 攻击力並基据 <font color='#FFFF28'>诅咒能量</font>层数最大可增加至100. 阿塔兰塔的攻击造成 %evil_dmg% 额外魔法伤害. 阿塔兰塔的攻击同样会造成 <font color='#FFFFFF'>100%%</font> 溅射伤害和 %evil_splash% 溅射范围. 阿塔兰塔的攻击和技能将对敌人施加 <font color='#FFFFFF'>2</font> 次 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数.
+		所有 <font color='#FFFF28'>诅咒能量</font>层数将会重置当阿塔兰塔結束 <font color='#FFFF28'>邪恶野兽</font>
+		诅咒伤害: (%curse_dmg% x <font color='#FF3399'>层数</font>) + (%curse_dmg_agi% x <font color='#80FF00'>敏捷</font>)"
+
+		////////////////// BASIC ////////////////////////
+
+		"DOTA_Tooltip_Ability_atalanta_alter_roar"		"<font color='#58ACFA'>咆哮</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_Description"	"阿塔兰塔大声咆哮造成伤害並 <font color='#FF3399'>缓速</font> %duration% 秒并施加 <font color='#FFFF28'>卡吕冬野猪的诅咒</font> 层数.
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>短暂晕眩</font>. 
+		<font color='#9FFFCC'>可升级属性: 野兽的逻辑</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_distance"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_base_damage"	"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_base_stacks"	"诅咒层数:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_ms_slow"		"%缓速:"
+		
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade"		"<font color='#9FFFCC'>咆哮</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_Description"	"阿塔兰塔大声咆哮造成伤害並 <font color='#FF3399'>缓速</font> %duration% 秒, <font color='#FF3399'>沉默</font> %silence% 秒并施加 <font color='#FFFF28'>卡吕冬野猪的诅咒</font> 层数.
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>短暂晕眩</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_distance"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_base_damage"	"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_base_stacks"	"诅咒层数:"
+		"DOTA_Tooltip_Ability_atalanta_alter_roar_upgrade_ms_slow"		"%缓速:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_ora"				"<font color='#58ACFA'>兽化</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_Description"	"阿塔兰塔进入愤怒状态, 进入 <font color='#FFFF28'>兽化</font> %beast_duration% 秒和 <font color='#FFFF28'>邪恶野兽</font> %evil_duration% 秒.
+		<font color='#FFFF28'>兽化</font>: 阿塔兰塔将会 <font color='#FF3399'>禁咒</font> 並获得额外的 %bonus_aspd%%% 攻击速度, %bonus_ms%%% 移动速度,但普通攻击只造成 %attack%%% 伤害.
+		<font color='#9FFFCC'>可升级属性: 野兽强化和野兽的逻辑</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_attack_count"	"攻击次数:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_1"		"<font color='#9FFFCC'>兽化</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_1_Description"	"阿塔兰塔进入愤怒状态, 进入 <font color='#FFFF28'>兽化</font> %beast_duration% 秒並增加 %bonus_energy% 层 <font color='#FFFF28'>诅咒能量</font> 和 <font color='#FFFF28'>邪恶野兽</font> %evil_duration% 秒.
+		<font color='#FFFF28'>兽化</font>: 阿塔兰塔将会 <font color='#FF3399'>禁咒</font> 和 <font color='#FFFF28'>免疫</font> 大多数控制並获得额外的 %bonus_aspd%%% 攻击速度, %bonus_ms%%% 移动速度和 %bonus_range% 攻击距离,但普通攻击只造成 %attack%%% 伤害. 
+		阿塔兰塔的普通攻击会跳跃目标.
+		<font color='#9FFFCC'>可升级属性: 野兽的逻辑</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_1_attack_count"		"攻击次数:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_2"				"<font color='#9FFFCC'>兽化</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_2_Description"	"阿塔兰塔进入愤怒状态, 进入 <font color='#FFFF28'>兽化</font> %beast_duration% 秒和 <font color='#FFFF28'>邪恶野兽</font> %evil_duration% 秒,同时跳跃至%search% 范围内生命值最低的敌人.
+		<font color='#FFFF28'>兽化</font>: 阿塔兰塔将会 <font color='#FF3399'>禁咒</font> 並获得额外的 %bonus_aspd%%% 攻击速度, %bonus_ms%%% 移动速度,但普通攻击只造成 %attack%%% 伤害.
+		<font color='#9FFFCC'>可升级属性: 野兽强化</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_2_attack_count"	"攻击次数:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_3"		"<font color='#9FFFCC'>兽化</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_3_Description"	"阿塔兰塔进入愤怒状态, 进入 <font color='#FFFF28'>兽化</font> %beast_duration% 秒並增加 %bonus_energy% 层 <font color='#FFFF28'>诅咒能量</font> 和 <font color='#FFFF28'>邪恶野兽</font> %evil_duration% 秒,同时跳跃至 %search% 范围内生命值最低的敌人.
+		<font color='#FFFF28'>兽化</font>: 阿塔兰塔将会 <font color='#FF3399'>禁咒</font> 和 <font color='#FFFF28'>免疫</font> 大多数控制並获得额外的 %bonus_aspd%%% 攻击速度, %bonus_ms%%% 移动速度和 %bonus_range% 攻击距离,但普通攻击只造成 %attack%%% 伤害. 
+		阿塔兰塔的普通攻击会跳跃目标."
+		"DOTA_Tooltip_Ability_atalanta_alter_ora_upgrade_3_attack_count"		"攻击次数:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_jump"			"<font color='#58ACFA'>越过阿卡迪亚</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_Description"	"阿塔兰塔跳跃至目标地点, 造成伤害和 %ms_slow%%% <font color='#FF3399'>缓速</font> 并施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font>.
+		阿塔兰塔跳跃时将会 <font color='#FF3399'>暈眩</font> 並減少受到的伤害.
+		阿塔兰塔跳跃时可以施放 <font color='#58ACFA'>暗天之弓 - 箭雨</font> .
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>暈眩</font> %stun_duration% 秒
+		<font color='#9FFFCC'>可升级属性: 野兽的逻辑和暗天之弓</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_cast_range"	"跳跃最大距离:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_damage"		"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_radius"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_curse_stacks"	"诅咒叠加:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_slow_dur"		"缓速时间:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1"			"<font color='#9FFFCC'>越过阿卡迪亚</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_Description"	"阿塔兰塔跳跃至目标地点並 <font color='#FF3399'>拉近</font> %knock_radius% 范围所有敌人. 造成伤害和 %ms_slow%%% <font color='#FF3399'>缓速</font> 并施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font>.
+		阿塔兰塔跳跃时将会 <font color='#FF3399'>暈眩</font> 並減少受到的伤害.
+		阿塔兰塔跳跃时可以施放 <font color='#58ACFA'>暗天之弓 - 箭雨</font> .
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>暈眩</font> %stun_duration% 秒
+		<font color='#9FFFCC'>可升级属性: 暗天之弓</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_cast_range"	"跳跃最大距离:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_damage"		"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_radius"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_curse_stacks"	"诅咒叠加:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_slow_dur"		"缓速时间:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2"			"<font color='#9FFFCC'>越过阿卡迪亚</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_Description"	"阿塔兰塔跳跃至目标地点並减少 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 冷却时间 %tauropolos_red% 秒, 造成伤害和 %ms_slow%%% <font color='#FF3399'>缓速</font> 并施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font>.
+		阿塔兰塔跳跃时将会 <font color='#FF3399'>暈眩</font> 並減少受到的伤害.
+		阿塔兰塔跳跃时可以施放 <font color='#58ACFA'>暗天之弓 - 箭雨</font> .
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>暈眩</font> %stun_duration% 秒
+		<font color='#9FFFCC'>可升级属性: 野兽的逻辑</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_cast_range"	"跳跃最大距离:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_damage"		"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_radius"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_curse_stacks"	"诅咒叠加:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_slow_dur"		"缓速时间:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3"			"<font color='#9FFFCC'>越过阿卡迪亚</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_Description"	"阿塔兰塔跳跃至目标地点並 <font color='#FF3399'>拉近</font> %knock_radius% 范围所有敌人同时减少 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 冷却时间 %tauropolos_red% 秒. 造成伤害和 %ms_slow%%% <font color='#FF3399'>缓速</font> 并施加 <font color='#FF3399'>卡吕冬野猪的诅咒</font>.
+		阿塔兰塔跳跃时将会 <font color='#FF3399'>暈眩</font> 並減少受到的伤害.
+		阿塔兰塔跳跃时可以施放 <font color='#58ACFA'>暗天之弓 - 箭雨</font> .
+		<font color='#FFFF28'>邪恶野兽</font>: 技能给予 <font color='#FF3399'>暈眩</font> %stun_duration% 秒."
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_cast_range"	"跳跃最大距离:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_damage"		"伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_radius"		"范围:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_curse_stacks"	"诅咒叠加:"
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_slow_dur"		"缓速时间:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter" 			"<font color='#58ACFA'>暗天之弓 - 箭雨</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_Description"	"阿塔兰塔召唤箭雨袭击她当前位置, 箭雨会伤害%max_dist% 范围內敌人並且持续 %duration% 秒. 
+		箭雨造成伤害同时会持续叠加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> .
+		阿塔兰塔持续获得 %energy_gain% <font color='#FFFF28'>诅咒能量</font>层数当她停留在 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 范围內.
+		<font color='#FFFF28'>邪恶野兽</font>:  阿塔兰塔会 <font color='#FFFF28'>治疗</font> %heal%%% 箭雨对自身的伤害.
+		同一时间只能存在一个 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 
+		阿塔兰塔死后箭雨将会停止.
+		<font color='#9FFFCC'>可升级属性: 暗天之弓</font>."
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_dps"			"每秒傷害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_bonus_agi"	"每点敏捷额外每秒伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_curse_stacks"	"每秒诅咒叠加:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade" 			"<font color='#9FFFCC'>暗天之弓 - 箭雨</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_Description"	"阿塔兰塔召唤箭雨袭击她当前位置, 箭雨会伤害 %max_dist% 范围內敌人並且持续 %duration% 秒. 
+		箭雨造成的伤害基于阿塔兰塔的 <font color='#80FF00'>敏捷</font> 加上敌人的 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 层数同时会持续叠加 <font color='#FF3399'>卡吕冬野猪的诅咒</font> .
+		阿塔兰塔持续获得 %energy_gain% <font color='#FFFF28'>诅咒能量</font>层数当她停留在 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 范围內.
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔会 <font color='#FFFF28'>治疗</font> %heal%%% 箭雨对自身的伤害.
+		当 <font color='#58ACFA'>越过阿卡迪亚</font> 跳跃中, <font color='#58ACFA'>暗天之弓 - 箭雨</font> 的施法时间减少至 %jump_cast% 秒, 法力消耗减少至 %jump_cost% 和箭雨持续时间只有 %jump_duration% 秒, 但箭雨变得可以跟随自己. 
+		同一时间只能存在一个 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 
+		阿塔兰塔死后箭雨将会停止."
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_cast_delay"	"施法时间:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_dps"			"每秒傷害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_bonus_agi"	"每点敏捷额外每秒伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_bonus_stack"	"%每层额外伤害:"
+		"DOTA_Tooltip_Ability_atalanta_alter_tauropolos_alter_upgrade_curse_stacks"	"每秒诅咒叠加:"
+
+		////////////////// Special Ability //////////////////////////////
+
+		"DOTA_Tooltip_Ability_atalanta_passive_evolution"	"<font color='#FFB266'>自我进化</font>"
+		"DOTA_Tooltip_Ability_atalanta_passive_evolution_Description"	"<font color='#58ACFA'>被动</font>: 当阿塔兰塔的攻击和技能击中敌人时, 阿塔兰塔获得 %energy_gain% <font color='#FFFF28'>诅咒能量</font> 层数.
+		每次阿塔兰塔获得 <font color='#FFFF28'>诅咒能量</font> 层数, 阿塔兰塔 <font color='#FFFF28'>治疗</font> 她的 %energy_heal%%% 最大生命."
+
+		////////////////// Combo //////////////////////
+
+		"DOTA_Tooltip_Ability_atalanta_alter_skia"	"<font color='#FF04EF'>暗天蚀射</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_skia_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>
+		<font color='#FF04EF'>技能顺序 : 4秒内 D - W -> E .</font>
+		阿塔兰塔将暗天之弓吸收进自己的身体，跳到空中并且跳到目标位置。造成魔法伤害, 并施加 %curse_stacks% 层 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 並且 <font color='#FF3399'>暈眩</font> 敌人 %stun% 秒,並且伤害 %radius% 范围內所有敵人
+		发动后阿塔兰塔不能使用 <font color='#58ACFA'>暗天之弓 - 箭雨</font> %r_penalty% 秒
+		<font color='#9FFFCC'>可升级属性: 诅咒之月</font>.
+		伤害: %damage% " 
+		"DOTA_Tooltip_Ability_atalanta_alter_skia_max_dist"	"最大距离:"
+
+		"DOTA_Tooltip_Ability_atalanta_alter_skia_upgrade"	"<font color='#FF04EF'>暗天蚀射</font>"
+		"DOTA_Tooltip_Ability_atalanta_alter_skia_upgrade_Description"	"<font color='#FF04EF'>技能释放条件 : 25全属性</font>
+		<font color='#FF04EF'>技能顺序 : 4秒内 D - W -> E  .</font>
+		阿塔兰塔将暗天之弓吸收进自己的身体, 跳到空中并且跳到目标位置. 造成魔法伤害基于阿塔兰塔的 <font color='#FFFF28'>诅咒能量</font> 层数, 并施加 %curse_stacks% 层 <font color='#FF3399'>卡吕冬野猪的诅咒</font> 並且 <font color='#FF3399'>暈眩</font> 敌人 %stun% 秒,並且伤害 %radius% 范围內所有敵人
+		发动后阿塔兰塔不能使用 <font color='#58ACFA'>暗天之弓 - 箭雨</font> %r_penalty% 秒
+		伤害: %damage% + (%bonus_dmg_energy%%% x <font color='#FFFF28'>层数</font>)"
+		"DOTA_Tooltip_Ability_atalanta_alter_skia_upgrade_max_dist"	"最大距离:"
+
+		/////////////// Attribute /////////////////////////
+
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"				"<font color='#9FFFCC'>属性: 自我进化</font>"
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"激活 <font color='#FFB266'>自我进化</font>
+		<font color='#58ACFA'>被动</font>: 当阿塔兰塔的攻击和技能击中敌人时, 阿塔兰塔获得 %energy_gain% <font color='#FFFF28'>诅咒能量</font> 层数.
+		每次阿塔兰塔获得 <font color='#FFFF28'>诅咒能量</font> 层数, 阿塔兰塔 <font color='#FFFF28'>治疗</font> 她的 %energy_heal%%% 最大生命.
+		<font color='#58ACFA'>卡吕冬野猪的诅咒</font>: 增加 <font color='#FFFF28'>邪恶野兽</font> 持续时间 %bonus_evil_dur% 秒.
+		<font color='#FFFF28'>邪恶野兽</font>: 阿塔兰塔获得 <font color='#FFFFFF'>1%%</font> 攻击力並基据<font color='#FFFF28'>诅咒能量</font>层数最大可上升至100."
+
+		"DOTA_Tooltip_Ability_atalanta_beast_attribute"				"<font color='#9FFFCC'>属性: 野兽强化</font>"
+		"DOTA_Tooltip_Ability_atalanta_beast_attribute_Description"	"<font color='#58ACFA'>兽化</font>: 增加 <font color='#FFFF28'>兽化</font> 持续时间 %bonus_beast_dur% 秒, 攻击次数 %bonus_atk%, %bonus_energy% 层 <font color='#FFFF28'>诅咒能量</font>, %attack_range% 攻击距离並且阿塔兰塔的普通攻击会跳跃目标. 
+		阿塔兰塔将会 <font color='#FFFF28'>免疫</font> 大多数控制"
+
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute"				"<font color='#9FFFCC'>属性: 诅咒之月</font>"
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"<font color='#58ACFA'>卡吕冬野猪的诅咒</font>: 增加主动范围 %active_radius%. 当诅咒爆发时, 增加诅咒伤害 %curse_agi% x <font color='#80FF00'>敏捷</font>. 阿塔兰塔能够获得目标视野當目标超过 %curse_vision% 层数.
+		<font color='#FF04EF'>暗天蚀射</font>: 增加伤害基于阿塔兰塔的 <font color='#FFFF28'>诅咒能量</font> 层数並可以 <font color='#FF3399'>拉近</font> 所有敌人到中心. 
+		连击技能额外伤害: %combo_energy%%% x <font color='#FFFF28'>层数</font>"
+
+		"DOTA_Tooltip_Ability_atalanta_logic_attribute"				"<font color='#9FFFCC'>属性: 野兽的逻辑</font>"
+		"DOTA_Tooltip_Ability_atalanta_logic_attribute_Description"	"<font color='#58ACFA'>咆哮</font>: 施加 <font color='#FF3399'>沉默</font> %roar_silence% 秒.
+		<font color='#58ACFA'>兽化</font>: 阿塔兰塔会搜索 %beast_search% 范围内生命值最低的敌人并跳跃至目标. 
+		<font color='#58ACFA'>越过阿卡迪亚</font>: 阿塔兰塔 <font color='#FF3399'>拉近</font> %pull_radius% 范围所有敌人 %pull% 距离."
+
+		"DOTA_Tooltip_Ability_atalanta_bow_attribute"				"<font color='#9FFFCC'>属性: 暗天之弓</font>"
+		"DOTA_Tooltip_Ability_atalanta_bow_attribute_Description"	"<font color='#58ACFA'>越过阿卡迪亚</font>: 一旦激活, 减少 <font color='#58ACFA'>暗天之弓 - 箭雨</font> 冷却时间 %jump_r_red% 秒.
+		<font color='#58ACFA'>暗天之弓 - 箭雨</font>: 增加 %r_energy% <font color='#FFFF28'>诅咒能量</font> 层数並且随时间增加伤害基于阿塔兰塔的 <font color='#80FF00'>敏捷</font> 加上敌人的堆叠 <font color='#FF3399'>卡吕冬野猪的诅咒</font>
+		当 <font color='#58ACFA'>越过阿卡迪亚</font> 跳跃中, <font color='#58ACFA'>暗天之弓 - 箭雨</font> 的施法时间减少至 %jump_cast% 秒, 法力消耗减少至 %jump_cost% 和箭雨持续时间只有 %jump_duration% 秒, 但箭雨变得可以跟随自己.
+		暗天之弓额外伤害: (%r_agi% x <font color='#80FF00'>敏捷</font>) + (%r_stack%%% x <font color='#FF3399'>层数</font>)"
+
+        //====================================   MODIFIERS   ====================================
+
+		"DOTA_Tooltip_modifier_atalanta_skia_cd"						"暗天蚀射冷卻"
+
+		"DOTA_Tooltip_modifier_atalanta_curse_cooldown"					"卡吕冬野猪的诅咒主動冷卻"
+
+		"DOTA_Tooltip_modifier_tauropolos_alter_penalty"				"暗天之弓箭雨冷卻"
+		"DOTA_Tooltip_modifier_tauropolos_alter_penalty_Description"	"" 
+
+		"DOTA_Tooltip_modifier_atalanta_curse"							"卡吕冬野猪的诅咒"
+		"DOTA_Tooltip_modifier_atalanta_curse_Description"				"" 
+
+		"DOTA_Tooltip_modifier_atalanta_curse_vision"					"卡吕冬野猪的诅咒視野"
+		"DOTA_Tooltip_modifier_atalanta_curse_vision_Description"		""
+
+		"DOTA_Tooltip_modifier_atalanta_evolution"						"自我进化"
+		"DOTA_Tooltip_modifier_atalanta_evolution_Description"			""
+
+		"DOTA_Tooltip_modifier_atalanta_energy_curse_passive"							"诅咒能量"
+		"DOTA_Tooltip_modifier_atalanta_energy_curse_passive_Description"				""
+
+		"DOTA_Tooltip_modifier_atalanta_evil_beast"						"邪恶野兽"
+		"DOTA_Tooltip_modifier_atalanta_evil_beast_Description"			""
+
+		"DOTA_Tooltip_modifier_atalanta_beast"							"兽化"
+		"DOTA_Tooltip_modifier_atalanta_beast_Description"				""
+
+		"DOTA_Tooltip_modifier_roar_slow"								"因咆哮而减速" 
+		"DOTA_Tooltip_modifier_roar_slow_Description"					"减速."
+
+		"DOTA_Tooltip_modifier_atalanta_jump_slow"						"越过阿卡迪亚减速" 
+		"DOTA_Tooltip_modifier_atalanta_jump_slow_Description"			"减速."
+		
+		//====================================
+        //      千子村正
+        //====================================
+        "npc_dota_hero_kunkka"             "千子村正"
+        "npc_dota_hero_kunkka_summon"		"从者 <font color='#58ACFA'>千子村正</font> 已被召唤."
+        "npc_dota_hero_kunkka_enable_combo"	"激活连击技能: 都牟刈村正 - 无元剑制"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_muramasa_chant"			"<font color='#FFFFFF'>都牟刈村正 - 咏唱</font>"
+        "DOTA_Tooltip_ability_muramasa_chant_Description"		"吟唱幾秒鐘, 然後 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 並獲得一层 <font color='#FFFF28'>都牟刈村正 - 咏唱</font>. 当有4層咏唱时会变成 <font color='#FFFF28'>都牟刈村正</font>, 获得技能加成并能够施放你的终极技能. 当变成 <font color='#FFFF28'>都牟刈村正</font>, 该技能变为 <font color='#9FFFCC'>天狗锥</font>. \n\n<font color='#9FFFCC'>可通过属性升级: 焰</font>."
+        "DOTA_Tooltip_ability_muramasa_chant_duration"			"吟唱时间:"
+        "DOTA_Tooltip_ability_muramasa_chant_chant_duration"			"都牟刈村正层數持续时间:"
+        "DOTA_Tooltip_ability_muramasa_chant_marble_duration"			"都牟刈村正持续时间:"
+
+        "DOTA_Tooltip_Ability_muramasa_chant_upgrade"			"<font color='#9FFFCC'>都牟刈村正 - 咏唱</font>"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_Description"		"吟唱并获得一层 <font color='#FFFF28'>都牟刈村正 - 咏唱</font> 並增加移动速度. 当有4层咏唱时会变成 <font color='#FFFF28'>都牟刈村正</font>, 获得技能加成并能够施放你的终极技能 如果处于冷却，则减少其冷却时间. 当变成 <font color='#FFFF28'>都牟刈村正</font>, 该技能变为 <font color='#9FFFCC'>天狗锥</font> 並提供额外的魔抗和移动速度."
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_duration"			"吟唱时间:"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_chant_duration"			"都牟刈村正层數持续时间:"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_marble_duration"			"都牟刈村正持续时间:"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_bonus_speed"				"每层额外移动速度:"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_bonus_mr"					"额外魔法抗性:"
+        "DOTA_Tooltip_ability_muramasa_chant_upgrade_cd_reduce"					"冷卻减少:"
+
+        "DOTA_Tooltip_Ability_muramasa_tengu"			"<font color='#9FFFCC'>天狗锥</font>"
+        "DOTA_Tooltip_ability_muramasa_tengu_Description"		"在周围召唤出一堆剑，並飞向目标区域，击中敌人时造成伤害."
+        "DOTA_Tooltip_ability_muramasa_tengu_Lore"		"此技能等级等同 <font color='#9FFFCC'>都牟刈村正 - 咏唱</font>."
+        "DOTA_Tooltip_ability_muramasa_damage"			"每把剑的伤害:"
+        "DOTA_Tooltip_ability_muramasa_swords"			"剑数量:"
+        "DOTA_Tooltip_ability_muramasa_radius"			"范围:"
+        "DOTA_Tooltip_ability_muramasa_range"			"飞行距离:"
+
+        "DOTA_Tooltip_Ability_muramasa_dash"			"<font color='#9FFFCC'>剑舞</font>"
+        "DOTA_Tooltip_ability_muramasa_dash_Description"		"冲向目标点, 到达时斩击并造成伤害. 如果处于 <font color='#FFFF28'>都牟刈村正</font>, 此技能会获得额外的冲刺距离."
+        "DOTA_Tooltip_ability_muramasa_damage_radius"			"伤害范围:"
+        "DOTA_Tooltip_ability_muramasa_damage"			"伤害:"
+        "DOTA_Tooltip_ability_muramasa_dash_range"			"沖撞:"
+        "DOTA_Tooltip_ability_muramasa_range_marble"			"沖撞距离:"
+
+        "DOTA_Tooltip_Ability_muramasa_cut"			"<font color='#9FFFCC'>斩断宿业</font>"
+        "DOTA_Tooltip_ability_muramasa_cut_Description"		"跳跃並移动到目标位置，同时猛烈的向下砍击，在范围内的敵人造成伤害. 如果处于 <font color='#FFFF28'>都牟刈村正</font>, 着陆点将发生余震，造成轻微的额外伤害."
+        "DOTA_Tooltip_ability_muramasa_cut_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_muramasa_cut_damage"			"伤害:"
+        "DOTA_Tooltip_ability_muramasa_cut_aoe"			"范围:"
+        "DOTA_Tooltip_ability_muramasa_cut_aftershock_delay"			"余震延迟:"
+        "DOTA_Tooltip_ability_muramasa_cut_aftershock_damage"			"余震伤害:"
+        "DOTA_Tooltip_ability_muramasa_cut_range"			"余震范围:"
+
+        "DOTA_Tooltip_Ability_muramasa_d"			"<font color='#9FFFCC'>拔剑术</font>"
+        "DOTA_Tooltip_ability_muramasa_d_Description"		"<font color='#58ACFA'>主动</font>: 村正拔出剑，获得额外护甲和移动速度. <font color='#58ACFA'>被动</font>: 给予额外伤害 <font color='#9FFFCC'>天狗锥</font> 和 <font color='#9FFFCC'>斩断宿业</font>."
+        "DOTA_Tooltip_ability_muramasa_d_gain_armor"			"额外护甲:"
+        "DOTA_Tooltip_ability_muramasa_d_gain_movespeed"			"额外移动速度:"
+        "DOTA_Tooltip_ability_muramasa_d_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_muramasa_d_bonus_e_damage_passive"			"斩断宿业额外伤害:"
+        "DOTA_Tooltip_ability_muramasa_d_bonus_tengu_damage_passive"			"天狗锥额外伤害:"
+
+        "DOTA_Tooltip_Ability_muramasa_r"			"<font color='#FFFFFF'>都牟刈村正</font>"
+        "DOTA_Tooltip_ability_muramasa_r_Description"		"<font color='#9FFFCC'>需要處於<font color='#FFFF28'>都牟刈村正</font></font>.\n 蓄力并快速斩击地面, 对直线上的敌人造成纯粹伤害, 同时 <font color='#FF3399'>減速</font> 和 <font color='#FF3399'>沉默</font> 敌人. 然后经过短暂的延迟, 爆炸并对的敌人造成额外魔法伤害. \n\n<font color='#9FFFCC'>可通过属性升级: 试刀物</font>."
+        "DOTA_Tooltip_ability_muramasa_r_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_muramasa_r_damage_pure"			"纯粹伤害:"
+        "DOTA_Tooltip_ability_muramasa_r_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_muramasa_r_delay_explosion"			"爆炸延迟:"
+        "DOTA_Tooltip_ability_muramasa_r_slow"			"%減速:"
+        "DOTA_Tooltip_ability_muramasa_r_debuff_duration"			"減速持续时间:"
+        "DOTA_Tooltip_ability_muramasa_r_silence"			"沉默持续时间:"
+        "DOTA_Tooltip_ability_muramasa_r_range"			"范围:"
+        "DOTA_Tooltip_ability_muramasa_r_width"			"宽度:"
+
+        "DOTA_Tooltip_Ability_muramasa_r_upgrade"			"<font color='#9FFFCC'>都牟刈村正</font>"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_Description"		"<font color='#9FFFCC'>当施放时没有處於 <font color='#FFFF28'>都牟刈村正</font>, 会消耗你当前生命值的一部分并造成更少的伤害</font>.\n 蓄力并快速斩击地面, 对直线上的敌人造成纯粹伤害, 同时 <font color='#FF3399'>減速</font> 和 <font color='#FF3399'>沉默</font> 敌人. 然后经过短暂的延迟, 爆炸并对的敌人造成额外魔法伤害. 此技能對拉結界的從者造成額外傷害. 当施放时处于 <font color='#FFFF28'>都牟刈村正</font> 将获得额外伤害."
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_damage_pure"			"纯粹伤害:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_upgrade_damage_magical"			"魔法伤害:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_delay_explosion"			"爆炸延迟:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_slow"			"%減速:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_debuff_duration"			"減速持续时间:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_silence"			"沉默持续时间:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_range"			"范围:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_width"			"宽度:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_bonus_isekai"			"%对結界英雄造成额外伤害:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_max_health_cost"			"%当前的生命扣损:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_damage_penalty"			"%伤害惩罚:"
+        "DOTA_Tooltip_ability_muramasa_r_upgrade_damage_bonus_marble"			"%额外伤害当处于都牟刈村正:"
+
+        "DOTA_Tooltip_Ability_muramasa_combo"			"<font color='#9FFFCC'>都牟刈村正 - 無元劍制</font>"
+        "DOTA_Tooltip_ability_muramasa_combo_Description"		"<font color='#FF04EF'>连击技能使用需求: 全属性25, 當前沒有處於 <font color='#FFFF28'>都牟刈村正</font> 和 <font color='#FFFF28'>都牟刈村正 - 咏唱</font>.</font>\n<font color='#FF04EF'>技能顺序: D -> Q 5秒内.</font>\n, 咏唱一段時間,咏唱期間無敵. 当咏唱完毕获得 <font color='#FFFF28'>都牟刈村正 - 無元劍制</font>, 获得移动速度、魔抗, 並减少 <font color='#9FFFCC'>都牟刈村正</font> 冷却. <font color='#9FFFCC'>都牟刈村正</font> 施放时也会获得额外的距离."
+        "DOTA_Tooltip_ability_muramasa_combo_chant_duration"			"吟唱时间:"
+        "DOTA_Tooltip_ability_muramasa_combo_combo_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_muramasa_combo_ult_cd"			"减少冷却时间:"
+        "DOTA_Tooltip_ability_muramasa_combo_bonus_speed_x4"			"额外移动速度:"
+        "DOTA_Tooltip_ability_muramasa_combo_bonus_mr"			"额外魔法抗性:"
+
+        "DOTA_Tooltip_Ability_muramasa_f"			"<font color='#9FFFCC'>业之瞳</font>"
+        "DOTA_Tooltip_ability_muramasa_f_Description"		"<font color='#58ACFA'>被動</font>: 当未进入冷却时间时, 这个被动给予<font color='#9FFFCC'>都牟刈村正</font>额外的纯粹伤害. 而且这个技能也会減少 <font color='#9FFFCC'>都牟刈村正</font> 冷却时间并在你击杀时刷新它的冷却时间."
+        "DOTA_Tooltip_ability_muramasa_f_bonus_pure_damage"			"额外纯粹伤害:"
+        "DOTA_Tooltip_ability_muramasa_f_cd_reduce_on_kill"			"冷却时间减少:"
+
+        "DOTA_Tooltip_Ability_muramasa_tameshi_mono"			"<font color='#9FFFCC'>属性: 试刀物</font>"
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_Description"		"<font color='#58ACFA'>都牟刈村正</font>: 获得额外距离, 施放时造成额外伤害 <font color='#FFFF28'>都牟刈村正</font>, 此技能對拉結界的從者造成額外傷害和现在不用處於<font color='#FFFF28'>都牟刈村正</font> 但會造成较少伤害，并消耗施法者当前生命值的一定百分比."
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_r_bonus_range"			"额外距离:"
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_bonus_to_isekai"			"%对結界英雄造成额外伤害:"
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_max_health_cost"			"%当前的生命扣损:"
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_damage_penalty"			"%伤害惩罚:"
+        "DOTA_Tooltip_ability_muramasa_tameshi_mono_damage_bonus_marble"			"%额外伤害:"
+
+        "DOTA_Tooltip_Ability_muramasa_karmic_vision"			"<font color='#9FFFCC'>属性: 业之瞳</font>"
+        "DOTA_Tooltip_ability_muramasa_karmic_vision_Description"		"<font color='#58ACFA'>被動</font>: 当未进入冷却时间时, 这个被动给予 <font color='#9FFFCC'>都牟刈村正</font> 额外的纯粹伤害. 而且这个技能也会減少 <font color='#9FFFCC'>都牟刈村正</font> 冷却时间并在你击杀时刷新它的冷却时间."
+        "DOTA_Tooltip_ability_muramasa_karmic_vision_r_bonus_pure"			"额外纯粹伤害:"
+        "DOTA_Tooltip_ability_muramasa_karmic_vision_cooldown"			"业之瞳冷却时间:"
+        "DOTA_Tooltip_ability_muramasa_karmic_cd_reduce_on_kill"			"冷却时间减少:"
+
+        "DOTA_Tooltip_Ability_muramasa_blaze"			"<font color='#9FFFCC'>属性: 焰</font>"
+        "DOTA_Tooltip_ability_muramasa_blaze_Description"		"<font color='#58ACFA'>都牟刈村正 - 咏唱</font>: 不再禁咒和眩晕自身并减少冷却时间 <font color='#9FFFCC'>都牟刈村正</font>, 每層获得额外移动速度. <font color='#FFFF28'>都牟刈村正</font> 还提供额外的魔法抗性."
+        "DOTA_Tooltip_ability_muramasa_blaze_marble_bonus_mr"			"额外魔法抗性:"
+        "DOTA_Tooltip_ability_muramasa_blaze_bonus_speed"			"每层额外移动速度:"
+        "DOTA_Tooltip_ability_muramasa_blaze_cd_reduce"			"冷却时间减少:"
+
+        "DOTA_Tooltip_Ability_muramasa_pride"			"<font color='#9FFFCC'>属性: 刀剑审美</font>"
+        "DOTA_Tooltip_ability_muramasa_pride_Description"		"<font color='#58ACFA'>拔剑术</font>:  升级，获得额外护甲、移动速度、持续时间. 还可以给予额外伤害 <font color='#58ACFA'>天狗锥</font> 和 <font color='#58ACFA'>斩断宿业</font>."
+        "DOTA_Tooltip_ability_muramasa_pride_bonus_damage_q"			"额外天狗锥伤害:"
+        "DOTA_Tooltip_ability_muramasa_pride_bonus_damage_e"			"额外斩断宿业伤害:"
+
+        ////////////////// MODIFIERS ///////////////////
+
+		"DOTA_Tooltip_modifier_muramasa_chant"													"都牟刈村正 - 咏唱"
+
+		"DOTA_Tooltip_modifier_muramasa_marble"													"都牟刈村正"
+
+		"DOTA_Tooltip_modifier_muramasa_unsheathe"														"拔剑术"
+		"DOTA_Tooltip_modifier_muramasa_unsheathe_Description"									"获得额外的移动速度和护甲"
+
+		"DOTA_Tooltip_modifier_muramasa_r_slow"														"都牟刈村正減速"
+		"DOTA_Tooltip_modifier_muramasa_r_slow_Description"											"減速"
+
+		"DOTA_Tooltip_modifier_muramasa_combo"														"都牟刈村正 - 無元劍制"
+
+		"DOTA_Tooltip_modifier_muramasa_combo_cooldown"												"都牟刈村正 - 無元劍制冷卻時間"
+
+		//====================================
+        //      清姬
+        //====================================
+        "npc_dota_hero_void_spirit"         	"清姬"
+        "npc_dota_hero_void_spirit_1"         	"[普通] 泳装清姬"
+        "npc_dota_hero_void_spirit_summon"		"从者 <font color='#58ACFA'>清姬</font> 已被召唤."
+        "npc_dota_hero_void_spirit_enable_combo"	"激活 连击技能: 道成寺钟百八式火龙薙"
+
+        ////////////////// Skill ///////////////////
+
+        "DOTA_Tooltip_Ability_kiyo_f"			"<font color='#FFB266'>跟踪狂</font>"
+        "DOTA_Tooltip_ability_kiyo_f_Description"		"<font color='#58ACFA'>被动</font>: 获得 <font color='#FFFF28'>跟踪狂</font> 每当前方有男性英雄的时候給予他 <font color='#FF3399'>被跟踪</font>. \n <font color='#FFFF28'>跟踪狂</font>: 获得额外的移动速度. \n<font color='#FF3399'>被跟踪</font>: 降低目标的移动速度和护甲"
+        "DOTA_Tooltip_ability_kiyo_f_bonus_ms"			"%跟踪狂额外的移动速度:"
+        "DOTA_Tooltip_ability_kiyo_f_range"				"男性英雄检测范围:"
+        "DOTA_Tooltip_ability_kiyo_f_width"				"检测宽度:"
+        "DOTA_Tooltip_ability_kiyo_f_debuff_slow"		"%被跟踪缓慢:"
+        "DOTA_Tooltip_ability_kiyo_f_debuff_armor"		"被跟踪护甲減少:"
+
+        "DOTA_Tooltip_Ability_kiyo_d"			"<font color='#FFFFFF'>热情的炎夏</font>"
+        "DOTA_Tooltip_ability_kiyo_d_Description"		"<font color='#58ACFA'>被动</font>: 當攻击敌人时, 有一定机率造成额外伤害基于清姬的 <font color='#80FF00'>敏捷</font>. \n<font color='#58ACFA'>夏之恋</font> 和 <font color='#58ACFA'>恋！爱！跟！踪！</font> 斩击有一定机率造成暴击伤害，并在额外伤害的基础上再增加一定的百分比基于清姬的 <font color='#80FF00'>敏捷</font>. \n\n<font color='#9FFFCC'>可选属性升级: 激情的炎夏</font>"
+        "DOTA_Tooltip_ability_kiyo_d_crit_chance"			"%暴击几率:"
+        "DOTA_Tooltip_ability_kiyo_d_agi_scaling"			"每点敏捷的伤害加成:"
+        "DOTA_Tooltip_ability_kiyo_d_crit_bonus_ability"	"%技能额外伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_d_upgrade"			"<font color='#9FFFCC'>热情的炎夏</font>"
+        "DOTA_Tooltip_ability_kiyo_d_upgrade_Description"		"<font color='#58ACFA'>被动</font>: 當攻击敌人时, 有一定机率造成额外伤害基于清姬的 <font color='#80FF00'>敏捷</font>. \n<font color='#58ACFA'>夏之恋</font> 和 <font color='#58ACFA'>恋！爱！跟！踪！</font> 斩击有一定机率造成暴击伤害，并在额外伤害的基础上再增加一定的百分比基于清姬的 <font color='#80FF00'>敏捷</font>."
+        "DOTA_Tooltip_ability_kiyo_d_upgrade_crit_chance"			"%暴击几率:"
+        "DOTA_Tooltip_ability_kiyo_d_upgrade_agi_scaling"			"每点敏捷的伤害加成:"
+        "DOTA_Tooltip_ability_kiyo_d_upgrade_crit_bonus_ability"	"%技能额外伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_w"			"<font color='#58ACFA'>夏之恋</font>"
+        "DOTA_Tooltip_ability_kiyo_w_Description"		"清姬劈开她面前的区域, 根据她与敌人之间的距离造成物理伤害. 距离范围较远的敌人将受到全额伤害，而距离较近的敌人将受到一半伤害. \n\n<font color='#9FFFCC'>可选属性升级: 恋之追踪者</font>."
+        "DOTA_Tooltip_ability_kiyo_w_cast_duration"			"施法时间:"
+        "DOTA_Tooltip_ability_kiyo_w_range"			"外部范围:"
+        "DOTA_Tooltip_ability_kiyo_w_damage"			"全额伤害:"
+        "DOTA_Tooltip_ability_kiyo_w_minimum_range"			"内部范围:"
+        "DOTA_Tooltip_ability_kiyo_w_angle"			"正前角:"
+
+        "DOTA_Tooltip_Ability_kiyo_w_upgrade"			"<font color='#9FFFCC'>夏之恋</font>"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_Description"		"清姬劈开她面前的区域, 根据她与敌人之间的距离造成物理伤害. 距离范围较远的敌人将受到全额伤害并施加 <font color='#FF3399'>深度伤口</font>而距离较近的敌人将受到一半伤害. \n<font color='#FF3399'>深度伤口</font>: 缓速目标, 同时降低护甲."
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_cast_duration"			"施法时间:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_range"			"范围:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_damage"			"伤害:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_minimum_range"			"最小范围:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_angle"			"正前角:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_w_slow_duration"			"深度伤口持续时间:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_w_slow"			"%深度伤口缓速:"
+        "DOTA_Tooltip_ability_kiyo_w_upgrade_w_armor_reduce"			"深度伤口护甲降低:"
+
+        "DOTA_Tooltip_Ability_kiyo_q"			"<font color='#58ACFA'>活力的夏天</font>"
+        "DOTA_Tooltip_ability_kiyo_q_Description"		"清姬 <font color='#FFFF28'>消除</font> 所有 <font color='#FF3399'>缓速</font>减益同时获得 <font color='#FFFF28'>夏日力量</font>. \n<font color='#FFFF28'>夏日力量</font>: 获得额外的移动速度、攻击速度和伤害. \n\n<font color='#9FFFCC'>可选属性升级: 狂化增强</font>."
+        "DOTA_Tooltip_ability_kiyo_q_buff_duration"			"夏日力量持续时间:"
+        "DOTA_Tooltip_ability_kiyo_q_bonus_aspd"			"额外攻击速度:"
+        "DOTA_Tooltip_ability_kiyo_q_bonus_damage"			"额外伤害:"
+        "DOTA_Tooltip_ability_kiyo_q_bonus_ms"			"%额外移动速度:"
+
+        "DOTA_Tooltip_Ability_kiyo_q_upgrade"			"<font color='#9FFFCC'>活力的夏天</font>"
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_Description"		"清姬 <font color='#FFFF28'>消除</font> 所有 <font color='#FF3399'>缓速</font> 减益同时获得 <font color='#FFFF28'>夏日力量</font> 和 <font color='#FFFF28'>狂化</font>. \n<font color='#FFFF28'>夏日力量</font>: 获得额外的移动速度、攻击速度和伤害. \n<font color='#FFFF28'>狂化</font>: 清姬短暂 <font color='#FFFF28'>免疫</font> 大多数的控制."
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_buff_duration"			"夏日力量持续时间:"
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_bonus_aspd"			"额外攻击速度:"
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_bonus_damage"			"额外伤害:"
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_bonus_ms"			"%额外移动速度:"
+        "DOTA_Tooltip_ability_kiyo_q_upgrade_sa_5_duration"			"狂化持续时间:"
+
+        "DOTA_Tooltip_Ability_kiyo_e"			"<font color='#58ACFA'>炎炎夏日</font>"
+        "DOTA_Tooltip_ability_kiyo_e_Description"		"清姬强化自身并向她的面前喷火, 对所有被击中的敌人造成伤害. 短暂延迟后，火焰会爆发，造成更多伤害並且 <font color='#FF3399'>暈眩</font> 命中的敌人. \n\n<font color='#9FFFCC'>可选属性升级: 三昧火</font>."
+        "DOTA_Tooltip_ability_kiyo_e_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_kiyo_e_wave_damage"			"火浪伤害:"
+        "DOTA_Tooltip_ability_kiyo_e_wave_speed"			"火浪速度:"
+        "DOTA_Tooltip_ability_kiyo_e_wave_distance"			"火浪距离:"
+        "DOTA_Tooltip_ability_kiyo_e_wave_width"			"火浪宽度:"
+        "DOTA_Tooltip_ability_kiyo_e_explosion_delay"		"火焰爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_e_explosion_aoe"		"火焰爆发AOE:"
+        "DOTA_Tooltip_ability_kiyo_e_explosion_damage"		"火焰爆发伤害:" 
+        "DOTA_Tooltip_ability_kiyo_e_explosion_stun"		"火焰爆发暈眩:"
+
+        "DOTA_Tooltip_Ability_kiyo_e_upgrade"			"<font color='#9FFFCC'>炎炎夏日</font>"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_Description"		"清姬强化自身并向她的面前喷火, 对所有被击中的敌人造成伤害基于她的 <font color='#00F7FF'>智力</font>. 短暂延迟后，火焰会爆发，造成更多伤害基于她的 <font color='#00F7FF'>智力</font> 並且 <font color='#FF3399'>暈眩</font> 命中的敌人."
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_wave_damage"			"火浪伤害:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_wave_speed"			"火浪速度:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_wave_distance"			"火浪距离:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_wave_width"			"火浪宽度:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_explosion_delay"		"火焰爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_explosion_aoe"		"火焰爆发AOE:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_explosion_damage"		"火焰爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_explosion_stun"		"火焰爆发暈眩:"
+        "DOTA_Tooltip_ability_kiyo_e_upgrade_int_scale"		"每点智力的伤害加成:"
+
+        "DOTA_Tooltip_Ability_kiyo_r"			"<font color='#58ACFA'>恋！爱！跟！踪！</font>"
+        "DOTA_Tooltip_ability_kiyo_r_Description"		"清姬跳到空中并出现在目标附近的区域，然后进行 2 次斩击，造成物理伤害并施加 <font color='#FF3399'>爱情烙印</font> 在目标点为中心的X标记. \n 短暫延迟后带有 <font color='#FF3399'>爱情烙印</font> 的敌人会爆发并受到魔法伤害，伤害值为目标受到的 <font color='#FF3399'>爱情烙印</font> 的数量. \n\n<font color='#9FFFCC'>可选属性升级: 恋之追踪者 和 三昧火</font>. \n 清姬将会短暂 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 直至施放完成."
+        "DOTA_Tooltip_ability_kiyo_r_cast_duration"			"施法总时长:"
+        "DOTA_Tooltip_ability_kiyo_r_first_slash_delay"			"第一次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_second_slash_delay"			"第二次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_burst_delay"			"爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_slash_damage"			"每次斩击造成伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_slash_range"			"斩击范围:"
+        "DOTA_Tooltip_ability_kiyo_r_slash_aoe"			"斩击宽度:"
+        "DOTA_Tooltip_ability_kiyo_r_burst_damage"			"爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_burst_bonus_per_slash"			"%每个爱情烙印额外爆发伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_r_upgrade1"			"<font color='#9FFFCC'>恋！爱！跟！踪！</font>"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_Description"		"清姬跳到空中并出现在目标附近的区域，然后进行 2 次斩击，造成物理伤害并施加 <font color='#FF3399'>爱情烙印</font> 在目标点为中心的X标记. \n 短暫延迟后带有 <font color='#FF3399'>爱情烙印</font> 的敌人会爆发并受到魔法伤害，伤害值为目标受到的 <font color='#FF3399'>爱情烙印</font> 的数量. \n\n<font color='#9FFFCC'>可选属性升级: 三昧火</font>. \n 清姬将会短暂 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 直至施放完成."
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_cast_duration"			"施法总时长:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_first_slash_delay"			"第一次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_second_slash_delay"			"第二次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_burst_delay"			"爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_slash_damage"			"每次斩击造成伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_slash_range"			"斩击范围:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_slash_aoe"			"斩击宽度:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_burst_damage"			"爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade1_r_burst_bonus_per_slash"			"%每个爱情烙印额外爆发伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_r_upgrade2"			"<font color='#9FFFCC'>恋！爱！跟！踪！</font>"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_Description"		"清姬跳到空中并出现在目标附近的区域，然后进行 2 次斩击，造成物理伤害并施加 <font color='#FF3399'>爱情烙印</font> 在目标点为中心的X标记. \n 短暫延迟后带有 <font color='#FF3399'>爱情烙印</font> 的敌人会爆发并受到魔法伤害基于她的 <font color='#00F7FF'>智力</font> 伤害值为目标受到的 <font color='#FF3399'>爱情烙印</font> 的数量. \n\n<font color='#9FFFCC'>可选属性升级: 恋之追踪者</font>. \n 清姬将会短暂 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 直至施放完成."
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_cast_duration"			"施法总时长:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_first_slash_delay"			"第一次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_second_slash_delay"			"第二次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_burst_delay"			"爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_slash_damage"			"每次斩击造成伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_slash_range"			"斩击范围:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_slash_aoe"			"斩击宽度:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_burst_damage"			"爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_burst_int_scale"			"每点智力的爆发伤害加成:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade2_r_burst_bonus_per_slash"			"%每个爱情烙印额外爆发伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_r_upgrade3"			"<font color='#9FFFCC'>恋！爱！跟！踪！</font>"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_Description"		"清姬跳到空中并出现在目标附近的区域，然后进行 2 次斩击，造成物理伤害并施加 <font color='#FF3399'>爱情烙印</font> 在目标点为中心的X标记. \n 短暫延迟后带有 <font color='#FF3399'>爱情烙印</font> 的敌人会爆发并受到魔法伤害基于她的 <font color='#00F7FF'>智力</font> 伤害值为目标受到的 <font color='#FF3399'>爱情烙印</font> 的数量.  \n 清姬将会短暂 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 直至施放完成."
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_cast_duration"			"施法总时长:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_first_slash_delay"			"第一次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_second_slash_delay"			"第二次斩击的延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_burst_delay"			"爆发延迟:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_slash_damage"			"每次斩击造成伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_slash_range"			"斩击范围:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_slash_aoe"			"斩击宽度:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_burst_damage"			"爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_burst_int_scale"			"每点智力的爆发伤害加成:"
+        "DOTA_Tooltip_ability_kiyo_r_upgrade3_r_burst_bonus_per_slash"			"%每个爱情烙印额外爆发伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_combo"				"<font color='#FF04EF'>道成寺钟百八式火龙薙</font>"
+        "DOTA_Tooltip_ability_kiyo_combo_Description"		"<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 3秒内Q -> R .</font> \n清姬引导几秒钟，然后跳起並且消失。很快，一个巨大的钟从空中落到目标的位置 <font color='#FF3399'>困住</font> 该范围所有单位. 清姬随后会降落到钟顶，召唤出许多薙刀，并刺杀钟内的所有单位. 随后所有单位将不再 <font color='#FF3399'>困住</font> 并受到随机伤害. \n 清姬将会短暂 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 直至施放完成."
+        "DOTA_Tooltip_ability_kiyo_combo_cast_point"			"施法点:"
+        "DOTA_Tooltip_ability_kiyo_combo_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_kiyo_combo_bell_falling"			"巨钟落下延迟:"
+        "DOTA_Tooltip_ability_kiyo_combo_bell_aoe"				"巨钟范围:"
+        "DOTA_Tooltip_ability_kiyo_combo_damage_delay"			"最终伤害延迟:"
+        "DOTA_Tooltip_ability_kiyo_combo_damage_upper"			"最大伤害:"
+        "DOTA_Tooltip_ability_kiyo_combo_damage_lower"			"最小伤害:"
+
+        "DOTA_Tooltip_Ability_kiyo_sa_1"			"<font color='#9FFFCC'>属性: 激情的炎夏</font>"
+        "DOTA_Tooltip_ability_kiyo_sa_1_Description"		"<font color='#FFFFFF'>热情的炎夏</font>: 增加暴击几率、技能伤害並且伤害基于清姬的 <font color='#80FF00'>敏捷</font>."
+        "DOTA_Tooltip_ability_kiyo_sa_1_crit_chance"			"%暴击几率:"
+        "DOTA_Tooltip_ability_kiyo_sa_1_crit_bonus"			"%额外技能伤害:"
+        "DOTA_Tooltip_ability_kiyo_sa_1_agi_scaling"			"每点敏捷的伤害加成:"
+
+        "DOTA_Tooltip_Ability_kiyo_sa_2"			"<font color='#9FFFCC'>属性: 恋之追踪者 </font>"
+        "DOTA_Tooltip_ability_kiyo_sa_2_Description"		"<font color='#58ACFA'>夏之恋</font>: 获得额外伤害，现在可以攻击范围更远的敌人并施加 <font color='#FF3399'>深度伤口</font> 一段時間. \n<font color='#FF3399'>深度伤口</font>: 缓速目标, 同时降低护甲. \n<font color='#58ACFA'>恋！爱！跟！踪！</font>: 增加额外斩击伤害."
+        "DOTA_Tooltip_ability_kiyo_sa_2_r_bonus_slash_damage"			"恋！爱！跟！踪！ 额外斩击伤害:"
+        "DOTA_Tooltip_ability_kiyo_sa_2_w_bonus_damage"			"夏之恋额外伤害:"
+        "DOTA_Tooltip_ability_kiyo_sa_2_w_armor_reduce"			"深度伤口护甲降低:"
+        "DOTA_Tooltip_ability_kiyo_sa_2_w_slow"			"%深度伤口缓速:"
+
+        "DOTA_Tooltip_Ability_kiyo_sa_3"			"<font color='#9FFFCC'>属性: 跟踪狂</font>"
+        "DOTA_Tooltip_ability_kiyo_sa_3_Description"		"激活 <font color='#FFB266'>跟踪狂</font>. \n<font color='#FFB266'>跟踪狂</font>: <font color='#58ACFA'>被动</font>: 给予 <font color='#FFFF28'>跟踪狂</font> 每当前方有男性英雄的时候給予他 <font color='#FF3399'>被跟踪</font>. \n <font color='#FFFF28'>跟踪狂</font>: 获得额外的移动速度 \n<font color='#FF3399'>被跟踪</font>: 降低目标的移动速度和护甲"
+        "DOTA_Tooltip_ability_kiyo_sa_3_bonus_ms"			"%跟踪狂额外的移动速度:"
+        "DOTA_Tooltip_ability_kiyo_sa_3_range"				"男性英雄检测范围:"
+        "DOTA_Tooltip_ability_kiyo_sa_3_debuff_slow"		"%被跟踪缓慢:"
+        "DOTA_Tooltip_ability_kiyo_sa_3_debuff_armor"		"被跟踪护甲減少:"
+
+        "DOTA_Tooltip_Ability_kiyo_sa_4"			"<font color='#9FFFCC'>属性: 三昧火</font>"
+        "DOTA_Tooltip_ability_kiyo_sa_4_Description"		"<font color='#58ACFA'>炎炎夏日</font>: 现在造成额外伤害基于清姬的 <font color='#00F7FF'>智力</font>, 给予额外 <font color='#FF3399'>晕眩</font> 时间. \n<font color='#58ACFA'>恋！爱！跟！踪！</font>: 爆发伤害增强并且现在会造成额外伤害基于清姬的 <font color='#00F7FF'>智力</font>. <font color='#FF3399'>爱情烙印</font> 爆发伤害加成百分比提升，並且获得额外施法范围并减少魔法消耗."
+        "DOTA_Tooltip_ability_kiyo_sa_4_e_stun"					"炎炎夏日暈眩:"
+        "DOTA_Tooltip_ability_kiyo_sa_4_e_int_scale"			"炎炎夏日每点智力的伤害加成:"
+        "DOTA_Tooltip_ability_kiyo_sa_4_r_int_scale"			"恋！爱！跟！踪！每点智力额外爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_sa_4_r_burst_bonus_per_slash"			"%恋！爱！跟！踪！每次斬擊额外爆发伤害:"
+        "DOTA_Tooltip_ability_kiyo_sa_4_r_bonus_cast_range"			"恋！爱！跟！踪！额外施法范围:"
+        "DOTA_Tooltip_ability_kiyo_sa_4_r_mana_cost"			"恋！爱！跟！踪！魔法消耗:"
+
+        "DOTA_Tooltip_Ability_kiyo_sa_5"			"<font color='#9FFFCC'>属性: 狂化增强</font>"
+        "DOTA_Tooltip_ability_kiyo_sa_5_Description"		"<font color='#58ACFA'>活力的夏天</font>: 清姬现在会获得 <font color='#FFFF28'>狂化</font> 一段时间. \n<font color='#FFFF28'>狂化</font>: 清姬短暂 <font color='#FFFF28'>免疫</font> 大多数的控制."
+        "DOTA_Tooltip_ability_kiyo_sa_5_duration"			"狂化持续时间:"
+
+        ////////////////// MODIFIERS ///////////////////
+
+		"DOTA_Tooltip_modifier_kiyo_stalking_buff"									"跟踪狂"
+		"DOTA_Tooltip_modifier_kiyo_stalking_buff_Description"						"我只是想看看他." 
+
+		"DOTA_Tooltip_modifier_kiyo_stalking_debuff"								"被跟踪"
+		"DOTA_Tooltip_modifier_kiyo_stalking_debuff_Description"					""
+
+		"DOTA_Tooltip_modifier_kiyo_slash_enemy"									"深度伤口"
+		"DOTA_Tooltip_modifier_kiyo_slash_enemy_Description"						"减速并减少护甲."
+
+		"DOTA_Tooltip_modifier_kiyohime_q_buff"										"夏日力量"
+		"DOTA_Tooltip_modifier_kiyohime_q_buff_Description"							"获得移动速度、伤害、攻击速度."
+
+		"DOTA_Tooltip_modifier_kiyohime_q_buff_cc_immune"							"狂化"
+		"DOTA_Tooltip_modifier_kiyohime_q_buff_cc_immune_Description"				"免疫大多数的控制."
+
+		"DOTA_Tooltip_modifier_kiyohime_combo_cooldown"												"清姬寶具冷卻."
+
+		//====================================
+        //      梅尔特莉莉丝
+        //====================================
+        "npc_dota_hero_nyx_assassin"             "梅尔特莉莉丝"
+        "npc_dota_hero_nyx_assassin_1"           "[普通] 白色恋人-梅尔特莉莉丝"
+        "npc_dota_hero_nyx_assassin_summon"		"从者 <font color='#58ACFA'>梅尔特莉莉丝</font> 已被召唤."
+        "npc_dota_hero_nyx_assassin_enable_combo"	"激活 连击技能: 弁财天五弦琵琶"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_melt_q"			"<font color='#58ACFA'>优雅的华尔兹</font>"
+        "DOTA_Tooltip_ability_melt_q_Description"		"优雅的华尔兹会衝向目标范围，并且对路径上的敌人造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 罪惡芭蕾</font>."
+        "DOTA_Tooltip_ability_melt_q_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_melt_q_range"                    "华尔兹最大范围:"
+        "DOTA_Tooltip_ability_melt_q_duration"                    "华尔兹持续时间:"
+
+        "DOTA_Tooltip_Ability_melt_q_upgrade"                   "<font color='#9FFFCC'>优雅的华尔兹</font>"
+        "DOTA_Tooltip_ability_melt_q_upgrade_Description"               "优雅的华尔兹会衝向目标范围，并且对路径上的敌人造成伤害. 造成额外伤害基于 <font color='#80FF00'>敏捷</font>."
+        "DOTA_Tooltip_ability_melt_q_upgrade_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_melt_q_upgrade_damage_per_agi"            "每点敏捷的伤害加成:"
+        "DOTA_Tooltip_ability_melt_q_upgrade_range"                    "华尔兹最大范围:"
+        "DOTA_Tooltip_ability_melt_q_upgrade_duration"                    "华尔兹持续时间:"
+
+        "DOTA_Tooltip_Ability_melt_w"                   "<font color='#58ACFA'>大越步</font>"
+        "DOTA_Tooltip_ability_melt_w_Description"               "梅尔特莉莉丝跳起大越步旋转，并在范围内造成伤害，然后用脚猛击前方区域，并对范围内被击中的目标造成额外伤害. 期間梅尔特莉莉丝将会 <font color='#FF3399'>繳械</font> 和 <font color='#FF3399'>沉默</font> . 被击中的敌人将会 <font color='#FF3399'>缓速</font> 一小段时间. \n\n<font color='#9FFFCC'>可选属性升级: 嗜虐体质</font>."
+        "DOTA_Tooltip_ability_melt_w_circle_damage"                    "旋转伤害:"
+        "DOTA_Tooltip_ability_melt_w_damage"            "猛击伤害:"
+        "DOTA_Tooltip_ability_melt_w_delay_spin"            "旋转延迟:"
+        "DOTA_Tooltip_ability_melt_w_delay_impact"                    "猛击延迟:"
+        "DOTA_Tooltip_ability_melt_w_duration"                    "大越步时長:"
+        "DOTA_Tooltip_ability_melt_w_slow_duration"                    "缓速时间:"
+        "DOTA_Tooltip_ability_melt_w_w_slow"                    "%缓速:"
+
+        "DOTA_Tooltip_Ability_melt_w_upgrade"                   "<font color='#9FFFCC'>大越步</font>"
+        "DOTA_Tooltip_ability_melt_w_upgrade_Description"               "莉莉丝跳起大越步旋转, 并在范围内造成伤害, 然后用脚猛击前方区域，并对范围内被击中的目标造成额外伤害. 期間梅尔特莉莉丝将会 <font color='#FF3399'>繳械</font> 和 <font color='#FF3399'>沉默</font> . 被击中的敌人将会 <font color='#FF3399'>缓速</font> 一小段时间. 并且施放此技能后给予 <font color='#FF9900'>舞台演出</font> . \n <font color='#FF9900'>舞台演出</font> : 获得额外攻击速度、移动速度, 和溅射并且攻击会造成少量额外伤害，基于 <font color='#FF0000'>力量</font> 而且溅射范围基於 <font color='#00F7FF'>智力</font>. 受到溅射效果击中的目标会受到 <font color='#FF9900'>溶解病毒</font> 如果莉莉丝已经学会."
+        "DOTA_Tooltip_ability_melt_w_upgrade_circle_damage"                    "旋转伤害:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_damage"            "猛击伤害:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_spin"            "旋转延迟:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_delay_impact"                    "猛击延迟:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_duration"                    "大越步时長:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_slow_duration"                    "缓速时间:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_w_slow"                    "%缓速:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_buff_duration"                    "舞台演出持续时间:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_aspd_buff"                    "额外攻击速度:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_movespeed_bonus"                    "%额外移动速度:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_splash_dmg_per_str"                    "每点力量溅射伤害:"
+        "DOTA_Tooltip_ability_melt_w_upgrade_splash_aoe_per_int"                    "每点智力溅射范围:"
+
+        "DOTA_Tooltip_Ability_melt_e"                   "<font color='#58ACFA'>足尖舞步</font>"
+        "DOTA_Tooltip_ability_melt_e_Description"               "莉莉丝跳起足尖舞步, 在目标点附近的范围内寻找目标. 并且跳向最近的敌人, 造成伤害和 <font color='#FF3399'>晕眩</font> 目标. 成功击中敌人后将返还部分冷却时间，如果未击中敌人莉莉丝将会 <font color='#FF3399'>晕眩</font> 自己. \n 莉莉丝跳起时将会 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 跳跃时和踢腿时受到的伤害会较少. \n\n<font color='#9FFFCC'>可选属性升级: 罪恶芭蕾</font>."
+        "DOTA_Tooltip_ability_melt_e_cast_delay"                    "施法延迟:"
+        "DOTA_Tooltip_ability_melt_e_damage"                    "总伤害:"
+        "DOTA_Tooltip_ability_melt_e_aoe_find_range"                    "寻找目标范围:"
+        "DOTA_Tooltip_ability_melt_e_cooldown_refund"                    "返还冷却:"
+        "DOTA_Tooltip_ability_melt_e_miss_stun_self"                    "自我晕眩:"
+        "DOTA_Tooltip_ability_melt_e_stun_duration"                    "每次眩晕持续时间:"
+
+        "DOTA_Tooltip_Ability_melt_e_upgrade"                   "<font color='#9FFFCC'>足尖舞步</font>"
+        "DOTA_Tooltip_ability_melt_e_upgrade_Description"               "莉莉丝跳起足尖舞步, 在目标点附近的范围内寻找目标. 并且跳向最近的敌人, 造成伤害基于她 <font color='#80FF00'>敏捷</font> 并且 <font color='#FF3399'>晕眩</font> 目标. 成功击中敌人后将返还部分冷却时间，如果未击中敌人莉莉丝将会 <font color='#FF3399'>晕眩</font> 自己. \n 莉莉丝跳起时将会 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法指定</font> 跳跃时和踢腿时受到的伤害会较少."
+        "DOTA_Tooltip_ability_melt_e_upgrade_cast_delay"                    "施法延迟:"
+        "DOTA_Tooltip_ability_melt_e_upgrade_damage"                    "总伤害:"
+        "DOTA_Tooltip_ability_melt_e_upgrade_bonus_agi"             "每点敏捷的伤害加成:"
+        "DOTA_Tooltip_ability_melt_e_upgrade_aoe_find_range"                    "寻找目标范围:" 
+        "DOTA_Tooltip_ability_melt_e_upgrade_cooldown_refund"                    "返还冷却:"
+        "DOTA_Tooltip_ability_melt_e_upgrade_miss_stun_self"                    "自我晕眩:"
+        "DOTA_Tooltip_ability_melt_e_upgrade_stun_duration"                    "每次眩晕持续时间:"
+
+        "DOTA_Tooltip_Ability_melt_r"                   "<font color='#58ACFA'>弁財天五絃琵琶</font>"
+        "DOTA_Tooltip_ability_melt_r_Description"               "莉莉丝跳到空中变成 <font color='#FF3399'>无敌</font> 之后用锋利的鞋跟落下, 造成水爆，并对区域內造成伤害. \n\n<font color='#9FFFCC'>可选属性升级: 灵基拡张</font>."
+        "DOTA_Tooltip_ability_melt_r_cast_delay"                    "施法延迟:"
+        "DOTA_Tooltip_ability_melt_r_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_melt_r_damage_aoe"                    "范围:"
+        "DOTA_Tooltip_ability_melt_r_minimum_cast_delay"                    "最短施法延迟:"
+
+        "DOTA_Tooltip_Ability_melt_r_upgrade"                   "<font color='#9FFFCC'>弁財天五絃琵琶</font>"
+        "DOTA_Tooltip_ability_melt_r_upgrade_Description"               "莉莉丝跳到空中变成 <font color='#FF3399'>无敌</font> 之后用锋利的鞋跟落下, 造成水爆，并对区域內造成伤害基于她 <font color='#00F7FF'>智力</font>."
+        "DOTA_Tooltip_ability_melt_r_upgrade_cast_delay"          "施法延迟:"
+        "DOTA_Tooltip_ability_melt_r_upgrade_damage"               "伤害:"
+        "DOTA_Tooltip_ability_melt_r_upgrade_damage_aoe"          "范围:"
+        "DOTA_Tooltip_ability_melt_r_upgrade_minimum_cast_delay"  "最短施法延迟:"
+        "DOTA_Tooltip_ability_melt_r_upgrade_damage_per_int"      "每点智力的伤害加成:"
+
+        "DOTA_Tooltip_Ability_melt_combo"                   "<font color='#FF04EF'>将一切消融吞噬之柱 - 弁财天五弦琵琶</font>"
+        "DOTA_Tooltip_ability_melt_combo_Description"               "<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 5秒内 W-D->R.</font> \n施法后，变得无法控制并快速冲向目标. 到达目标后, 莉莉丝将会在目标周围起舞, 并利用锋利的脚跟多次斩击目标基於她的 <font color='#80FF00'>敏捷</font> 造成额外伤害并在目标脚下制造旋风. \n 每次斩击都会根据她的攻击造成物理伤害. \n 旋风会造成魔法伤害基于她的 <font color='#00F7FF'>智力</font> 并且 <font color='#FF3399'>緩速</font> 和 <font color='#FF3399'>锁定</font> 目标. 目标将会 <font color='#FF3399'>沉默, 定身, 晕眩</font> 和 <font color='#FF3399'>禁咒</font> 基于目标在旋风中停留的时间. \n 一旦完成，目标将会 <font color='#FF3399'>暈眩</font> 而且莉莉丝将会施放终极宝具. \n 此技能可能会因速度过快追不上目标而失败, 在这种情况下，她将会 <font color='#FF3399'>暈眩</font> 而且该技能将进入短暂的冷却时间. \n\n<font color='#9FFFCC'>可选属性升级: 灵基拡张</font>."
+        "DOTA_Tooltip_ability_melt_combo_cast_delay"                    "施法延迟:"
+        "DOTA_Tooltip_ability_melt_combo_cast_delay"                    "施法点:"
+        "DOTA_Tooltip_ability_melt_combo_dash_speed"                    "冲刺速度:"
+        "DOTA_Tooltip_ability_melt_combo_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_melt_combo_final_aoe_damage"              "AOE范围:"
+        "DOTA_Tooltip_ability_melt_combo_agi_per_slash"                    "每点敏捷斩击:"
+        "DOTA_Tooltip_ability_melt_combo_minimum_slash"                    "最小斩击數量:"
+        "DOTA_Tooltip_ability_melt_combo_cyclone_dps"                    "每秒旋风伤害:"
+        "DOTA_Tooltip_ability_melt_combo_cyclone_bonus_int"                   "每点智力旋风额外伤害:"
+        "DOTA_Tooltip_ability_melt_combo_damage_per_slash_multiplier_attack"   "攻击造成的斩击伤害:"
+        "DOTA_Tooltip_ability_melt_combo_dash_duration_max"                    "最大冲刺持续时间:"
+        "DOTA_Tooltip_ability_melt_combo_fail_cast_cooldown"                    "未击中时冷却:"
+
+        "DOTA_Tooltip_Ability_melt_combo_upgrade"                   "<font color='#FF04EF'>将一切消融吞噬之柱 - 弁财天五弦琵琶</font>"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_Description"               "<font color='#FF04EF'>技能释放条件 : 25全属性</font>\n<font color='#FF04EF'>技能顺序 : 5秒内 W-D->R.</font> \n施法后，变得无法控制并快速冲向目标. 到达目标后, 莉莉丝将会在目标周围起舞, 并利用锋利的脚跟多次斩击目标基於她的 <font color='#80FF00'>敏捷</font> 造成额外伤害并在目标脚下制造旋风. \n 每次斩击都会根据她的攻击造成物理伤害. \n 旋风会造成魔法伤害基于她的 <font color='#00F7FF'>智力</font> 并且 <font color='#FF3399'>緩速</font> 和 <font color='#FF3399'>锁定</font> 目标. 目标将会 <font color='#FF3399'>沉默, 定身, 晕眩</font> 和 <font color='#FF3399'>禁咒</font> 基于目标在旋风中停留的时间. \n 一旦完成, 目标将会 <font color='#FF3399'>暈眩</font> 而且莉莉丝将会施放终极宝具. \n 此技能可能会因速度过快追不上目标而失败, 在这种情况下，她将会 <font color='#FF3399'>暈眩</font> 而且该技能将进入短暂的冷却时间."
+        "DOTA_Tooltip_ability_melt_combo_upgrade_cast_delay"                    "施法延迟:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_cast_delay"                    "施法点:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_dash_speed"                    "冲刺速度:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_final_aoe_damage"              "AOE范围:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_agi_per_slash"                    "每点敏捷斩击:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_minimum_slash"                    "最小斩击數量:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_cyclone_dps"                    "每秒旋风伤害:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_cyclone_bonus_int"                   "每点智力旋风额外伤害:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_damage_per_slash_multiplier_attack"   "攻击造成的斩击伤害:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_dash_duration_max"                    "最大冲刺持续时间:"
+        "DOTA_Tooltip_ability_melt_combo_upgrade_fail_cast_cooldown"                    "未击中时冷却:"
+
+        "DOTA_Tooltip_Ability_melt_d"                  "<font color='#FFFFFF'>复合神性</font>"
+        "DOTA_Tooltip_ability_melt_d_Description"      "由于其性质，莉莉丝同时包含复数的神话精髓合成诞生出来的人造从者。莉莉丝拥有阿尔忒弥斯、利维坦、娑罗室伐底（弁财天）的精髓并使她成为唯一没有主属性的从者。她还获得额外属性点.  \n\n<font color='#9FFFCC'>可选属性升级: 强化复合神性</font>."
+        "DOTA_Tooltip_ability_melt_d_bonus_stats"                    "额外屬性:"
+
+        "DOTA_Tooltip_Ability_melt_d_upgrade"                   "<font color='#9FFFCC'>复合神性</font>"
+        "DOTA_Tooltip_ability_melt_d_upgrade_Description"       "由于其性质，莉莉丝同时包含复数的神话精髓合成诞生出来的人造从者。莉莉丝拥有阿尔忒弥斯、利维坦、娑罗室伐底（弁财天）的精髓并使她成为唯一没有主属性的从者。她还获得额外属性点. 她还会获得额外属性点。此技能可帮助莉莉丝掌握精髓，为她的技能带来额外效果. \n<font color='#FF9900'>足尖舞步</font>: 增加眩晕持续时间. \n<font color='#FF9900'>弁财天五弦琵琶</font>: 减少施法延迟. \n<font color='#FF9900'>溶解病毒</font>: 额外伤害."
+        "DOTA_Tooltip_ability_melt_d_upgrade_bonus_stats"                    "额外屬性:"
+        "DOTA_Tooltip_ability_melt_d_upgrade_bonus_stun_e_per25_str"         "每25点力量增加额外眩晕持续时间:"
+        "DOTA_Tooltip_ability_melt_d_upgrade_bonus_r_reduce_cast_per25_agi"  "每25点敏捷减少施法延迟:"
+        "DOTA_Tooltip_ability_melt_d_upgrade_bonus_melt_virus_damage_per_int"    "每点智力溶解病毒伤害:"
+
+        "DOTA_Tooltip_Ability_melt_f"                   "<font color='#FFB266'>溶解病毒</font>"
+        "DOTA_Tooltip_ability_melt_f_Description"               "莉莉丝所有技能都会施加 <font color='#FF9900'>溶解病毒</font> . \n<font color='#FF9900'>溶解病毒</font>: 受到周期性伤害。每当敌方在此减益效果下死亡时，莉莉丝就会获得属性."
+        "DOTA_Tooltip_ability_melt_f_damage_per_second"                    "每秒基础伤害:"
+        "DOTA_Tooltip_ability_melt_f_duration"                    "病毒持续时间:"
+        "DOTA_Tooltip_ability_melt_f_bonus_stats"                    "每层额外属性:"
+
+        "DOTA_Tooltip_Ability_melt_attribute_melt_virus"			"<font color='#9FFFCC'>属性: 溶解病毒</font>"
+        "DOTA_Tooltip_ability_melt_attribute_melt_virus_Description"		"Enable <font color='#FFB266'>溶解病毒</font>: <font color='#58ACFA'>被动</font>: 莉莉丝的所有技能现在都会对被击中的敌人每秒造成一次周期性伤害, 每当敌方在此减益效果下死亡时，莉莉丝就会获得属性."
+        "DOTA_Tooltip_ability_melt_attribute_melt_virus_damage_per_second"                    "每秒基础伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_melt_virus_duration"                     "病毒持续时间:"
+        "DOTA_Tooltip_ability_melt_attribute_melt_bonus_stats"                     "每层额外属性:"
+
+        "DOTA_Tooltip_Ability_melt_attribute_composite"    "<font color='#9FFFCC'>Attribute: 强化复合神性</font>"
+        "DOTA_Tooltip_ability_melt_attribute_composite_Description"      "升级 <font color='#58ACFA'>复合神性</font>, 给她的能力带来额外效果. \n<font color='#FF9900'>足尖舞步</font>: 增加眩晕持续时间. \n<font color='#FF9900'>弁财天五弦琵琶</font>: 减少施法延迟. \n<font color='#FF9900'>溶解病毒</font>: 额外伤害."
+        "DOTA_Tooltip_ability_melt_attribute_composite_bonus_stats"                    "额外屬性:"
+        "DOTA_Tooltip_ability_melt_attribute_composite_bonus_stun_e_per25_str"         "每25点力量增加额外眩晕持续时间:"
+        "DOTA_Tooltip_ability_melt_attribute_composite_bonus_r_reduce_cast_per25_agi"  "每25点敏捷减少施法延迟:"
+        "DOTA_Tooltip_ability_melt_attribute_composite_bonus_melt_virus_damage_per_int" "每点智力溶解病毒伤害:"
+
+        "DOTA_Tooltip_Ability_melt_attribute_crime"                        "<font color='#9FFFCC'>属性: 罪恶芭蕾</font>"
+        "DOTA_Tooltip_ability_melt_attribute_crime_Description"            "<font color='#58ACFA'>优雅的华尔兹</font> : 造成额外伤害基于 <font color='#80FF00'>敏捷</font>. \n <font color='#58ACFA'>足尖舞步</font>: 造成额外伤害和基于<font color='#80FF00'>敏捷</font>的额外伤害."
+        "DOTA_Tooltip_ability_melt_attribute_crime_damage_per_agi_q"                    "每点敏捷华尔兹额外伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_crime_bonus_e_damage"                    "足尖舞步额外伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_crime_damage_per_agi"                    "每点敏捷足尖舞步额外伤害:"
+
+        "DOTA_Tooltip_Ability_melt_attribute_saint_graph"                        "<font color='#9FFFCC'>属性: 灵基拡张</font>"
+        "DOTA_Tooltip_ability_melt_attribute_saint_graph_Description"            "<font color='#58ACFA'>弁财天五弦琵琶</font>: 造成额外伤害和额外伤害基于 <font color='#00F7FF'>智力</font> \n<font color='#FF04EF'>将一切消融吞噬之柱 - 弁财天五弦琵琶</font>: 增加最后的伤害."
+        "DOTA_Tooltip_ability_melt_attribute_saint_graph_bonus_r_damage"                    "弁财天五弦琵琶额外伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_saint_graph_damage_per_int"                    "弁财天五弦琵琶每点智力额外伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_saint_graph_bonus_combo_damage"                "将一切消融吞噬之柱 - 弁财天五弦琵琶最后的伤害:"
+
+        "DOTA_Tooltip_Ability_melt_attribute_sadistic"                        "<font color='#9FFFCC'>属性: 嗜虐体质</font>"
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_Description"            "<font color='#58ACFA'>大越步</font> : 施放后获得强力增益，获得额外攻击速度、移动速度， 和溅射攻击并且攻击时会造成少量额外伤害基于 <font color='#FF0000'>力量</font> 而且溅射范围基于 <font color='#00F7FF'>智力</font>. 受到溅射效果击中的目标也会受到 <font color='#FF9900'>溶解病毒</font> 如果莉莉丝已经学会."
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_movespeed_bonus"              "%额外移动速度:"
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_buff_duration"                "增益持续时间:"
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_aspd_buff"                    "额外攻击速度:"
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_splash_dmg_per_str"           "每点力量溅射伤害:"
+        "DOTA_Tooltip_ability_melt_attribute_sadistic_splash_aoe_per_int"           "每点智力溅射范围:"
+
+        ////////////////// MODIFIERS ///////////////////
+
+        "DOTA_Tooltip_modifier_melt_dashing"                           "莉莉丝正在表演"
+
+        "DOTA_Tooltip_modifier_melt_dance"                             "大越步"
+        "DOTA_Tooltip_modifier_melt_dance_slow"                        "大越步缓速"
+
+		"DOTA_Tooltip_modifier_melt_dance_buff"							"舞台演出"
+		"DOTA_Tooltip_modifier_melt_dance_buff_Description"				"获得强力增益，获得额外攻击速度、移动速度,和溅射攻擊"
+
+		"DOTA_Tooltip_modifier_melt_combo_cooldown"						"Combo冷卻"
+
+        "DOTA_Tooltip_modifier_composite_divinity"            			"复合神性"
+        "DOTA_Tooltip_modifier_composite_divinity_Description" 			"获得额外属性"
+
+		"DOTA_Tooltip_modifier_melt_virus"								"溶解病毒"
+        "DOTA_Tooltip_modifier_melt_virus_Description"         			"受到周期性伤害."
+
+        "DOTA_Tooltip_modifier_virus_stack"                             "溶解病毒 - 层数"
+        "DOTA_Tooltip_modifier_virus_stack_Description"                 "每次击杀获得属性."
+
 
 		//=======================================================================================================
         //Type (Assassin, Beamer, Jumper, Control, Tank, Support, Burst, Carry, Snipe)

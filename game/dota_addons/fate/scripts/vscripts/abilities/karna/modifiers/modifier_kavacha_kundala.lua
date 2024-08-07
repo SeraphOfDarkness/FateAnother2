@@ -27,6 +27,16 @@ if IsServer() then
 
 		self:StartIntervalThink(-1)
 
+		if self.Caster:HasModifier("modifier_padoru") then 
+
+		else
+			if not self.Caster:HasModifier('modifier_alternate_01') and not self.Caster:HasModifier('modifier_alternate_02') and not self.Caster:HasModifier('modifier_alternate_03') then 
+				self.Caster:SetModel("models/karna/default/karna_by_zefiroft.vmdl")
+				self.Caster:SetOriginalModel("models/karna/default/karna_by_zefiroft.vmdl")
+				self.Caster:SetModelScale(1.20)	
+			end
+		end
+
 		local progress = self:GetParent():FindModifierByName("modifier_rune_of_ferocity_progress")
 		if progress then
 			progress:SetStackCount(100)
@@ -40,8 +50,20 @@ if IsServer() then
 		self.Armor = 0
 		self.MagicResist = 0
 		self.ArmorActive = false
+
+		if self.Caster:HasModifier("modifier_padoru") then 
+
+		else
+			if not self.Caster:HasModifier('modifier_alternate_01') and not self.Caster:HasModifier('modifier_alternate_02') and not self.Caster:HasModifier('modifier_alternate_03') then 
+				self.Caster:SetModel("models/karna/default/karna_armorless_by_zefiroft.vmdl")
+				self.Caster:SetOriginalModel("models/karna/default/karna_armorless_by_zefiroft.vmdl")
+				self.Caster:SetModelScale(1.20)	
+			end
+		end
+
 		CustomNetTables:SetTableValue("sync","kavacha_kundala", { armor = self.Armor,
 																  magic_resist = self.MagicResist })
+
 		self:StartIntervalThink(remove_duration)
 		local progress = self:GetParent():FindModifierByName("modifier_kavacha_kundala_progress")
 		if progress then

@@ -18,29 +18,13 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-	    "AbilitySpecial"
-	    {	    
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_mana_regen"			"0"
-		    }		    
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_spd"					"0"
-		    }
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_int"					"0"
-		    }
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_agi"					"0"
-		    }
-	    }
+	    "AbilityValues"
+        {
+            "bonus_mana_regen" "0"
+            "bonus_spd" "0"
+            "bonus_int" "0"
+            "bonus_agi" "0"
+        }
 
 	   	"OnSpellStart"
 	    {
@@ -55,32 +39,22 @@
 		{				
 			"modifier_semiramis_class_caster"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsHidden"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
 				}	    		
-
-				"ThinkInterval"  		"2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
-						"Function"		"GardenCheck"
-					}
-				}
 			}
 
 			"modifier_semiramis_class_assassin"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Properties"
 				{
@@ -115,29 +89,13 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-	    "AbilitySpecial"
-	    {		    
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_mana_regen"			"10"
-		    }	
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_int"					"10"
-		    }	    
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_spd"					"60"
-		    }
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_agi"					"10"
-		    }
-	    }
+	    "AbilityValues"
+        {
+            "bonus_mana_regen" "10"
+            "bonus_int" "10"
+            "bonus_spd" "60"
+            "bonus_agi" "10"
+        }
 
 	   	"OnSpellStart"
 	    {
@@ -152,22 +110,22 @@
 		{				
 			"modifier_semiramis_class_caster"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsHidden"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
-				}	    		
+				}	  		
 			}
 
 			"modifier_semiramis_class_assassin"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Properties"
 				{
@@ -208,24 +166,12 @@
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"100"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_dur"				"2 2.75 3.5 4.25 5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"min_dur"				"1 1.25 1.5 1.75 2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr_red"				"0"
-			}
-		}		
+		"AbilityValues"
+        {
+            "max_dur" "2 2.5 3 3.5 4"
+            "min_dur" "1 1.25 1.5 1.75 2"
+            "mr_red" "0"
+        }		
 
 		"OnUpgrade"
 		{
@@ -269,24 +215,12 @@
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"100"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_dur"				"2 2.75 3.5 4.25 5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"min_dur"				"1 1.25 1.5 1.75 2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr_red"				"0"
-			}
-		}	
+		"AbilityValues"
+        {
+            "max_dur" "2 2.5 3 3.5 4"
+            "min_dur" "1 1.25 1.5 1.75 2"
+            "mr_red" "0"
+        }	
 
 		"OnUpgrade"
 		{
@@ -330,24 +264,12 @@
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"100"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_dur"				"2 2.75 3.5 4.25 5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"min_dur"				"1 1.25 1.5 1.75 2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr_red"				"-20"
-			}
-		}	
+		"AbilityValues"
+        {
+            "max_dur" "2 2.5 3 3.5 4"
+            "min_dur" "1 1.25 1.5 1.75 2"
+            "mr_red" "-20"
+        }	
 
 		"OnUpgrade"
 		{
@@ -391,24 +313,12 @@
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"100"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_dur"				"2 2.75 3.5 4.25 5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"min_dur"				"1 1.25 1.5 1.75 2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr_red"				"-20"
-			}
-		}	
+		"AbilityValues"
+        {
+            "max_dur" "2 2.5 3 3.5 4"
+            "min_dur" "1 1.25 1.5 1.75 2"
+            "mr_red" "-20"
+        }	
 
 		"OnUpgrade"
 		{
@@ -445,24 +355,15 @@
 
 		"AbilityManaCost"				"100"		
 
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4 5 6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_spd"				"10 14 18 22 26"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "4 5 6 7 8"
+            "bonus_spd" "10 14 18 22 26"
+        }
 
 		"precache"
 		{
-			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
-			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			
 		}
 
 		"OnUpgrade"
@@ -551,24 +452,12 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shield_amount"			"100 150 200 250 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_shield"			"200 300 400 500 600"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"10 15 20 25 30"
-			}
-		}		
+		"AbilityValues"
+        {
+            "shield_amount" "100 150 200 250 300"
+            "max_shield" "200 300 400 500 600"
+            "regen" "10 15 20 25 30"
+        }		
 
 		"OnUpgrade"
 		{
@@ -637,24 +526,12 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shield_amount"			"100 150 200 250 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_shield"			"200 300 400 500 600"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"20 30 40 50 60"
-			}
-		}		
+		"AbilityValues"
+        {
+            "shield_amount" "100 150 200 250 300"
+            "max_shield" "200 300 400 500 600"
+            "regen" "20 30 40 50 60"
+        }		
 
 		"OnUpgrade"
 		{
@@ -728,43 +605,18 @@
 
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
-			"particle"  "particles/econ/items/venomancer/veno_ti8_immortal_head/veno_ti8_immortal_gale_explosion_venom.vpcf"
+			
 		}
 
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1100"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aoe"					"220"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
-			}				
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"2"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dps"					"30 35 40 45 50"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-20"
-			}
-		}	
+		"AbilityValues"
+        {
+            "range" "1100"
+            "aoe" "220"
+            "damage" "200 250 300 350 400"
+            "duration" "2"
+            "dps" "30 35 40 45 50"
+            "slow" "-20"
+        }	
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -840,48 +692,19 @@
 
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
-			"particle"  "particles/econ/items/venomancer/veno_ti8_immortal_head/veno_ti8_immortal_gale_explosion_venom.vpcf"
+			
 		}
 
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1100"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aoe"					"220"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_agi"		"2"
-			}				
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dps"					"50 55 60 65 70"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-20"
-			}				
-		}	
+		"AbilityValues"
+        {
+            "range" "1100"
+            "aoe" "220"
+            "damage" "200 250 300 350 400"
+            "damage_per_agi" "2"
+            "duration" "3"
+            "dps" "50 55 60 65 70"
+            "slow" "-20"
+        }	
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -956,44 +779,16 @@
 		"AbilityCooldown"				"18"
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"0.3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.4"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"700 750 800 850 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"370 340 310 280 250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_numbers"			"5 5 6 6 7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 125 150 175 200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_aoe"				"170 175 180 185 190"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_time" "0.3"
+            "cast_delay" "0.4"
+            "cast_range" "700 750 800 850 900"
+            "radius" "370 340 310 280 250"
+            "beam_numbers" "5 5 6 6 7"
+            "damage" "100 125 150 175 200"
+            "beam_aoe" "170 175 180 185 190"
+        }
 	}
 	//===================================================
 	// Semiramis : Beam Bombard (E) (Absolute SA)
@@ -1017,49 +812,17 @@
 		"AbilityCooldown"				"18"
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"0.3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.4"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"700 750 800 850 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"370 340 310 280 250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_numbers"			"5 5 6 6 7"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_beam_int"		"30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 125 150 175 200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_aoe"				"170 175 180 185 190"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_time" "0.3"
+            "cast_delay" "0.4"
+            "cast_range" "700 750 800 850 900"
+            "radius" "370 340 310 280 250"
+            "beam_numbers" "5 5 6 6 7"
+            "bonus_beam_int" "30"
+            "damage" "100 125 150 175 200"
+            "beam_aoe" "170 175 180 185 190"
+        }
 	}
 	//===================================================
 	// Semiramis : Poison Aura (E) 
@@ -1067,58 +830,30 @@
 	"semiramis_poisonous_cloud"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/semiramis/semiramis_poisonous_cloud"
 	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.25"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastRange"				"300 325 350 375 400"
-
+		"AbilityCastRange"				"800"
+		"AOERadius"						"%radius"
 		"AbilityCooldown"				"34 32 30 28 26"
 
 		"AbilityCastPoint"				"0.35"
 		"AbilityManaCost"				"400"		
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.38 0.36 0.34 0.32 0.3"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 325 350 375 400"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"200 225 250 275 300"
-			}								
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"debuff_duration"		"1.7 1.8 1.9 2.0 2.1"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"resist_reduct"			"-4 -8 -12 -16 -20"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-14 -18 -22 -26 -30"
-			}				
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.38 0.36 0.34 0.32 0.3"
+            "radius" "300 325 350 375 400"
+            "duration" "3 3.5 4 4.5 5"
+            "damage" "200 225 250 275 300"
+            "debuff_duration" "1.7 1.8 1.9 2.0 2.1"
+            "resist_reduct" "-4 -8 -12 -16 -20"
+            "slow" "-34 -38 -42 -46 -50"
+        }
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -1190,63 +925,31 @@
 	"semiramis_poisonous_cloud_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/semiramis/semiramis_poisonous_cloud"
 	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.25"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastRange"				"300 325 350 375 400"
-
+		"AbilityCastRange"				"800"
+		"AOERadius"						"%radius"
 		"AbilityCooldown"				"34 32 30 28 26"
 
 		"AbilityCastPoint"				"0.35"
 		"AbilityManaCost"				"400"		
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.38 0.36 0.34 0.32 0.3"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 325 350 375 400"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"200 225 250 275 300"
-			}								
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"debuff_duration"		"1.7 1.8 1.9 2.0 2.1"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"resist_reduct"			"-4 -8 -12 -16 -20"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-14 -18 -22 -26 -30"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_poison"			"15"
-			}			
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.38 0.36 0.34 0.32 0.3"
+            "radius" "300 325 350 375 400"
+            "duration" "3 3.5 4 4.5 5"
+            "damage" "200 225 250 275 300"
+            "debuff_duration" "1.7 1.8 1.9 2.0 2.1"
+            "resist_reduct" "-4 -8 -12 -16 -20"
+            "slow" "-34 -38 -42 -46 -50"
+            "bonus_poison" "15"
+        }
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -1341,64 +1044,20 @@
 		"AbilityManaCost"				"800"
 		"AOERadius"						"%damage_radius"		
 
-		"AbilitySpecial"
-		{						
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_point"			"2.5"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"1.85"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_health"			"1400 1550 1700 1850 2000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_damage"			"50"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_movespeed"		"260 280 300 320 340"
-			}				
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"35 44 53 62 71"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_slow"			"-45"
-			}				
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_duration"		"1.2"
-			}					
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_radius"			"2500"
-			}						
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 400 500 600 700"
-			}					
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_radius"			"800"
-			}			
-		}
+		"AbilityValues"
+        {
+            "cast_point" "2.5"
+            "cast_delay" "1.85"
+            "garden_health" "1400 1550 1700 1850 2000"
+            "garden_damage" "50"
+            "garden_movespeed" "260 280 300 320 340"
+            "duration" "35 44 53 62 71"
+            "quake_slow" "-45"
+            "quake_duration" "1.2"
+            "quake_radius" "2500"
+            "damage" "300 400 500 600 700"
+            "damage_radius" "800"
+        }
 
 		"OnUpgrade"
 		{
@@ -1421,6 +1080,19 @@
 
 		"Modifiers"
 		{	
+			"modifier_semiramis_garden_checker"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+						"Function"		"GardenCheck"
+					}
+				}
+			}
 			"modifier_semiramis_babylon_quake"
 			{
 				"Passive"			"0"
@@ -1489,64 +1161,20 @@
 		"AbilityManaCost"				"800"	
 		"AOERadius"						"%damage_radius"		
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_point"			"1.2"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"1.5"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_health"			"1600 1750 1900 2050 2200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_damage"			"70"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"garden_movespeed"		"260 280 300 320 340"
-			}				
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"40 50 60 70 80"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_slow"			"-65"
-			}				
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_duration"		"2"
-			}					
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"quake_radius"			"3500"
-			}						
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 400 500 600 700"
-			}					
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_radius"			"800"
-			}			
-		}
+		"AbilityValues"
+        {
+            "cast_point" "1.2"
+            "cast_delay" "1.5"
+            "garden_health" "1600 1750 1900 2050 2200"
+            "garden_damage" "70"
+            "garden_movespeed" "260 280 300 320 340"
+            "duration" "40 50 60 70 80"
+            "quake_slow" "-65"
+            "quake_duration" "2"
+            "quake_radius" "3500"
+            "damage" "300 400 500 600 700"
+            "damage_radius" "800"
+        }
 
 		"OnUpgrade"
 		{
@@ -1568,6 +1196,19 @@
 
 		"Modifiers"
 		{	
+			"modifier_semiramis_garden_checker"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+						"Function"		"GardenCheck"
+					}
+				}
+			}
 			"modifier_semiramis_babylon_quake"
 			{
 				"Passive"			"0"
@@ -1634,64 +1275,24 @@
 		"AnimationPlaybackRate" 		"1.25"
 
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"200 250 300 350 400"
+		"AbilityCastRange"				"300 350 400 450 500"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"800"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.6"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"200 250 300 350 400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 500 600 700 800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_burst"			"400 525 650 775 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-20 -25 -30 -35 -40"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"450 500 550 600 650"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_dmg"				"100"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"out_dmg"				"30"
-			}
-		}		
+		"AbilityValues"
+        {
+            "cast_delay" "0.6"
+            "cast_range" "300 350 400 450 500"
+            "damage" "400 500 600 700 800"
+            "duration" "1.0"
+            "damage_burst" "400 525 650 775 900"
+            "radius" "350"
+            "slow" "-20 -25 -30 -35 -40"
+            "stay_range" "450 500 550 600 650"
+            "stay_dmg" "100"
+            "out_dmg" "30"
+        }		
 
 		"OnUpgrade"
 		{
@@ -1749,69 +1350,25 @@
 		"AnimationPlaybackRate" 		"1.25"
 
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"200 250 300 350 400"
+		"AbilityCastRange"				"300 350 400 450 500"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"800"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.6"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"200 250 300 350 400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_male"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_burst"			"400 525 650 775 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-20 -25 -30 -35 -40"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"450 500 550 600 650"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_dmg"				"100"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"out_dmg"				"30"
-			}
-		}		
+		"AbilityValues"
+        {
+            "cast_delay" "0.6"
+            "cast_range" "300 350 400 450 500"
+            "damage" "400 500 600 700 800"
+            "bonus_male" "200"
+            "duration" "1.0"
+            "damage_burst" "400 525 650 775 900"
+            "radius" "350"
+            "slow" "-20 -25 -30 -35 -40"
+            "stay_range" "450 500 550 600 650"
+            "stay_dmg" "100"
+            "out_dmg" "30"
+        }		
 
 		"OnUpgrade"
 		{
@@ -1873,70 +1430,21 @@
 		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"600"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.6"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"200 250 300 350 400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_agi"		"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}			
-			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_burst"			"600 725 850 975 1100"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burst_per_int"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-20 -25 -30 -35 -40"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"450 500 550 600 650"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_dmg"				"100"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"out_dmg"				"30"
-			}
-		}		
+		"AbilityValues"
+        {
+            "cast_delay" "0.6"
+            "cast_range" "200 250 300 350 400"
+            "damage" "400 500 600 700 800"
+            "damage_per_agi" "3"
+            "duration" "1.0"
+            "damage_burst" "600 725 850 975 1100"
+            "burst_per_int" "3"
+            "radius" "350"
+            "slow" "-20 -25 -30 -35 -40"
+            "stay_range" "450 500 550 600 650"
+            "stay_dmg" "100"
+            "out_dmg" "30"
+        }		
 
 		"OnUpgrade"
 		{
@@ -2000,75 +1508,22 @@
 		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"600"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.6"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"200 250 300 350 400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_male"			"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_agi"		"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}			
-			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_burst"			"600 725 850 975 1100"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burst_per_int"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-20 -25 -30 -35 -40"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_range"			"450 500 550 600 650"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stay_dmg"				"100"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"out_dmg"				"30"
-			}
-		}		
+		"AbilityValues"
+        {
+            "cast_delay" "0.6"
+            "cast_range" "200 250 300 350 400"
+            "damage" "400 500 600 700 800"
+            "bonus_male" "200"
+            "damage_per_agi" "3"
+            "duration" "1.0"
+            "damage_burst" "600 725 850 975 1100"
+            "burst_per_int" "3"
+            "radius" "350"
+            "slow" "-20 -25 -30 -35 -40"
+            "stay_range" "450 500 550 600 650"
+            "stay_dmg" "100"
+            "out_dmg" "30"
+        }		
 
 		"OnUpgrade"
 		{
@@ -2124,49 +1579,17 @@
 		"AbilityManaCost"				"400"		
 		"AOERadius"						"%radius"
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"4.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"semi_range"			"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"minimum_range"			"1500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"6000"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"750"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dps"					"3000"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.5"
-			}								
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-60"
-			}	
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "4.0"
+            "semi_range" "1000"
+            "minimum_range" "1500"
+            "max_range" "6000"
+            "radius" "750"
+            "dps" "3000"
+            "duration" "3.5"
+            "slow" "-60"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -2230,20 +1653,13 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/semiramis/semiramis_absolute"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AbilityCooldown"				"1"
 
-	    "AbilitySpecial"
-	    {
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "bonus_mr"					"10"
-		    }	
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "radius"					"1500"
-		    }	   
-	    }
+	    "AbilityValues"
+        {
+            "bonus_mr" "10"
+            "radius" "1500"
+        }
 
 		"Modifiers"
 		{	
@@ -2326,39 +1742,15 @@
 		"AbilityCastRange"				"1200"
 		"AbilityManaCost"				"200"		
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"			"1200"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"250 400"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"beam_aoe"				"300"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_INT"
-				"extra_beam"			"2 3"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"extra_beam_range"		"250"
-			}									
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.3"
+            "cast_range" "1200"
+            "damage" "250 400"
+            "beam_aoe" "300"
+            "extra_beam" "2 3"
+            "extra_beam_range" "250"
+        }
 	}
 
 	"semiramis_summon_birds"
@@ -2373,31 +1765,19 @@
 		"AbilityCastPoint"				"0.25"
 		"AbilityManaCost"				"100"		
 
-		"AbilitySpecial"
-		{	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bird_hp"				"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bird_vision"			"700"
-			}		
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15 20"
-			}							
-		}
+		"AbilityValues"
+        {
+            "bird_hp" "100"
+            "bird_vision" "700"
+            "duration" "15 20"
+        }
 	}
 
 	"hanging_gardens_mass_recall"
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ALLY"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"custom/semiramis/semiramis_recall"
 		"MaxLevel"						"2"
@@ -2413,24 +1793,12 @@
 		"AOERadius"						"%radius"
 
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"3.5 2.5"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"2500 3000"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"375 425"
-			}						
-		}
+		"AbilityValues"
+        {
+            "delay" "3.5 2.5"
+            "max_range" "2500 3000"
+            "radius" "375 425"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2495,7 +1863,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ALLY"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"custom/semiramis/semiramis_mount"
 		"MaxLevel"						"2"
@@ -2506,24 +1874,12 @@
 		"AbilityCooldown"				"3"
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"350 475"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"7 13"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"10 30"
-			}									
-		}
+		"AbilityValues"
+        {
+            "max_range" "350 475"
+            "bonus_mana_regen" "7 13"
+            "bonus_health_regen" "10 30"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2583,6 +1939,14 @@
 						"Function"		"GardenFollow"
 					}				
 				}	
+				"OnDeath"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile"	"abilities/semiramis/semiramis_abilities"
+	    				"Function"		"OnMountedDestroy"
+	    			}
+	    		}
 	    	}	
 		}
 	}
@@ -2590,7 +1954,7 @@
 	"semiramis_hanging_garden_sikera_usum"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName"			"custom/semiramis/semiramis_basmu"
 		"MaxLevel"						"2"
 
@@ -2601,44 +1965,16 @@
 		"AbilityManaCost"				"600"		
 		"AOERadius"						"%radius"
 
-		"AbilitySpecial"
-		{	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"0.5"
-			}		
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"			"1000"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dps"					"125 250"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"250 500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.5"
-			}				
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"450"
-			}		
-		}
+		"AbilityValues"
+        {
+            "cast_time" "0.5"
+            "cast_delay" "0.6"
+            "cast_range" "1000"
+            "dps" "125 250"
+            "damage" "250 500"
+            "duration" "3.5"
+            "radius" "450"
+        }
 
 		"OnSpellStart"
 	    {
@@ -2663,24 +1999,12 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-	    "AbilitySpecial"
-	    {
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_INTEGER"
-		        "mana_drain_per_second"		"0 10"
-		    }		   		   
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "slow"						"0 -20"
-		    }
-		     "01"
-		    {
-		        "var_type"				  	"FIELD_INTEGER"
-		        "radius"					"0 1600"
-		    }
-	    }
+	    "AbilityValues"
+        {
+            "mana_drain_per_second" "0 10"
+            "slow" "0 -20"
+            "radius" "0 1600"
+        }
 
 		"Modifiers"
 		{	
@@ -2729,24 +2053,12 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
 
-	    "AbilitySpecial"
-	    {
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_INTEGER"
-		        "damage"					"60 100"
-		    }		   		   
-		    "01"
-		    {
-		        "var_type"				  	"FIELD_FLOAT"
-		        "targets"					"2 3"
-		    }
-		     "01"
-		    {
-		        "var_type"				  	"FIELD_INTEGER"
-		        "radius"					"675 825"
-		    }
-	    }
+	    "AbilityValues"
+        {
+            "damage" "60 100"
+            "targets" "2 3"
+            "radius" "675 825"
+        }
 
 		"Modifiers"
 		{	
@@ -2776,6 +2088,50 @@
 					}
 				}
 			}						
+		}
+	}
+
+	//=======================================
+	// Precache
+	//=======================================
+	"semiramis_precache"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/medusa/medusa_attribute_monstrous_strength"
+
+		"precache"
+		{
+			"model"					"models/hanging/stolenbabylon.vmdl"
+			"model"					"models/items/beastmaster/hawk/fotw_eagle/fotw_eagle.vmdl"
+			"particle"  			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"particle"  			"particles/semiramis/semiramis_shield.vpcf"
+			"particle"				"particles/semiramis/beam_barrage.vpcf"
+			"particle"				"particles/semiramis/basmu_claw_new.vpcf"
+			"particle"				"particles/custom/semiramis/open_wounds.vpcf"
+			"particle"				"particles/custom/semiramis/basmu_poison_d.vpcf"
+			"particle"				"particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
+			"particle"				"particles/econ/items/drow/drow_ti6/drow_ti6_silence_wave_ground_dust.vpcf"
+			"particle"				"particles/econ/items/venomancer/veno_ti8_immortal_head/veno_ti8_immortal_gale_explosion_venom.vpcf"
+			"particle"  			"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
+			"particle"  			"particles/semiramis/hanging_garden_crack.vpcf"
+			"particle"  			"particles/semiramis/hanging_garden_build.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_channel.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_shine.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_laser.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_ground_flek.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_explosion_area.vpcf"
+			"particle"  			"particles/semiramis/tiatum_umu_scorch.vpcf"
+			"particle"  			"particles/custom/semiramis/basmu_circle_parent.vpcf"
+			"particle"  			"particles/custom/semiramis/basmu_poison.vpcf"
+			"particle"  			"particles/custom/semiramis/laser/semiramis_laser.vpcf"
+			"particle"  			"particles/custom/semiramis/laser_beam.vpcf"
+			"particle"  			"particles/custom/amakusa/amakusa_set_cicle.vpcf"
+			"particle"  			"particles/custom/semiramis/binding_chains.vpcf"
+			"particle"  			"particles/units/heroes/hero_chen/chen_teleport.vpcf"
+			"particle"  			"particles/econ/events/diretide_2020/high_five/high_five_impact_burst.vpcf"
 		}
 	}	
 }

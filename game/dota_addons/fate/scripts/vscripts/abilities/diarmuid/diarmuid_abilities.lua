@@ -42,6 +42,9 @@ function OnMindsEyeStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability 
 	local duration = ability:GetSpecialValueFor("duration")
+	local dash = ability:GetSpecialValueFor("dash")
+	local dash_dur = 0.2
+	local target_loc = ability:GetCursorPosition()
 	local bonus_vision = ability:GetSpecialValueFor("bonus_vision")
 	local vision_duration = ability:GetSpecialValueFor("vision_duration")
 	local sightdummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
@@ -53,6 +56,24 @@ function OnMindsEyeStart(keys)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_diarmuid_minds_eye_active", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_minds_eye_cooldown", {Duration = ability:GetCooldown(1)})
+
+	giveUnitDataDrivenModifier(caster, caster, "drag_pause", dash_dur)
+	StartAnimation(caster, {duration=dash_dur, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+
+	local dash = Physics:Unit(caster)
+	caster:PreventDI()
+	caster:SetPhysicsFriction(0)
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * 1400)
+	caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+	caster:FollowNavMesh(false)
+	ProjectileManager:ProjectileDodge(caster)
+
+	Timers:CreateTimer(dash_dur, function()  
+		caster:PreventDI(false)
+		caster:SetPhysicsVelocity(Vector(0,0,0))
+		caster:OnPhysicsFrame(nil)
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+	end)
 
 	Timers:CreateTimer(function() 
 		if not IsValidEntity(sightdummy) then return end
@@ -74,6 +95,7 @@ function OnChargeStart(keys)
 	local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
+	local rampant_cooldown = ability:GetSpecialValueFor("rampant_cooldown")
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
@@ -83,21 +105,29 @@ function OnChargeStart(keys)
 
 	if IsSpellBlocked(target) then return end -- Linken effect checker
 
-	if caster:HasModifier("modifier_double_spearsmanship_active") or caster:HasModifier("modifier_rampant_warrior") then 
-		damage = damage * 2 
+	if caster.IsMindEyeAcquired then
+		local stacks = ability:GetCurrentAbilityCharges() or 0
+		if stacks > 0 then 
+			ability:EndCooldown() 
+		end
 	end
 
 	if not IsImmuneToCC(target) then
 		target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
 	end
 
-	if not IsImmuneToSlow(target) then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_warriors_charge_slow", {})
+	if caster.IsMindEyeAcquired then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_warriors_charge_debuff", {})
+		local debuff_stack = target:GetModifierStackCount("modifier_warriors_charge_debuff", caster) or 0 
+		target:SetModifierStackCount("modifier_warriors_charge_debuff", caster, debuff_stack + 1)
 	end
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+		if not IsImmuneToSlow(v) then
+			ability:ApplyDataDrivenModifier(caster, v, "modifier_warriors_charge_slow", {})
+		end
+        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
         
     end
 
@@ -147,19 +177,20 @@ function OnDoubleSpearProc(keys)
 	end
 
 	if proc_rate <= proc_chance then 
-		if not caster.bIsDoubleAttackOnCD then
+		if not --[[caster.bIsDoubleAttackOnCD]] caster:HasModifier("modifier_double_spearsmanship_cooldown") then
 			local atk_animation = RandomInt(1, 2)
 			if atk_animation == 1 then 
 				StartAnimation(caster, {duration=caster:GetBaseAttackTime(), activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=34/(24 * caster:GetBaseAttackTime())})
 			else
 				StartAnimation(caster, {duration=caster:GetBaseAttackTime(), activity=ACT_DOTA_ATTACK_EVENT, rate=33/(24 * caster:GetBaseAttackTime())})
 			end
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_double_spearsmanship_cooldown", {})
 			Timers:CreateTimer(0.033, function()
 				caster:PerformAttack( target, true, true, true, true, false, false, false )
-				caster.bIsDoubleAttackOnCD = true
-				Timers:CreateTimer(0.066, function()
+				--[[caster.bIsDoubleAttackOnCD = true
+				Timers:CreateTimer(0.033, function()
 					caster.bIsDoubleAttackOnCD = false
-				end)
+				end)]]
 			end)
 		end
 	end
@@ -475,14 +506,9 @@ function OnLoveSpotImproved(keys)
 	    end
 
 	    hero.IsLoveSpotImproved = true
-	    
-	    hero:AddAbility("diarmuid_love_spot_upgrade")
-		hero:FindAbilityByName("diarmuid_love_spot_upgrade"):SetLevel(1)
-		if not hero:FindAbilityByName("diarmuid_love_spot"):IsCooldownReady() then 
-			hero:FindAbilityByName("diarmuid_love_spot_upgrade"):StartCooldown(hero:FindAbilityByName("diarmuid_love_spot"):GetCooldownTimeRemaining())
-		end
-		hero:SwapAbilities("diarmuid_love_spot_upgrade", "diarmuid_love_spot", true, false)
-		hero:RemoveAbility("diarmuid_love_spot")
+
+		UpgradeAttribute(hero, 'diarmuid_love_spot', 'diarmuid_love_spot_upgrade', true)
+		hero.DSkill = "diarmuid_love_spot_upgrade"
 
 		NonResetAbility(hero)
 
@@ -500,11 +526,11 @@ function OnMindEyeAcquired(keys)
 	if not MasterCannotUpgrade(hero, caster, keys.ability, hero.IsMindEyeAcquired) then
 
 	    hero.IsMindEyeAcquired = true
-	    
-	    hero:AddAbility("diarmuid_minds_eye_upgrade")
-		hero:FindAbilityByName("diarmuid_minds_eye_upgrade"):SetLevel(1)
-		hero:SwapAbilities("diarmuid_minds_eye_upgrade", "diarmuid_minds_eye", true, false)
-		hero:RemoveAbility("diarmuid_minds_eye")
+
+	    UpgradeAttribute(hero, 'diarmuid_minds_eye', 'diarmuid_minds_eye_upgrade', true)
+	    UpgradeAttribute(hero, 'diarmuid_warriors_charge', 'diarmuid_warriors_charge_upgrade', true)
+		hero.QSkill = "diarmuid_warriors_charge_upgrade"
+		hero.FSkill = "diarmuid_minds_eye_upgrade"
 
 		NonResetAbility(hero)
 

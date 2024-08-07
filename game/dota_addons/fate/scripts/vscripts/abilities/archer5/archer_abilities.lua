@@ -147,6 +147,7 @@ function OnHruntCast(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	ability.target = target
 	local ply = caster:GetPlayerOwner()
 
 	ability:EndCooldown()
@@ -167,19 +168,25 @@ function OnHruntCast(keys)
 	ParticleManager:SetParticleControlEnt(caster.hrunting_particle, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(caster.hrunting_particle, 3, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
 	caster.hruntingCrosshead = ParticleManager:CreateParticleForTeam("particles/custom/archer/archer_broken_phantasm/archer_broken_phantasm_crosshead.vpcf", PATTACH_OVERHEAD_FOLLOW, target, caster:GetTeamNumber())
-	if keys.target:IsHero() and ply ~= nil then
-		Say(ply, "Hrunting targets " .. FindName(keys.target:GetName()) .. ".", true)
+	if target:IsHero() and ply ~= nil then
+		Say(ply, "Hrunting targets " .. FindName(target:GetName()) .. ".", true)
 	end
-
-	if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then 
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hrunting_tracker", {Duration=ability:GetSpecialValueFor("cast_delay") - 0.04})
+	--if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bow", {})
-	end
+	--end
 end
 
-function OnHruntStart(keys)
+function OnHruntStart(keys, bInterrupted)
 	local caster = keys.caster
 	local ability = keys.ability
-	local target = keys.target
+	local target = ability.target
+
+	if caster:HasModifier("modifier_hrunting_tracker") then 
+		OnHruntInterrupted(keys)
+		return nil 
+	end
+
 	local ply = caster:GetPlayerOwner()
 
 	ParticleManager:DestroyParticle(caster.hruntingCrosshead, true)
@@ -228,8 +235,8 @@ function OnHruntStart(keys)
 
 	--EmitGlobalSound("Archer.Hrunting_Fireoff")
 	--caster:EmitSound("Emiya_Hrunt2")
-	if keys.target:IsHero() and ply ~= nil then
-		Say(ply, "Hrunting fired at " .. FindName(keys.target:GetName()) .. ".", true)
+	if target:IsHero() and ply ~= nil then
+		Say(ply, "Hrunting fired at " .. FindName(target:GetName()) .. ".", true)
 	end
 end
 
@@ -584,6 +591,8 @@ function OnBPCast(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	ability.target = target
+	print(keys.target:GetUnitName())
 	local ply = caster:GetPlayerOwner()
 	ability:EndCooldown()
 	caster:GiveMana(ability:GetManaCost(1))
@@ -595,15 +604,22 @@ function OnBPCast(keys)
 	if keys.target:IsHero() then
 		Say(ply, "Broken Phantasm targets " .. FindName(keys.target:GetName()) .. ".", true)
 	end
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bp_tracker", {Duration=ability:GetSpecialValueFor("cast_delay") - 0.04})
 	if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bow", {})
 	end
 end
 
-function OnBPStart(keys)
+function OnBPStart(keys, bInterrupted)
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
+	local target = ability.target
+
+	if caster:HasModifier("modifier_bp_tracker") then 
+		OnBPInterrupted(keys)
+		return nil 
+	end
+
 	local ply = caster:GetPlayerOwner()
 	ParticleManager:DestroyParticle(caster.BPparticle, true)
 
@@ -617,9 +633,9 @@ function OnBPStart(keys)
 	ability:StartCooldown(ability:GetCooldown(1))
 	caster:SetMana(caster:GetMana() - ability:GetManaCost(1))
 	local info = {
-		Target = keys.target,
-		Source = keys.caster, 
-		Ability = keys.ability,
+		Target = target,
+		Source = caster, 
+		Ability = ability,
 		EffectName = "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf",
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		iMoveSpeed = 3000,
@@ -637,8 +653,8 @@ function OnBPStart(keys)
 		OnUBWChantTrigger (caster)
 	end
 	
-	if keys.target:IsHero() then
-		Say(ply, "Broken Phantasm fired at " .. FindName(keys.target:GetName()) .. ".", true)
+	if target:IsHero() then
+		Say(ply, "Broken Phantasm fired at " .. FindName(target:GetName()) .. ".", true)
 	end
 end
 
@@ -725,7 +741,6 @@ function OnCraneWingStart (keys)
     caster:SetPhysicsAcceleration(Vector(0,0,-2666))
 
 	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
-
 	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_05') then 
 		caster:EmitSound("Shirou-Crane")
 	else
@@ -903,6 +918,16 @@ function OnUBWChant (keys)
 	OnUBWChantCheck(caster, ubw_stacks)
 
 	if ubw_stacks == 5 then
+		if caster.ubw_ring == nil then 
+			local aoe = ability:GetSpecialValueFor("radius") 
+			local chrono_range = ability:GetSpecialValueFor("chrono_range")
+			caster.ubw_ring = ParticleManager:CreateParticleForTeam("particles/custom/lancelot/lancelot_combo_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, caster:GetTeamNumber())
+			ParticleManager:SetParticleControl(caster.ubw_ring, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(caster.ubw_ring, 1, Vector(aoe,0,0))
+			caster.ubw_ring2 = ParticleManager:CreateParticleForTeam("particles/custom/lancelot/lancelot_combo_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, caster:GetTeamNumber())
+			ParticleManager:SetParticleControl(caster.ubw_ring2, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(caster.ubw_ring2, 1, Vector(chrono_range,0,0))
+		end
 		if caster.IsImproveProjectionAcquired then
 			caster:SwapAbilities("archer_unlimited_bladeworks_chant_upgrade", "archer_unlimited_bladeworks_upgrade", false, true)
 			caster:FindAbilityByName("archer_unlimited_bladeworks_upgrade"):StartCooldown(ability:GetCooldown(ability:GetLevel()))
@@ -917,6 +942,16 @@ function OnUBWChant (keys)
 		caster:RemoveModifierByName("modifier_UBW_chant")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ubw_chronosphere_aura", {})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ubw_freeze_aura", {Duration = castDelay - 1.0})
+		if caster.ubw_ring == nil then 
+			local aoe = ability:GetSpecialValueFor("radius") 
+			local chrono_range = ability:GetSpecialValueFor("chrono_range")
+			caster.ubw_ring = ParticleManager:CreateParticleForTeam("particles/custom/lancelot/lancelot_combo_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, caster:GetTeamNumber())
+			ParticleManager:SetParticleControl(caster.ubw_ring, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(caster.ubw_ring, 1, Vector(aoe,0,0))
+			caster.ubw_ring2 = ParticleManager:CreateParticleForTeam("particles/custom/lancelot/lancelot_combo_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, caster:GetTeamNumber())
+			ParticleManager:SetParticleControl(caster.ubw_ring2, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(caster.ubw_ring2, 1, Vector(chrono_range,0,0))
+		end
 		StartUBW (ability, caster)
 	end
 end
@@ -925,6 +960,13 @@ function OnUBWChantDestroy(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	if caster.ubw_chant >= 6 then
+		if caster.ubw_ring ~= nil then
+			ParticleManager:DestroyParticle(caster.ubw_ring, true )
+            ParticleManager:ReleaseParticleIndex( caster.ubw_ring )
+            ParticleManager:DestroyParticle(caster.ubw_ring2, true )
+            ParticleManager:ReleaseParticleIndex( caster.ubw_ring2 )
+            caster.ubw_ring = nil
+		end
 		if caster.IsImproveProjectionAcquired then
 			caster:SwapAbilities("archer_unlimited_bladeworks_chant_upgrade", "archer_unlimited_bladeworks_upgrade", true, false)
 		else
@@ -973,6 +1015,8 @@ function OnUBWChantCheck (caster,ubw_stacks)
 		EmitGlobalSound("emiya_ubw7")
 	end]]
 end
+
+LinkLuaModifier("modifier_inside_marble", "abilities/general/modifiers/modifier_inside_marble", LUA_MODIFIER_MOTION_NONE)
 
 function ChronoStop( keys )
 	local target = keys.target 
@@ -1028,6 +1072,13 @@ function StartUBW (ability, caster)
             ability:ApplyDataDrivenModifier(caster, caster, "modifier_unlimited_bladeworks", {})
             ArcherCheckCombo(caster, ability)
             print("enter ubw?")
+            if caster.ubw_ring ~= nil then
+				ParticleManager:DestroyParticle(caster.ubw_ring, true )
+	            ParticleManager:ReleaseParticleIndex( caster.ubw_ring )
+	            ParticleManager:DestroyParticle(caster.ubw_ring2, true )
+	            ParticleManager:ReleaseParticleIndex( caster.ubw_ring2 )
+	            caster.ubw_ring = nil
+			end
 
             local entranceFlashParticle = ParticleManager:CreateParticle("particles/custom/archer/ubw/entrance_flash.vpcf", PATTACH_ABSORIGIN, caster)
             ParticleManager:SetParticleControl(entranceFlashParticle, 0, newLocation)
@@ -1082,6 +1133,7 @@ function EnterUBW(ability, caster)
             ProjectileManager:ProjectileDodge(ubwTargets[i]) -- Disjoint particles
             if ubwTargets[i]:HasModifier("jump_pause") 
                 or string.match(ubwTargets[i]:GetUnitName(),"dummy") 
+                or string.match(ubwTargets[i]:GetUnitName(),"flag") 
                 or ubwTargets[i]:HasModifier("spawn_invulnerable") 
                 and ubwTargets[i] ~= caster then 
                 table.remove(ubwTargets, i)
@@ -1142,6 +1194,8 @@ function EnterUBW(ability, caster)
 				ubwTargets[i]:RemoveModifierByName("modifier_zhuge_liang_array_checker")
 				ubwTargets[i]:RemoveModifierByName("modifier_zhuge_liang_array_enemy")
 
+				ubwTargets[i]:AddNewModifier(caster, ability, "modifier_inside_marble", { Duration = ubw_duration })
+
                 --[[if ubwTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or ubwTargets[i]:GetName() == "npc_dota_hero_riki" then
                     ability:ApplyDataDrivenModifier(caster, ubwTargets[i], "modifier_inside_marble", {})
                 end]]
@@ -1181,7 +1235,7 @@ function EndUBW(caster, ability)
     i = 1
     while i <= #units do
         if IsValidEntity(units[i]) and not units[i]:IsNull() then
-            if string.match(units[i]:GetUnitName(),"dummy") then 
+            if string.match(units[i]:GetUnitName(),"dummy") or string.match(units[i]:GetUnitName(),"iskandar_") or string.match(units[i]:GetUnitName(),"flag")  then 
                 table.remove(units, i)
                 i = i - 1
             end
@@ -1197,30 +1251,43 @@ function EndUBW(caster, ability)
 			units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
 			units[i]:RemoveModifierByName("modifier_zhuge_liang_array_checker")
 			units[i]:RemoveModifierByName("modifier_zhuge_liang_array_enemy")
+			units[i]:RemoveModifierByName("modifier_inside_marble")
 
             --[[if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
                 units[i]:RemoveModifierByName("modifier_inside_marble")
             end]]
 
             ProjectileManager:ProjectileDodge(units[i])
-            if units[i]:GetName() == "npc_dota_hero_chen" and units[i]:HasModifier("modifier_army_of_the_king_death_checker") then
+            --if units[i]:GetUnitName() == "npc_dota_hero_chen" and units[i]:HasModifier("modifier_army_of_the_king_death_checker") then
                 units[i]:RemoveModifierByName("modifier_army_of_the_king_death_checker")
-            end
-            if units[i]:HasModifier("modifier_annihilate_mute") then
+            --end
+            --if units[i]:HasModifier("modifier_annihilate_mute") then
 				units[i]:RemoveModifierByName("modifier_annihilate_mute")
-			end
+			--end
             local IsUnitGeneratedInUBW = true
             if ubwTargets ~= nil then
                 for j=1, #ubwTargets do
                     if not ubwTargets[j]:IsNull() and IsValidEntity(ubwTargets[j]) then 
                         if units[i] == ubwTargets[j] then
+                        	ubwTargets[j]:RemoveModifierByName("modifier_army_of_the_king_death_checker")
                             if ubwTargetLoc[j] ~= nil then
                                 units[i]:SetAbsOrigin(ubwTargetLoc[j]) 
+                                units[i].world_loc = ubwTargetLoc[j]
                                 units[i]:Stop()
                             end
                             FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
-                            Timers:CreateTimer(0.1, function() 
-                                units[i]:AddNewModifier(units[i], nil, "modifier_camera_follow", {duration = 1.0})
+                            Timers:CreateTimer(0.033, function() 
+                            	if IsValidEntity(units[i]) and not units[i]:IsNull() and units[i]:IsHero() then 
+                                	units[i]:AddNewModifier(units[i], nil, "modifier_camera_follow", {duration = 1.0})
+                                	if units[i]:GetAbsOrigin().y < -2000 then 
+                                		--Timers:CreateTimer(0.2, function() 
+                                			print('why u still stay in isekai????')
+                                			print(units[i].world_loc)
+                                			--units[i]:SetAbsOrigin(units[i].world_loc) 
+                                			FindClearSpaceForUnit(units[i], units[i].world_loc, true)
+                                		--end)
+                                	end
+                                end
                             end)
                             IsUnitGeneratedInUBW = false
                             break 
@@ -1455,7 +1522,6 @@ function OnUBWBarrageRetreat(keys)
 	end)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
-
 
 	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
 		caster:EmitSound("Shirou-NineFinish")
@@ -1791,6 +1857,7 @@ function OnNineStart(keys)
 	else
 		caster:EmitSound("Archer.NineLives")
 	end
+
 end
 
 -- add pause
@@ -1859,21 +1926,11 @@ function OnNineLanded(caster, ability)
 					end
 				end
 
-				--[[
-				if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') then 
-					caster:EmitSound("Shirou-NineFinish")
-				elseif caster:HasModifier('modifier_alternate_05') then
-					caster:EmitSound("Muramasa-NineFinish")
-				else
-					caster:EmitSound("Archer.NineFinish")
-				end
-				]]--
-
-				caster:EmitSound("Archer.NineFinish")
+				caster:EmitSound("Archer.NineFinish") 
 
 				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
 				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
-				ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
+				ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
 				-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, lasthitradius, true, 0.5)
 			else
@@ -2362,7 +2419,14 @@ function OnHruntingAcquired(keys)
 		master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 
 		if ServerTables:GetTableValue("Condition", "dbhruntproh") == true then
-			local hero_data = ServerTables:GetAllTableValues('HeroSelection')
+			local kuro_playerId = ServerTables:GetTableValue("Condition", "kuro")
+			local kuro = PlayerResource:GetPlayer(kuro_playerId):GetAssignedHero()
+			kuro.MasterUnit2:FindAbilityByName('kuro_attribute_hrunting'):StartCooldown(9999)
+			kuro.MasterUnit2:AddAbility("fate_empty3")
+			kuro.MasterUnit2:SwapAbilities("fate_empty3", "kuro_attribute_hrunting", true, false)
+			Say(hero:GetPlayerOwner(), "Emiya is upgrading Attribute: Hrunting", true)
+			Say(hero:GetPlayerOwner(), "Chloe's Attribute: Hrunting will be disabled", true)
+			--[[local hero_data = ServerTables:GetAllTableValues('HeroSelection')
 			for i = 0, DOTA_MAX_PLAYERS - 1 do 
 				if hero_data[i] == "npc_dota_hero_naga_siren" then 
 					local hhero = PlayerTables:GetTableValue("hHero", 'hhero', i)
@@ -2374,7 +2438,7 @@ function OnHruntingAcquired(keys)
 					Say(hero:GetPlayerOwner(), "Emiya is upgrading Attribute: Hrunting", true)
 					Say(hero:GetPlayerOwner(), "Chloe's Attribute: Hrunting will be disabled", true)
 				end
-			end
+			end]]
 
 			--[[if ServerTables:GetTableValue("Condition", "dbhruntproh") == true then
 			local kuro = Entities:FindByClassname(nil, "npc_dota_hero_naga_siren")

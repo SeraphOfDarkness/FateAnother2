@@ -11,6 +11,8 @@ CDOTA_Ability_Lua = IsServer() and CDOTA_Ability_Lua or C_DOTA_Ability_Lua
 --[:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::]
 CDOTA_Item_Lua = IsServer() and CDOTA_Item_Lua or C_DOTA_Item_Lua
 
+CDOTA_BaseNPC_Hero = IsServer() and CDOTA_BaseNPC_Hero or C_DOTA_BaseNPC_Hero
+
 local VALVE_Say = Say
 Say = function(hEntity, StringMessage, bteamOnly)
     if hEntity == nil then 
@@ -83,6 +85,11 @@ CDOTA_BaseNPC.AddNewModifier = function(self, hCaster, hAbility, pszScriptName, 
     	return nil
     else
         local dur = hModifierTable["Duration"] or hModifierTable["duration"]
+        --[[if pszScriptName == "modifier_stunned" then 
+            giveUnitDataDrivenModifier(hCaster, self, "stunned", dur)
+            return nil 
+        end]]
+        
         if self:IsRealHero() and hCaster:IsRealHero() and dur ~= nil and hCaster:GetTeam() ~= self:GetTeam() and CCModifierStatic[pszScriptName] == true then 
             hCaster.ServStat:doControl(dur)
         end
@@ -127,6 +134,25 @@ CDOTA_BaseNPC.HasModifier = function(self, pszScriptName)
         return VALVE_HasModifier(self, pszScriptName)
     end
 end
+
+local VALVE_CDOTA_BaseNPC_SpendMana = CDOTA_BaseNPC.SpendMana
+CDOTA_BaseNPC.SpendMana = function(self, flManaSpent, hAbility)
+    if type(hAbility) == "table" and not hAbility:IsNull() then
+        --NOTE: Can use Script_ReduceMana(mana: float, ability: handle): You can use this too if you want, but it might also crash, not sure, as I didn't test it
+        return VALVE_CDOTA_BaseNPC_SpendMana(self, flManaSpent, hAbility)
+    end
+end
+
+--!------------------------------------------------------------
+
+local VALVE_GetIntellect = CDOTA_BaseNPC_Hero.GetIntellect
+CDOTA_BaseNPC_Hero.GetIntellect = function(self, unknown1)
+    --print(unknown1)
+    if unknown1 == nil then 
+        unknown1 = true 
+    end
+    return VALVE_GetIntellect(self, unknown1)
+end
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 local VALVE_EmitSound = CBaseEntity.EmitSound
 CBaseEntity.EmitSound = function(self, soundname)
@@ -141,16 +167,19 @@ end
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 local VALVE_ApplyDataDrivenModifier = CDOTABaseAbility.ApplyDataDrivenModifier
-CDOTABaseAbility.ApplyDataDrivenModifier = function(self, hCaster, hTarget, pszModifierName, hModifierTable)
+CDOTABaseAbility.ApplyDataDrivenModifier = function(self, hCaster, hTarget, pszModifierName, hModifierTable, unknown1)
     if hTarget:IsNull() or hTarget == nil then
     	print('apply data driven modifier error: no target')
     	return nil
     else
+        if unknown1 == nil then 
+            unknown1 = true 
+        end
         local dur = hModifierTable["Duration"] or hModifierTable["duration"]
         if hTarget:IsRealHero() and hCaster:IsRealHero() and dur ~= nil and hCaster:GetTeam() ~= hTarget:GetTeam() and CCModifierStatic[pszScriptName] == true then 
             hCaster.ServStat:doControl(dur)
         end
-        return VALVE_ApplyDataDrivenModifier(self, hCaster, hTarget, pszModifierName, hModifierTable)
+        return VALVE_ApplyDataDrivenModifier(self, hCaster, hTarget, pszModifierName, hModifierTable, unknown1)
     end
 end
 
@@ -160,8 +189,44 @@ CDOTA_BaseNPC.FateHeal = function(self, fHeal, hSource, bStatic)
         hSource.ServStat:onHeal(math.min(fHeal, missing_hp))
     end
 
+    if self:HasModifier("modifier_zhuge_liang_array_heal_debuff") then 
+        print('heal cut')
+        print('heal before cut =' .. fHeal)
+        local debuff = self:FindModifierByName("modifier_zhuge_liang_array_heal_debuff")
+        local heal_debuff = debuff:GetStackCount()/100 
+        fHeal = fHeal * heal_debuff
+        print('heal after cut =' .. fHeal)
+    end
+
+    if not self.bIsDmgPopupDisabled then
+        PopupHealing(self, math.floor(fHeal))
+    end
+
     self:Heal(fHeal, hSource)
 end
+
+------------------------
+local VALVE_SpendCharge = CDOTA_Item_Lua.SpendCharge
+CDOTA_Item_Lua.SpendCharge = function(self, flDelayRemove)
+    if flDelayRemove == nil or flDelayRemove >= 1 then 
+        flDelayRemove = 0.1 
+    end
+    local caster = self:GetParent()
+    SetShareCooldown(self, caster)
+    
+    return VALVE_SpendCharge(self, flDelayRemove)
+end
+
+function SetShareCooldown(hItem, hCaster)
+
+    for i=0, 17 do 
+        if hCaster:GetItemInSlot(i) ~= nil and hCaster:GetItemInSlot(i) ~= hItem and hCaster:GetItemInSlot(i):GetAbilityName() == hItem:GetAbilityName() then
+            hCaster:GetItemInSlot(i):EndCooldown()
+            hCaster:GetItemInSlot(i):StartCooldown(hItem:GetCooldown(1))
+        end
+    end
+end
+
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 --[[CDOTABaseAbility.GetCastRangeBonus = function(self, hTarget) --Crashes normal addons, because gaben released new patch with error in 24.02.2022 pizdec, only for LUA ABILITY, For items i think all fne.... cringe
     return self:GetCaster():GetCastRangeBonus()

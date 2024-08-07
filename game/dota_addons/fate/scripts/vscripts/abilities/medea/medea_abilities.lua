@@ -20,7 +20,7 @@ function OnTerritoryCreated(keys)
 	
 
 	-- Check if Workshop already exists 
-	if caster.IsTerritoryPresent then
+	if caster.IsTerritoryPresent and caster:HasModifier("modifier_caster_death_checker") then
 		ability:EndCooldown()
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Workshop_Exists")
 		return 
@@ -39,7 +39,7 @@ function OnTerritoryCreated(keys)
 	caster.Territory:SetControllableByPlayer(pid, true)
 	caster.Territory:SetOwner(caster)
 	LevelAllAbility(caster.Territory)
-	keys.ability:ApplyDataDrivenModifier(caster, caster.Territory, "modifier_territory_death_checker", {}) 
+	ability:ApplyDataDrivenModifier(caster, caster.Territory, "modifier_territory_death_checker", {}) 
 
 	--[[
 	-- Create spy unit for enemies
@@ -70,8 +70,10 @@ function OnTerritoryCreated(keys)
 	-- Do special handling for attribute
 	Timers:CreateTimer(5, function() --because it takes 5 seconds for territory to be built
 		if caster.IsTerritoryImproved and caster.IsTerritoryPresent and not caster.Territory:IsNull() then 
+			local sData = ServerTables:GetAllTableValues("Score")
 			local radius = keys.ability:GetSpecialValueFor("mana_regen_radius")
 			local true_sight = keys.ability:GetSpecialValueFor("true_sight")
+			local exp = keys.ability:GetSpecialValueFor("exp")
 			truesightdummy = CreateUnitByName("sight_dummy_unit", caster.Territory:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 			truesightdummy:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = true_sight}) 
 			local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
@@ -93,6 +95,15 @@ function OnTerritoryCreated(keys)
 				for k,v in pairs(targets) do
 			        if IsValidEntity(v) and not v:IsNull() and not IsManaLess(v) then
 			         	ability:ApplyDataDrivenModifier(caster, v, "modifier_territory_mana_regen", {Duration = 1.0}) 
+			        end
+			        if string.match(GetMapName(), "fate_elim") and v:IsRealHero() then 
+			        	--print('team 1 score: ' .. sData.nRadiantScore)
+			        	--print('team 2 score: ' .. sData.nDireScore)
+			        	if v:GetTeamNumber() == 2 and  sData.nRadiantScore < sData.nDireScore then 
+			        		v:AddExperience(exp, false, false)
+			        	elseif v:GetTeamNumber() == 3 and  sData.nRadiantScore > sData.nDireScore then 
+			        		v:AddExperience(exp, false, false)
+			        	end
 			        end
 			    end
 				return 1.0
@@ -153,6 +164,13 @@ function OnTerritoryOwnerDeath(keys)
 	end
 end
 
+function OnDragonDeath(keys)
+	local caster = keys.caster
+	if caster:HasModifier("modifier_mount_caster") then 
+		caster:RemoveModifierByName("modifier_mount_caster")
+	end
+end
+
 --[[
 	Author: Dun1007
 	Date: 9.2.2015.
@@ -180,7 +198,12 @@ end
 ]]
 function OnTerritoryDeath(keys)
 	local caster = keys.caster
-	--local hero = caster:GetOwner()
+	caster:RemoveModifierByName("modifier_caster_death_checker")
+	if caster:HasModifier("modifier_mount_caster") then
+		caster:RemoveModifierByName("modifier_mount_caster")
+		caster.IsMounted = false
+		SendMountStatus(caster)
+	end
 	--print(caster:GetUnitName())
 	--print(hero:GetUnitName())
 	caster.IsTerritoryPresent = false
@@ -191,11 +214,11 @@ function OnTerritoryDeath(keys)
 	for k,v in pairs(summons) do
 		print("Found unit " .. v:GetUnitName())
 		if string.match(v:GetUnitName(), "medea_skeleton") or string.match(v:GetUnitName(), "medea_ancient_dragon") then
-			v:ForceKill(true) 
+			if not v:IsNull() and IsValidEntity(v) then
+				v:ForceKill(true) 
+			end
 		end
 	end
-
-	caster:RemoveModifierByName("modifier_caster_death_checker")
 end
 
 --[[
@@ -262,7 +285,16 @@ end
 
 function OnManaDrainCast(keys)
 	local caster = keys.caster
+	local ability = keys.ability
 	local target = keys.target
+	ability.target = target
+
+	if target:GetUnitName() == caster:GetUnitName() then 
+		caster:Stop()
+		--ability:EndCooldown()
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Target_Self")
+		return
+	end
 	--PrintTable(keys)
 	--print(direction)
 	--local direction = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
@@ -283,22 +315,17 @@ function OnManaDrainStart(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ply = caster:GetPlayerOwner()
-	local hero = ply:GetAssignedHero()
+	local hero = caster:GetOwner()
 	local ability = keys.ability
 	local particleName = "particles/units/heroes/hero_lion/lion_spell_mana_drain.vpcf"
 	local int_ratio = ability:GetSpecialValueFor("int_ratio")
 	local tick_interval = ability:GetSpecialValueFor("tick_interval")
 	local break_distance = ability:GetSpecialValueFor("break_distance")
 
-
 	caster.ManaDrainParticle = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
 	caster.ManaDrainTarget = target
-	if target == caster then 
-		ability:EndCooldown()
-		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Target_Self")
-		return
-	end
-	keys.ManaPerSec = keys.ManaPerSec + hero:GetIntellect() * int_ratio
+
+	keys.ManaPerSec = math.floor(keys.ManaPerSec + (hero:GetIntellect() * int_ratio))
 
 	caster.IsManaDrainChanneling = true
 	local dist = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
@@ -311,8 +338,8 @@ function OnManaDrainStart(keys)
 				keys.ability:EndChannel(false)
 				return 
 			end
-			caster:ReduceMana(keys.ManaPerSec * tick_interval) 
-			target:GiveMana(keys.ManaPerSec * tick_interval) 
+			caster:SpendMana(math.floor(keys.ManaPerSec * tick_interval), ability)
+			target:GiveMana(math.floor(keys.ManaPerSec * tick_interval)) 
 			return tick_interval
 		end)
 		ParticleManager:SetParticleControlEnt(caster.ManaDrainParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -321,12 +348,12 @@ function OnManaDrainStart(keys)
 		Timers:CreateTimer(function()  
 			if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
 			dist = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
-			if caster.IsManaDrainChanneling == false or target:GetMana() == 0 or caster:GetMana() == caster:GetMaxMana() or dist > break_distance or not target:CanEntityBeSeenByMyTeam(caster) then 
+			if caster.IsManaDrainChanneling == false or target:GetMana() == 0 --[[or caster:GetMana() == caster:GetMaxMana()]] or dist > break_distance or not target:CanEntityBeSeenByMyTeam(caster) then 
 				keys.ability:EndChannel(false)
 				return 
 			end
-			target:ReduceMana(keys.ManaPerSec * tick_interval) 
-			caster:GiveMana(keys.ManaPerSec * tick_interval) 
+			target:SpendMana(math.floor(keys.ManaPerSec * tick_interval), ability)
+			caster:GiveMana(math.floor(keys.ManaPerSec * tick_interval)) 
 			return tick_interval
 		end)
 		ParticleManager:SetParticleControlEnt(caster.ManaDrainParticle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -433,6 +460,9 @@ function OnSummonDragon(keys)
 
 	-- Kill the existing dragon
 	if caster.dragon and IsValidEntity(caster.dragon) and not caster.dragon:IsNull() and caster.dragon:IsAlive() then 
+		if hero:HasModifier("modifier_mount_caster") then 
+			hero:RemoveModifierByName("modifier_mount_caster")
+		end
 		caster.dragon:ForceKill(true)
 	end
 	--[[local dragFind = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
@@ -451,7 +481,7 @@ function OnSummonDragon(keys)
 	LevelAllAbility(drag)
 	FindClearSpaceForUnit(drag, drag:GetAbsOrigin(), true)
 	drag:AddItem(CreateItem("item_caster_5th_mount" , nil, nil))
-	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
+	drag:AddNewModifier(caster, nil, "modifier_kill", {Duration = duration})
 
 	drag:SetMaxHealth(keys.Health)
 	drag:SetHealth(keys.Health)
@@ -466,16 +496,20 @@ function OnSummonDragon(keys)
 		drag:SetHealth(newHealth)
 		drag:SetBaseMoveSpeed(drag:GetBaseMoveSpeed() + hero:GetIntellect()*keys.MSRatio)
 	end)
+	ability:ApplyDataDrivenModifier(hero, drag, "modifier_caster_dragon_checker", {Duration = duration - 0.1})
 
 	local skillLevel = 1 + (hero:GetLevel() - 1)/lvl_gain
 	if skillLevel > 8 then skillLevel = 8 end
 
 	drag:FindAbilityByName("medea_dragon_frostbite"):SetLevel(skillLevel)
 	drag:FindAbilityByName("medea_dragon_arcane_wrath"):SetLevel(skillLevel)
+	drag:FindAbilityByName("medea_dragon_arcane_wrath"):SetActivated(false)
     local playerData = {
         transport = drag:entindex()
     }
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "player_summoned_transport", playerData )
+    hero.IsMounted = false
+	SendMountStatus(hero)
 end
 
 --[[
@@ -800,7 +834,8 @@ function OnMountStart(keys)
 					SendErrorMessage(hero:GetPlayerOwnerID(), "#Cannot_Unmount")
 					return								
 				else
-					caster:SwapAbilities("medea_dragon_arcane_wrath", "fate_empty2", true, true) 
+					caster:FindAbilityByName("medea_dragon_arcane_wrath"):SetActivated(false)
+					--caster:SwapAbilities("medea_dragon_arcane_wrath", "fate_empty2", true, true) 
 					hero:RemoveModifierByName("modifier_mount_caster")
 					caster:RemoveModifierByName("modifier_mount")
 					hero.IsMounted = false
@@ -808,7 +843,8 @@ function OnMountStart(keys)
 				end
 			elseif (caster:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < 400 and not hero:HasModifier("stunned") and not hero:HasModifier("modifier_stunned") then
 				hero.IsMounted = true
-				caster:SwapAbilities("medea_dragon_arcane_wrath", "fate_empty2", true, true) 
+				caster:FindAbilityByName("medea_dragon_arcane_wrath"):SetActivated(true)
+				--caster:SwapAbilities("medea_dragon_arcane_wrath", "fate_empty2", true, true) 
 				keys.ability:ApplyDataDrivenModifier(caster, hero, "modifier_mount_caster", {})
 				keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_mount", {}) 
 				SendMountStatus(hero)
@@ -1029,9 +1065,9 @@ function OnAncientOpen(keys)
 	end
 	
 	if caster.IsTerritoryImproved then
-		caster:SwapAbilities("medea_mana_transfer", "medea_territory_creation_upgrade", true, false) 
+		caster:SwapAbilities("medea_magic_trap", "medea_territory_creation_upgrade", true, false) 
 	else
-		caster:SwapAbilities("medea_mana_transfer", "medea_territory_creation", true, false) 
+		caster:SwapAbilities("medea_magic_trap", "medea_territory_creation", true, false) 
 	end
 	caster:SwapAbilities("medea_close_spellbook", "medea_item_construction", true, false)
 end
@@ -1068,9 +1104,9 @@ function OnAncientClose(keys)
 		end
 	end
 	if caster.IsTerritoryImproved then
-		caster:SwapAbilities("medea_mana_transfer", "medea_territory_creation_upgrade", false, true) 
+		caster:SwapAbilities("medea_magic_trap", "medea_territory_creation_upgrade", false, true) 
 	else
-		caster:SwapAbilities("medea_mana_transfer", "medea_territory_creation", false, true) 
+		caster:SwapAbilities("medea_magic_trap", "medea_territory_creation", false, true) 
 	end
 	caster:SwapAbilities("medea_close_spellbook", "medea_item_construction", false, true)
 end
@@ -1087,7 +1123,7 @@ function AncientLevelUp(keys)
 		caster:FindAbilityByName("medea_divine_words"):SetLevel(ability:GetLevel())
 		caster:FindAbilityByName("medea_wall_of_flame"):SetLevel(ability:GetLevel())
 	end
-	caster:FindAbilityByName("medea_mana_transfer"):SetLevel(ability:GetLevel())
+	caster:FindAbilityByName("medea_magic_trap"):SetLevel(ability:GetLevel())
 	caster:FindAbilityByName("medea_sacrifice"):SetLevel(ability:GetLevel())
 end
 
@@ -1279,6 +1315,41 @@ function CreateSacrificeAllyParticle(keys)
 	ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_j.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
 end
 
+function OnTrapstart(keys)
+	local caster = keys.caster
+	local ability = keys.ability 
+	local duration = ability:GetSpecialValueFor("duration")
+	local aoe = ability:GetSpecialValueFor("aoe") 
+	caster.TrapActivated = false
+
+	local trap_dummy = CreateUnitByName("medea_trap", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	trap_dummy:FindAbilityByName("dummy_unit_passive_no_fly"):SetLevel(1)
+	trap_dummy:AddNewModifier(caster, ability, "modifier_kill", {Duration = duration})
+	trap_dummy:SetAbsOrigin(trap_dummy:GetAbsOrigin() + Vector(0,0,20))
+	ability:ApplyDataDrivenModifier(caster, trap_dummy, "modifier_medea_trap_checker", {})
+
+	Timers:CreateTimer(ability:GetSpecialValueFor("delay"), function() 
+		caster.TrapActivated = true
+	end)
+end
+
+function OnTrapThink(keys)
+	local caster = keys.caster
+	local trap = keys.target 
+	local ability = keys.ability
+	local aoe = ability:GetSpecialValueFor("aoe") 
+
+	if caster.TrapActivated == false then return end
+	
+	local target = FindUnitsInRadius(caster:GetTeam(), trap:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false) 
+			
+	if target[1] ~= nil then
+		ability:ApplyDataDrivenModifier(caster, target[1], "modifier_medea_trap_lock", {})
+		target[1]:SetAbsOrigin(trap:GetAbsOrigin())
+		trap:ForceKill(false)
+	end
+end
+
 function OnMTStart(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -1353,7 +1424,7 @@ function OnRBStart(keys)
 	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	ApplyStrongDispel(target)
 	caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))		
-	keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_c_rule_breaker", {}) 
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_c_rule_breaker", {}) 
 
 
 	if caster.IsRBImproved then
@@ -1375,6 +1446,7 @@ function OnRBStart(keys)
 	CasterCheckCombo(caster,ability)	
 
 	target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = keys.StunDuration})
+	giveUnitDataDrivenModifier(caster, target, "silenced", keys.StunDuration)
 end
 
 function OnRBSealStolen(keys)

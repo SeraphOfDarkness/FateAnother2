@@ -30,5 +30,6 @@ function item_sentry_familiar:OnSpellStart()
     giveUnitDataDrivenModifier(caster.ward, caster.ward, "modifier_ward_dmg_reduce", {duration = self:GetSpecialValueFor("duration")})
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 
-    if iCurrentCharges == 1 then caster:RemoveItem(self) else self:SetCurrentCharges(iCurrentCharges - 1) end
+    self:SpendCharge(1)
+    --if iCurrentCharges == 1 then caster:RemoveItem(self) else self:SetCurrentCharges(iCurrentCharges - 1) end
 end

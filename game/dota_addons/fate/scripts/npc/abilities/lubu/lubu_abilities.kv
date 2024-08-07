@@ -10,38 +10,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/lubu/lubu_rebel"
 		"MaxLevel"						"1"
+		"AbilityCooldown"				"1"
 
-		"precache"
+		"AbilityValues"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
-			"particle"  	"particles/custom/lubu/lubu_rebel_buff.vpcf"
+			"max_stack"				"3"
+			"bonus_atk_per_death"	"15"
+			"bonus_aspd_per_death"	"15"
+			"bonus_gold_per_stack"	"20"
+			"str_per_stack"			"10"
 		}
 
-		"AbilitySpecial"
-		{
-
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_atk_per_death"	"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd_per_death"	"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_per_stack"	"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stack"				"3"
-			}
-		}
-		
 		"Modifiers"
 		{
 			"modifier_lubu_rebel"
@@ -69,6 +48,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_atk_per_death"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_aspd_per_death" 
+				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%str_per_stack"
 				}
 				"ThinkInterval"				"1.0"
 				"OnIntervalThink"
@@ -98,7 +78,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/lubu/lubu_abilities"
+		"ScriptFile"					"abilities/lubu/lubu_blade"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -109,78 +89,21 @@
 		"AbilityTextureName"			"custom/lubu/lubu_blade1"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-			"particle"		"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
-			"particle"		"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_crit_tgt.vpcf"
-			"particle"		"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf"
-			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
-			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-			"particle"		"particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_crit.vpcf"
-			"particle"		"particles/custom/lubu/lubu_cleave_ring.vpcf"
-			"particle"		"particles/custom/lishuwen/lishuwen_third_hit.vpcf"
-			"particle"		"particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf"
-		}
-		
-		// Ability stats
-		//-------------------------------------------------------------------------------------------------------------
-		//"AbilityCastRange"			"700"
-		//"AbilityCastPoint"				"0.3"
+
 		"AbilityCooldown"				"11"
 		"AbilityManaCost"				"100"
-		
-		// Ability special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{	
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"total_slash"				"3"
-			}		
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_1"					"280 320 360 400 440"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"first_aoe"					"400"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_2"					"280 320 360 400 440"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"second_aoe"				"400"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_3"					"280 320 360 400 440"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"third_aoe"					"500"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"third_knock"				"1.0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"window_duration"			"3.5"
-			}
+
+		"AbilityValues"
+		{
+			"total_slash"				"3"
+			"damage_1"					"280 320 360 400 440"
+			"first_aoe"					"400"
+			"damage_2"					"280 320 360 400 440"
+			"second_aoe"				"400"
+			"damage_3"					"280 320 360 400 440"
+			"third_aoe"					"500"
+			"third_knock"				"1.0"
+			"window_duration"			"3.5"
 		}
 	}
 	//=================================================================================================================
@@ -191,7 +114,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/lubu/lubu_abilities"
+		"ScriptFile"					"abilities/lubu/lubu_blade"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -202,82 +125,236 @@
 		"AbilityTextureName"			"custom/lubu/lubu_blade1"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate" 		"1.0"
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-			"particle"		"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
-			"particle"		"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_crit_tgt.vpcf"
-			"particle"		"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf"
-			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
-			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-			"particle"		"particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_crit.vpcf"
-			"particle"		"particles/custom/lubu/lubu_cleave_ring.vpcf"
-			"particle"		"particles/custom/lishuwen/lishuwen_third_hit.vpcf"
-			"particle"		"particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf"
-		}
 		
-		// Ability stats
-		//-------------------------------------------------------------------------------------------------------------
-		//"AbilityCastRange"			"700"
-		//"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"11"
 		"AbilityManaCost"				"100"
+
+		"AbilityValues"
+		{
+			"total_slash"				"3"
+			"damage_1"					"280 320 360 400 440"
+			"first_aoe"					"400"
+			"damage_2"					"280 320 360 400 440"
+			"second_aoe"				"400"
+			"damage_3"					"280 320 360 400 440"
+			"damage_3_per_str"			"1.0"
+			"third_aoe"					"500"
+			"third_knock"				"1.0"
+			"window_duration"			"3.5"
+		}
+	}
+	//=================================================================================================================
+	// Lu bu : Flying General
+	//=================================================================================================================
+	"lubu_flying"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lubu/lubu_fly"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lubu/lubu_flying"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"0.0"	
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
 		
-		// Ability special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{	
-			"01"
+		"AbilityValues"
+		{
+			"distance"				"800"
+			"duration"				"3"
+			"bonus_ms"				"800"
+			"dmg_red"				"0"
+			"hit_damage"			"300 350 400 450 500"
+			"slam_damage"			"300"
+			"slam_aoe"				"400"
+			"slam_stun"				"1.0 1.0 1.1 1.1 1.2"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"total_slash"				"3"
-			}		
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_1"					"280 320 360 400 440"
+				"ScriptFile"	"abilities/lubu/lubu_abilities"
+				"Function"		"OnFlyingSTart"
 			}
-			"02"
+		}
+		"Modifiers"
+		{
+			"modifier_lubu_fly"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"first_aoe"					"400"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"%duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				//"EffectName"		"particles/econ/items/windrunner/windranger_arcana/windranger_arcana_debut_screen_wipe_lines.vpcf"
+				//"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%dmg_red"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%bonus_ms"
+					"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION"		"1"
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION"			"ACT_DOTA_RUN"
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"2.0"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnFlyingRun"
+					}
+				}
 			}
-			"04"
+			"modifier_lubu_fly_slam"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_2"					"280 320 360 400 440"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnSlamAnim"
+					}
+				}
+				"ThinkInterval"  "0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnSlamThink"
+					}
+				}
 			}
-			"02"
+		}
+	}
+	//=================================================================================================================
+	// Lu bu : Flying General
+	//=================================================================================================================
+	"lubu_flying_upgrade"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lubu/lubu_fly"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lubu/lubu_flying"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"0.0"	
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+		{
+			"distance"				"800"
+			"duration"				"3"
+			"bonus_ms"				"800"
+			"dmg_red"				"-30 -35 -40 -45 -50"
+			"hit_damage"			"300 350 400 450 500"
+			"slam_damage"			"300"
+			"slam_aoe"				"400"
+			"slam_stun"				"1.0 1.0 1.1 1.1 1.2"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"second_aoe"				"400"
+				"ScriptFile"	"abilities/lubu/lubu_abilities"
+				"Function"		"OnFlyingSTart"
 			}
-			"06"
+		}
+		"Modifiers"
+		{
+			"modifier_lubu_fly"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_3"					"280 320 360 400 440"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"%duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%dmg_red"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%bonus_ms"
+					"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION"		"1"
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION"			"ACT_DOTA_RUN"
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"2.0"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnFlyingRun"
+					}
+				}
 			}
-			"07"
+			"modifier_lubu_fly_slam"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_3_per_str"			"1.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"third_aoe"					"500"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"third_knock"				"1.0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"window_duration"			"3.5"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnSlamAnim"
+					}
+				}
+				"ThinkInterval"  "0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/lubu/lubu_abilities"
+						"Function"		"OnSlamThink"
+					}
+				}
 			}
 		}
 	}
@@ -291,7 +368,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -315,29 +392,13 @@
 			"particle"					"particles/custom/archer/archer_broken_phantasm/archer_broken_phantasm_crosshead.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.75"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 470 540 610 680"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.0 1.0 1.1 1.1 1.2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.75"
+            "damage" "400 470 540 610 680"
+            "stun_duration" "1.0 1.0 1.1 1.1 1.2"
+            "range" "1200"
+        }
 
 		"OnSpellStart"
 		{
@@ -415,7 +476,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -435,33 +496,17 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"particle"					"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
 			"particle"					"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-			"particle"  				"particles/custom/lubu/lubu_arcana_powershot_channel_combo_v2.vpcf"
+			
 			"particle"					"particles/custom/archer/archer_broken_phantasm/archer_broken_phantasm_crosshead.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.75"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 670 740 810 880"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.0 1.0 1.1 1.1 1.2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.75"
+            "damage" "600 670 740 810 880"
+            "stun_duration" "1.0 1.0 1.1 1.1 1.2"
+            "range" "2000"
+        }
 
 		"OnSpellStart"
 		{
@@ -554,42 +599,12 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"precache"
+		"AbilityValues"
 		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
-			"particle"  			"particles/custom/lubu/lubu_lance.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5b.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_body_electric.vpcf"
-			"particle"  			"particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_ambient_random.vpcf"
-			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2_shoulder.vpcf"
-			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2.vpcf"
-			"particle"				"particles/custom/berserker/courage/stun_explosion.vpcf"
-		}
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 6.5 7.0 7.5 8.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_atk"				"30 35 40 45 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"20 25 30 35 40"
-			}
-
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_ms"				"20"
-			}
+			"duration"				"6.0 6.5 7.0 7.5 8.0"
+			"bonus_atk"				"20 25 30 35 40"
+			"bonus_aspd"			"20 25 30 35 40"
+			"bonus_ms"				"20"
 		}
 
 		"OnSpellStart"
@@ -711,63 +726,17 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"precache"
+		"AbilityValues"
 		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
-			"particle"  			"particles/custom/lubu/lubu_lance.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5b.vpcf"
-			"particle"  			"particles/custom/lubu/lubu_body_electric.vpcf"
-			"particle"  			"particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_ambient_random.vpcf"
-			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2_shoulder.vpcf"
-			"particle"				"particles/custom/berserker/courage/debuff.vpcf"
-			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2.vpcf"
-			"particle"				"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
-		}
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 6.5 7.0 7.5 8.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_atk"				"50 55 60 65 70"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"40 45 50 55 60"
-			}
-
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_ms"				"40"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_damage"			"300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_aoe"				"300"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"3"
-			}
+			"slow_aoe"				"300"
+			"slow_damage"			"300"
+			"slow"					"-30"
+			"slow_duration"			"3"
+			"duration"				"6.0 6.5 7.0 7.5 8.0"
+			"bonus_atk"				"40 45 50 55 60"
+			"bonus_aspd"			"40 45 50 55 60"
+			"bonus_ms"				"30"
+			"bonus_str"				"3 6 9 12 15"
 		}
 
 		"OnSpellStart"
@@ -799,6 +768,7 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_atk"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_aspd"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_ms"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_str"
 				}
 				"OnCreated"
 				{
@@ -907,20 +877,6 @@
 		"AbilityTextureName"			"custom/lubu/lubu_god_force"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		
-		"precache"
-		{
-			"particle"		"particles/custom/berserker/nine_lives/hit.vpcf"
-			"particle"		"particles/custom/berserker/nine_lives/last_hit.vpcf"
-			"particle"		"particles/custom/berserker/nine_lives/slash.vpcf"
-			"particle"  	"particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_untargetable.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_god_force_fx.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_lightning.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_lightning_bolt.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-		}
-		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"450"
@@ -934,70 +890,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.55"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"total_hit"			"5"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"450"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"angle"				"170"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 120 140 160 180"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_lasthit"	"440 550 660 770 880"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mini_stun"			"0.5"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.5"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"knock"				"300"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"str_per_hit"		"6 7 8 9 10"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"god_str_duration"	"25"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"interval"			"0.3"
-			}
-			
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.55"
+            "total_hit" "5"
+            "radius" "450"
+            "angle" "170"
+            "damage" "100 120 140 160 180"
+            "damage_lasthit" "440 550 660 770 880"
+            "mini_stun" "0.5"
+            "stun_duration" "1.5"
+            "knock" "300"
+            "str_per_hit" "6 7 8 9 10"
+            "god_str_duration" "25"
+            "interval" "0.3"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -1051,16 +958,7 @@
 		
 		"precache"
 		{
-			"particle"		"particles/custom/berserker/nine_lives/hit.vpcf"
-			"particle"		"particles/custom/berserker/nine_lives/last_hit.vpcf"
-			"particle"		"particles/custom/berserker/nine_lives/slash.vpcf"
-			"particle"  	"particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_untargetable.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_god_force_fx.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_lightning.vpcf"
-			"particle"  	"particles/custom/lubu/lubu_lightning_bolt.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			
 		}
 		
 		// Casting
@@ -1076,74 +974,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.55"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"total_hit"			"5"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"450"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"angle"				"170"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 120 140 160 180"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_lasthit"	"440 550 660 770 880"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_last"	"4"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mini_stun"			"0.5"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.5"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"knock"				"300"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"str_per_hit"		"6 7 8 9 10"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"god_str_duration"	"25"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"interval"			"0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.55"
+            "total_hit" "5"
+            "radius" "450"
+            "angle" "170"
+            "damage" "100 120 140 160 180"
+            "damage_lasthit" "440 550 660 770 880"
+            "bonus_damage_last" "4"
+            "mini_stun" "0.5"
+            "stun_duration" "1.5"
+            "knock" "300"
+            "str_per_hit" "6 7 8 9 10"
+            "god_str_duration" "25"
+            "interval" "0.3"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -1186,27 +1032,12 @@
 		"AbilityTextureName"			"custom/lubu/lubu_attribute_red_hare"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"120"
-		"precache"
+		"AbilityValues"
 		{
-			"particle"  	"particles/items_fx/aegis_respawn.vpcf"
-			"particle"  	"particles/custom/vlad/vlad_bc_buff.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+			"invul_dur"				"1.0"
+			"revive_health"			"30"
 		}
-		
-		"AbilitySpecial"
-		{		
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invul_dur"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"revive_health"			"30"
-			}	
-		}
-		
+
 		"Modifiers"
 		{
 			"modifier_lubu_immortal_cooldown"
@@ -1258,50 +1089,17 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
-		"precache"
+		"AbilityValues"
 		{
-			"particle"					"particles/custom/vlad/vlad_im_splash.vpcf"
-			"particle"					"particles/econ/items/lifestealer/ls_ti9_immortal_gold/ls_ti9_open_wounds_gold_wisp.vpcf"
+			"bonus_mr"				"10"
+			"bonus_as_per_1"		"10"
+			"bonus_hp_regen_per_1"	"0.6"
+			"splash_aoe"			"200"
+			"splash_percentage"		"75"
+			"drain_hp"				"80"
+			"atk_count_drain_hp"	"3"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_as_per_1"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_hp_regen_per_1"	"0.6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"splash_aoe"			"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"splash_percentage"		"75"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"drain_hp"				"80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"atk_count_drain_hp"	"3"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_lubu_ruthless_passive"
@@ -1383,56 +1181,16 @@
 	    "AbilityManaCost"				  	"800"
 	    "AbilityCastRange"					"2500"
 
-	    "precache"
-	    {
-	      	"particle"					"particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"
-	      	"particle"					"particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"
-	      	"particle"					"particles/custom/lancer/lancer_gae_bolg_hit.vpcf"
-	      	"particle"					"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_impact_d_gold.vpcf"
-	      	"particle"					"particles/custom/screen_green_splash.vpcf"
-	      	"particle"					"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-	      	"particle"  				"particles/custom/lubu/lubu_lightning_bolt.vpcf"
-	      	"particle"  				"models/heroes/dawnbreaker/debut/particles/battlemaiden_debut_intro_fall_ground_burn.vpcf"
-	      	"particle"					"particles/econ/items/oracle/oracle_ti10_immortal/oracle_ti10_immortal_purifyingflames_hit.vpcf"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-	    }
+	    "AbilityValues"
+		{
+			"delay"				    "2.0"
+			"range"				  	"2500"
+			"aoe"				    "800"
+			"arrows"			    "5"
+			"arrow_aoe"				"800"
+			"damage"			   	"1250"
+		}
 
-	    "AbilitySpecial"
-	    {
-	    	"02"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "delay"				    "2.0"
-		    }
-		    "04"
-		    {
-		        "var_type"			   	"FIELD_INTEGER"
-		        "arrows"			    "5"
-		    }
-		    "01"
-		    {
-		        "var_type"			 	"FIELD_INTEGER"
-		        "range"				  	"2500"
-		    }
-		    "02"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "aoe"				    "800"
-		    }
-		    "03"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "arrow_aoe"				"800"
-		    }
-		    
-		    "05"
-		    {
-		        "var_type"			    "FIELD_INTEGER"
-		        "damage"			   	"1250"
-		    }
-	    }
 	    "OnAbilityPhaseStart"
 	    {
 	    	"RunScript"
@@ -1515,55 +1273,16 @@
 	    "AbilityManaCost"				  	"800"
 	    "AbilityCastRange"					"4000"
 
-	    "precache"
-	    {
-	      	"particle"					"particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"
-	      	"particle"					"particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"
-	      	"particle"					"particles/custom/lancer/lancer_gae_bolg_hit.vpcf"
-	      	"particle"					"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_impact_d_gold.vpcf"
-	      	"particle"					"particles/custom/screen_green_splash.vpcf"
-	      	"particle"					"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-	      	"particle"  				"particles/custom/lubu/lubu_lightning_bolt.vpcf"
-	      	"particle"  				"models/heroes/dawnbreaker/debut/particles/battlemaiden_debut_intro_fall_ground_burn.vpcf"
-	      	"particle"					"particles/econ/items/oracle/oracle_ti10_immortal/oracle_ti10_immortal_purifyingflames_hit.vpcf"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
-	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-	    }
+	    "AbilityValues"
+		{
+			"delay"				    "2.0"
+			"range"				  	"4000"
+			"aoe"				    "800"
+			"arrows"			    "5"
+			"arrow_aoe"				"800"
+			"damage"			   	"1800"
+		}
 
-	    "AbilitySpecial"
-	    {
-	    	"02"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "delay"				    "2.0"
-		    }
-		    "01"
-		    {
-		        "var_type"			 	"FIELD_INTEGER"
-		        "range"				  	"4000"
-		    }
-		    "02"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "aoe"				    "800"
-		    }
-		    "03"
-		    {
-		        "var_type"				"FIELD_FLOAT"
-		        "arrow_aoe"				"800"
-		    }
-		    "04"
-		    {
-		        "var_type"			   	"FIELD_INTEGER"
-		        "arrows"			    "5"
-		    }
-		    "05"
-		    {
-		        "var_type"			    "FIELD_INTEGER"
-		        "damage"			   	"1800"
-		    }
-	    }
 	    "OnAbilityPhaseStart"
 	    {
 	    	"RunScript"
@@ -1641,22 +1360,11 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"13"
 
-		"precache"
+		"AbilityValues"
 		{
-		}
-
-		"AbilitySpecial"
-		{
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blade_3_per_str"			"1.0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_last"			"4"
-			}
+			"blade_3_per_str"			"1.0"
+			"bonus_hp_dmg"				"3"
+			"bonus_hp_last"				"10"
 		}
 		
 		"OnSpellStart"
@@ -1682,52 +1390,21 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"15"
 
-		"precache"
+		"AbilityValues"
 		{
+			"dmg_red"				"-30 -35 -40 -45 -50"
+			"slow_damage"			"300"
+			"slow_aoe"				"300"
+			"slow_duration"			"3"
+			"slow"					"-30"
+			"bonus_atk"				"20"
+			"bonus_aspd"			"20"
+			"bonus_ms"				"10"
+			"bonus_str"				"3 6 9 12 15"
 		}
 
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_atk"				"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"20"
-			}
-
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_ms"				"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_damage"			"300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_aoe"				"300"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"-30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"3"
-			}
-		}
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1751,36 +1428,14 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"7"
 
-		"precache"
+		"AbilityValues"
 		{
+			"combo_range"			"1500"
+			"combo_damage"			"550"
 		}
 
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"800"
-			}
-			"01"
-		    {
-		        "var_type"			 	"FIELD_INTEGER"
-		        "combo_range"			"1500"
-		    }
-		    "05"
-		    {
-		        "var_type"			    "FIELD_INTEGER"
-		        "combo_damage"			"550"
-		    }
-		}
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1806,49 +1461,17 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"16"
 
-		"precache"
+		"AbilityValues"
 		{
+			"bonus_mr"				"10"
+			"bonus_as_per_1"		"10"
+			"bonus_hp_regen_per_1"	"0.6"
+			"splash_aoe"			"200"
+			"splash_percentage"		"75"
+			"drain_hp"				"80"
+			"atk_count_drain_hp"	"3"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_as_per_1"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_hp_regen_per_1"	"0.6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"splash_aoe"			"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"splash_percentage"		"75"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"drain_hp"				"80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"atk_count_drain_hp"	"3"
-			}
-		}
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1874,22 +1497,10 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"18"
 
-		"precache"
+		"AbilityValues"
 		{
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invul_dur"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"revive_health"			"30"
-			}	
+			"invul_dur"				"1.0"
+			"revive_health"			"30"
 		}
 		
 		"OnSpellStart"
@@ -1899,6 +1510,184 @@
 				"ScriptFile"	"abilities/lubu/lubu_abilities"
 				"Function"		"OnImmortalAcquired"
 			}
+		}
+	}
+
+
+
+
+
+
+
+
+	//===================================================
+	// Lu Bu : God Force
+	//===================================================
+	"lubu_god_force_new"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lubu/lubu_god_force"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lubu/lubu_god_force"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 			"1.0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"450"
+		"AbilityCastPoint"				"0.55"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+
+		"AbilityValues"
+		{
+			"cast_delay"		"0.55"
+			"total_hit"			"5"
+			"radius"			"450"
+			"angle"				"200"
+			"damage"			"140 160 180 200 220"
+			"mini_stun"			"0.5"
+			"damage_spin"		"200 230 260 290 320"
+			"spin_stun"			"1.0"
+			"thrust_distance"	"700"
+			"thrust_width"		"400"
+			"damage_thrust"		"220 320 420 520 620"
+			"thrust_stun"		"1.5"
+			"knock"				"200"
+			"interval"			"0.4"
+		}
+	}
+	//===================================================
+	// Lu Bu : God Force
+	//===================================================
+	"lubu_god_force_new_upgrade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lubu/lubu_god_force"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lubu/lubu_god_force"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 			"1.0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"450"
+		"AbilityCastPoint"				"0.55"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+
+		"AbilityValues"
+		{
+			"cast_delay"		"0.55"
+			"total_hit"			"5"
+			"radius"			"450"
+			"angle"				"200"
+			"damage"			"140 160 180 200 220"
+			"bonus_hp_dmg"		"3"
+			"mini_stun"			"0.5"
+			"damage_spin"		"200 230 260 290 320"
+			"spin_stun"			"1.0"
+			"thrust_distance"	"700"
+			"thrust_width"		"400"
+			"damage_thrust"		"220 320 420 520 620"
+			"bonus_hp_thrust_dmg"	"10"
+			"thrust_stun"		"1.5"
+			"knock"				"200"
+			"interval"			"0.4"
+		}
+	}
+	//=======================================
+	// Precache
+	//=======================================
+	"lubu_precache"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/medusa/medusa_attribute_monstrous_strength"
+
+		"precache"
+		{
+			"model"					"models/lubu/general/lubu_flying_general.vmdl"
+			"model"					"models/lubu/mecha/mecha_lubu_zefiroft.vmdl"
+			"model"					"models/lubu/lubu_bow.vmdl"
+			"model"					"models/lubu/lubu_arrow2.vmdl"
+			"model"					"models/lubu/lubu_lance2.vmdl"
+			"particle"  			"particles/custom/lubu/lubu_rebel_buff.vpcf"
+			"particle"				"particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_crit.vpcf"
+			"particle"				"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_dash_lines.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_lance.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_spell_warcry_ti_5b.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_body_electric.vpcf"
+			"particle"  			"particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_ambient_random.vpcf"
+			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2_shoulder.vpcf"
+			"particle"				"particles/custom/berserker/courage/debuff.vpcf"
+			"particle"				"particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient_v2.vpcf"
+			"particle"				"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
+			"particle"  			"particles/items_fx/aegis_respawn.vpcf"
+			"particle"  			"particles/custom/vlad/vlad_bc_buff.vpcf"
+			"particle"				"particles/custom/vlad/vlad_im_splash.vpcf"
+			"particle"				"particles/econ/items/lifestealer/ls_ti9_immortal_gold/ls_ti9_open_wounds_gold_wisp.vpcf"
+			"particle"				"particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"
+	      	"particle"				"particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"
+	      	"particle"				"particles/custom/lancer/lancer_gae_bolg_hit.vpcf"
+	      	"particle"				"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_impact_d_gold.vpcf"
+	      	"particle"				"particles/custom/screen_green_splash.vpcf"
+	      	"particle"  			"particles/custom/lubu/lubu_arcana_powershot_channel_combo_v2.vpcf"
+	      	"particle"				"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+	      	"particle"  			"particles/custom/lubu/lubu_lightning_bolt.vpcf"
+	      	"particle"  			"models/heroes/dawnbreaker/debut/particles/battlemaiden_debut_intro_fall_ground_burn.vpcf"
+	      	"particle"				"particles/econ/items/oracle/oracle_ti10_immortal/oracle_ti10_immortal_purifyingflames_hit.vpcf"
+			"particle"  			"particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_untargetable.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_god_force_fx.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_new_r_grow.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_lance_b.vpcf"
+			"particle"  			"particles/custom/lubu/lubu_lightning.vpcf"
+			"particle"  			"particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+	      	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+	      	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+
 		}
 	}
 }

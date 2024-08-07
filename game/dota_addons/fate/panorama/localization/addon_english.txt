@@ -18,6 +18,10 @@
 		"DOTA_Custom6"    								"Cyan Faction"
 		"DOTA_Custom7"    								"Olive Faction"
 		"DOTA_Custom8"    								"Purple Faction"
+
+		"custom_end_screen_legend_mmr"					"MMR"
+		"custom_end_screen_legend_pp"					"PP"
+		"custom_end_screen_legend_avarice"				"Avarice"
 		
 		"addonname"										"Fate/Another II"
 		"Fateanother_Kotomine_Speech"					"&quot;Rejoice boy, Your wish will finally come true.\""
@@ -255,11 +259,11 @@
 		"BGM3"	"3. [Fate/Zero] Emiya -time alter-"
 		"BGM4"	"4. Warming up Disaster (Tomorrow's Collapse) | Melty Blood: Type Lumina [OST]"
 		"BGM5"	"5. Fate/Grand Order - Six Tail Tamamo Vitch Koyanskaya Theme"
-		"BGM6"	"6. Melty Blood Type Lumina OST  A Fateful Crossroads"
+		"BGM6"	"6. Actions in the Lower World | Melty Blood: Type Lumina [OST]"
 		"BGM7"	"7. [Fate/Grand Order] Oberon Battle OST"
 		"BGM8"	"8. Last Stardust -Fate/Stay Night: Unlimited Blade Works"
-		"BGM9"	"9. Melty Blood Type Lumina OST  The Astral Prison"
-		"BGM10"	"10. FateUnlimited Codes-Mighty Wind"
+		"BGM9"	"9. Blazing Ashes II -Fate/Stay Night: Unlimited Blade Works"
+		"BGM10"	"10. On the Battlefield -Fate/Zero"
 		"BGM11"	"11. The Battle Is to The Strong -Fate/Zero"
 		"BGM12"	"12. This Day, And Never Again -Fate/Zero"
 		"BGM13"	"13. Absolute Demonic Front -Fate/Grand Order (Babylonia)"
@@ -340,6 +344,31 @@ Rule
 - The team who pick PEPE will be revealed
 - Reward: 1000 CP"
 
+		"fate_tour"					"Fate Tour 3!"
+		"fate_tour_03_detail"			"
+Prize
+1st Place: CHAMPTION TITLE + LIMITED skin(TBA) + 6k CP per player on team
+2nd Place: 4k CP per player on team
+3rd Place: 2k CP per player on team
+Participation reward: 1k CP
+
+Date and Schedule
+- Registration date: 26th Oct - 3rd Nov
+- Announcement of Team and players : 4th Nov
+- Announcement of Match pairings: 5th Nov
+- Match timing will be decide by both of captain teams
+- Tournament match start 6th Nov - 27th Nov
+- Final TBA
+
+Registration
+- Registration date: 26th Oct - 3rd Nov
+- Each team has 7-9 players (7 line up + 2 bench)
+- Sign up as Team! (minimum players: 5) 
+- Sign up as Solo!
+- 1 player can join only 1 team
+- If team want to change team member, you need to tell zefiroft or nise before 3rd Nov
+- Each team can change information 1 time per day"
+
 
 		"FA_Config_Gameplay"			"Gameplay"
 		"FA_Config_Option1"				"Ask for gold when having less than 200g"
@@ -360,15 +389,21 @@ Rule
 		"FA_Config_Option11"				"Right side Master's Bar"
 		"FA_Config_Option12"				"Hide Fate Event UI"
 		"FA_Config_Option13"				"Enable Auto item combination"
+		"FA_Config_Option14"				"Enable PADORU sound"
 
 		"FA_Config_Cmd1"	"Pops a message that asks for gold to your team."
 		"FA_Config_Cmd2"	"Turns BGM on/off."
 		"FA_Config_Cmd3"	"Increases Master mana/health to 100/1000, \nand sets up Combo requirement stats."
 		"FA_Config_Cmd4"	"Removes pre-round pause status from all Servants."
 		"FA_Config_Cmd5"	"Enables or disables servants' voices."
+		"FA_Config_Cmd6"	"Refresh Combo and non resettable abilities."
 
 		"skin_ava"		"Skin Available"
 		"new_rec"		"Recommend for Newbie"
+		"code_fail"		"Invalid code"
+		"code_expired"	"Expired code"
+		"code_success"	"Reward Claimed"
+		"code_claimed"	"This Gift Code is already claimed"
 		"no_authority"	"Join Discord to get some Skins https://discord.gg/pZES9DTZE4"
 		"not_enuf_authority"	"Need More CP, You can gain CP by playing the game. First game of the day grant you 100 CP and finishing the game without quit grant you 10-30 based on Game Map"
 
@@ -382,7 +417,7 @@ Rule
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD,Seraph,Kagutsugi"
+        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD,Seraph"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"
@@ -397,7 +432,7 @@ Rule
 \nFilo for servant voice clips ported from other series.
 \nEYEOFLIE for Okita's model and animations.
 \nKaiserraiser and ZeFiRoFT for Drake and Scathach's model and animations.
-\nSeva (Fate/Balance) for Modred, Atalantat Alter.
+\nSeva (Fate/Balance) for Modred.
 \nZlodemon (Fate/Balance) for Nobunaga.
 \nTranslation volunteers: MENTAL OUT|食蜂操祈, Marcellus, Mucya, SasakiSaki, Com, Beato, Amano Jack, AMATERASU, Matka Tvoja, RyuDo, GISH, Goeniko, TITAN_BIGDICK, Ecuayos
 \nVarious other Type-Moon games such as Unlimited Codes and Extella which I shamelessly ripped audios from... plz no lawsuit.

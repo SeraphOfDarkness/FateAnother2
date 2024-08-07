@@ -63,12 +63,12 @@ function ApplyMarkOfFatality(caster,target,bActive)
 			abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality_cooldown", {}) 
 		end
 	end
-
+	local max_stack = abil:GetSpecialValueFor("max_stack")
 	-- add new stack
 	local currentStack = target:GetModifierStackCount("modifier_mark_of_fatality", caster) or 0
 	target:RemoveModifierByName("modifier_mark_of_fatality") 
 	abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality", {}) 
-	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
+	target:SetModifierStackCount("modifier_mark_of_fatality", abil, math.min(currentStack + 1, max_stack))
 	--[[if (currentStack + 1) % 5 == 0 then 
 		local silence_duration = ability:GetSpecialValueFor("silence_duration")
 		giveUnitDataDrivenModifier(caster, target, "silenced", silence_duration)
@@ -81,7 +81,15 @@ function OnMartialStart(keys)
 	local target = keys.target 
 	local silence_duration = ability:GetSpecialValueFor("silence_duration")
 
-	LishuwenCheckCombo(caster, ability)
+	if caster:GetName() == "npc_dota_hero_bloodseeker" then
+		LishuwenCheckCombo(caster, ability)
+	end
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lishuwen_martial_art_cooldown", {Duration= ability:GetCooldown(1)})
+
+	if IsSpellBlocked(target) then 
+		return 
+	end
 
 	giveUnitDataDrivenModifier(caster, target, "silenced", silence_duration)
 	ApplyMarkOfFatality(caster,target,true)
@@ -92,8 +100,6 @@ function OnMartialStart(keys)
 			ApplyMarkOfFatality(caster,target,true)
 		end
 	end
-
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lishuwen_martial_art_cooldown", {Duration= ability:GetCooldown(1)})
 
 	local pcMark = ParticleManager:CreateParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_start.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
     ParticleManager:ReleaseParticleIndex(pcMark)
@@ -449,8 +455,8 @@ function tigerstrikewrapper(TPM)
 
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			damage_type = DAMAGE_TYPE_PHYSICAL 
-			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
-			target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
+			--local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
+			--target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
 
 			local crit_chance = ability:GetSpecialValueFor("critical_chance")
 			local crit_damage = ability:GetSpecialValueFor("critical_damage") / 100
@@ -476,25 +482,24 @@ function tigerstrikewrapper(TPM)
 		end
 
 		target:EmitSound("Hero_EarthShaker.Attack")
+		local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
+	    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
+	    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_first_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
 
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
+			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
+			DoDamage(caster, target, damage * bypass_armor, damage_type, DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability, false)
+			DoDamage(caster, target, damage * (1-bypass_armor), damage_type, 0, ability, false)
 		else
 			if caster:HasModifier('modifier_alternate_02') then 
 				caster:EmitSound("Li-Boss-E1")
 			else
 				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
 			end	
+			DoDamage(caster, target, damage, damage_type, 0, ability, false)
 		end
-
-
-	    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-	    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-	    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_first_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-
-		DoDamage(caster, target, damage, damage_type, 0, ability, false)
-
 	end
 
 
@@ -529,8 +534,8 @@ function tigerstrikewrapper(TPM)
 		end
 
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
-			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
-			target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
+			
+			--target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
 			local crit_chance = ability:GetSpecialValueFor("critical_chance")
 			local crit_damage = ability:GetSpecialValueFor("critical_damage") / 100
 			if RandomInt(1, 100) <= crit_chance then 
@@ -544,24 +549,25 @@ function tigerstrikewrapper(TPM)
 			target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
 		end
 
+		local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
+	    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
+	    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_second_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
+
 		target:EmitSound("Hero_EarthShaker.Attack")
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
+			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
+			DoDamage(caster, target, damage * bypass_armor, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability, false)
+			DoDamage(caster, target, damage * (1-bypass_armor), DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 		else
 			if caster:HasModifier('modifier_alternate_02') then 
 				caster:EmitSound("Li-Boss-E2")
 			else
 				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
 			end	
+			DoDamage(caster, target, damage , DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 		end
-		
-	    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-	    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-	    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_second_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-
-		DoDamage(caster, target, damage , DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-
 	end
 
 	function TPM:TigerStrike3()
@@ -613,8 +619,8 @@ function tigerstrikewrapper(TPM)
 
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			damage_type = DAMAGE_TYPE_PHYSICAL 
-			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
-			target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
+			
+			--target:AddNewModifier(caster, self, "modifier_tiger_berserk_bypass_armor", {Duration = 0.2, BypassArmor = math.ceil(bypass_armor * target:GetPhysicalArmorBaseValue())})
 
 			local crit_chance = ability:GetSpecialValueFor("critical_chance")
 			local crit_damage = ability:GetSpecialValueFor("critical_damage") / 100
@@ -624,27 +630,30 @@ function tigerstrikewrapper(TPM)
 				caster:EmitSound("Hero_Juggernaut.BladeDance") 
 			end
 		end
+
+		--local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
+		--ParticleManager:SetParticleControl( groundFx1, 0, target:GetAbsOrigin())
+		local groundFx2 = ParticleManager:CreateParticle( "particles/custom/lishuwen/lishuwen_third_slam.vpcf", PATTACH_ABSORIGIN, target )
+		ParticleManager:SetParticleControl( groundFx2, 0, target:GetAbsOrigin())
+		--ParticleManager:SetParticleControlOrientation(groundFx1, 1, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
+		ParticleManager:SetParticleControlOrientation(groundFx2, 1, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
+		local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_third_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
 		
 		target:EmitSound("Hero_EarthShaker.Attack")
 		if caster:HasModifier("modifier_lishuwen_berserk") then 
 			caster:EmitSound("Lishuwen.Berserk.E" .. math.random(1,2))
+			local bypass_armor = ability:GetSpecialValueFor("bypass_armor") / 100
+			DoDamage(caster, target, damage * bypass_armor, damage_type, DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability, false)
+			DoDamage(caster, target, damage * (1-bypass_armor), damage_type, 0, ability, false)
 		else
 			if caster:HasModifier('modifier_alternate_02') then 
 				caster:EmitSound("Li-Boss-E3")
 			else
 				caster:EmitSound("Lishuwen_Attack" .. math.random(1,4))
 			end	
+			DoDamage(caster, target, damage, damage_type, 0, ability, false)
 		end
-	    local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-		ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())
-		local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-		ParticleManager:SetParticleControl( groundFx2, 1, target:GetAbsOrigin())
-		ParticleManager:SetParticleControlOrientation(groundFx1, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-		ParticleManager:SetParticleControlOrientation(groundFx2, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-		local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_third_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-
-		DoDamage(caster, target, damage, damage_type, 0, ability, false)
 	end
 
 	function TPM:CreateCritFx(target)
@@ -1192,12 +1201,14 @@ function OnNSSCastStart(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Berserk_is_Actived")
 		return
 	end
-    local windupFx = ParticleManager:CreateParticle( "particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf", PATTACH_ABSORIGIN, caster )
-    ParticleManager:SetParticleControl( windupFx, 0, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl( windupFx, 3, caster:GetAbsOrigin())
+    local windupFx = ParticleManager:CreateParticle( "particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf", PATTACH_CUSTOMORIGIN, caster )
+    ParticleManager:SetParticleControl( windupFx, 0, caster:GetAbsOrigin() + Vector(0,0,100))
+    ParticleManager:SetParticleControl( windupFx, 3, caster:GetAbsOrigin() + Vector(0,0,100))
 
 	if caster:HasModifier('modifier_alternate_02') then 
 		caster:EmitSound("Li-Boss-R")
+	else
+		caster:EmitSound("Lishuwen_NP1")
 	end
 
     Timers:CreateTimer(cast_delay, function()
@@ -1213,6 +1224,8 @@ function OnNSSStart(keys)
 	local damage = ability:GetSpecialValueFor("initial_damage")
 	local stun_duration = ability:GetSpecialValueFor("stun_duration")
 	local revoke_duration = ability:GetSpecialValueFor("revoke_duration")
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_nss_anim_accel", {Duration = 1.0})
 
 	if IsSpellBlocked(target) then return end
 
@@ -1260,11 +1273,11 @@ function OnNSSStart(keys)
 	-- apply delay indicator
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
     local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-    ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl( groundFx1, 0, target:GetAbsOrigin())
     local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-    ParticleManager:SetParticleControl( groundFx2, 1, target:GetAbsOrigin())
-    ParticleManager:SetParticleControlOrientation(groundFx1, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-    ParticleManager:SetParticleControlOrientation(groundFx2, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
+    ParticleManager:SetParticleControl( groundFx2, 0, target:GetAbsOrigin())
+    ParticleManager:SetParticleControlOrientation(groundFx1, 1, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
+    ParticleManager:SetParticleControlOrientation(groundFx2, 1, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
     local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
 end
@@ -1361,7 +1374,7 @@ function OnDragonStrike1Start(keys)
 		local endpoint = nil
 		for k,v in pairs(caster.targetTable) do
 			
-			ApplyMarkOfFatality(caster, v, true)
+			ApplyMarkOfFatality(caster, v, false)
 			endpoint = v:GetAbsOrigin()
 			local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, v )
 			ParticleManager:SetParticleControl( trailFx, 1, startpoint )
@@ -1532,16 +1545,19 @@ function OnDragonStrike3Start(keys)
 				target = v
 			end
 		end]]
-		
-		if target ~= nil then
+
+		if target == nil then 
+
+		else
 			if IsValidEntity(target) and not target:IsNull() then
 			--print(target:GetName() .. counter)
-				ApplyMarkOfFatality(caster, target, true)
+				ApplyMarkOfFatality(caster, target, false)
+				local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
+		    	ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
+		    	
 				DoCompositeDamage(caster, target, keys.Damage, DAMAGE_TYPE_COMPOSITE, 0, keys.ability, false)
 			end
 		end
-
-
 
 		--newpoint = Vector(startpoint.x + RandomInt(1,600), startpoint.y + RandomInt(1, 600), startpoint.y+500)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_raging_dragon_strike_3_anim", {})
@@ -1552,10 +1568,6 @@ function OnDragonStrike3Start(keys)
 		ParticleManager:SetParticleControl( trailFx, 1, currentpoint )
 		ParticleManager:SetParticleControl( trailFx, 0, newpoint )
 
-		if target ~= nil then
-		    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-		    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-	   	end
 		caster:EmitSound("Hero_Tusk.WalrusPunch.Target")
 		counter = counter + 1
 		return 0.08
@@ -1563,9 +1575,9 @@ function OnDragonStrike3Start(keys)
 
 	caster:EmitSound("Hero_Earthshaker.Pick")
 	--EmitGlobalSound("Lishuwen.Shout")
-	local soundQueue = math.random(1,3)
+	--local soundQueue = math.random(1,3)
 
-	EmitGlobalSound("Lishuwen_Combo_3_" .. soundQueue)
+	EmitGlobalSound("Lishuwen_Combo_3_" .. math.random(1,3))
 
     local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, caster )
     ParticleManager:SetParticleControl( groundFx1, 1, caster:GetAbsOrigin())
@@ -1735,6 +1747,9 @@ function OnMartialArtsImproved(keys)
 		else
 			UpgradeAttribute(hero, "lishuwen_no_second_strike", "lishuwen_no_second_strike_upgrade_2", true)
 		end
+
+		hero:RemoveModifierByName("modifier_martial_arts_aura")
+		hero:FindAbilityByName("lishuwen_martial_arts_upgrade"):ApplyDataDrivenModifier(hero, hero, "modifier_martial_arts_aura", {})
 
 		NonResetAbility(hero)
 

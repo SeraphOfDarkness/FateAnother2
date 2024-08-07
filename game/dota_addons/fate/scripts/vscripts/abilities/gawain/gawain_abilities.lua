@@ -3,7 +3,7 @@ function OnFairyDamageTaken(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local damage_threshold = ability:GetSpecialValueFor("damage_threshold")
-	local health_regain = ability:GetSpecialValueFor("health_regain") / 100
+	local health_regain = ability:GetSpecialValueFor("health_regain") / 100  * caster:GetMaxHealth()
 	local duration = ability:GetSpecialValueFor("duration")
 	local currentHealth = caster:GetHealth()
 
@@ -17,7 +17,7 @@ function OnFairyDamageTaken(keys)
 
 		HardCleanse(caster)
 		RemoveDebuffsForRevival(caster)
-		caster:SetHealth(health_regain * caster:GetMaxHealth())
+		caster:SetHealth(health_regain)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gawain_revive_regen", {})
 		local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -799,12 +799,12 @@ end
 
 function GawainCheckCombo(caster, ability)
 	if math.ceil(caster:GetStrength()) >= 25 and math.ceil(caster:GetAgility()) >= 25 and math.ceil(caster:GetIntellect()) >= 25 then
-		if caster:HasModifier("modifier_gawain_saint_bonus") and caster:GetModifierStackCount("modifier_gawain_saint_bonus", caster) == 3 then 
+		--[[if caster:HasModifier("modifier_gawain_saint_bonus") and caster:GetModifierStackCount("modifier_gawain_saint_bonus", caster) == 3 then 
 			local num_saint = caster:FindAbilityByName("gawain_numeral_saint")
 			if math.ceil(caster:GetStrength() - (num_saint:GetSpecialValueFor("bonus_stat") * 2)) < 25 and math.ceil(caster:GetAgility() - (num_saint:GetSpecialValueFor("bonus_stat") * 2)) < 25 and math.ceil(caster:GetIntellect() - (num_saint:GetSpecialValueFor("bonus_stat") * 2)) < 25 then
 				return 
 			end
-		end
+		end]]
 		if string.match(ability:GetAbilityName(), "gawain_light_of_galatine") then
 			caster.WUsed = true
 			caster.WTime = GameRules:GetGameTime()

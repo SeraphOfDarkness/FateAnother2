@@ -19,17 +19,10 @@ end
 function GardenCheck(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local target = keys.target
 
-	if caster.HangingGardens == nil then
-		return 0
-	end
-
-	if caster.HangingGardens:IsAlive() and not caster.HangingGardens:IsNull() then
-		return 0
-	else
-		if caster:HasModifier("modifier_semiramis_mounted") then
-			caster:RemoveModifierByName("modifier_semiramis_mounted")
-		end
+	if caster:HasModifier("modifier_semiramis_mounted") then
+		caster:RemoveModifierByName("modifier_semiramis_mounted")
 	end
 end
 
@@ -223,7 +216,7 @@ function SemiramisChainsCast(keys)
 	local mr_red = ability:GetSpecialValueFor("mr_red")
 	local bind_duration = 0
 
-	local magic_res = target:GetMagicalArmorValue()
+	local magic_res = target:GetBaseMagicalResistanceValue() / 100
 
 	bind_duration = math.max(min_dur, max_dur * (1 - magic_res))
 
@@ -687,9 +680,11 @@ function OnHangingGardensCast(keys)
 					garden:SetBaseMoveSpeed(garden_movespeed)
 					garden:AddItem(CreateItem("item_hanging_garden_dove" , nil, nil))
 				end)
-
+				garden:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetActivated(false)
 				caster.HangingGardens = garden	
 			end	
+
+			ability:ApplyDataDrivenModifier(caster,caster.HangingGardens, "modifier_semiramis_garden_checker",{Duration = ability:GetSpecialValueFor("duration") - 0.1})
 
 			if caster.IsTerritoryAcquired then
 				--garden:FindAbilityByName("semiramis_summon_birds"):SetLevel(2)
@@ -820,7 +815,8 @@ function OnTiatumUmuCast(keys)
 	local mount = garden:FindAbilityByName("hanging_gardens_mount")
 	mount:ApplyDataDrivenModifier(garden, caster, "modifier_semiramis_mounted", {})
 	mount:ApplyDataDrivenModifier(garden, garden, "modifier_garden_mounted", {})  
-	garden:SwapAbilities("fate_empty3", "semiramis_hanging_garden_sikera_usum", false, true) 
+	garden:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetActivated(true)
+	--garden:SwapAbilities("fate_empty8", "semiramis_hanging_garden_sikera_usum", false, true) 
 	SendMountStatus(caster)
 
 	giveUnitDataDrivenModifier(caster, garden, "jump_pause", cast_delay + duration + 0.25)
@@ -851,7 +847,7 @@ function OnTiatumUmuCast(keys)
 
 	Timers:CreateTimer(cast_delay + 0.1, function()
 		local laser = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_laser.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl( laser, 0, garden:GetAbsOrigin() + Vector(0,0,200))
+		ParticleManager:SetParticleControl( laser, 0, garden:GetAbsOrigin() + Vector(0,0,300))
 		ParticleManager:SetParticleControl( laser, 1, targetpoint)
 
 		Timers:CreateTimer(duration, function()
@@ -906,7 +902,8 @@ function OnMountStart(keys)
 				else
 					hero:RemoveModifierByName("modifier_semiramis_mounted")
 					caster:RemoveModifierByName("modifier_garden_mounted")
-					caster:SwapAbilities("semiramis_hanging_garden_sikera_usum", "fate_empty3", false, true) 
+					caster:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetActivated(false)
+					--caster:SwapAbilities("semiramis_hanging_garden_sikera_usum", "fate_empty8", false, true) 
 					hero.IsMounted = false
 					SendMountStatus(hero)
 
@@ -917,8 +914,9 @@ function OnMountStart(keys)
 			elseif (caster:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < max_range and not hero:HasModifier("stunned") and not hero:HasModifier("modifier_stunned") then 
 				hero.IsMounted = true
 				ability:ApplyDataDrivenModifier(caster, hero, "modifier_semiramis_mounted", {})
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_garden_mounted", {})  
-				caster:SwapAbilities("fate_empty3", "semiramis_hanging_garden_sikera_usum", false, true) 
+				ability:ApplyDataDrivenModifier(hero, caster, "modifier_garden_mounted", {})  
+				--caster:SwapAbilities("fate_empty8", "semiramis_hanging_garden_sikera_usum", false, true) 
+				caster:FindAbilityByName("semiramis_hanging_garden_sikera_usum"):SetActivated(true)
 				SendMountStatus(hero)
 
 					caster:SetMaxHealth(maxhealth)
@@ -975,16 +973,23 @@ function OnHangingGardenSikeraUsum(keys)
 end
 
 function GardenFollow(keys)
-	local caster = keys.caster
-	local hero = caster:GetOwnerEntity()
-	if IsValidEntity(caster) then
-		hero:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,450))
+	local garden = keys.caster
+	local hero = keys.target
+	if IsValidEntity(garden) then
+		hero:SetAbsOrigin(garden:GetAbsOrigin() + Vector(0,0,450))
+	else
+		hero:RemoveModifierByName("modifier_semiramis_mounted")
 	end
 end
 
+function OnMountedDestroy(keys)
+	local hero = keys.target
+	FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), true)
+end
+
 function OnGardenDeath(keys)
-	local caster = keys.caster
-	local hero = caster:GetOwnerEntity()
+	local hero = keys.caster
+	local garden = keys.target
 	hero.IsMounted = false
 	hero:RemoveModifierByName("modifier_semiramis_mounted")
 	SendMountStatus(hero)
@@ -993,6 +998,7 @@ end
 function OnPoisonousCloudCast(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local target_loc = ability:GetCursorPosition()
 	local cast_delay = ability:GetSpecialValueFor("cast_delay")
 	local radius = ability:GetSpecialValueFor("radius")
 	local damage = ability:GetSpecialValueFor("damage")
@@ -1002,7 +1008,10 @@ function OnPoisonousCloudCast(keys)
 
 	Timers:CreateTimer(cast_delay, function()
 		if caster:IsAlive() then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_semiramis_poisonous_cloud_buff", {})
+			local poison_dummy = CreateUnitByName("dummy_unit", target_loc, false, caster, caster, caster:GetTeamNumber())
+			poison_dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+			ability:ApplyDataDrivenModifier(caster, poison_dummy, "modifier_semiramis_poisonous_cloud_buff", {})
+			poison_dummy:AddNewModifier(caster, nil, "modifier_kill", {Duration = duration})
 		end
 	end)
 end
@@ -1010,15 +1019,16 @@ end
 function OnPoisonCloudThink(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local dummy = keys.target
 	local radius = ability:GetSpecialValueFor("radius")
 	local damage = ability:GetSpecialValueFor("damage")
 
-	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeam(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	if enemies == nil then return end
 
    	caster:EmitSound("Semi.AssassinESFX")
-	local cloud = ParticleManager:CreateParticle( "particles/custom/semiramis/basmu_poison.vpcf", PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( cloud, 0, caster:GetAbsOrigin())
+	local cloud = ParticleManager:CreateParticle( "particles/custom/semiramis/basmu_poison.vpcf", PATTACH_CUSTOMORIGIN, dummy )
+	ParticleManager:SetParticleControl( cloud, 0, dummy:GetAbsOrigin())
 	ParticleManager:SetParticleControl( cloud, 1, Vector(radius,0,0))
 
 	for k,v in pairs(enemies) do
@@ -1081,6 +1091,10 @@ function OnDualClassAcquired(keys)
 
 		UpgradeAttribute(hero, "semiramis_dual_class", "semiramis_dual_class_upgrade" , true)
 		hero.DSkill = "semiramis_dual_class_upgrade"
+
+		if hero:HasModifier("modifier_semiramis_class_assassin") then 
+			hero:RemoveModifierByName("modifier_semiramis_class_caster")
+		end
 
 		hero.IsDualClassAcquired= true
 		NonResetAbility(hero)

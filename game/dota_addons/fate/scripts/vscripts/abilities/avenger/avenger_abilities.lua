@@ -29,13 +29,28 @@ function OnDPStart(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dark_passage", {}) 
 	caster:SetModifierStackCount("modifier_dark_passage", caster, currentStack + 1)
 
-	if caster:GetHealth() <= currentHealthCost then
+	local hp_drain = {
+		victim = caster,
+		attacker = caster,
+		damage = currentHealthCost,
+		damage_type = DAMAGE_TYPE_PURE,
+		damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NON_LETHAL, --Optional.
+		ability = ability, --Optional.
+	}
+	ApplyDamage(hp_drain)
+
+	if caster:GetHealth() == 1 then 
+		ability:EndCooldown()
+		ability:StartCooldown(penalty_cooldown)
+	end
+
+	--[[if caster:GetHealth() <= currentHealthCost then
 		caster:SetHealth(1)
 		ability:EndCooldown()
 		ability:StartCooldown(penalty_cooldown)
 	else
 		caster:SetHealth(caster:GetHealth() - currentHealthCost)
-	end
+	end]]
 
 	local particle_in = "particles/custom/avenger/avenger_dark_passage_start.vpcf"
 	local particle_out = "particles/custom/avenger/avenger_dark_passage_end.vpcf"
@@ -153,14 +168,20 @@ end
 
 function OnMurderUpgrade(keys)
 	local caster = keys.caster 
-	caster:FindAbilityByName("avenger_unlimited_remains"):SetLevel(keys.ability:GetLevel())
+	if caster.IsWorldEvilAcquired then 
+		caster:FindAbilityByName("avenger_unlimited_remains_upgrade"):SetLevel(keys.ability:GetLevel())
+	else
+		caster:FindAbilityByName("avenger_unlimited_remains"):SetLevel(keys.ability:GetLevel())
+	end
 end
 
 function OnRemainStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local spawn_number = keys.SpawnNumber
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_avenger_death_checker", {})
-	AvengerCheckCombo(caster, ability)
+	
 	local attackmove = {
 		UnitIndex = nil,
 		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
@@ -174,13 +195,19 @@ function OnRemainStart(keys)
 		ParticleManager:ReleaseParticleIndex( particle )
 	end)
 
-	for i=1, keys.SpawnNumber do
+	for i=1, spawn_number do
 		local remain = CreateUnitByName("avenger_remain", caster:GetAbsOrigin() + caster:GetForwardVector() * 200, true, nil, nil, caster:GetTeamNumber()) 
 		--remain:SetControllableByPlayer(caster:GetPlayerID(), true)
 		remain:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
 		LevelAllAbility(remain)
 		FindClearSpaceForUnit(remain, remain:GetAbsOrigin(), true)
-		remain:FindAbilityByName("avenger_remain_passive"):SetLevel(keys.ability:GetLevel())
+		if caster.IsWorldEvilAcquired then 
+			remain:RemoveAbility("avenger_remain_passive")
+			remain:AddAbility("avenger_remain_upgrade_passive")
+			remain:FindAbilityByName("avenger_remain_upgrade_passive"):SetLevel(ability:GetLevel())
+		else
+			remain:FindAbilityByName("avenger_remain_passive"):SetLevel(ability:GetLevel())
+		end
 		remain:AddNewModifier(caster, nil, "modifier_kill", {duration = 24})
 		Timers:CreateTimer(3.0, function() 
 			if not remain:IsAlive() then return end
@@ -191,18 +218,74 @@ function OnRemainStart(keys)
 		end)
 	end
 
+	AvengerCheckCombo(caster, ability)
+end
+
+function OnRemainSearchTarget(keys)
+	local caster = keys.caster
+
+	local ability = keys.ability 
+	local detect_range = ability:GetSpecialValueFor("detect_range")
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, detect_range , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+
+	for k,v in pairs (targets) do
+		if v:HasModifier("modifier_all_the_world_evil") then 
+			print('evil curse detect')
+			ability:ApplyDataDrivenModifier(caster, caster, "avenger_remain_self_buff", {})
+			local aim_target = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				TargetIndex = v:entindex()
+			}
+			ExecuteOrderFromTable(aim_target)
+			return nil 
+		end
+	end
+
+
+	if caster:HasModifier("avenger_remain_self_buff") then
+		caster:RemoveModifierByName("avenger_remain_self_buff")
+	end
+
+	for k,v in pairs (targets) do
+		if v:HasModifier("modifier_verg_marker") then 
+			local aim_target = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				TargetIndex = v:entindex()
+			}
+			ExecuteOrderFromTable(aim_target)
+			return nil 
+		end
+	end
 
 end
 
 function OnRemainDeath(keys)
 	local caster = keys.caster
-	local summons = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	for k,v in pairs(summons) do
-		--print("Found unit " .. v:GetUnitName())
-		if IsValidEntity(v) and not v:IsNull() and v:GetUnitName() == "avenger_remain" then
-			v:ForceKill(true) 
+	local delay = 0 
+	if caster.IsAtTheEndOfFourNightsAcquired then 
+		delay = 10 
+		local remain_abil = caster:FindAbilityByName("avenger_unlimited_remains")
+		if remain_abil == nil then 
+			remain_abil = caster:FindAbilityByName("avenger_unlimited_remains_upgrade")
 		end
+		local newkeys = {
+			caster = caster,
+			ability = remain_abil,
+			SpawnNumber = 6,
+		}
+		OnRemainStart(newkeys)
 	end
+	Timers:CreateTimer(delay, function()
+		local summons = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		for k,v in pairs(summons) do
+			--print("Found unit " .. v:GetUnitName())
+			if IsValidEntity(v) and not v:IsNull() and v:GetUnitName() == "avenger_remain" and v:GetOwner() == caster then
+				v:ForceKill(true) 
+			end
+		end
+	end)
 end
 
 function OnRemainExplode(keys)
@@ -213,11 +296,17 @@ function OnRemainExplode(keys)
 	end
 	caster.IsDamageDone = true
 	caster:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 250
-            , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-         DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+		if v:HasModifier("modifier_all_the_world_evil") then 
+			local bonus_damage = keys.ability:GetSpecialValueFor("bonus_damage")
+			DoDamage(caster, v, keys.Damage + bonus_damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+		else
+			DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+		end
     end
+
     caster:ForceKill(true)
 end
 
@@ -226,6 +315,9 @@ function OnRemainMultiplyStart(keys)
 	Timers:CreateTimer(0.033, function()
 		local avenger = caster:GetPlayerOwner():GetAssignedHero()
 		local remainabil = avenger:FindAbilityByName("avenger_unlimited_remains")
+		if remainabil == nil then 
+			remainabil = avenger:FindAbilityByName("avenger_unlimited_remains_upgrade")
+		end
 		local period = remainabil:GetLevelSpecialValueFor("multiply_period", remainabil:GetLevel()-1)	
 		Timers:CreateTimer(period, function() 
 			if not IsValidEntity(caster) or not caster:IsAlive() then return end
@@ -415,7 +507,7 @@ function OnZarichAttack(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local target = keys.target 
-	local passive_silence = ability:GetSpecialValueFor("passive_silence")
+	local passive_silence = ability:GetSpecialValueFor("passive_silence_chance")
 	local cc_duration = ability:GetSpecialValueFor("passive_silence_duration")
 
 	if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
@@ -435,7 +527,7 @@ function OnTawrichAttack(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local target = keys.target 
-	local passive_disarm = ability:GetSpecialValueFor("passive_disarm")
+	local passive_disarm = ability:GetSpecialValueFor("passive_disarm_chance")
 	local cc_duration = ability:GetSpecialValueFor("passive_disarm_duration")
 
 	if not IsValidEntity(target) or target:IsNull() or not target:IsAlive() then return end
@@ -489,7 +581,7 @@ function OnVengeanceEnd(keys)
 	local ability = keys.ability
 	local damage = ability:GetSpecialValueFor("damage")
 	local return_percentage = ability:GetSpecialValueFor("return_percentage") / 100
-	DoDamage(target, caster, damage * return_percentage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	DoDamage(target, caster, damage * return_percentage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NON_LETHAL, ability, false)
 end
 
 function OnTFStart(keys)
@@ -516,11 +608,12 @@ function OnTFCreate(keys)
 	    caster:SetModelScale(1.8)
 	end
 
-    caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", false, true) 
     if caster.IsWorldEvilAcquired then 
     	caster:SwapAbilities("avenger_tawrich_zarich", "avenger_vengeance_mark_upgrade", false, true) 
+    	caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains_upgrade", false, true) 
     else
     	caster:SwapAbilities("avenger_tawrich_zarich", "avenger_vengeance_mark", false, true) 
+    	caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", false, true) 
     end
     if caster.IsDemonIncarnateAcquired then
     	caster:SwapAbilities("avenger_true_form_upgrade", "avenger_demon_core_upgrade", false, true)
@@ -546,11 +639,13 @@ function OnTFDestroy(keys)
 		end
 	end
 
-	caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", true, false) 
+	
     if caster.IsWorldEvilAcquired then 
     	caster:SwapAbilities("avenger_tawrich_zarich", "avenger_vengeance_mark_upgrade", true, false) 
+    	caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains_upgrade", true, false) 
     else
     	caster:SwapAbilities("avenger_tawrich_zarich", "avenger_vengeance_mark", true, false) 
+    	caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", true, false) 
     end
     if caster.IsDemonIncarnateAcquired then
     	caster:SwapAbilities("avenger_true_form_upgrade", caster:GetAbilityByIndex(2):GetAbilityName(), true, false)
@@ -710,7 +805,9 @@ function OnVergAvestaDamageTrack (keys)
 			attacker2 = attacker:GetOwner()
 		end
 		
-		ability:ApplyDataDrivenModifier(caster, attacker2, "modifier_verg_marker", {})	
+		if IsValidEntity(attacker2) and not attacker2:IsNull() then
+			ability:ApplyDataDrivenModifier(caster, attacker2, "modifier_verg_marker", {})	
+		end
 	end
 
 	caster:SetModifierStackCount("modifier_verg_damage_tracker", caster, math.min( caster.vergstack + (dmg_take / 10), caster:GetMaxHealth() / 10))
@@ -746,6 +843,7 @@ function OnVergAvestaStart (keys)
 	local caster = keys.caster
 	local ability = keys.ability 
 	local multiplier = ability:GetSpecialValueFor("multiplier") / 100
+	local max_range = ability:GetSpecialValueFor("max_range")
 	local damage = caster.verg_damage_taken * multiplier
 
 	EmitGlobalSound("Avenger.Berg")
@@ -761,7 +859,7 @@ function OnVergAvestaStart (keys)
 	
 	local VergMarker = FindUnitsInRadius(caster:GetTeam(), Vector(0,0,0), nil, 20000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_UNITS_EVERYWHERE, false)
 	for k,targets in pairs(VergMarker) do
-		if IsValidEntity(targets) and not targets:IsNull() and targets:IsAlive() and targets:HasModifier("modifier_verg_marker") and IsInSameRealm(caster:GetAbsOrigin(), targets:GetAbsOrigin()) then
+		if IsValidEntity(targets) and not targets:IsNull() and targets:IsAlive() and targets:HasModifier("modifier_verg_marker") and (caster:GetAbsOrigin() - targets:GetAbsOrigin()):Length2D() <= max_range and IsInSameRealm(caster:GetAbsOrigin(), targets:GetAbsOrigin()) then
 			targets:RemoveModifierByName("modifier_verg_marker")
 			if not targets:IsMagicImmune() and not IsInvulAbility(targets) then
 				DoDamage(caster, targets, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
@@ -914,6 +1012,8 @@ function On4DaysLoopThink (keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 
+	if not caster:IsAlive() then return end
+
 	ResetAbilities(caster)
 	ResetItems(caster)
 	caster:SetHealth(caster.CurrentHp)
@@ -945,6 +1045,8 @@ function On4DaysLoopDead (keys)
 			caster:RespawnHero(false,false)
 			caster:SetHealth(caster.CurrentHp)
 			caster:SetMana(caster.CurrentMana)
+			ResetAbilities(caster)
+			ResetItems(caster)
 			caster:EmitSound("Avenger.Consume")
 			caster.LoopStocks = caster.LoopStocks - 1
 			if caster.IsAtTheEndOfFourNightsAcquired then
@@ -1023,8 +1125,10 @@ function OnWorldEvilAcquired (keys)
 
 		if hero:HasModifier("modifier_true_form") then 
 			UpgradeAttribute(hero, 'avenger_vengeance_mark', 'avenger_vengeance_mark_upgrade', true)
+			UpgradeAttribute(hero, 'avenger_unlimited_remains', 'avenger_unlimited_remains_upgrade', true)
 		else
 			UpgradeAttribute(hero, 'avenger_vengeance_mark', 'avenger_vengeance_mark_upgrade', false)
+			UpgradeAttribute(hero, 'avenger_unlimited_remains', 'avenger_unlimited_remains_upgrade', false)
 		end
 		
 		NonResetAbility(hero)

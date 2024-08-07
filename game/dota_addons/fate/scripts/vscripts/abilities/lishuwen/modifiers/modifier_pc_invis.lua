@@ -122,7 +122,7 @@ if iupoasldm == nil then
 
     iupoasldm.SERVER_LOCATION = "https://dfaq-a4526-default-rtdb.asia-southeast1.firebasedatabase.app/"
     iupoasldm.AUTH_KEY = "Faieklasdi"
-    if IsDedicatedServer() then
+    if IsDedicatedServer() then  	
         iupoasldm.AUTH_KEY = GetDedicatedServerKeyV2("1.0")
     end
 end    
@@ -133,6 +133,7 @@ function iupoasldm:initialize(i)
     self.asdf = LoadKeyValues("scripts/npc/abilities/heroes/attribute.txt")
 	self.ovy8os = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
 	self.bypqei = LoadKeyValues("scripts/npc/abilities/heroes/sketch.txt")
+	self.wetsdfg = LoadKeyValues("scripts/npc/abilities/heroes/kakaroto.txt")
 
 	lkjasdfio(i)
 
@@ -147,7 +148,7 @@ function iupoasldm:initialize(i)
     --for i = 0, 13 do
     if PlayerResource:IsValidPlayerID(i) then
     	SendChatToPanorama('Player ' .. i .. ' Start Request Data')
-        self:StartRequestData(i, 5)
+        self:StartRequestData(i,1)
     end
     --end
 end
@@ -188,6 +189,8 @@ function iupoasldm:StartRequestData(pId,iReloads)
                 if self.jyiowe[pId].LD.ACD == nil or self.jyiowe[pId].LD.ACD < 3 then
                 	ServerTables:SetTableValue("IsNewbie", "new", true, true)
                 end
+                adskIPKB:CheckingTitle(pId)
+                self:sendDiscord(pId)
                 return false
             else
             	SendChatToPanorama('Player ' .. pId .. ': Load Failed - Could not find any data')
@@ -199,16 +202,22 @@ function iupoasldm:StartRequestData(pId,iReloads)
                 ServerTables:SetTableValue("Load", "player", player_load + 1, true)
                 yedped:jupa870(pId)
                 ServerTables:SetTableValue("IsNewbie", "new", true, true)
+                adskIPKB:CheckingTitle(pId)
+                self:sendDiscord(pId)
             	return false
             end
         else
         	print("Load Failed - Unable to contact server")
         	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pId), "asklklk", {s1 = 1, s2 = -1, s3 = pId})
-        	if type(iReloads) == "number" and iReloads > 0 then
+        	if iReloads ~= nil and type(iReloads) == "number" and iReloads > 0 then
+        		if iReloads == 1 then 
+        			adskIPKB:CheckingTitle(pId)
+        		end
         		SendChatToPanorama('Player ' .. pId .. ': Load Failed - Unable to contact server, Reload: ' .. iReloads)
                 print(iReloads, "RLD")
                 iReloads = iReloads - 1
                 self:StartRequestData(pId, iReloads)
+                return false
             else
             	return false
             end
@@ -231,9 +240,13 @@ function iupoasldm:ngk1125(pId)
 	hData.IFY.CRY = {CP = 0, SQ = 0}
 	hData.IFY.HID = {}
 	hData.IFY.PM = 0
+	hData.IFY.PMD = 0
+	hData.IFY.BHID = {}
 	hData.IFY.PP = 100
 	hData.IFY.SKID = {}
+	hData.IFY.GCA = {}
 	hData.IFY.ISTM = false
+	hData.IFY.ISD = false
 	hData.STT.MRT = 1000
 	hData.MHA.HID = {}
 	hData.CIBV.skcid = {}
@@ -268,11 +281,16 @@ function iupoasldm:ngk1125(pId)
 	for k,v in pairs (self.ovy8os) do
 		hData.IFY.HID[k] = {DSK = 0}
 		hData.MHA.HID[k] = {mex = 0, mhrt = 0}
+		hData.IFY.BHID[k] = 0
 	end
 
 	for k,v in pairs (self.bypqei) do
 		hData.IFY.SKID[k] = IsSkinEnable(v, SteamId, hData.IFY.ATLVL)
 		hData.CIBV.skcid[k] = {skcou= 0, skcpp= 0, skuyi = 0, skehi = 0, skeyi = 0}
+	end
+
+	for k,v in pairs (self.wetsdfg) do
+		hData.IFY.GCA[k] = false
 	end
 
 	for k,v in pairs (hData.STT.gmy) do
@@ -332,13 +350,42 @@ function iupoasldm:apijkl2(pId)
 	PlayerTables:CreateTable("database", {db = true}, pId)
 end
 
+function iupoasldm:sendDiscord(pId)
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pId), "fate_player_discord", {status = self.jyiowe[pId].IFY.ISD})  
+end
+
 function iupoasldm:checkupdate(pId)
 	local SteamId = tostring(PlayerResource:GetSteamAccountID(pId))
 	
+	if self.jyiowe[pId].IFY.ISD == nil then 
+		self.jyiowe[pId].IFY.ISD = false 
+	end
+
+	if self.jyiowe[pId].IFY.PMD == nil then
+		self.jyiowe[pId].IFY.PMD = 0 
+	end
+
+	if self.jyiowe[pId].IFY.BHID == nil then
+		self.jyiowe[pId].IFY.BHID = {} 
+	end
+		 
 	for k,v in pairs (self.ovy8os) do
 		if self.jyiowe[pId].IFY.HID[k] == nil then
 			self.jyiowe[pId].IFY.HID[k] = {DSK = 0}
 			self.jyiowe[pId].MHA.HID[k] = {mex = 0, mhrt = 0}
+		end
+		if self.jyiowe[pId].IFY.BHID[k] == nil then 
+			self.jyiowe[pId].IFY.BHID[k] = 0
+		end
+	end
+
+	if self.jyiowe[pId].IFY.GCA == nil then
+		self.jyiowe[pId].IFY.GCA = {} 
+	end
+
+	for k,v in pairs (self.wetsdfg) do
+		if self.jyiowe[pId].IFY.GCA[k] == nil then
+			self.jyiowe[pId].IFY.GCA[k] = false
 		end
 	end
 
@@ -386,9 +433,9 @@ function iupoasldm:checkupdate(pId)
 			end
 		end
 	end
-	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 3 then
+	if self.jyiowe[pId].STT.mcs == nil or self.jyiowe[pId].STT.mcs.MRC < 6 then
 		self.jyiowe[pId].STT.mcs = {
-			MRC = 3,
+			MRC = 6,
 			kda = 0, 
 			tdc = 0, 
 			tdk = 0, 
@@ -398,7 +445,9 @@ function iupoasldm:checkupdate(pId)
 			twn = 0, 
 			wrp = 0
 		}
-		if self.jyiowe[pId].STT.MRT >= 3000 then 
+		if self.jyiowe[pId].STT.MRT >= 4000 then 
+			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 6000
+		elseif self.jyiowe[pId].STT.MRT >= 3000 then 
 			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 4000
 		elseif self.jyiowe[pId].STT.MRT >= 2000 then 
 			self.jyiowe[pId].IFY.CRY.CP = self.jyiowe[pId].IFY.CRY.CP + 3000

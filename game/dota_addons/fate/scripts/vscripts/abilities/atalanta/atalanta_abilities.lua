@@ -226,7 +226,7 @@ function ShootAoEArrow(keys)
     }]]
     ProjectileManager:CreateTrackingProjectile(projectile)
 
-    Timers:CreateTimer(keys.Delay + 0.1, function()
+    Timers:CreateTimer(keys.Delay + 0.2, function()
         if IsValidEntity(dummy) then
             dummy:RemoveSelf()
         end
@@ -405,9 +405,11 @@ function OnCrossingArcadiaStart(keys)
     local position = ability:GetCursorPosition()
     local origin = caster:GetOrigin()
     local arrow_fire = ability:GetSpecialValueFor("arrow")
+    local diff = position - caster:GetAbsOrigin()
+    caster.crossing_direction = diff
 
     if (position - caster:GetAbsOrigin()):Length2D() > ability:GetSpecialValueFor("range") then
-        local diff = position - caster:GetAbsOrigin()
+        
         local length_diff = (position - caster:GetAbsOrigin()):Length2D()
 
         position = position - diff:Normalized() * (length_diff - ability:GetSpecialValueFor("range"))
@@ -513,9 +515,9 @@ function OnCrossingArcadiaHit(keys)
 	local ability = keys.ability 
 	local target = keys.target 
 
-	if not target then
-        return
-    end
+	if target == nil then return end
+
+    local pos = target:GetAbsOrigin()
 
     local atk = caster:GetAverageTrueAttackDamage(caster)
 
@@ -527,7 +529,7 @@ function OnCrossingArcadiaHit(keys)
         --damage = celestial:GetSpecialValueFor("damage") / 100 
     end
 
-	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), pos, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
         --[[if caster.IsArrowsOfTheBigDipperAcquired then
             DoDamage(caster, v, atk, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
@@ -538,6 +540,12 @@ function OnCrossingArcadiaHit(keys)
             DoDamage(caster, v, atk, DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
         end
 	end
+
+    local searching_target = FindUnitsInRadius(caster:GetTeam(), pos, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+    if searching_target[1] ~= nil then 
+        searching_target[1]:SetOrigin(searching_target[1]:GetAbsOrigin() + (caster.crossing_direction:Normalized() * ability:GetSpecialValueFor("knock"))) 
+        FindClearSpaceForUnit(searching_target[1], searching_target[1]:GetAbsOrigin(), true)
+    end
 end
 
 function OnLastSpurtCreate(keys)
@@ -552,9 +560,9 @@ function OnLastSpurtCreate(keys)
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
     for k,v in pairs(targets) do
         if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-            if not IsFacingUnit(v, caster, 180) then
+            --if not IsFacingUnit(v, caster, 180) then
                 stacks = stacks + 1
-            end
+            --end
         end
     end
     local base_ms = caster:GetBaseMoveSpeed()
@@ -661,6 +669,9 @@ function OnCelestialArrowStart(keys)
 
     if (ability:GetCurrentAbilityCharges() > 0) then
         ability:EndCooldown()
+    else
+        ability:EndCooldown()
+        ability:StartCooldown(ability:GetCooldown(1))
     end
 
     if caster:HasModifier("modifier_atalanta_tauropolos") then        
@@ -721,9 +732,9 @@ function OnCelestialArrowHit(keys)
     DoDamage(caster, target, bonus_damage, DAMAGE_TYPE_MAGICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
     
     if target:IsRealHero() then
-        if caster.first_hit == false and not target:HasModifier("modifier_atalanta_calydonian_hunt_root_cooldown") then
+        if --[[caster.first_hit == false and]] not target:HasModifier("modifier_atalanta_calydonian_hunt_root_cooldown") then
     	   AddHuntStack(caster, target, 1)
-           caster.first_hit = true 
+           --caster.first_hit = true 
         end
     else
         AddHuntStack(caster, target, 1)
@@ -1119,9 +1130,9 @@ function OnCalydonianSnipeWindowCreate(keys)
     --Convars:SetInt("dota_camera_distance", 1600)
     local count_tick = 0
     local max_tick = 10
-    caster.base_camera = Convars:GetInt("dota_camera_distance") or 1600
-    caster.bonus_camera = 150
-    caster.current_camera = Convars:GetInt("dota_camera_distance") or 1600
+    caster.base_camera = Convars:GetInt("dota_camera_distance") or 1900
+    caster.bonus_camera = 100
+    caster.current_camera = Convars:GetInt("dota_camera_distance") or 1900
 
     if caster.CameraTimerDown ~= nil then 
         Timers:RemoveTimer(caster.CameraTimerDown)
@@ -1136,7 +1147,7 @@ function OnCalydonianSnipeWindowCreate(keys)
             if count_tick == max_tick then 
                 return nil 
             end
-            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, 1600 + (max_tick * caster.bonus_camera))
+            caster.current_camera = math.min(caster.current_camera + caster.bonus_camera, 1900 + (max_tick * caster.bonus_camera))
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033
@@ -1170,7 +1181,7 @@ function OnCalydonianSnipeWindowDestroy(keys)
             if count_tick == 10 then 
                 return nil 
             end
-            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, 1600)
+            caster.current_camera = math.max(caster.current_camera - caster.bonus_camera, 1900)
             CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.current_camera} )
             count_tick = count_tick + 1
             return 0.033
@@ -1201,6 +1212,7 @@ function OnCalydonianSnipeCast(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
 	local target = keys.target 
+    ability.target = target
     --local charge_delay = ability:GetCastPoint()
     local ply = caster:GetPlayerOwner()
     local playerId = caster:GetPlayerOwnerID()
@@ -1216,6 +1228,8 @@ function OnCalydonianSnipeCast(keys)
     ParticleManager:SetParticleControl( caster.BPparticle, 0, target:GetAbsOrigin() + Vector(0,0,500)) 
     ParticleManager:SetParticleControl( caster.BPparticle, 1, target:GetAbsOrigin() + Vector(0,0,500)) 
 
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_calydonian_snipe_tracker", {Duration = ability:GetSpecialValueFor("cast_delay") - 0.04})
+
     caster.ChargeParticle = ParticleManager:CreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_powershot_channel_combo_v2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(caster.ChargeParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(),false)
     ParticleManager:SetParticleControl(caster.ChargeParticle, 1, GetRotationPoint(caster:GetAbsOrigin() + Vector(0,0,80), 350, caster:GetAnglesAsVector().y)) 
@@ -1225,19 +1239,24 @@ function OnCalydonianSnipeCast(keys)
         ParticleManager:ReleaseParticleIndex( ChargeParticle )
     end)]]
 
-    if keys.target:IsHero() and PlayerResource:GetConnectionState(playerId) == 2 then
-        Say(ply, "Calydonian Snipe targets " .. FindName(keys.target:GetName()) .. ".", true)
+    if target:IsHero() and PlayerResource:GetConnectionState(playerId) == 2 then
+        Say(ply, "Calydonian Snipe targets " .. FindName(target:GetName()) .. ".", true)
     end
 end
 
 function OnCalydonianSnipeStart(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
-	local target = keys.target 
+	local target = ability.target
 	local arrow_cost = ability:GetSpecialValueFor("arrow_cost")
 	local speed = ability:GetSpecialValueFor("speed")
     local ply = caster:GetPlayerOwner()
     local playerId = caster:GetPlayerOwnerID()
+
+    if caster:HasModifier("modifier_calydonian_snipe_tracker") then 
+        OnCalydonianSnipeInterrupted(keys)
+        return nil 
+    end
 	caster:StopSound("Ability.PowershotPull.Lyralei")
 	caster:EmitSound("Ability.Powershot.Alt")
 	--AddArrowStack(keys, -arrow_cost)
@@ -1261,15 +1280,15 @@ function OnCalydonianSnipeStart(keys)
 	else
 		caster:RemoveModifierByName("modifier_atalanta_calydonian_snipe_window")
 	end
-
+    local arrow_loc = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_bow"))
 	local projectile = {
     	Target = target,
-		Source = caster,
+		--Source = caster,
 		Ability = ability,	
         EffectName = "particles/custom/atalanta/rainbow_arrow.vpcf",
         iMoveSpeed = speed,
-		vSourceLoc= caster:GetAbsOrigin(),
-        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+		vSourceLoc= arrow_loc,
+        --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
 		bDrawsOnMinimap = false,
         bDodgeable = true,
         bIsAttack = false,
@@ -1280,8 +1299,8 @@ function OnCalydonianSnipeStart(keys)
     }
     ProjectileManager:CreateTrackingProjectile(projectile)
 
-    if keys.target:IsHero() and PlayerResource:GetConnectionState(playerId) == 2 then
-        Say(ply, "Calydonian Snipe at " .. FindName(keys.target:GetName()) .. ".", true)
+    if target:IsHero() and PlayerResource:GetConnectionState(playerId) == 2 then
+        Say(ply, "Calydonian Snipe at " .. FindName(target:GetName()) .. ".", true)
     end
 end
 
@@ -1355,6 +1374,7 @@ function OnPhoebusSnipeCast(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Be_Cast_Now")
 		return 
 	end
+    EmitGlobalSound("Atalanta.PreCombo")
 end
 
 function OnPhoebusSnipeStart(keys)

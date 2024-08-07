@@ -1,6 +1,9 @@
 -- where the misc functios gather
 heroList = LoadKeyValues("scripts/npc/herolist.txt")
 testList = LoadKeyValues("scripts/npc/herotest.txt")
+aotkCenter = Vector(500, -4800, 208)
+ubwCenter = Vector(5600, -4398, 200)
+fate_ability_count = LoadKeyValues("scripts/npc/fate_ability_count.txt")
 require('libraries/modifiers/modifier_ndm')
 
 --"SpellDispellableType"   "SPELL_DISPELLABLE_YES"
@@ -16,10 +19,6 @@ softdispellable = {
     "modifier_jeanne_charisma_int",
     "modifier_jtr_surgery_heal", 
     "modifier_murderous_instinct",
-    "modifier_double_edge_thinker",
-    "modifier_double_edge_ms",
-    "modifier_double_edge_as",
-    "modifier_double_edge_damage_amp",
     "modifier_lishuwen_invis",
     "modifier_lishuwen_invis_move",
     "modifier_lishuwen_cosmic_orbit_speed",
@@ -92,6 +91,9 @@ strongdispellable = {
     "modifier_jeanne_charisma_str_flag",
     "modifier_jeanne_charisma_agi_flag",
     "modifier_jeanne_charisma_int_flag",
+    "modifier_jeanne_charisma",
+    "modifier_jeanne_gods_resolution_buff",
+    "modifier_jeanne_gods_resolution_buff2",
     "modifier_mordred_shield",
     "modifier_gladiusanus_blauserum",
     "modifier_pari_tenu_blauserum",
@@ -110,6 +112,10 @@ strongdispellable = {
     "modifier_atalanta_last_spurt",
     "modifier_heracles_berserk",
     "modifier_eternal_rage",
+    "modifier_double_edge_thinker",
+    "modifier_double_edge_ms",
+    "modifier_double_edge_as",
+    "modifier_double_edge_damage_amp",
     "modifier_lishuwen_cosmic_orbit_attack",
     "modifier_heart_of_harmony",
     "modifier_ta_self_mod_str",
@@ -117,6 +123,8 @@ strongdispellable = {
     "modifier_ta_self_mod_int",
     "modifier_ta_self_mod_all",
     "modifier_fran_mana_burst",
+    "modifier_fran_elect_shield",
+    "modifier_mordred_shield",
     "modifier_lubu_bravary",
     "modifier_amakusa_god_buff",
     "modifier_edmond_shadow",
@@ -133,7 +141,11 @@ strongdispellable = {
     "modifier_mashu_snowflake",
     "modifier_mashu_dmg_reduc",
     "modifier_atalanta_ora",
-
+    "modifier_kiyohime_q_buff",
+    "modifier_semiramis_shield",
+    "modifier_atalanta_beast",
+    "modifier_atalanta_beast_buff",
+    "modifier_atalanta_beast_enhance",
     -- items
     "modifier_b_scroll",
 
@@ -161,6 +173,8 @@ cleansable = {
     "rooted",
     "stunned",
     "silenced",
+    "muted",
+    "modifier_medea_trap_lock",
     --"modifier_sword_barrage_confine",
     "modifier_mordred_mb_silence",
     "modifier_frostbite_root",
@@ -178,6 +192,7 @@ cleansable = {
     "modifier_scathach_freeze", 
     "modifier_bathory_dragon_voice_deaf",  
     "modifier_zhuge_liang_wood_trap",
+    "musashi_modifier_wind_debuff",
 
     -- DPS, Curse, Burn 
     "modifier_scathach_fire_burn",
@@ -196,6 +211,7 @@ cleansable = {
     "modifier_zhuge_liang_fire_arrow",
     "modifier_zhuge_liang_acid",
     "modifier_semi_snek_poison",
+    "musashi_modifier_fire_debuff",
 
     -- Debuffs  
     "modifier_armor_reduction",
@@ -233,6 +249,8 @@ cleansable = {
     "modifier_mashu_taunt",
     "modifier_mashu_bunker_bolt_slow",
     "modifier_atalanta_curse",
+    "modifier_fear_kh",
+    "modifier_kiyo_slash_enemy",
 }
 
 slowmodifier = {
@@ -254,7 +272,9 @@ slowmodifier = {
     "modifier_gordius_wheel_thunder_slow",
     "modifier_battle_horn_movespeed_debuff",
     "modifier_purge_the_unjust_slow",
+    "modifier_jeanne_purge_slow",
     "modifier_gods_resolution_slow",
+    "modifier_jeanne_gods_resolution_slow",
     "modifier_la_pucelle_slow",
     "modifier_jtr_curse_slow",
     "modifier_jtr_dagger_slow",
@@ -298,6 +318,8 @@ slowmodifier = {
     "modifier_nobu_slow",
     "modifier_mashu_bunker_bolt_slow",
     "modifier_roar_slow",
+    "modifier_atalanta_jump_slow",
+    "musashi_modifier_earth_debuff",
 }
 
 revokes = {
@@ -312,6 +334,8 @@ revokes = {
     "round_pause",
     "modifier_tres_fontaine_nero",
     "modifier_bathory_cage_target",
+    "modifier_hippogriff_vanish_banish",
+    "modifier_atalanta_beast",
 }
 
 locks = {
@@ -346,6 +370,9 @@ locks = {
     "modifier_kinghassan_death_announce",
     "modifier_tiatum_umu_execute",
     "modifier_mashu_taunt",
+    "modifier_mashu_protect_self",
+    "modifier_melt_combo_slow",
+    "modifier_medea_trap_lock",
 }
 
 no_tp = {
@@ -381,8 +408,8 @@ goesthruB = {
     "scathach_gae_bolg_upgrade_1",
     "scathach_gae_bolg_upgrade_2",
     "scathach_gae_bolg_upgrade_3",
-    "avenger_verg_avesta_upgrade",    
-    "avenger_verg_avesta",
+    --"avenger_verg_avesta_upgrade",    
+    --"avenger_verg_avesta",
 }
 
 invis = {
@@ -478,7 +505,6 @@ donotlevel = {
     "avenger_unlimited_remains", 
     "avenger_vengeance_mark", 
     "avenger_demon_core", 
-    "okita_coat_of_oaths",
     "okita_sandanzuki_charge3",
     "gilles_eye_for_art_passive", 
     "iskandar_arrow_bombard", 
@@ -514,6 +540,9 @@ donotlevel = {
     "semiramis_poisonous_bite",
     "semiramis_absolute_queen",
     "nobu_strat",
+    "atalanta_passive_evolution",
+    "ishtar_beauty",
+    "ishtar_crown",
 }
 
 tModifierCooldown = {
@@ -563,7 +592,7 @@ tModifierCooldown = {
     "modifier_meltdown_cooldown",
     "modifier_combo_galatine_cooldown",
     "modifier_raging_dragon_strike_cooldown",
-    "modifier_phoebus_catastrophe_cooldown",
+    "modifier_atalanta_phoebus_snipe_cooldown",
     "modifier_mordred_bc_cooldown",
     "modifier_delusional_illusion_cooldown",
     "modifier_sasaki_quickdraw_cooldown",
@@ -594,6 +623,10 @@ tModifierCooldown = {
     "musashi_modifier_ishana_daitenshou_cooldown",
     "modifier_ishtar_combo_cooldown",
     "modifier_atalanta_skia_cd",
+    "modifier_muramasa_combo_cooldown",
+    "modifier_kiyohime_combo_cooldown",
+    "modifier_melt_combo_cooldown",
+    "modifier_billy_combo_cooldown",
 }
 
 CannotReset = {
@@ -800,13 +833,20 @@ CannotReset = {
     "nobu_divinity_mark",
     "nobu_demon_king_open",
     "mashu_combo",
+    "mashu_smash",
     "musashi_tengan",
     "musashi_mukyuu",
     "musashi_battle_continuation",
     "musashi_ishana_daitenshou",
     "atalanta_skia",
-    "atalanta_curse",
-    "atalanta_curse_upgrade",
+    "atalanta_alter_skia_upgrade",
+    "atalanta_alter_curse",
+    "atalanta_alter_curse_upgrade_1",
+    "atalanta_alter_curse_upgrade_2",
+    "atalanta_alter_curse_upgrade_3",
+    "melt_combo",
+    "billy_f",
+    "billy_combo",
 }
 
 femaleservant = {
@@ -833,6 +873,8 @@ femaleservant = {
     "npc_dota_hero_antimage",
     "npc_dota_hero_oracle",
     "npc_dota_hero_ursa",
+    "npc_dota_hero_void_spirit",
+    "npc_dota_hero_nyx_assassin",
 }
 
 tSpellBookHero = {
@@ -878,6 +920,8 @@ tArrow = {
     "robin_yew_bow_taxine",
     "robin_yew_bow_guerilla",
     "robin_yew_bow_upgrade",
+    "atalanta_tauropolos_alter",
+    "atalanta_tauropolos_alter_upgrade",
 }
 
 tPoison = {
@@ -1045,6 +1089,8 @@ tModifierKBImmune = {
     "modifier_enkidu_hold",
     "modifier_hira_seigan_shield",
     "modifier_heart_of_harmony",
+    "modifier_mashu_protect_self",
+    "modifier_mashu_protect_ally"
 }
 
 tTrueInvis = {
@@ -1137,6 +1183,7 @@ tDivineHeroes = {
     "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_oracle",
+    "npc_dota_hero_nyx_assassin",
 }
 
 tArthurHeroes = {
@@ -1180,6 +1227,7 @@ tDragonHeroes = {
     "npc_dota_hero_spectre",
     "npc_dota_hero_tusk",
     "npc_dota_hero_death_prophet",
+    "npc_dota_hero_void_spirit",
     "medea_ancient_dragon",
 }
 
@@ -1247,6 +1295,7 @@ tArcherClass = {
     "npc_dota_hero_naga_siren",
     "npc_dota_hero_sniper",
     "npc_dota_hero_gyrocopter",
+    "npc_dota_hero_muerta",
 }
 
 tLancerClass = {
@@ -1256,6 +1305,7 @@ tLancerClass = {
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_death_prophet",
+    "npc_dota_hero_void_spirit",
 }
 
 tRiderClass = {
@@ -1305,6 +1355,10 @@ tShielderClass = {
     "npc_dota_hero_dragon_knight",
 }
 
+tAlterEgoClass = {
+    "npc_dota_hero_nyx_assassin",
+}
+
 tClass = {
     Saber = tSaberClass,
     Archer = tArcherClass,
@@ -1315,7 +1369,8 @@ tClass = {
     Berserker = tBerserkerClass,
     Avenger = tAvengerClass,
     Ruler = tRulerClass,
-    Shielder = tShielderClass
+    Shielder = tShielderClass,
+    AlterEgo = tAlterEgoClass,
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -1946,6 +2001,16 @@ function IsImmuneToCC(target)
         return true
     elseif target:GetUnitName() == "bathory_iron_maiden" then
         return true
+    elseif target:HasModifier("modifier_kiyohime_q_buff_cc_immune") and target.Sa5Acquired then 
+        return true
+    elseif target:HasModifier("modifier_okita_headband_upgrade") and target:IsRealHero() then 
+        return true
+    elseif target:HasModifier("modifier_atalanta_beast") and target.BeastEnhancementAcquired then 
+        return true
+    elseif target:HasModifier("modifier_jeanne_gods_resolution_buff") and target:HasModifier("modifier_jeanne_luminosite_channel") and target.IsDivineSymbolAcquired then 
+        return true
+    --elseif target:HasModifier("modifier_mashu_protect_ally") then 
+    --    return true
     else
         return false
     end
@@ -1967,6 +2032,8 @@ function IsImmuneToSlow(target)
     elseif target:HasModifier("modifier_bathory_berserk") then
         return true
     elseif target:HasModifier("modifier_edmond_monte_cristo") and target.IsDeterminationAcquired then
+        return true
+    elseif target:HasModifier("modifier_kiyohime_q_buff_cc_immune") and target.Sa5Acquired then 
         return true
     else
         return false
@@ -2019,6 +2086,43 @@ function IsBiggerUnit(target)
         return false
     end
 
+end
+
+function IsFront(source, target, qAngle)
+    if IsValidEntity(target) and not target:IsNull() then
+        local caster_angle = source:GetAnglesAsVector().y
+
+        local origin_difference = source:GetAbsOrigin() - target:GetAbsOrigin()
+        local angle = qAngle 
+        if angle == nil then 
+            angle = 180 
+        end
+
+        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
+
+        origin_difference_radian = origin_difference_radian * 180
+        local enemy_angle = origin_difference_radian / math.pi
+
+        enemy_angle = enemy_angle + 180.0
+        --print('enemy angle ' .. enemy_angle)
+
+        if (caster_angle < angle/2 and enemy_angle > 360 - angle/2) then
+            enemy_angle = 360 - enemy_angle
+        elseif (enemy_angle < angle/2 and caster_angle > 360 - angle/2) then 
+            caster_angle = 360 - caster_angle 
+        end
+
+        local result_angle = math.abs(enemy_angle - caster_angle)
+
+        if result_angle <= angle/2 then
+            return true 
+        else 
+            return false 
+        end
+    else
+        print('target is invaid')
+        return false
+    end
 end
 
 function IsFacingUnit(source, target, angle)
@@ -2163,6 +2267,29 @@ end
 -- check whether two locations belong in same realm
 -- loc 1 = vector
 -- loc 2 = vector
+function IsOutOfMap(vLoc)
+    if vLoc.x < -8300 or vLoc.x > 8300 then 
+        return true 
+    elseif vLoc.y < -5700 or vLoc.y > 7250 then 
+        return true
+    end
+
+    return false
+end
+
+function GetBorderMap(vLoc)
+    if vLoc.x < -8300  then 
+        return Vector(-8100,vLoc.y,vLoc.z) 
+    elseif vLoc.x > 8300 then 
+        return Vector(8100,vLoc.y,vLoc.z)  
+    elseif vLoc.y < -5700 then 
+        return Vector(vLoc.x,-5700,vLoc.z) 
+    elseif vLoc.y > 7240 then 
+        return Vector(vLoc.x,7100,vLoc.z) 
+    end
+    return vLoc
+end
+
 function IsInSameRealm(loc1, loc2)
     -- above -2000 normal map
     if loc1.y > -2000 and loc2.y > -2000 then
@@ -2262,6 +2389,8 @@ function GiveSpellAmp(target,duration,amount,source,ability)
     end    
 end
 
+
+
 function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsValidEntity(target) or target:IsNull() then 
         print('Dodamage: target is null')
@@ -2273,12 +2402,43 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         return 
     end
 
+    if target:HasModifier("modifier_mashu_protect_ally") then 
+        local mashu = Entities:FindByClassname(nil, "npc_dota_hero_dragon_knight")
+        if target:GetUnitName() == "npc_dota_hero_dragon_knight" then 
+            mashu = target 
+        end 
+        DoMashuShieldDamage(source, target , dmg, dmg_type, dmg_flag, abil, mashu)
+        return
+    elseif target:HasModifier("modifier_mashu_protect_aura") then 
+        local mashu = Entities:FindByClassname(nil, "npc_dota_hero_dragon_knight")
+        if mashu.IsDMGCalculated then
+            --return 
+        else
+            DoMashuShieldDamage(source, target , dmg, dmg_type, dmg_flag, abil, mashu)
+            --[[mashu.IsDMGCalculated = true
+            Timers:CreateTimer(0.099, function()
+                mashu.IsDMGCalculated = false
+                mashu.ability_name = 0
+            end)]]
+        end
+    elseif target:HasModifier("modifier_mashu_beam_dummy_track") then
+        print('mashu after beam track')
+        if IsBeam(abil) then 
+            local mashu = Entities:FindByClassname(nil, "npc_dota_hero_dragon_knight")
+            if mashu.projectile.ability_name and mashu.projectile.ability_name == abil:GetAbilityName() then 
+                print('dmg beam track = ' .. mashu.projectile.damage)
+                dmg = mashu.projectile.damage
+            end
+        end
+    end
+
    -- if target == nil then return end 
     local IsAbsorbed = false
     local IsBScrollIgnored = false
     local MR = target:GetBaseMagicalResistanceValue()/100 --target:GetMagicalArmorValue() 
+    local PhysicReduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
     dmg_flag = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
-
+    print('dmg_flag = ' .. dmg_flag)
     if target:GetName() == "npc_dota_ward_base" or target:GetUnitName() == "ward_familiar" or target:GetUnitName() == "sentry_familiar" then
         if string.match(abil:GetAbilityName(), "atalanta_celestial_arrow") then
             dmg = 1
@@ -2454,7 +2614,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsAbsorbed and target:HasModifier("modifier_zhuge_liang_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR 
         end 
@@ -2476,7 +2636,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if target:HasModifier("modifier_l_rule_breaker") or target:HasModifier ("modifier_c_rule_breaker") and (dmg_type == DAMAGE_TYPE_PURE or dmg_type == DAMAGE_TYPE_PHYSICAL) then
             reduction = 1
         elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR
         end 
@@ -2502,7 +2662,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
   	    --local modifier = target:FindModifierByName("modifier_cursed_lance_shield")
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR
         end
@@ -2524,7 +2684,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsAbsorbed and target:HasModifier("modifier_mordred_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR
         end 
@@ -2550,7 +2710,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             incomingDmg = incomingDmg * (1-MR)
         elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
             incomingDmg = incomingDmg * (1-reduction) 
         end
         if string.match(abil:GetAbilityName(), "sasaki_tsubame_gaeshi") then
@@ -2571,7 +2731,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsAbsorbed and target:HasModifier("modifier_argos_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR
         end 
@@ -2591,7 +2751,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsAbsorbed and target:HasModifier("modifier_semiramis_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR 
         end 
@@ -2609,11 +2769,32 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         
     end
 
+    -- check if target has Fran Electric shield
+    if not IsAbsorbed and target:HasModifier("modifier_fran_elect_shield") then
+        local reduction = 0
+        if dmg_type == DAMAGE_TYPE_PHYSICAL then
+            reduction = PhysicReduction
+        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
+            reduction = MR 
+        end 
+        local originalDamage = dmg - target.ElectricShieldAmount * 1/(1-reduction)
+        target.ElectricShieldAmount = target.ElectricShieldAmount - dmg * (1-reduction)
+        if target.ElectricShieldAmount <= 0 then
+            dmg = originalDamage
+            target:RemoveModifierByName("modifier_fran_elect_shield") 
+            target.ElectricShieldAmount = 0
+        else
+            dmg = 0
+            IsAbsorbed = true
+        end
+        
+    end
+
     -- check if target has Seigan Shield
     if not IsAbsorbed and target:HasModifier("modifier_hira_seigan_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR 
         end 
@@ -2635,7 +2816,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if not IsAbsorbed and target:HasModifier("modifier_edmond_hate_shield") then
         local reduction = 0
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
+            reduction = PhysicReduction
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
             reduction = MR
         end 
@@ -2653,6 +2834,29 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             IsAbsorbed = true
         end
     end
+
+    -- Mashu shield Protect
+    --[[if not IsAbsorbed and target:HasModifier("modifier_mashu_protect_self") and target.ShieldAmount > 0 then
+        local reduction = 0
+        if dmg_type == DAMAGE_TYPE_PHYSICAL then
+            reduction = PhysicReduction
+        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
+            reduction = MR 
+        end 
+        local originalDamage = dmg - target.ShieldAmount * 1/(1-reduction)
+        target.ShieldAmount = math.max(target.ShieldAmount - dmg * (1-reduction), 0)
+        target:SetModifierStackCount("modifier_mashu_passive_shield", caster, target.ShieldAmount)
+        if target.ShieldAmount <= 0 then
+            dmg = originalDamage
+            EndAnimation(target)
+            target:RemoveModifierByName("modifier_mashu_protect_self")
+            target:RemoveModifierByName("modifier_mashu_shield_buff") 
+            target:FindAbilityByName(target.WSkill):ApplyDataDrivenModifier(target, target, "modifier_mashu_shield_break_cooldown", {})
+        else
+            dmg = 0
+            IsAbsorbed = true
+        end
+    end]]
 
     -- Check Lancelot Fairy 
     if target:GetName() == "npc_dota_hero_sven" and target.IsBlessingOfFairyAcquired and not target:HasModifier("modifier_blessing_of_fairy_cooldown") and dmg_type == DAMAGE_TYPE_MAGICAL then
@@ -2735,22 +2939,15 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 local hLinkTarget = target.linkTable[i]
                 -- do ApplyDamage if it's primary target since the shield processing is already done
                 if target.linkTable[i] == target then
+                    dmgtable.damage_flags = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NON_LETHAL)
                     ApplyDamage(dmgtable)
+                    if target:GetHealth() == 1 then 
+                        target:RemoveModifierByName("modifier_share_damage")
+                    end
                 -- for other linked targets, we need DoDamage
                 else
                     if target.linkTable[i] ~= nil and IsValidEntity(target.linkTable[i]) then
-                        if hLinkTarget:GetHealth() == 1 then
-                            hLinkTarget:SetHealth(1)
-                            hLinkTarget:RemoveModifierByName("modifier_share_damage")
-                            RemoveHeroFromLinkTables(hLinkTarget)
-                        elseif hLinkTarget:GetHealth() >= CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget) then
-                            --DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 0, abil, true)
-                            DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 0, abil, true)
-                        elseif hLinkTarget:GetHealth() < CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget) then
-                            hLinkTarget:SetHealth(1)
-                            hLinkTarget:RemoveModifierByName("modifier_share_damage")
-                            RemoveHeroFromLinkTables(hLinkTarget)
-                        end
+                        DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NON_LETHAL, abil, true)
                     end 
                 end
             end
@@ -2762,12 +2959,93 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     end
 end
 
-function GetRotationPoint( ... )
-    local originPoint, radius, angle = ...
+function DoMashuShieldDamage(source, target , dmg, dmg_type, dmg_flag, abil, mashu)
+    local shield_dummy = mashu.shield_dummy or Entities:FindByClassname(nil, "mashu_shield_dummy")
+    local shield_hp = mashu.ShieldAmount or shield_dummy:GetHealth()
+    local ability_name = abil:GetAbilityName()
+
+    if not mashu.IsDMGCalculated then
+        mashu.IsDMGCalculated = true
+        Timers:CreateTimer(0.099, function()
+            mashu.IsDMGCalculated = false
+            mashu.ability_name = 0
+        end)
+
+        if dmg_flag == DAMAGE_TYPE_PHYSICAL then 
+            dmg_flag = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
+        end
+
+        if mashu.Shield then 
+            if dmg >= shield_hp then 
+                local reduction = 0
+                if dmg_type == DAMAGE_TYPE_PHYSICAL then
+                    reduction = GetPhysicalDamageReduction(mashu:GetPhysicalArmorValue(false))
+                elseif dmg_type == DAMAGE_TYPE_MAGICAL then
+                    reduction = mashu:GetBaseMagicalResistanceValue()/100
+                end
+                local originalDamage1 = dmg - shield_hp
+                print('original dmage = ' .. originalDamage1)
+                local mashudamagetaken_cap = mashu:GetHealth() * 1/(1-reduction)
+                print('mashu damage taken cap ' .. mashudamagetaken_cap)
+                if originalDamage1 >= mashudamagetaken_cap then 
+                    mashu.ability_name = originalDamage1 - mashudamagetaken_cap
+                    if IsBeam(abil) and not mashu.IsBeamDMGCalculated then
+                        mashu.IsBeamDMGCalculated = true
+                        mashu.projectile = {ability_name = ability_name, damage = originalDamage1 - mashudamagetaken_cap}
+                        Timers:CreateTimer(1.5, function()
+                            mashu.IsBeamDMGCalculated = false
+                            mashu.projectile = {ability_name = nil, damage = 0}
+                        end)
+                    end
+                else
+                    mashu.ability_name = 0
+                end
+                if originalDamage1 > 0 then 
+                    print('mashu take damage instead of ally')
+                    mashu:RemoveModifierByName("modifier_mashu_protect_ally")
+                    DoDamage(source, mashu , originalDamage1, dmg_type, dmg_flag, abil, false)
+                end
+            else 
+                mashu.ability_name = 0    
+            end
+        else
+            if dmg >= shield_hp then 
+                mashu.ability_name = dmg - shield_hp
+                if IsBeam(abil) and not mashu.IsBeamDMGCalculated then
+                    mashu.IsBeamDMGCalculated = true
+                    mashu.projectile = {ability_name = ability_name, damage = dmg - shield_hp}
+                    Timers:CreateTimer(1.5, function()
+                        mashu.IsBeamDMGCalculated = false
+                        mashu.projectile = {ability_name = nil, damage = 0}
+                    end)
+                end
+            else
+                mashu.ability_name = 0
+            end 
+        end
+        DoDamage(source, shield_dummy , math.min(dmg, mashu.max_shield), dmg_type, bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY), abil, false)
+    end
+    if mashu.Shield and target == mashu then
+
+    else
+        if mashu.ability_name > 0 and target:HasModifier("modifier_mashu_protect_ally") then
+            target:RemoveModifierByName("modifier_mashu_protect_ally")
+            DoDamage(source, target , mashu.ability_name, dmg_type, dmg_flag, abil, false)
+            Timers:CreateTimer(0.033, function()
+                target:RemoveModifierByName("modifier_mashu_beam_dummy_track")
+            end)
+        end
+    end
+end
+
+function GetRotationPoint(originPoint, radius, angle)
+    --local originPoint, radius, angle = ...
     local radAngle = math.rad(angle)
-    local x = math.cos(radAngle) * radius + originPoint.x
-    local y = math.sin(radAngle) * radius + originPoint.y
+    local x = (math.cos(radAngle) * radius) + originPoint.x
+    local y = (math.sin(radAngle) * radius) + originPoint.y
     local position = Vector(x, y, originPoint.z)
+    --local position = RotatePosition( originPoint, QAngle( 0, angle, 0 ),originPoint + Vector(-radius,0,0))
+
     return position
 end
 
@@ -3337,7 +3615,7 @@ function MasterCannotUpgrade(hero, caster, ability, AcquireSA)
         return true
     end
 
-    if hero:GetName() == "npc_dota_hero_ember_spirit" and hero:HasModifier("modifier_ubw_chronosphere_self") then 
+    if hero:GetName() == "npc_dota_hero_ember_spirit" and hero:HasModifier("modifier_ubw_chronosphere_aura") then 
         SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
         caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
         ability:EndCooldown()
@@ -3381,7 +3659,7 @@ function MasterCannotUpgrade(hero, caster, ability, AcquireSA)
         caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
         ability:EndCooldown()
         return true  
-    elseif hero:GetName() == "npc_dota_hero_dark_willow" and hero:HasModifier("modifier_hira_seigan_shield") then 
+    elseif hero:GetName() == "npc_dota_hero_dark_willow" and (hero:HasModifier("modifier_hira_seigan_shield") or hero:HasModifier("modifier_okita_flash_window"))  then 
         SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
         caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
         ability:EndCooldown()
@@ -3392,6 +3670,16 @@ function MasterCannotUpgrade(hero, caster, ability, AcquireSA)
         ability:EndCooldown()
         return true    
     elseif hero:GetName() == "npc_dota_hero_gyrocopter" and hero:HasModifier("modifier_nobu_turnlock") then   
+        SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
+        caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
+        ability:EndCooldown()
+        return true   
+    elseif hero:GetName() == "npc_dota_hero_dragon_knight" and hero:HasModifier("modifier_mashu_protect_self") then   
+        SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
+        caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
+        ability:EndCooldown()
+        return true   
+    elseif hero:GetName() == "npc_dota_hero_mirana" and hero:HasModifier("modifier_jeanne_luminosite_buff") then 
         SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Upgrade_Now")
         caster:SetMana(caster:GetMana() + ability:GetManaCost(ability:GetLevel()))
         ability:EndCooldown()
@@ -3432,7 +3720,7 @@ function CheckingComboEnable(hero)
                 hero.EnableCombo = true
             end
         else
-            if math.ceil(hero:GetStrength()) >= 25 and math.ceil(hero:GetAgility()) >= 25 and math.ceil(hero:GetIntellect()) >= 25 then 
+            if math.ceil(hero:GetStrength()) >= 25 and math.ceil(hero:GetAgility()) >= 25 and math.ceil(hero:GetIntellect(true)) >= 25 then 
                 if hero:GetName() == "npc_dota_hero_bounty_hunter" then
                     local self_mod = hero:FindAbilityByName(hero:GetAbilityByIndex(1):GetAbilityName())
                     if hero:HasModifier("modifier_ta_self_mod_str") and math.ceil(hero:GetStrength() - self_mod:GetSpecialValueFor("bonus_stat")) < 25 then 
@@ -3593,6 +3881,10 @@ local heroNames = {
     ["npc_dota_hero_antimage"] = "Miyamoto Musashi",
     ["npc_dota_hero_oracle"] = "Ishtar",
     ["npc_dota_hero_ursa"] = "Atalanta Alter",
+    ["npc_dota_hero_kunkka"] = "Muramasa",
+    ["npc_dota_hero_void_spirit"] = "Kiyohime",
+    ["npc_dota_hero_nyx_assassin"] = "Melt",
+    ["npc_dota_hero_muerta"] = "Billy",
 }
 
 
@@ -3944,7 +4236,7 @@ function GenerateAbilitiesData(hTarget)
     hTarget.DSkill = hTarget:GetAbilityByIndex(3):GetAbilityName()
     hTarget.FSkill = hTarget:GetAbilityByIndex(4):GetAbilityName()
     hTarget.RSkill = hTarget:GetAbilityByIndex(5):GetAbilityName()
-    hTarget.ComboSkill = GetUnitKV(hTarget:GetUnitName(), "Combo")
+    hTarget.ComboSkill = ServantAttribute[hTarget:GetName()]["SCombo"]
 end
 
 function IsKnockbackImmune(hTarget)

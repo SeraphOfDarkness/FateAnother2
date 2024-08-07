@@ -1,4 +1,6 @@
 // Dota Heroes File
+#base "okita_new_e.kv"
+
 "DOTAAbilities"
 {
 	//=================================================================================================================
@@ -18,44 +20,19 @@
 		"AnimationPlaybackRate" 		"1.0"
 		"AOERadius"						"%radius"
 
-		"precache"
+		"AbilityValues"
 		{
-			
+			"cast_delay"			"0.5"
+			"radius"				"1000"
+			"duration"				"11"
+			"min_summon"			"4"
+			"max_summon"			"8"
+			"flag_health"			"6"
+			"buff_aspd"				"100"
+			"buff_ms"				"50"
+			"buff_atk"				"50"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.5"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_summon"			"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_summon"			"8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"11"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flag_health"			"6"
-			}
-		}
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -125,63 +102,21 @@
 		"AnimationPlaybackRate" 		"1.0"
 		"AOERadius"						"%radius"
 
-		"precache"
+		"AbilityValues"
 		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-			"model"					"models/okita/okita_flag.vmdl"
-			"model"					"models/heroes/juggernaut/juggernaut.vmdl"
-			"model"					"models/items/juggernaut/bladesrunner_arms/bladesrunner_arms.vmdl"
-			"model"					"models/items/juggernaut/bladesrunner_back/bladesrunner_back.vmdl"
-			"model"					"models/items/juggernaut/bladesrunner_head/bladesrunner_head.vmdl"
-			"model"					"models/items/juggernaut/bladesrunner_legs/bladesrunner_legs.vmdl"
-			"model"					"models/items/juggernaut/bladesrunner_weapon/bladesrunner_weapon.vmdl"
-			"model"					"models/items/juggernaut/sinister_shadow_arms/sinister_shadow_arms.vmdl"
-			"model"					"models/items/juggernaut/sinister_shadow_back/sinister_shadow_back.vmdl"
-			"model"					"models/items/juggernaut/sinister_shadow_head/sinister_shadow_head.vmdl"
-			"model"					"models/items/juggernaut/sinister_shadow_legs/sinister_shadow_legs.vmdl"
-			"model"					"models/items/juggernaut/sinister_shadow_weapon/sinister_shadow_weapon.vmdl"
-			"particle"				"particles/custom/okita/okita_flag_zone.vpcf"
-			"particle"				"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+			"cast_delay"			"0.5"
+			"radius"				"1500"
+			"duration"				"15"
+			"min_summon"			"5"
+			"max_summon"			"9"
+			"flag_health"			"8"
+			"buff_aspd"				"100"
+			"buff_ms"				"50"
+			"buff_atk"				"50"
+			"buff_hp_reg"			"60"
+			"buff_mana_reg"			"40"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.5"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1500"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_chance"			"33"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_summon"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_summon"			"9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"11"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flag_health"			"8"
-			}
-		}
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -234,7 +169,7 @@
 			}
 		}
 	}
-	/=================================================================================================================
+	//=================================================================================================================
 	// Okita Souji Flag : Flag of Sincerity Passive
 	//=================================================================================================================
 	"okita_flag_of_sincerity_passive"
@@ -247,32 +182,17 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"precache"
+
+		"AbilityValues"
 		{
+			"buff_duration"			"5.0"
+			"buff_aspd"				"100"
+			"buff_ms"				"50"
+			"buff_atk"				"50"
+			"buff_hp_reg"			"60"
+			"buff_mana_reg"			"40"
 		}
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"5.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_aspd"				"100"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_ms"				"50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_atk"				"50"
-			}
-		}
+		
 		"Modifiers"
 		{
 			"modifier_flag_of_sincerity"
@@ -294,7 +214,7 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "9999"
 				}
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"												//summon death = remove flag, flag go to isekai
@@ -321,18 +241,38 @@
 					}
 				}
 			}
-			"modifier_weak_buff"
+			"modifier_okita_headband"
 			{
 				"IsPurgable"		"0"
 				"IsDebuff"			"0"
 				"IsHidden"			"0"
 				"IsBuff"			"1"
-				"Duration"			"%buff_duration"
+				"Duration"			"1"
+				"EffectName"		"particles/econ/events/ti6/radiant_fountain_regen_ti6_lvl3.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"AbilityTextureName"	"custom/okita/okita_attribute_headband"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%buff_aspd"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%buff_ms" 
 				    "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%buff_atk" 
+				}
+			}
+			"modifier_okita_headband_upgrade"
+			{
+				"IsPurgable"		"0"
+				"IsDebuff"			"0"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"1"
+				"AbilityTextureName"	"custom/okita/okita_attribute_headband"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%buff_aspd"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%buff_ms" 
+				    "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%buff_atk" 
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%buff_hp_reg" 
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%buff_mana_reg" 
 				}
 			}
 		}
@@ -357,29 +297,13 @@
 			"particle"  "particles/econ/events/ti10/bottle_ti10_ring_bokeh.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"					"1500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_aspd"				"100"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_ms"				"50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_atk"				"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1500"
+            "buff_aspd" "100"
+            "buff_ms" "50"
+            "buff_atk" "50"
+        }
 
 		"Modifiers"
 		{
@@ -466,34 +390,14 @@
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"800"
 
-		"AbilitySpecial"
-		{
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"					"1000"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1000"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun"					"1.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.9"
+            "range" "1000"
+            "speed" "1000"
+            "damage" "800"
+            "stun" "1.0"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -622,85 +526,27 @@
 		"AbilityTextureName"			"custom/okita/okita_weak_constitution"
 		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"1"
 		"AbilityManaCost"				"0"
-		"precache"
+		
+		"AbilityValues"
 		{
-			
+			"exhaust"			"1"
+			"base_cough"		"100"
+			"max_cough"			"120"
+			"base_cough_delay"	"2.0"
+			"count_duration"	"10"
+			"recovery"			"10"
+			"hp_loss_percent"	"15"
+			"stun_duration"		"0.9"
+			"weak_duration"		"1.5"
+			"aspd_debuff"		"-20"
+			"ms_debuff"			"-20"
+			"mr_debuff"			"-3"
+			"armor_debuff"		"-5"
+			"atk_debuff"		"-10"
 		}
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"exhaust"			"1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_cough"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_cough"			"120"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"base_cough_delay"	"2.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"count_duration"	"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"recovery"			"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hp_loss_percent"	"15"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.9"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"weak_duration"		"1.5"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aspd_debuff"		"-20"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_debuff"			"-20"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mr_debuff"			"-3"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_debuff"		"-5"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_debuff"		"-10"
-			}
-		}
+		
 		"Modifiers"
 		{
 			"modifier_weak_constitution_counter"
@@ -794,85 +640,26 @@
 		"AbilityTextureName"			"custom/okita/okita_weak_constitution"
 		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"1"
 		"AbilityManaCost"				"0"
-		"precache"
+		"AbilityValues"
 		{
-
+			"exhaust"			"1"
+			"base_cough"		"100"
+			"max_cough"			"150"
+			"base_cough_delay"	"2.0"
+			"count_duration"	"10"
+			"recovery"			"20"
+			"hp_loss_percent"	"15"
+			"stun_duration"		"0.9"
+			"weak_duration"		"1.5"
+			"aspd_debuff"		"-20"
+			"ms_debuff"			"-20"
+			"mr_debuff"			"-3"
+			"armor_debuff"		"-5"
+			"atk_debuff"		"-10"
 		}
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"exhaust"			"1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_cough"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_cough"			"150"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"base_cough_delay"	"2.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"count_duration"	"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"recovery"			"20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hp_loss_percent"	"15"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.9"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"weak_duration"		"1.5"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aspd_debuff"		"-20"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_debuff"			"-20"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mr_debuff"			"-3"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_debuff"		"-5"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_debuff"		"-10"
-			}
-		}
+		
 		"Modifiers"
 		{
 			"modifier_weak_constitution_counter"
@@ -961,7 +748,7 @@
 	"okita_shukuchi"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"			"custom/okita/okita_shukuchi"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
@@ -972,41 +759,15 @@
 		"AbilityCooldown"				"12.0 11.0 10.0 9.0 8.0"
 		"AbilityCastPoint"				"0.0"
 
-		"precache"
+		"AbilityValues"
 		{
-			
+			"exhaust"				"10"
+			"leap_range"			"500"
+			"invis_duration"		"0.5"
+			"buff_duration"			"2.5"
+			"bonus_aspd"			"30 60 90 120 150"
 		}
 
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"exhaust"				"10"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_range"			"500"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invis_duration"		"0.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"2.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"30 60 90 120 150"
-			}
-														
-		}
 		"OnSpellStart"
 		{
 		
@@ -1085,7 +846,7 @@
 	"okita_shukuchi_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"			"custom/okita/okita_shukuchi"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
@@ -1096,45 +857,16 @@
 		"AbilityCooldown"				"12.0 11.0 10.0 9.0 8.0"
 		"AbilityCastPoint"				"0.0"
 
-		"precache"
+		"AbilityValues"
 		{
-
+			"exhaust"				"10"
+			"leap_range"			"800"
+			"invis_duration"		"0.5"
+			"buff_duration"			"4"
+			"bonus_aspd"			"30 60 90 120 150"
+			"crit_dmg"				"135 145 155 165 175"
 		}
 
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"exhaust"				"10"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_range"			"800"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invis_duration"		"0.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"4.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"30 60 90 120 150"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_dmg"				"135 145 155 165 175"
-			}														
-		}
 		"OnSpellStart"
 		{
 		
@@ -1225,39 +957,15 @@
 		"AbilityCooldown"				"24.0"
 		"AbilityCastPoint"				"0.1"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"exhaust"				"20"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0 4.5 5.0 5.5 6.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_atk"				"50 60 70 80 90"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"				"1 1 2 2 3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi_duration"			"12"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"10"
-			}						
-		}
+		"AbilityValues"
+        {
+            "exhaust" "20"
+            "duration" "4.0 4.5 5.0 5.5 6.0"
+            "base_atk" "50 60 70 80 90"
+            "bonus_agi" "1 1 2 2 3"
+            "agi_duration" "12"
+            "max_stacks" "10"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1397,39 +1105,15 @@
 		"AbilityCooldown"				"24.0"
 		"AbilityCastPoint"				"0.1"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"exhaust"				"20"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"7.0 7.5 8.0 8.5 9.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_atk"				"50 60 70 80 90"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"				"1 1 2 2 3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi_duration"			"12"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"10"
-			}						
-		}
+		"AbilityValues"
+        {
+            "exhaust" "20"
+            "duration" "7.0 7.5 8.0 8.5 9.0"
+            "base_atk" "50 60 70 80 90"
+            "bonus_agi" "1 1 2 2 3"
+            "agi_duration" "12"
+            "max_stacks" "10"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1574,49 +1258,17 @@
 			
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"30"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shield"				"300 400 500 600 700"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_damage"			"300 400 500 600 700"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_damage"			"600 700 800 900 1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_width"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_range"			"1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_speed"			"4000"
-			}
-		}
+		"AbilityValues"
+        {
+            "exhaust" "30"
+            "duration" "3"
+            "shield" "300 400 500 600 700"
+            "min_damage" "300 400 500 600 700"
+            "max_damage" "600 700 800 900 1000"
+            "beam_width" "250"
+            "beam_range" "1000"
+            "beam_speed" "4000"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1721,49 +1373,17 @@
 
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"30"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shield"				"300 400 500 600 700"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_damage"			"300 400 500 600 700"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_damage"			"800 900 1000 1100 1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_width"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_range"			"1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_speed"			"4000"
-			}
-		}
+		"AbilityValues"
+        {
+            "exhaust" "30"
+            "duration" "3"
+            "shield" "300 400 500 600 700"
+            "min_damage" "300 400 500 600 700"
+            "max_damage" "800 900 1000 1100 1200"
+            "beam_width" "250"
+            "beam_range" "1000"
+            "beam_speed" "4000"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1873,7 +1493,7 @@
 	"okita_hira_seigan_old"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityTextureName"			"custom/okita/okita_seigan"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
 		"AnimationPlaybackRate" 		"1.0"
@@ -1896,59 +1516,19 @@
 			"soundevents" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"30"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg_reduction"				"-50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dmg_threshold"			"100 85 70 55 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"300 375 450 525 600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_damage"			"180 210 240 270 300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"840 1005 1170 1335 1500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_width"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_range"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "exhaust" "30"
+            "duration" "3"
+            "dmg_reduction" "-50"
+            "dmg_threshold" "100 85 70 55 40"
+            "radius" "500"
+            "base_damage" "300 375 450 525 600"
+            "charge_damage" "180 210 240 270 300"
+            "beam_damage" "840 1005 1170 1335 1500"
+            "beam_width" "250"
+            "beam_range" "1000"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2053,39 +1633,16 @@
         "AbilityManaCost"                           "800"
         "AbilityCooldown"                           "45"
 
-		"AbilitySpecial"
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"		"0.9"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"window_duration"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"250 315 380 445 510"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay_duration"		"0.7"
-			}
+			"exhaust"				"40"
+			"cast_delay"			"0.9"
+			"distance"				"950"
+			"delay_duration"		"0.7"
+			"base_damage"			"250 315 380 445 510"
+			"window_duration"		"6"
 		}
+
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -2172,45 +1729,17 @@
         "AbilityManaCost"                           "800"
         "AbilityCooldown"                           "45"
 
-		"AbilitySpecial"
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"		"0.9"
-			}
-			
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"window_duration"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"250 315 380 445 510"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_agi_ratio"		"1.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay_duration"		"0.7"
-			}
+			"exhaust"				"40"
+			"cast_delay"			"0.9"
+			"distance"				"950"
+			"delay_duration"		"0.7"
+			"base_damage"			"250 315 380 445 510"
+			"bonus_agi_ratio"		"1.3"
+			"window_duration"		"6"
 		}
+
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -2294,29 +1823,14 @@
 		"AbilityCastPoint"                          "0.0"
         "AbilityManaCost"                           "0"
         "AbilityCooldown"                           "0"
-        "precache"
-        {
-        	
-        }
-
-		"AbilitySpecial"
+        
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"10"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
+			"exhaust"				"10"
+			"dash_speed"			"2500"
+			"distance"				"950"
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2339,7 +1853,7 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNTARGETABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
@@ -2364,29 +1878,14 @@
 		"AbilityCastPoint"                          "0.0"
         "AbilityManaCost"                           "0"
         "AbilityCooldown"                           "0"
-        "precache"
-        {
-
-        }
-
-		"AbilitySpecial"
+        
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"10"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
+			"exhaust"				"10"
+			"dash_speed"			"3000"
+			"distance"				"950"
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2409,7 +1908,7 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNTARGETABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
@@ -2434,39 +1933,16 @@
 		"AbilityCastPoint"                          "0.0"
         "AbilityManaCost"                           "0"
         "AbilityCooldown"                           "0"
-        "precache"
-        {
-
-        }
-
-		"AbilitySpecial"
+        
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"10"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"3500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"250 315 380 445 510"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_agi_ratio"		"1.5"
-			}
+			"exhaust"				"10"
+			"dash_speed"			"3500"
+			"distance"				"950"
+			"base_damage"			"250 315 380 445 510"
+			"bonus_agi_ratio"		"1.3"
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2499,6 +1975,7 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNTARGETABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -2524,39 +2001,15 @@
 		"AbilityCastPoint"                          "0.0"
         "AbilityManaCost"                           "0"
         "AbilityCooldown"                           "0"
-        "precache"
-        {
-
-        }
-
-		"AbilitySpecial"
+        "AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"10"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"3500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"950"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"250 315 380 445 510"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_agi_ratio"		"1.5"
-			}
+			"exhaust"				"10"
+			"dash_speed"			"3500"
+			"distance"				"950"
+			"base_damage"			"250 315 380 445 510"
+			"bonus_agi_ratio"		"1.3"
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2589,6 +2042,7 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNTARGETABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -2612,34 +2066,14 @@
 		"AbilityCooldown"				"20.0"
 		"AbilityCastPoint"				"0.0"
 
-		"precache"
+		"AbilityValues"
 		{
-			"particle"  "particles/items_fx/immunity_sphere_buff.vpcf"
+			"duration"				"1.0"
+			"range"					"500"
+			"distance"				"500"
+			"evasion"				"100"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion"				"100"
-			}	
-		}
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -2713,7 +2147,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Okita Souji : Coat of Oaths
+	// Okita Souji : Coat of Oaths (W)
 	//=================================================================================================================
 	"okita_coat_of_oaths"
 	{
@@ -2721,37 +2155,165 @@
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityManaCost"				"0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"			"custom/okita/okita_attribute_coat_of_oaths"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/okita/okita_coat"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"              "0.1"
+        "AbilityManaCost"               "200"
+        "AbilityCooldown"               "20"
 
-		"AbilitySpecial"
+        "AbilityValues"
 		{
-			"01"
+			"duration"				"5 5 6 6 7"
+			"bonus_mr"				"10 13 16 19 22"
+			"bonus_armor"			"8 11 14 17 20"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_armor"			"10"
+				"ScriptFile"	"abilities/okita/okita_abilities"
+				"Function"		"OnCoatStart"
 			}
 		}
 		"Modifiers"
 		{
 			"modifier_coat_of_oaths"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"IsBuff"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Duration"			"%duration"
+				"EffectName"		"particles/econ/items/primal_beast/primal_beast_2022_prestige/primal_beast_2022_prestige_onslaught_charge_body_emissive.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_mr" 
+				}
+			}
+			"modifier_zekken_window"
+			{
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Duration"			"4"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindow"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindowDestroy"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindowDied"
+					}
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji : Coat of Oaths (W)
+	//=================================================================================================================
+	"okita_coat_of_oaths_upgrade"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityManaCost"				"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/okita/okita_coat"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"              "0.1"
+        "AbilityManaCost"               "200"
+        "AbilityCooldown"               "20"
+
+        "AbilityValues"
+		{
+			"duration"				"8 8 9 9 10"
+			"bonus_mr"				"10 13 16 19 22"
+			"bonus_armor"			"8 11 14 17 20"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/okita/okita_abilities"
+				"Function"		"OnCoatStart"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_coat_of_oaths"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%duration"
+				"EffectName"		"particles/econ/items/primal_beast/primal_beast_2022_prestige/primal_beast_2022_prestige_onslaught_charge_body_emissive.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_mr" 
+				}
+			}
+			"modifier_zekken_window"
+			{
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Duration"			"4"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindow"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindowDestroy"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/okita/okita_abilities"
+						"Function"		"OnZekkenWindowDied"
+					}
 				}
 			}
 		}
@@ -2778,78 +2340,21 @@
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"800"
 		
-		"precache"
+		"AbilityValues"
 		{
-
-		}
-				
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"60"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"3500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1000"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"						//basedamage
-				"interval"			"0.1"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"						
-				"atk_count"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg"				"-50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"last_hit_damage"	"1000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"last_hit_radius"	"200"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"beam_damage"		"2000"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"						
-				"beam_distance"		"1800"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"						
-				"beam_radius"		"250"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_kiku_agi_ratio" "6"
-			}
+			"exhaust"				"60"
+			"dash_speed"			"3500"
+			"distance"				"1000"
+			"interval"				"0.1"
+			"atk_count"				"15"
+			"dmg"					"-50"
+			"radius"				"500"
+			"last_hit_damage"		"1000"
+			"last_hit_radius"		"200"
+			"beam_damage"			"2000"
+			"beam_distance"			"1800"
+			"beam_radius"			"250"
+			"beam_kiku_agi_ratio" 	"6"
 		}
 
 		"OnSpellStart"
@@ -2923,82 +2428,23 @@
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"800"
 		
-		"precache"
+		"AbilityValues"
 		{
-
+			"exhaust"				"60"
+			"dash_speed"			"3500"
+			"distance"				"1000"
+			"interval"				"0.1"
+			"atk_count"				"15"
+			"dmg"					"-50"
+			"radius"				"500"
+			"last_hit_damage"		"1000"
+			"last_hit_radius"		"200"
+			"beam_damage"			"2000"
+			"beam_distance"			"1800"
+			"beam_radius"			"250"
+			"beam_kiku_agi_ratio" 	"6"
 		}
-		
-		
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhaust"				"60"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_speed"			"3500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1000"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"						//basedamage
-				"interval"			"0.1"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"						
-				"atk_count"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg"				"-50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"last_hit_damage"	"1000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"last_hit_radius"	"200"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"beam_damage"		"2000"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"						
-				"beam_distance"		"1800"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"						
-				"beam_radius"		"250"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_kiku_agi_ratio" "6"
-			}
-		}
-
+	
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3064,38 +2510,14 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"10"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_armor"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"flag_summon_chance"	"33"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"flag_bonus_summon"		"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"flag_range"			"500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"flag_health"			"2"
-			}
+			"bonus_mr"				"10"
+			"bonus_armor"			"10"
+			"flag_summon_chance"	"33"
+			"flag_bonus_summon"		"1"
+			"flag_range"			"500"
+			"flag_health"			"2"
 		}
 
 		"OnSpellStart"
@@ -3155,28 +2577,12 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"8"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown"				"20"
-			}	
+			"duration"				"1.0"
+			"range"					"500"
+			"distance"				"500"
+			"cooldown"				"20"
 		}
 
 		"OnSpellStart"
@@ -3198,24 +2604,15 @@
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/okita/okita_attribute_kiku_ichimonji"
-		
-		
+				
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"15"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mumyo_bonus_agi_ratio"			"1.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"zekken_bonus_agi_ratio"		"6"
-			}
+			"mumyo_bonus_agi_ratio"			"1.3"
+			"zekken_bonus_agi_ratio"		"6"
 		}
 
 		"OnSpellStart"
@@ -3243,18 +2640,10 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"7"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_cough"				"150"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_recovery"		"10"
-			}
+			"max_cough"				"150"
+			"bonus_recovery"		"10"
 		}
 
 		"OnSpellStart"
@@ -3282,23 +2671,11 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"10"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_distance"		"300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_duration"		"1.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_dmg"				"135 145 155 165 175"
-			}
+			"bonus_distance"		"300"
+			"bonus_duration"		"1.5"
+			"crit_dmg"				"135 145 155 165 175"
 		}
 
 		"OnSpellStart"
@@ -3326,18 +2703,10 @@
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"12"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"seigan_beam"			"200"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tennen_duration"		"3"
-			}
+			"seigan_beam"			"200"
+			"tennen_duration"		"3"
 		}
 
 		"OnSpellStart"
@@ -3346,6 +2715,78 @@
 			{
 				"ScriptFile"	"abilities/okita/okita_abilities"
 				"Function"		"OnPeerlessAcquired"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji Attribute : Headband
+	//=================================================================================================================
+	"okita_attribute_headband"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_attribute_headband"
+			
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"11"
+
+		"AbilityValues"
+		{
+			"flag_radius"			"500"
+			"flag_duration"			"4"
+			"flag_summon"			"1"
+			"flag_hp"				"2"
+			"buff_hp_reg"			"60"
+			"buff_mana_reg"			"40"
+			"coat_bonus_dur"		"3"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/okita/okita_abilities"
+				"Function"		"OnHeadbandAcquired"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji Attribute : Tennen
+	//=================================================================================================================
+	"okita_attribute_tennen"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_tennen"		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"AbilityValues"
+		{
+			"tennen_dur"			"20"
+			"tennen_agi"			"1 2 3 4 5"
+			"bonus_flash"			"10"
+			"beam_distance"			"1000"
+			"beam_base_damage"		"500"
+			"beam_atk_dmg"			"300"
+			"beam_bonus_agi"		"5"
+			"beam_cd"				"30"
+			"cast_rdr_agi"			"0.002"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/okita/okita_abilities"
+				"Function"		"OnTennenAcquired"
 			}
 		}
 	}
@@ -3362,17 +2803,17 @@
 
 		"precache"
 		{
-			"models"				"models/okita/okita_pink/okita_pink_by_zefiroft.vmdl"
-			"models"				"models/okita/okita_alter/okita_alter_by_zefiroft.vmdl"
-			"models"				"models/okita/okita_scabbard.vmdl"
-			"models"				"models/okita/okita_sword.vmdl"
-			"models"				"models/okita/okita_flag.vmdl"
-			"models"				"models/heroes/juggernaut/juggernaut.vmdl"
-			"models"				"models/items/juggernaut/bladesrunner_arms/bladesrunner_arms.vmdl"
-			"models"				"models/items/juggernaut/bladesrunner_back/bladesrunner_back.vmdl"
-			"models"				"models/items/juggernaut/bladesrunner_head/bladesrunner_head.vmdl"
-			"models"				"models/items/juggernaut/bladesrunner_legs/bladesrunner_legs.vmdl"
-			"models"				"models/items/juggernaut/bladesrunner_weapon/bladesrunner_weapon.vmdl"
+			"model"					"models/okita/okita_pink/okita_pink_by_zefiroft.vmdl"
+			"model"					"models/okita/okita_alter/okita_alter_by_zefiroft.vmdl"
+			"model"					"models/okita/okita_scabbard.vmdl"
+			"model"					"models/okita/okita_sword.vmdl"
+			"model"					"models/okita/okita_flag.vmdl"
+			"model"					"models/heroes/juggernaut/juggernaut.vmdl"
+			"model"					"models/items/juggernaut/bladesrunner_arms/bladesrunner_arms.vmdl"
+			"model"					"models/items/juggernaut/bladesrunner_back/bladesrunner_back.vmdl"
+			"model"					"models/items/juggernaut/bladesrunner_head/bladesrunner_head.vmdl"
+			"model"					"models/items/juggernaut/bladesrunner_legs/bladesrunner_legs.vmdl"
+			"model"					"models/items/juggernaut/bladesrunner_weapon/bladesrunner_weapon.vmdl"
 			"particle"				"particles/custom/okita/okita_flag_zone.vpcf"
 			"particle"  			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_bloodstain.vpcf"
 			"particle"				"particles/custom/atalanta/sting/ring.vpcf"
@@ -3386,12 +2827,23 @@
         	"particle"  			"particles/okita/okita_afterimage_windrunner.vpcf"
         	"particle"				"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt_serrakura.vpcf"
         	"particle"				"particles/custom/gilgamesh/enuma_elish/cracks_smoke.vpcf"
-        	"particle"				"particles/okita/okita_zekken_beam.vpcf"
+        	"particle"				"particles/okita/okita_zekken_beam.vpcf" 
+        	"particle"				"particles/econ/events/ti6/radiant_fountain_regen_ti6_lvl3.vpcf" 
+        	"particle"				"particles/econ/items/primal_beast/primal_beast_2022_prestige/primal_beast_2022_prestige_onslaught_charge_body_emissive.vpcf" 
+			"particle"  			"particles/custom/okita/okita_flash_slash_a.vpcf"
+			"particle"  			"particles/custom/okita/okita_flash_thrust.vpcf"
+			"particle"  			"particles/custom/okita/okita_sandan.vpcf"
+			"particle"  			"particles/custom/okita/okita_sandan_end.vpcf"
+			"particle"  			"particles/custom/okita/okita_sandan_shadow.vpcf"
+			"particle"  			"particles/items_fx/immunity_sphere_buff.vpcf"
 			"soundfile" 			"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 			"soundfile" 			"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 			"soundfile"   			"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
 		}
 	}
 }

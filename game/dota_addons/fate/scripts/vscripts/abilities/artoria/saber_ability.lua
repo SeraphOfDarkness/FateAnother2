@@ -186,7 +186,9 @@ function OnCaliburnHit(keys)
 	local mini_stun = ability:GetSpecialValueFor("mini_stun")
 	local ply = caster:GetPlayerOwner()
 
-	if not IsImmuneToSlow(target) and not IsImmuneToCC(target) then ability:ApplyDataDrivenModifier(caster, target, "modifier_caliburn_slow", {}) end
+	if not IsImmuneToSlow(target) and not IsImmuneToCC(target) then 
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_caliburn_slow", {}) 
+	end
 	
 	local aoedmg = keys.Damage * keys.AoEDamage
 
@@ -212,6 +214,8 @@ function OnCaliburnHit(keys)
     	caster:EmitSound("Saber_Lily_Caliburn")
     elseif caster:HasModifier("modifier_alternate_05") then 
     	caster:EmitSound("Saber-Wedding-W")
+    elseif caster:HasModifier("modifier_alternate_06") then 
+    	caster:EmitSound("Arthur.Caliburn")
     else
     	caster:EmitSound("saber_attack_01")
     end
@@ -254,6 +258,8 @@ function OnExcaliburStart(keys)
 		StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.60})
 	elseif caster:HasModifier("modifier_alternate_05") then
 		StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.60})
+	elseif caster:HasModifier("modifier_alternate_06") then
+		StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.00})
 	else
 		StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.60})
 	end
@@ -278,7 +284,11 @@ function OnExcaliburStart(keys)
 		vVelocity = caster:GetForwardVector() * keys.Speed
 	}
 	
-	EmitGlobalSound("Saber_Ex") 
+	if caster:HasModifier("modifier_alternate_06") then 
+		EmitGlobalSound("Arthur.Exca") 
+	else
+		EmitGlobalSound("Saber_Ex") 
+	end
 
 	if caster:HasModifier("modifier_alternate_01") then 
 		Timers:CreateTimer(0.7, function()
@@ -288,7 +298,11 @@ function OnExcaliburStart(keys)
 
 	Timers:CreateTimer(keys.Delay - 0.5, function() 
 		if caster:IsAlive() then
-			EmitGlobalSound("Saber_Kalibar") 
+			if caster:HasModifier("modifier_alternate_06") then 
+				EmitGlobalSound("Arthur.Calibur") 
+			else
+				EmitGlobalSound("Saber_Kalibar") 
+			end
 			if caster:HasModifier("modifier_alternate_03") then 
 				FreezeAnimation(caster,0.5)
 			else
@@ -302,7 +316,7 @@ function OnExcaliburStart(keys)
 		if caster:IsAlive() then
 			if caster:HasModifier("modifier_alternate_01") then
 				UnfreezeAnimation(caster)
-			elseif caster:HasModifier("modifier_alternate_02") then
+			elseif caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_06") then
 				StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.00})
 			elseif caster:HasModifier("modifier_alternate_03") then
 				UnfreezeAnimation(caster)
@@ -439,6 +453,14 @@ function OnMaxStart(keys)
 	    StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.6})
 	elseif caster:HasModifier("modifier_alternate_05") then 
 	    StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.6})
+	elseif caster:HasModifier("modifier_alternate_06") then 
+	    StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
+	    local sword_glow_fx = ParticleManager:CreateParticle("particles/custom/saber/arthur_combo_spiral.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+	    ParticleManager:SetParticleControlEnt(sword_glow_fx, 2, caster, PATTACH_POINT_FOLLOW, "attach_sword", caster:GetAbsOrigin(), false)
+	    Timers:CreateTimer(2.5, function()
+	    	ParticleManager:DestroyParticle(sword_glow_fx, true)
+	    	ParticleManager:ReleaseParticleIndex(sword_glow_fx)
+	    end)
 	else
 		StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.21})
 	end
@@ -476,6 +498,9 @@ function OnMaxStart(keys)
 		EmitGlobalSound("Saber_Lily_Max_Chant_" .. math.random(1,2))
 	elseif caster:HasModifier("modifier_alternate_05") then 
 		EmitGlobalSound("Saber-Wedding-Combo" .. math.random(1,2))
+	elseif caster:HasModifier("modifier_alternate_06") then 
+		EmitGlobalSound("Arthur.Combo" .. math.random(1,2)) 
+		EmitGlobalSound("Arthur.BGM") 
 	else
 		EmitGlobalSound("Saber_Max_Chant_" .. math.random(1,2))
 	end
@@ -493,6 +518,8 @@ function OnMaxStart(keys)
 			EmitGlobalSound("Saber_Lily_Max_Excalibur")
 		elseif caster:HasModifier("modifier_alternate_05") then 
 			EmitGlobalSound("Saber-Wedding-Combo-Excal")
+		elseif caster:HasModifier("modifier_alternate_06") then 
+			EmitGlobalSound("Arthur.Excalibur") 
 		else
 	    	EmitGlobalSound("Saber_Max_Excalibur")
 	    end
@@ -512,7 +539,9 @@ function OnMaxStart(keys)
 		if caster:HasModifier("modifier_alternate_01") then 
 			UnfreezeAnimation(caster)
 		elseif caster:HasModifier("modifier_alternate_02") then 
-	    	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=0.67})
+	    	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.67})
+	    elseif caster:HasModifier("modifier_alternate_06") then
+
 		elseif caster:HasModifier("modifier_alternate_03") then 
 			UnfreezeAnimation(caster)
 		else
@@ -659,7 +688,11 @@ function OnAvalonStart(keys)
 
 	caster:EmitSound("Hero_Omniknight.GuardianAngel.Cast")
 	EmitGlobalSound("Saber.Avalon")
-	EmitGlobalSound("Saber.Avalon_Shout")
+	if caster:HasModifier("modifier_alternate_06") then 
+		EmitGlobalSound("Arthur.Avalon")
+	else
+		EmitGlobalSound("Saber.Avalon_Shout")
+	end
 
 	if caster.IsUtopiaAcquired then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_everdistant_utopia", {})
@@ -670,20 +703,23 @@ end
 
 function AvalonOnTakeDamage(keys)
 	local caster = keys.caster
+	local ability = keys.ability
 	local attacker = keys.attacker
 	local pid = caster:GetPlayerID() 
 	local diff = 0
 	local damageTaken = keys.DamageTaken
 	local newCurrentHealth = caster:GetHealth()
 	local emitwhichsound = RandomInt(1, 2)
-	local range = keys.ability:GetSpecialValueFor("range")
-	local duration = keys.ability:GetSpecialValueFor("duration")
+	local damage = ability:GetSpecialValueFor("damage")
+	local range = ability:GetSpecialValueFor("range")
+	local duration = ability:GetSpecialValueFor("duration")
 	
 	--if caster.IsAvalonPenetrated then return end
 
 	if caster:IsAlive() and not caster:HasModifier("pause_sealdisabled") and not caster:HasModifier("modifier_max_excalibur") and caster.avalon_proc > 0 and caster.IsAvalonProc == true and caster:GetTeam() ~= attacker:GetTeam() and caster.IsAvalonOnCooldown == false and (caster:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D() < range then 
 		if emitwhichsound == 1 then attacker:EmitSound("Saber.Avalon_Counter1") else attacker:EmitSound("Saber.Avalon_Counter2") end
-		AvalonDash(caster, attacker, keys.Damage, keys.ability)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_saber_avalon_dash", {})
+		AvalonDash(caster, attacker, damage, ability)
 		caster.IsAvalonOnCooldown = true
 		Timers:CreateTimer('avalon_dash' .. caster:GetPlayerOwnerID(),{
 			endTime = duration - 1, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
@@ -701,6 +737,7 @@ function AvalonDash(caster, attacker, counterdamage, ability)
 	local aoe = ability:GetSpecialValueFor("aoe")
 	local stun_duration = ability:GetSpecialValueFor("stun_duration")
 	local cleanseCounter = 0
+	local speed = math.max(distance:Length2D(), 500) * 2.5
 		Timers:CreateTimer(function()
 			if cleanseCounter >= 10 then return end
 			HardCleanse(caster)
@@ -710,15 +747,27 @@ function AvalonDash(caster, attacker, counterdamage, ability)
 
 	if not caster:IsAlive() then return end
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.45)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", (distance/(math.max(distance:Length2D(), 500) * 2.5)) + 0.05  --[[0.45]])
     caster:PreventDI()
     caster:SetPhysicsFriction(0)
-    caster:SetPhysicsVelocity(distance:Normalized() * distance:Length2D() * 2.5)
+    caster:SetPhysicsVelocity(distance:Normalized() * speed)
     caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
     caster:FollowNavMesh(true)
 	caster:SetAutoUnstuck(false)
+
+	caster:OnPhysicsFrame(function(unit) 
+		local diff = attacker:GetAbsOrigin() - caster:GetAbsOrigin()
+		caster:SetPhysicsVelocity(diff:Normalized() * speed)
+		if not caster:HasModifier("modifier_saber_avalon_dash") or diff:Length() <= 200 then -- if pushback distance is over 500, stop it
+			caster:RemoveModifierByName("modifier_saber_avalon_dash")
+			caster:PreventDI(false)
+			caster:SetPhysicsVelocity(Vector(0,0,0))
+			caster:OnPhysicsFrame(nil)
+			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+		end
+	end)
 	
-	Timers:CreateTimer({
+	--[[Timers:CreateTimer({
 		endTime = 0.4,
 		callback = function()
 
@@ -758,7 +807,43 @@ function AvalonDash(caster, attacker, counterdamage, ability)
 		end)
 		
 	end
-	})
+	})]]
+end
+
+function OnAvalonCounter(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local aoe = ability:GetSpecialValueFor("aoe")
+	local damage = ability:GetSpecialValueFor("damage")
+	local stun_duration = ability:GetSpecialValueFor("stun_duration")
+	-- Original function
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for k,v in pairs(targets) do
+		if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
+	       	v:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
+	       	DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	    end
+    end
+	    
+	caster:AddNewModifier(caster, nil, "modifier_camera_follow", {Duration = 1.0})
+	Timers:CreateTimer(1.0, function()
+		if not caster.IsUtopiaAcquired then
+			caster:RemoveModifierByName("modifier_avalon")
+		end
+	end)
+	HardCleanse(caster)
+
+		-- Particles
+		--local impactFxIndex = ParticleManager:CreateParticle( "particles/custom/saber_avalon_impact.vpcf", PATTACH_ABSORIGIN, caster )
+	local explosionFxIndex = ParticleManager:CreateParticle( "particles/custom/saber_avalon_explosion.vpcf", PATTACH_WORLDORIGIN, caster )
+	ParticleManager:SetParticleControl( explosionFxIndex, 3, caster:GetAbsOrigin() )
+	EmitSoundOn( "Hero_EarthShaker.Fissure", caster )
+
+		
+	Timers:CreateTimer( 3.0, function()
+			--ParticleManager:DestroyParticle( impactFxIndex, false )
+		ParticleManager:DestroyParticle( explosionFxIndex, false )
+	end)
 end
 
 function OnStrikeAirStart(keys)
@@ -780,6 +865,8 @@ function OnStrikeAirStart(keys)
 		StartAnimation(caster, {duration=cast_time, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
 	elseif caster:HasModifier("modifier_alternate_05") then 
 		StartAnimation(caster, {duration=cast_time, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
+	elseif caster:HasModifier("modifier_alternate_06") then
+		StartAnimation(caster, {duration=cast_time, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.00})
 	else
 		StartAnimation(caster, {duration=cast_time, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.3})
 	end
@@ -812,23 +899,28 @@ function OnStrikeAirStart(keys)
 				--StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1.0})
 			elseif caster:HasModifier("modifier_alternate_03") then 
 				StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1.0})
+			elseif caster:HasModifier("modifier_alternate_06") then 
+				StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
 			else
 				StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1})
 			end
 			strikeair.vSpawnOrigin = caster:GetAbsOrigin() 
 			strikeair.vVelocity = caster:GetForwardVector() * speed
 			projectile = ProjectileManager:CreateLinearProjectile(strikeair)
+			if caster:HasModifier('modifier_alternate_06') then 
+				EmitGlobalSound("Arthur.StrikeAir")
+			else
+				EmitGlobalSound("Saber.StrikeAir_Release" .. RandomInt(1, 2))
+			end
 		end
 	end})
-
-	EmitGlobalSound("Saber.StrikeAir_Cast")
+	if caster:HasModifier('modifier_alternate_06') then 
+		EmitGlobalSound("Arthur.Kaze" .. RandomInt(1, 2))
+	else
+		EmitGlobalSound("Saber.StrikeAir_Cast")
+	end
 	caster:EmitSound("Hero_Invoker.Tornado")
 	ability:ApplyDataDrivenModifier(caster, caster, "saber_strike_air_anim_vfx", {})
-	Timers:CreateTimer(cast_time, function()  
-		local sound = RandomInt(1,2)
-		if sound == 1 then EmitGlobalSound("Saber.StrikeAir_Release1") else EmitGlobalSound("Saber.StrikeAir_Release2") end
-	return end)
-
 end
 
 function StrikeAirPush(keys)

@@ -266,6 +266,9 @@ function OnCourageStart(keys)
 		caster.courage_particle = ParticleManager:CreateParticle("particles/custom/berserker/courage/buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(caster.courage_particle, 1, Vector(currentStack + 1,1,1))
 		ParticleManager:SetParticleControl(caster.courage_particle, 3, Vector(radius,1,1))
+	else
+		local burst = ParticleManager:CreateParticle("particles/custom/berserker/courage/cast_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		ParticleManager:SetParticleControl(burst, 1, caster:GetAbsOrigin())
 	end
 end
 
@@ -312,28 +315,43 @@ function OnBerserkStart(keys)
 	local hplock = ability:GetSpecialValueFor("health_constant")
 	local max_damage = ability:GetSpecialValueFor("max_damage")
 	local radius = ability:GetSpecialValueFor("radius")
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heracles_berserk", {})
-	if caster.IsEternalRageAcquired then 
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternal_rage", {})
+	local delay = 0 
+	if caster.IsMadEnhancementAcquired then 
+		delay = 0.3 
+		giveUnitDataDrivenModifier(caster, caster, "pause_sealabled", delay)
+		StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_3, rate=2.5})
 	end
-	caster.BerserkDamageTaken = 0
-	BerCheckCombo(caster,ability)
+	Timers:CreateTimer(delay, function()
+		if caster:IsAlive() then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_heracles_berserk", {})
+			if caster.IsEternalRageAcquired then 
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternal_rage", {})
+			end
+			if caster:HasModifier("modifier_alternate_03") then 
+				caster:SetModel("models/heracles/guts/armor_guts_by_zefiroft.vmdl")
+				caster:SetModelScale(1.0)
+			end
+			caster.BerserkOriginModel = caster.BerserkOriginModel or caster:GetModelScale()
+			caster.BerserkDamageTaken = 0
+			BerCheckCombo(caster,ability)
 
-	EmitGlobalSound("Berserker.Roar")
+			EmitGlobalSound("Berserker.Roar")
 
-	local casterHealth = caster:GetHealth()
-	if casterHealth - hplock > 0 then
-		local berserkDamage = math.min((casterHealth - hplock), max_damage)  
-		caster:EmitSound("Hero_Centaur.HoofStomp")
+			local casterHealth = caster:GetHealth()
+			if casterHealth - hplock > 0 then
+				local berserkDamage = math.min((casterHealth - hplock), max_damage)  
+				caster:EmitSound("Hero_Centaur.HoofStomp")
 
-		local berserkExp = ParticleManager:CreateParticle("particles/custom/berserker/berserk/eternal_rage_shockwave.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControl(berserkExp, 1, Vector(radius,0,radius))
+				local berserkExp = ParticleManager:CreateParticle("particles/custom/berserker/berserk/eternal_rage_shockwave.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+				ParticleManager:SetParticleControl(berserkExp, 1, Vector(radius,0,radius))
 
-		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-		for k,v in pairs(targets) do
-	        DoDamage(caster, v, berserkDamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+				for k,v in pairs(targets) do
+			        DoDamage(caster, v, berserkDamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				end
+			end
 		end
-	end
+	end)
 end
 
 function OnBerserkThink(keys)
@@ -396,10 +414,22 @@ function OnBerserkTakeDamage(keys)
 
 	if caster.IsEternalRageAcquired then 
 		local mana_convert = ability:GetSpecialValueFor("mana_convert") 
+		local dmg_convert = ability:GetSpecialValueFor("dmg_convert") / 100
 		caster.BerserkDamageTaken = caster.BerserkDamageTaken + damageTaken
 		caster:SetMana(caster:GetMana() + (damageTaken * mana_convert / 100))
 		ParticleManager:CreateParticle("particles/custom/berserker/berserk/mana_conversion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		caster:SetModifierStackCount("modifier_eternal_rage", caster, math.floor(caster.BerserkDamageTaken * dmg_convert))
+		local model_scale = math.min(2.5,caster.BerserkOriginModel + ((caster.BerserkDamageTaken)/3000))
+		caster:SetModelScale(model_scale)
 	end
+end
+
+function OnBerserkModelReturn(keys)
+	local caster = keys.caster
+	if caster:HasModifier("modifier_alternate_03") then 
+		caster:SetModel("models/heracles/guts/guts_by_zefiroft.vmdl")
+	end
+	caster:SetModelScale(caster.BerserkOriginModel)
 end
 
 function OnNineCast(keys)
@@ -420,7 +450,7 @@ function OnNineStart(keys)
 	local berserker = Physics:Unit(caster)
 	local origin = caster:GetAbsOrigin()
 	local distance = (targetPoint - origin):Length2D()
-	local run_time = 0.7
+	local run_time = 0.9
 	local forward = (targetPoint - origin):Normalized() * distance
 	local pause_time = ability:GetSpecialValueFor("pause_time") 
 
@@ -510,6 +540,12 @@ function OnNineLanded(caster, ability)
 				if nineCounter%3 == 0 then 
 					StartAnimation(caster, {duration = returnDelay * 3, activity= ACT_DOTA_CAST_ABILITY_5, rate = 3.4})
 				end
+			elseif caster:HasModifier("modifier_alternate_03") then 
+				if nineCounter == total_hit - 1 then
+					StartAnimation(caster, {duration = returnDelay, activity= ACT_DOTA_CAST_ABILITY_1, rate = 3.4})
+				elseif nineCounter == 0 then 
+					StartAnimation(caster, {duration = returnDelay * 8, activity= ACT_DOTA_CAST_ABILITY_6, rate = 1.2})
+				end
 			else
 				if RandomInt(1, 2) == 2 then 
 					anim = ACT_DOTA_ATTACK2
@@ -532,9 +568,14 @@ function OnNineLanded(caster, ability)
 				--EndAnimation(caster)
 				--StartAnimation(caster, {duration = post_nine --[[returnDelay - 0.05]], activity=anim, rate = 2})
 				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
+				EmitGlobalSound("Berserker.Roar")
+
+				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
+				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
+				ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
 				-- do damage to targets
 
-				local lasthitTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, lasthitradius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 1, false)
+				local lasthitTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, lasthitradius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				for k,v in pairs(lasthitTargets) do
 					if IsValidEntity(v) and not v:IsNull() then 
 						if v:GetName() ~= "npc_dota_ward_base" then
@@ -548,10 +589,22 @@ function OnNineLanded(caster, ability)
 							end
 							DoDamage(caster, v, lasthitdmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 
-							if IsValidEntity(v) and v:IsAlive() then 
+							if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then 
 							-- push enemies back
 								if not IsKnockbackImmune(v) then
-									local pushback = Physics:Unit(v)
+
+									local knockback = { should_stun = true,
+                                                knockback_duration = 0.5,
+                                                duration = 0.5,
+                                                knockback_distance = 150,
+                                                knockback_height = 0,
+                                                center_x = caster:GetAbsOrigin().x,
+                                                center_y = caster:GetAbsOrigin().y,
+                                                center_z = caster:GetAbsOrigin().z }
+
+                					v:AddNewModifier(caster, ability, "modifier_knockback", knockback)
+
+									--[[local pushback = Physics:Unit(v)
 									v:PreventDI()
 									v:SetPhysicsFriction(0)
 									v:SetPhysicsVelocity((v:GetAbsOrigin() - casterInitOrigin):Normalized() * 300)
@@ -564,31 +617,25 @@ function OnNineLanded(caster, ability)
 											v:OnPhysicsFrame(nil)
 											FindClearSpaceForUnit(v, v:GetAbsOrigin(), true)
 										end
-									end)
+									end)]]
 								end
 							end
 						end
 					end
 				end
 
-				EmitGlobalSound("Berserker.Roar")
-
-				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
-				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
-				ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
-
 				-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, lasthitradius, true, 0.5)
 			else
 				-- if its not last hit, do regular hit stuffs
 				--StartAnimation(caster, {duration = returnDelay - 0.05, activity=anim, rate = 3.4})
-				local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
+				local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				for k,v in pairs(targets) do
 					if IsValidEntity(v) and not v:IsNull() then
 						if not v:IsMagicImmune() then
 							v:AddNewModifier(caster, ability, "modifier_stunned", { Duration = mini_stun })
-							if caster.IsMadEnhancementAcquired then 
+							--[[if caster.IsMadEnhancementAcquired then 
 								giveUnitDataDrivenModifier(caster, v, "revoked", revoke)
-							end
+							end]]
 						end
 						DoDamage(caster, v, tickdmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					end
@@ -687,7 +734,11 @@ function OnRoarStart(keys)
 		    DoDamage(caster, v, finaldmg , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 		end
 	end
-	ParticleManager:CreateParticle("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
+	if caster:HasModifier("modifier_alternate_02") then 
+		ParticleManager:CreateParticle("particles/custom/screen_doge_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
+	else
+		ParticleManager:CreateParticle("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
+	end
 	ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
 
 end
