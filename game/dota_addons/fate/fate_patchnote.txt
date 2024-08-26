@@ -1,4 +1,163 @@
 
+Fix musashi self-stun after using R
+Fix musashi E can be used in the middle of combo DWR sequence
+Fix musashi cannot be executed when BC is active
+Fix musashi W bypass linken
+Fix musashi going to void realm with R
+
+-----------
+
+Fix Tooltip
+Official Release Saito
+Saito become newbie ban hero
+
+Saitō Hajime
+-Formlessness [R2] 
+cast point increased from 0.15 to 0.35
+cooldown reduced from 0.25 to 0
+
+Note: Overall R2 total delay improved from 0.4 to 0.35
+
+-Memoir [SA] 
+manacost reduced from 14 to 12
+
+-Combo: Undefeated Style [F][D][F] 
+now no longer kills wards
+damage increased from 1650 to 1950
+
+------------
+
+中文: 比利小子, 齋藤一
+Fix Saitō Hajime's hero role
+Fix Tooltip
+
+Saitō Hajime
+-Shadowslash [E] 
+secondary damage reduced from 50% to 25%
+
+-Shieldbreaker [W2] 
+damage increased from 350 450 550 650 750 to 590 680 770 860 950
+
+-Blade Vortex [E2] 
+slash damage increased from 70 80 90 100 110 to 90 100 110 120 130
+last slash damage increased from 270 330 390 450 510 to 450 470 490 510 530
+
+Note: Blade Vortex [E2] total damage at max level only increased by 100 from 950 to 1050, in this patch
+
+-Invincible Sword [SA] 
+QWE level increased from 5 to 7.5
+
+-------------
+
+Fix Jeanne combo+saint
+Upgrade black pepe's creep model
+
+Jeanne
+-Luminosite Eternelle
+Now apply buff while channeling
+Base Damage Reduction: 10% >> 15%
+Bonus Damage Reduction per channeling time: 3% 4% 5% 6% 7% >> 2% 3% 4% 5% 6%
+
+Hassan
+-Dirk
+Now has cooldown 0.05s with stack refresh
+
+Diarmuid
+-Combo: Rampant Warrior
+Warrior Charge(Q) has cooldown 1s
+
+------------
+
+Add [PEPE] Black PEPE (Angra)
+Fixed Coat Saito Hajime model scale
+Impact sound reduced from COMBO: Undefeatable Style
+
+Saito
+-Flashblade [Q] 
+cast point improved from 0.25 to 0.1
+cooldown rescaled from 21 19 17 15 13 to 19 18 17 16 15
+damage per hit increased from 140 160 180 200 220 to 200 220 240 260 280
+
+-Steelwing [W] 
+cast point improved from 0.25 to 0.1
+cooldown rescaled from 21 19 17 15 13 to 19 18 17 16 15
+damage increased 150 170 190 210 230 to 210 230 250 270 290
+
+-Shadowslash [E] 
+cast point improved from 0.25 to 0.1
+cooldown rescaled from 21 19 17 15 13 to 19 18 17 16 15
+initial damage increased from 120 160 200 240 280 to 180 220 260 300 340
+
+-Mind's Eye (True) [D] 
+cooldown rescaled from 36 31 26 21 16 to 24 22 20 18 16
+
+-Formlessness [R] 
+mana cost from 50 to 0
+
+-COMBO: Undefeatable Style [F][D][F] 
+cooldown reduced from 180 to 150
+cooldown when the channel is interrupted reduced from 60 to 30
+
+-Swords of Freedom [SA]
+Shadowslash [E] magic resist reduction increased from 10% to 15%
+
+-Freestyle [SA]
+Freely Drawn Sword [F] health gain per hit increased from 60 70 80 90 100 to 80 90 100 110 120
+
+----------
+
+Launch Billy
+Add Saito (test)
+fix particle
+fix tooltip
+
+Saito
+-Combo
+Damage: 1400 >> 1650
+
+-------
+
+Rework Saito's Combo
+Fix Tooltip
+
+Billy
+-Quickdraw
+ministun on every second shot only
+damage 180 230 280 330 380 -> 170 220 270 320 370
+
+-Thunderer
+damage 240 300 360 420 490 -> 220 280 340 400 460
+
+-Attribute: Eagle Eyes
+bonus Thunderer damage on last bullet 325 -> 300
+
+-Attribute: Duelist's Gambit
+bonus Quickdraw damage 70 -> 60
+
+Saito
+-Q 
+damage 200 220 240 260 280 > 140 160 180 200 220
+
+-W
+damage 210 230 250 270 290 > 150 170 190 210 230
+stun duration 0.4 > 0.65
+
+-E
+damage 180 220 260 300 340 > 120 160 200 240 280
+stun duration 0.1 > 0.35
+
+-D
+HP regen 25 30 35 40 45 > 35 40 45 50 55
+
+---------
+
+MMR gain/loss per game: 10 >> 20
+Fix AOTK with Chariot
+Fix Jeanne no heal while R channel, SA5 no charisma while R channel
+Fix Tooltip
+
+-----------
+
 Fix Emiya auto chant
 Fix Cu Wesen not execute
 Add [Legend] Super Karna

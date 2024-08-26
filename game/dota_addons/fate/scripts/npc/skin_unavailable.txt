@@ -15,6 +15,7 @@ SkinUnavailable
 	"Pepe"
 	{
 		"083"		"npc_dota_hero_juggernaut_1"		// [PEPE] Pepesaki
+		"102"		"npc_dota_hero_vengefulspirit_2"	// [PEPE] Black Pepe
 	}
 	"WK1"
 	{

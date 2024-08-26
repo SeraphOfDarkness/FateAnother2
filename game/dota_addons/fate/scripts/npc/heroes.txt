@@ -52,4 +52,5 @@
 	"npc_dota_hero_void_spirit"			"npc_dota_hero_kiyohime"
 	"npc_dota_hero_nyx_assassin"		"npc_dota_hero_melt"
 	"npc_dota_hero_muerta"				"npc_dota_hero_billy"
+	"npc_dota_hero_terrorblade"			"npc_dota_hero_saito"
 }

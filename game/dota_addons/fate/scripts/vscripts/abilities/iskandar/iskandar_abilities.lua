@@ -207,7 +207,7 @@ function OnChariotStart(keys)
 		return 
 	end
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", delay)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", delay + 0.1)
 	StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.5})
 
 	caster:EmitSound("Hero_Magnataur.Skewer.Cast")
@@ -232,7 +232,7 @@ function OnChariotStart(keys)
 		ParticleManager:ReleaseParticleIndex( particle3 )
 	end)
 
-	Timers:CreateTimer(1.0, function() 
+	Timers:CreateTimer(delay, function() 
     	if caster:IsAlive() then
     		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gordius_wheel", {}) 
     	end
@@ -271,11 +271,11 @@ function OnChariotCreate(keys)
 
     if caster.IsVEAcquired then
 		if caster:FindAbilityByName("iskandar_via_expugnatio"):IsHidden() then
-			caster:SwapAbilities(caster:GetAbilityByIndex(5):GetName(), "iskandar_via_expugnatio", false, true) 
+			caster:SwapAbilities(caster.RSkill, "iskandar_via_expugnatio", false, true) 
 			caster:FindAbilityByName("iskandar_via_expugnatio"):EndCooldown()
 		end
 	else
-		caster:SwapAbilities(caster:GetAbilityByIndex(5):GetName(), "fate_empty3", false, true)
+		caster:SwapAbilities(caster.RSkill, "fate_empty3", false, true)
 	end
 
 	local counter = 0

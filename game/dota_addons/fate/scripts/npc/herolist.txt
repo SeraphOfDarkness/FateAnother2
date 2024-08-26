@@ -54,5 +54,6 @@
 	"npc_dota_hero_kunkka"				"1"
 	"npc_dota_hero_void_spirit"			"1"	
 	"npc_dota_hero_nyx_assassin"		"1"
-	//"npc_dota_hero_muerta"			"1"
+	"npc_dota_hero_muerta"			"1"
+	"npc_dota_hero_terrorblade"			"1"
 }

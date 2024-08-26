@@ -174,6 +174,10 @@ function Alternate01Create (keys)
 		caster:SetModel("models/robin/capeless/robin_capeless_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/robin/capeless/robin_capeless_by_zefiroft.vmdl")
 		caster:SetModelScale(1.3)
+	elseif caster:GetName() == "npc_dota_hero_terrorblade" then 
+		caster:SetModel("models/heroes/saito_2/saito_2_mdoc.vmdl")
+		caster:SetOriginalModel("models/heroes/saito_2/saito_2_mdoc.vmdl")
+		caster:SetModelScale(1.1)
 	end
 end
 
@@ -356,6 +360,10 @@ function Alternate01Destroy (keys)
 		caster:SetModel("models/robin/default/robin_new_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/robin/default/robin_new_by_zefiroft.vmdl")
 		caster:SetModelScale(1.25)
+	elseif caster:GetName() == "npc_dota_hero_terrorblade" then 
+		caster:SetModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
+		caster:SetOriginalModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
+		caster:SetModelScale(1.0)
 	end
 end
 
@@ -478,6 +486,10 @@ function Alternate02Create (keys)
 		caster:SetModel("models/robin/hiking/hiking_robin_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/robin/hiking/hiking_robin_by_zefiroft.vmdl")
 		caster:SetModelScale(1.3)
+	elseif caster:GetName() == "npc_dota_hero_vengefulspirit" then 	
+		caster:SetModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
+		caster:SetModelScale(1.2)	
 	end 
 
 end
@@ -596,7 +608,11 @@ function Alternate02Destroy (keys)
 	elseif caster:GetName() == "npc_dota_hero_sniper" then 
 		caster:SetModel("models/robin/default/robin_new_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/robin/default/robin_new_by_zefiroft.vmdl")
-		caster:SetModelScale(1.25)
+		caster:SetModelScale(1.25) 
+	elseif caster:GetName() == "npc_dota_hero_vengefulspirit" then 	
+		caster:SetModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")
+		caster:SetModelScale(1.8)	
 	end
 end
 

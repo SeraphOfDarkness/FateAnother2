@@ -2,13 +2,13 @@ local ____lualib = require("lualib_bundle")
 local __TS__ArrayFind = ____lualib.__TS__ArrayFind
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
-local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local __TS__Decorate = ____lualib.__TS__Decorate
 local __TS__ArrayIndexOf = ____lualib.__TS__ArrayIndexOf
 local ____exports = {}
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerModifier = ____dota_ts_adapter.registerModifier
-function ____exports.InitSkillSlotChecker(Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
+function ____exports.InitSkillSlotChecker(self, Caster, OriSkillStr, TargetSkillStr, Timeout, SwapBackIfCasted)
     if not IsServer() then
         return
     end
@@ -94,12 +94,14 @@ end
 function modifier_skill_slot_checker.prototype.GetAttributes(self)
     return MODIFIER_ATTRIBUTE_MULTIPLE
 end
-modifier_skill_slot_checker = __TS__DecorateLegacy(
+modifier_skill_slot_checker = __TS__Decorate(
+    modifier_skill_slot_checker,
+    modifier_skill_slot_checker,
     {registerModifier(nil)},
-    modifier_skill_slot_checker
+    {kind = "class", name = "modifier_skill_slot_checker"}
 )
 ____exports.modifier_skill_slot_checker = modifier_skill_slot_checker
-function ____exports.CheckComboStatsFulfilled(Caster)
+function ____exports.CheckComboStatsFulfilled(self, Caster)
     if not IsServer() then
         return false
     end
@@ -107,13 +109,13 @@ function ____exports.CheckComboStatsFulfilled(Caster)
     local StatsRequired = 25
     local CurrentStr = Hero:GetStrength()
     local CurrentAgi = Hero:GetAgility()
-    local CurrentInt = Hero:GetIntellect()
+    local CurrentInt = Hero:GetIntellect(true)
     if CurrentStr >= StatsRequired and CurrentAgi >= StatsRequired and CurrentInt >= StatsRequired then
         return true
     end
     return false
 end
-function ____exports.InitComboSequenceChecker(Caster, SkillsSequence, OriSkillStr, ComboSkillStr, Timeout)
+function ____exports.InitComboSequenceChecker(self, Caster, SkillsSequence, OriSkillStr, ComboSkillStr, Timeout)
     if not IsServer() then
         return
     end
@@ -176,6 +178,7 @@ function modifier_combo_sequence.prototype.OnStackCountChanged(self, stackCount)
     local ____opt_24 = self.SkillsSequence
     if ____stackCount_26 == (____opt_24 and #____opt_24) - 1 then
         ____exports.InitSkillSlotChecker(
+            nil,
             self.Caster,
             self.OriSkillStr,
             self.ComboSkillStr,
@@ -202,12 +205,14 @@ end
 function modifier_combo_sequence.prototype.GetTexture(self)
     return "custom/utils/ComboSequence"
 end
-modifier_combo_sequence = __TS__DecorateLegacy(
+modifier_combo_sequence = __TS__Decorate(
+    modifier_combo_sequence,
+    modifier_combo_sequence,
     {registerModifier(nil)},
-    modifier_combo_sequence
+    {kind = "class", name = "modifier_combo_sequence"}
 )
 ____exports.modifier_combo_sequence = modifier_combo_sequence
-function ____exports.GetMaster1(Master2)
+function ____exports.GetMaster1(self, Master2)
     if not IsServer() then
         return
     end
@@ -228,7 +233,7 @@ function ____exports.GetMaster1(Master2)
         function(____, Unit) return Unit:GetUnitName() == "master_1" and Unit:GetPlayerOwner() == Master2:GetPlayerOwner() end
     )
 end
-function ____exports.ApplySaWhenRevived(Master2, AttributeAbility, AttributeModifier)
+function ____exports.ApplySaWhenRevived(self, Master2, AttributeAbility, AttributeModifier)
     if not IsServer() then
         return
     end
@@ -286,9 +291,11 @@ end
 function modifier_hero_alive_checker.prototype.GetAttributes(self)
     return MODIFIER_ATTRIBUTE_MULTIPLE
 end
-modifier_hero_alive_checker = __TS__DecorateLegacy(
+modifier_hero_alive_checker = __TS__Decorate(
+    modifier_hero_alive_checker,
+    modifier_hero_alive_checker,
     {registerModifier(nil)},
-    modifier_hero_alive_checker
+    {kind = "class", name = "modifier_hero_alive_checker"}
 )
 ____exports.modifier_hero_alive_checker = modifier_hero_alive_checker
 return ____exports

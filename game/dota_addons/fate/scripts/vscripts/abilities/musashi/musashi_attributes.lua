@@ -1,7 +1,7 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
-local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local __TS__Decorate = ____lualib.__TS__Decorate
 local ____exports = {}
 local ____skill_utils = require("libs.skill_utils")
 local ApplySaWhenRevived = ____skill_utils.ApplySaWhenRevived
@@ -19,13 +19,15 @@ musashi_attributes_battle_continuation.name = "musashi_attributes_battle_continu
 __TS__ClassExtends(musashi_attributes_battle_continuation, BaseAbility)
 function musashi_attributes_battle_continuation.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Master1 = GetMaster1(Master2)
+    local Master1 = GetMaster1(nil, Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_battle_continuation.name)
+    ApplySaWhenRevived(nil, Master2, self, ____exports.musashi_attribute_battle_continuation.name)
 end
-musashi_attributes_battle_continuation = __TS__DecorateLegacy(
+musashi_attributes_battle_continuation = __TS__Decorate(
+    musashi_attributes_battle_continuation,
+    musashi_attributes_battle_continuation,
     {registerAbility(nil)},
-    musashi_attributes_battle_continuation
+    {kind = "class", name = "musashi_attributes_battle_continuation"}
 )
 ____exports.musashi_attributes_battle_continuation = musashi_attributes_battle_continuation
 ____exports.musashi_attribute_battle_continuation = __TS__Class()
@@ -47,9 +49,11 @@ end
 function musashi_attribute_battle_continuation.prototype.IsHidden(self)
     return true
 end
-musashi_attribute_battle_continuation = __TS__DecorateLegacy(
+musashi_attribute_battle_continuation = __TS__Decorate(
+    musashi_attribute_battle_continuation,
+    musashi_attribute_battle_continuation,
     {registerModifier(nil)},
-    musashi_attribute_battle_continuation
+    {kind = "class", name = "musashi_attribute_battle_continuation"}
 )
 ____exports.musashi_attribute_battle_continuation = musashi_attribute_battle_continuation
 ____exports.musashi_attributes_improve_tengan = __TS__Class()
@@ -58,15 +62,23 @@ musashi_attributes_improve_tengan.name = "musashi_attributes_improve_tengan"
 __TS__ClassExtends(musashi_attributes_improve_tengan, BaseAbility)
 function musashi_attributes_improve_tengan.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Master1 = GetMaster1(Master2)
+    local Master1 = GetMaster1(nil, Master2)
     local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_improve_tengan.name)
-    InitSkillSlotChecker(Hero, musashi_ability.musashi_tengan.name, musashi_ability.musashi_tenma_gogan.name, 0.03)
+    ApplySaWhenRevived(nil, Master2, self, ____exports.musashi_attribute_improve_tengan.name)
+    InitSkillSlotChecker(
+        nil,
+        Hero,
+        musashi_ability.musashi_tengan.name,
+        musashi_ability.musashi_tenma_gogan.name,
+        0.03
+    )
 end
-musashi_attributes_improve_tengan = __TS__DecorateLegacy(
+musashi_attributes_improve_tengan = __TS__Decorate(
+    musashi_attributes_improve_tengan,
+    musashi_attributes_improve_tengan,
     {registerAbility(nil)},
-    musashi_attributes_improve_tengan
+    {kind = "class", name = "musashi_attributes_improve_tengan"}
 )
 ____exports.musashi_attributes_improve_tengan = musashi_attributes_improve_tengan
 ____exports.musashi_attribute_improve_tengan = __TS__Class()
@@ -122,9 +134,11 @@ end
 function musashi_attribute_improve_tengan.prototype.IsHidden(self)
     return true
 end
-musashi_attribute_improve_tengan = __TS__DecorateLegacy(
+musashi_attribute_improve_tengan = __TS__Decorate(
+    musashi_attribute_improve_tengan,
+    musashi_attribute_improve_tengan,
     {registerModifier(nil)},
-    musashi_attribute_improve_tengan
+    {kind = "class", name = "musashi_attribute_improve_tengan"}
 )
 ____exports.musashi_attribute_improve_tengan = musashi_attribute_improve_tengan
 ____exports.musashi_attributes_gorin_no_sho = __TS__Class()
@@ -133,13 +147,15 @@ musashi_attributes_gorin_no_sho.name = "musashi_attributes_gorin_no_sho"
 __TS__ClassExtends(musashi_attributes_gorin_no_sho, BaseAbility)
 function musashi_attributes_gorin_no_sho.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Master1 = GetMaster1(Master2)
+    local Master1 = GetMaster1(nil, Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_gorin_no_sho.name)
+    ApplySaWhenRevived(nil, Master2, self, ____exports.musashi_attribute_gorin_no_sho.name)
 end
-musashi_attributes_gorin_no_sho = __TS__DecorateLegacy(
+musashi_attributes_gorin_no_sho = __TS__Decorate(
+    musashi_attributes_gorin_no_sho,
+    musashi_attributes_gorin_no_sho,
     {registerAbility(nil)},
-    musashi_attributes_gorin_no_sho
+    {kind = "class", name = "musashi_attributes_gorin_no_sho"}
 )
 ____exports.musashi_attributes_gorin_no_sho = musashi_attributes_gorin_no_sho
 ____exports.musashi_attribute_gorin_no_sho = __TS__Class()
@@ -161,9 +177,11 @@ end
 function musashi_attribute_gorin_no_sho.prototype.IsHidden(self)
     return true
 end
-musashi_attribute_gorin_no_sho = __TS__DecorateLegacy(
+musashi_attribute_gorin_no_sho = __TS__Decorate(
+    musashi_attribute_gorin_no_sho,
+    musashi_attribute_gorin_no_sho,
     {registerModifier(nil)},
-    musashi_attribute_gorin_no_sho
+    {kind = "class", name = "musashi_attribute_gorin_no_sho"}
 )
 ____exports.musashi_attribute_gorin_no_sho = musashi_attribute_gorin_no_sho
 ____exports.musashi_attributes_mukyuu = __TS__Class()
@@ -172,15 +190,17 @@ musashi_attributes_mukyuu.name = "musashi_attributes_mukyuu"
 __TS__ClassExtends(musashi_attributes_mukyuu, BaseAbility)
 function musashi_attributes_mukyuu.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Master1 = GetMaster1(Master2)
+    local Master1 = GetMaster1(nil, Master2)
     local Hero = Master2:GetPlayerOwner():GetAssignedHero()
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
     Hero:SwapAbilities(musashi_ability.musashi_mukyuu.name, "fate_empty1", true, false)
-    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_mukyuu.name)
+    ApplySaWhenRevived(nil, Master2, self, ____exports.musashi_attribute_mukyuu.name)
 end
-musashi_attributes_mukyuu = __TS__DecorateLegacy(
+musashi_attributes_mukyuu = __TS__Decorate(
+    musashi_attributes_mukyuu,
+    musashi_attributes_mukyuu,
     {registerAbility(nil)},
-    musashi_attributes_mukyuu
+    {kind = "class", name = "musashi_attributes_mukyuu"}
 )
 ____exports.musashi_attributes_mukyuu = musashi_attributes_mukyuu
 ____exports.musashi_attribute_mukyuu = __TS__Class()
@@ -226,9 +246,11 @@ end
 function musashi_attribute_mukyuu.prototype.IsHidden(self)
     return true
 end
-musashi_attribute_mukyuu = __TS__DecorateLegacy(
+musashi_attribute_mukyuu = __TS__Decorate(
+    musashi_attribute_mukyuu,
+    musashi_attribute_mukyuu,
     {registerModifier(nil)},
-    musashi_attribute_mukyuu
+    {kind = "class", name = "musashi_attribute_mukyuu"}
 )
 ____exports.musashi_attribute_mukyuu = musashi_attribute_mukyuu
 ____exports.musashi_attributes_niten_ichiryuu = __TS__Class()
@@ -237,13 +259,15 @@ musashi_attributes_niten_ichiryuu.name = "musashi_attributes_niten_ichiryuu"
 __TS__ClassExtends(musashi_attributes_niten_ichiryuu, BaseAbility)
 function musashi_attributes_niten_ichiryuu.prototype.OnSpellStart(self)
     local Master2 = self:GetCaster()
-    local Master1 = GetMaster1(Master2)
+    local Master1 = GetMaster1(nil, Master2)
     Master1:SetMana(Master1:GetMana() - self:GetManaCost(-1))
-    ApplySaWhenRevived(Master2, self, ____exports.musashi_attribute_niten_ichiryuu.name)
+    ApplySaWhenRevived(nil, Master2, self, ____exports.musashi_attribute_niten_ichiryuu.name)
 end
-musashi_attributes_niten_ichiryuu = __TS__DecorateLegacy(
+musashi_attributes_niten_ichiryuu = __TS__Decorate(
+    musashi_attributes_niten_ichiryuu,
+    musashi_attributes_niten_ichiryuu,
     {registerAbility(nil)},
-    musashi_attributes_niten_ichiryuu
+    {kind = "class", name = "musashi_attributes_niten_ichiryuu"}
 )
 ____exports.musashi_attributes_niten_ichiryuu = musashi_attributes_niten_ichiryuu
 ____exports.musashi_attribute_niten_ichiryuu = __TS__Class()
@@ -310,9 +334,11 @@ end
 function musashi_attribute_niten_ichiryuu.prototype.IsHidden(self)
     return true
 end
-musashi_attribute_niten_ichiryuu = __TS__DecorateLegacy(
+musashi_attribute_niten_ichiryuu = __TS__Decorate(
+    musashi_attribute_niten_ichiryuu,
+    musashi_attribute_niten_ichiryuu,
     {registerModifier(nil)},
-    musashi_attribute_niten_ichiryuu
+    {kind = "class", name = "musashi_attribute_niten_ichiryuu"}
 )
 ____exports.musashi_attribute_niten_ichiryuu = musashi_attribute_niten_ichiryuu
 return ____exports

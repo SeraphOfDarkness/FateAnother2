@@ -384,6 +384,10 @@
 	{
 		"99999999999"		"1"
 	}
+	"npc_dota_hero_vengefulspirit_2" // Black Pepe
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_sven_1" // Suit Lancelot
 	{
 		"99999999999"		"1"
@@ -515,6 +519,10 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_sniper_3" // Ninja Robin
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_terrorblade_1" // Suit Saito
 	{
 		"99999999999"		"1"
 	}

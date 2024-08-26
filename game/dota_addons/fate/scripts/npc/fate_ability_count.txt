@@ -50,4 +50,5 @@ FateAbilityCount
 	"npc_dota_hero_void_spirit"			"11"	
 	"npc_dota_hero_nyx_assassin"		"13"
 	"npc_dota_hero_muerta"				"10"
+	"npc_dota_hero_terrorblade"		"13"
 }

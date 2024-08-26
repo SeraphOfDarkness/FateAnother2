@@ -51,7 +51,7 @@ function jeanne_flag_wrapper(abil)
 		self.radius = self.base_radius
 		self.dr_buff = self.base_radius
 		self.trigger = false
-		self.heal_tick = 0
+		self.heal_tick = 1
 
 		EmitGlobalSound("Hero_Chen.HandOfGodHealHero")
 		EmitGlobalSound("Ruler.Luminosite")
@@ -68,7 +68,7 @@ function jeanne_flag_wrapper(abil)
 		if self.caster.IsDivineSymbolAcquired then 
 			self.bonus_heal_per_sec = self:GetSpecialValueFor("bonus_heal_per_sec") * self.caster:GetIntellect()
 		end
-		--self:SaintHeal(self.heal_per_sec + self.bonus_heal_per_sec, false, 0)
+		self:SaintHeal(self.heal_per_sec + self.bonus_heal_per_sec, false, 0)
 	end
 
 	function abil:OnChannelThink(flInterval)
@@ -419,7 +419,7 @@ end
 
 -------------------------------------------
 
-function modifier_jeanne_luminosite_flag_buff:IsHidden() return true end
+function modifier_jeanne_luminosite_flag_buff:IsHidden() return false end
 function modifier_jeanne_luminosite_flag_buff:IsDebuff() return false end
 function modifier_jeanne_luminosite_flag_buff:IsPurgable() return false end
 function modifier_jeanne_luminosite_flag_buff:RemoveOnDeath() return true end
@@ -432,7 +432,26 @@ function modifier_jeanne_luminosite_flag_buff:GetTexture()
 end
 
 function modifier_jeanne_luminosite_flag_buff:DeclareFunctions()
-	return {MODIFIER_EVENT_ON_TAKEDAMAGE}
+	return {MODIFIER_EVENT_ON_TAKEDAMAGE,
+			MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
+end
+
+function modifier_jeanne_luminosite_flag_buff:GetEffectName()
+	return "particles/econ/events/ti5/radiant_fountain_regen_lvl2_ti5.vpcf"
+end
+
+function modifier_jeanne_luminosite_flag_buff:GetEffectAttachType()
+	return PATTACH_POINT_FOLLOW
+end
+
+function modifier_jeanne_luminosite_flag_buff:GetModifierIncomingDamage_Percentage()
+	if IsServer() then
+		local dr = self:GetAbility():GetDamageReduction()
+		return -dr
+	elseif IsClient() then
+        local dr = CustomNetTables:GetTableValue("sync","luminosite_eternelle").damage_reduction or 0
+        return -dr 
+    end	
 end
 
 function modifier_jeanne_luminosite_flag_buff:OnTakeDamage(args)

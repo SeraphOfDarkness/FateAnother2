@@ -11416,19 +11416,6 @@
 		"DOTA_Tooltip_Ability_mordred_slash_upgrade_armor_shred"			"%피해 방어력 관통:"
 		"DOTA_Tooltip_Ability_mordred_slash_upgrade_Lore"						"Fool! You really think you can stand before Father?"
 
-		"DOTA_Tooltip_Ability_mordred_mana_burst"	"마력방출 - Battle"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_Description"	"Mordred uses 마력방출 to increase her fighting capabilities for a short time. Increases Saber's attack speed, gives her additional magic attack damage. \nWhen her helmet is removed, spends additional mana based on her max mana to gain additional attack speed, magic attack damage.
-		"DOTA_Tooltip_Ability_mordred_mana_burst_duration"	"지속시간:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_base_as"	"Base attackspeed:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_base_damage"	"기본 피해:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_percent"	"%Mana:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_as"	"%Attackspeed from mana spent:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_damage"	"%피해 from mana spent:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_Lore"		"Fool! You really think you can stand before Father?"
-
-		"DOTA_Tooltip_modifier_mordred_mb"		"마력방출 Buff"
-		"DOTA_Tooltip_modifier_mordred_mb_Description"	"Inc. ASPD"
-
 		//====================================
 		//	Berserker of Black
 		//====================================
@@ -14268,7 +14255,7 @@
 		//==========================================================================================
 
 		//Hero
-		"npc_dota_hero_terrorblade"							"사이토 하지메"
+		"npc_dota_hero_terrorblade"						"사이토 하지메"
 		"npc_dota_hero_terrorblade_summon"				"서번트 <font color='#58ACFA'>사이토 하지메</font>가 소환되었습니다."
 		"npc_dota_hero_terrorblade_enable_combo"		"콤 콤보 사용 가능: 무적의 검술"
 

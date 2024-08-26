@@ -52,6 +52,7 @@
 #base "heroes/npc_fate_hero_kiyohime.kv"
 #base "heroes/npc_fate_hero_melt.kv"
 #base "heroes/npc_fate_hero_billy.kv"
+#base "heroes/npc_fate_hero_saito.kv"
 
 "DOTAHeroes"
 {

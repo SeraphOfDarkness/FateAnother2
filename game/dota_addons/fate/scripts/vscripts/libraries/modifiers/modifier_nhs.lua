@@ -48,6 +48,7 @@ function HeroSelectioN:constructor()
         self.HiddenHero = LoadKeyValues("scripts/npc/hero_hidden.txt")
         self.kiuok = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
         self.kiuok2 = LoadKeyValues("scripts/npc/abilities/heroes/sketch.txt")
+        self.titlelog = LoadKeyValues("scripts/npc/fate_title.txt")
         local ContributeUnlock = LoadKeyValues("scripts/npc/contributeunlock.txt")
 		heroList["npc_dota_hero_wisp"] = nil
 		heroList2["npc_dota_hero_wisp"] = nil
@@ -243,7 +244,7 @@ function HeroSelectioN:constructor()
 					    		CustomNetTables:SetTableValue("nselection", "specban", self.SpecBanPlayer)
 					    	end
 					    end
-						if --[[ServerTables:GetTableValue("Dev", "pepe") == true and]] self.PAuthority[i] == 5 then 
+						if --[[ServerTables:GetTableValue("Dev", "pepe") == true and]] self.titlelog.balancer[tostring(PlayerResource:GetSteamAccountID(i))] or self.PAuthority[i] == 5 or self.PAuthority[i] == 4 then 
 							CustomNetTables:SetTableValue("nselection", "hidden", self.HiddenHero)
 						end
 						--print('lvl authority ' .. new_lvl)
@@ -301,6 +302,10 @@ function HeroSelectioN:constructor()
 
 		if ServerTables:GetTableValue("Dev", "sss") == true then 
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_SSS_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "kagut") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Kagut_Presence"} )
 		end
 
 		if ServerTables:GetTableValue("Dev", "mod") == true then 
@@ -843,35 +848,33 @@ function HeroSelectioN:OnRandom(args)
 
     if self.BanPlayer[playerId] then return end
 
-    if self.SelectedBar[playerId] ~= nil and self.SelectedBar[playerId] ~= "random" and (self.AvailableHeroes[self.SelectedBar[playerId]] ~= nil or self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1) and self.BanHero[self.SelectedBar[playerId]] == nil then 
-    	if self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1 then 
-    		if (self.PAuthority[playerId] >= 1 or PlayerTables:GetTableValue("authority", 'alvl', playerId) > 0) then 
-    			hero = self.SelectedBar[playerId] 
-    		else
-    			hero = self:Random()
-    		end
-    	else
-    		hero = self.SelectedBar[playerId] 
-    	end
-    else
-    	hero = self:Random()
-    end
-
     if self.SpecBan[tostring(PID)] then 
     	SendChatToPanorama('Player ' .. playerId .. ' was in hero ban list')
     	if self.SpecBan[tostring(PID)][hero] == 1 then 
     		SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' was banned')
     		hero = self:Random() 
     	end
-    end
-
-    if self.NewbieBanPlayer[playerId] then 
+    elseif self.NewbieBanPlayer[playerId] then 
     	SendChatToPanorama('Player ' .. playerId .. ' is Newbie')
     	if self.NewbieBanPlayer[playerId][hero] == 1 then 
     		SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' was banned')
     		hero = self:Random() 
     	end
-    end
+    else
+	    if self.SelectedBar[playerId] ~= nil and self.SelectedBar[playerId] ~= "random" and (self.AvailableHeroes[self.SelectedBar[playerId]] ~= nil or self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1) and self.BanHero[self.SelectedBar[playerId]] == nil then 
+	    	if self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1 then 
+	    		if (self.PAuthority[playerId] >= 1 or PlayerTables:GetTableValue("authority", 'alvl', playerId) > 0) then 
+	    			hero = self.SelectedBar[playerId] 
+	    		else
+	    			hero = self:Random()
+	    		end
+	    	else
+	    		hero = self.SelectedBar[playerId] 
+	    	end
+	    else
+	    	hero = self:Random()
+	    end
+	end
 
     print(hero)
     self.Picked[playerId] = hero

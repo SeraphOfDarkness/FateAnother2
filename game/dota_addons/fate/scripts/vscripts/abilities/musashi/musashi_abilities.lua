@@ -1,24 +1,24 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
-local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local __TS__Decorate = ____lualib.__TS__Decorate
 local __TS__SparseArrayNew = ____lualib.__TS__SparseArrayNew
 local __TS__SparseArrayPush = ____lualib.__TS__SparseArrayPush
 local __TS__SparseArraySpread = ____lualib.__TS__SparseArraySpread
 local __TS__AsyncAwaiter = ____lualib.__TS__AsyncAwaiter
 local __TS__Await = ____lualib.__TS__Await
 local ____exports = {}
+local ____sleep_timer = require("libs.sleep_timer")
+local Sleep = ____sleep_timer.Sleep
+local ____skill_utils = require("libs.skill_utils")
+local CheckComboStatsFulfilled = ____skill_utils.CheckComboStatsFulfilled
+local InitComboSequenceChecker = ____skill_utils.InitComboSequenceChecker
+local InitSkillSlotChecker = ____skill_utils.InitSkillSlotChecker
 local ____dota_ts_adapter = require("libs.dota_ts_adapter")
 local BaseAbility = ____dota_ts_adapter.BaseAbility
 local BaseModifier = ____dota_ts_adapter.BaseModifier
 local registerAbility = ____dota_ts_adapter.registerAbility
 local registerModifier = ____dota_ts_adapter.registerModifier
-local ____skill_utils = require("libs.skill_utils")
-local CheckComboStatsFulfilled = ____skill_utils.CheckComboStatsFulfilled
-local InitComboSequenceChecker = ____skill_utils.InitComboSequenceChecker
-local InitSkillSlotChecker = ____skill_utils.InitSkillSlotChecker
-local ____sleep_timer = require("libs.sleep_timer")
-local Sleep = ____sleep_timer.Sleep
 ____exports.musashi_accel_turn = __TS__Class()
 local musashi_accel_turn = ____exports.musashi_accel_turn
 musashi_accel_turn.name = "musashi_accel_turn"
@@ -101,9 +101,11 @@ function musashi_accel_turn.prototype.GetCastRange(self)
         return self:GetSpecialValueFor("Range")
     end
 end
-musashi_accel_turn = __TS__DecorateLegacy(
+musashi_accel_turn = __TS__Decorate(
+    musashi_accel_turn,
+    musashi_accel_turn,
     {registerAbility(nil)},
-    musashi_accel_turn
+    {kind = "class", name = "musashi_accel_turn"}
 )
 ____exports.musashi_accel_turn = musashi_accel_turn
 ____exports.musashi_modifier_accel_turn = __TS__Class()
@@ -189,9 +191,11 @@ end
 function musashi_modifier_accel_turn.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_accel_turn = __TS__DecorateLegacy(
+musashi_modifier_accel_turn = __TS__Decorate(
+    musashi_modifier_accel_turn,
+    musashi_modifier_accel_turn,
     {registerModifier(nil)},
-    musashi_modifier_accel_turn
+    {kind = "class", name = "musashi_modifier_accel_turn"}
 )
 ____exports.musashi_modifier_accel_turn = musashi_modifier_accel_turn
 ____exports.musashi_dai_go_sei = __TS__Class()
@@ -206,6 +210,9 @@ end
 function musashi_dai_go_sei.prototype.OnSpellStart(self)
     self.Caster = self:GetCaster()
     self.Victim = self:GetCursorTarget()
+    if IsSpellBlocked(self.Victim) then
+        return
+    end
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
     local StunDuration = self:GetSpecialValueFor("StunDuration")
     local ____opt_33 = self.Caster
@@ -283,9 +290,11 @@ end
 function musashi_dai_go_sei.prototype.GetIntrinsicModifierName(self)
     return ____exports.musashi_modifier_dai_go_sei_hits_counter.name
 end
-musashi_dai_go_sei = __TS__DecorateLegacy(
+musashi_dai_go_sei = __TS__Decorate(
+    musashi_dai_go_sei,
+    musashi_dai_go_sei,
     {registerAbility(nil)},
-    musashi_dai_go_sei
+    {kind = "class", name = "musashi_dai_go_sei"}
 )
 ____exports.musashi_dai_go_sei = musashi_dai_go_sei
 ____exports.musashi_modifier_dai_go_sei_hits_counter = __TS__Class()
@@ -326,7 +335,13 @@ function musashi_modifier_dai_go_sei_hits_counter.prototype.OnStackCountChanged(
         return
     end
     if stackCount == self.HitsRequired - 1 then
-        InitSkillSlotChecker(self.Caster, ____exports.musashi_dai_go_sei.name, ____exports.musashi_dai_go_sei_wave.name, 5)
+        InitSkillSlotChecker(
+            nil,
+            self.Caster,
+            ____exports.musashi_dai_go_sei.name,
+            ____exports.musashi_dai_go_sei_wave.name,
+            5
+        )
         self:SetStackCount(0)
     end
 end
@@ -348,9 +363,11 @@ function musashi_modifier_dai_go_sei_hits_counter.prototype.IsHidden(self)
     end
     return false
 end
-musashi_modifier_dai_go_sei_hits_counter = __TS__DecorateLegacy(
+musashi_modifier_dai_go_sei_hits_counter = __TS__Decorate(
+    musashi_modifier_dai_go_sei_hits_counter,
+    musashi_modifier_dai_go_sei_hits_counter,
     {registerModifier(nil)},
-    musashi_modifier_dai_go_sei_hits_counter
+    {kind = "class", name = "musashi_modifier_dai_go_sei_hits_counter"}
 )
 ____exports.musashi_modifier_dai_go_sei_hits_counter = musashi_modifier_dai_go_sei_hits_counter
 ____exports.musashi_modifier_dai_go_sei = __TS__Class()
@@ -460,9 +477,11 @@ end
 function musashi_modifier_dai_go_sei.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_dai_go_sei = __TS__DecorateLegacy(
+musashi_modifier_dai_go_sei = __TS__Decorate(
+    musashi_modifier_dai_go_sei,
+    musashi_modifier_dai_go_sei,
     {registerModifier(nil)},
-    musashi_modifier_dai_go_sei
+    {kind = "class", name = "musashi_modifier_dai_go_sei"}
 )
 ____exports.musashi_modifier_dai_go_sei = musashi_modifier_dai_go_sei
 ____exports.musashi_niou_kurikara = __TS__Class()
@@ -521,9 +540,11 @@ end
 function musashi_niou_kurikara.prototype.GetAOERadius(self)
     return self:GetSpecialValueFor("Radius")
 end
-musashi_niou_kurikara = __TS__DecorateLegacy(
+musashi_niou_kurikara = __TS__Decorate(
+    musashi_niou_kurikara,
+    musashi_niou_kurikara,
     {registerAbility(nil)},
-    musashi_niou_kurikara
+    {kind = "class", name = "musashi_niou_kurikara"}
 )
 ____exports.musashi_niou_kurikara = musashi_niou_kurikara
 ____exports.musashi_modifier_niou_kurikara_slashing = __TS__Class()
@@ -700,33 +721,33 @@ function musashi_modifier_niou_kurikara_slashing.prototype.ApplyElementalDebuffs
     local GorinNoSho = ____opt_135 and ____opt_135:FindModifierByName("musashi_attribute_gorin_no_sho")
     local AttributeAbility = GorinNoSho and GorinNoSho:GetAbility()
     repeat
-        local ____switch85 = self.SlashCount
-        local ____cond85 = ____switch85 == 1
-        if ____cond85 then
+        local ____switch86 = self.SlashCount
+        local ____cond86 = ____switch86 == 1
+        if ____cond86 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("DebuffDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_earth_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond85 = ____cond85 or ____switch85 == 2
-        if ____cond85 then
+        ____cond86 = ____cond86 or ____switch86 == 2
+        if ____cond86 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("DebuffDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_water_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond85 = ____cond85 or ____switch85 == 3
-        if ____cond85 then
+        ____cond86 = ____cond86 or ____switch86 == 3
+        if ____cond86 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("FireBurnDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_fire_debuff.name, {duration = DebuffDuration})
                 break
             end
         end
-        ____cond85 = ____cond85 or ____switch85 == 4
-        if ____cond85 then
+        ____cond86 = ____cond86 or ____switch86 == 4
+        if ____cond86 then
             do
                 local DebuffDuration = AttributeAbility and AttributeAbility:GetSpecialValueFor("WindDuration")
                 Target:AddNewModifier(self.Caster, AttributeAbility, ____exports.musashi_modifier_wind_debuff.name, {duration = DebuffDuration})
@@ -741,33 +762,33 @@ function musashi_modifier_niou_kurikara_slashing.prototype.CreateParticle(self)
         local AoeParticleStr = ""
         local CrackParticleStr = ""
         repeat
-            local ____switch92 = self.SlashCount
-            local ____cond92 = ____switch92 == 1
-            if ____cond92 then
+            local ____switch93 = self.SlashCount
+            local ____cond93 = ____switch93 == 1
+            if ____cond93 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_earth_crack.vpcf"
                     break
                 end
             end
-            ____cond92 = ____cond92 or ____switch92 == 2
-            if ____cond92 then
+            ____cond93 = ____cond93 or ____switch93 == 2
+            if ____cond93 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_water.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_water_crack.vpcf"
                     break
                 end
             end
-            ____cond92 = ____cond92 or ____switch92 == 3
-            if ____cond92 then
+            ____cond93 = ____cond93 or ____switch93 == 3
+            if ____cond93 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_fire_crack.vpcf"
                     break
                 end
             end
-            ____cond92 = ____cond92 or ____switch92 == 4
-            if ____cond92 then
+            ____cond93 = ____cond93 or ____switch93 == 4
+            if ____cond93 then
                 do
                     AoeParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind.vpcf"
                     CrackParticleStr = "particles/custom/musashi/musashi_niou_kurikara_unique_wind_crack.vpcf"
@@ -838,9 +859,11 @@ end
 function musashi_modifier_niou_kurikara_slashing.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_niou_kurikara_slashing = __TS__DecorateLegacy(
+musashi_modifier_niou_kurikara_slashing = __TS__Decorate(
+    musashi_modifier_niou_kurikara_slashing,
+    musashi_modifier_niou_kurikara_slashing,
     {registerModifier(nil)},
-    musashi_modifier_niou_kurikara_slashing
+    {kind = "class", name = "musashi_modifier_niou_kurikara_slashing"}
 )
 ____exports.musashi_modifier_niou_kurikara_slashing = musashi_modifier_niou_kurikara_slashing
 ____exports.musashi_modifier_earth_debuff = __TS__Class()
@@ -859,9 +882,11 @@ function musashi_modifier_earth_debuff.prototype.GetModifierMoveSpeedBonus_Perce
     local ____opt_157 = self:GetAbility()
     return ____opt_157 and ____opt_157:GetSpecialValueFor("EarthSlow")
 end
-musashi_modifier_earth_debuff = __TS__DecorateLegacy(
+musashi_modifier_earth_debuff = __TS__Decorate(
+    musashi_modifier_earth_debuff,
+    musashi_modifier_earth_debuff,
     {registerModifier(nil)},
-    musashi_modifier_earth_debuff
+    {kind = "class", name = "musashi_modifier_earth_debuff"}
 )
 ____exports.musashi_modifier_earth_debuff = musashi_modifier_earth_debuff
 ____exports.musashi_modifier_water_debuff = __TS__Class()
@@ -948,9 +973,11 @@ function musashi_modifier_water_debuff.prototype.CheckState(self)
     local ModifierTable = {[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true}
     return ModifierTable
 end
-musashi_modifier_water_debuff = __TS__DecorateLegacy(
+musashi_modifier_water_debuff = __TS__Decorate(
+    musashi_modifier_water_debuff,
+    musashi_modifier_water_debuff,
     {registerModifier(nil)},
-    musashi_modifier_water_debuff
+    {kind = "class", name = "musashi_modifier_water_debuff"}
 )
 ____exports.musashi_modifier_water_debuff = musashi_modifier_water_debuff
 ____exports.musashi_modifier_fire_debuff = __TS__Class()
@@ -1014,9 +1041,11 @@ end
 function musashi_modifier_fire_debuff.prototype.DeclareFunctions(self)
     return {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
 end
-musashi_modifier_fire_debuff = __TS__DecorateLegacy(
+musashi_modifier_fire_debuff = __TS__Decorate(
+    musashi_modifier_fire_debuff,
+    musashi_modifier_fire_debuff,
     {registerModifier(nil)},
-    musashi_modifier_fire_debuff
+    {kind = "class", name = "musashi_modifier_fire_debuff"}
 )
 ____exports.musashi_modifier_fire_debuff = musashi_modifier_fire_debuff
 ____exports.musashi_modifier_wind_debuff = __TS__Class()
@@ -1030,9 +1059,11 @@ end
 function musashi_modifier_wind_debuff.prototype.IsStunDebuff(self)
     return true
 end
-musashi_modifier_wind_debuff = __TS__DecorateLegacy(
+musashi_modifier_wind_debuff = __TS__Decorate(
+    musashi_modifier_wind_debuff,
+    musashi_modifier_wind_debuff,
     {registerModifier(nil)},
-    musashi_modifier_wind_debuff
+    {kind = "class", name = "musashi_modifier_wind_debuff"}
 )
 ____exports.musashi_modifier_wind_debuff = musashi_modifier_wind_debuff
 ____exports.musashi_modifier_niou_kurikara_postslashing_buff = __TS__Class()
@@ -1057,9 +1088,11 @@ end
 function musashi_modifier_niou_kurikara_postslashing_buff.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_niou_kurikara_postslashing_buff = __TS__DecorateLegacy(
+musashi_modifier_niou_kurikara_postslashing_buff = __TS__Decorate(
+    musashi_modifier_niou_kurikara_postslashing_buff,
+    musashi_modifier_niou_kurikara_postslashing_buff,
     {registerModifier(nil)},
-    musashi_modifier_niou_kurikara_postslashing_buff
+    {kind = "class", name = "musashi_modifier_niou_kurikara_postslashing_buff"}
 )
 ____exports.musashi_modifier_niou_kurikara_postslashing_buff = musashi_modifier_niou_kurikara_postslashing_buff
 ____exports.musashi_tengan = __TS__Class()
@@ -1075,14 +1108,15 @@ function musashi_tengan.prototype.OnAbilityPhaseStart(self)
     if IsServer() then
         self.Caster = self:GetCaster()
         self.ChargeCounter = self.Caster:FindModifierByName(____exports.musashi_modifier_tengan_chargecounter.name)
-        if CheckComboStatsFulfilled(self.Caster) and not self.Caster:HasModifier(____exports.musashi_modifier_ishana_daitenshou_cooldown.name) then
+        if CheckComboStatsFulfilled(nil, self.Caster) and not self.Caster:HasModifier(____exports.musashi_modifier_ishana_daitenshou_cooldown.name) then
             local SkillsSequence = {____exports.musashi_tengan.name, ____exports.musashi_dai_go_sei.name}
             InitComboSequenceChecker(
+                nil,
                 self.Caster,
                 SkillsSequence,
                 ____exports.musashi_ganryuu_jima.name,
                 ____exports.musashi_ishana_daitenshou.name,
-                5
+                4
             )
         end
         if self.ChargeCounter:GetStackCount() > 0 then
@@ -1111,7 +1145,13 @@ function musashi_tengan.prototype.OnSpellStart(self)
         ____temp_203 = ____opt_201 and ____opt_201:HasModifier("musashi_attribute_improve_tengan")
     end
     if ____temp_203 then
-        InitSkillSlotChecker(self.Caster, ____exports.musashi_tengan.name, ____exports.musashi_tenma_gogan.name, 2)
+        InitSkillSlotChecker(
+            nil,
+            self.Caster,
+            ____exports.musashi_tengan.name,
+            ____exports.musashi_tenma_gogan.name,
+            2
+        )
     end
     local ____opt_204 = self.ChargeCounter
     if ____opt_204 ~= nil then
@@ -1132,9 +1172,11 @@ end
 function musashi_tengan.prototype.GetIntrinsicModifierName(self)
     return ____exports.musashi_modifier_tengan_chargecounter.name
 end
-musashi_tengan = __TS__DecorateLegacy(
+musashi_tengan = __TS__Decorate(
+    musashi_tengan,
+    musashi_tengan,
     {registerAbility(nil)},
-    musashi_tengan
+    {kind = "class", name = "musashi_tengan"}
 )
 ____exports.musashi_tengan = musashi_tengan
 ____exports.musashi_modifier_tengan_chargecounter = __TS__Class()
@@ -1203,9 +1245,11 @@ end
 function musashi_modifier_tengan_chargecounter.prototype.IsPermanent(self)
     return true
 end
-musashi_modifier_tengan_chargecounter = __TS__DecorateLegacy(
+musashi_modifier_tengan_chargecounter = __TS__Decorate(
+    musashi_modifier_tengan_chargecounter,
+    musashi_modifier_tengan_chargecounter,
     {registerModifier(nil)},
-    musashi_modifier_tengan_chargecounter
+    {kind = "class", name = "musashi_modifier_tengan_chargecounter"}
 )
 ____exports.musashi_modifier_tengan_chargecounter = musashi_modifier_tengan_chargecounter
 ____exports.musashi_modifier_tengan = __TS__Class()
@@ -1296,9 +1340,11 @@ end
 function musashi_modifier_tengan.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_tengan = __TS__DecorateLegacy(
+musashi_modifier_tengan = __TS__Decorate(
+    musashi_modifier_tengan,
+    musashi_modifier_tengan,
     {registerModifier(nil)},
-    musashi_modifier_tengan
+    {kind = "class", name = "musashi_modifier_tengan"}
 )
 ____exports.musashi_modifier_tengan = musashi_modifier_tengan
 ____exports.musashi_ganryuu_jima = __TS__Class()
@@ -1313,6 +1359,9 @@ function musashi_ganryuu_jima.prototype.____constructor(self, ...)
     self.SecondSlashPosition = Vector(0, 0, 0)
 end
 function musashi_ganryuu_jima.prototype.OnVectorCastStart(self, vStartLocation, vDirection)
+    if not IsInSameRealm(vStartLocation, vDirection) then
+        return
+    end
     self.Caster = self:GetCaster()
     self:SetVector(vStartLocation, vDirection)
     local ____opt_226 = self.Caster
@@ -1365,9 +1414,11 @@ end
 function musashi_ganryuu_jima.prototype.IgnoreVectorArrowWidth(self)
     return false
 end
-musashi_ganryuu_jima = __TS__DecorateLegacy(
+musashi_ganryuu_jima = __TS__Decorate(
+    musashi_ganryuu_jima,
+    musashi_ganryuu_jima,
     {registerAbility(nil)},
-    musashi_ganryuu_jima
+    {kind = "class", name = "musashi_ganryuu_jima"}
 )
 ____exports.musashi_ganryuu_jima = musashi_ganryuu_jima
 ____exports.musashi_modifier_ganryuu_jima = __TS__Class()
@@ -1389,7 +1440,7 @@ function musashi_modifier_ganryuu_jima.prototype.OnCreated(self)
     self.DashPosition = self.GanryuuJima.DashPosition
     self.SlashPosition = self.GanryuuJima.SlashPosition
     self.SecondSlashPosition = self.GanryuuJima.SecondSlashPosition
-    giveUnitDataDrivenModifier(self.Caster, self.Caster, "pause_sealdisabled", 1.5)
+    giveUnitDataDrivenModifier(self.Caster, self.Caster, "pause_sealdisabled", 1)
 end
 function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stackCount)
     if not IsServer() then
@@ -1397,9 +1448,9 @@ function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stack
     end
     local Position = Vector(0, 0, 0)
     repeat
-        local ____switch184 = stackCount
-        local ____cond184 = ____switch184 == 0
-        if ____cond184 then
+        local ____switch186 = stackCount
+        local ____cond186 = ____switch186 == 0
+        if ____cond186 then
             do
                 Position = self.DashPosition
                 local ____opt_232 = self.Caster
@@ -1415,22 +1466,22 @@ function musashi_modifier_ganryuu_jima.prototype.OnStackCountChanged(self, stack
                 break
             end
         end
-        ____cond184 = ____cond184 or ____switch184 == 1
-        if ____cond184 then
+        ____cond186 = ____cond186 or ____switch186 == 1
+        if ____cond186 then
             do
                 Position = self.SlashPosition
                 break
             end
         end
-        ____cond184 = ____cond184 or ____switch184 == 2
-        if ____cond184 then
+        ____cond186 = ____cond186 or ____switch186 == 2
+        if ____cond186 then
             do
                 Position = self.SecondSlashPosition
                 break
             end
         end
-        ____cond184 = ____cond184 or ____switch184 == 3
-        if ____cond184 then
+        ____cond186 = ____cond186 or ____switch186 == 3
+        if ____cond186 then
             do
                 self:Destroy()
                 break
@@ -1507,9 +1558,11 @@ end
 function musashi_modifier_ganryuu_jima.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_ganryuu_jima = __TS__DecorateLegacy(
+musashi_modifier_ganryuu_jima = __TS__Decorate(
+    musashi_modifier_ganryuu_jima,
+    musashi_modifier_ganryuu_jima,
     {registerModifier(nil)},
-    musashi_modifier_ganryuu_jima
+    {kind = "class", name = "musashi_modifier_ganryuu_jima"}
 )
 ____exports.musashi_modifier_ganryuu_jima = musashi_modifier_ganryuu_jima
 ____exports.musashi_modifier_ganryuu_jima_dash = __TS__Class()
@@ -1593,9 +1646,11 @@ end
 function musashi_modifier_ganryuu_jima_dash.prototype.IsHidden(self)
     return true
 end
-musashi_modifier_ganryuu_jima_dash = __TS__DecorateLegacy(
+musashi_modifier_ganryuu_jima_dash = __TS__Decorate(
+    musashi_modifier_ganryuu_jima_dash,
+    musashi_modifier_ganryuu_jima_dash,
     {registerModifier(nil)},
-    musashi_modifier_ganryuu_jima_dash
+    {kind = "class", name = "musashi_modifier_ganryuu_jima_dash"}
 )
 ____exports.musashi_modifier_ganryuu_jima_dash = musashi_modifier_ganryuu_jima_dash
 ____exports.musashi_modifier_ganryuu_jima_slash = __TS__Class()
@@ -1775,9 +1830,11 @@ end
 function musashi_modifier_ganryuu_jima_slash.prototype.IsHidden(self)
     return true
 end
-musashi_modifier_ganryuu_jima_slash = __TS__DecorateLegacy(
+musashi_modifier_ganryuu_jima_slash = __TS__Decorate(
+    musashi_modifier_ganryuu_jima_slash,
+    musashi_modifier_ganryuu_jima_slash,
     {registerModifier(nil)},
-    musashi_modifier_ganryuu_jima_slash
+    {kind = "class", name = "musashi_modifier_ganryuu_jima_slash"}
 )
 ____exports.musashi_modifier_ganryuu_jima_slash = musashi_modifier_ganryuu_jima_slash
 ____exports.musashi_modifier_ganryuu_jima_debuff = __TS__Class()
@@ -1849,9 +1906,11 @@ end
 function musashi_modifier_ganryuu_jima_debuff.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_ganryuu_jima_debuff = __TS__DecorateLegacy(
+musashi_modifier_ganryuu_jima_debuff = __TS__Decorate(
+    musashi_modifier_ganryuu_jima_debuff,
+    musashi_modifier_ganryuu_jima_debuff,
     {registerModifier(nil)},
-    musashi_modifier_ganryuu_jima_debuff
+    {kind = "class", name = "musashi_modifier_ganryuu_jima_debuff"}
 )
 ____exports.musashi_modifier_ganryuu_jima_debuff = musashi_modifier_ganryuu_jima_debuff
 ____exports.musashi_mukyuu = __TS__Class()
@@ -1868,6 +1927,7 @@ function musashi_mukyuu.prototype.OnSpellStart(self)
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
     self.Caster:AddNewModifier(self.Caster, self, ____exports.musashi_modifier_mukyuu.name, {duration = BuffDuration})
     InitSkillSlotChecker(
+        nil,
         self.Caster,
         ____exports.musashi_mukyuu.name,
         ____exports.musashi_tengen_no_hana.name,
@@ -1886,9 +1946,11 @@ function musashi_mukyuu.prototype.PlaySound(self)
         ____opt_344:EmitSound(self.SoundSfx)
     end
 end
-musashi_mukyuu = __TS__DecorateLegacy(
+musashi_mukyuu = __TS__Decorate(
+    musashi_mukyuu,
+    musashi_mukyuu,
     {registerAbility(nil)},
-    musashi_mukyuu
+    {kind = "class", name = "musashi_mukyuu"}
 )
 ____exports.musashi_mukyuu = musashi_mukyuu
 ____exports.musashi_modifier_mukyuu = __TS__Class()
@@ -1961,9 +2023,11 @@ end
 function musashi_modifier_mukyuu.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_mukyuu = __TS__DecorateLegacy(
+musashi_modifier_mukyuu = __TS__Decorate(
+    musashi_modifier_mukyuu,
+    musashi_modifier_mukyuu,
     {registerModifier(nil)},
-    musashi_modifier_mukyuu
+    {kind = "class", name = "musashi_modifier_mukyuu"}
 )
 ____exports.musashi_modifier_mukyuu = musashi_modifier_mukyuu
 ____exports.musashi_tenma_gogan = __TS__Class()
@@ -1994,9 +2058,11 @@ function musashi_tenma_gogan.prototype.PlaySound(self)
         ____opt_352:EmitSound(self.SoundSfx)
     end
 end
-musashi_tenma_gogan = __TS__DecorateLegacy(
+musashi_tenma_gogan = __TS__Decorate(
+    musashi_tenma_gogan,
+    musashi_tenma_gogan,
     {registerAbility(nil)},
-    musashi_tenma_gogan
+    {kind = "class", name = "musashi_tenma_gogan"}
 )
 ____exports.musashi_tenma_gogan = musashi_tenma_gogan
 ____exports.musashi_modifier_tenma_gogan = __TS__Class()
@@ -2028,9 +2094,9 @@ function musashi_modifier_tenma_gogan.prototype.OnStackCountChanged(self, stackC
         return
     end
     repeat
-        local ____switch258 = stackCount
-        local ____cond258 = ____switch258 == 1
-        if ____cond258 then
+        local ____switch260 = stackCount
+        local ____cond260 = ____switch260 == 1
+        if ____cond260 then
             do
                 self:Destroy()
             end
@@ -2081,9 +2147,11 @@ end
 function musashi_modifier_tenma_gogan.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_tenma_gogan = __TS__DecorateLegacy(
+musashi_modifier_tenma_gogan = __TS__Decorate(
+    musashi_modifier_tenma_gogan,
+    musashi_modifier_tenma_gogan,
     {registerModifier(nil)},
-    musashi_modifier_tenma_gogan
+    {kind = "class", name = "musashi_modifier_tenma_gogan"}
 )
 ____exports.musashi_modifier_tenma_gogan = musashi_modifier_tenma_gogan
 ____exports.musashi_modifier_tenma_gogan_debuff = __TS__Class()
@@ -2110,9 +2178,11 @@ end
 function musashi_modifier_tenma_gogan_debuff.prototype.IsStunDebuff(self)
     return true
 end
-musashi_modifier_tenma_gogan_debuff = __TS__DecorateLegacy(
+musashi_modifier_tenma_gogan_debuff = __TS__Decorate(
+    musashi_modifier_tenma_gogan_debuff,
+    musashi_modifier_tenma_gogan_debuff,
     {registerModifier(nil)},
-    musashi_modifier_tenma_gogan_debuff
+    {kind = "class", name = "musashi_modifier_tenma_gogan_debuff"}
 )
 ____exports.musashi_modifier_tenma_gogan_debuff = musashi_modifier_tenma_gogan_debuff
 ____exports.musashi_tengen_no_hana = __TS__Class()
@@ -2129,9 +2199,11 @@ function musashi_tengen_no_hana.prototype.OnSpellStart(self)
     local BuffDuration = self:GetSpecialValueFor("BuffDuration")
     Caster:AddNewModifier(Caster, self, ____exports.musashi_modifier_tengen_no_hana.name, {duration = BuffDuration})
 end
-musashi_tengen_no_hana = __TS__DecorateLegacy(
+musashi_tengen_no_hana = __TS__Decorate(
+    musashi_tengen_no_hana,
+    musashi_tengen_no_hana,
     {registerAbility(nil)},
-    musashi_tengen_no_hana
+    {kind = "class", name = "musashi_tengen_no_hana"}
 )
 ____exports.musashi_tengen_no_hana = musashi_tengen_no_hana
 ____exports.musashi_modifier_tengen_no_hana = __TS__Class()
@@ -2173,25 +2245,25 @@ function musashi_modifier_tengen_no_hana.prototype.OnStackCountChanged(self, sta
         return
     end
     repeat
-        local ____switch280 = stackCount
-        local ____cond280 = ____switch280 == 0
-        if ____cond280 then
+        local ____switch282 = stackCount
+        local ____cond282 = ____switch282 == 0
+        if ____cond282 then
             do
                 local ____opt_376 = self.Ability
                 self.Percentage = ____opt_376 and ____opt_376:GetSpecialValueFor("1SecPercentage")
                 break
             end
         end
-        ____cond280 = ____cond280 or ____switch280 == 1
-        if ____cond280 then
+        ____cond282 = ____cond282 or ____switch282 == 1
+        if ____cond282 then
             do
                 local ____opt_378 = self.Ability
                 self.Percentage = ____opt_378 and ____opt_378:GetSpecialValueFor("2SecPercentage")
                 break
             end
         end
-        ____cond280 = ____cond280 or ____switch280 == 2
-        if ____cond280 then
+        ____cond282 = ____cond282 or ____switch282 == 2
+        if ____cond282 then
             do
                 local ____opt_380 = self.Ability
                 self.Percentage = ____opt_380 and ____opt_380:GetSpecialValueFor("FullPercentage")
@@ -2346,9 +2418,11 @@ end
 function musashi_modifier_tengen_no_hana.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_tengen_no_hana = __TS__DecorateLegacy(
+musashi_modifier_tengen_no_hana = __TS__Decorate(
+    musashi_modifier_tengen_no_hana,
+    musashi_modifier_tengen_no_hana,
     {registerModifier(nil)},
-    musashi_modifier_tengen_no_hana
+    {kind = "class", name = "musashi_modifier_tengen_no_hana"}
 )
 ____exports.musashi_modifier_tengen_no_hana = musashi_modifier_tengen_no_hana
 ____exports.musashi_battle_continuation = __TS__Class()
@@ -2358,9 +2432,11 @@ __TS__ClassExtends(musashi_battle_continuation, BaseAbility)
 function musashi_battle_continuation.prototype.GetIntrinsicModifierName(self)
     return ____exports.musashi_modifier_battle_continuation.name
 end
-musashi_battle_continuation = __TS__DecorateLegacy(
+musashi_battle_continuation = __TS__Decorate(
+    musashi_battle_continuation,
+    musashi_battle_continuation,
     {registerAbility(nil)},
-    musashi_battle_continuation
+    {kind = "class", name = "musashi_battle_continuation"}
 )
 ____exports.musashi_battle_continuation = musashi_battle_continuation
 ____exports.musashi_modifier_battle_continuation = __TS__Class()
@@ -2424,9 +2500,11 @@ end
 function musashi_modifier_battle_continuation.prototype.RemoveOnDeath(self)
     return false
 end
-musashi_modifier_battle_continuation = __TS__DecorateLegacy(
+musashi_modifier_battle_continuation = __TS__Decorate(
+    musashi_modifier_battle_continuation,
+    musashi_modifier_battle_continuation,
     {registerModifier(nil)},
-    musashi_modifier_battle_continuation
+    {kind = "class", name = "musashi_modifier_battle_continuation"}
 )
 ____exports.musashi_modifier_battle_continuation = musashi_modifier_battle_continuation
 ____exports.musashi_modifier_battle_continuation_active = __TS__Class()
@@ -2443,6 +2521,7 @@ function musashi_modifier_battle_continuation_active.prototype.OnCreated(self)
         return
     end
     self.Caster = self:GetCaster()
+    giveUnitDataDrivenModifier(self.Caster, self.Caster, "can_be_executed", 1)
     local ____opt_432 = self.Caster
     local TengenNoHana = ____opt_432 and ____opt_432:FindAbilityByName(____exports.musashi_tengen_no_hana.name)
     local ____opt_434 = self.Caster
@@ -2516,9 +2595,11 @@ end
 function musashi_modifier_battle_continuation_active.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_battle_continuation_active = __TS__DecorateLegacy(
+musashi_modifier_battle_continuation_active = __TS__Decorate(
+    musashi_modifier_battle_continuation_active,
+    musashi_modifier_battle_continuation_active,
     {registerModifier(nil)},
-    musashi_modifier_battle_continuation_active
+    {kind = "class", name = "musashi_modifier_battle_continuation_active"}
 )
 ____exports.musashi_modifier_battle_continuation_active = musashi_modifier_battle_continuation_active
 ____exports.musashi_modifier_battle_continuation_cooldown = __TS__Class()
@@ -2542,9 +2623,11 @@ end
 function musashi_modifier_battle_continuation_cooldown.prototype.IsDebuff(self)
     return true
 end
-musashi_modifier_battle_continuation_cooldown = __TS__DecorateLegacy(
+musashi_modifier_battle_continuation_cooldown = __TS__Decorate(
+    musashi_modifier_battle_continuation_cooldown,
+    musashi_modifier_battle_continuation_cooldown,
     {registerModifier(nil)},
-    musashi_modifier_battle_continuation_cooldown
+    {kind = "class", name = "musashi_modifier_battle_continuation_cooldown"}
 )
 ____exports.musashi_modifier_battle_continuation_cooldown = musashi_modifier_battle_continuation_cooldown
 ____exports.musashi_niou = __TS__Class()
@@ -2581,9 +2664,11 @@ function musashi_niou.prototype.DestroyNiou(self, delay)
         end
     end)
 end
-musashi_niou = __TS__DecorateLegacy(
+musashi_niou = __TS__Decorate(
+    musashi_niou,
+    musashi_niou,
     {registerAbility(nil)},
-    musashi_niou
+    {kind = "class", name = "musashi_niou"}
 )
 ____exports.musashi_niou = musashi_niou
 ____exports.musashi_modifier_niou = __TS__Class()
@@ -2620,9 +2705,11 @@ end
 function musashi_modifier_niou.prototype.IsHidden(self)
     return true
 end
-musashi_modifier_niou = __TS__DecorateLegacy(
+musashi_modifier_niou = __TS__Decorate(
+    musashi_modifier_niou,
+    musashi_modifier_niou,
     {registerModifier(nil)},
-    musashi_modifier_niou
+    {kind = "class", name = "musashi_modifier_niou"}
 )
 ____exports.musashi_modifier_niou = musashi_modifier_niou
 ____exports.musashi_dai_go_sei_wave = __TS__Class()
@@ -2704,9 +2791,11 @@ end
 function musashi_dai_go_sei_wave.prototype.GetIntrinsicModifierName(self)
     return ____exports.musashi_modifier_dai_go_sei_wave_counter.name
 end
-musashi_dai_go_sei_wave = __TS__DecorateLegacy(
+musashi_dai_go_sei_wave = __TS__Decorate(
+    musashi_dai_go_sei_wave,
+    musashi_dai_go_sei_wave,
     {registerAbility(nil)},
-    musashi_dai_go_sei_wave
+    {kind = "class", name = "musashi_dai_go_sei_wave"}
 )
 ____exports.musashi_dai_go_sei_wave = musashi_dai_go_sei_wave
 ____exports.musashi_modifier_dai_go_sei_wave_counter = __TS__Class()
@@ -2800,9 +2889,11 @@ end
 function musashi_modifier_dai_go_sei_wave_counter.prototype.IsPermanent(self)
     return true
 end
-musashi_modifier_dai_go_sei_wave_counter = __TS__DecorateLegacy(
+musashi_modifier_dai_go_sei_wave_counter = __TS__Decorate(
+    musashi_modifier_dai_go_sei_wave_counter,
+    musashi_modifier_dai_go_sei_wave_counter,
     {registerModifier(nil)},
-    musashi_modifier_dai_go_sei_wave_counter
+    {kind = "class", name = "musashi_modifier_dai_go_sei_wave_counter"}
 )
 ____exports.musashi_modifier_dai_go_sei_wave_counter = musashi_modifier_dai_go_sei_wave_counter
 ____exports.musashi_ishana_daitenshou = __TS__Class()
@@ -2834,9 +2925,11 @@ function musashi_ishana_daitenshou.prototype.PlaySound(self)
     EmitGlobalSound(self.SoundVoiceline)
     EmitGlobalSound(self.SoundBgm)
 end
-musashi_ishana_daitenshou = __TS__DecorateLegacy(
+musashi_ishana_daitenshou = __TS__Decorate(
+    musashi_ishana_daitenshou,
+    musashi_ishana_daitenshou,
     {registerAbility(nil)},
-    musashi_ishana_daitenshou
+    {kind = "class", name = "musashi_ishana_daitenshou"}
 )
 ____exports.musashi_ishana_daitenshou = musashi_ishana_daitenshou
 ____exports.musashi_modifier_ishana_daitenshou = __TS__Class()
@@ -2880,9 +2973,9 @@ function musashi_modifier_ishana_daitenshou.prototype.OnStackCountChanged(self, 
         return
     end
     repeat
-        local ____switch375 = stackCount
-        local ____cond375 = ____switch375 == 0
-        if ____cond375 then
+        local ____switch377 = stackCount
+        local ____cond377 = ____switch377 == 0
+        if ____cond377 then
             do
                 local ____Entities_FindByNameWithin_500 = Entities.FindByNameWithin
                 local ____opt_498 = self.Victim
@@ -2909,8 +3002,8 @@ function musashi_modifier_ishana_daitenshou.prototype.OnStackCountChanged(self, 
                 break
             end
         end
-        ____cond375 = ____cond375 or ____switch375 == 1
-        if ____cond375 then
+        ____cond377 = ____cond377 or ____switch377 == 1
+        if ____cond377 then
             do
                 local ____opt_506 = self.Caster
                 if ____opt_506 ~= nil then
@@ -2919,8 +3012,8 @@ function musashi_modifier_ishana_daitenshou.prototype.OnStackCountChanged(self, 
                 break
             end
         end
-        ____cond375 = ____cond375 or ____switch375 == 2
-        if ____cond375 then
+        ____cond377 = ____cond377 or ____switch377 == 2
+        if ____cond377 then
             do
                 self:Destroy()
                 break
@@ -2994,9 +3087,11 @@ end
 function musashi_modifier_ishana_daitenshou.prototype.IsPurgeException(self)
     return false
 end
-musashi_modifier_ishana_daitenshou = __TS__DecorateLegacy(
+musashi_modifier_ishana_daitenshou = __TS__Decorate(
+    musashi_modifier_ishana_daitenshou,
+    musashi_modifier_ishana_daitenshou,
     {registerModifier(nil)},
-    musashi_modifier_ishana_daitenshou
+    {kind = "class", name = "musashi_modifier_ishana_daitenshou"}
 )
 ____exports.musashi_modifier_ishana_daitenshou = musashi_modifier_ishana_daitenshou
 ____exports.musashi_modifier_ishana_daitenshou_dash = __TS__Class()
@@ -3081,9 +3176,11 @@ end
 function musashi_modifier_ishana_daitenshou_dash.prototype.IsHidden(self)
     return true
 end
-musashi_modifier_ishana_daitenshou_dash = __TS__DecorateLegacy(
+musashi_modifier_ishana_daitenshou_dash = __TS__Decorate(
+    musashi_modifier_ishana_daitenshou_dash,
+    musashi_modifier_ishana_daitenshou_dash,
     {registerModifier(nil)},
-    musashi_modifier_ishana_daitenshou_dash
+    {kind = "class", name = "musashi_modifier_ishana_daitenshou_dash"}
 )
 ____exports.musashi_modifier_ishana_daitenshou_dash = musashi_modifier_ishana_daitenshou_dash
 ____exports.musashi_modifier_ishana_daitenshou_slash = __TS__Class()
@@ -3105,7 +3202,6 @@ function musashi_modifier_ishana_daitenshou_slash.prototype.OnCreated(self)
     local ____opt_535 = self.Caster
     self.ModifierIshanaDaitenshou = ____opt_535 and ____opt_535:FindModifierByName(____exports.musashi_modifier_ishana_daitenshou.name)
     self.Victim = self.ModifierIshanaDaitenshou.Victim
-    giveUnitDataDrivenModifier(self.Caster, self.Victim, "revoked", 1)
     local ____opt_537 = self.Ability
     local QuickSlashInterval = ____opt_537 and ____opt_537:GetSpecialValueFor("QuickSlashInterval")
     local ____opt_539 = self.Ability
@@ -3225,9 +3321,11 @@ end
 function musashi_modifier_ishana_daitenshou_slash.prototype.IsHidden(self)
     return true
 end
-musashi_modifier_ishana_daitenshou_slash = __TS__DecorateLegacy(
+musashi_modifier_ishana_daitenshou_slash = __TS__Decorate(
+    musashi_modifier_ishana_daitenshou_slash,
+    musashi_modifier_ishana_daitenshou_slash,
     {registerModifier(nil)},
-    musashi_modifier_ishana_daitenshou_slash
+    {kind = "class", name = "musashi_modifier_ishana_daitenshou_slash"}
 )
 ____exports.musashi_modifier_ishana_daitenshou_slash = musashi_modifier_ishana_daitenshou_slash
 ____exports.musashi_modifier_ishana_daitenshou_debuff = __TS__Class()
@@ -3259,9 +3357,11 @@ end
 function musashi_modifier_ishana_daitenshou_debuff.prototype.RemoveOnDeath(self)
     return true
 end
-musashi_modifier_ishana_daitenshou_debuff = __TS__DecorateLegacy(
+musashi_modifier_ishana_daitenshou_debuff = __TS__Decorate(
+    musashi_modifier_ishana_daitenshou_debuff,
+    musashi_modifier_ishana_daitenshou_debuff,
     {registerModifier(nil)},
-    musashi_modifier_ishana_daitenshou_debuff
+    {kind = "class", name = "musashi_modifier_ishana_daitenshou_debuff"}
 )
 ____exports.musashi_modifier_ishana_daitenshou_debuff = musashi_modifier_ishana_daitenshou_debuff
 ____exports.musashi_modifier_ishana_daitenshou_cooldown = __TS__Class()
@@ -3285,9 +3385,11 @@ end
 function musashi_modifier_ishana_daitenshou_cooldown.prototype.RemoveOnDeath(self)
     return false
 end
-musashi_modifier_ishana_daitenshou_cooldown = __TS__DecorateLegacy(
+musashi_modifier_ishana_daitenshou_cooldown = __TS__Decorate(
+    musashi_modifier_ishana_daitenshou_cooldown,
+    musashi_modifier_ishana_daitenshou_cooldown,
     {registerModifier(nil)},
-    musashi_modifier_ishana_daitenshou_cooldown
+    {kind = "class", name = "musashi_modifier_ishana_daitenshou_cooldown"}
 )
 ____exports.musashi_modifier_ishana_daitenshou_cooldown = musashi_modifier_ishana_daitenshou_cooldown
 return ____exports

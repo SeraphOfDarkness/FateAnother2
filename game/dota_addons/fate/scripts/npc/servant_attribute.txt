@@ -450,4 +450,13 @@ ServantAttribute
 		"SA5"	"billy_sa_gambit"
 		"SCombo"	"billy_combo"
 	}
+	"npc_dota_hero_terrorblade"
+	{
+		"SA1"	"saito_attribute_freedom"
+		"SA2"	"saito_attribute_sword"
+		"SA3"	"saito_attribute_memoir"
+		"SA4"	"saito_attribute_freestyle"
+		"SA5"	"saito_attribute_kunishige"
+		"SCombo"	"saito_jce"
+	}
 }

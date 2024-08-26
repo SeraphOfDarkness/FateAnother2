@@ -88,7 +88,7 @@ function jeanne_la_pucelle:OnSpellStart()
 			ParticleManager:SetParticleControl( beam, 1, caster:GetAbsOrigin() )
 
 			local damage = caster:GetMaxHealth() * self:GetSpecialValueFor("life_damage")
-			if caster:HasModifier("modifier_saint_buff") then 
+			if caster:HasModifier("modifier_jeanne_saint") then 
 				damage = caster:GetMaxHealth() * self:GetSpecialValueFor("life_damage_saint")
 			end
 			EmitGlobalSound("jeanne_combo_end")

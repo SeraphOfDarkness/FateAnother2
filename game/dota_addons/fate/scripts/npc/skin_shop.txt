@@ -101,4 +101,6 @@ SkinShop
 	"098"		"2000"		// [Heroic] Casual Robin
 	"099"		"4000"		// [Legend] Ninja Robin
 	"100"		"6000"		// [Legend] Super Karna
+	"101"		"2000"		// [Heroic] Suit Saito
+	"102"		"15000"		// [PEPE] Black PEPE
 }

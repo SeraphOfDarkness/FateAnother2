@@ -54,6 +54,7 @@
 #base "abilities/kiyohime/kiyohime_abilities.kv"
 #base "abilities/melt/melt_abilities.kv"
 #base "abilities/billy/billy_abilities.kv"
+#base "abilities/saito/saito_abilities.kv"
 
 "DOTAAbilities"
 {

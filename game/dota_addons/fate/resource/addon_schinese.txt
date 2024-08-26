@@ -12713,7 +12713,7 @@
 		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow_Description"										"Taking bunker bolt debuffs."
 
 		"DOTA_Tooltip_modifier_mashu_protect"														"Protected"
-		"DOTA_Tooltip_modifier_mashu_protect_Description"											Mashu is protecting this unit."
+		"DOTA_Tooltip_modifier_mashu_protect_Description"											"Mashu is protecting this unit."
 
 		"DOTA_Tooltip_modifier_mashu_parry"															"Parry"
 		"DOTA_Tooltip_modifier_mashu_parry_Description"												"Mashu is preparing to parry."
@@ -15405,6 +15405,510 @@
 
         "DOTA_Tooltip_modifier_virus_stack"                             "溶解病毒 - 层数"
         "DOTA_Tooltip_modifier_virus_stack_Description"                 "每次击杀获得属性."
+
+        //====================================
+        //      比利小子
+        //====================================
+        "npc_dota_hero_muerta"             "比利小子"
+        "npc_dota_hero_muerta_summon"		"从者 <font color='#58ACFA'>比利小子</font> 已被召唤."
+        "npc_dota_hero_muerta_enable_combo"	"激活 连击技能: 坏音霹雳 - 雷霆"
+
+        ////////////////// INNATE ///////////////////
+
+        "DOTA_Tooltip_Ability_billy_q"			"<font color='#58ACFA'>快速拔枪</font>"
+        "DOTA_Tooltip_ability_billy_q_Description"		"射击目标方向, 并且消耗 <font color='#FF9900'>弹药</font>. 击中敌人时将大幅减少冷却时间,并且每次击中目标都会 <font color='#FF3399'>短暂晕眩</font>. 当超出有效范围时伤害会降低. 射程和有效射程基于 <font color='#FFFFFF'>左轮手枪</font>. \n\n<font color='#9FFFCC'>可升级属性: 决斗者的策略</font>."
+        "DOTA_Tooltip_ability_billy_q_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_billy_q_damage_per_level"                    "英雄每级伤害加成:"
+        "DOTA_Tooltip_ability_billy_q_damage_reduction_outrange"                    "%超出范围伤害减少:"
+        "DOTA_Tooltip_ability_billy_q_cooldown_on_hit"                    "命中目标减少冷却:"
+        "DOTA_Tooltip_ability_billy_q_bullet_speed"                    "子弹速度:"
+        "DOTA_Tooltip_ability_billy_q_bullet_width"                    "子弹宽度:"
+        "DOTA_Tooltip_ability_billy_q_ministun_duration"                    "短暂晕眩时间:"
+
+        "DOTA_Tooltip_Ability_billy_q_upgrade"			"<font color='#9FFFCC'>快速拔枪</font>"
+        "DOTA_Tooltip_ability_billy_q_upgrade_Description"		"射击目标方向, 并且消耗 <font color='#FF9900'>弹药</font>. 击中敌人时将大幅减少冷却时间,并且每次击中目标都会 <font color='#FF3399'>短暂晕眩</font> , 并且有机率恢复弹药和法力. 当超出有效范围时伤害会降低. 射程和有效射程基于 <font color='#FFFFFF'>左轮手枪</font>. (当比利重新装填时不会触发回收弹药.)"
+        "DOTA_Tooltip_ability_billy_q_upgrade_damage"                    "伤害:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_damage_per_level"                    "英雄每级伤害加成:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_damage_reduction_outrange"                    "%超出范围伤害减少:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_cooldown_on_hit"                    "命中目标减少冷却:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_bullet_speed"                    "子弹速度:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_bullet_width"                    "子弹宽度:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_recover_mana_amount"                    "法力回复:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_recover_mana_chance"                    "法力回复几率:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_recover_ammo"                    "弹药回收:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_recover_ammo_chance"                    "弹药回收几率:"
+        "DOTA_Tooltip_ability_billy_q_upgrade_ministun_duration"                    "短暂晕眩时间:"
+
+        "DOTA_Tooltip_Ability_billy_w"			"<font color='#58ACFA'>碎步疾行</font>"
+        "DOTA_Tooltip_ability_billy_w_Description"		"短时间内获得爆发的移动速度, 当正在处于 <font color='#FF3399'>重新装填</font> 会获得额外持续时间."
+        "DOTA_Tooltip_ability_billy_w_dash_duration"                    "基础时间:"
+        "DOTA_Tooltip_ability_billy_w_move_speed"                    "移动速度:"
+        "DOTA_Tooltip_ability_billy_w_reload_bonus_duration"                    "额外持续时间:"
+		
+        "DOTA_Tooltip_Ability_billy_e"			"<font color='#58ACFA'>扣下扳机</font>"
+        "DOTA_Tooltip_ability_billy_e_Description"		"随机向一个方向射击, 消耗所有 <font color='#FF9900'>弹药</font>. 造成伤害基于 <font color='#58ACFA'>快速拔枪</font> 等级. 每次连续射击都会获得额外伤害. 连续射击相比 <font color='#58ACFA'>快速拔枪</font> 范围会更短."
+        "DOTA_Tooltip_ability_billy_e_delay_per_shot"                    "每次射击延迟:"       
+		"DOTA_Tooltip_ability_billy_e_damage_percentage_from_q"                    "%快速拔枪造成的伤害百分比:" 
+		"DOTA_Tooltip_ability_billy_e_bonus_per_consecutive_shots"                    "连续射击伤害加成:" 
+		"DOTA_Tooltip_ability_billy_e_aim_offset"                    "瞄准偏移:" 
+		"DOTA_Tooltip_ability_billy_e_range_penalty"                    "射程减少:"
+		"DOTA_Tooltip_ability_billy_e_cast_delay"                    "施法延迟:"
+		"DOTA_Tooltip_ability_billy_e_cast_point"                    "施法所需的时间:"
+		
+        "DOTA_Tooltip_Ability_billy_d"			"<font color='#FFFFFF'>(左轮手枪) .41 柯尔特 M1861 海军型</font>"
+        "DOTA_Tooltip_ability_billy_d_Description"		"<font color='#58ACFA'>被动</font>: 比利值得信赖的左轮手枪. 给予 <font color='#FF9900'>弹药</font>. 自动攻击现在会消耗 <font color='#FF9900'>弹药</font> 造成伤害并根据 <font color='#58ACFA'>快速拔枪</font> 的基础伤害. 比利技能造成的部分伤害也将转化为纯粹伤害. \n <font color='#58ACFA'>主动</font>:重新装填並且获得弹药但自身会 <font color='#FF3399'>缴械</font> 一段时间. \n\n<font color='#9FFFCC'>可升级属性: 左轮手枪膛室</font>."
+        "DOTA_Tooltip_ability_billy_d_ammo"                    "最大弹药:"       
+        "DOTA_Tooltip_ability_billy_d_reload_duration"                    "重新装填时间:"       
+        "DOTA_Tooltip_ability_billy_d_quickdraw_range"                    "快速拔枪范围:"   	       
+        "DOTA_Tooltip_ability_billy_d_quickdraw_effective_range"                    "快速拔枪有效射程:"  
+        "DOTA_Tooltip_ability_billy_d_auto_attack_bonus_from_q"                    "%快速拔枪伤害:" 
+        "DOTA_Tooltip_ability_billy_d_pure_damage"                    "%纯粹伤害:" 
+
+        "DOTA_Tooltip_Ability_billy_d_1"			"<font color='#58ACFA'>(Revolver) .41 柯尔特 M1873 和平缔造者</font>"
+        "DOTA_Tooltip_ability_billy_d_1_Description"		"<font color='#58ACFA'>被动</font>: 比利值得信赖的左轮手枪. 给予 <font color='#FF9900'>弹药</font>. 自动攻击现在会消耗 <font color='#FF9900'>弹药</font> 造成伤害并根据 <font color='#58ACFA'>快速拔枪</font> 的基础伤害. 比利技能造成的部分伤害也将转化为纯粹伤害. \n <font color='#58ACFA'>主动</font>:重新装填並且获得弹药但自身会 <font color='#FF3399'>缴械</font> 一段时间. \n\n<font color='#9FFFCC'>可升级属性: 左轮手枪膛室</font>."
+        "DOTA_Tooltip_ability_billy_d_1_ammo"                    "最大弹药:"       
+        "DOTA_Tooltip_ability_billy_d_1_reload_duration"                    "重新装填时间:"       
+        "DOTA_Tooltip_ability_billy_d_1_quickdraw_range"                    "快速拔枪范围:"   	       
+        "DOTA_Tooltip_ability_billy_d_1_quickdraw_effective_range"                    "快速拔枪有效射程:"  
+        "DOTA_Tooltip_ability_billy_d_1_auto_attack_bonus_from_q"                    "%快速拔枪伤害:"   	
+        "DOTA_Tooltip_ability_billy_d_1_pure_damage"                    "%纯粹伤害:" 
+
+        "DOTA_Tooltip_Ability_billy_d_2"			"<font color='#9FFFCC'>(Revolver) .41 柯尔特 M1877 雷霆</font>"
+        "DOTA_Tooltip_ability_billy_d_2_Description"		"<font color='#58ACFA'>被动</font>: 比利值得信赖的左轮手枪. 给予 <font color='#FF9900'>弹药</font>. 自动攻击现在会消耗 <font color='#FF9900'>弹药</font> 造成伤害并根据 <font color='#58ACFA'>快速拔枪</font> 的基础伤害. 比利技能造成的部分伤害也将转化为纯粹伤害. \n <font color='#58ACFA'>主动</font>:重新装填並且获得弹药但自身会 <font color='#FF3399'>缴械</font> 一段时间."
+        "DOTA_Tooltip_ability_billy_d_2_ammo"                    "最大弹药:"       
+        "DOTA_Tooltip_ability_billy_d_2_reload_duration"                    "重新装填时间:"       
+        "DOTA_Tooltip_ability_billy_d_2_quickdraw_range"                    "快速拔枪范围:"   	       
+        "DOTA_Tooltip_ability_billy_d_2_quickdraw_effective_range"                    "快速拔枪有效射程:"  
+        "DOTA_Tooltip_ability_billy_d_2_auto_attack_bonus_from_q"                    "%快速拔枪伤害:"   
+        "DOTA_Tooltip_ability_billy_d_2_pure_damage"                    "%纯粹伤害:" 	
+
+        "DOTA_Tooltip_Ability_billy_f"			"<font color='#FFB266'>戏法</font>"
+        "DOTA_Tooltip_ability_billy_f_Description"		"立即重新装填,获得弹药并回复法力基于 <font color='#9FFFCC'>碎步疾行</font> 等级. 不可刷新"
+        "DOTA_Tooltip_ability_billy_f_mana_recover_per_w_level"                    "每级碎步疾行法力回复:"       
+	
+        "DOTA_Tooltip_Ability_billy_r"			"<font color='#58ACFA'>午时已到</font>"
+        "DOTA_Tooltip_ability_billy_r_Description"		"向目标发射最多 3 发子弹, 每次射击消耗 <font color='#FF9900'>弹药</font>. 造成伤害, 并稍微将目标推开. \n\n<font color='#9FFFCC'>可升级属性: 传说中的亡命之徒</font>."
+        "DOTA_Tooltip_ability_billy_r_cast_point"                    "施法所需的时间:"            
+        "DOTA_Tooltip_ability_billy_r_cast_delay"                    "施法延迟:"            
+        "DOTA_Tooltip_ability_billy_r_delay_per_shot"                    "每次射击延迟:"       
+        "DOTA_Tooltip_ability_billy_r_damage_per_shot"                    "每次射击造成的伤害:"       
+        "DOTA_Tooltip_ability_billy_r_speed"                    "子弹速度:"            
+        "DOTA_Tooltip_ability_billy_r_max_range"                    "最大射程:"            
+        "DOTA_Tooltip_ability_billy_r_shot_count"                    "射击次数:"       
+        "DOTA_Tooltip_ability_billy_r_bullet_width"                    "子弹宽度:"            
+        "DOTA_Tooltip_ability_billy_r_knockback_distance"                    "击退距离:"       
+		
+        "DOTA_Tooltip_Ability_billy_r_upgrade"			"<font color='#9FFFCC'>午时已到</font>"
+        "DOTA_Tooltip_ability_billy_r_upgrade_Description"		"向目标发射最多 3 发子弹, 每次射击消耗 <font color='#FF9900'>弹药</font>. 造成伤害, 并稍微将目标推开. 如果比利还剩下 3 发 <font color='#FF9900'>弹药</font> , 此技能会在最后一发时造成额外伤害,并减少冷却时间. 射出的子弹可以被其他英雄挡住."
+        "DOTA_Tooltip_ability_billy_r_upgrade_cast_point"                    "施法所需的时间:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_cast_delay"                    "施法延迟:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_delay_per_shot"                    "每次射击延迟:"       
+        "DOTA_Tooltip_ability_billy_r_upgrade_damage_per_shot"                    "每次射击造成的伤害:"       
+        "DOTA_Tooltip_ability_billy_r_upgrade_speed"                    "子弹速度:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_max_range"                    "最大射程:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_shot_count"                    "射击次数:"       
+        "DOTA_Tooltip_ability_billy_r_upgrade_bullet_width"                    "子弹宽度:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_knockback_distance"                    "击退距离:"  
+        "DOTA_Tooltip_ability_billy_r_upgrade_last_ammo_bonus"                    "最后一发额外伤害:"            
+        "DOTA_Tooltip_ability_billy_r_upgrade_last_ammo_cd_reduction"                    "减少冷却:"  
+
+        "DOTA_Tooltip_Ability_billy_combo"			"<font color='#FF04EF'>坏音霹雳 - 雷霆</font>"
+        "DOTA_Tooltip_ability_billy_combo_Description"		"<font color='#FF04EF'>技能释放条件 : 25全属性</font>
+        <font color='#FF04EF'>技能顺序 : 4秒内 W->E .</font> 
+        比利瞄准目标区域内的所有敌方英雄, 对一个随机目标射击 3 次, 或根据区域内目标数量对每个目标瞄准射击 1 次. 射出的子弹无法被其他英雄阻挡."
+        "DOTA_Tooltip_ability_billy_combo_radius"                    "范围:"            
+        "DOTA_Tooltip_ability_billy_combo_cast_delay"                    "施法延迟:"            
+        "DOTA_Tooltip_ability_billy_combo_delay_per_shot"                    "每次射击延迟:"            
+        "DOTA_Tooltip_ability_billy_combo_speed"                    "子弹速度:"                 
+        "DOTA_Tooltip_ability_billy_combo_minimum_for_singles"                    "瞄准射击最少目标需要:"            
+        "DOTA_Tooltip_ability_billy_combo_shot_count"                    "单个目标射击次数:"                 
+		
+        "DOTA_Tooltip_Ability_billy_sa_hand"			"<font color='#9FFFCC'>属性: 西部最快的神枪手</font>"
+        "DOTA_Tooltip_ability_billy_sa_hand_Description"		"启用 <font color='#FFB266'>戏法</font>: 立即重新装填, 获得弹药并回复法力基于 <font color='#9FFFCC'>碎步疾行</font> 等级. 不可刷新."
+        "DOTA_Tooltip_ability_billy_sa_hand_mana_recover_per_w_level"                    "每级碎步疾行法力回复:"
+        "DOTA_Tooltip_ability_billy_sa_hand_cooldown"                    "冷却:"
+
+        "DOTA_Tooltip_Ability_billy_sa_pistol"			"<font color='#9FFFCC'>属性: 左轮手枪膛室</font>"
+        "DOTA_Tooltip_ability_billy_sa_pistol_Description"		"改善您当前的 <font color='#FFFFFF'>左轮手枪</font>. 提供额外的弹药, 减少重新装填时间, 并且增加额外距离. 
+        Can be upgraded twice."
+        "DOTA_Tooltip_ability_billy_sa_pistol_ammo"                    "最大弹药:" 
+        "DOTA_Tooltip_ability_billy_sa_pistol_reload_duration"                    "重新装填时间:"      
+        "DOTA_Tooltip_ability_billy_sa_pistol_quickdraw_range"                    "快速拔枪距离:"   	       
+        "DOTA_Tooltip_ability_billy_sa_pistol_quickdraw_effective_range"                   "快速拔枪有效距离:"  
+        "DOTA_Tooltip_ability_billy_sa_pistol_auto_attack_bonus_from_q"                    "%快速拔枪伤害:"
+
+        "DOTA_Tooltip_Ability_billy_sa_thunderer"			"<font color='#9FFFCC'>属性: 传说中的亡命之徒</font>"
+        "DOTA_Tooltip_ability_billy_sa_thunderer_Description"		"<font color='#58ACFA'>午时已到</font>:  获得额外射程, 如果这是你左轮手枪的最后三发子弹，则最后一发射击会造成额外伤害."
+        "DOTA_Tooltip_ability_billy_sa_thunderer_bonus_cast_range"                    "额外施法距离:" 
+        "DOTA_Tooltip_ability_billy_sa_thunderer_bonus_final_shot_damage"                    "最后一发额外伤害:"       
+        "DOTA_Tooltip_ability_billy_sa_thunderer_reduced_cd"                    "冷却减少:"   
+
+        "DOTA_Tooltip_Ability_billy_sa_eagle_eyes"			"<font color='#9FFFCC'>属性: 鹰眼</font>"
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_Description"		"给予 <font color='#FFB266'>鹰眼</font>: 为比利提供额外视野并让比利有机会完全忽略伤害, 当与伤害源的距离超过一定值时增加四倍机率,同时自身获得闪避."
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_vision_day"                    "白天额外视野:" 
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_vision_night"                    "晚上额外视野:"       
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_evasion"                    "闪避机率:"       
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_pure_evasion"                    "完全忽略伤害几率:"    
+        "DOTA_Tooltip_ability_billy_sa_eagle_eyes_quadruple_range"                    "四倍几率完全忽略伤害所需距离:"       
+
+        "DOTA_Tooltip_Ability_billy_sa_gambit"			"<font color='#9FFFCC'>属性: 决斗者的策略</font>"
+        "DOTA_Tooltip_ability_billy_sa_gambit_Description"		"<font color='#58ACFA'>快速拔枪</font>: 给予额外伤害和每级额外伤害, 同时有机会在发中目标时回复法力和回收弹药."
+        "DOTA_Tooltip_ability_billy_sa_gambit_recover_mana_amount"                    "法力回复:"     
+        "DOTA_Tooltip_ability_billy_sa_gambit_recover_mana_chance"                    "法力回复几率:"     
+        "DOTA_Tooltip_ability_billy_sa_gambit_recover_ammo"                    		"弹药回收:"     
+        "DOTA_Tooltip_ability_billy_sa_gambit_recover_ammo_chance"                    "弹药回收几率:"     
+        "DOTA_Tooltip_ability_billy_sa_gambit_bonus_damage"                    "额外快速拔枪伤害:"     
+        "DOTA_Tooltip_ability_billy_sa_gambit_bonus_damage_per_level"                    "英雄每级额外伤害:"     
+
+        ////////////////// MODIFIERS ///////////////////
+
+        "DOTA_Tooltip_modifier_billy_w"                           "碎步疾行"
+
+        "DOTA_Tooltip_modifier_billy_e"                             "扣下扳机 - 施放中"
+        "DOTA_Tooltip_modifier_billy_e_Description"                        "疯狂射击."
+
+		"DOTA_Tooltip_modifier_ammo_stack"							"弹药"
+
+		"DOTA_Tooltip_modifier_ammo_reload"						"重新装填"
+
+        "DOTA_Tooltip_modifier_billy_combo_cooldown"            			"坏音霹雳 - 雷霆冷却"
+
+		"DOTA_Tooltip_modifier_billy_sa_vision"								"鹰眼"
+        "DOTA_Tooltip_modifier_billy_sa_vision_Description"         			"提供额外视野."
+
+        //=======================================================================================================
+		//	齋藤一
+		//=======================================================================================================
+
+		//Hero
+		"npc_dota_hero_terrorblade"																	"斋藤一"
+		"npc_dota_hero_terrorblade_1"																"[Heroic] 灵衣-斋藤一"
+		"npc_dota_hero_terrorblade_summon"															"从者 <font color='#0075B5'>齋藤一</font> 已被召唤."
+		"npc_dota_hero_terrorblade_enable_combo"													"激活 连击技能: 无敌之剑 - 审判"
+
+		//Special Modifiers for Counting Some Keys.
+		"DOTA_Tooltip_modifier_saito_q_counter"														"[Q] 计算器"
+		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"闪光之刃正在连续使用次数."
+		"DOTA_Tooltip_modifier_saito_w_counter"														"[W] 计算器"
+		"DOTA_Tooltip_modifier_saito_w_counter_Description"											"钢铁之翼正在連續使用次数."
+		"DOTA_Tooltip_modifier_saito_e_counter"														"[E] 计算器"
+		"DOTA_Tooltip_modifier_saito_e_counter_Description"											"暗影斩正在連續使用次数."
+
+		///ABILITIES///
+
+		//Flashblade
+		"DOTA_Tooltip_ability_saito_flashblade"														"<font color='#58ACFA'>闪光之刃</font>"
+		"DOTA_Tooltip_ability_saito_flashblade_Description"											"斋藤一冲向目标点, 每当移动 %image_creation_dist% 就会产生一个残影.\n残影会对附近的敌人造成伤害, 并且定身他们 %image_root_duration% 秒.\n此技能连续使用 %repeat_halver_count_need% 次或以上, 距离和伤害会逐渐减少.\n此技能等級等同 <font color='#58ACFA'>钢铁之翼</font> 和 <font color='#58ACFA'>暗影斩</font>.\n\n<font color='#9FFFCC'>可选属性升级: 自由之剑 和 无敌之剑.</font>"
+		"DOTA_Tooltip_ability_saito_flashblade_Lore"												"只要一击足以让空气燃烧起来."
+		"DOTA_Tooltip_ability_saito_flashblade_AbilityCastPoint"									"施法时间:"
+		"DOTA_Tooltip_ability_saito_flashblade_distance"											"距离:"
+		"DOTA_Tooltip_ability_saito_flashblade_speed"												"速度:"
+		//"DOTA_Tooltip_ability_saito_flashblade_image_root_duration"								""
+		//"DOTA_Tooltip_ability_saito_flashblade_image_duration"									""
+		"DOTA_Tooltip_ability_saito_flashblade_image_radius"										"范围:"
+		"DOTA_Tooltip_ability_saito_flashblade_image_damage"										"每次攻击造成的伤害:"
+		//"DOTA_Tooltip_ability_saito_flashblade_image_creation_dist"								""
+		//"DOTA_Tooltip_ability_saito_flashblade_repeat_halver_count_need"							""
+		//"DOTA_Tooltip_ability_saito_flashblade_combo_cooldown"									"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate"											"闪光之刃转弯的速率"
+		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate_Description"								"基础转弯速率增加至 %dMODIFIER_PROPERTY_TURN_RATE_OVERRIDE%."
+
+		//Steelwing
+		"DOTA_Tooltip_ability_saito_steelwing"														"<font color='#58ACFA'>钢铁之翼</font>"
+		"DOTA_Tooltip_ability_saito_steelwing_Description"											"斋藤一向地面发动斩击, 击退所有附近的敌人至一定距离, 造成伤害并使其晕眩.\n此技能连续使用 %repeat_halver_count_need% 次或以上, 伤害和眩晕时间会逐渐减少.\n此技能等級等同 <font color='#58ACFA'>闪光之刃</font> 和 <font color='#58ACFA'>暗影斩</font>.\n\n<font color='#9FFFCC'>可选属性升级: 自由之剑 和 无敌之剑.</font>"
+		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"猛然间, 鸟儿飞翔的翅膀硬了起来."
+		"DOTA_Tooltip_ability_saito_steelwing_AbilityCastPoint"										"施法时间:"
+		"DOTA_Tooltip_ability_saito_steelwing_radius"												"范围:"
+		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"晕眩時間:"
+		"DOTA_Tooltip_ability_saito_steelwing_damage"												"伤害:"
+		//"DOTA_Tooltip_ability_saito_steelwing_repeat_halver_count_need"							""
+		//"DOTA_Tooltip_ability_saito_steelwing_combo_cooldown"										"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_steelwing_mss"													"钢铁之翼减慢速度"
+		"DOTA_Tooltip_modifier_saito_steelwing_mss_Description"										"移动速度减慢 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+
+		//Shadowslash
+		"DOTA_Tooltip_ability_saito_shadowslash"													"<font color='#58ACFA'>暗影斩</font>"
+		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"斋藤一斩击周围的所有敌人, 造成伤害并将敌人拉向自己.\n短暂延迟后, 对目标造成二次伤害, 对命中目标 %burst_radius% 范围内的所有敌人造成眩晕並造成 %burst_damage_pct%%% 伤害.\n此技能连续使用 %repeat_halver_count_need% 次或以上,伤害和拉近距离会逐渐减少.\n此技能等級等同 <font color='#58ACFA'>闪光之刃</font> 和 <font color='#58ACFA'>钢铁之翼</font>.\n\n<font color='#9FFFCC'>可选属性升级: 自由之剑 和 无敌之剑.</font>"
+		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"肉眼看不见的光速突击."
+		"DOTA_Tooltip_ability_saito_shadowslash_AbilityCastPoint"									"施法时间:"
+		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"拉近距离:"
+		"DOTA_Tooltip_ability_saito_shadowslash_pull_damage"										"初始伤害:"
+		//"DOTA_Tooltip_ability_saito_shadowslash_burst_radius"										""
+		"DOTA_Tooltip_ability_saito_shadowslash_burst_stun_duration"								"晕眩时间:"
+		"DOTA_Tooltip_ability_saito_shadowslash_burst_delay"										"延迟时间:"
+		//"DOTA_Tooltip_ability_saito_shadowslash_burst_damage_pct"									""
+		//"DOTA_Tooltip_ability_saito_shadowslash_repeat_halver_count_need"							""
+		//"DOTA_Tooltip_ability_saito_shadowslash_combo_cooldown"									"连击冷却:"
+
+		"DOTA_Tooltip_modifier_saito_shadowslash_mrr"												"暗影斩魔法抗性减少"
+		"DOTA_Tooltip_modifier_saito_shadowslash_mrr_Description"									"魔法抗性减少 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		//Mind's Eye (True)
+		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#58ACFA'>心眼 (真)</font>"
+		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"给予斋藤一减益光环, 每 %root_lock_cooldown% 秒使附近的一名敌人施放法术时被定身.\n此外, 还可获得额外最大生命值并增加生命回复.\n心眼持续时间内, 移动速度设为 %ms_absolute% 并且无法通过其他效果或属性改变.\n\n<font color='#9FFFCC'>可选属性升级: 梦录.</font>"
+		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"即使是忠诚度很高的土方也说, 齋藤对新选组的忠诚度是首屈一指的, 并知道他绝不会以任何身份背叛新选组."
+		"DOTA_Tooltip_ability_saito_mind_eye_AbilityCastPoint"										"施法时间:"
+		"DOTA_Tooltip_ability_saito_mind_eye_proc_radius"											"检测范围:"
+		"DOTA_Tooltip_ability_saito_mind_eye_duration"												"持续时间:"
+		//"DOTA_Tooltip_ability_saito_mind_eye_root_lock_cooldown"									""
+		"DOTA_Tooltip_ability_saito_mind_eye_root_lock_duration"									"定身时间:"
+		"DOTA_Tooltip_ability_saito_mind_eye_hp_bonus"												"额外生命:"
+		"DOTA_Tooltip_ability_saito_mind_eye_hp_regen"												"额外生命回复:"
+		//"DOTA_Tooltip_ability_saito_mind_eye_ms_absolute"											""
+		//"DOTA_Tooltip_ability_saito_mind_eye_ally_scale"											""
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_active"												"心眼 (真)"
+		"DOTA_Tooltip_modifier_saito_mind_eye_active_Description"									"附近的敌人施放法术时将被定身并锁定."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval"											"心眼 (真) 免疫"
+		"DOTA_Tooltip_modifier_saito_mind_eye_ss_interval_Description"								"所有敌人将免疫心眼（真)."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range"											"心眼 (真) 接近"
+		"DOTA_Tooltip_modifier_saito_mind_eye_out_of_range_Description"								"如果你离斋藤一太远, 将不会触发心眼效果."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_shell"												"蝉壳"
+		"DOTA_Tooltip_modifier_saito_mind_eye_shell_Description"									"较少受到的伤害."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_linken"												"蝉壳法术阻挡"
+		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"阻挡下一个法术."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"新撰组同伴"
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"斋藤一令你永久获得额外 %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷."
+
+		//Freely Drawn Sword
+		"DOTA_Tooltip_ability_saito_fds"															"<font color='#58ACFA'>自由拔剑</font>"
+		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>被动</font>: <font color='#58ACFA'>闪光之刃</font>, <font color='#58ACFA'>钢铁之翼</font> 和 <font color='#58ACFA'>暗影斩</font> 拥有共同冷却时间, 升级此技能使可施放数提高 %max_casts% 次, 每次使用都有 %locker_time% 冷却, 并且每次使用后冷却时间都会逐渐增加 %locker_increaser% 秒.\n<font color='#FF9900'>所有这些技能必须在一定的时间内使用, 如果未能在时间内完成, 技能将会进入冷却.</font>\n时间间隔从 %check_interval% 秒开始, 并每次施放技能将增加 %check_decreaser% 秒.\n<font color='#00AB9E'>主动</font>: 开启后, 每当斋藤一使用技能对敌人造成伤害时, 他都会对击中的敌人施加可叠加的减益效果, 使他们造成的伤害减少, 并且每击中一个敌方英雄, 就会立即恢复法力值.\n\n<font color='#9FFFCC'>可选属性升级: 抜刀自在.</font>"
+		"DOTA_Tooltip_ability_saito_fds_Lore"														"一种拔剑术, 当使用者在每只手拔出剑鞘时, 可以自由改变形式."
+		"DOTA_Tooltip_ability_saito_fds_AbilityCastPoint"											"施法时间:"
+		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
+		//"DOTA_Tooltip_ability_saito_fds_check_interval"											""
+		//"DOTA_Tooltip_ability_saito_fds_check_decreaser"											""
+		//"DOTA_Tooltip_ability_saito_fds_locker_time_combo"										"连击锁时间:"
+		//"DOTA_Tooltip_ability_saito_fds_locker_time"												""
+		//"DOTA_Tooltip_ability_saito_fds_locker_increaser"											""
+		"DOTA_Tooltip_ability_saito_fds_active_duration"											"持续时间:"
+		"DOTA_Tooltip_ability_saito_fds_active_mp_gain"												"每击中恢复法力值:"
+		//"DOTA_Tooltip_ability_saito_fds_active_hp_gain"											""
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"伤害减少持续时间:"
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"最大层数:"
+		"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%每层伤害减少:"
+
+		"DOTA_Tooltip_modifier_saito_fds_cast_controller"											"铸件控制器"
+		"DOTA_Tooltip_modifier_saito_fds_cast_controller_Description"								"显示目前正在投掷的QWE的数量."
+
+		"DOTA_Tooltip_modifier_saito_fds_active"													"自由拔剑"
+		"DOTA_Tooltip_modifier_saito_fds_active_Description"										"如果你有时间思考, 你就有时间切菜."
+
+		"DOTA_Tooltip_modifier_saito_fds_aura_sdr"													"自由拔剑光环"
+		"DOTA_Tooltip_modifier_saito_fds_aura_sdr_Description"										"减少造成伤害 %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
+
+		"DOTA_Tooltip_modifier_saito_fds_active_sdr"												"自由拔剑伤害减少"
+		"DOTA_Tooltip_modifier_saito_fds_active_sdr_Description"									"减少造成伤害 %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
+
+		//Formless
+		"DOTA_Tooltip_ability_saito_formless_invis"													"<font color='#58ACFA'>无形</font>"
+		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"使斋藤一隐身并获得额外移动速度.\n如果斋藤一被发现, 隐身状态将在消失延迟后再次进入隐形只要 <font color='#58ACFA'>无形</font> 还有持续时间.\n施放后, 此技能将被替换为 <font color='#58ACFA'>无限</font>, 直到結束 <font color='#58ACFA'>无形</font>.\n\n<font color='#9FFFCC'>可选属性升级: 鬼神丸国重.</font>"
+		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"斋藤以一种独特的方式接近目标, 与纯粹的速度冲进去不同, 他的动作扭曲了目标对时间和距离的感知."
+		"DOTA_Tooltip_ability_saito_formless_invis_AbilityCastPoint"								"施法时间:"
+		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"持续时间:"
+		"DOTA_Tooltip_ability_saito_formless_invis_bonus_ms"										"%移动速度:"
+		"DOTA_Tooltip_ability_saito_formless_invis_fade_delay"										"消失延迟:"
+
+		"DOTA_Tooltip_modifier_saito_formless_invis"												"无形"
+		"DOTA_Tooltip_modifier_saito_formless_invis_Description"									"隐身並且攻击或受到伤害会暂时解除隐身状态. 移动速度增加 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+
+		//Formlessness
+		"DOTA_Tooltip_ability_saito_formless_slash"													"<font color='#58ACFA'>无限</font>"
+		"DOTA_Tooltip_ability_saito_formless_slash_Description"										"斋藤一使出逆向和斜向的必杀技.\n允许斋藤一最多可以施展此技能 %max_slashes% 次.\nT每次斩击都是双重斩击, 造成伤害并将目标锁定 %lock_duration% 秒.\n最后一击会造成更多伤害, 并且锁定目标更长时间.\n当使用最后一次斩击将提早结束 <font color='#58ACFA'>无形</font>.\n\n<font color='#9FFFCC'>可选属性升级: 自由之剑 和 鬼神丸国重.</font>"
+		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"无论目标使用何种近战武器, 无论是长矛、剑还是其他什么, 齋藤总是从任何距离先下手为强, 无视目标的伸手."
+		"DOTA_Tooltip_ability_saito_formless_slash_AbilityCastPoint"								"施法时间:"
+		//"DOTA_Tooltip_ability_saito_formless_slash_max_slashes"									""
+		//"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
+		//"DOTA_Tooltip_ability_saito_formless_slash_lock_duration"									""
+		"DOTA_Tooltip_ability_saito_formless_slash_last_lock_duration"								"锁定时间:"
+		"DOTA_Tooltip_ability_saito_formless_slash_slash_damage"									"每次斩击造成伤害:"
+		"DOTA_Tooltip_ability_saito_formless_slash_last_damage"										"最后一击伤害:"
+		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastrange"								"施法范围:"
+
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter"										"无限次数"
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter_Description"							"无限的斩击次数."
+
+		//Tetra-Step
+		"saito_step_locked_error"																	"当锁定时无法施放技能"
+
+		"DOTA_Tooltip_ability_saito_step"															"<font color='#FFB266'>瞬步</font>"
+		"DOTA_Tooltip_ability_saito_step_Description"												"瞬移至目标地点, 对 %radius% 范围內敌人造成伤害并使其晕眩 %stun_duration% 秒.\n此技能等級等同 <font color='#58ACFA'>自由拔剑</font>."
+		"DOTA_Tooltip_ability_saito_step_Lore"														"无形的就是不动."
+		"DOTA_Tooltip_ability_saito_step_Note0"														"当锁定时无法施放技能."
+		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"施法时间:"
+		"DOTA_Tooltip_ability_saito_step_max_distance"												"距离:"
+		//"DOTA_Tooltip_ability_saito_step_min_distance"											""
+		//"DOTA_Tooltip_ability_saito_step_radius"													""
+		"DOTA_Tooltip_ability_saito_step_damage"													"伤害:"
+		//"DOTA_Tooltip_ability_saito_step_stun_duration"											""
+
+		//Shieldbreaker
+		"DOTA_Tooltip_ability_saito_storm"															"<font color='#FFB266'>破盾者</font>"
+		"DOTA_Tooltip_ability_saito_storm_Description"												"斋藤一将剑刺向目标敌人并且向前方追加一道光束 斋藤一将剑刺向 %pierce_range% 范围的目标敌人并且向前方追加一道光束, 对主要目标造成晕眩 %stun_duration% 秒.\n此技能等级等同 <font color='#58ACFA'>自由拔剑</font>."
+		"DOTA_Tooltip_ability_saito_storm_Lore"														"新选组平月法的一种特殊的左手推力变体."
+		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"施法时间:"
+		//"DOTA_Tooltip_ability_saito_storm_duration"												""
+		//"DOTA_Tooltip_ability_saito_storm_fly_duration"											""
+		//"DOTA_Tooltip_ability_saito_storm_stun_duration"											""
+		"DOTA_Tooltip_ability_saito_storm_damage"													"伤害:"
+		//"DOTA_Tooltip_ability_saito_storm_pierce_range"											""
+		//"DOTA_Tooltip_ability_saito_storm_pierce_width"											""
+
+		//Blade Vortex
+		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#FFB266'>剑刃漩涡</font>"
+		"DOTA_Tooltip_ability_saito_vortex_Description"												"斋藤一使用他的刀刃向附近砍击 %slashes_count% 次, 每次斩击都会对附近的敌人造成伤害, 並且把他们拉向自己并持续晕眩.\n最后一击的范围更大, 造成更多的伤害并击退敌人.\n发动斩击期间斋藤一会被禁咒直到完成斩击.\n此技能等级等同 <font color='#58ACFA'>自由拔剑</font>."
+		"DOTA_Tooltip_ability_saito_vortex_Lore"													"什么~，这种方式对我来说就是更有趣."
+		"DOTA_Tooltip_ability_saito_vortex_AbilityCastPoint"										"施法时间:"
+		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"拉近距离:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_radius"											"斩击范围:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_last_radius"										"最后一击范围:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_stun_duration"										"晕眩时间:"
+		"DOTA_Tooltip_ability_saito_vortex_knockback_distance"										"击退距离:"
+		"DOTA_Tooltip_ability_saito_vortex_knockback_duration"										"击退时间:"
+		//"DOTA_Tooltip_ability_saito_vortex_slashes_count"											""
+		//"DOTA_Tooltip_ability_saito_vortex_slashes_interval"										""
+		"DOTA_Tooltip_ability_saito_vortex_slash_damage"											"每次斩击造成伤害:"
+		"DOTA_Tooltip_ability_saito_vortex_slash_last_damage"										"最后一击造成伤害:"
+		"DOTA_Tooltip_ability_saito_vortex_pull_speed"												"每秒拉近速度:"
+
+		"DOTA_Tooltip_modifier_saito_vortex_slashing"												"剑刃漩涡"
+		"DOTA_Tooltip_modifier_saito_vortex_slashing_Description"									"砍击附近的敌人."
+
+		"DOTA_Tooltip_modifier_saito_vortex_pull"													"剑刃漩涡拉近"
+		"DOTA_Tooltip_modifier_saito_vortex_pull_Description"										"被拉近."
+
+		///COMBO///
+
+		//Undefeatable Style (Unused)
+		//"DOTA_Tooltip_ability_saito_style"														"<font color='#7E539C'>Combo: Undefeatable Style</font>"
+		//"DOTA_Tooltip_ability_saito_style_Description"											"<font color='#7E539C'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#7E539C'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels both mind and spirit through the blades to inflict pain on the enemy's very core, granting a chance to deal bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells %max_linken_procs% times and doubles the health and mana gain of <font color='#0075B5'>Freely Drawn Sword</font>.\nThe cast points of <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> are replaced with immediate delay and cannot be interrupted, also reducing their cooldown for duration.\nUpon cast, enables <font color='#F9AF1F'>One By One</font> for %blast_duration% seconds."
+		//"DOTA_Tooltip_ability_saito_style_Lore"													"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
+		//"DOTA_Tooltip_ability_saito_style_AbilityCastPoint"										"CAST POINT:"
+		//"DOTA_Tooltip_ability_saito_style_duration"												"DURATION:"
+		//"DOTA_Tooltip_ability_saito_style_damage_chance"											"%PROC CHANCE:"
+		//"DOTA_Tooltip_ability_saito_style_hp_damage"												"%HEALTH DAMAGE:"
+		//"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""
+		//"DOTA_Tooltip_ability_saito_style_activation_steps_duration"								"ACTIVATION STEP DURATION:"
+		//"DOTA_Tooltip_ability_saito_style_activation_duration"									"ACTIVATION DURATION:"
+		//"DOTA_Tooltip_ability_saito_style_activation_steps"										""
+		//"DOTA_Tooltip_ability_saito_style_blast_duration"											""
+		//"DOTA_Tooltip_ability_saito_style_max_linken_procs"										""
+
+		"DOTA_Tooltip_modifier_saito_style_combo_indicator"											"连击技能: 无敌之剑 - 审判"
+		"DOTA_Tooltip_modifier_saito_style_combo_indicator_Description"								"显示步骤持续时间、当前步骤、组合窗口和冷却时间."
+
+		//"DOTA_Tooltip_modifier_saito_style_active"												"Undefeatable Style"
+		//"DOTA_Tooltip_modifier_saito_style_active_Description"									"Aku Soku Zan."
+
+		//One By One (Unused)
+		//"DOTA_Tooltip_ability_saito_blast"														"<font color='#F9AF1F'>One By One</font>"
+		//"DOTA_Tooltip_ability_saito_blast_Description"											"Saitō releases powerful %radial_count% wind blades in all directions around him, dealing %damage% damage to any enemy units that collide with that.\nThe impact of the wind blades is enough to knock those enemy unit back for %knockback_duration% seconds, then slow down their movement speed and turn rate for %turn_and_slow_duration% seconds.\nThe movement speed slowing and turn rate reduction starts at %turn_and_slow_max_value%%% and decreases over time until %turn_and_slow_min_value%%%.\nAn enemy unit can only take one damage per cast."
+		//"DOTA_Tooltip_ability_saito_blast_Lore"													"Saitō always acts flippant, but when the moment calls for it, he shows his serious, razor-sharp side."
+		//"DOTA_Tooltip_ability_saito_blast_abilitycastpoint"										"CAST POINT:"
+		//"DOTA_Tooltip_ability_saito_blast_distance"												"DISTANCE:"
+		//"DOTA_Tooltip_ability_saito_blast_speed"													"SPEED:"
+		//"DOTA_Tooltip_ability_saito_blast_radius_start"											""
+		//"DOTA_Tooltip_ability_saito_blast_radius_end"												""
+		//"DOTA_Tooltip_ability_saito_blast_damage"													""
+		//"DOTA_Tooltip_ability_saito_blast_knockback_duration"										""
+		//"DOTA_Tooltip_ability_saito_blast_knockback_distance"										"KNOCKBACK DISTANCE:"
+		//"DOTA_Tooltip_ability_saito_blast_turn_and_slow_duration"									""
+		//"DOTA_Tooltip_ability_saito_blast_turn_and_slow_max_value"								""
+		//"DOTA_Tooltip_ability_saito_blast_turn_and_slow_min_value"								""
+		//"DOTA_Tooltip_ability_saito_blast_radial_count"											""
+
+		//"DOTA_Tooltip_modifier_saito_blast_turn_and_slow"											"One By One Debuff"
+		//"DOTA_Tooltip_modifier_saito_blast_turn_and_slow_Description"								"Slowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+
+		//Undefeatable Style - Judgement Cut End
+		"DOTA_Tooltip_ability_saito_jce"															"<font color='#FF04EF'>连击技能: 无敌之剑 - 审判</font>"
+		"DOTA_Tooltip_ability_saito_jce_Description"												"<font color='#FF04EF'>技能释放条件: 25全属性.</font>\n<font color='#FF04EF'>技能顺序: 激活時間內F - D -> F.</font>\n<font color='#00AB9E'>持续施法</font> - 斋藤一通过刀刃引导思想和精神, 当正在施法时让他可以格挡大多数的物品或法术, 最多 %linken_procs% 次.\n成功施法后, 在大范围内快速释放一连串斩击, 由于速度太快, 甚至能改变敌人对时间和距离的感知, 使其在时间中消失并冻结 %duration% 秒.\n斋藤一在持续时间内无敌、无法被击中並且禁咒.\n持续时间结束后, 所有被斩击冻结的敌人将受到魔法伤害.\n当施法期间被打断时, 该技能会进入固定的冷却时间 %decreased_cooldown% 秒."
+		"DOTA_Tooltip_ability_saito_jce_Lore"														"没有形式, 我的剑是无形的. 随着它的流动, 它体现了所有的可能性. 这就是为什么我的剑无人能及!"
+		"DOTA_Tooltip_ability_saito_jce_AbilityCastPoint"											"施法动画时间:"
+		"DOTA_Tooltip_ability_saito_jce_AbilityChannelTime"											"充能时间:"
+		//"DOTA_Tooltip_ability_saito_jce_duration"													""
+		"DOTA_Tooltip_ability_saito_jce_radius"														"范围:"
+		"DOTA_Tooltip_ability_saito_jce_damage"														"伤害:"
+		//"DOTA_Tooltip_ability_saito_jce_decreased_cooldown"										""
+		//"DOTA_Tooltip_ability_saito_jce_linken_procs"												""
+		//"DOTA_Tooltip_ability_saito_jce_animation_impact_time"									""
+		//"DOTA_Tooltip_ability_saito_jce_channel_duration_tip"										""
+		//"DOTA_Tooltip_ability_saito_jce_combo_steps_count"										""
+		"DOTA_Tooltip_ability_saito_jce_combo_steps_duration"										"激活顺序笫一步时间:"
+		"DOTA_Tooltip_ability_saito_jce_combo_step_duration"										"激活顺序笫二步时间:"
+
+		"DOTA_Tooltip_modifier_saito_jce_channelling"												"无敌之剑格挡"
+		"DOTA_Tooltip_modifier_saito_jce_channelling_Description"									"每一层都会阻挡下一个目标法术."
+
+		"DOTA_Tooltip_modifier_saito_jce_delay"														"无敌之剑"
+		"DOTA_Tooltip_modifier_saito_jce_delay_Description"											"暂时切断时间的流动。无法移动或行动."
+
+		///ATTRIBUTES///
+
+		"DOTA_Tooltip_modifier_saito_attributes"													"特殊属性"
+		"DOTA_Tooltip_modifier_saito_attributes_Description"										"在采取SA后显示."
+
+		//Swords of Freedom
+		"DOTA_Tooltip_ability_saito_attribute_freedom"												"<font color='#9FFFCC'>属性: 自由之剑</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"<font color='#58ACFA'>闪光之刃</font>: 施放过程闪避投射物, 並且将转弯率提高至 %q_turn_rate% 並持续 %q_turn_rate_duration% 秒. 使用此技能产生的残影对被击中的敌人也会造成击飞 %q_knock_up_duration% 秒.\n<font color='#58ACFA'>钢铁之翼</font>: 对被击中的敌人现在会减少 %w_ms_slow%%% 移动速度持续 %w_ms_slow_duration% 秒.\n<font color='#58ACFA'>暗影斩</font>: 对被击中的敌人会减少 %e_mr_reduction%%% 魔法抗性持续 %e_mr_reduction_duration% 秒.\n<font color='#58ACFA'>无限</font>: 无限现在每次攻击都会使目标晕眩 %fls_stun_duration% 秒. 最后一击将目标击晕 %fls_last_stun_duration% 秒."
+		"DOTA_Tooltip_ability_saito_attribute_freedom_Lore"											"齋藤的风格不遵循特定的纪律, 无拘无束, 自由奔放."
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate"								""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_knock_up_height"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_w_ms_slow"									""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction_duration"					""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_e_mr_reduction"								""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_stun_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_last_stun_duration"						""
+
+		//Invincible Sword
+		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9FFFCC'>属性: 无敌之剑</font>"
+		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"<font color='#FF9900'>一定要先使用 Q -> W 后才会激活新的QWE技能组</font>, 斋藤一在短时间内拥有一套新的技能组来取代 <font color='#58ACFA'>闪光之刃</font>, <font color='#58ACFA'>钢铁之翼</font>, 和 <font color='#58ACFA'>暗影斩</font>, 短时间内替换成 <font color='#FFB266'>瞬步</font>, <font color='#FFB266'>破盾者</font> 和 <font color='#FFB266'>剑刃漩涡</font>.\n<font color='#FFB266'>瞬步</font>: 瞬移至目标地点, 对敌人造成伤害并使其晕眩.\n<font color='#FFB266'>破盾者</font>: 将剑刺向目标敌人并且向前方追加一道光束, 对主要目标造成晕眩.\n<font color='#FFB266'>剑刃漩涡</font>: 用剑多次砍击周围区域, 每次斩击都会对附近的敌人造成伤害, 并且把他们拉向自己并持续晕眩.\n<font color='#58ACFA'>闪光之刃</font>, <font color='#58ACFA'>钢铁之翼</font> and <font color='#58ACFA'>暗影斩</font>: 根据斋藤一的等级获得额外伤害."
+		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"这句话描述了齋藤的非凡剑术, 据说是新选组中最优秀的剑术之一."
+		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"每级额外伤害:"
+		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"启用持续时间:"
+
+		//Memoir
+		"DOTA_Tooltip_ability_saito_attribute_memoir"												"<font color='#9FFFCC'>属性: 梦录</font>"
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#58ACFA'>心眼 (真)</font>: 施放时立即驱散减益效果并获得 <font color='#FFFF28'>蝉壳</font> 持续 %me_shell_duration% 秒. 並且增加最大生命 %me_hp_bonus%.\n<font color='#FFFF28'>蝉壳</font>: 减少 %me_shell_block%%% 受到伤害并且阻挡大多数指定的法术或物品一次持续 %me_shell_duration% 秒.\n特殊效果: <font color='#FFFF28'>新撰组同伴</font>.\n<font color='#FFFF28'>新撰组同伴</font>: 施放 <font color='#58ACFA'>心眼 (真)</font> 也会影响 <font color='#FF9900'>附近的</font> 冲田总司并且有 %me_okita_chance%%% 机率刷新她所有可刷新的技能, 并永久提升她 %me_okita_agility% 点敏捷."
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"孤独的新选组, 在动荡的幕末时代战斗并幸存下来. 没有人知道他的真实想法."
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_duration"							""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_block"								""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_chance"								""
+		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_agility"							""
+
+		//Freestyle
+		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"<font color='#9FFFCC'>属性: 抜刀自在</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#58ACFA'>自由拔剑</font>: 发动后赋予自身一个减少敌人伤害的光环, 当敌人越近时减少伤害会越多. 增加主動持续时间 %fds_active_duration% 秒並且增加被动时间间隔 %fds_check_interval% 秒, 使用技能对敌人造成伤害时, 每名被击中的敌人都會為斎藤一恢复生命."
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_Lore"										"没有模式的自由式剑术, 是一种极难预测的独特战斗技巧."
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_duration"						""
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_check_interval"						""
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_hp_gain"							"每次攻击恢复的生命:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction_range"		"光环最小范围:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction_range"		"光环最大范围:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction"				"%最小伤害减少:"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%最大伤害减少:"
+
+		//Kijinmaru Kunishige
+		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"<font color='#9FFFCC'>属性: 鬼神丸国重</font>"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#58ACFA'>无形</font>: 减少消失延迟 %fli_fade_delay% 秒, 并给予 %fli_evasion%%% 闪避机率.\n<font color='#58ACFA'>无限</font>: 斩击和最后一击会根据斋藤一的攻击获得额外伤害, 并对非英雄单位和禁咒的敌人造成 %fls_revoked_scale%x 伤害, 同时增加其施法范围 %fls_cast_range%."
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"新选组第三部队队长的心爱之剑."
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_evasion"								""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_cast_range"							""
+		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_revoked_scale"						""
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_dmg_per_atk"							"%每点攻击造成的额外伤害:"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"%每点攻击使最后一击额外伤害:"
 
 
 		//=======================================================================================================

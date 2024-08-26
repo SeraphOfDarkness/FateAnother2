@@ -406,6 +406,21 @@ function iupoasldm:checkupdate(pId)
 		end
 	end
 
+	if self.jyiowe[pId].IFY.PM == -10 then
+		local today = GetSystemDate()
+		local lasdfi = tostring(self.jyiowe[pId].LD.LST)
+		print('player ' .. pId .. ' is banned')
+		if today ~= lasdfi then 
+			print('player ' .. pId .. ' is unbanned')
+			if self.jyiowe[pId].IFY.PMD > 0 then 
+				self.jyiowe[pId].IFY.PM = -3
+			else
+				self.jyiowe[pId].IFY.PM = 0 
+			end
+			--SendChatToPanorama('Player ' .. pId .. ': is unbanned.')
+		end
+	end
+
 	if self.jyiowe[pId].STT.gmy == nil then 
 		self.jyiowe[pId].STT.gmy = {
 			CDMD = {},

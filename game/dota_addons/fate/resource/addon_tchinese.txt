@@ -10292,16 +10292,6 @@
 
 		///////////////////////////// Unused ////////////////////////////////
 
-		"DOTA_Tooltip_Ability_mordred_mana_burst"	"Mana Burst - Battle"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_Description"	"Mordred uses Mana Burst to increase her fighting capabilities for a short time. Increases Saber's attack speed and gives her additional magic attack damage.\nWhen her helmet is removed, spends additional mana based on her max mana to gain additional attack speed and magic attack damage.
-		"DOTA_Tooltip_Ability_mordred_mana_burst_duration"	"Duration:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_base_as"	"Base attackspeed:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_base_damage"	"Base damage:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_percent"	"%Mana:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_as"	"%Attackspeed from mana spent:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_mana_damage"	"%Damage from mana spent:"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_Lore"		"Fool! You really think you can stand before Father?"
-
 		"DOTA_Tooltip_Ability_mordred_mb_lightning"	"Mana Burst - Thunder"
 		"DOTA_Tooltip_Ability_mordred_mb_lightning_Description"	"Mordred uses Clarent to perform a powerful lightning form of Mana Burst. Strikes all enemies in radius with lightning, deals damage, stuns them for 0.7 seconds and reveals the area around Mordred.\nWhen her helmet is removed, spends additional mana based on her max mana to deal additional damage."
 		"DOTA_Tooltip_Ability_mordred_mb_lightning_damage"	"Base damage:"

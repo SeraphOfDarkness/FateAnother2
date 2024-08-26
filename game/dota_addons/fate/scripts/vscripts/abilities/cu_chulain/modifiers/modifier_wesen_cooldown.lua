@@ -152,9 +152,9 @@ function kjlpluo1596:c48dsq5(pId,victory, lvl)
 			else
 				
 				if victory >= 1 then 
-					mmr_gain = 10 
+					mmr_gain = 20 
 				else
-					mmr_gain = -10 
+					mmr_gain = -20 
 				end
 				local mmr_bonus = self:asdkjinholi(hhero, pId) or 0
 				mmr_gain = mmr_gain + mmr_bonus
@@ -180,7 +180,7 @@ function kjlpluo1596:c48dsq5(pId,victory, lvl)
 			if mmr_gain > 0 then 
 				mmr_gain = 0 
 			end
-			if self.old_data[pId].IFY.PP <= 80 then
+			if self.old_data[pId].IFY.PP <= 85 then
 				self.old_data[pId].IFY.PM = -3
 				self.old_data[pId].IFY.PMD = self.old_data[pId].IFY.PMD + 3
 			end
@@ -538,7 +538,9 @@ function kjlpluo1596:koupoewrp(pId)
 	SendChatToPanorama('Player ' .. pId .. ': has been punish')
 	self.old_data[pId].IFY.PP = self.old_data[pId].IFY.PP - 5
 
-	if self.old_data[pId].IFY.PP <= 80 then
+	if self.old_data[pId].IFY.PP <= 70 then
+		self.old_data[pId].IFY.PM = -10
+	elseif self.old_data[pId].IFY.PP <= 85 then
 		self.old_data[pId].IFY.PM = -3
 		self.old_data[pId].IFY.PMD = self.old_data[pId].IFY.PMD + 3
 	end

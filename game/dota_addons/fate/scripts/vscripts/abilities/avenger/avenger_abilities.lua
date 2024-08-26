@@ -199,6 +199,11 @@ function OnRemainStart(keys)
 		local remain = CreateUnitByName("avenger_remain", caster:GetAbsOrigin() + caster:GetForwardVector() * 200, true, nil, nil, caster:GetTeamNumber()) 
 		--remain:SetControllableByPlayer(caster:GetPlayerID(), true)
 		remain:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
+		if caster:HasModifier("modifier_alternate_02") then
+			remain:SetModel("models/pepe/blackpepe/blackpepe_black_by_zefiroft.vmdl")
+			remain:SetOriginalModel("models/pepe/blackpepe/blackpepe_black_by_zefiroft.vmdl")
+			remain:SetModelScale(0.5)	
+		end
 		LevelAllAbility(remain)
 		FindClearSpaceForUnit(remain, remain:GetAbsOrigin(), true)
 		if caster.IsWorldEvilAcquired then 
@@ -600,6 +605,10 @@ function OnTFCreate(keys)
 
 	if caster:HasModifier("modifier_padoru") then 
 
+	elseif caster:HasModifier("modifier_alternate_02") then 
+		caster:SetModel("models/pepe/blackpepe/blackpepe_black_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/pepe/blackpepe/blackpepe_black_by_zefiroft.vmdl")
+		caster:SetModelScale(1.2)	
 	else
 		caster.OriginModel = caster:GetModelName()
 		caster.OriginModelSize = caster:GetModelScale()
@@ -632,6 +641,10 @@ function OnTFDestroy(keys)
 			caster:SetModel("models/angra_mainyu/shirou/angra_emiya_by_zefiroft.vmdl")
 		    caster:SetOriginalModel("models/angra_mainyu/shirou/angra_emiya_by_zefiroft.vmdl")
 		    caster:SetModelScale(1.2)
+		elseif caster:HasModifier("modifier_alternate_02") then 
+			caster:SetModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
+			caster:SetOriginalModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
+			caster:SetModelScale(1.2)	
 		else
 			caster:SetModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")
 	    	caster:SetOriginalModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")

@@ -5,8 +5,11 @@ local global = _G
 if global.reloadCache == nil then
     global.reloadCache = {}
 end
-function ____exports.reloadable(self, constructor)
-    local className = constructor.name
+function ____exports.reloadable(self, constructor, context)
+    local className = context.name
+    if className == nil then
+        error("Cannot reload classes without names!", 0)
+    end
     if global.reloadCache[className] == nil then
         global.reloadCache[className] = constructor
     end

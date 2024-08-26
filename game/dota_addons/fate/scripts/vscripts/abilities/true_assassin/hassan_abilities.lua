@@ -118,6 +118,7 @@ function OnDirkStart(keys)
 		return
 	else
 		ability:EndCooldown()
+		ability:StartCooldown(0.05)
 	end
 
 	--AddDaggerStack(keys, -1)

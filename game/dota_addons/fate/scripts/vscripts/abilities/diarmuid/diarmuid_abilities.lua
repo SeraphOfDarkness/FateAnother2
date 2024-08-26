@@ -103,14 +103,21 @@ function OnChargeStart(keys)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warriors_charge_buff", {})
 
-	if IsSpellBlocked(target) then return end -- Linken effect checker
-
-	if caster.IsMindEyeAcquired then
+	if caster:HasModifier("modifier_rampant_warrior") then 
+		ability:EndCooldown()
+		local cd = caster:FindAbilityByName(caster.ComboSkill):GetSpecialValueFor("spear_cd") or 1
+		if caster.IsMindEyeAcquired then
+			ability:SetCurrentAbilityCharges(2)
+		end
+		ability:StartCooldown(cd)
+	elseif caster.IsMindEyeAcquired then
 		local stacks = ability:GetCurrentAbilityCharges() or 0
 		if stacks > 0 then 
 			ability:EndCooldown() 
-		end
+		end		
 	end
+
+	if IsSpellBlocked(target) then return end -- Linken effect checker
 
 	if not IsImmuneToCC(target) then
 		target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})

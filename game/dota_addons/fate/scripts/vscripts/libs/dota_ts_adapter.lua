@@ -62,11 +62,14 @@ __TS__ClassExtends(BaseModifierMotionBoth, ____exports.BaseModifier)
 setmetatable(____exports.BaseAbility.prototype, {__index = CDOTA_Ability_Lua or C_DOTA_Ability_Lua})
 setmetatable(____exports.BaseItem.prototype, {__index = CDOTA_Item_Lua or C_DOTA_Item_Lua})
 setmetatable(____exports.BaseModifier.prototype, {__index = CDOTA_Modifier_Lua or CDOTA_Modifier_Lua})
-____exports.registerAbility = function(____, name) return function(____, ability)
+____exports.registerAbility = function(____, name) return function(____, ability, context)
     if name ~= nil then
         ability.name = name
+    end
+    if context.name then
+        name = context.name
     else
-        name = ability.name
+        error("Unable to determine name of this ability class!", 0)
     end
     local env = unpack(getFileScope(nil))
     env[name] = {}
@@ -79,11 +82,14 @@ ____exports.registerAbility = function(____, name) return function(____, ability
         end
     end
 end end
-____exports.registerModifier = function(____, name) return function(____, modifier)
+____exports.registerModifier = function(____, name) return function(____, modifier, context)
     if name ~= nil then
         modifier.name = name
+    end
+    if context.name then
+        name = context.name
     else
-        name = modifier.name
+        error("Unable to determine name of this modifier class!", 0)
     end
     local env, source = unpack(getFileScope(nil))
     local fileName = string.gsub(source, ".*scripts[\\/]vscripts[\\/]", "")

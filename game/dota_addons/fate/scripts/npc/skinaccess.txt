@@ -70,6 +70,7 @@
 		"npc_dota_hero_bloodseeker_3"		"1" // [Heroic] Old Li
 		"npc_dota_hero_zuus_1"				"1" // Gladiator Fran
 		"npc_dota_hero_sniper_2"			"1" // [Heroic] casual Robin
+		"npc_dota_hero_terrorblade_1"		"1" // [Heroic] Suit Saito
 	}
 
 	"UltimateSkin"
@@ -119,5 +120,6 @@
 		"npc_dota_hero_juggernaut_1"		"1" // [PEPE] Pepesaki
 		"npc_dota_hero_phantom_lancer_3" 	"1" // Lancer Card Rin
 		"npc_dota_hero_doom_bringer_3"		"1" // [Limited] Guts
+		"npc_dota_hero_vengefulspirit_2"	"1" // [PEPE] Black Pepe
 	}
 }

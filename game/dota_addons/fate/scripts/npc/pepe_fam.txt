@@ -43,6 +43,7 @@
 		"1627908762"	"1" //TheAim
 		"203227509"		"1" //Udin(Driokk)
 		"845771124"		"1" //六尾(six tail)
+		"98361261"		"1" // Knowbless
 	}
 	"pepe_slayer"
 	{

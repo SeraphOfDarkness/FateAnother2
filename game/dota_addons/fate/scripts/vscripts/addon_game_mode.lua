@@ -291,7 +291,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context) 
     PrecacheResource("soundfile", "soundevents/hero_musashi.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_muramasa.vsndevts", context)
-
+    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
                         --============ Archer ==============--      
     PrecacheResource("soundfile", "soundevents/hero_chocolate.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_archer.vsndevts", context)
@@ -356,7 +356,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_kunkka.vsndevts", context )
-
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
                         --============ Archer ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_skywrath_mage.vsndevts", context )
@@ -1643,6 +1643,36 @@ function FateGameMode:OnPlayerChat(keys)
                 serv:FindAbilityByName("alternative_0" .. tonumber(alterna)):SetLevel(1)
             end
             return false
+        end
+    end
+
+    --================================================--
+    -- NOTE: FOR ZEFI TO TESTING WINGS KEK
+    --================================================--
+    if string.find(text, "-wings") then
+        if alvl == 5 then 
+            local nWingsID = tonumber(string.match(text, "^-wings(%d+)"))
+            if SteamIDInMartinList(playerid) and type(nWingsID) == "number" then
+                local nWingsParticle = hero.___nWingsParticle
+                if type(nWingsParticle) == "number" then
+                    ParticleManager:DestroyParticle(nWingsParticle, false)
+                    ParticleManager:ReleaseParticleIndex(nWingsParticle)
+                    hero.___nWingsParticle = nil
+                else
+                    local sWingsParticle = "particles/heroes/saito/wings/clown_wings/clown_wings.vpcf"
+                    local vColor = Vector(0, 0, 0)
+                    if nWingsID == 2 or nWingsID == 3 then
+                        vColor = nWingsID == 2 and Vector(0, 255, 0) or Vector(RandomInt(10, 245), RandomInt(10, 245), RandomInt(10, 245))
+                        sWingsParticle = "particles/heroes/saito/wings/one_color_wings/one_color_wings.vpcf"
+                    end
+                    nWingsParticle =    ParticleManager:CreateParticle(sWingsParticle, PATTACH_ABSORIGIN_FOLLOW, hero)
+                                        ParticleManager:SetParticleControlEnt(nWingsParticle, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+                                        ParticleManager:SetParticleControl(nWingsParticle, 15, vColor)
+                                        ParticleManager:SetParticleControl(nWingsParticle, 2, Vector(255, 255, 255))
+                                        ParticleManager:SetParticleControl(nWingsParticle, 16, Vector(1, 0, 0))
+                    hero.___nWingsParticle = nWingsParticle
+                end
+            end
         end
     end
 
@@ -4240,7 +4270,7 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("GameMode", {mode = 'classic'})
     ServerTables:CreateTable("Condition", {dbhruntproh = false, archer = false, kuro = false, female = 0, divine = 0})
     ServerTables:CreateTable("Win", {goal = 0})
-    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false})
+    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false, kagut = false})
     ServerTables:CreateTable("PEPE", {slayer = false, savior = false, pepe = false, total = 0, kill = 0})
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})
@@ -5528,3 +5558,16 @@ function my_http_post()
     --json encode
     --http post
 end
+
+--================================================--
+-- NOTE: FOR ZEFI TO TESTING WINGS KEK
+--================================================--
+_G.SteamIDInMartinList = function(nID)
+    local tPlayersTable = {322802270} --Works as table too, for example in a KV file for that you have to create something like LoadKeyValues("path_to_your_kv_file")
+    local nSteamID = PlayerResource:GetSteamAccountID(nID)
+    for _, sID in pairs(tPlayersTable or {}) do
+        if tonumber(sID) == nSteamID then return true end
+    end
+    return true
+end
+--================================================--

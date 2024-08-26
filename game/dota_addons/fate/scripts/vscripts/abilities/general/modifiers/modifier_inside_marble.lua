@@ -141,6 +141,9 @@ function adskIPKB:CheckingTitle(i)
 	elseif IsPepelordPresence(i) == "sss" then 
 		self.title[i] = "[SSS]"
 		self.color[i] = "pink"
+	elseif IsPepelordPresence(i) == "kagut" then 
+		self.title[i] = "[MR.K]"
+		self.color[i] = "#0075B5"
 	elseif tostring(PlayerResource:GetSteamAccountID(i)) == "39181514" then 
 		self.title[i] = "[MOD]"
 		self.color[i] = "purple"
@@ -308,6 +311,9 @@ function lkjasdfio(i)
 			elseif IsPepelordPresence(i) == "sss" then 
 				PlayerTables:CreateTable("title", {dev = "sss"}, i)
 				ServerTables:SetTableValue("Dev", "sss", true, true)
+			elseif IsPepelordPresence(i) == "kagut" then 
+				PlayerTables:CreateTable("title", {dev = "kagut"}, i)
+				ServerTables:SetTableValue("Dev", "kagut", true, true)
 			else
 				PlayerTables:CreateTable("title", {dev = "zef"}, i)
 				ServerTables:SetTableValue("Dev", "zef", true, true)
@@ -327,6 +333,8 @@ function IsPepelordPresence(i)
 			return "pepe" 
 		elseif tostring(PlayerResource:GetSteamAccountID(i)) == "301222766" then
 			return "sss" 
+		elseif tostring(PlayerResource:GetSteamAccountID(i)) == "322802270" then
+			return "kagut" 
 		end
 	end
 

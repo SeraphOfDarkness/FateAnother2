@@ -101,4 +101,6 @@ SkinID
 	"098"		"npc_dota_hero_sniper_2"			// [Heroic] Casual Robin
 	"099"		"npc_dota_hero_sniper_3"			// [Limited] Ninja Robin
 	"100"		"npc_dota_hero_beastmaster_3"		// [Legend] Super Karna
+	"101"		"npc_dota_hero_terrorblade_1"		// [Heroic] Suit Saito
+	"102"		"npc_dota_hero_vengefulspirit_2"	// [PEPE] Black PEPE
 }

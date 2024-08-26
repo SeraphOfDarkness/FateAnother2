@@ -1568,14 +1568,14 @@ HeroRoles
 		"Sex"			"Male"
 		"Class"			"Saber"
 		"Trait"			"shinsengumi" 
-		"Roles"			"burst,control,support" 	
+		"Roles"			"burst,control,mobility" 	
 		"Role" 							
 		{
 			"1"
 			{			
 				"burst"	
 				{
-					"weight"	"40"	// weight to calculate
+					"weight"	"60"	// weight to calculate
 					"criteria"	"3"
 					"dDeal"		"5000"	// > avg dmg deal per round
 					"KD"		"1.5"	// > total KD
@@ -1586,21 +1586,18 @@ HeroRoles
 			{			
 				"control"	
 				{
-					"weight"	"35"	// weight to calculate
+					"weight"	"30"	// weight to calculate
 					"criteria"	"1"
 					"CC1"		"25"	// > avg CC duration per round
 				}		
 			}			
 			"3"	
 			{			
-				"support"	
+				"mobility"	
 				{
-					"weight"	"25"	// weight to calculate
-					"criteria"	"4"
-					"Assist"	"30"	// > Assist
-					"Heal"		"500"	// < death of total round
-					"Avarice"	"1"		// > Avarice
-					"Ward"		"1"		// > ward per round
+					"weight"	"10"	// weight to calculate
+					"criteria"	"1"
+					"Death"		"35"	// < death of total round
 				}
 			}
 		}

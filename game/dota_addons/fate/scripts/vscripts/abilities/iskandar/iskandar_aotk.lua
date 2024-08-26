@@ -41,6 +41,13 @@ function iskandar_aotk_wrapper(abil)
 		self:GetCaster():FindAbilityByName("iskandar_bucephalus"):SetLevel(self:GetLevel())
 	end
 
+	function abil:CastFilterResult()
+		if self:GetCaster():HasModifier("modifier_gordius_wheel") then 
+			return UF_FAIL_CUSTOM
+		end
+		return UF_SUCCESS 
+	end
+
 	function abil:CastFilterResultLocation(vLocation)
 		if vLocation.x < 3000 and vLocation.y < -2000 then 
 			return UF_FAIL_CUSTOM
@@ -53,7 +60,11 @@ function iskandar_aotk_wrapper(abil)
 	end
 
 	function abil:GetCustomCastError()
-		return "#Already_Within_Reality_Marble"
+		if self:GetCaster():HasModifier("modifier_gordius_wheel") then 
+			return "#Already_Riding"
+		else
+			return "#Already_Within_Reality_Marble"
+		end
 	end
 
 	function abil:OnSpellStart()
