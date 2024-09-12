@@ -327,10 +327,6 @@ function OnBerserkStart(keys)
 			if caster.IsEternalRageAcquired then 
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternal_rage", {})
 			end
-			if caster:HasModifier("modifier_alternate_03") then 
-				caster:SetModel("models/heracles/guts/armor_guts_by_zefiroft.vmdl")
-				caster:SetModelScale(1.0)
-			end
 			caster.BerserkOriginModel = caster.BerserkOriginModel or caster:GetModelScale()
 			caster.BerserkDamageTaken = 0
 			BerCheckCombo(caster,ability)
@@ -426,9 +422,6 @@ end
 
 function OnBerserkModelReturn(keys)
 	local caster = keys.caster
-	if caster:HasModifier("modifier_alternate_03") then 
-		caster:SetModel("models/heracles/guts/guts_by_zefiroft.vmdl")
-	end
 	caster:SetModelScale(caster.BerserkOriginModel)
 end
 

@@ -3,7 +3,12 @@ modifier_gladiusanus_blauserum = class({})
 LinkLuaModifier("modifier_gladiusanus_blauserum_mark", "abilities/nero/modifiers/modifier_gladiusanus_blauserum", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_gladiusanus_blauserum:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_ATTACK_LANDED }
+	return { MODIFIER_EVENT_ON_ATTACK_LANDED,
+			 MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS }
+end
+
+function modifier_gladiusanus_blauserum:GetActivityTranslationModifiers()
+	return "glaudius"
 end
 
 function modifier_gladiusanus_blauserum:OnCreated(args)
@@ -15,9 +20,14 @@ function modifier_gladiusanus_blauserum:OnCreated(args)
 		self.TotalHit = args.TotalHit
 		self.AOE = self:GetAbility():GetSpecialValueFor("aoe")
 		self:SetStackCount(self.TotalHit)
+		self.sword_particle = "particles/custom/nero/nero_w.vpcf"
+
+		if self:GetParent():HasModifier("modifier_alternate_05") then
+			self.sword_particle = "particles/custom/dmc/nero/nero_w_sword.vpcf"
+		end
 
 		if not self.flame_sword then
-			self.flame_sword = ParticleManager:CreateParticle("particles/custom/nero/nero_w.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+			self.flame_sword = ParticleManager:CreateParticle(self.sword_particle, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControlEnt(self.flame_sword, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(),false)
 			ParticleManager:SetParticleControlEnt(self.flame_sword, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(),false)
 		end
@@ -49,6 +59,9 @@ function modifier_gladiusanus_blauserum:OnAttackLanded(args)
 		local ability = self:GetAbility()
 
 		self:SetStackCount(self:GetStackCount() - 1)
+		if self:GetStackCount() > 0 and caster:HasModifier("modifier_alternate_05") then 
+			caster:EmitSound("DMC_Nero_W")
+		end
 
 		if caster.IsPTBAcquired then
 			local aspd = caster:FindModifierByName("modifier_pari_tenu_blauserum")

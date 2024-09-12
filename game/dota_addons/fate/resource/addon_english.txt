@@ -896,6 +896,7 @@
 		"npc_dota_hero_spectre_1"		"[Normal] Casual Artoria (Alter)"
 		"npc_dota_hero_spectre_2"		"[Heroic] Armorless Artoria (Alter)"
 		"npc_dota_hero_spectre_3"		"[Legend] Summer Artoria (Alter)"
+		"npc_dota_hero_spectre_4"		"[Legend] Shinjuku Artoria (Alter)"
 		"npc_dota_hero_spectre_summon"		"Servant <font color='#58ACFA'>Artoria (Alter)</font> has been summoned."
 		"npc_dota_hero_spectre_enable_combo"	"Enable Combo: Max Mana Burst"
 
@@ -1577,6 +1578,7 @@
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_stone"		"STONE DURATION:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_stone_arm"	"STONE ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_stone_mr"	"%STONE MAGIC RESIST REDUCTION:"
+		"DOTA_Tooltip_ability_medusa_breaker_gorgon_upgrade_stone_cooldown"		"STONE COOLDOWN:"
 		
 		"DOTA_Tooltip_Ability_medusa_bellerophon"				"<font color='#58ACFA'>Bellerophon</font>"	
 		"DOTA_Tooltip_ability_medusa_bellerophon_Description"	"Medusa ascends into sky, then slams down to the target location, dealing damage and <font color='#FF3399'>stunned</font> all enemies within area. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Riding</font>. \n Medusa becomes <font color='#FFFF28'>untargetable</font> and <font color='#FFFF28'>invulnerable</font> until she lands the ground."
@@ -1691,6 +1693,7 @@
 		"DOTA_Tooltip_Ability_medusa_attribute_improve_mystic_eyes_stone"			"STONE DURATION:"
 		"DOTA_Tooltip_Ability_medusa_attribute_improve_mystic_eyes_stone_arm"		"STONE ARMOR REDUCTION:"
 		"DOTA_Tooltip_Ability_medusa_attribute_improve_mystic_eyes_stone_mr"		"%STONE MAGIC RESIST REDUCTION:"
+		"DOTA_Tooltip_Ability_medusa_attribute_improve_mystic_eyes_stone_cooldown"	"STONE COOLDOWN:"
 
 		"DOTA_Tooltip_Ability_medusa_attribute_riding"				"<font color='#9FFFCC'>Attribute: Riding</font>"
 		"DOTA_Tooltip_ability_medusa_attribute_riding_Description"	"Medusa gains passive movespeed. \n<font color='#58ACFA'>Bellerophon</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>. \n<font color='#FF04EF'>Bellerophon 2</font>: Increases damage based on Medusa's <font color='#80FF00'>AGI</font>, Medusa gains <font color='#FFFF28'>Riding</font> for short durations at the end of dash. \n<font color='#58ACFA'>High Speed Movement</font>: At the end of dash, Medusa gains <font color='#FFFF28'>Riding</font> for short durations. \n<font color='#FFFF28'>Riding</font>: Medusa has an absolute movemnet speed that cannot be slowed down."
@@ -5129,6 +5132,7 @@
 		"npc_dota_hero_lina_2"		"[Heroic] King Nero"
 		"npc_dota_hero_lina_3"		"[Legend] Dressed Nero"
 		"npc_dota_hero_lina_4"		"[Limited] Racing Nero"
+		"npc_dota_hero_lina_5"		"[Myth] DMC Nero"
 		"npc_dota_hero_lina_summon"		"Servant <font color='#58ACFA'>Nero Claudius</font> has been summoned."
 		"npc_dota_hero_lina_enable_combo"	"Enable Combo: Laus Saint Claudius"
 
@@ -8196,6 +8200,7 @@
         //====================================		
         "npc_dota_hero_tidehunter"             "Vlad III"
         "npc_dota_hero_tidehunter_1"			"[Heroic] Dracula Vlad"
+        "npc_dota_hero_tidehunter_2"			"[Limited] Overlord Shalltear"
         "npc_dota_hero_tidehunter_summon"		"Servant <font color='#58ACFA'>Vlad III</font> has been summoned."
         "npc_dota_hero_tidehunter_enable_combo"	"Enable Combo: Lord of Execution"
 
@@ -8346,12 +8351,12 @@
 		"DOTA_Tooltip_ability_vlad_cursed_lance_hp_cost"				"%MAX HEALTH COST:"
 
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1" 						"<font color='#9FFFCC'>Cursed Lance</font>"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_Description"			"Vlad consumes his health and gains <font color='#FFFF28'>Cursed Lance Shield</font> for durations while enable <font color='#FFB266'>Instant Curse</font>. \n<font color='#FFFF28'>Cursed Lance Shield</font>: A shield that absorbs certain amount of damage based on all enemies's <font color='#FF3399'>Bleed</font> stacks. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n At the end of duration, the shield explodes, dealing damage based on shield's damage taken and all enemies's <font color='#FF3399'>Bleed</font> stacks to all nearby enemies. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Bloodletter</font>."
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_Description"			"Vlad consumes his health and gains <font color='#FFFF28'>Cursed Lance Shield</font> for durations while enable <font color='#FFB266'>Instant Curse</font>. \n<font color='#FFFF28'>Cursed Lance Shield</font>: A shield that absorbs certain amount of damage based on Vlad's max health. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n At the end of duration, the shield explodes, dealing damage based on shield's damage taken and Vlad's max health to all nearby enemies. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Bloodletter</font>."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_Note0"				"Vlad's HP won't lower than 1 by ability activation."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_max_shield"			"SHIELD AMOUNT:"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_bonus_shield_per_bleed""BONUS SHIELD AMOUNT PER BLEED STACK:"
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_bonus_shield_per_bleed""%BONUS SHIELD AMOUNT PER MAX HP:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_max_dmg"				"EXPLOSION MAX DAMAGE:"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_bonus_dmg_per_bleed"	"EXPLOSION BONUS DAMAGE PER BLEED STACK:"
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_bonus_dmg_per_bleed"	"%EXPLOSION BONUS DAMAGE PER MAX HP:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_aoe"					"EXPLOSION RADIUS:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_duration"				"SHIELD DURATION:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_1_hp_cost"				"%MAX HEALTH COST:"
@@ -8371,15 +8376,15 @@
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_2_bloodpower_cap" 	"MAX BLOODPOWER CONSUME:"
 
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3" 						"<font color='#9FFFCC'>Cursed Lance</font>"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_Description"			"Vlad consumes his health and gains <font color='#FFFF28'>Cursed Lance Shield</font> for durations while enable <font color='#FFB266'>Instant Curse</font>. \n<font color='#FFFF28'>Cursed Lance Shield</font>: A shield that absorbs certain amount of damage based on all enemies's <font color='#FF3399'>Bleed</font> stacks and Vlad's <font color='#FFFF28'>Bloodpower</font> stacks. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n At the end of duration, the shield explodes, dealing damage based on shield's damage taken, all enemies's <font color='#FF3399'>Bleed</font> stacks and Vlad's <font color='#FFFF28'>Bloodpower</font> stacks to all nearby enemies."
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_Description"			"Vlad consumes his health and gains <font color='#FFFF28'>Cursed Lance Shield</font> for durations while enable <font color='#FFB266'>Instant Curse</font>. \n<font color='#FFFF28'>Cursed Lance Shield</font>: A shield that absorbs certain amount of damage based on Vlad's max health and Vlad's <font color='#FFFF28'>Bloodpower</font> stacks. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n At the end of duration, the shield explodes, dealing damage based on shield's damage taken, Vlad's max health and Vlad's <font color='#FFFF28'>Bloodpower</font> stacks to all nearby enemies."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_Note0"				"Vlad's HP won't lower than 1 by ability activation."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_Note1"				"After actived ability, <font color='#FFFF28'>Bloodpower</font> stacks that was used will vanish."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_Note2"				"Maximum <font color='#FFFF28'>Bloodpower</font> stacks that can be used is %bloodpower_cap% stacks."
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_max_shield"			"SHIELD AMOUNT:"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_shield_per_bleed"	"BONUS SHIELD AMOUNT PER BLEED STACK:"
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_shield_per_bleed"	"%BONUS SHIELD AMOUNT PER MAX HP:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_shield_per_bloodpower"	"%BONUS SHIELD AMOUNT PER BLOODPOWER STACK:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_max_dmg"				"EXPLOSION MAX DAMAGE:"
-		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_dmg_per_bleed"		"BONUS DAMAGE PER BLEED STACK:"
+		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_dmg_per_bleed"		"%BONUS DAMAGE PER MAX HP:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_bonus_dmg_per_bloodpower"		"%BONUS DAMAGE PER BLOODPOWER STACK:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_aoe"					"EXPLOSION RADIUS:"
 		"DOTA_Tooltip_ability_vlad_cursed_lance_upgrade_3_duration"				"SHIELD DURATION:"
@@ -8570,9 +8575,9 @@
 		"DOTA_Tooltip_ability_vlad_attribute_improved_impaling_cp_bonus_dmg_per_stack"	"CEREMONIAL BONUS DAMAGE PER BLEED STACK:"
 		
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse" 						"<font color='#9FFFCC'>Attribute: Instant Curse</font>"
-		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_Description"				"Enable <font color='#FFB266'>Instant Curse</font> after using <font color='#58ACFA'>Cursed Lance</font>. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n<font color='#58ACFA'>Cursed Lance</font>: No longer automatically detonates on shield depletion. \n Increase max explode damage and shield amount based on all enemies's <font color='#FF3399'>Bleed</font> stacks."
-		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_shield_per_stack""CURSED LANCE BONUS SHIELD AMOUNT PER BLEED STACK:"
-		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_dmg_per_stack"		"CURSED LANCE BONUS MAX DAMAGE PER BLEED STACK:"
+		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_Description"				"Enable <font color='#FFB266'>Instant Curse</font> after using <font color='#58ACFA'>Cursed Lance</font>. \n<font color='#FFB266'>Instant Curse</font>: Instantly explodes <font color='#FFFF28'>Cursed Lance Shield</font>. \n<font color='#58ACFA'>Cursed Lance</font>: No longer automatically detonates on shield depletion. \n Increase max explode damage and shield amount based on Vlad's max health."
+		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_shield_per_stack" "%CURSED LANCE BONUS SHIELD AMOUNT PER MAX HP:"
+		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_dmg_per_stack"		"%CURSED LANCE BONUS MAX DAMAGE PER MAX HP:"
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_note0"						""
 		
 		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 								"<font color='#9FFFCC'>Attribute: Bloodletter</font>"
@@ -8636,6 +8641,7 @@
         //====================================
 
 		"npc_dota_hero_phantom_assassin"				"Semiramis"
+		"npc_dota_hero_phantom_assassin_1"				"[Limited] Overlord Albedo"
         "npc_dota_hero_phantom_assassin_summon"		"Servant <font color='#58ACFA'>Semiramis</font> has been summoned."
         "npc_dota_hero_phantom_assassin_enable_combo"	"Enable Combo: Hanging Gardens of Babylon - Tiatum Umu"
 
@@ -12701,6 +12707,7 @@
 		//====================================
 		"npc_dota_hero_night_stalker"		"Edmond Dantes"
 		"npc_dota_hero_night_stalker_1"		"[Legend] Count Monte Cristo Edmond"
+		"npc_dota_hero_night_stalker_2"		"[Myth] DMC Dante"
 		"npc_dota_hero_night_stalker_summon"		"Servant <font color='#58ACFA'>Edmond Dantes</font> has been summoned."
 		"npc_dota_hero_night_stalker_enable_combo"	"Enable Combo: Enfer Chateau D’lf"
 
@@ -13625,6 +13632,7 @@
         //====================================
 
         "npc_dota_hero_necrolyte"  "Hans Christian Andersen"
+        "npc_dota_hero_necrolyte_1"  "[Normal] Coatless Hans"
         "npc_dota_hero_necrolyte_summon"		"Servant <font color='#58ACFA'>Hans Christian Andersen</font> has been summoned."
         "npc_dota_hero_necrolyte_enable_combo"	"Enable Combo: Märchen Meines Lebens - A Tale Just For You"
 
@@ -15672,7 +15680,7 @@
         "DOTA_Tooltip_ability_muramasa_dash_range_marble"			"DASH RANGE:"
 
         "DOTA_Tooltip_Ability_muramasa_cut"			"<font color='#9FFFCC'>Kesi Giri</font>"
-        "DOTA_Tooltip_ability_muramasa_cut_Description"		"Jumps, moving to target position while doing a heavy downward slash dealing damage in a radius. 
+        "DOTA_Tooltip_ability_muramasa_cut_Description"		"Jumps, moving to target position while doing a heavy downward slash dealing damage and ministun in a radius. 
         With <font color='#FFFF28'>Tsumukari Muramasa</font>, an extra aftershock will occer on landing spot dealing minor extra damage."
         "DOTA_Tooltip_ability_muramasa_cut_cast_delay"			"CAST DELAY:"
         "DOTA_Tooltip_ability_muramasa_cut_damage"			"DAMAGE:"
@@ -16144,6 +16152,7 @@
 		//Hero
 		"npc_dota_hero_terrorblade"																	"Saitō Hajime"
 		"npc_dota_hero_terrorblade_1"																"[Heroic] Coat Saitō"
+		"npc_dota_hero_terrorblade_2"																"[Myth] DMC Vergil"
 		"npc_dota_hero_terrorblade_summon"															"Servant <font color='#0075B5'>Saitō Hajime</font> has been summoned."
 		"npc_dota_hero_terrorblade_enable_combo"													"Enable Combo: Undefeatable Style"
 
@@ -16390,13 +16399,16 @@
 
 		//Undefeatable Style - Judgement Cut End
 		"DOTA_Tooltip_ability_saito_jce"															"<font color='#FF04EF'>Combo: Undefeatable Style</font>"
-		"DOTA_Tooltip_ability_saito_jce_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F during activation steps.</font>\n<font color='#00AB9E'>CHANNELED</font> - Saitō channels both mind and spirit through the blades, allowing him to block most targeted spells up to %linken_procs% times while channeling.\nAfter a successful channel, unleashes a rapid flurry of slashes over a large AoE, with such speed that it alters enemies' perception of time and distance, revoking and freezing them in time for %duration% seconds.\nSaitō is invulnerable, untargettable and revoked for the duration.\nAt the end of the duration, all enemies frozen in time by the slash will take magical damage.\nWhen the channeling is interrupted before this spell takes effect, this ability enters a fixed cooldown of %decreased_cooldown% seconds."
+		"DOTA_Tooltip_ability_saito_jce_Description"												"<font color='#FF04EF'>Combo Requirements: 25 or more in all stats.</font>\n<font color='#FF04EF'>Combo Sequence: F - D -> F during activation steps.</font>\n<font color='#00AB9E'>CHANNELED</font> - Saitō channels both mind and spirit through the blades, allowing him to block most targeted spells up to %linken_procs% times while channeling.\nAfter a successful channel, unleashes a rapid flurry of %damage_instances% slashes over a large AoE, with such speed that it alters enemies' perception of time and distance, revoking and freezing them in time for %duration% seconds.\nSaitō is invulnerable, untargettable and revoked for the duration.\nAt the end of the duration, all enemies frozen in time by the slash will take magical damage, then are stunned and revoked for %post_stun_duration% seconds.\nWhen the channeling is interrupted before this spell takes effect, this ability enters a fixed cooldown of %decreased_cooldown% seconds."
 		"DOTA_Tooltip_ability_saito_jce_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
+		"DOTA_Tooltip_ability_saito_jce_Note0"														"Damage is not reduced by <font color='#FFFFFF'>B Scroll</font>."
 		"DOTA_Tooltip_ability_saito_jce_AbilityCastPoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_jce_AbilityChannelTime"											"CHANNEL TIME:"
 		//"DOTA_Tooltip_ability_saito_jce_duration"													""
 		"DOTA_Tooltip_ability_saito_jce_radius"														"RADIUS:"
-		"DOTA_Tooltip_ability_saito_jce_damage"														"DAMAGE:"
+		"DOTA_Tooltip_ability_saito_jce_damage"														"TOTAL DAMAGE:"
+		//"DOTA_Tooltip_ability_saito_jce_post_stun_duration"										""
+		//"DOTA_Tooltip_ability_saito_jce_damage_instances"											""
 		//"DOTA_Tooltip_ability_saito_jce_decreased_cooldown"										""
 		//"DOTA_Tooltip_ability_saito_jce_linken_procs"												""
 		//"DOTA_Tooltip_ability_saito_jce_animation_impact_time"									""
@@ -17580,12 +17592,15 @@
 		"Fate_Same_Hero_Mode"		"Same Hero Mode has been selected, some hero will be disabled."
 		"Fate_Clasic_Mode"			"Classic Mode has been selected"
 		"Fate_MVP_Mark_Start"		"<font color='#FFFF28'>Bounty Mark</font> is enable at this round."
+		"Fate_Grail_Loot_Start"		"<font color='#FFFF28'>Grail</font> will randomly spawn at the center of bridges."
+		"Fate_Get_Grail_Drop1"		"<font color='red'>Red Team</font>'s members gain 1 Holy Grail's Shard."
+		"Fate_Get_Grail_Drop2"		"<font color='black'>Black Team</font>'s members gain 1 Holy Grail's Shard."
 
 		"Fate_Autobalance"	"Start Auto Balance Team."
-		"Player_Take_Avarice1"	"Total Avarice 1. All allies get 1 Master Mana and 300 gold at the start of round!"
-		"Player_Take_Avarice2"	"Total Avarice 2. All allies get 1 Master Mana, 1 Master Health, 600 gold at the start of round!"
-		"Player_Take_Avarice3"	"Total Avarice: 3. All allies get 1 Master Mana, 1 Master Health, 900 gold and Movespeed buff for 17 seconds at the start of round!"
-		"Player_Take_Avarice4"	"Total Avarice: 4. All allies get 2 Master Mana, 1 Master Health, 1,200 gold and Movespeed buff for 17 seconds at the start of round! All Servants get bonus 9 health and mana regen."
+		"Player_Take_Avarice1"	"Total Avarice 1: All allies get 1 Master Mana and 300 gold at the start of round!"
+		"Player_Take_Avarice2"	"Total Avarice 2: All allies get 1 Master Mana, 1 Master Health, 600 gold at the start of round!"
+		"Player_Take_Avarice3"	"Total Avarice 3: All allies get 1 Master Mana, 1 Master Health, 900 gold and Movespeed buff for 17 seconds at the start of round!"
+		"Player_Take_Avarice4"	"Total Avarice 4: All allies get 2 Master Mana, 1 Master Health, 1,200 gold and Movespeed buff for 17 seconds at the start of round! All Servants get bonus 9 health and mana regen."
 		//"Player_Take_Avarice5"	"Total Avarice: 5. All allies get 2 Master Mana, 1 Master Health, 5,500 gold and Movespeed buff for 17 seconds at the start of round! All Servants get bonus 9 health and mana regen. Your team always win the round when draw!!"
 
 		"Fate_Round_Winner_1"	"The Red Faction has won the round!"

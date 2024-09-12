@@ -177,7 +177,15 @@ function Alternate01Create (keys)
 	elseif caster:GetName() == "npc_dota_hero_terrorblade" then 
 		caster:SetModel("models/heroes/saito_2/saito_2_mdoc.vmdl")
 		caster:SetOriginalModel("models/heroes/saito_2/saito_2_mdoc.vmdl")
-		caster:SetModelScale(1.1)
+		caster:SetModelScale(1.1)  
+	elseif caster:GetName() == "npc_dota_hero_necrolyte" then 
+		caster:SetModel("models/han/no_coat/hans_nocoat_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/han/no_coat/hans_nocoat_by_zefiroft.vmdl")
+		caster:SetModelScale(1.2)   
+	elseif caster:GetName() == "npc_dota_hero_phantom_assassin" then 
+		caster:SetModel("models/overlord/albedo/albedo/albedo_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/overlord/albedo/albedo/albedo_by_zefiroft.vmdl")
+		caster:SetModelScale(2.2)
 	end
 end
 
@@ -364,6 +372,14 @@ function Alternate01Destroy (keys)
 		caster:SetModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
 		caster:SetOriginalModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
 		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_necrolyte" then 
+		caster:SetModel("models/han/default/han_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/han/default/han_by_zefiroft.vmdl")
+		caster:SetModelScale(1.2)  
+	elseif caster:GetName() == "npc_dota_hero_phantom_assassin" then 
+		caster:SetModel("models/semi/semi.vmdl")
+		caster:SetOriginalModel("models/semi/semi.vmdl")
+		caster:SetModelScale(1.0)
 	end
 end
 
@@ -489,7 +505,19 @@ function Alternate02Create (keys)
 	elseif caster:GetName() == "npc_dota_hero_vengefulspirit" then 	
 		caster:SetModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/pepe/blackpepe/blackpepe_by_zefiroft.vmdl")
-		caster:SetModelScale(1.2)	
+		caster:SetModelScale(1.2)	 
+	elseif caster:GetName() == "npc_dota_hero_night_stalker" then 
+    	caster:SetModel("models/dmc/dante/dmc_dante_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/dmc/dante/dmc_dante_by_zefiroft.vmdl")
+		caster:SetModelScale(1.3) 
+	elseif caster:GetName() == "npc_dota_hero_terrorblade" then 
+		caster:SetModel("models/dmc/vergil/dmc_vergil_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/dmc/vergil/dmc_vergil_by_zefiroft.vmdl")
+		caster:SetModelScale(1.4) 
+	elseif caster:GetName() == "npc_dota_hero_tidehunter" then 	
+		caster:SetModel("models/overlord/shaltear/shaltear_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/overlord/shaltear/shaltear_by_zefiroft.vmdl")
+		caster:SetModelScale(1.1)
 	end 
 
 end
@@ -613,6 +641,18 @@ function Alternate02Destroy (keys)
 		caster:SetModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/angra_mainyu/avenger_by_zefiroft.vmdl")
 		caster:SetModelScale(1.8)	
+	elseif caster:GetName() == "npc_dota_hero_night_stalker" then 
+    	caster:SetModel("models/edmond/default/edmond_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/edmond/default/edmond_by_zefiroft.vmdl")
+		caster:SetModelScale(1.05)
+	elseif caster:GetName() == "npc_dota_hero_terrorblade" then 
+		caster:SetModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
+		caster:SetOriginalModel("models/heroes/saito_1/saito_1_mdoc.vmdl")
+		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_tidehunter" then 	
+		caster:SetModel("models/vlad/vlad.vmdl")
+		caster:SetOriginalModel("models/vlad/vlad.vmdl")
+		caster:SetModelScale(1.4)
 	end
 end
 
@@ -828,7 +868,11 @@ function Alternate04Create (keys)
 	elseif caster:GetName() == "npc_dota_hero_bloodseeker" then 	
 		caster:SetModel("models/lishuwen/old/old_boss_li_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/lishuwen/old/old_boss_li_by_zefiroft.vmdl")
-		caster:SetModelScale(1.1)	
+		caster:SetModelScale(1.1)
+	elseif caster:GetName() == "npc_dota_hero_spectre" then 	
+		caster:SetModel("models/artoria_alter/alter_dress/artoria_alter_dress_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/artoria_alter/alter_dress/artoria_alter_dress_by_zefiroft.vmdl")
+		caster:SetModelScale(1.2)	
 	end
 end
 
@@ -873,7 +917,11 @@ function Alternate04Destroy (keys)
 	elseif caster:GetName() == "npc_dota_hero_bloodseeker" then 	
 		caster:SetModel("models/lishuwen/default/lishuwen_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/lishuwen/default/lishuwen_by_zefiroft.vmdl")
-		caster:SetModelScale(1.15)	
+		caster:SetModelScale(1.15)	 
+	elseif caster:GetName() == "npc_dota_hero_spectre" then 	
+		caster:SetModel("models/saber_alter/sbr_alter.vmdl")
+		caster:SetOriginalModel("models/saber_alter/sbr_alter.vmdl")
+		caster:SetModelScale(1.15) 
 	end
 end
 
@@ -892,6 +940,10 @@ function Alternate05Create (keys)
 		caster:SetModel("models/tamamo/wedding/wedding_tamamo_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/wedding/wedding_tamamo_by_zefiroft.vmdl")
 		caster:SetModelScale(1.22)	
+	elseif caster:GetName() == "npc_dota_hero_lina" then 	
+		caster:SetModel("models/dmc/nero/dmc_nero_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/dmc/nero/dmc_nero_by_zefiroft.vmdl")
+		caster:SetModelScale(1.3)
 	end
 end
 
@@ -908,6 +960,10 @@ function Alternate05Destroy (keys)
 	elseif caster:GetName() == "npc_dota_hero_enchantress" then 	
 		caster:SetModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
+		caster:SetModelScale(1.0) 
+	elseif caster:GetName() == "npc_dota_hero_lina" then 	
+		caster:SetModel("models/nero/nero_new.vmdl")
+		caster:SetOriginalModel("models/nero/nero_new.vmdl")
 		caster:SetModelScale(1.0)
 	end
 end

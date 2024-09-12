@@ -168,7 +168,7 @@ function OnDarkBeamStart(keys)
 	local width = ability:GetSpecialValueFor("width")
 	local speed = ability:GetSpecialValueFor("speed")
 	caster:EmitSound("Edmond.Beam")
-	caster:EmitSound("Hero_Zuus.Attack")
+	caster:EmitSound("Hero_Zuus.Attack") 
 	local dark_beam = 
 	{
 		Ability = ability,
@@ -183,22 +183,28 @@ function OnDarkBeamStart(keys)
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 2,
+        fExpireTime = GameRules:GetGameTime() + 3,
 		bDeleteOnHit = false,
 		vVelocity = caster:GetForwardVector() * speed
 	}
+	
+	if not caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_edmond_monte_cristo") then
+		local angle = caster:GetAnglesAsVector().y
+		local end_loc = GetRotationPoint(caster:GetAbsOrigin(),distance,angle)
+		end_loc = GetGroundPosition(end_loc, nil)
+		local beamfx = ParticleManager:CreateParticle( "particles/custom/edmond/edmond_dark_beam.vpcf", PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(beamfx, 1, end_loc + Vector(0,0,200))
+		ParticleManager:SetParticleControl(beamfx, 9, caster:GetAbsOrigin() + Vector(0,0,200))
+		ParticleManager:SetParticleControl(beamfx, 10, Vector(width,0,0))
+		Timers:CreateTimer(0.5, function()
+			ParticleManager:DestroyParticle(beamfx, false)
+			ParticleManager:ReleaseParticleIndex(beamfx)
+		end)
+	else
+		dark_beam.EffectName = "particles/billy/billy_q_projectile_model.vpcf"
+	end
+
 	ProjectileManager:CreateLinearProjectile(dark_beam)
-	local angle = caster:GetAnglesAsVector().y
-	local end_loc = GetRotationPoint(caster:GetAbsOrigin(),distance,angle)
-	end_loc = GetGroundPosition(end_loc, nil)
-	local beamfx = ParticleManager:CreateParticle( "particles/custom/edmond/edmond_dark_beam.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(beamfx, 1, end_loc + Vector(0,0,200))
-	ParticleManager:SetParticleControl(beamfx, 9, caster:GetAbsOrigin() + Vector(0,0,200))
-	ParticleManager:SetParticleControl(beamfx, 10, Vector(width,0,0))
-	Timers:CreateTimer(0.5, function()
-		ParticleManager:DestroyParticle(beamfx, false)
-		ParticleManager:ReleaseParticleIndex(beamfx)
-	end)
 end
 
 function OnDarkBeamHit(keys)
@@ -638,6 +644,8 @@ function OnComboStart(keys)
 		        	local particle_dummy = 	"particles/custom/edmond/edmond_dummy.vpcf"
 		        	if unit:HasModifier("modifier_alternate_01") then 
 		        	    particle_dummy = "particles/custom/edmond/edmond_dummy2.vpcf"   
+		        	elseif unit:HasModifier("modifier_alternate_02") then 
+		        	    particle_dummy = "particles/custom/edmond/edmond_dummy3.vpcf"  
 		        	end 	
 		        	--unit:AddEffects(EF_NODRAW)
 		        	Timers:CreateTimer('edmond_combo_attack' .. caster:GetPlayerOwnerID(), {

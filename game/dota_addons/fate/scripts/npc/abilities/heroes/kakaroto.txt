@@ -25,4 +25,12 @@ GifTCODE
 		"EndDate"		"09/08/24"
 		"RewardCP"		"3000"
 	}
+	"04"		
+	{
+		"GiftID"		"04"
+		"Code"			"ApoloCP2"
+		"StartDate"		"06/09/24"
+		"EndDate"		"14/09/24"
+		"RewardCP"		"3000"
+	}
 }

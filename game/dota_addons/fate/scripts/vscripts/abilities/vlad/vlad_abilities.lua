@@ -727,10 +727,10 @@ function OnCurseLanceCreate(keys)
 
 	if caster.IsInstantCurseAcquired then
 		local bleedcounter = OnBleedSeek(caster)
-		local bonus_shield_per_bleed = ability:GetSpecialValueFor("bonus_shield_per_bleed")
-		local bonus_dmg_per_bleed = ability:GetSpecialValueFor("bonus_dmg_per_bleed")
-		max_shield = max_shield + (bleedcounter * bonus_shield_per_bleed)
-		max_dmg = max_dmg + (bleedcounter * bonus_dmg_per_bleed)
+		local bonus_shield_per_hp = ability:GetSpecialValueFor("bonus_shield_per_bleed")/100
+		local bonus_dmg_per_hp = ability:GetSpecialValueFor("bonus_dmg_per_bleed")/100
+		max_shield = max_shield + (caster:GetMaxHealth() * bonus_shield_per_hp)
+		max_dmg = max_dmg + (caster:GetMaxHealth() * bonus_dmg_per_hp)
 	end
 
 	if caster.IsBloodletterAcquired then
@@ -1501,6 +1501,10 @@ function ceremonial_wrapper(CPA)
 	  	end
 	end
 
+	function CPA:GetHealthCost(iLevel)
+		return self:GetSpecialValueFor("hp_cost")/100 * self:GetCaster():GetMaxHealth()
+	end
+
 	if IsClient() then
 		function CPA:GetCastRange( vLocation, hTarget)
 			return self:GetSpecialValueFor("aoe_outer")
@@ -1554,13 +1558,19 @@ function ceremonial_wrapper(CPA)
 		end
 
 		if caster:IsAlive() then
-			caster:SetHealth(math.max(1, hp_current))
+			--caster:SetHealth(math.max(1, hp_current))
 			
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 			local CPSpin = FxCreator("particles/custom/vlad/vlad_cp_spin.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, 2, nil)
-			ParticleManager:SetParticleControlEnt(CPSpin, 1, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max", caster:GetAbsOrigin(),false)
-			ParticleManager:SetParticleControlEnt(CPSpin, 3, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max-1", caster:GetAbsOrigin(),false)
-			ParticleManager:SetParticleControlEnt(CPSpin, 8, caster, PATTACH_POINT_FOLLOW	, "attach_lance_tip-1", caster:GetAbsOrigin(),false)
+			if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_02") then
+				ParticleManager:SetParticleControlEnt(CPSpin, 1, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max", caster:GetAbsOrigin(),false)
+				ParticleManager:SetParticleControlEnt(CPSpin, 3, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max_1", caster:GetAbsOrigin(),false)
+				ParticleManager:SetParticleControlEnt(CPSpin, 8, caster, PATTACH_POINT_FOLLOW	, "attach_lance_tip_1", caster:GetAbsOrigin(),false)
+			else
+				ParticleManager:SetParticleControlEnt(CPSpin, 1, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max", caster:GetAbsOrigin(),false)
+				ParticleManager:SetParticleControlEnt(CPSpin, 3, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max-1", caster:GetAbsOrigin(),false)
+				ParticleManager:SetParticleControlEnt(CPSpin, 8, caster, PATTACH_POINT_FOLLOW	, "attach_lance_tip-1", caster:GetAbsOrigin(),false)
+			end
 
 			Timers:CreateTimer(4, function()
 			 	FxDestroyer(CPSpin, false)

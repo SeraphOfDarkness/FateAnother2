@@ -1264,12 +1264,13 @@
 	    		"Passive"			"0"
 	    		"IsHidden"			"0"
 	    		"IsDebuff"			"1" 
+	    		"IsPurgable"		"0"
 	    		"EffectName"		"particles/custom/generic/fate_mvp_mark.vpcf"
 				"EffectAttachType"		"follow_overhead"
 	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"Properties"
 	    		{
-	    			"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "1"
+	    			"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "100"
 	    		}
 	    	}
 	    	"modifier_mvp_marker2"
@@ -1277,12 +1278,13 @@
 	    		"Passive"			"0"
 	    		"IsHidden"			"0"
 	    		"IsDebuff"			"1" 
+	    		"IsPurgable"		"0"
 	    		"EffectName"		"particles/custom/generic/fate_mvp_mark.vpcf"
 				"EffectAttachType"		"follow_overhead"
 	    		"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 	    		"Properties"
 	    		{
-	    			"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "1"
+	    			"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "100"
 	    		}
 	    	}
 			"modifier_isekai_check"

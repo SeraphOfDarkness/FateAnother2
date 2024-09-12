@@ -1212,14 +1212,14 @@
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_Description"		"즉시 일정 거리만큼 후퇴합니다. \n\n<font color='#9FFFCC'>다음 속성으로 강화 가능: 켈트의 룬</font> \n이 주문은 <font color='#58ACFA'>룬 마술</font>과 레벨 및 쿨다운을 공유합니다."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_Lore"				"Fighting only disadvantageous battles throuhgout his life, Cu Chulainn developed an ability to keep distance from threat with ease."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_distance"			"후퇴 거리:"
-		"DOTA_Tooltip_ability_lancer_rune_of_disengage_Note0"				"이 주문은 차원적 고정 상태에서도 사용할 수 있습니다.
+		"DOTA_Tooltip_ability_lancer_rune_of_disengage_Note0"				"이 주문은 차원적 고정 상태에서도 사용할 수 있습니다."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_Note1"				"발동 시 <font color='#FFFF28'>강한 해제</font>를 부여합니다."
 
 		"DOTA_Tooltip_Ability_lancer_rune_of_disengage_upgrade"						"<font color='#9FFFCC'>이탈의 룬</font>"
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_Description"		"즉시 일정 거리만큼 후퇴합니다. \n이 주문은 <font color='#58ACFA'>룬 마술</font>과 레벨 및 쿨다운을 공유합니다."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_Lore"				"Fighting only disadvantageous battles throuhgout his life, Cu Chulainn developed an ability to keep distance from threat with ease."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_distance"			"후퇴 거리:"
-		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_Note0"				"이 주문은 차원적 고정 상태에서도 사용할 수 있습니다.
+		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_Note0"				"이 주문은 차원적 고정 상태에서도 사용할 수 있습니다."
 		"DOTA_Tooltip_ability_lancer_rune_of_disengage_upgrade_Note1"				"발동 시 <font color='#FFFF28'>강한 해제</font>를 부여합니다."
 
 		"DOTA_Tooltip_Ability_lancer_rune_of_combat"					"<font color='#58ACFA'>전투의 룬</font>"
@@ -2015,7 +2015,7 @@
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade"							"<font color='#9FFFCC'>심안 (거짓)</font>"
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_Description"				"<font color='#58ACFA'>지속 효과</font>: 기본 공격 시 <font color='#80FF00'>민첩</font>에 비례하여 보너스 순수 피해를 줍니다. 적이 마스터와 <font color='#FF3399'>단절</font> 상태일 경우, 피해가 상당히 증폭됩니다."
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_Lore"						"A strong mind sees what the eye cannot see."
-		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio"					"민첩 계수:
+		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio"					"민첩 계수:"
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio_revoked"		"단절 대상 민첩 계수:"
 
 		/////////////////////////////////// Basic ///////////////////////////////
@@ -6180,7 +6180,7 @@
 		"DOTA_Tooltip_modifier_gust_heaven_indicator"                  		"주상: 밀천"
 		"DOTA_Tooltip_modifier_gust_heaven_indicator_Description"		""
 
-		"DOTA_Tooltip_modifier_amaterasu_ally"					"수천일광천조팔야진석
+		"DOTA_Tooltip_modifier_amaterasu_ally"					"수천일광천조팔야진석"
 		"DOTA_Tooltip_modifier_amaterasu_ally_Description"		"이동 속도 증가 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, 공격 속도 증가 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%."
 
 		"DOTA_Tooltip_modifier_amaterasu_territory_heal"               		"수천일광천조팔야진석 회복"
@@ -11870,7 +11870,8 @@
 		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_bonus_ms"			"%용맹 보너스 이동 속도:"
 		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow_damage"		"울부짖기 피해:"
 		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow_aoe"			"울부짖기 반경:"
-		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow"					"%공포 둔화:"		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow_duration"		"공포 지속시간:"
+		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow"					"%공포 둔화:"
+		"DOTA_Tooltip_Ability_lubu_attribute_mad_enhancement_slow_duration"		"공포 지속시간:"
 
 		"DOTA_Tooltip_Ability_lubu_attribute_dragon_tongue"							"<font color='#9FFFCC'>속성: 원문역극</font>"
 		"DOTA_Tooltip_Ability_lubu_attribute_dragon_tongue_Description"				"<font color='#58ACFA'>필중무궁</font>: 피해와 시전 범위가 증가합니다. \n<font color='#FF04EF'>원문사극</font>: 피해와 시전 범위가 증가합니다."

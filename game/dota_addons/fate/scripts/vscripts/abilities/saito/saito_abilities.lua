@@ -164,12 +164,20 @@ local fApplyKnockbackSpecial = function(hTarget, nDistance, nDuration, vKnockDir
         hUnit:SetBounceMultiplier(0)
         hUnit:PreventDI(false)
         hUnit:SetPhysicsVelocity(Vector(0,0,0))
+        hUnit:SetPhysicsAcceleration(Vector(0,0,0))
         hUnit:OnPhysicsFrame(nil)
         hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
         FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
     end
     --=================================--
     if not IsKnockbackImmune(hTarget) then
+        local vVelocityNow = type(hTarget.GetTotalVelocity) == "function" and hTarget:GetTotalVelocity() or Vector(0,0,0)
+        if vVelocityNow.z > 0 then
+            hTarget.vVelocity = Vector(0,0,0)
+            hTarget.vLastVelocity = Vector(0,0,0)
+            hTarget.vAcceleration = Vector(0,0,0)
+        end
+        --=================================--
         local sTimerNameUnique = hTarget:GetUnitName()..DoUniqueString(tostring(hTarget:entindex()))
         --=================================--
         hTarget:InterruptMotionControllers(false)
@@ -179,9 +187,11 @@ local fApplyKnockbackSpecial = function(hTarget, nDistance, nDuration, vKnockDir
         hTarget:PreventDI(true)
         hTarget:SetPhysicsFriction(0)
         hTarget:SetPhysicsVelocity(vKnockDirection * ( nDistance / nDuration ))
+        hTarget:SetPhysicsAcceleration(Vector(0,0,0))
         hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
         hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
         hTarget:FollowNavMesh(true)
+        hTarget:Hibernate(true)
         --=================================--
         Timers:CreateTimer(sTimerNameUnique,
         {
@@ -470,7 +480,7 @@ LinkLuaModifier("modifier_saito_style_combo_indicator", "abilities/saito/saito_a
 
 modifier_saito_style_combo_indicator = modifier_saito_style_combo_indicator or class({})
 
-function modifier_saito_style_combo_indicator:IsHidden()                                                            return self:GetDuration() <= -1 end
+function modifier_saito_style_combo_indicator:IsHidden()                                                            return IsInToolsMode() and false or self:GetDuration() <= -1 end
 function modifier_saito_style_combo_indicator:IsDebuff()                                                            return true end
 function modifier_saito_style_combo_indicator:IsPurgable()                                                          return false end
 function modifier_saito_style_combo_indicator:IsPurgeException()                                                    return false end
@@ -655,6 +665,20 @@ end
 function saito_jce:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
+function saito_jce:GetChannelAnimation()
+    if self:GetCaster():HasModifier("modifier_alternate_02") then 
+        return ACT_DOTA_CAST_ABILITY_5
+    else
+        return ACT_DOTA_OVERRIDE_ABILITY_3
+    end
+end
+function saito_jce:GetAbilityTextureName()
+    if self:GetCaster():HasModifier("modifier_alternate_02") then 
+        return "custom/saito/vergil_jce"
+    else
+        return "custom/saito/saito_jce"
+    end
+end
 function saito_jce:OnSpellStart()
     local hCaster = self:GetCaster()
 
@@ -662,7 +686,11 @@ function saito_jce:OnSpellStart()
 
     self:EndCooldown()
 
-    EmitGlobalSound("Saito.Style.Cast.Voice")
+    if hCaster:HasModifier("modifier_alternate_02") then 
+        EmitGlobalSound("Vergil_Combo")
+    else
+        EmitGlobalSound("Saito.Style.Cast.Voice")
+    end
 end
 function saito_jce:OnChannelFinish(bInterrupted)
     local hCaster   = self:GetCaster()
@@ -673,6 +701,9 @@ function saito_jce:OnChannelFinish(bInterrupted)
         self:StartCooldown(self:GetEffectiveCooldown(-1))
 
         hCaster:AddNewModifier(hCaster, self, "modifier_saito_jce", {duration = nDuration})
+        if hCaster:HasModifier("modifier_alternate_02") then 
+            EmitGlobalSound("Vergil_Judgement")
+        end
     else
         if not Convars:GetBool("dota_ability_debug") then
             local nNewCD = self:GetSpecialValueFor("decreased_cooldown") * hCaster:GetCooldownReduction()
@@ -716,7 +747,11 @@ function modifier_saito_jce_channelling:OnCreated(tTable)
 
         if not self.bPlayedSound and self:GetRemainingTime() <= 0.5 then
             self.bPlayedSound = true
-            EmitSoundOn("Saito.Style.Proc", self.__hCaster)
+            if self.__hCaster:HasModifier("modifier_alternate_02") then 
+                EmitSoundOn("Vergil_Combo", self.__hCaster)
+            else
+                EmitSoundOn("Saito.Style.Proc", self.__hCaster)
+            end
         end
     end
 end
@@ -741,8 +776,11 @@ function modifier_saito_jce_channelling:CreateEffect(hTarget)
                                                             )
                         --ParticleManager:SetParticleControl(nSlashPFX, 0, hTarget:GetAbsOrigin())
                         ParticleManager:ReleaseParticleIndex(nSlashPFX)
-
-    EmitSoundOn("Saito.Style.Proc", hTarget)
+    if self.__hCaster:HasModifier("modifier_alternate_02") then 
+        EmitSoundOn("Vergil_Combo", hTarget)
+    else
+        EmitSoundOn("Saito.Style.Proc", hTarget)
+    end
 end
 function modifier_saito_jce_channelling:BlockSpellCheck()
     local nStacks = self:GetStackCount()
@@ -789,7 +827,9 @@ function modifier_saito_jce:OnCreated(tTable)
         self.nDamage              = self.hAbility:GetSpecialValueFor("damage")
         --self.nStunDuration        = self.hAbility:GetSpecialValueFor("stun_duration")
         --self.nRevokeDuration      = self.hAbility:GetSpecialValueFor("revoke_duration")
-
+        self.nPostStunDuration    = self.hAbility:GetSpecialValueFor("post_stun_duration")
+        self.nDamageInstances     = math.max(1, self.hAbility:GetSpecialValueFor("damage_instances"))
+        self.nDamage              = self.nDamage / self.nDamageInstances
         --=================================--
         self.tDamageTable = {
                                 victim       = self.hParent,
@@ -844,12 +884,16 @@ function modifier_saito_jce:OnIntervalThink()
     if IsServer() then
         if self:GetElapsedTime() >= self.nStartImpactTime then
             self.hParent:RemoveNoDraw()
-            self.hParent:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_7, 1.0 / self.nAnimationImpactTime)
+            if self.hParent:HasModifier("modifier_alternate_02") then 
+                self.hParent:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_6, 1.0 / self.nAnimationImpactTime)
+            else
+                self.hParent:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_7, 1.0 / self.nAnimationImpactTime)
+            end
             return self:StartIntervalThink(-1)
         end
     end
 end
-function modifier_saito_jce:OnDestroy()
+function modifier_saito_jce:OnRemoved(bDeath)
     if IsServer() then
         -- local nEntityCount = 0
         -- for _, hEntity in pairs(self.tStunnedEntities) do
@@ -867,18 +911,22 @@ function modifier_saito_jce:OnDestroy()
 
         for _, hEntity in pairs(self.tStunnedEntities) do
             if IsNotNull(hEntity) then
-                hEntity:RemoveModifierByNameAndCaster("modifier_saito_jce_delay", self.hCaster)
+                giveUnitDataDrivenModifier(self.hCaster, hEntity, "pause_sealdisabled", self.nPostStunDuration)
 
                 --self.tDamageTable.damage = (self.nDamage / math.max(1, nEntityCount))
                 self.tDamageTable.victim = hEntity
 
-                ApplyDamage(self.tDamageTable)
+                for i = 1, self.nDamageInstances do
+                    DoDamage(self.hCaster, hEntity, self.tDamageTable.damage, self.tDamageTable.damage_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, self.hAbility, false)
 
-                EmitSoundOn("Saito.JCE.Impact", hEntity)
-                EmitSoundOn("Hero_Saito.Attack", hEntity)
+                    EmitSoundOn("Saito.JCE.Impact", hEntity)
+                    EmitSoundOn("Hero_Saito.Attack", hEntity)
 
-                local nRelese_PFX = ParticleManager:CreateParticle("particles/heroes/saito/saito_jce/saito_jce_release.vpcf", PATTACH_ABSORIGIN_FOLLOW, hEntity)
-                                    ParticleManager:ReleaseParticleIndex(nRelese_PFX)
+                    local nRelese_PFX = ParticleManager:CreateParticle("particles/heroes/saito/saito_jce/saito_jce_release.vpcf", PATTACH_ABSORIGIN_FOLLOW, hEntity)
+                                        ParticleManager:ReleaseParticleIndex(nRelese_PFX)
+                end
+
+                hEntity:RemoveModifierByNameAndCaster("modifier_saito_jce_delay", self.hCaster)
             end
         end
         --=================================--
@@ -894,6 +942,9 @@ function modifier_saito_jce:OnDestroy()
                             ParticleManager:ReleaseParticleIndex(nFlashPFX)
         --=================================--
         EmitGlobalSound("Saito.Style.Cast")
+        if self.hParent:HasModifier("modifier_alternate_02") then 
+            EmitGlobalSound("Vergil_Too_Easy")
+        end
     end
 end
 --====================================================================================================--
@@ -912,7 +963,8 @@ function modifier_saito_jce_delay:CheckState()
                         [MODIFIER_STATE_STUNNED]       = true,
                         [MODIFIER_STATE_FROZEN]        = true,
                         --[MODIFIER_STATE_NO_HEALTH_BAR] = true
-                        [MODIFIER_STATE_INVISIBLE] = false
+                        [MODIFIER_STATE_INVISIBLE] = false,
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true
                     }
     return tState
 end
@@ -1418,7 +1470,7 @@ function saito_steelwing:OnSpellStart()
                                             hCaster:GetTeamNumber(),
                                             vCasterLoc,
                                             nil,
-                                            nRadius,
+                                            nRadius + 50,
                                             self:GetAbilityTargetTeam(),
                                             self:GetAbilityTargetType(),
                                             self:GetAbilityTargetFlags(),
@@ -1429,7 +1481,7 @@ function saito_steelwing:OnSpellStart()
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
             --=================================--
-            fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
+            fApplyKnockbackSpecial(hEntity, math.max(0, nRadius - GetDistance(hEntity, vCasterLoc)), 0.2, GetDirection(hEntity, vCasterLoc, true))
             --=================================--
             if not IsImmuneToCC(hEntity) then
                 giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
@@ -1746,6 +1798,13 @@ saito_mind_eye = saito_mind_eye or class({})
 function saito_mind_eye:GetAOERadius()
     return self:GetSpecialValueFor("proc_radius")
 end
+function saito_mind_eye:GetAbilityTextureName()
+    if self:GetCaster():HasModifier("modifier_alternate_02") then 
+        return "custom/saito/vergil_mind_eye"
+    else
+        return "custom/saito/saito_mind_eye"
+    end
+end
 function saito_mind_eye:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = hCaster --self:GetCursorTarget()
@@ -1837,11 +1896,12 @@ function modifier_saito_mind_eye_active:OnAbilityStart(keys)
 
         self.hCaster:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_ss_interval", {duration = self.nSSInterval})
 
+        local hSilenceNew = nil
         if not IsImmuneToCC(keys.unit) then
             giveUnitDataDrivenModifier(self.hCaster, keys.unit, "locked", self.nSSDuration)
         --giveUnitDataDrivenModifier(self.hCaster, keys.unit, "silenced", self.nSSDuration)
 
-            local hSilenceNew = keys.unit:AddNewModifier(self.hCaster, self.hAbility, "modifier_rooted", {duration = self.nSSDuration})
+            hSilenceNew = keys.unit:AddNewModifier(self.hCaster, self.hAbility, "modifier_rooted", {duration = self.nSSDuration})
         end
         if IsNotNull(hSilenceNew) then
             if type(hSilenceNew._nSpecialBuff) == "number" then
@@ -2084,6 +2144,13 @@ saito_fds = saito_fds or class({})
 function saito_fds:OnUpgrade() --Call when ability is upgraded in any way AKA -setlevel or by player or LearnAbility or etc.
     if IsServer() then
         UpgradeShared(self, tSaito_QWE_2)
+    end
+end
+function saito_fds:GetAbilityTextureName()
+    if self:GetCaster():HasModifier("modifier_alternate_02") then 
+        return "custom/saito/vergil_fds"
+    else
+        return "custom/saito/saito_fds"
     end
 end
 function saito_fds:GetIntrinsicModifierName()
@@ -2542,6 +2609,13 @@ function saito_formless_invis:OnUpgrade() --Call when ability is upgraded in any
         UpgradeShared(self, tSaito_RR)
     end
 end
+function saito_formless_invis:GetAbilityTextureName()
+    if self:GetCaster():HasModifier("modifier_alternate_02") then 
+        return "custom/saito/vergil_formless"
+    else
+        return "custom/saito/saito_formless_slash_0"
+    end
+end
 function saito_formless_invis:OnSpellStart()
     local hCaster   = self:GetCaster()
     local nDuration = self:GetSpecialValueFor("duration")
@@ -2770,7 +2844,11 @@ function saito_formless_slash:OnSpellStart()
         for i = 1, nSlashInstances do
             DoDamage(hCaster, hTarget, nSlashDamage, nDamageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, self, false)
         end
-        self:DoDoubleSlashEffect(hTarget)
+        if self:GetCaster():HasModifier("modifier_alternate_02") then 
+            self:DoVergilSlashEffect(hTarget)
+        else
+            self:DoDoubleSlashEffect(hTarget)
+        end     
     end
 
     self:CreateFlash(hCaster)
@@ -2808,6 +2886,25 @@ function saito_formless_slash:DoDoubleSlashEffect(hTarget)
                         ParticleManager:SetParticleControl(nSlashPFX, 2, hTarget:GetAbsOrigin())
                         ParticleManager:SetParticleControl(nSlashPFX, 3, hTarget:GetAbsOrigin())
                         ParticleManager:ReleaseParticleIndex(nSlashPFX)
+
+    EmitSoundOn("Saito.Formless.Slash.Impact", hTarget)
+end
+function saito_formless_slash:DoVergilSlashEffect(hTarget)
+    local sSlashPFX = "particles/custom/dmc/vergil/formless.vpcf"  
+    local nSlashPFX =   ParticleManager:CreateParticle(sSlashPFX, PATTACH_ABSORIGIN_FOLLOW, hTarget)
+                        ParticleManager:SetParticleControlEnt(
+                                                                nSlashPFX,
+                                                                0,
+                                                                hTarget,
+                                                                PATTACH_POINT_FOLLOW,
+                                                                "attach_hitloc",
+                                                                Vector(0,0,0), -- unknown
+                                                                false -- unknown, true
+                                                            )
+    Timers:CreateTimer(0.5, function()
+        ParticleManager:DestroyParticle(nSlashPFX, true)
+        ParticleManager:ReleaseParticleIndex(nSlashPFX)
+    end)
 
     EmitSoundOn("Saito.Formless.Slash.Impact", hTarget)
 end
@@ -3062,6 +3159,7 @@ function modifier_saito_storm_motion:OnCreated(tTable)
 
         EmitSoundOn("Saito.Formless.Slash.Cast", self.hParent)
         EmitSoundOn("Saito.Storm.Cast", self.hParent)
+        EmitSoundOn("Saito.Blast.Cast.Voice", self.hParent)
     end
 end
 function modifier_saito_storm_motion:OnRefresh(tTable)

@@ -414,6 +414,7 @@ goesthruB = {
     "scathach_gae_bolg_upgrade_3",
     --"avenger_verg_avesta_upgrade",    
     --"avenger_verg_avesta",
+    "saito_jce",
 }
 
 invis = {
@@ -4344,7 +4345,11 @@ end
 function RemoveComboCD(hTarget)
     for i = 1, #tModifierCooldown do
         if hTarget:HasModifier(tModifierCooldown[i]) then
-            hTarget:RemoveModifierByName(tModifierCooldown[i])
+            if hTarget:GetUnitName() == "npc_dota_hero_terrorblade" then 
+                hTarget:FindAbilityByName(hTarget.ComboSkill):EndCooldown()
+            else
+                hTarget:RemoveModifierByName(tModifierCooldown[i])
+            end
         end
     end
 end

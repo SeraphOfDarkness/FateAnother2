@@ -11,6 +11,8 @@ SkinUnavailable
 		"084"		"npc_dota_hero_phantom_lancer_3"	// [Limited] Lancer Card Rin
 		"095"		"npc_dota_hero_doom_bringer_3"		// [Limited] Guts Herc
 		//"077"		"npc_dota_hero_night_stalker_1"		// [Limited] Count Edmond
+		//"108"		"npc_dota_hero_phantom_assassin_1"	// [Limited] Overlord Albedo"
+		//"109"		"npc_dota_hero_tidehunter_2" 		// [Limited] Overlord Shaltear
 	}
 	"Pepe"
 	{

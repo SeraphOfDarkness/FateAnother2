@@ -54,6 +54,9 @@ function HeroSelectioN:constructor()
 		heroList2["npc_dota_hero_wisp"] = nil
 		self.AllHeroes = heroList
 		self.AvailableHeroes = heroList2
+		self.RefAvailableHeroes = LoadKeyValues("scripts/npc/herolist.txt")
+		self.RefUnAvailableHeroes = LoadKeyValues("scripts/npc/herotest.txt")
+		self.RefHiddenHero = LoadKeyValues("scripts/npc/hero_hidden.txt")
 		self.AvailableSkins = skinList
 		self.UnAvailableHeroes = testList
 		self.skinTier = skinTier
@@ -81,6 +84,7 @@ function HeroSelectioN:constructor()
 		self.pick_time = 60 
 		self.strategy_time = 10 
 		self.standby_time = 10
+		self.summon_time = false
 		self.max_player = FATE_DEFAULT_MAX_PLAYERS_TRIO 
 		if _G.GameMap == "fate_elim_7v7" then 
 			self.max_player = FATE_DEFAULT_MAX_PLAYERS_7v7
@@ -786,6 +790,23 @@ function HeroSelectioN:OnSelect(args)
     	end
     end
 
+    if self.RefAvailableHeroes[hero] then
+	    if self.AvailableHeroes[hero] == nil then 
+	    	SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' is already picked.')
+	    	return 
+	    end
+	elseif self.RefUnAvailableHeroes[hero] then
+	    if self.UnAvailableHeroes[hero] == nil then 
+	    	SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' is already picked.')
+	    	return 
+	    end
+	elseif self.RefHiddenHero[hero] then
+	    if self.HiddenHero[hero] == nil then 
+	    	SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' is already picked.')
+	    	return 
+	    end
+	end
+
     if self.BanHero[hero] then 
     	return 
     end
@@ -924,6 +945,7 @@ end
 function HeroSelectioN:OnSummonTimer()
 
 	ServerTables:CreateTable("HeroSelection", self.Picked)
+	self.summon_time = true
 
 	local max_player = math.max(ServerTables:GetTableValue("MaxPlayers", "total_player"), self.max_player)
 	for i = 0, max_player - 1 do

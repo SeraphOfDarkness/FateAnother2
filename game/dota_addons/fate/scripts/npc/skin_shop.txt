@@ -103,4 +103,11 @@ SkinShop
 	"100"		"6000"		// [Legend] Super Karna
 	"101"		"2000"		// [Heroic] Suit Saito
 	"102"		"15000"		// [PEPE] Black PEPE
+	"103"		"15000"		// [Myth] DMC Nero
+	"104"		"15000"		// [Myth] DMC Dante
+	"105"		"15000"		// [Myth] DMC Vergil
+	"106"		"1000"		// [Normal] No Coat Hans
+	"107"		"6000"		// [Legend] Shijuku Artoria (Alter)
+	//"108"		"limit"		// [Limited] Overlord Albedo
+	//"109"		"limit" 	// [Limited] Overlord Shaltear
 }

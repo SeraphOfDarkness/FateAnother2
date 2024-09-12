@@ -28,6 +28,10 @@ function gladiusanus_blauserum_wrapper(ability)
 		local caster = self:GetCaster()
 		local ability = self
 
+		if caster:HasModifier("modifier_alternate_05") then 
+			caster:EmitSound("DMC_Nero_W")
+		end
+
 		if caster.IsPTBAcquired then 
 			caster:AddNewModifier(caster, ability, "modifier_pari_tenu_blauserum", { Duration = self:GetSpecialValueFor("duration"),
 																		 		 	AttackSpeed = self:GetSpecialValueFor("bonus_aspd") })

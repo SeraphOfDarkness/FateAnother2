@@ -1,4 +1,189 @@
 
+Fix Vlad shield
+
+Medusa
+-Attribute: Mystic Eye of petrification
+Stone Cooldown: 0 >> 5
+
+Angra Mainyu
+-Verg Avesta
+Max Range: 3500 >> 3000
+
+---------
+
+Fix invis chat box
+Fixed precache of DMC Vergil's skin and DMC Nero's skin custom particles
+Added NEW sound to some Saitō abilities
+Tooltips updated
+CN Tooltips updated
+Fixed Undefeatable Style [COMBO] to be able to use any item or ability in the middle of freeze by reordering priority
+Fixed the -resetcombo command not working on Undefeatable Style [COMBO] / breaking cheat mode
+
+Draft Mode
+A,A+ Scroll no longer penalty
+
+Li Shuwen
+-Tiger Strikes (Berserk)
+Bypass Armor: 75% >> 50%
+
+Vlad
+-Attribute: Instant Curse
+Curse Lance now increase shield amount + damage based on Vlad's Max HP instead of Bleed stacks
+
+-Attribute: Protection of Faith
+Bonus Movespeed: 50 >> 80
+
+Okita
+-Attribute: Tennen Rishin-Ryu
+Beam Damage per AGI: 5 >> 3
+
+King Hassan
+-Flames of Gehenna
+Heal per sec: 125 >> 200
+
+Medea
+-Attribute : Dagger of Treachery
+Cost: 17 >> 15
+
+Hassan-i-Sabbah
+-Attribute: Shadow Strike
+Bonus Combo damage: 100 >> 200
+
+Lancelot
+-Double Edge
+Max Bonus Attackspeed: 250% >> 350%
+Max damage taken: 35% 32% 29% 26% 23% > 30% 27.5% 25% 22.5% 20%
+
+-Knight of Owner: Tsubame Gaeshi
+Cast time: 0.9 >> 0.7 
+
+-Attribute: Knight of the Lake
+Double Edge bonus attackspeed: 50% >> 150%
+
+Kiyohime
+-Dojoji Bell, Method 108 - Fire Dragon Mower
+Max Damage: 4000 >> 4500
+
+Angra Mainyu
+-Verg Avesta
+Max Range: 2500 >> 3500
+
+Muramasa
+-Kesi Giri
+Now stun 0.1s
+
+Ishtar
+-Maanna, the Boat of Heaven
+Dash Radius: 1500 >> 2000
+
+-Gem Bombard
+Delay: 0.7 >> 0.5
+
+-An Gal Ta Ki Gal Šè
+Base Speed: 2000 >> 3000
+
+Saitō Hajime
+-Mind's Eye (True) [D] 
+root/lock duration increased from 1.25 to 2.25
+constant movement speed increased from 300 to 450
+
+-Freely Drawn Sword [F] 
+damage loss duration increased from 8 to 8 9 10 11 12
+
+-Formless [R] 
+mana cost reduced from 800 to 600
+
+-Formlessness [R2] 
+now pierces spell immunity
+mana cost increased from 0 to 50
+last slash damage increased from 600 675 750 825 900 to 600 725 850 975 1100
+
+-Undefeatable Style [COMBO] 
+total damage increased from 1950 to 2250
+channel time improved from 1.8 to 1.6
+now has 7 damage instances instead of 1, meaning hitting with it will cause the damage reduction from F to max, hitting one or more enemies will recovering more hp/mana from F
+now has a 1 second stun/revoke at the end of freeze
+now pierces B Scroll
+linken proc increased from 6 to 8
+
+-Swords of Freedom [SA] 
+Flashblade [Q] turn rate duration increased from 2 to 3
+Steelwing [W] movement slow duration increased from 2 to 3
+Shadowslash [E] magic resist reduction duration increased from 2 to 3
+
+-Memoir [SA] 
+Snarksengumi proc chance increased from 15% to 17%
+
+-Freestyle [SA] 
+Freely Drawn Sword [F] bonus passive time interval increased from 0.4 to 0.8 **READ!!!**
+
+-Kijinmaru Kunishige [SA] 
+Formlessness [R2] bonus damage rate to revoked enemies and non-heroes units increased from 2x to 2.5x
+
+------------
+
+Fix HeroSelection
+Fix Holy Grail Drop not Cooldown
+
+Add Gift Code
+
+Code: ApoloCP2
+Reward: 3000 CP 
+Available date til 14/09/24
+
+----------
+
+Add [Normal] Coatless Hans
+Add [Legend] Shinjuku Artoria (Alter)
+Fix Draft mode skin
+Fix random new hero from picking same hero
+
+System
+Draft Mode
+-MVP kill MVP no longer end round
+-Add new Draw game (Holy Grail Drop Loot)
+
+Holy Grail Drop Loot
+-Reward: each player of team get 1 grail shard.
+-Holy Grail Drop location will random to center of 3 bridges
+-There is 30sec before Holy Grail Drop
+-Holy Grail drop will be choosen before MVP bounty
+-Holy Grail drop has 600s cooldown
+-Stay in zone(circle) until it reach 100%
+-More same team hero stay, faster its reach.
+-Opposite team join the zone will interrupt or overrun base on heroes inside the zone.
+
+------
+
+Add event banner
+fix dmc particle
+
+------
+
+Fix Tooltip ภาษาไทย, 한국어
+Add DMC skin: Vergil Nero Dante
+
+----------
+
+Fix Tooltip 中文
+
+-------
+
+Fixed double physic distance from W by recalculating the formula for distance, note: that higher pushes distance can still occur when too many variables are added to the physic calculation, but now should be minimized
+Fixed minor typos in Fatepedia & var stack on jce combo
+Distribute reward for event
+
+Final patch for musashi
+1. Fix musashi self-stun after using R
+2. Fix E can be used in the middle of combo DWR sequence
+3. Fix musashi cannot be executed when BC is active
+4. Fix musashi W bypass linken
+5. Fix musashi going to void realm with R
+6. Musashi mukyuu no longer have magic immune.
+7. Musashi R damage per slash decreased from 400 500 600 700 800 -> 250 350 450 550 650 
+
+---------
+
 Fix musashi self-stun after using R
 Fix musashi E can be used in the middle of combo DWR sequence
 Fix musashi cannot be executed when BC is active

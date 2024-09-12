@@ -99,8 +99,15 @@ SkinID
 	"096"		"npc_dota_hero_oracle_1"			// [Legend] Zettai Ryouiki Rin
 	"097"		"npc_dota_hero_sniper_1"			// [Normal] Capeless Robin
 	"098"		"npc_dota_hero_sniper_2"			// [Heroic] Casual Robin
-	"099"		"npc_dota_hero_sniper_3"			// [Limited] Ninja Robin
+	"099"		"npc_dota_hero_sniper_3"			// [Legend] Ninja Robin
 	"100"		"npc_dota_hero_beastmaster_3"		// [Legend] Super Karna
 	"101"		"npc_dota_hero_terrorblade_1"		// [Heroic] Suit Saito
 	"102"		"npc_dota_hero_vengefulspirit_2"	// [PEPE] Black PEPE
+	"103"		"npc_dota_hero_lina_5"				// [Myth] DMC Nero
+	"104"		"npc_dota_hero_night_stalker_2"		// [Myth] DMC Dante
+	"105"		"npc_dota_hero_terrorblade_2"		// [Myth] DMC Vergil
+	"106"		"npc_dota_hero_necrolyte_1"			// [Normal] No Coated Hans
+	"107"		"npc_dota_hero_spectre_4"			// [Legend] Shinjuku Artoria (Alter)
+	//"108"		"npc_dota_hero_phantom_assassin_1"	// [Limited] Overlord Albedo"
+	//"109"		"npc_dota_hero_tidehunter_2" 		// [Limited] Overlord Shaltear
 }

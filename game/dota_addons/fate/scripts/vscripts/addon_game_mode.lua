@@ -27,6 +27,8 @@ require('libraries/alternateparticle')
 require('modifiers/modifier_ttr')
 require('libraries/keyvalues')
 require('blink')
+require('wings_code')
+require('fate_loot_grail')
 require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
@@ -409,6 +411,16 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_vengefulspirit.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_night_stalker.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_nyx_assassin.vsndevts", context )
+                        --============ Wing ==============--           
+    PrecacheResource( "particle", "particles/heroes/saito/wings/clown_wings/clown_wings.vpcf", context )    
+    PrecacheResource( "particle", "particles/heroes/saito/wings/one_color_wings/one_color_wings.vpcf", context ) 
+    PrecacheResource( "particle", "particles/custom/generic/holy_grail_sky_edge2.vpcf", context )    
+    PrecacheResource( "particle", "particles/custom/generic/holy_grail_dummy.vpcf", context ) 
+    PrecacheResource( "particle", "particles/custom/generic/fate_loot_box_progress_left.vpcf", context )    
+    PrecacheResource( "particle", "particles/custom/generic/fate_loot_box_progress_right.vpcf", context ) 
+    PrecacheResource( "particle", "particles/custom/generic/fate_loot_box_base.vpcf", context ) 
+    PrecacheResource( "particle", "particles/custom/generic/fate_mvp_mark.vpcf", context ) 
+    PrecacheResource( "particle", "particles/custom/dmc/vergil/formless.vpcf", context )                   
 
         -- Items
     PrecacheItemByNameSync("item_apply_modifiers", context)
@@ -712,6 +724,10 @@ function FateGameMode:OnGameInProgress()
             self.nCurrentRound = 1
             self:InitializeRound() -- Start the game after forcing a pick for every player
             BLESSING_PERIOD = 600
+            if ServerTables:GetTableValue("GameMode", "mode") == "draft" then  
+                FateGrailLoot = Fate_Grail_Loot()
+                FateGrailLoot:StartTimer()
+            end
         elseif _G.GameMap == "fate_tutorial" then
             FIRST_BLESSING_PERIOD = 6000
             BLESSING_PERIOD = 600
@@ -1229,6 +1245,12 @@ function FateGameMode:OnPlayerChat(keys)
         end
     end
 
+    -- manually draw the round
+    if text == "-drawround" then
+        if Convars:GetBool("sv_cheats") then
+            self:FinishRound(true, 2)
+        end
+    end
 
     if text == "-tt" then
         if Convars:GetBool("sv_cheats") then
@@ -1649,7 +1671,7 @@ function FateGameMode:OnPlayerChat(keys)
     --================================================--
     -- NOTE: FOR ZEFI TO TESTING WINGS KEK
     --================================================--
-    if string.find(text, "-wings") then
+    --[[if string.find(text, "-wings") then
         if alvl == 5 then 
             local nWingsID = tonumber(string.match(text, "^-wings(%d+)"))
             if SteamIDInMartinList(playerid) and type(nWingsID) == "number" then
@@ -1674,7 +1696,7 @@ function FateGameMode:OnPlayerChat(keys)
                 end
             end
         end
-    end
+    end]]
 
     local ascension = string.match(text, "^-ascension")
     if ascension ~= nil then
@@ -2319,9 +2341,9 @@ function FateGameMode:OnHeroInGame(hero)
         CustomGameEventManager:Send_ServerToAllClients( "victory_condition_set", victoryConditionData ) -- Display victory condition for player
         --SendKVToFatepedia(player) -- send KV to fatepedia
 
-        --[[if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
+        if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
             self:DraftModeCon(hero)
-        end]] 
+        end 
 
         if hero:GetName() == "npc_dota_hero_troll_warlord" then
             Attachments:AttachProp(hero, "attach_gun2", "models/drake/drake_gun2.vmdl")
@@ -2653,7 +2675,7 @@ function FateGameMode:DraftModeCon(hero)
         hero:FindAbilityByName("dragon_servant_b"):SetLevel(1)
     end
 
-    if Selection == nil then 
+    --[[if Selection == nil then 
         Selection = DraftSelection()
     end
 
@@ -2667,7 +2689,7 @@ function FateGameMode:DraftModeCon(hero)
             hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + math.floor(math.min(30, Selection.RedMana) / Selection.PlayerTeam2Count))
             hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + math.floor(math.min(30, Selection.RedMana) / Selection.PlayerTeam2Count))
         end
-    end
+    end]]
 end
 
 function FateGameMode:CheckCondition()
@@ -3641,9 +3663,9 @@ function FateGameMode:OnEntityKilled( keys )
                     end
                     if EntIndexToHScript(ServerTables:GetTableValue("MVP", "team1")) == killedUnit then 
                         if EntIndexToHScript(ServerTables:GetTableValue("MVP", "team2")) == killerEntity then 
-                            GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
-                            GameRules:SendCustomMessage("<font color='#000000'>Black Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
-                            self:FinishRound(false, 1)
+                            --GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
+                            --GameRules:SendCustomMessage("<font color='#000000'>Black Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
+                            --self:FinishRound(false, 1)
                             self:rewardMVP(killerEntity:GetTeamNumber())
                         else
                             self:rewardMVP(killerEntity:GetTeamNumber())
@@ -3651,9 +3673,9 @@ function FateGameMode:OnEntityKilled( keys )
                         end
                     elseif EntIndexToHScript(ServerTables:GetTableValue("MVP", "team2")) == killedUnit then 
                         if EntIndexToHScript(ServerTables:GetTableValue("MVP", "team1")) == killerEntity then 
-                            GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
-                            GameRules:SendCustomMessage("<font color='#FF0000'>Red Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
-                            self:FinishRound(false, 0)
+                            --GameRules:SendCustomMessage("<font color='#00FF00'>" .. FindName(killerEntity:GetName()) .."</font> has slayed <font color='#FF0000'>" .. FindName(killedUnit:GetName()) .."</font> ", 0, 0)
+                            --GameRules:SendCustomMessage("<font color='#FF0000'>Red Faction</font> won the round and get <font color='#FFFF28'>+" .. reward_table.Reward .."</font> <font color='#FFFF28'>" .. reward_table.RewardType .. "</font>.", 0, 0)
+                            --self:FinishRound(false, 0)
                             self:rewardMVP(killerEntity:GetTeamNumber())
                         else
                             self:rewardMVP(killerEntity:GetTeamNumber())
@@ -4759,7 +4781,14 @@ function FateGameMode:InitializeRound()
 
     if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
         if self.nCurrentRound >= 6 and (self.nDireScore == self.nRadiantScore) then
-            self:startMVPMark()
+            if FateGrailLoot:IsGrailReady() then 
+                GameRules:SendCustomMessage("#Fate_Grail_Loot_Start", 0, 0)
+                Timers:CreateTimer(PRE_ROUND_DURATION, function()
+                    FateGrailLoot:StartGrailDrop()
+                end)
+            else
+                self:startMVPMark()
+            end
         end
     end
 
@@ -5562,12 +5591,12 @@ end
 --================================================--
 -- NOTE: FOR ZEFI TO TESTING WINGS KEK
 --================================================--
-_G.SteamIDInMartinList = function(nID)
+--[[_G.SteamIDInMartinList = function(nID)
     local tPlayersTable = {322802270} --Works as table too, for example in a KV file for that you have to create something like LoadKeyValues("path_to_your_kv_file")
     local nSteamID = PlayerResource:GetSteamAccountID(nID)
     for _, sID in pairs(tPlayersTable or {}) do
         if tonumber(sID) == nSteamID then return true end
     end
     return true
-end
+end]]
 --================================================--

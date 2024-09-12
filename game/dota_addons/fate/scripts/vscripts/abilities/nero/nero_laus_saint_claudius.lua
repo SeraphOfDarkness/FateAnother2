@@ -37,8 +37,13 @@ function nero_laus_saint_claudius:OnSpellStart()
 	local ability = self
 	local aestus = caster:FindAbilityByName("nero_aestus_domus_aurea")
 	local target_loc = target:GetAbsOrigin()
-
-	EmitGlobalSound("Nero_NP4")
+	
+	if caster:HasModifier("modifier_alternate_05") then 
+		EmitGlobalSound("Nero_BGM")
+		EmitGlobalSound("DMC_Nero_Combo")
+	else
+		EmitGlobalSound("Nero_NP4")
+	end
 	caster:EmitSound("Hero_LegionCommander.Duel.Victory")
 	--caster:SwapAbilities("nero_laus_saint_claudius", "nero_aestus_domus_aurea", false, true)
 

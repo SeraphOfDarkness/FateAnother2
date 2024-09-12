@@ -1,0 +1,28 @@
+"Wings"
+{
+	"players"
+	{
+		//DEV
+		"96116520"		"ascension random pepe custom remove"
+		"179419427"		"ascension random pepe custom remove"
+		"301222766"		"ascension random pepe custom remove"
+		"322802270"		"ascension random pepe custom remove"
+
+		//SPONSOR
+		"98361261"		"random pepe custom remove"	// Knowbless
+
+		//CAPTAIN
+		"67723765"		"random pepe custom remove"	// Jimmy
+		"919069943"		"ascension random custom remove"	// Sana
+		"129880666"		"ascension random custom remove"	// Vi
+
+		//PEPE
+		"196713066"		"pepe remove"	// Zyrake
+		"179194242"		"pepe remove"	// No2
+		"141743726"		"pepe remove"	// Mike
+
+		//NON-PEPE
+		"117795030"		"ascension remove"	// Tlen
+		"111781221"		"ascension remove"	// Huanmlet
+	}
+}

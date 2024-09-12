@@ -18,6 +18,7 @@ UniqueID
 		"owner"
 		{
 			"181266012"		"1" //Goeniko
+			"73508309"		"1" //Rinz-Sama
 			"96116520" 		"1"
 		}
 	}
@@ -28,6 +29,26 @@ UniqueID
 		"owner"
 		{
 			"238102534"		"1" //Rorax
+			"73508309"		"1" //Rinz-Sama
+			"140912356"		"1" //卫宫土狼
+			"96116520" 		"1"
+		}
+	}
+	"04" // Overlord Albedo"
+	{
+		"hero"			"npc_dota_hero_phantom_assassin"
+		"skin"			"1"
+		"owner"
+		{
+			"96116520" 		"1"
+		}
+	}
+	"05" // Overlord Shaltear"
+	{
+		"hero"			"npc_dota_hero_tidehunter"
+		"skin"			"2"
+		"owner"
+		{
 			"96116520" 		"1"
 		}
 	}

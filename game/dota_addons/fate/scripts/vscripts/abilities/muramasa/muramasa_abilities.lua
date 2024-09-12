@@ -142,8 +142,11 @@ function OnE(keys)
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(targets) do
 				if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			       	DoDamage(caster, v, damage + bonus_e_damage_passive , DAMAGE_TYPE_MAGICAL, 0, ability, false)	  
-					v:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun})
+					if not IsImmuneToCC(v) and not v:IsMagicImmune() then 
+						v:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun})
+					end
+			       	DoDamage(caster, v, damage + bonus_e_damage_passive , DAMAGE_TYPE_MAGICAL, 0, ability, false)	 
+
 		       	end
 		    end
 

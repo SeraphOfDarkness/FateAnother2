@@ -815,6 +815,7 @@
 			"stone"					"2"
 			"stone_arm"				"-30"
 			"stone_mr"				"-30"
+			"stone_cooldown"		"5"
 		}
 
 		"OnSpellStart"
@@ -860,6 +861,12 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_breaker_gorgon_stone_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Duration"			"%stone_cooldown"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
 			"modifier_belle_2_window"
 			{
@@ -1079,6 +1086,7 @@
 			"stone"					"2"
 			"stone_arm"				"-30"
 			"stone_mr"				"-30"
+			"stone_cooldown"		"5"
 		}
 
 		"OnSpellStart"

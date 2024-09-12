@@ -41,6 +41,7 @@
 	{
 		"99999999999"		"1"
 		"238102534"		"1" //Rorax
+		"140912356"		"1" //卫宫土狼
 	}
 	"npc_dota_hero_spectre_1" // Casual Dress Artoria(Alter)
 	{
@@ -57,6 +58,10 @@
 		"171622143"			"1" //Mafu
 	}
 	"npc_dota_hero_spectre_3" // Summer Artoria(Alter)
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_spectre_4" // Shinjuku Artoria(Alter)
 	{
 		"99999999999"		"1"
 	}
@@ -194,6 +199,10 @@
 		"767728007"			"1" //Fannie
 		"863517475"			"1" //Matthew
 	}
+	"npc_dota_hero_tidehunter_2" // [Limited] Overlord Shaltear
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_juggernaut_1" // Pepesaki
 	{
 		"99999999999"		"1"
@@ -283,6 +292,10 @@
 		"99999999999"		"1"
 		"39181514"			"1" // NISE
 	}
+	"npc_dota_hero_night_stalker_2"	// DMC Dante
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_naga_siren_1"	// Archer Card Illya
 	{
 		"99999999999"		"1"
@@ -309,6 +322,10 @@
 		"25975666"			"1" //Prick
 	}
 	"npc_dota_hero_lina_4" // Racing Nero
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_lina_5" // DMC Nero
 	{
 		"99999999999"		"1"
 	}
@@ -523,6 +540,18 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_terrorblade_1" // Suit Saito
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_terrorblade_2" // Vergil
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_necrolyte_1" // No Coated Hans
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_phantom_assassin_1" // [Limited] Overlord Albedo
 	{
 		"99999999999"		"1"
 	}

@@ -880,7 +880,9 @@ function AScroll(keys)
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { Duration = duration,
 																  MagicResistance = mres,
 																  Armor = 0,})
-	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	if ServerTables:GetTableValue("GameMode", "mode") ~= "draft" then  
+		caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	end
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
 end
 
@@ -908,6 +910,7 @@ function APlusScroll(keys)
 
 	caster:FateHeal(healing, caster, false)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
+	
 	if caster:HasModifier("modifier_a_scroll_sated") then
 		mres = mres * (1 - penalty)
 	end
@@ -915,7 +918,9 @@ function APlusScroll(keys)
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
 																  Armor = armor,
 																  Duration = duration })
-	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	if ServerTables:GetTableValue("GameMode", "mode") ~= "draft" then  
+		caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
+	end
 
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
 	caster:EmitSound("DOTA_Item.Mekansm.Activate")

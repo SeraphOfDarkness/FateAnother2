@@ -490,7 +490,7 @@ function OnDexStart(keys)
 
 	Timers:CreateTimer(0.5, function() 
 		if caster:IsAlive() then
-			if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_03") then  
+			if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then  
 				FreezeAnimation(caster)
 			end
 		end
@@ -533,7 +533,7 @@ function OnDexStart(keys)
 
 			projectile = ProjectileManager:CreateLinearProjectile(dex)
 			ScreenShake(caster:GetOrigin(), 7, 2.0, 2, 10000, 0, true)
-			if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_03") then  
+			if caster:HasModifier("modifier_alternate_01") or caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then  
 				UnfreezeAnimation(caster)
 			end
 			local beam = ParticleManager:CreateParticle("particles/custom/saber_alter/salter_exca_morgan_beam.vpcf", PATTACH_WORLDORIGIN, caster )

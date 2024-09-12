@@ -6,6 +6,7 @@ DraftSelectioN = DraftSelectioN or class({})
 
 function DraftSelectioN:constructor()
 
+	self.HIDtable = {}
 	self.AllHeroes = {}
 	self.AvailableHeroes = {}
 	self.UnAvailableHeroes = {}
@@ -47,10 +48,29 @@ function DraftSelectioN:constructor()
     self.UnAvailableHeroes = testList
     self.ContributeUnlock = LoadKeyValues("scripts/npc/contributeunlock.txt")
     self.Unique = LoadKeyValues("scripts/npc/unique.txt")
+    self.kiuok = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
+    self.kiuok2 = LoadKeyValues("scripts/npc/abilities/heroes/sketch.txt")
+    self.HeroUniqueSkin = {}
+    self.HiD = {}
+	self.SiD = {}
 	self.skinAccess = {}
 	self.skintier = {}
 	self.PAuthority = {}
 	self.Id = {}
+
+	for k,v in pairs (self.kiuok) do 
+		self.HiD[v] = k 
+		print(v,k)
+	end
+
+	for k,v in pairs (self.kiuok2) do 
+		self.SiD[v] = k 
+		print(v,k)
+	end
+
+	for k,v in pairs (self.Unique) do 
+    	self.HeroUniqueSkin[v.hero] = true
+    end
 
 	self.Draft = {
 		draft = "draft",
@@ -138,8 +158,8 @@ function DraftSelectioN:constructor()
 				   			end
 				   		end
 			    	end
-			    	SendChatToPanorama('Zefiroft is here')
-			    	CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Dev_Presence"} )
+			    	--SendChatToPanorama('Zefiroft is here')
+			    	--CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Dev_Presence"} )
 			    end)
 			end
 
@@ -153,6 +173,36 @@ function DraftSelectioN:constructor()
 			end
 		end
 	end
+
+	if ServerTables:GetTableValue("Dev", "zef") == true then 
+			self.devPresence = true
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Dev_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "pepe") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "sss") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_SSS_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "kagut") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Kagut_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "mod") == true then 
+			self.devPresence = true
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Mod_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("PEPE", "pepe") == true and ServerTables:GetTableValue("PEPE", "slayer") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Slayer"} )
+		end
+
+		if ServerTables:GetTableValue("PEPE", "pepe") == true and ServerTables:GetTableValue("PEPE", "savior") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Savior"} )
+		end
 
 	self.BanListener = CustomGameEventManager:RegisterListener("draft_hero_ban", function(id, ...)
 	    Dynamic_Wrap(self, "OnBan")(self, ...) 
@@ -378,18 +428,51 @@ function DraftSelectioN:OnBan(args)
 	end
 end
 
+function DraftSelectioN:IsSkinRevert(next_skin, max)
+	if next_skin == -1 or next_skin == max + 1 then 
+		return true 
+	end
+	return false 
+end
+
 function DraftSelectioN:OnSkin(args)
 	local playerId = args.playerId
     local hero = args.hero
     local skin = args.skin
+    local next_skin = args.next
+    local unique = false
 
-    if self.Unique["01"]["hero"] == hero then
-    	if self.Unique["01"]["owner"][tostring(PlayerResource:GetSteamAccountID(playerId))] then
-    		if (skin == 0 or skin == self.AvailableSkins[hero]) and self.SkinSelect[hero] ~= self.Unique["01"]["skin"] then 
-    			skin = self.Unique["01"]["skin"]
-    		end
-    	end
-    end
+    if self.HeroUniqueSkin[hero] and self:IsSkinRevert(skin + next_skin, self.AvailableSkins[hero]) then 
+    	--if (skin + next_skin == -1) or (skin + next_skin == self.AvailableSkins[hero] + 1) then
+	    	print('gonna trigger unique skin')
+		    for k,v in pairs (self.Unique) do 
+		    	local unique_skin = v.hero
+		    	if v.hero == hero then 
+		    		if v.owner[tostring(PlayerResource:GetSteamAccountID(playerId))] then
+		    			if (skin == 0 or skin == self.AvailableSkins[hero]) and self.SkinSelect[hero] ~= v.skin then 
+			    			skin = v.skin
+			    			unique = true
+			    			break
+			    		end
+			    	else
+			    		if skin + next_skin > self.AvailableSkins[hero] then 
+							skin = 0
+						else
+							skin = self.AvailableSkins[hero]
+						end
+			    	end
+			    end
+			end
+		--end
+	else
+		if skin + next_skin > self.AvailableSkins[hero] then 
+			skin = 0
+		elseif skin + next_skin < 0 then
+			skin = self.AvailableSkins[hero]
+		else
+			skin = skin + next_skin
+		end
+	end
 
     print('skin = ' .. skin)
 
@@ -399,7 +482,9 @@ function DraftSelectioN:OnSkin(args)
 
     local player = PlayerResource:GetPlayer(playerId)
 
-    local sID = GetSID(hero .. "_" .. skin)
+    if skin == 0 then return end
+
+    local sID = self:GetSID(hero .. "_" .. skin)
     --print(sID)
 
     if self.skinTier["LimitedSkin"][hero .. "_" .. skin] == 1 then 
@@ -478,7 +563,7 @@ function DraftSelectioN:GetSkin(pId, hero)
 	local sID = 0 
 
 	if PlayerTables:GetTableValue("database", "db", pId) == true and iupoasldm.jyiowe[pId].IFY ~= nil then 
-		hID = GetHID(hero)
+		hID = self:GetHID(hero)
 			--print(hID)
 			--print('data base get')
 			--print('default skin ' .. self.ddta[pId].IFY.HID[hID].DSK)
@@ -488,7 +573,7 @@ function DraftSelectioN:GetSkin(pId, hero)
 		else
 			if iupoasldm.jyiowe[pId].IFY.HID[hID].DSK > 0 then
 					--print('default skin check')
-				sID = GetSID(hero .. "_" .. iupoasldm.jyiowe[pId].IFY.HID[hID].DSK)
+				sID = self:GetSID(hero .. "_" .. iupoasldm.jyiowe[pId].IFY.HID[hID].DSK)
 					--print(self.ddta[pId].IFY.HID[hID].DSK)
 					--print(sID)
 				if sID == nil then
@@ -624,6 +709,7 @@ function DraftSelectioN:OnSelect(args)
 	    CustomNetTables:SetTableValue("draft", "available", self.AvailableHeroes)
 	    CustomNetTables:SetTableValue("draft", "pickedplayer", self.PickedPlayer)
 	end
+	self.HIDtable[playerId] = self:GetHID(hero)
 	self:OnSummon({playerId = playerId})
     self:NextSelect()
 end
@@ -748,6 +834,7 @@ function DraftSelectioN:OnRandom(args)
     CustomNetTables:SetTableValue("draft", "pickedplayer", self.PickedPlayer)
 
     print('hero random ' .. hero)
+    self.HIDtable[playerId] = self:GetHID(hero)
     self:OnSummon({playerId = playerId})
     self:NextSelect()
 end
@@ -820,12 +907,14 @@ function DraftSelectioN:OnSummonTimer()
 			end
 		end)
 	end		
+
+	ServerTables:CreateTable("HeroID", self.HIDtable)
 end
 
 function DraftSelectioN:LastCheckSkin(playerId, hero, skin)
 	local real_skin = 0
 	print('checking skin')
-	local sID = GetSID(hero .. "_" .. skin)
+	local sID = self:GetSID(hero .. "_" .. skin)
 
 	if IsEventSkin(sID) then 
 		real_skin = skin
@@ -892,7 +981,9 @@ function DraftSelectioN:OnSummon(args)
     	self.AvailableHeroes[hero] = nil
     	self.SkinSelect[hero] = 0
 		self.PickedPlayer[playerId] = playerId
+		self.HIDtable[playerId] = self:GetHID(hero)
 		ServerTables:SetTableValue("HeroSelection", playerId, hero, true)
+		ServerTables:SetTableValue("HeroID", playerId, self:GetHID(hero), true)
     end
 
     SendChatToPanorama('Player ' .. playerId .. ' : Summon ritual Servant ' .. hero .. ' has started.')
@@ -1017,4 +1108,29 @@ function DraftSelectioN:AssignHero(playerId, hero, skin)
 				end})]]
 			end
         end
+end
+
+function DraftSelectioN:GetHID(hero)
+	local hid = self.HiD[hero]
+	print('Hero Id: ' .. hid)
+	return hid
+	--[[local kiuok = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
+	for k,v in pairs (kiuok) do 
+		if v == hero then 
+			return k
+		end
+	end  ]]
+end
+
+function DraftSelectioN:GetSID(skin)
+	local sid = self.SiD[skin] or 0
+	print('Skin Id: ' .. sid)
+	return sid
+	--[[local kiuok = LoadKeyValues("scripts/npc/abilities/heroes/sketch.txt")
+	for k,v in pairs (kiuok) do 
+		if v == skin then 
+			print(v)
+			return k
+		end
+	end  ]]
 end

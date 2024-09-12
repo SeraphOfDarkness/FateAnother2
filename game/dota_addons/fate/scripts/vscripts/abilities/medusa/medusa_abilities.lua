@@ -309,7 +309,10 @@ function OnBGStart(keys)
 		if caster.IsMysticEyeImproved then
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_upgrade", {}) 
 			if v:HasModifier("modifier_mystic_eye_enemy_active") then 
-				ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_stone", {}) 
+				if not v:HasModifier("modifier_breaker_gorgon_stone_cooldown") then
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_stone", {}) 
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon_stone_cooldown", {}) 
+				end
 			end
 		else
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_breaker_gorgon", {}) 
