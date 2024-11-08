@@ -161,7 +161,7 @@
 		"AbilityValues"
         {
             "fire_dps" "40 45 50 55 60"
-            "debuff_duration" "3.0"
+            "debuff_duration" "2.0"
         }
 
 		"OnSpellStart"
@@ -232,9 +232,9 @@
 		"AbilityValues"
         {
             "fire_dps" "40 45 50 55 60"
-            "debuff_duration" "3.0"
-            "fire_stun" "1.0"
-            "fire_stun_damage" "50"
+            "debuff_duration" "2.0"
+            "fire_stun" "0"
+            "fire_stun_damage" "200"
             "spirit_consume" "6"
             "bonus_damage_per_stack" "40"
         }
@@ -379,6 +379,7 @@
         {
             "slow_perc" "-50 -55 -60 -65 -70"
             "ice_freeze" "1.0"
+            "ice_heal_red" "30"
             "debuff_duration" "5.0"
             "spirit_consume" "6"
             "bonus_damage_per_stack" "40"
@@ -604,7 +605,7 @@
 		
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"8 8 7 7 6"
@@ -615,6 +616,7 @@
 		"AbilityValues"
         {
             "delay" "0.2"
+            "range" "600 700 800 900 1000"
             "mr_reduction" "-10 -12.5 -15 -17.5 -20"
             "duration" "2.0"
         }
@@ -706,7 +708,7 @@
 		
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"8 8 7 7 6"
@@ -717,6 +719,7 @@
 		"AbilityValues"
         {
             "delay" "0.2"
+            "range" "600 700 800 900 1000"
             "mr_reduction" "-10 -12.5 -15 -17.5 -20"
             "duration" "2.0"
             "revoke" "1.5"
@@ -1215,7 +1218,7 @@
             "radius" "1000"
             "mana_regen" "4.0 5.0 6.0 7.0 8.0"
             "movespeed_modifier" "8 16 24 32 40"
-            "heal_amount" "300"
+            "heal_amount" "200"
             "mana_amount" "200"
             "duration" "6 7 8 9 10"
             "mana_regen_enemy" "-4 -5 -6 -7 -8"
@@ -1405,14 +1408,14 @@
             "radius" "1000"
             "mana_regen" "4.0 5.0 6.0 7.0 8.0"
             "movespeed_modifier" "8 16 24 32 40"
-            "heal_amount" "300"
+            "heal_amount" "200"
             "mana_amount" "200"
             "duration" "6 7 8 9 10"
             "mana_regen_enemy" "-4 -5 -6 -7 -8"
             "movespeed_modifier_enemy" "-8 -16 -24 -32 -40"
-            "instant_heal" "30"
-            "cooldown_reduction" "20"
-            "silence" "1.5"
+            "instant_heal" "20"
+            "cooldown_reduction" "12"
+            "silence" "0.2 0.4 0.6 0.8 1.0"
         }
 		
 		"OnSpellStart"
@@ -2138,9 +2141,10 @@
 		"AbilityValues"
         {
             "cooldown" "15"
-            "fire_stun" "1.0"
-            "fire_stun_damage" "50"
+            "fire_stun" "0"
+            "fire_stun_damage" "200"
             "ice_freeze" "1.0"
+            "ice_heal_red" "30"
             "wind_disarm" "0.5"
             "spirit_consume" "6"
             "magic_resist" "-1"
@@ -2177,10 +2181,10 @@
 
 		"AbilityValues"
         {
-            "silence_duration" "1.5"
+            "silence_duration" "0.2 0.4 0.6 0.8 1.0"
             "slow_amount" "-8 -16 -24 -32 -40"
-            "heal_amount" "30"
-            "cooldown" "20"
+            "heal_amount" "20"
+            "cooldown" "12"
         }
 		"OnSpellStart"
 		{

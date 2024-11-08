@@ -247,6 +247,25 @@ function iupoasldm:ngk1125(pId)
 	hData.IFY.GCA = {}
 	hData.IFY.ISTM = false
 	hData.IFY.ISD = false
+	--[[hData.IFY.CFG = {
+		CAM = 1600,
+		BGM = 100,
+		C01 = false,
+		C02 = false,
+		C03 = false,
+		C04 = false,
+		C05 = false,
+		C06 = false,
+		C07 = false,
+		C08 = false,
+		C09 = false,
+		C10 = false,
+		C11 = false,
+		C12 = false,
+		C13 = false,
+		C14 = false,
+		C15 = false,
+	}]]
 	hData.STT.MRT = 1000
 	hData.MHA.HID = {}
 	hData.CIBV.skcid = {}
@@ -410,7 +429,7 @@ function iupoasldm:checkupdate(pId)
 		local today = GetSystemDate()
 		local lasdfi = tostring(self.jyiowe[pId].LD.LST)
 		print('player ' .. pId .. ' is banned')
-		if today ~= lasdfi then 
+		--[[if today ~= lasdfi then
 			print('player ' .. pId .. ' is unbanned')
 			if self.jyiowe[pId].IFY.PMD > 0 then 
 				self.jyiowe[pId].IFY.PM = -3
@@ -418,8 +437,30 @@ function iupoasldm:checkupdate(pId)
 				self.jyiowe[pId].IFY.PM = 0 
 			end
 			--SendChatToPanorama('Player ' .. pId .. ': is unbanned.')
-		end
+		end]]
 	end
+
+	--[[if self.jyiowe[pId].IFY.CFG == nil then
+		self.jyiowe[pId].IFY.CFG = {
+			CAM = 1600,
+			BGM = 100,
+			C01 = false,
+			C02 = false,
+			C03 = false,
+			C04 = false,
+			C05 = false,
+			C06 = false,
+			C07 = false,
+			C08 = false,
+			C09 = false,
+			C10 = false,
+			C11 = false,
+			C12 = false,
+			C13 = false,
+			C14 = false,
+			C15 = false,
+		}
+	end]]
 
 	if self.jyiowe[pId].STT.gmy == nil then 
 		self.jyiowe[pId].STT.gmy = {

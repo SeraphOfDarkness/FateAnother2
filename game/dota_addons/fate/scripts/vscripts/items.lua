@@ -264,6 +264,7 @@ function TransferItem(keys)
 	--PrintTable(stash_item)
 	-- If item is found, remove it from stash and add it to hero
 	if stash_item ~= nil and space_item ~= nil then
+		print('transfer item')
 		--[[If hero has empty inventory slot, move item to hero
 		local hero_item = hero:GetItemInSlot(i)
 		for i=0, 5 do

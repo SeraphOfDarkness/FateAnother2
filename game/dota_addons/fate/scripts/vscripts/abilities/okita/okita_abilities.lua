@@ -1049,7 +1049,11 @@ function OnSandanzukiDash(keys)
 			caster:SwapAbilities("okita_sandanzuki_charge2", "okita_sandanzuki_charge3", false, true)
 		end
 	elseif ability:GetAbilityName() == "okita_sandanzuki_charge3" or ability:GetAbilityName() == "okita_sandanzuki_charge3_upgrade" then
-		EmitGlobalSound("Okita.Mumyo")
+		if caster:HasModifier("modifier_alternate_03") then
+			EmitGlobalSound("Okita_Jet")
+		else
+			EmitGlobalSound("Okita.Mumyo")
+		end
 		local mumyo = 
 		{
 			Ability = ability,
@@ -1152,7 +1156,11 @@ function OnSandanzukiHit(keys)
         ParticleManager:SetParticleControl(particle, 3, slash_loc + Vector(0,0,100))
     end)
     Timers:CreateTimer(delay_duration, function()
-        EmitGlobalSound("Okita.Sandanzuki")
+    	if caster:HasModifier("modifier_alternate_03") then
+        	EmitGlobalSound("Okita_Jet_Sandanzuki")
+        else
+        	EmitGlobalSound("Okita.Sandanzuki")
+        end
         local slash1 = ParticleManager:CreateParticle("particles/custom/okita/okita_sandan_end.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:SetParticleControl(slash1, 1, target:GetAbsOrigin() + Vector(-50,0,120))
 
@@ -1318,6 +1326,8 @@ function OnZekkenStart (keys)
     origindummy:SetNightTimeVisionRange(0)]]
     if caster:HasModifier("modifier_alternate_02") then 
 		EmitGlobalSound("OkitaAlter.Precombo")
+	elseif caster:HasModifier("modifier_alternate_03") then 
+		EmitGlobalSound("Okita_Jet_Precombo")
 	else
 		EmitGlobalSound("Okita.Precombo")
 	end
@@ -1476,6 +1486,8 @@ function OnZekkenStart (keys)
 						    		if not unit.ZekkenSound then 
 						    			if unit:HasModifier("modifier_alternate_02") then 
 						    				EmitGlobalSound("Okita.Zekken" .. RandomInt(1, 3))
+						    			elseif unit:HasModifier("modifier_alternate_03") then 
+						    				EmitGlobalSound("Okita_Jet_Zekken")
 						    			else
 							    			EmitGlobalSound("Okita.Zekken1") 
 							    		end

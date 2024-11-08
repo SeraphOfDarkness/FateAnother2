@@ -1,6 +1,6 @@
 
 
-function Alternate01Create (keys)
+--[[function Alternate01Create (keys)
 	local caster = keys.caster 
 	print('skin 01 add')
 	if caster:GetName() == "npc_dota_hero_skywrath_mage" then 	
@@ -1002,6 +1002,10 @@ function Alternate07Create (keys)
 	if caster:GetName() == "npc_dota_hero_enchantress" then 	
 		caster:SetModel("models/tamamo/summer/tamamo_summer_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/summer/tamamo_summer_by_zefiroft.vmdl")
+		caster:SetModelScale(1.0) 
+	elseif caster:GetName() == "npc_dota_hero_legion_commander" then 	
+		caster:SetModel("models/artoria/castoria/castoria_by_zefiroft.vmdl")
+		caster:SetOriginalModel("models/artoria/castoria/castoria_by_zefiroft.vmdl")
 		caster:SetModelScale(1.0)
 	end
 end
@@ -1012,8 +1016,12 @@ function Alternate07Destroy (keys)
 		caster:SetModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
 		caster:SetOriginalModel("models/tamamo/default/tamamo_by_zefiroft.vmdl")
 		caster:SetModelScale(1.0)
+	elseif caster:GetName() == "npc_dota_hero_legion_commander" then 	
+		caster:SetModel("models/saber/saber.vmdl")
+		caster:SetOriginalModel("models/saber/saber.vmdl")
+		caster:SetModelScale(1.15)
 	end
-end
+end]]
 
 
 

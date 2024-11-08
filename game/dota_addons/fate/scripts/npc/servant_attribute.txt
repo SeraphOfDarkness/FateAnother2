@@ -92,12 +92,12 @@ ServantAttribute
 	}
 	"npc_dota_hero_phantom_lancer"		
 	{
-		"SA1"	"lancer_attribute_improve_battle_continuation"
-		"SA2"	"lancer_attribute_protection_from_arrows"
-		"SA3"	"lancer_attribute_death_flight"
-		"SA4"	"lancer_attribute_the_heartseeker"
-		"SA5"	"lancer_attribute_celtic_runes"
-		"SCombo"	"lancer_wesen_gae_bolg"
+		"SA1"	"cu_attribute_improve_battle_continuation"
+		"SA2"	"cu_attribute_protection_from_arrows"
+		"SA3"	"cu_attribute_death_flight"
+		"SA4"	"cu_attribute_the_heartseeker"
+		"SA5"	"cu_attribute_celtic_runes"
+		"SCombo"	"cu_chulain_gae_bolg_combo"
 	}		
 	"npc_dota_hero_huskar"				
 	{
@@ -458,5 +458,14 @@ ServantAttribute
 		"SA4"	"saito_attribute_freestyle"
 		"SA5"	"saito_attribute_kunishige"
 		"SCombo"	"saito_jce"
+	}
+	"npc_dota_hero_slark"
+	{
+		"SA1"	"mhx_sa2"
+		"SA2"	"mhx_sa3"
+		"SA3"	"mhx_sa1"
+		"SA4"	"mhx_sa4"
+		"SA5"	"fate_empty1"
+		"SCombo"	"mhx_combo"
 	}
 }

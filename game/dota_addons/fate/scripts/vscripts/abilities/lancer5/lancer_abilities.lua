@@ -13,7 +13,11 @@ function CuTakeDamage(keys)
 
 		if not caster:HasModifier("modifier_cu_battle_continuation_active") then
 			HardCleanse(caster)
-			caster:EmitSound("Cu_Battlecont")
+			if caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+				caster:EmitSound("Yukina_BC")
+			else
+				caster:EmitSound("Cu_Battlecont")
+			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_cu_battle_continuation_active", {})
 			local reviveFx = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControl(reviveFx, 3, caster:GetAbsOrigin())
@@ -360,7 +364,12 @@ function OnRelentlessSpearStart(keys)
 	local target = keys.target
 	local duration = ability:GetSpecialValueFor("duration")
 	ability.target = target
-	caster:EmitSound("cu_skill_" .. math.random(1,4))
+	if caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+		caster:EmitSound("Yukina_W") 
+		StartAnimation(caster, {duration=1.05, activity=ACT_DOTA_CAST_ABILITY_2 , rate=1.0})
+	else
+		caster:EmitSound("cu_skill_" .. math.random(1,4))
+	end
 	CuCheckCombo(caster,ability)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_relentless_spear", {})
 	--[[StartAnimation(caster, {duration=duration * 2 / 7, activity=ACT_DOTA_CAST_ABILITY_3_END , rate=1.0})
@@ -402,6 +411,8 @@ function OnRelentlessSpearAttack(keys)
 
 		if caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") then 
 			StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_ATTACK_EVENT_BASH , rate=2.5})
+		elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+
 		elseif caster:HasModifier("modifier_alternate_01") then 
 			StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_ATTACK2 , rate=2.5})
 		else
@@ -436,6 +447,8 @@ function GBAttachEffect(keys)
 	if string.match(keys.ability:GetAbilityName(), "lancer_gae_bolg") then
 		if caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") then 
 			EmitGlobalSound("Rin-Lancer.Gae")
+		elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+			EmitGlobalSound("Yukina_E")
 		else
 			EmitGlobalSound("Lancer.GaeBolg")
 		end
@@ -457,6 +470,8 @@ function OnGBTargetHit(keys)
     ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
     if caster:HasModifier("modifier_alternate_02") then 
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=1})
+	elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT , rate=1.0})
 	else
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3})
 	end
@@ -553,6 +568,8 @@ function OnCuGBAOEStart(keys)
 
 	if caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_03") then 
 		EmitGlobalSound("Rin-Lancer.Gae")
+	elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+		EmitGlobalSound("Yukina_R")
 	else
 		EmitGlobalSound("lancer_gae_bolg_2")
 	end
@@ -565,6 +582,12 @@ function OnCuGBAOEStart(keys)
 		giveUnitDataDrivenModifier(caster, caster, "jump_pause_postlock", 0.2)
 	end)
 
+	Timers:CreateTimer(0.65, function()
+		if caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then
+			EmitGlobalSound("Yukina_Sekkaro")
+		end 
+	end)
+
 	Timers:CreateTimer('gb_throw' .. caster:GetPlayerOwnerID(), {
 		endTime = 0.35,
 		callback = function()
@@ -572,12 +595,16 @@ function OnCuGBAOEStart(keys)
 		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
 
 		local particle_name = "particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"
+		if caster:HasModifier("modifier_alternate_04") then 
+			particle_name = "particles/custom/lancer/lancer_white_gae_bolg_projectile.vpcf"
+		end
 		local throw_particle = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(throw_particle, 0, projectileOrigin)
 		ParticleManager:SetParticleControl(throw_particle, 1, (targetPoint - projectileOrigin):Normalized() * projectileSpeed)
 		ParticleManager:SetParticleControl(throw_particle, 9, projectileOrigin)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_self_disarm", {})
+		
 
 		local travelTime = (targetPoint - projectileOrigin):Length() / projectileSpeed
 		Timers:CreateTimer(travelTime, function()
@@ -701,6 +728,8 @@ function OnGBComboHit(keys)
 		if caster:IsAlive() then
 			if caster:HasModifier("modifier_alternate_02") then 
 				StartAnimation(caster, {duration=3, activity=ACT_DOTA_ATTACK_EVENT, rate=1})
+			elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+				StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
 			else
 				StartAnimation(caster, {duration=3, activity=ACT_DOTA_ATTACK, rate=3})
 			end
@@ -708,12 +737,18 @@ function OnGBComboHit(keys)
 	end)
 	local soundQueue = math.random(1,4)
 
-	if soundQueue ~= 4 then
-		caster:EmitSound("Cu_Combo_" .. soundQueue)
-		target:EmitSound("Cu_Combo_" .. soundQueue)
+	if caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+		caster:EmitSound("Yukina_Combo")
+		target:EmitSound("Yukina_Combo")
+		EmitGlobalSound("Yukina_BGM")
 	else
-		caster:EmitSound("Lancer.Heartbreak")
-		target:EmitSound("Lancer.Heartbreak")
+		if soundQueue ~= 4 then
+			caster:EmitSound("Cu_Combo_" .. soundQueue)
+			target:EmitSound("Cu_Combo_" .. soundQueue)
+		else
+			caster:EmitSound("Lancer.Heartbreak")
+			target:EmitSound("Lancer.Heartbreak")
+		end
 	end
 	if caster.IsHeartSeekerAcquired then
 		caster:FindAbilityByName("lancer_gae_bolg_upgrade"):StartCooldown(caster:FindAbilityByName("lancer_gae_bolg_upgrade"):GetCooldown(caster:FindAbilityByName("lancer_gae_bolg_upgrade"):GetLevel()))
@@ -766,11 +801,13 @@ function OnGBComboHit(keys)
 			        	target:EmitSound("Hero_Lion.Impale")
 			        	if caster:HasModifier("modifier_alternate_02") then 
 							StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=1})
+						elseif caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+							StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT, rate=1})
 						else
 			        		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=2})
 			        	end
 
-						ApplyStrongDispel(target)
+						--ApplyStrongDispel(target)
 
 						giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
 

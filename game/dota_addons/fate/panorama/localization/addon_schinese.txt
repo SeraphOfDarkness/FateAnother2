@@ -289,7 +289,7 @@
         "FA_Options_tooltip"                            "Fate设置"
 
         "ABOUT_DEV"                                     "命运/另类II"
-        "ABOUT_DEV_BODY"                                "目前制作人员: ZeFiRoFT, Nerd, Seraph, Kagutsuchi"
+        "ABOUT_DEV_BODY"                                "目前制作人员: ZeFiRoFT, Nerd, Kagutsuchi"
         "ABOUT_CREDITS"                                 "鸣谢名单"
 
         "ABOUT_CREDITS_BODY"

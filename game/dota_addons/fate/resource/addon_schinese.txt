@@ -2658,7 +2658,7 @@
 		"DOTA_Tooltip_Ability_gilgamesh_max_enuma_elish_upgrade_Note0"			"Gilgamesh is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font> from Master until he finishes casting."
 
 		"DOTA_Tooltip_Ability_gilgamesh_combo_final_hour"				"<font color='#FF04EF'>连击技能: 最后时刻</font>"	
-		"DOTA_Tooltip_ability_gilgamesh_combo_final_hour_Description"	"<font color='#FF04EF'>施放条件 : 25 全属性</font> 和 <font color='#9FFFCC'>属性: 苏美尔之力</font>\n<font color='#FF04EF'>技能顺序 : 四秒内E - Q -> F </font>\吉尔伽美什对目标使用 <font color='#58ACFA'>天之锁</font>, 短时间内使目标<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>. 之后使用<font color='#58ACFA'>王之财宝</font> 攻击目标. \n 吉尔伽美什在释放完成前 <font color='#FFFF28'>无敌</font>且 <font color='#FFFF28'>无法选中</font> . \n 和 <font color='#FF04EF'>最大出力 天地乖离开辟之星</font>共享冷却."
+		"DOTA_Tooltip_ability_gilgamesh_combo_final_hour_Description"	"<font color='#FF04EF'>施放条件 : 25 全属性</font> 和 <font color='#9FFFCC'>属性: 苏美尔之力</font>\n<font color='#FF04EF'>技能顺序 : 四秒内E - Q -> D </font>\吉尔伽美什对目标使用 <font color='#58ACFA'>天之锁</font>, 短时间内使目标<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>. 之后使用<font color='#58ACFA'>王之财宝</font> 攻击目标. \n 吉尔伽美什在释放完成前 <font color='#FFFF28'>无敌</font>且 <font color='#FFFF28'>无法选中</font> . \n 和 <font color='#FF04EF'>最大出力 天地乖离开辟之星</font>共享冷却."
 		"DOTA_Tooltip_ability_gilgamesh_combo_final_hour_Lore"			"Let us head towards the climax!."	
 		"DOTA_Tooltip_ability_gilgamesh_combo_final_hour_Note0"			"Cannot be reset."
 		"DOTA_Tooltip_ability_gilgamesh_combo_final_hour_Note1"			"This ability shares cooldown with <font color='#FF04EF'>Combo: The Star of Creation That Split Heaven and Earth</font>."	
@@ -2700,7 +2700,7 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%额外金钱:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"<font color='#9FFFCC'>属性: 苏美尔之力</font>"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"激活 <font color='#FFB266'>王之财宝 开启/关闭</font>. \n<font color='#FFB266'>王之财宝 开启/关闭</font>: 开启或禁用<font color='#58ACFA'>王之财宝</font>. \n<font color='#58ACFA'>王之财宝</font>: 王之财宝将跟随吉尔伽美什移动，并根据他的攻击力造成额外伤害. \n<font color='#9FFFFF'>破灭的黎明</font>: 增加剑的数量, 并且可以选择目标。减少单把剑的伤害 \n激活 <font color='#FF04EF'>连击技能: 最后时刻</font> \n<font color='#FF04EF'>最后时刻: 使用要求 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 :四秒内 E - Q -> F </font> \n吉尔伽美什对目标使用 <font color='#58ACFA'>天之锁</font>, 短时间内使目标<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>. 之后使用<font color='#58ACFA'>王之财宝</font> 攻击目标."
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"激活 <font color='#FFB266'>王之财宝 开启/关闭</font>. \n<font color='#FFB266'>王之财宝 开启/关闭</font>: 开启或禁用<font color='#58ACFA'>王之财宝</font>. \n<font color='#58ACFA'>王之财宝</font>: 王之财宝将跟随吉尔伽美什移动，并根据他的攻击力造成额外伤害. \n<font color='#9FFFFF'>破灭的黎明</font>: 增加剑的数量, 并且可以选择目标。减少单把剑的伤害 \n激活 <font color='#FF04EF'>连击技能: 最后时刻</font> \n<font color='#FF04EF'>最后时刻: 使用要求 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 :四秒内 E - Q -> D </font> \n吉尔伽美什对目标使用 <font color='#58ACFA'>天之锁</font>, 短时间内使目标<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>. 之后使用<font color='#58ACFA'>王之财宝</font> 攻击目标."
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_atk_ratio"		"每点攻击力加成王之财宝伤害:"
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_gram_dmg"		"破灭的黎明伤害:"
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_bonus_gram"	"破灭的黎明额外剑数量:"

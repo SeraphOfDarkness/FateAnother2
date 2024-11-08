@@ -17,12 +17,14 @@ modifier_tamamo_fire_debuff = class({})
 modifier_tamamo_ice_debuff = class({})
 modifier_tamamo_wind_debuff = class({})
 modifier_tamamo_wind_particle = class({})
+modifier_tamamo_heal_debuff = class({})
 
 LinkLuaModifier("modifier_soulstream_buff", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_fire_debuff", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_ice_debuff", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_wind_debuff", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_wind_particle", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tamamo_heal_debuff", "abilities/tamamo/tamamo_soulstream", LUA_MODIFIER_MOTION_NONE)
 
 function tamamo_soulstream_wrapper(ability)
 	function ability:GetCastRange(vLocation, hTarget)
@@ -533,12 +535,12 @@ if IsServer() then
 		if hCaster.IsWitchcraftAcquired then 
 			fDamage = fDamage * self:GetStackCount() 
 			if self:GetStackCount() > self:GetAbility():GetSpecialValueFor("spirit_consume") then 
-				local stun = self:GetAbility():GetSpecialValueFor("fire_stun")
+				--local stun = self:GetAbility():GetSpecialValueFor("fire_stun")
 				local fire_stun_damage = self:GetAbility():GetSpecialValueFor("fire_stun_damage")
 				local hTarget = self:GetParent()
-				if not IsImmuneToCC(hTarget) then
+				--[[if not IsImmuneToCC(hTarget) then
 					hTarget:AddNewModifier(hCaster, self:GetAbility(), "modifier_stunned", {Duration = stun})
-				end
+				end]]
 
 				self:SetStackCount(self:GetStackCount() - self:GetAbility():GetSpecialValueFor("spirit_consume"))
 
@@ -605,6 +607,7 @@ if IsServer() then
 				if not IsImmuneToCC(hTarget) then
 					giveUnitDataDrivenModifier(hCaster, hTarget, "freezed", ice_freeze)
 				end
+				hTarget:AddNewModifier(hCaster, self:GetAbility(), "modifier_tamamo_heal_debuff", {Duration = ice_freeze})
 				hTarget:EmitSound("Hero_Invoker.ColdSnap.Freeze")
 				self:SetStackCount(self:GetStackCount() - self:GetAbility():GetSpecialValueFor("spirit_consume"))
 			end
@@ -633,6 +636,19 @@ end
 
 function modifier_tamamo_ice_debuff:GetTexture()
 	return "custom/tamamo_frigid_heaven"
+end
+
+function modifier_tamamo_heal_debuff:IsHidden() return false end
+function modifier_tamamo_heal_debuff:IsDebuff() return true end
+function modifier_tamamo_heal_debuff:IsPurgable() return false end
+function modifier_tamamo_heal_debuff:RemoveOnDeath() return true end
+function modifier_tamamo_heal_debuff:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_tamamo_heal_debuff:OnCreated(args)
+	local stack = self:GetAbility():GetSpecialValueFor("ice_heal_red")
+	self:SetStackCount(stack)
 end
 
 --Wind Charm Debuff

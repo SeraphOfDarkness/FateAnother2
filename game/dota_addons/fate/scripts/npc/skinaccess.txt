@@ -72,6 +72,8 @@
 		"npc_dota_hero_zuus_1"				"1" // Gladiator Fran
 		"npc_dota_hero_sniper_2"			"1" // [Heroic] casual Robin
 		"npc_dota_hero_terrorblade_1"		"1" // [Heroic] Suit Saito
+		"npc_dota_hero_dragon_knight_1"		"1" // [Heroic] Unarmor Mashu
+		"npc_dota_hero_slark_1"				"1" // [Heroic] Caped MHX
 	}
 
 	"UltimateSkin"
@@ -114,6 +116,9 @@
 		"npc_dota_hero_night_stalker_2"		"1" // [Myth] DMC Dante
 		"npc_dota_hero_terrorblade_2"		"1" // [Myth] DMC Vergil
 		"npc_dota_hero_spectre_4"			"1" // [Legend] Shinjuku Artoria (Alter)
+		"npc_dota_hero_dark_willow_3"		"1" // [Legend] Okita Jetpack
+		"npc_dota_hero_juggernaut_2"		"1" // [MEME] Samurai Doge
+		"npc_dota_hero_naga_siren_2"		"1" // [Legend] Wedding Kuro
 	}
 	"LimitedSkin"
 	{
@@ -128,5 +133,12 @@
 		"npc_dota_hero_vengefulspirit_2"	"1" // [PEPE] Black Pepe
 		"npc_dota_hero_phantom_assassin_1"	"1" // [Limited] Overlord Albedo
 		"npc_dota_hero_tidehunter_2" 		"1" // [Limited] Overlord Shaltear
+		"npc_dota_hero_legion_commander_7"	"1" // [Limited] Castoria
+		"npc_dota_hero_juggernaut_3"		"1" // [Limited] Ikki
+		"npc_dota_hero_bloodseeker_5"		"1" // [Limited] Saitama
+		"npc_dota_hero_sven_3"				"1" // [Limited] Shu
+		"npc_dota_hero_phantom_lancer_4"	"1" // [Limited] Yukina
+		"npc_dota_hero_phantom_lancer_5"	"1" // [Limited] Dress Yukina
+		"npc_dota_hero_sven_4"				"1" // [Limited] Mélusine
 	}
 }

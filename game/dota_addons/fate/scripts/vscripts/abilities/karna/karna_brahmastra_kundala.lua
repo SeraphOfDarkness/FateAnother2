@@ -61,13 +61,20 @@ function karna_brahmastra_kundala_wrapper(ability)
 		    end
 
 	        local particle = ParticleManager:CreateParticle("particles/custom/karna/brahmastra_kundala/brahmastra_kundala_explosion_beam.vpcf", PATTACH_WORLDORIGIN, caster)
-			ParticleManager:SetParticleControl(particle, 0, target_point + Vector(0,0,100)) 
+			ParticleManager:SetParticleControl(particle, 0, target_point + Vector(0,0,50)) 
+
+			local particle2 = ParticleManager:CreateParticle("particles/econ/items/huskar/huskar_2022_immortal/huskar_2022_immortal_life_break_gold.vpcf", PATTACH_WORLDORIGIN, caster)
+			ParticleManager:SetParticleControl(particle2, 0, target_point + Vector(0,0,50)) 
+			ParticleManager:SetParticleControl(particle2, 1, target_point + Vector(0,0,50)) 
+			
 
 			EmitGlobalSound("karna_brahmastra_kundala_explosion")
 
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(particle, false)
 				ParticleManager:ReleaseParticleIndex(particle)
+				ParticleManager:DestroyParticle(particle2, false)
+				ParticleManager:ReleaseParticleIndex(particle2)
 				ParticleManager:DestroyParticle(target_ray, false)
 				ParticleManager:ReleaseParticleIndex(target_ray)
 				ParticleManager:DestroyParticle(throw_particle, false)

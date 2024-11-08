@@ -1938,8 +1938,8 @@
 		"AbilityValues"
         {
             "duration" "6 7 8 9 10"
-            "bonus_atk" "20 25 30 35 40"
-            "bonus_aspd" "20 25 30 35 40"
+            "bonus_atk" "10 15 20 25 30"
+            "bonus_aspd" "10 15 20 25 30"
         }
 		"OnAbilityPhaseStart"
 		{
@@ -2015,10 +2015,10 @@
         {
             "aoe" "200"
             "duration" "6 7 8 9 10"
-            "bonus_atk" "30 35 40 45 50"
-            "bonus_aspd" "30 35 40 45 50"
-            "crit_rate" "25"
-            "crit_dmg" "150"
+            "bonus_atk" "20 25 30 35 40"
+            "bonus_aspd" "20 25 30 35 40"
+            "crit_rate" "20"
+            "crit_dmg" "130"
             "spell_amp" "15"
         }
 		"OnAbilityPhaseStart"
@@ -2450,8 +2450,8 @@
             "cast_delay" "0.9"
             "radius" "400"
             "duration" "5.0 5.5 6.0 6.5 7.0"
-            "armor_debuff" "-10 -15 -20 -25 -30"
-            "mr_debuff" "-10 -15 -20 -25 -30"
+            "armor_debuff" "-10 -14 -18 -22 -26"
+            "mr_debuff" "-10 -14 -18 -22 -26"
         }
 		"OnSpellStart"
 		{
@@ -2494,7 +2494,7 @@
 				"Aura"					"modifier_zhuge_liang_array_enemy"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
@@ -2591,8 +2591,8 @@
             "cast_delay" "0.9"
             "radius" "500"
             "duration" "6.0 6.5 7.0 7.5 8.0"
-            "armor_debuff" "-20 -25 -30 -35 -40"
-            "mr_debuff" "-20 -25 -30 -35 -40"
+            "armor_debuff" "-20 -24 -28 -32 -36"
+            "mr_debuff" "-20 -24 -28 -32 -36"
             "heal_debuff" "-50"
         }
 		"OnSpellStart"
@@ -2636,7 +2636,7 @@
 				"Aura"					"modifier_zhuge_liang_array_enemy"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
@@ -2677,7 +2677,7 @@
 				"Aura"					"modifier_zhuge_liang_array_heal_debuff"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
@@ -2956,8 +2956,8 @@
             "ambush_debuff" "-20"
             "ambush_debuff_dur" "5.0"
             "atk" "10"
-            "crit_rate" "25"
-            "crit_dmg" "150"
+            "crit_rate" "20"
+            "crit_dmg" "130"
             "spell_amp" "15"
             "def" "5"
             "shield" "800"

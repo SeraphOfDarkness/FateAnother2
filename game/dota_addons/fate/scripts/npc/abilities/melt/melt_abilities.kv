@@ -994,6 +994,8 @@
 			"bonus_stats"		"0.4"
 			"duration"			"4"
 			"damage_per_second"	"25"
+			"bonus_damage_stack""3"
+			"slow_per_stack"	"-1"
 		}
 
 		"Modifiers"
@@ -1017,11 +1019,11 @@
 				"IsDebuff"			"1"
 				"Duration"			"%duration"
 		
-				//"Properties"
-				//{
-				//	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
-				//    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
-				//}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow_per_stack"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_per_stack" 
+				}
 		
 				"ThinkInterval"  "0.95"
 				"OnIntervalThink"
@@ -1058,13 +1060,15 @@
 				
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"8"
+		"AbilityManaCost"				"9"
 
 		"AbilityValues"
 		{
 			"bonus_stats"		"0.4"
 			"duration"			"4"
 			"damage_per_second"	"25"
+			"bonus_damage_stack""3"
+			"slow_per_stack"	"-1"
 		}
 
 	    "OnSpellStart"

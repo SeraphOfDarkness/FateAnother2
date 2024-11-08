@@ -411,6 +411,7 @@
 
 		"AbilityValues"
 		{
+			"cast_time"				"0.3"
 			"radius"				"300"
 			"duration"				"4.0"
 			"max_damage"			"480 585 690 795 900"
@@ -537,6 +538,7 @@
 
 		"AbilityValues"
 		{
+			"cast_time"				"0.3"
 			"radius"				"300"
 			"duration"				"4.0"
 			"max_damage"			"480 585 690 795 900"
@@ -697,6 +699,7 @@
 
 		"AbilityValues"
 		{
+			"cast_time"				"0.3"
 			"radius"				"300"
 			"duration"				"8.0"
 			"max_damage"			"780 885 990 1095 1200"
@@ -714,6 +717,21 @@
 		}
 		"Modifiers"
 		{
+			"modifier_heracles_berserk_cast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"IsBuff"			"0"
+				//Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_heracles_berserk"
 			{
 				"Passive"			"0"
@@ -822,6 +840,7 @@
 		"AbilityManaCost"				"400"
 		"AbilityValues"
 		{
+			"cast_time"				"0.3"
 			"radius"				"300"
 			"duration"				"8.0"
 			"max_damage"			"780 885 990 1095 1200"
@@ -842,6 +861,21 @@
 		}
 		"Modifiers"
 		{
+			"modifier_heracles_berserk_cast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"IsBuff"			"0"
+				//Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_heracles_berserk"
 			{
 				"Passive"			"0"

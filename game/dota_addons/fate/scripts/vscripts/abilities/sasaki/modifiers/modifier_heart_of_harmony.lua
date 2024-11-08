@@ -95,7 +95,7 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
             local position = target:GetAbsOrigin() - diff * 100
             FindClearSpaceForUnit(caster, position, true)             
 
-            if caster:GetMana() > self.ManaThreshold then
+            if true then-- caster:GetMana() > self.ManaThreshold then
                 target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
                 target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
                 self:GetAbility():EndCooldown()

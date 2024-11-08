@@ -552,7 +552,7 @@ function OnDragonCryHit(keys)
 	if IsFemaleServant(target) then 
 		total_damage = total_damage * (1 + GetSadismBonus(keys))
 	end
-	if target:IsInvulnerable() and target:HasModifier("modifier_bathory_cage_target") then 
+	if target:IsInvulnerable() and target:HasModifier("modifier_bathory_cage_target") and not IsInvulAbility(target) then 
 		DoDamage(caster, target, total_damage * 0.1 , DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
 	elseif not target:IsInvulnerable() then
 		
@@ -800,7 +800,7 @@ function OnFreshBloodHit(keys)
 	if IsFemaleServant(target) then 
 		total_damage = total_damage * (1 + GetSadismBonus(keys))
 	end
-	if target:IsInvulnerable() and target:HasModifier("modifier_bathory_cage_target") then 
+	if target:IsInvulnerable() and target:HasModifier("modifier_bathory_cage_target") and not IsInvulAbility(target) then 
 		DoDamage(caster, target, total_damage / debuff_stack , DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
 	elseif not target:IsInvulnerable() then
 		

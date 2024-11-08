@@ -1083,7 +1083,7 @@
 	"edmond_monte_cristo"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/edmond/edmond_myth"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1100,7 +1100,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"43"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastPoint"				"0.03"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1108,6 +1108,7 @@
 		
 		"AbilityValues"
         {
+        	"cast_time" "0.5"
             "flame_damage" "100 150 200 250 300"
             "flame_radius" "300"
             "slow" "-10 -20 -30 -40 -50"
@@ -1126,6 +1127,22 @@
 
 		"Modifiers"
 		{
+			"modifier_edmond_myth_cast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_edmond_flame_slow"
 			{
 				"Duration"		"%slow_duration"
@@ -1177,7 +1194,7 @@
 	"edmond_monte_cristo_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/edmond/edmond_myth"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1194,7 +1211,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"43"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastPoint"				"0.03"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1202,6 +1219,7 @@
 		
 		"AbilityValues"
         {
+        	"cast_time" "0.5"
             "flame_damage" "100 150 200 250 300"
             "flame_radius" "500"
             "slow" "-10 -20 -30 -40 -50"
@@ -1223,6 +1241,22 @@
 
 		"Modifiers"
 		{
+			"modifier_edmond_myth_cast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_edmond_flame_slow"
 			{
 				"Duration"		"%slow_duration"

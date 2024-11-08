@@ -926,7 +926,9 @@ function modifier_saito_jce:OnRemoved(bDeath)
                                         ParticleManager:ReleaseParticleIndex(nRelese_PFX)
                 end
 
+            if IsNotNull(hEntity) then
                 hEntity:RemoveModifierByNameAndCaster("modifier_saito_jce_delay", self.hCaster)
+                end
             end
         end
         --=================================--
@@ -1288,6 +1290,11 @@ function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
 end
 function modifier_saito_flashblade_motion:OnDestroy()
     if IsServer() then
+        if IsOutOfMap(self.hParent:GetOrigin()) then 
+            local border = GetBorderMap(self.hParent:GetOrigin())
+            self.hParent:SetAbsOrigin(border)
+            FindClearSpaceForUnit(self.hParent, border, true)
+        end
        --FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true) --Only for resolving possible errors by finding clear space.
        --Uncomment if there will be any problem with that in the future.
        self.hParent:RemoveGesture(self:GetOverrideAnimation()) --This line is necessary to prevent animation loop issues when modifiers are not exist but you are still animated.
@@ -2338,8 +2345,9 @@ function modifier_saito_fds_cast_controller:BreakCombo() --Just created this fun
         if self._bSwapedSet then
             self:SwapQWEAbilities(true, false)
             self._bSwapedSet = false
-            self._tStepsAreDone = {}
         end
+
+        self._tStepsAreDone = {}
 
         for sAbilityName, _ in pairs(self.tLocalAbilitiesCheck) do
             local hAbility = self.hParent:FindAbilityByName(sAbilityName)
@@ -3207,6 +3215,11 @@ function modifier_saito_storm_motion:OnHorizontalMotionInterrupted()
 end
 function modifier_saito_storm_motion:OnDestroy()
     if IsServer() then
+        if IsOutOfMap(self.hParent:GetOrigin()) then 
+            local border = GetBorderMap(self.hParent:GetOrigin())
+            self.hParent:SetAbsOrigin(border)
+            FindClearSpaceForUnit(self.hParent, border, true)
+        end
         self.hParent:RemoveHorizontalMotionController(self)
         --self.hParent:InterruptMotionControllers(true)
         self.hParent:RemoveGesture(self:GetOverrideAnimation()) --This line is necessary to prevent animation loop issues when modifiers are not exist but you are still animated.

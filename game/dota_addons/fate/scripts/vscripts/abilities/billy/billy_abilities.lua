@@ -792,8 +792,12 @@ function OnCombo(keys)
                 if #enemies >= 1 then        
                     if #enemies < minimum_for_singles then -- focus fire
                         Timers:CreateTimer(a * delay_per_shot, function()
-                            if not enemies[random]:IsAlive() then 
+                            if random == 0 then return end
+                            if enemies[random] == nil or enemies[random]:IsNull() or not IsValidEntity(enemies[random]) or not enemies[random]:IsAlive() then 
                                 table.remove(enemies, random)
+                                if #enemies == 0 then 
+                                    return
+                                end
                                 random = RandomInt(1, #enemies)
                             end
 
@@ -802,7 +806,11 @@ function OnCombo(keys)
                             target_bullet.name = (target_bullet.name or 0) + 1
 
                             if target_bullet.name >= shot_count then 
+                                --print(name .. ' take more than ' .. shot_count .. ' bullet')
                                 table.remove(enemies, random)
+                                if #enemies == 0 then 
+                                    return
+                                end
                                 random = RandomInt(1, #enemies)
                             end
                         end)

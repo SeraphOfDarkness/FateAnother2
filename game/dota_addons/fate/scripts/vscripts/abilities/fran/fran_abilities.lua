@@ -563,8 +563,9 @@ function BlastedLightning(caster, ability, point, damage, aoe, particle)
 	 			if caster.IsBridalChestAcquired and ability:GetName() == "fran_blasted_tree_upgrade" then 
 	 				if damage > void_health then 
 	 					local shield_gain = ability:GetSpecialValueFor("shield_gain")/100
+	 					local shield_max = ability:GetSpecialValueFor("shield_max")/100
 	 					ability:ApplyDataDrivenModifier(caster, thundertarget, "modifier_fran_elect_shield", {})
-	 					caster.ElectricShieldAmount = math.min(caster.ElectricShieldAmount + ((damage - void_health) * shield_gain), caster:GetMaxHealth())
+	 					caster.ElectricShieldAmount = math.min(caster.ElectricShieldAmount + ((damage - void_health) * shield_gain), caster:GetMaxHealth() * shield_max)
 	 					print('shield = ' .. caster.ElectricShieldAmount)
 	 					caster:SetModifierStackCount("modifier_fran_elect_shield", caster, caster.ElectricShieldAmount)
 	 				end

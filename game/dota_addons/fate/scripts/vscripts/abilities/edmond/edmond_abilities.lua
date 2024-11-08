@@ -376,61 +376,68 @@ function OnMonteCristoMythStart(keys)
 	local flame_damage = ability:GetSpecialValueFor("flame_damage")
 	local monte_duration = ability:GetSpecialValueFor("monte_duration")
 	local silence_disarm = ability:GetSpecialValueFor("silence_disarm")
+	local cast_time = ability:GetSpecialValueFor("cast_time")
 	local old_monte_duration = 0
 	local vengeance = GetAbility(caster, "lord_of_vengeance")
 
-	caster:EmitSound("Hero_Clinkz.Death")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_edmond_myth_cast", {Duration = cast_time})
 
-	local particle = ParticleManager:CreateParticle("particles/custom/gilles/smother_ground_fire.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin()) 
-	ParticleManager:SetParticleControl(particle, 1, Vector(flame_radius,flame_radius,flame_radius)) 
-	ParticleManager:SetParticleControl(particle, 3, Vector(flame_radius,flame_radius,flame_radius)) 
+	Timers:CreateTimer(cast_time, function()
+		if caster:IsAlive() then
+			caster:EmitSound("Hero_Clinkz.Death")
 
-	Timers:CreateTimer(1.0, function()
-		ParticleManager:DestroyParticle(particle, false)
-		ParticleManager:ReleaseParticleIndex(particle)
-	end)
+			local particle = ParticleManager:CreateParticle("particles/custom/gilles/smother_ground_fire.vpcf", PATTACH_WORLDORIGIN, caster)
+			ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin()) 
+			ParticleManager:SetParticleControl(particle, 1, Vector(flame_radius,flame_radius,flame_radius)) 
+			ParticleManager:SetParticleControl(particle, 3, Vector(flame_radius,flame_radius,flame_radius)) 
 
-	local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, flame_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	for _,enemy in pairs (enemies) do 
-		if IsValidEntity(enemy) and not enemy:IsNull() and enemy:IsAlive() then
-			if not enemy:IsMagicImmune() then 
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_edmond_flame_slow", {})
-				if caster.IsMonteMythAcquired then 
-					giveUnitDataDrivenModifier(caster, enemy, "silenced", silence_disarm)
-			        giveUnitDataDrivenModifier(caster, enemy, "disarmed", silence_disarm)
-			    end
+			Timers:CreateTimer(1.0, function()
+				ParticleManager:DestroyParticle(particle, false)
+				ParticleManager:ReleaseParticleIndex(particle)
+			end)
+
+			local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, flame_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			for _,enemy in pairs (enemies) do 
+				if IsValidEntity(enemy) and not enemy:IsNull() and enemy:IsAlive() then
+					if not enemy:IsMagicImmune() then 
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_edmond_flame_slow", {})
+						if caster.IsMonteMythAcquired then 
+							giveUnitDataDrivenModifier(caster, enemy, "silenced", silence_disarm)
+					        giveUnitDataDrivenModifier(caster, enemy, "disarmed", silence_disarm)
+					    end
+					end
+					DoDamage(caster, enemy, flame_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				end
 			end
-			DoDamage(caster, enemy, flame_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
+			if caster:HasModifier("modifier_edmond_monte_cristo") then 
+				local monte_buff = caster:FindModifierByName("modifier_edmond_monte_cristo")
+				old_monte_duration = monte_buff:GetRemainingTime()
+				print('monte duration left :' .. old_monte_duration)
+			end
+
+			if caster:HasModifier("modifier_alternate_01") then 
+				EmitGlobalSound("Edmond.R" .. math.random(1,5))    
+		    else
+				EmitGlobalSound("Edmond.Myth")    
+		    end
+
+			caster:RemoveModifierByName("modifier_edmond_monte_cristo")
+			vengeance:ApplyDataDrivenModifier(caster, caster, "modifier_edmond_monte_cristo", {Duration = math.max(monte_duration, old_monte_duration)})
+
+			if caster.IsDeterminationAcquired then 
+				HardCleanse(caster)
+			end
+
+			if caster.IsMonteMythAcquired then 
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_edmond_hate_shield", {})
+				caster.HateShield = ability:GetSpecialValueFor("hate_shield")
+				caster:SetModifierStackCount("modifier_edmond_hate_shield", caster, caster.HateShield)
+			end
+
+			EdmondCheckCombo(caster,ability)
 		end
-	end
-
-	if caster:HasModifier("modifier_edmond_monte_cristo") then 
-		local monte_buff = caster:FindModifierByName("modifier_edmond_monte_cristo")
-		old_monte_duration = monte_buff:GetRemainingTime()
-		print('monte duration left :' .. old_monte_duration)
-	end
-
-	if caster:HasModifier("modifier_alternate_01") then 
-		EmitGlobalSound("Edmond.R" .. math.random(1,5))    
-    else
-		EmitGlobalSound("Edmond.Myth")    
-    end
-
-	caster:RemoveModifierByName("modifier_edmond_monte_cristo")
-	vengeance:ApplyDataDrivenModifier(caster, caster, "modifier_edmond_monte_cristo", {Duration = math.max(monte_duration, old_monte_duration)})
-
-	if caster.IsDeterminationAcquired then 
-		HardCleanse(caster)
-	end
-
-	if caster.IsMonteMythAcquired then 
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_edmond_hate_shield", {})
-		caster.HateShield = ability:GetSpecialValueFor("hate_shield")
-		caster:SetModifierStackCount("modifier_edmond_hate_shield", caster, caster.HateShield)
-	end
-
-	EdmondCheckCombo(caster,ability)
+	end)
 end
 
 function OnHateShieldTakeDamage(keys)

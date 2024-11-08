@@ -166,4 +166,16 @@ Event
 		"LinkTeam"		"https://docs.google.com/forms/d/e/1FAIpQLSdobi3Wr_xGh8b28HCje4pv8O3_AT2blHwBZ3DGxD7KJy43qA/viewform"
 		"DetailLength"	"900"
 	}
+	"FATE_TOUR_04_2"		
+	{
+		"EventName"		"fate_tour"
+		"EventID"		"14"
+		"StartDate"		"15/10/24"
+		"EndDate"		"21/10/24"
+		"EventType"		"5" // Big board new + regist
+		"EventDetail"	"fate_tour_04_detail"
+		"LinkSolo"		"https://docs.google.com/forms/d/e/1FAIpQLSdobi3Wr_xGh8b28HCje4pv8O3_AT2blHwBZ3DGxD7KJy43qA/viewform"
+		"LinkTeam"		"https://docs.google.com/forms/d/e/1FAIpQLSdobi3Wr_xGh8b28HCje4pv8O3_AT2blHwBZ3DGxD7KJy43qA/viewform"
+		"DetailLength"	"900"
+	}
 }

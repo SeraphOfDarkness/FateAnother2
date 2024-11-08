@@ -1096,7 +1096,7 @@
 	"kuro_projection"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"			"custom/kuro/kuro_projection"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -1162,7 +1162,7 @@
 	"kuro_projection_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		//หารูปมาใส่
 		"AbilityTextureName"			"custom/kuro/kuro_projection"
 		"MaxLevel"						"5"
@@ -1229,7 +1229,7 @@
 	"kuro_projection_close"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		//หารูปมาใส่
 		"AbilityTextureName"			"silencer_last_word"
 		"MaxLevel"						"1"
@@ -1799,7 +1799,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"350"
 		"AbilityCastPoint"				"0.1"
 
 		// Time		
@@ -1819,7 +1819,7 @@
             "radius_lasthit" "300"
             "damage_lasthit" "250 300 350 400 450"
             "stun_duration" "1.5"
-            "range" "350"
+            "range" "450"
             "pause_duration" "2.5"
             "post_nine" "0.5"
         }
@@ -1870,7 +1870,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"350"
 		"AbilityCastPoint"				"0.1"
 
 		// Time		
@@ -1890,7 +1890,7 @@
             "radius_lasthit" "300"
             "damage_lasthit" "550 600 650 700 750"
             "stun_duration" "1.5"
-            "range" "350"
+            "range" "450"
             "pause_duration" "2.5"
             "post_nine" "0.5"
         }
@@ -2058,7 +2058,7 @@
             "damage_absorb" "800 950 1100 1250 1400"
             "duration" "7"
             "knock" "200"
-            "knock_radius" "300"
+            "knock_radius" "250"
         }	
 		"OnAbilityPhaseStart"
 		{
@@ -2179,7 +2179,7 @@
             "damage" "350 425 500 575 650"
             "splash_damage" "50"
             "range" "700"
-            "stun_duration" "0.7"
+            "stun_duration" "1.0"
         }
 		"OnSpellStart"
 		{
@@ -2238,7 +2238,7 @@
             "damage" "450 525 600 675 750"
             "splash_damage" "50"
             "range" "700"
-            "stun_duration" "0.7"
+            "stun_duration" "1.0"
             "slow" "-30"
             "slow_duration" "2.0"
         }
@@ -3265,6 +3265,7 @@
 		"precache"
 		{
 			"model"					"models/kuro/illya_archer/illya_archer_by_zefiroft.vmdl"
+			"model"					"models/kuro/wedding/wedding_kuro_by_zefiroft.vmdl"
 			"model"					"models/archer/kanshou.vmdl"
 			"model"					"models/archer/byakuya.vmdl"
 			"model"					"models/kuro/kuro_bow.vmdl"

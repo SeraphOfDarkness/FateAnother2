@@ -11,7 +11,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -23,13 +23,9 @@
 		"AbilityManaCost"				"200"
 		"AbilityChannelTime"			"1.05"
 
-		"precache"
-		{
-			
-		}
-
 		"AbilityValues"
         {
+        	"cast_range" "300"
             "duration" "1.05"
             "damage_tooltips" "60 70 80 90 100"
             "num_attacks" "8"
@@ -48,7 +44,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE "
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -60,20 +56,16 @@
 		"AbilityManaCost"				"200"
 		"AbilityChannelTime"			"1.05"
 
-		"precache"
-		{
-			
-		}
-
 		"AbilityValues"
         {
+        	"cast_range" "300"
             "duration" "1.05"
             "damage_tooltips" "60 70 80 90 100"
             "num_attacks" "8"
             "interval" "0.15"
             "damage_reduction" "-40 -30 -20 -10 0"
             "bonus_aspd" "50 70 90 110 130"
-            "bonus_aspd_dur" "5 5.5 6 6.5 7"
+            "bonus_aspd_dur" "3 3.5 4 4.5 5"
         }
 	}
 }

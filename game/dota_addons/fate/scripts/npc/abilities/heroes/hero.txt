@@ -51,4 +51,5 @@ HeroesID
 	"49"		"npc_dota_hero_nyx_assassin"
 	"50"		"npc_dota_hero_muerta"
 	"51"		"npc_dota_hero_terrorblade"
+	"52"		"npc_dota_hero_slark"
 }

@@ -173,6 +173,7 @@ function modifier_ishtar_gem:OnDeath(args)
 
 	local current_gem = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
 	self:GetAbility():AddGem( -math.ceil(self:GetAbility():GetSpecialValueFor("gem_loss")/100 * current_gem))
+	caster:RemoveModifierByName("modifier_ishtar_gem_consume")
 end
 
 ----------------------------------------
@@ -195,6 +196,7 @@ function ishtar_f_wrapper(abil)
 	end
 
 	function abil:ResetToggleOnRespawn()
+		self:GetCaster():RemoveModifierByName("modifier_ishtar_gem_consume")
 		return true 
 	end
 

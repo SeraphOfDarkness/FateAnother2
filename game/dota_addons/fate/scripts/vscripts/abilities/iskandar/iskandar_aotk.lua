@@ -197,8 +197,8 @@ function iskandar_aotk_wrapper(abil)
 
 	 	-- spawn sight dummy
 		local truesightdummy = CreateUnitByName("sight_dummy_unit", aotkCenter, false, self.caster, self.caster, self.caster:GetTeamNumber())
-		truesightdummy:AddNewModifier(caster, nil, "modifier_item_ward_true_sight", {true_sight_range = 3000}) 
-		truesightdummy:AddNewModifier(caster, nil, "modifier_kill", {duration = self.duration}) 
+		truesightdummy:AddNewModifier(self.caster, self, "modifier_item_ward_true_sight", {true_sight_range = 3000}) 
+		truesightdummy:AddNewModifier(self.caster, self, "modifier_kill", {duration = self.duration}) 
 		truesightdummy:SetDayTimeVisionRange(2500)
 		truesightdummy:SetNightTimeVisionRange(2500)
 		local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")

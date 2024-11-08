@@ -5,6 +5,9 @@ function OnFairyDmgTaken(keys)
     local damage_threshold = ability:GetSpecialValueFor("damage_threshold")
     if caster:GetHealth() <= damage_threshold and not IsReviveSeal(caster) and caster:IsAlive() and not caster:HasModifier("modifier_blessing_of_fairy_cooldown") then 
         caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+        if caster:HasModifier("modifier_alternate_03") then
+        	EmitGlobalSound("Shu_Faeries")
+        end
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_fairy_magic_immunity", {})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_blessing_of_fairy_cooldown", {duration = ability:GetCooldown(1)})
     	ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
@@ -267,7 +270,12 @@ function OnVortigernStart(keys)
 	
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 0.70) -- Beam interval * 9 + 0.44
 	EmitGlobalSound("Saber_Alter.Vortigern")
-	StartAnimation(caster, {duration=0.70, activity=ACT_DOTA_ATTACK2, rate=2})
+	if caster:HasModifier("modifier_alternate_03") then 
+		StartAnimation(caster, {duration=0.70, activity=ACT_DOTA_ATTACK_EVENT, rate=1})
+        caster:EmitSound("Shu_Vortigern")
+	else
+		StartAnimation(caster, {duration=0.70, activity=ACT_DOTA_ATTACK2, rate=2})
+	end
 
 	local vortigernBeam =
 	{
@@ -382,7 +390,11 @@ function GBAttachEffect(keys)
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( GBCastFx, false )
 	end)
-	EmitGlobalSound("Lancelot.Growl_Local")
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Cast")
+    else
+		EmitGlobalSound("Lancelot.Growl_Local")
+	end
 end
 
 
@@ -403,13 +415,20 @@ function OnGBTargetHit(keys)
     ParticleManager:SetParticleControl( flashIndex, 2, caster:GetAbsOrigin() )
     ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
 
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK2, rate=3})
+    if caster:HasModifier("modifier_alternate_03") then 
+		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=3})
+	else
+		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK2, rate=3})
+	end
 
 	-- Add dagon particle
 	local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN_FOLLOW, keys.caster)
 	ParticleManager:SetParticleControlEnt(dagon_particle, 1, keys.target, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.target:GetAbsOrigin(), false)
 	local particle_effect_intensity = 300
 	ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Spear")
+    end
 	target:EmitSound("Hero_Lion.Impale")
 
 	if IsSpellBlocked(target) then -- no damage but play the effect
@@ -466,7 +485,9 @@ function OnRBStart(keys)
 	if not caster.IsImproveKnightOfOwnerAcquired and not caster.IsKnightOfOwnerArsenalAcquired then 
 		caster:RemoveModifierByName("modifier_knight_of_honor_check")
 	end
-	
+	if caster:HasModifier("modifier_alternate_03") then
+        EmitGlobalSound("Shu_RB")
+    end
 	if IsSpellBlocked(target) then return end -- Linken effect checker
 	ApplyStrongDispel(target)
 	--caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))		
@@ -484,6 +505,9 @@ function OnNineCast(keys)
 		return 
 	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.0})
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Nine")
+    end
 end
 
 function OnNineStart(keys)
@@ -507,7 +531,11 @@ function OnNineStart(keys)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", pause_time)
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_RUN, rate=0.5})
+	if caster:HasModifier("modifier_alternate_03") or caster:HasModifier("modifier_alternate_04") then
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1})
+	else
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_RUN, rate=0.5})
+	end
 
 	function DoNineLanded(caster)
 		caster:OnPreBounce(nil)
@@ -565,11 +593,20 @@ function OnNineLanded(caster, ability)
 			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,radius))
 			ParticleManager:SetParticleControl(particle, 3, Vector(radius / 250,1,1))
 
+			if caster:HasModifier("modifier_alternate_04") then
+				StartAnimation(caster, {duration= 2.35, activity=ACT_DOTA_CAST_ABILITY_6, rate=1})
+			end
+
 			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
 
 			if nineCounter == total_hit - 1 then -- if it is last strike
+				if caster:HasModifier("modifier_alternate_03") then
+					StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK_SPECIAL, rate=1})
+				elseif caster:HasModifier("modifier_alternate_04") then
 
-				StartAnimation(caster, {duration = 1.0, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate = 3.0})
+				else
+					StartAnimation(caster, {duration = 1.0, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate = 3.0})
+				end
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 				caster:RemoveModifierByName("pause_sealdisabled") 
 				caster:AddNewModifier(caster, ability, "modifier_stunned", { Duration = post_nine })
@@ -603,8 +640,11 @@ function OnNineLanded(caster, ability)
 						end
 					end
 				end
-
-				EmitGlobalSound("Lancelot.Growl" )
+				if caster:HasModifier("modifier_alternate_03") then
+		        	
+		        else
+					EmitGlobalSound("Lancelot.Growl" )
+				end
 
 				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
 				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
@@ -628,6 +668,12 @@ function OnNineLanded(caster, ability)
 						StartAnimation(caster, {duration = returnDelay, activity=ACT_DOTA_ATTACK, rate = 2.5})
 					else
 						StartAnimation(caster, {duration = returnDelay, activity=ACT_DOTA_ATTACK2, rate = 2.5})
+					end
+				elseif caster:HasModifier("modifier_alternate_04") then
+
+				elseif caster:HasModifier("modifier_alternate_03") then
+					if nineCounter % 2 == 0 then 
+						StartAnimation(caster, {duration=returnDelay * 2, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1})
 					end
 				else
 					if nineCounter % 2 == 0 then 
@@ -662,8 +708,11 @@ function TGPlaySound(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Target")
 		return
 	end
-
-	EmitGlobalSound("Lancelot.Growl" )
+	if caster:HasModifier("modifier_alternate_03") then
+        EmitGlobalSound("Shu_Cast")
+    else
+		EmitGlobalSound("Lancelot.Growl" )
+	end
 
 	local diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 	local firstImpactIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
@@ -689,15 +738,17 @@ function OnTGStart(keys)
 	--if IsSpellBlocked(target) then return end -- Linken effect checker
 	EmitGlobalSound("FA.Chop")
 
-	giveUnitDataDrivenModifier(caster, caster, "dragged", pause)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", pause)
 	giveUnitDataDrivenModifier(caster, caster, "revoked", pause)
-		
+
     Timers:CreateTimer(0.2, function()
 		caster:AddNewModifier(caster, nil, "modifier_phased", {duration=pause})	
 	end)
 
 	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
+
+
 
 	Timers:CreateTimer(0.5, function()  
 		if caster:IsAlive() and target:IsAlive() then
@@ -779,6 +830,9 @@ function CaliburnExplode( keys )
 end
 
 function OnCaliburnHit(keys)
+	if keys.caster:HasModifier("modifier_alternate_03") then
+        keys.caster:EmitSound("Shu_Caliburn")
+    end
 	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	local caster = keys.caster
 	local target = keys.target
@@ -821,7 +875,12 @@ function OnRIStart(keys)
 	CreateSlashFx(caster, caster:GetAbsOrigin(), caster:GetAbsOrigin() + diff:Normalized() * diff:Length2D())
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff:Normalized() * 100)
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK2, rate = 1.5})	
+	if caster:HasModifier("modifier_alternate_03") then 
+		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK_EVENT, rate = 1.5})
+		caster:EmitSound("Shu_Rosa")	
+	else
+		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK2, rate = 1.5})	
+	end
 	caster:MoveToTargetToAttack(target)
 	caster.rosatarget = target
 
@@ -890,7 +949,11 @@ function OnGaeCastStart(keys)
 	local caster = keys.caster
 	local particleName = nil
 
-	caster:EmitSound("Lancelot.Growl_Local")
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Cast")
+    else
+		caster:EmitSound("Lancelot.Growl_Local")
+	end
 
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) -- target effect location
@@ -915,6 +978,10 @@ function OnDeargStart(keys)
 	local flashIndex = ParticleManager:CreateParticle( "particles/custom/diarmuid/gae_dearg_slash.vpcf", PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( flashIndex, 2, original_pos )
 	ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
+
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Spear")
+    end
 
 	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 
@@ -947,6 +1014,9 @@ function OnDeargStart(keys)
 	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
 
 	target:EmitSound("Hero_Lion.Impale")
+	if caster:HasModifier("modifier_alternate_03") then 
+		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=2})
+	end
 	--StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2})
 
 	-- Add dagon particle
@@ -976,7 +1046,11 @@ function OnBrahmastraKundalaStart(keys)
 	ParticleManager:SetParticleControl(target_ray, 1, Vector(100,0,0))
 
 	local visiondummy = SpawnVisionDummy(caster, target_point, small_radius, delay + 1, false)
-	caster:EmitSound("Lancelot.Growl_Local")
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Vajra")
+    else
+		caster:EmitSound("Lancelot.Growl_Local")
+	end
 	
 	EmitSoundOnLocationForAllies(target_point, "karna_brahmastra_kundala_cast", caster)	
 
@@ -1069,6 +1143,9 @@ function OnVajraStart(keys)
     --particles/econ/items/zeus/arcana_chariot/zeus_arcana_thundergods_wrath_start_strike.vpcf
     
     caster:EmitSound("Hero_Zuus.GodsWrath.PreCast")
+    if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_Vajra")
+    end
 
     local vajra = 
 	{
@@ -1329,13 +1406,17 @@ end
 
 function OnGatlingCreate(keys)
 	local caster = keys.caster 
-	local ability = keys.ability 
-	if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
-		local rod = Attachments:GetCurrentAttachment(caster, "attach_rod")
-		if rod ~= nil and not rod:IsNull() then 
-			rod:RemoveSelf() 
+	local ability = keys.ability
+	if caster:HasModifier("modifier_alternate_03") then 
+
+	else 
+		if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
+			local rod = Attachments:GetCurrentAttachment(caster, "attach_rod")
+			if rod ~= nil and not rod:IsNull() then 
+				rod:RemoveSelf() 
+			end
+			Attachments:AttachProp(caster, "attach_gun", "models/lancelot/lancelot_gun_by_zefiroft.vmdl")
 		end
-		Attachments:AttachProp(caster, "attach_gun", "models/lancelot/lancelot_gun_by_zefiroft.vmdl")
 	end
 	caster:EmitSound("Lancelot.Gatling")
 	
@@ -1350,12 +1431,16 @@ end
 function OnGatlingDestroy(keys)
 	local caster = keys.caster 
 	local ability = keys.ability 
-	if caster:ScriptLookupAttachment("attach_gun") ~= nil then 
-		local gatling = Attachments:GetCurrentAttachment(caster, "attach_gun")
-		if gatling ~= nil and not gatling:IsNull() then 
-			gatling:RemoveSelf() 
+	if caster:HasModifier("modifier_alternate_03") then 
+
+	else 
+		if caster:ScriptLookupAttachment("attach_gun") ~= nil then 
+			local gatling = Attachments:GetCurrentAttachment(caster, "attach_gun")
+			if gatling ~= nil and not gatling:IsNull() then 
+				gatling:RemoveSelf() 
+			end
+			Attachments:AttachProp(caster, "attach_rod", "models/lancelot/lancelot_rod.vmdl")
 		end
-		Attachments:AttachProp(caster, "attach_rod", "models/lancelot/lancelot_rod.vmdl")
 	end
 	caster:SetAngles(0, 0, 0)
 	caster:StopSound("Lancelot.Gatling")
@@ -1381,13 +1466,16 @@ function OnGatlingFire(keys)
 	if caster:IsStunned() then 
 		caster:RemoveModifierByName("modifier_gatling_weapon")
 	end
-
+	local bullet = "particles/custom/lancelot/lancelot_gatling.vpcf"
+	--[[if caster:HasModifier("modifier_alternate_03") then 
+		bullet = "particles/econ/items/gyrocopter/gyro_quadcopter/gyro_quadcopter_missile.vpcf"
+	end]]
 	caster:SetAngles(0, caster.forward_angle, 0)
 	--caster:SetForwardVector(caster.forward_gatling)
 	local gatling = 
     {
         Ability = ability,
-        EffectName = "particles/custom/lancelot/lancelot_gatling.vpcf",
+        EffectName = bullet,
         vSpawnOrigin = caster:GetAbsOrigin(),
         fDistance = distance,
         fStartRadius = aoe,
@@ -1452,6 +1540,10 @@ function OnDoubleEdgeStart(keys)
 	caster:SetModifierStackCount("modifier_double_edge_ms", caster, base_ms)
 	caster:SetModifierStackCount("modifier_double_edge_damage_amp", caster, base_dmg_amp)
 
+	if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_W")
+    end
+
 	LancelotCheckCombo(caster,ability)
 
 	if caster.IsKnightOfTheLakeAcquired then 
@@ -1482,23 +1574,31 @@ end
 
 function OnAronditeCreate(keys)
 	local caster = keys.caster 
-	if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
-		local rod = Attachments:GetCurrentAttachment(caster, "attach_rod")
-		if rod ~= nil and not rod:IsNull() then 
-			rod:RemoveSelf() 
+	if caster:HasModifier("modifier_alternate_03") then 
+
+	else 
+		if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
+			local rod = Attachments:GetCurrentAttachment(caster, "attach_rod")
+			if rod ~= nil and not rod:IsNull() then 
+				rod:RemoveSelf() 
+			end
+			Attachments:AttachProp(caster, "attach_sword", "models/lancelot/lancelot_arondight.vmdl")
 		end
-		Attachments:AttachProp(caster, "attach_sword", "models/lancelot/lancelot_arondight.vmdl")
 	end
 end
 
 function OnAronditeDestroy(keys)
 	local caster = keys.caster 
-	if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
-		local arondite = Attachments:GetCurrentAttachment(caster, "attach_sword")
-		if arondite ~= nil and not arondite:IsNull() then 
-			arondite:RemoveSelf() 
+	if caster:HasModifier("modifier_alternate_03") then 
+
+	else 
+		if caster:ScriptLookupAttachment("attach_rod") ~= nil then 
+			local arondite = Attachments:GetCurrentAttachment(caster, "attach_sword")
+			if arondite ~= nil and not arondite:IsNull() then 
+				arondite:RemoveSelf() 
+			end
+			Attachments:AttachProp(caster, "attach_rod", "models/lancelot/lancelot_rod.vmdl")
 		end
-		Attachments:AttachProp(caster, "attach_rod", "models/lancelot/lancelot_rod.vmdl")
 	end
 end
 
@@ -1518,7 +1618,11 @@ function OnAronditeStart(keys)
     local warp = ParticleManager:CreateParticle("particles/custom/lancelot/lancelot_arondite_aoe_warp.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(warp,0, caster:GetAbsOrigin())
 
-    caster:EmitSound("lancelot_arthur_" .. math.random(1,3))
+    if caster:HasModifier("modifier_alternate_03") then
+        caster:EmitSound("Shu_R")
+    else
+    	caster:EmitSound("lancelot_arthur_" .. math.random(1,3))
+    end
 
     -- Destroy particle after delay
     Timers:CreateTimer( 2.0, function()
@@ -1739,7 +1843,11 @@ function OnNukeStart(keys)
         return
     end
 
-    EmitGlobalSound("Lancelot.Nuke_Alert") 
+    if caster:HasModifier("modifier_alternate_03") then
+        EmitGlobalSound("Shu_Combo1")
+    else
+    	EmitGlobalSound("Lancelot.Nuke_Alert") 
+    end
     caster:RemoveModifierByName("modifier_lancelot_nuke_window")
     if caster:HasModifier("modifier_lancelot_arondite_overload_window") then 
     	caster:RemoveModifierByName("modifier_lancelot_arondite_overload_window")
@@ -1876,6 +1984,9 @@ function OnNukeStart(keys)
     end)
 
     Timers:CreateTimer(7.0, function()
+    	if caster:HasModifier("modifier_alternate_03") then
+	        EmitGlobalSound("Shu_BGM1")
+	    end
         EmitGlobalSound("Lancelot.Nuke_Impact")
         local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, nuke_radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
@@ -1947,12 +2058,21 @@ function OnAronditeOverloadStart(keys)
 
     giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5 + cast_delay)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_arondite_overload_effect", {Duration = 1.2 + cast_delay})
-    StartAnimation(caster, {duration = cast_delay - 0.3, activity = ACT_DOTA_CAST_ABILITY_5, rate = 30/36 * (cast_delay - 0.3)})
+    if caster:HasModifier("modifier_alternate_03") then 
+    	StartAnimation(caster, {duration = cast_delay - 0.3, activity = ACT_DOTA_ATTACK2, rate = 30/20 * (cast_delay - 0.3)})
+    else
+    	StartAnimation(caster, {duration = cast_delay - 0.3, activity = ACT_DOTA_CAST_ABILITY_5, rate = 30/36 * (cast_delay - 0.3)})
+    end
 
     Timers:CreateTimer(cast_delay - 0.3, function()
     	if caster:IsAlive() then
     		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK_EVENT_BASH, rate = 1.8})
-    		EmitGlobalSound("Lancelot.Growl" )
+    		if caster:HasModifier("modifier_alternate_03") then
+		        EmitGlobalSound("Shu_Combo2")
+		        EmitGlobalSound("Shu_BGM2")
+		    else
+    			EmitGlobalSound("Lancelot.Growl" )
+    		end
     	end
     end)
 

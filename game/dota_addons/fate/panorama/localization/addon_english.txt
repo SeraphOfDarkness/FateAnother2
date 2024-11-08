@@ -344,7 +344,7 @@ Rule
 - The team who pick PEPE will be revealed
 - Reward: 1000 CP"
 
-		"fate_tour"					"Fate Tour 3!"
+		"fate_tour_03"					"Fate Tour 3!"
 		"fate_tour_03_detail"			"
 Prize
 1st Place: CHAMPTION TITLE + LIMITED skin(TBA) + 6k CP per player on team
@@ -369,6 +369,29 @@ Registration
 - If team want to change team member, you need to tell zefiroft or nise before 3rd Nov
 - Each team can change information 1 time per day"
 
+		"fate_tour"						"Fate Tour 4!"
+		"fate_tour_04_detail"			"
+Prize
+$270 Prize pool
+1st Place: 10k CP per player on team + LIMITED EDITION FATE SKIN + CHAMPION Title
+2nd Place: 6k CP per player on team + CHROMA SKIN
+3rd Place: 4k CP per player on team + CHROMA SKIN
+Participation reward: 2k CP
+
+Date and Schedule
+- Registration date: 15th - 21th Oct
+- Announcement of Team and players: 23th Oct
+- Announcement of Match pairings: 24th Oct
+- Tournament match start : 25th - 27th Oct, and 1th - 3th Nov starting at 10pm (GMT+8).
+- Final: TBA
+
+Registration
+- Registration date: 15th - 21th Oct
+- Each team has 7 - 8 players (7 line up + 1 bench)
+- Sign up as Team! (minimum players: 5) 
+- Sign up as Solo!
+- 1 player can join only 1 team"
+
 
 		"FA_Config_Gameplay"			"Gameplay"
 		"FA_Config_Option1"				"Ask for gold when having less than 200g"
@@ -390,6 +413,7 @@ Registration
 		"FA_Config_Option12"				"Hide Fate Event UI"
 		"FA_Config_Option13"				"Enable Auto item combination"
 		"FA_Config_Option14"				"Enable PADORU sound"
+		"FA_Config_Option15"				"Unselected Master 2"
 
 		"FA_Config_Cmd1"	"Pops a message that asks for gold to your team."
 		"FA_Config_Cmd2"	"Turns BGM on/off."
@@ -417,7 +441,7 @@ Registration
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD,Seraph"
+        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT,NERD"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"

@@ -49,7 +49,7 @@ softdispellable = {
     "modifier_share_damage",
     "modifier_a_plus_armor",
     "modifier_speed_gem",
-    "modifier_replenishment_heal",
+    --"modifier_replenishment_heal",
     "modifier_master_intervention",
 
     -- Debuff
@@ -238,8 +238,10 @@ cleansable = {
     "modifier_zhuge_liang_ambush_debuff",
     "modifier_hans_territory_debuff",
     "modifier_hans_red_shoes",
+    "modifier_robin_poison_smoke",
+    "modifier_robin_paralyze",
     "modifier_robin_roots_slow",
-    "modifier_robin_hunter_rain_slow",
+    "modifier_robin_hunter_rain_debuff",
     "modifier_robin_yew_bow",
     "modifier_tiatum_umu_cast",
     "modifier_semiramis_babylon_quake",
@@ -340,6 +342,14 @@ revokes = {
     "modifier_bathory_cage_target",
     "modifier_hippogriff_vanish_banish",
     "modifier_atalanta_beast",
+}
+
+healreduction = {
+    "modifier_zhuge_liang_array_heal_debuff",
+    "modifier_kinghassan_combo_heal_debuff",
+    "modifier_robin_yew_bow",
+    "modifier_ereshkigal_marble_aura_debuff",
+    "modifier_tamamo_heal_debuff",
 }
 
 locks = {
@@ -454,7 +464,10 @@ donotlevel = {
     "lancer_rune_of_combat",  
     "lancer_rune_of_ferocity",  
     "lancer_rune_of_flame",   
-    "lancer_rune_of_protection",   
+    "lancer_rune_of_protection",  
+    "cu_chulain_claw",
+    "cu_chulain_relentless_spear", 
+    "cu_chulain_protection_from_arrows",
     "medusa_monstrous_strength_passive",
     "medusa_riding_passive",
     "heracles_reincarnation",
@@ -539,6 +552,8 @@ donotlevel = {
     "hans_masterpiece_thumbelina_upgrade",
     "robin_saboteur_pitfall",
     "robin_saboteur_barrel",
+    "robin_righteous_thief",
+    "robin_poison_arrow",
     "semiramis_presence_concealment",
     "semiramis_snek_spit_poison",
     "semiramis_poisonous_cloud",
@@ -558,8 +573,9 @@ tModifierCooldown = {
     "modifier_hrunting_cooldown",
     "modifier_arrow_rain_cooldown",
     "modifier_retreat_root_cooldown",
-    "modifier_battle_continuation_cooldown",
-    "modifier_wesen_gae_bolg_cooldown",
+    "modifier_cu_battle_continuation_cooldown",
+    "modifier_protection_from_arrows_cooldown",
+    "modifier_wesen_cooldown",
     "modifier_max_mana_burst_cooldown",
     "modifier_hippogriff_ride_cooldown",
     "modifier_mordred_mmb_cooldown",
@@ -633,6 +649,7 @@ tModifierCooldown = {
     "modifier_melt_combo_cooldown",
     "modifier_billy_combo_cooldown",
     "modifier_saito_style_combo_indicator",
+    "modifier_mhx_combo_cooldown",
 }
 
 CannotReset = {
@@ -854,6 +871,7 @@ CannotReset = {
     "billy_f",
     "billy_combo",
     "saito_jce",
+    "mhx_combo",
 }
 
 femaleservant = {
@@ -882,6 +900,7 @@ femaleservant = {
     "npc_dota_hero_ursa",
     "npc_dota_hero_void_spirit",
     "npc_dota_hero_nyx_assassin",
+    "npc_dota_hero_slark",
 }
 
 tSpellBookHero = {
@@ -1046,6 +1065,7 @@ tCannotDetect = {
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_slark",
 }
 --before revive
 tDangerousBuffs = {
@@ -1196,6 +1216,7 @@ tDivineHeroes = {
 tArthurHeroes = {
     "npc_dota_hero_legion_commander",
     "npc_dota_hero_spectre",
+    "npc_dota_hero_slark",
 }
 
 tLivingHumanHeroes = {
@@ -1342,6 +1363,7 @@ tAssassinClass = {
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_slark",
 }
 
 tBerserkerClass = {
@@ -1961,6 +1983,25 @@ function IsLocked(target)
     return false
 end
 
+function IsHealReduction(target)
+    for i=1, #healreduction do
+        if target:HasModifier(healreduction[i]) then return true end
+    end
+    return false
+end
+
+function HealReductionPercent(target)
+    local percent = 0
+    for i=1, #healreduction do
+        if target:HasModifier(healreduction[i]) then 
+            local debuff = target:FindModifierByName(healreduction[i])
+            percent = debuff:GetStackCount()/100
+            return percent 
+        end
+    end
+    return percent 
+end
+
 function IsTPLocked(target)
     for i=1, #no_tp do
         if target:HasModifier(no_tp[i]) then return true end
@@ -2043,6 +2084,10 @@ function IsImmuneToCC(target)
     elseif target:HasModifier("modifier_atalanta_beast") and target.BeastEnhancementAcquired then 
         return true
     elseif target:HasModifier("modifier_jeanne_gods_resolution_buff") and target:HasModifier("modifier_jeanne_luminosite_channel") and target.IsDivineSymbolAcquired then 
+        return true
+    elseif target:HasModifier("modifier_magic_immunity") then
+        return true
+    elseif target:HasModifier("modifier_instant_cursed_window") then
         return true
     --elseif target:HasModifier("modifier_mashu_protect_ally") then 
     --    return true
@@ -2189,13 +2234,13 @@ end
 function HardCleanse(target)
     for i=1, #cleansable do
         if target:HasModifier(cleansable[i]) then
-            target:RemoveModifierByName(cleansable[i])
+            target:RemoveAllModifiersOfName(cleansable[i])
         end
     end
 
     for i=1, #slowmodifier do
         if target:HasModifier(slowmodifier[i]) then
-            target:RemoveModifierByName(slowmodifier[i])
+            target:RemoveAllModifiersOfName(slowmodifier[i])
         end
     end
 end
@@ -2203,7 +2248,7 @@ end
 function RemoveSlowEffect(target)
     for i=1, #slowmodifier do
         if target:HasModifier(slowmodifier[i]) then
-            target:RemoveModifierByName(slowmodifier[i])
+            target:RemoveAllModifiersOfName(slowmodifier[i])
         end
     end
 end
@@ -2227,7 +2272,7 @@ function CalculateDamagePreReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 --hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 or 0 --hUnit:GetMagicalArmorValue()
 		return fDamage * (1 + fMagicRes)
 	end
 	
@@ -2242,7 +2287,7 @@ function CalculateDamagePostReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 --hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:GetBaseMagicalResistanceValue()/100 or 0 --hUnit:GetMagicalArmorValue()
 		return fDamage * (1 - fMagicRes)
 	end
 	
@@ -2470,10 +2515,9 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
    -- if target == nil then return end 
     local IsAbsorbed = false
     local IsBScrollIgnored = false
-    local MR = target:GetBaseMagicalResistanceValue()/100 --target:GetMagicalArmorValue() 
+    local MR = target:GetBaseMagicalResistanceValue()/100 or 0 --target:GetMagicalArmorValue() 
     local PhysicReduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
-    dmg_flag = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
-    print('dmg_flag = ' .. dmg_flag)
+    
     if target:GetName() == "npc_dota_ward_base" or target:GetUnitName() == "ward_familiar" or target:GetUnitName() == "sentry_familiar" then
         if string.match(abil:GetAbilityName(), "atalanta_celestial_arrow") then
             dmg = 1
@@ -2585,7 +2629,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
         end
         
-        if target:IsMagicImmune() and dmg_flag ~= bit.bor(dmg_flag, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)  then 
+        if target:IsMagicImmune() and dmg_flag ~= DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES then 
             dmg = 0 
         end
 
@@ -2604,6 +2648,15 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             local poison_aura = semiramis:FindAbilityByName("semiramis_poisonous_cloud_upgrade")
             local bonus_poison = poison_aura:GetSpecialValueFor("bonus_poison") / 100
             dmg = dmg + (dmg * bonus_poison)
+        end
+
+        if source:HasModifier("modifier_cu_ath_ngabla") then 
+            local cu_ath = source:FindAbilityByName("cu_chulain_battle_continuation_upgrade_3")
+            if cu_ath == nil then 
+                cu_ath = source:FindAbilityByName("cu_chulain_battle_continuation_upgrade_2")
+            end
+            local bonus_ath = cu_ath:GetSpecialValueFor("ath_self") / 100
+            dmg = dmg + (dmg * bonus_ath)
         end
 
         if IsPoisonAbility(abil) and IsPoisonImmune(target) and abil:GetAbilityName() ~= "semiramis_poisonous_bite_charm" and abil:GetAbilityName() ~= "semiramis_poisonous_bite_upgrade" then 
@@ -2703,9 +2756,10 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         end
         local originalDamage = dmg - target.CurseShieldAmount * 1/(1-reduction)
         target.CurseShieldAmount = target.CurseShieldAmount - dmg * (1-reduction)
+        CustomNetTables:SetTableValue("sync","curse_lance", {shield = target.CurseShieldAmount})
         if target.CurseShieldAmount <= 0 then
             dmg = originalDamage
-            if not target.InstantCurseAcquired then
+            if not target.IsInstantCurseAcquired then
                 target:RemoveModifierByName("modifier_cursed_lance_shield")
             end
             target.CurseShieldAmount = 0
@@ -2748,7 +2802,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             reduction = PhysicReduction
             incomingDmg = incomingDmg * (1-reduction) 
         end
-        if string.match(abil:GetAbilityName(), "sasaki_tsubame_gaeshi") then
+        if string.match(abil:GetAbilityName(), "tsubame_gaeshi") then
             target.IsAvalonPenetrated = true
             target.IsAvalonProc = false
         else
@@ -2941,7 +2995,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             victim = target,
             damage = 0,
             damage_type = dmg_type,
-            damage_flags = dmg_flag,
+            damage_flags = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
             ability = abil
         }
         ApplyDamage(dmgtable)
@@ -2952,7 +3006,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             victim = target,
             damage = dmg,
             damage_type = dmg_type,
-            damage_flags = dmg_flag,
+            damage_flags = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
             ability = abil
         }
         
@@ -3016,7 +3070,7 @@ function DoMashuShieldDamage(source, target , dmg, dmg_type, dmg_flag, abil, mas
                 if dmg_type == DAMAGE_TYPE_PHYSICAL then
                     reduction = GetPhysicalDamageReduction(mashu:GetPhysicalArmorValue(false))
                 elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-                    reduction = mashu:GetBaseMagicalResistanceValue()/100
+                    reduction = mashu:GetBaseMagicalResistanceValue()/100 or 0
                 end
                 local originalDamage1 = dmg - shield_hp
                 print('original dmage = ' .. originalDamage1)
@@ -3792,7 +3846,7 @@ end
 function SaveStashState(hero)
     local stashState = {}
     local stashChargeState = {}
-    for i=1, 6 do
+    for i=0, 5 do
         local item = hero:GetItemInSlot(i + 9)
         table.insert(stashState, i, item and item:GetName())
         table.insert(stashChargeState, i, item and item:GetCurrentCharges())

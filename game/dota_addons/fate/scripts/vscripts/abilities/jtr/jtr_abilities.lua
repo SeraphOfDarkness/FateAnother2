@@ -537,7 +537,7 @@ function OnMariaStart(keys)
 							end
 							if RandomInt(1, 100) <= curse_chance then 
 								if IsUnExecute(target) then
-									DoDamage(caster, target, 9999, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, ability, false)
+									--DoDamage(caster, target, 9999, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, ability, false)
 								else
 									target:Execute(ability, caster, { bExecution = true })
 									if not caster:FindAbilityByName("jtr_illusion_trap_curse"):IsCooldownReady() then 

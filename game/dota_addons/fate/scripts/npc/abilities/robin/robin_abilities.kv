@@ -94,7 +94,6 @@
 
 			"modifier_faceless_king_cooldown"
 			{
-				"Duration"				"%passive_cooldown"
 				"IsDebuff"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
@@ -107,7 +106,7 @@
 	{
 	    "BaseClass"						    "ability_datadriven"
 	    "MaxLevel"						    "1"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	    "AbilityTextureName"			 	"custom/robin/facelesskingattribute"
 	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
 	    "AbilityManaCost"				   	"0"
@@ -124,8 +123,17 @@
             "evasion" "30"
             "invis_chance" "12"
             "invis_duration" "6"
-            "passive_cooldown" "30"
             "bonus_mr" "20"
+            "bonus_invis_agi" "2"
+            "passive_cooldown" "25"
+        }
+        "OnSpellStart"
+        {
+        	"RunScript"
+			{
+				"ScriptFile"		"abilities/robin/robin_abilities"
+				"Function"			"OnFacelessKingStart"
+			}
         }
 
 		"Modifiers"
@@ -186,7 +194,7 @@
 					"RunScript"
 					{
 						"ScriptFile"		"abilities/robin/robin_abilities"
-						"Function"			"OnInvisDeath"
+						"Function"			"OnInvisBonus"
 					}								
 				}		
 				"OnDeath"
@@ -198,10 +206,16 @@
 					}
 				}
 			}
-
+			"modifier_faceless_bonus"
+			{
+				"Duration"			"1.5"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
 			"modifier_faceless_king_cooldown"
 			{
-				"Duration"				"%passive_cooldown"
 				"IsDebuff"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 			}
@@ -280,7 +294,7 @@
 	{
 	    "BaseClass"						    "ability_datadriven"
 	    "MaxLevel"						    "1"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	    "AbilityTextureName"			 	"custom/robin/righteous"
 	    "LevelsBetweenUpgrades"		 		"1"
 	    "AbilityCooldown"				   	"1"
@@ -288,30 +302,31 @@
 
 	    "AbilityValues"
         {
-            "bonus_vision" "350"
+            "bonus_vision" "200"
             "goldpersecond" "4"
-            "attack_speed" "40"
-            "crit_chance" "40"
-            "agi_scale_crit" "2"
+            "gold_steal" "50"
+            "more_gold" "40"
+            "attack_speed" "30"
+            "agi_scale_crit" "1"
         }
 
-	   	"OnSpellStart"
-	    {
-    		"RunScript"
-		    {
-		    	"ScriptFile"	"abilities/robin/robin_abilities"
-		    	"Function"		"OnRighteousSwap"
-		    }
-		}
+	   	//"OnSpellStart"
+	    //{
+    	//	"RunScript"
+		//    {
+		//    	"ScriptFile"	"abilities/robin/robin_abilities"
+		//    	"Function"		"OnRighteousSwap"
+		//    }
+		//}
 
 		"Modifiers"
 		{	
-			"modifier_robin_hunter_rain"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
+			//"modifier_robin_hunter_rain"
+			//{
+			//	"Passive"			"0"
+			//	"IsHidden"			"1"
+			//	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			//}
 
 			"modifier_robin_clairvoyance_passive"
 			{
@@ -496,7 +511,69 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Robin : (Q-Q) PITFALL TRAP (SA)
+	//=================================================================================================================
+	"robin_saboteur_pitfall_upgrade"
+	{
+	    "BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/robin/pitfall"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCastRange"				"350"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"100"
+		"AOERadius"						"%radius"
 
+	    "AbilityValues"
+        {
+            "radius" "200"
+            "trap_duration" "27 30 33 36 39"
+            "stun_duration" "0.3 0.4 0.5 0.6 0.7"
+            "damage" "50 75 100 125 150"
+        }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/robin/robin_abilities"
+		    	"Function"		"OnPitfallCast"
+		    }
+		}
+		"Modifiers"
+		{
+			"modifier_robin_pitfall_checker"
+			{
+				"IsDebuff"			"0"
+				"IsHidden"			"0"
+				"Duration"			"%trap_duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  	"0.04"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNTARGETABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/robin/robin_abilities"
+						"Function"		"PitfallCheck"
+					}
+				}
+
+			}
+		}
+	}
 	//=================================================================================================================
 	// Robin : (Q-W) BARREL TRAP
 	//=================================================================================================================
@@ -558,7 +635,67 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Robin : (Q-W) BARREL TRAP (SA)
+	//=================================================================================================================
+	"robin_saboteur_barrel_upgrade"
+	{
+	    "BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/robin/barrelbomb"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"350"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"100"
+		"AOERadius"						"%radius"
 
+	    "AbilityValues"
+        {
+            "radius" "250"
+            "trap_duration" "27 30 33 36 39"
+            "damage" "350 400 450 500 550"
+        }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/robin/robin_abilities"
+		    	"Function"		"OnBarrelCast"
+		    }
+		}
+		"Modifiers"
+		{
+			"modifier_robin_barrel_checker"
+			{
+				"IsDebuff"			"0"
+				"IsHidden"			"0"
+				"Duration"			"%trap_duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  	"0.04"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/robin/robin_abilities"
+						"Function"		"BarrelCheck"
+					}
+				}
+
+			}
+		}
+	}
 	//=================================================================================================================
 	// Robin : (Q-E) SCOUT FAMILLIAR
 	//=================================================================================================================
@@ -635,7 +772,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"350"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"			"1"
 		"AbilityCooldown"				"20"
@@ -649,12 +786,15 @@
 
 		"AbilityValues"
         {
-            "cast_delay" "0.3"
-            "cast_range" "900"
-            "heal_damage" "30"
+            //"cast_delay" "0.3"
+            "cast_range" "350"
+            "trap_radius" "200"
+            "trap_duration" "27 30 33 36 39"
             "radius" "400"
             "dps" "80 100 120 140 160"
             "duration" "6 7 8 9 10"
+            "atk_debuff" "-4 -8 -12 -16 -20"
+            "stat_debuff" "-2 -4 -6 -8 -10"
         }
 		"OnSpellStart"
 		{
@@ -666,16 +806,55 @@
 		}		
 		"Modifiers"
 		{
+			"modifier_robin_bomb_checker"
+			{
+				"IsDebuff"			"0"
+				"IsHidden"			"0"
+				"Duration"			"%trap_duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"ThinkInterval"  	"0.04"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/robin/robin_abilities"
+						"Function"		"BombCheck"
+					}
+				}
+
+			}
+			"modifier_robin_poison_smoke_aura"
+			{
+				"IsHidden"				"1"
+				"Duration"				"%duration"
+				"EffectName"			"particles/robin/poisonsmoke/poisonsmoke.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Aura"					"modifier_robin_poison_smoke"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+			}
 			"modifier_robin_poison_smoke"
 			{
 				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"Duration"			"%duration"					
+				"IsDebuff"			"1"			
 				"EffectName"		"particles/units/heroes/hero_viper/viper_corrosive_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"ThinkInterval"  		"0.45"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%atk_debuff"
+				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stat_debuff" 
+				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stat_debuff" 
+				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stat_debuff" 
+				}
+				"ThinkInterval"  		"0.49"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -740,8 +919,9 @@
             "speed" "1600"
             "width" "90"
             "length" "900"
-            "stun_duration" "1 1.25 1.5 1.75 2"
+            "stun_duration" "0.4"
             "dash_back" "600"
+            "knock"		"200"
         }
 
 		"OnUpgrade"
@@ -802,8 +982,11 @@
             "speed" "1100"
             "width" "90"
             "length" "900"
-            "stun_duration" "1 1.25 1.5 1.75 2"
+            "stun_duration" "0.4"
             "dash_back" "600"
+            "knock"		"200"
+            "paralyze_duration" "1 1.25 1.5 1.75 2"
+            "paralyze_slow" "-100"
             "damage_per_int" "2"
         }
 
@@ -831,6 +1014,22 @@
 			{
 				"ScriptFile"	"abilities/robin/robin_abilities"
 				"Function"		"OnParalyzingArrowHit"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_robin_paralyze"
+			{
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"EffectName"			"particles/econ/items/bristleback/ti7_head_nasal_goo/bristleback_ti7_nasal_goo_debuff_drip.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Duration"              "%paralyze_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%paralyze_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%paralyze_slow" 
+				}
 			}
 		}
 	}
@@ -866,10 +1065,11 @@
             "speed" "1500"
             "width" "60"
             "length" "1400"
-            "stun_duration" "1"
-            "dash_back" "200 275 350 425 400"
+           // "stun_duration" "0.2"
+            //"dash_back" "200 275 350 425 400"
             "arrow_amount" "5 6 7 8 9"
-            "slow" "-80"
+            "debuff_duration" "0.4 0.6 0.8 1.0 1.2"
+            "vision_debuff" "100"
             "damage_per_agi" "1"
         }
 
@@ -893,15 +1093,99 @@
 
 		"Modifiers"
 		{
-			"modifier_robin_hunter_rain_slow"
+			"modifier_robin_hunter_rain_debuff"
 			{
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"Duration"			"0.25"	
+				"Duration"			"%debuff_duration"	
 				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow"
+					"MODIFIER_PROPERTY_FIXED_DAY_VISION"			"%vision_debuff"
+				    "MODIFIER_PROPERTY_FIXED_NIGHT_VISION"			"%vision_debuff"
+				}	
+			}
+		}
+	}
+	//=================================================================================================================
+	// Robin : Hunter Rain (Viper SA)
+	//=================================================================================================================
+	"robin_hunter_rain_upgrade"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+	    "AbilityCooldown"				   	"0"
+	    "MaxLevel"						    "5"
+	    "LevelsBetweenUpgrades"		 		"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"custom/robin/hunterrain"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"2.0"
+		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"17"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "cast_delay" "0.1"
+            "damage" "50 60 70 80 90"
+            "speed" "1500"
+            "width" "60"
+            "length" "1400"
+            //"stun_duration" "0.2"
+            //"dash_back" "200 275 350 425 400"
+            "arrow_amount" "5 6 7 8 9"
+            "debuff_duration" "0.4 0.6 0.8 1.0 1.2"
+            "vision_debuff" "100"
+            "damage_per_agi" "1"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/robin/robin_abilities"
+				"Function"		"OnHunterRain"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/robin/robin_abilities"
+				"Function"		"OnHunterRainHit"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_robin_hunter_rain_debuff"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Duration"			"%debuff_duration"	
+				"EffectName"		"particles/units/heroes/hero_ringmaster/ringmaster_spotlight_blind_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_FIXED_DAY_VISION"			"%vision_debuff"
+				    "MODIFIER_PROPERTY_FIXED_NIGHT_VISION"			"%vision_debuff"
 				}	
 			}
 		}
@@ -1122,6 +1406,7 @@
             "radius" "350"
             "poison_duration" "2 2.5 3 3.5 4"
             "dps" "40 50 60 70 80"
+            "heal_red" "-10"
         }
 
 		"OnSpellStart"
@@ -1207,6 +1492,7 @@
             "poison_duration" "2 2.5 3 3.5 4"
             "dps" "40 50 60 70 80"
             "dps_per_int" "1.5"
+            "heal_red" "-20"
         }
 
 		"OnSpellStart"
@@ -1294,6 +1580,7 @@
             "poison_duration" "2 2.5 3 3.5 4"
             "dps" "40 50 60 70 80"
             "dps_per_int" "1"
+            "heal_red" "-10"
         }
 
 		"OnSpellStart"
@@ -1381,6 +1668,7 @@
             "poison_duration" "2 2.5 3 3.5 4"
             "dps" "40 50 60 70 80"
             "dps_per_int" "1.5"
+            "heal_red" "-20"
         }
 
 		"OnSpellStart"
@@ -1449,12 +1737,14 @@
             "cast_range" "2600"
             "damage" "2500"
             "radius" "850"
-            "dps" "300"
-            "damage_roots_bonus" "400"
-            "damage_yew_bonus" "700"
-            "damage_smoke_bonus" "300"
+            "dps" "180"
+            "duration" "6"
+            "damage_roots_bonus" "200"
+            "damage_yew_bonus" "400"
+            "damage_smoke_bonus" "150"
+            "damage_paralyze_bonus" "200"
+            "damage_viper_bonus" "200"
             "chain_poison_radius" "500"
-            "duration" "3.5"
             "speed" "5000"
         }
 
@@ -1514,14 +1804,16 @@
             "cast_range" "2600"
             "damage" "3000"
             "radius" "800"
-            "dps" "300"
-            "damage_roots_bonus" "400"
-            "damage_yew_bonus" "700"
-            "damage_smoke_bonus" "300"
-            "chain_poison_radius" "500"
-            "duration" "3.5"
-            "speed" "5000"
+            "dps" "180"
+            "duration" "6"
             "dps_per_int" "3"
+            "damage_roots_bonus" "200"
+            "damage_yew_bonus" "400"
+            "damage_smoke_bonus" "150"
+            "damage_paralyze_bonus" "200"
+            "damage_viper_bonus" "200"
+            "chain_poison_radius" "500"
+            "speed" "5000" 
         }
 
 		"OnSpellStart"
@@ -1552,6 +1844,88 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Robin : Poison Arrow Tip 
+	//=================================================================================================================
+	"robin_poison_arrow"
+	{
+	    "BaseClass"						    "ability_datadriven"
+	    "MaxLevel"						    "1"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	    "AbilityTextureName"			 	"custom/robin/robin_viper"
+	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
+	    "AbilityCooldown"				   	"0"
+	    "AbilityManaCost"				   	"0"
+
+	    "AbilityValues"
+        {
+            "max_stack" "3"
+            "stack_duration" "3"
+            "buff_duration" "3"
+        }
+
+		"Modifiers"
+		{	
+
+			"modifier_robin_poison_arrow_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+			    "OnAttackLanded"
+			    {
+			    	"RunScript"
+			    	{
+			    		"ScriptFile"		"abilities/robin/robin_abilities"
+						"Function"			"OnRobinAttack"
+			    	}
+			    }
+			}
+
+			"modifier_robin_poison_arrow_stack"
+			{
+				"IsBuff"				"1"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"Duration"				"%stack_duration"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_robin_poison_arrow_buff"
+			{
+				"IsBuff"				"1"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"Duration"				"%buff_duration"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/robin/robin_abilities"
+						"Function"			"OnRobinPoisonAttack"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/robin/robin_abilities"
+						"Function"			"OnRobinPoisonSFX"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/robin/robin_abilities"
+						"Function"			"OnRobinPoisonSFXDestroy"
+					}
+				}
+			}
+		}
+	}
 	//=======================================
 	// Robin Attribute : Subversive Activities
 	//=======================================
@@ -1568,13 +1942,17 @@
 
 		"AbilityValues"
         {
+        	"barrel_dmg" "100"
             "movespeed" "260 300 340 380 420"
             "vision_radius" "400 500 600 700 800"
             "lifetime" "12 13 14 15 16"
-            "heal_damage" "30"
+            "trap_radius" "200"
+            "trap_duration" "27 30 33 36 39"
             "radius" "400"
             "dps" "30 35 40 45 50"
             "duration" "6 7 8 9 10"
+            "atk_debuff" "-4 -8 -12 -16 -20"
+            "stat_debuff" "-2 -4 -6 -8 -10"
         }
 		
 		"OnSpellStart"
@@ -1599,25 +1977,22 @@
 		"AbilityTextureName"			"custom/robin/righteous"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"16"
 
 		"AbilityValues"
         {
-            "bonus_vision" "150"
-            "aspd" "40"
-            "gold_per_second" "4"
-            "agi_scale_crit" "2"
-            "crit_chance" "40"
-            "cast_delay" "0.1"
-            "damage" "50 60 70 80 90"
-            "speed" "1500"
-            "width" "60"
-            "length" "1400"
-            "stun_duration" "1"
-            "dash_back" "200 275 350 425 400"
-            "arrow_amount" "5 6 7 8 9"
-            "slow" "70"
-            "damage_per_agi" "1"
+            "bonus_vision" "200"
+            "goldpersecond" "4"
+            "gold_steal" "50"
+            "more_gold" "40"
+            "attack_speed" "30"
+            "agi_scale_crit" "1"
+            "evasion" "30"
+            "invis_chance" "12"
+            "invis_duration" "6"
+            "bonus_mr" "20"
+            "bonus_invis_agi" "2"
+            "passive_cooldown" "25"
         }
 		
 		"OnSpellStart"
@@ -1675,13 +2050,20 @@
 		"AbilityTextureName"			"custom/robin/guerilla"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"11"
+		"AbilityManaCost"				"13"
 
 		"AbilityValues"
         {
             "bonus_range" "300"
             "damage_per_agi" "6"
             "ignore_armor_amount" "30"
+            "cast_delay" "0.1"
+            "damage" "50 60 70 80 90"
+            "speed" "1500"
+            "width" "60"
+            "length" "1400"
+            "arrow_amount" "5 6 7 8 9"
+            "rain_damage_per_agi" "1"
         }
 		
 		"OnSpellStart"
@@ -1706,15 +2088,18 @@
 		"AbilityTextureName"			"custom/robin/taxine"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"18"
+		"AbilityManaCost"				"17"
 
 		"AbilityValues"
         {
             "paralyzing_damage_per_int" "2"
+            "paralyze_duration" "1 1.25 1.5 1.75 2"
+            "paralyze_slow" "-100"
             "roots_damage_per_int" "2.5"
             "roots_dps_per_int" "0.5"
             "yew_damage_per_int" "3"
             "yew_dps_per_int" "1.5"
+            "heal_red" "-10"
             "combo_dps_per_int" "3"
             "combo_bonus_damage" "500"
         }
@@ -1725,6 +2110,38 @@
 			{
 				"ScriptFile"	"abilities/robin/robin_abilities"
 				"Function"		"OnTaxineAcquired"
+			}
+		}
+	}
+	//=======================================
+	// Robin Attribute : One drop of a Viper
+	//=======================================
+	"robin_attribute_viper"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_viper"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"AbilityValues"
+        {
+        	"max_stack" "3"
+            "stack_duration" "3"
+            "buff_duration" "3"
+            "debuff_duration" "0.4 0.6 0.8 1.0 1.2"
+            "vision_debuff" "100"
+        }
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/robin/robin_abilities"
+				"Function"		"OnViperAcquired"
 			}
 		}
 	}
@@ -1781,6 +2198,18 @@
 			"particle"  			"particles/robin/poisonsmoke/poisonsmoke.vpcf"
 			"particle"  			"particles/units/heroes/hero_viper/viper_viper_strike_impact_b.vpcf"
 			"particle"  			"particles/units/heroes/hero_viper/viper_viper_strike_impact.vpcf"
+			"particle"  			"particles/econ/items/bristleback/ti7_head_nasal_goo/bristleback_ti7_nasal_goo_debuff_drip.vpcf"
+			"particle"  			"particles/units/heroes/hero_ringmaster/ringmaster_spotlight_blind_debuff.vpcf"
+			"particle"  			"particles/robin/arrow_symbol_blue.vpcf"
+			"particle"  			"particles/robin/arrow_symbol_red.vpcf"
+			"particle"  			"particles/robin/arrow_symbol_green.vpcf"
+			"particle"  			"particles/robin/arrow_symbol_pink.vpcf"
+			"particle"  			"particles/robin/arrow_symbol_yellow.vpcf"
+			"particle"  			"particles/robin/yewbow_arrow.vpcf"
+			"particle" 				"particles/econ/items/hoodwink/hoodwink_2022_immortal/hoodwink_2022_immortal_base_attack_blossom.vpcf"
+			"particle"  			"particles/econ/items/drow/drow_ti9_immortal/drow_ti9_base_attack.vpcf"
+			"particle" 	 			"particles/econ/items/windrunner/windranger_arcana/windranger_arcana_base_attack_v2.vpcf"
+			"particle"  			"particles/econ/items/hoodwink/hoodwink_2022_immortal/hoodwink_2022_immortal_base_attack.vpcf"
 		}
 	}
 }

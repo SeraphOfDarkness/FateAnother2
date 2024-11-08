@@ -432,6 +432,10 @@ function OnNakedKingStart(keys)
 		--Attributes:ModifyBonuses(caster.illusion[i])
 		caster.illusion[i]:SetHealth(caster:GetHealth())
 		caster.illusion[i]:SetMana(caster:GetMana())
+		if caster:HasModifier("modifier_alternate_01") then 
+			caster.illusion[i]:SetModel("models/han/no_coat/hans_nocoat_by_zefiroft.vmdl")
+			caster.illusion[i]:SetOriginalModel("models/han/no_coat/hans_nocoat_by_zefiroft.vmdl")
+		end
 
 		local move = {
 			UnitIndex = caster.illusion[i]:entindex(), 

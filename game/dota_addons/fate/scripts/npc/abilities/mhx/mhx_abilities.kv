@@ -1,0 +1,784 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Precache
+	//=======================================
+	"mhx_precache"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/mhx/mhx_q"
+
+		"precache"
+		{
+			"particle"				"particles/mhx/mhx_q.vpcf"
+			"particle"				"particles/mhx/mhx_w.vpcf"
+			"particle"				"particles/mhx/mhx_e.vpcf"
+			"particle"				"particles/mhx/mhx_r_floor_indicator.vpcf"
+			"particle"				"particles/mhx/mhx_r_cast.vpcf"
+			"particle"				"particles/mhx/mhx_r_dash.vpcf"
+			"particle"				"particles/mhx/mhx_r_slash_start.vpcf"
+			"particle"  			"particles/mhx/mhx_r_slash_area3.vpcf"
+			"particle"  			"particles/mhx/mhx_r_cast1.vpcf"
+			"particle"  			"particles/mhx/mhx_r_slashfinal.vpcf"
+			"particle"  			"particles/mhx/mhx_r_slash_area.vpcf"
+			"particle"  			"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf"
+			"particle"  			"particles/creatures/aghanim/aghanim_blink_ground_rings.vpcf"
+			"particle"  			"particles/creatures/aghanim/aghanim_portal_summon_impact_cast_ground.vpcf"
+			"particle"  			"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_explosion_flare_ring.vpcf"
+			"particle"  			"particles/units/heroes/hero_void_spirit/void_spirit_prison_end_top_flare.vpcf"
+			"particle"  			"particles/econ/events/ti10/soccer_ball/soccer_ball_dust.vpcf"
+			"particle"  			"particles/mhx/mhx_path.vpcf"
+			"particle"  			"particles/units/heroes/hero_void_spirit/astral_step/astral_step_portal_flare.vpcf"
+			"particle"  			"particles/mhx/mhx_combo_slashfinal.vpcf"
+			"particle"  			"particles/mhx/mhx_combo_slashfinal.vpcf"
+			"particle"  			"particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_cast_lightning_sparks.vpcf"
+			"particle"  			"particles/econ/items/disruptor/disruptor_ti8_immortal_weapon/disruptor_ti8_immortal_thunder_strike_buff_sparks_b.vpcf"
+			"particle"  			"particles/mhx/mhx_combo_x2.vpcf"
+			"particle"  			"particles/mhx/mhx_combo_x.vpcf"
+		}
+	}
+
+	//=================================================================================================================
+	// Mhx - Cataphract shift (Q) 
+	//=================================================================================================================
+	"mhx_q"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_q"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityValues"
+        {
+            "cast_point" "0.2"
+            "ms_bonus" "20 30 40 50 60"
+            "buff_dur" "4"
+            "range" "300 325 350 375 400"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnQ"
+			}
+		}		
+
+		"Modifiers"
+		{
+			"modifier_mhx_q_buff"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%buff_dur"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%ms_bonus"
+				}
+			}
+
+			"modifier_combo_window"
+			{	
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mhx/mhx_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mhx/mhx_abilities"
+						"Function"		 	"OnComboWindowBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/mhx/mhx_abilities"
+						"Function"		 	"OnComboWindowDeath"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mhx - Cataphract shift (Q_SA) 
+	//=================================================================================================================
+	"mhx_q_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_q"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"0"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityCastPoint"				"0"
+
+		"AbilityValues"
+        {
+            "cast_point" "0"
+            "ms_bonus" "20 30 40 50 60"
+            "buff_dur" "6 7 8 9 10"
+            "range" "300 350 400 450 500"
+            "extra_r_range" "50 75 100 125 150"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnQ"
+			}
+		}		
+
+		"Modifiers"
+		{
+			"modifier_mhx_q_buff"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%buff_dur"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%ms_bonus"
+				}
+			}
+
+			"modifier_combo_window"
+			{	
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mhx/mhx_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mhx/mhx_abilities"
+						"Function"		 	"OnComboWindowBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/mhx/mhx_abilities"
+						"Function"		 	"OnComboWindowDeath"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mhx - Galactic Meteor Slice (W) 
+	//=================================================================================================================
+	"mhx_w"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_w"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4_END"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"17"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"750"
+
+		"AbilityValues"
+        {
+            "cast_delay" "0.15"
+            "range" "800"
+			"width"	"110"
+            "damage" "300 400 500 600 700"
+            "projectile_speed" "1900"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnWStart"
+			}
+		}	
+		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnWHit"
+			}
+		}	
+	}
+
+	//=================================================================================================================
+	// Mhx - Galactic Meteor Slice (W) 
+	//=================================================================================================================
+	"mhx_w_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_w"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4_END"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"17"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"750"
+
+		"AbilityValues"
+        {
+            "cast_delay" "0.15"
+            "range" "800"
+			"width"	"110"
+            "damage" "300 400 500 600 700"
+            "projectile_speed" "1900"
+            "w_split" "2"
+            "w_split_range" "450"
+            "split_delay" "0.55"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnWStart"
+			}
+		}	
+		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnWHit"
+			}
+		}	
+	}
+
+	//=================================================================================================================
+	// Mhx - Cross Calibur (E)
+	//=================================================================================================================
+	"mhx_e"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_e"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_END"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"28 27 26 25 24"
+		"AbilityCastPoint"				"0.25"
+		"AbilityValues"
+        {
+            "cast_delay" "0.35"
+            "damage" "400 525 650 725 900"
+            "aoe" 	"300 325 350 375 400"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnE"
+			}
+		}		
+	}
+
+	//=================================================================================================================
+	// Mhx - Prana Endowment (D)
+	//=================================================================================================================
+	"mhx_d"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_d"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"21"
+		"AbilityCastPoint"				"0.07"
+		"AbilityValues"
+        {
+            "ministun_chance" "15 30"
+            "ministun_duration" "0.1"
+            "bonus_r_slash_damage" "0 15"
+            "bonus_r_slash_count" "1 4"
+            "duration" "5 12"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnBuff"
+			}	
+		}
+
+		"Modifiers"
+		{
+			"modifier_mhx_prana"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%buff_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_mhx_prana_passive"
+			{
+	    		"Passive"			"1"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/mhx/mhx_abilities"
+						"Function"		"OnAttack"
+					}
+				}
+			}
+		}	
+	}
+
+	//=================================================================================================================
+	// Mhx - Secret Calibur (r) 
+	//=================================================================================================================
+	"mhx_r"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_r"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"48 46 44 42 40"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityValues"
+        {
+            "cast_delay" "1.1"
+            "range" "600 625 650 675 700"
+            "width" "220"
+            "damage_drag" "200 250 300 350 400"
+            "damage_slash" "40 45 50 55 60"
+            "slash_count" "6 8 10 12 14"
+            "slash_duration" "0.675"
+            "burst_delay" "0.225"
+            "damage_burst" "300 350 400 450 500"
+            "burst_aoe" "350"
+            "drag_stun" "0.2"
+            "stun_chance_multiplier" "3"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnR"
+			}
+		}		
+
+		"Modifiers"
+		{
+			"modifier_mhx_r_charging"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%cast_delay"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
+			
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mhx - Secret Calibur (SA) (r) 
+	//=================================================================================================================
+	"mhx_r_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_r"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"48 46 44 42 40"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityValues"
+        {
+            "cast_delay" "1.1"
+            "range" "650 675 700 725 750"
+            "width" "220"
+            "damage_drag" "200 250 300 350 400"
+            "damage_slash" "40 45 50 55 60"
+            "bonus_agi_slash_damage" "0.8"
+            "slash_count" "6 8 10 12 14"
+            "slash_duration" "0.675"
+            "burst_delay" "0.225"
+            "damage_burst" "300 350 400 450 500"
+            "burst_aoe" "350"
+            "drag_stun" "0.2"
+            "stun_chance_multiplier" "3"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnR"
+			}
+		}		
+
+		"Modifiers"
+		{
+			"modifier_mhx_r_charging"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%cast_delay"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
+			
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mhx - Secret Calibur (combo, D R) 
+	//=================================================================================================================
+	"mhx_combo"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"150"
+		"AbilityCastPoint"				"0.25"
+
+		"AbilityValues"
+        {
+            "cast_delay" "1.3"
+            "range" "1600"
+            "width" "150"
+            "damage_slash" "175"
+            "slash_count" "24"
+            "slash_duration" "2"
+            "burst_delay" "0.4"
+            "damage_burst" "1250"
+            "fail_cooldown" "30"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+				"Function"		"OnCombo"
+			}
+		}		
+
+		"Modifiers"
+		{
+			"modifier_mhx_r_charging"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%cast_delay"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
+			
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+			"modifier_mhx_combo_cooldown"
+			{
+				"IsDebuff"				"1"
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+		}
+	}
+
+	//=======================================
+	// Attribute : Independent Action 
+	//=======================================
+	"mhx_sa1"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/mhx/mhx_sa3"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+		
+		"AbilityValues"
+        {
+            "cast_point" "0"
+            "ms_bonus" "20 30 40 50 60"
+            "buff_dur" "6 7 8 9 10"
+            "range" "300 350 400 450 500"
+            "extra_r_range" "50 75 100 125 150"
+            "mana_cost" "0"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnActionSa"
+			}
+		}
+	}
+
+	//=======================================
+	// Attribute : Dual Wield
+	//=======================================
+	"mhx_sa4"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/mhx/mhx_sa4"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+		
+		"AbilityValues"
+        {
+            "bonus_dash_range" "50"
+            "bonus_agi_slash_damage" "0.8"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnDualSa"
+			}
+		}
+	}
+
+	//=======================================
+	// Attribute : Improved Prana Endowment
+	//=======================================
+	"mhx_sa3"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/mhx/mhx_sa1"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+		
+		"AbilityValues"
+        {
+            "ministun_chance" "30"
+            "ministun_duration" "0.1"
+            "bonus_r_slash_damage" "15"
+            "bonus_r_slash_count" "4"
+            "duration" "12"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnPranaSa"
+			}
+		}
+	}
+
+
+
+	//=======================================
+	// Attribute : Burst Blade
+	//=======================================
+	"mhx_sa2"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/mhx/mhx_sa2"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"11"
+		
+		"AbilityValues"
+        {
+            "w_split" "2"
+            "w_split_range" "450"
+            "w_split_damage_perc" "50"
+            "split_delay" "0.5"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnBurstSa"
+			}
+		}
+	}
+
+
+
+
+
+	//=================================================================================================================
+	// Mhx - Anti Saber Swordsmanship (F) -- IN CONSIDERATION STILL!!!!
+	//=================================================================================================================
+	"mhx_f"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/mhx/mhx_d"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"28"
+		"AbilityCastPoint"				"0"
+		"AbilityValues"
+        {
+            "damage_reduction" "20 80"
+            "duration" "0.4"
+        }
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/mhx/mhx_abilities"
+			 	"Function"		"OnBuff"
+			}	
+		}
+
+		"Modifiers"
+		{
+			"modifier_mhx_parry"
+			{
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"Duration"			"%buff_duration"	
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+			}
+		}	
+	}
+}

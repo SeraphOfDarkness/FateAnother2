@@ -8,47 +8,84 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/cu_chulain/cu_chulain_battle_continuation"
 		"MaxLevel"						"1"
-		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_battle_continuation"
 		"AbilityCooldown"				"90"
 
-		"precache"
-		{
-			
-		}
-		
 		"AbilityValues"
         {
             "max_damage" "900"
             "revive_health" "1"
-            "active_dur" "3.0"
+            "active_dur" "1.0"
         }
 	}
 	//=================================================================================================================
-	// Lancer : Battle Continuation (Rune Magic SA)
+	// Lancer : Battle Continuation (Inprove BC SA)
 	//=================================================================================================================
-	"cu_chulain_battle_continuation_upgrade"
+	"cu_chulain_battle_continuation_upgrade_1"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/cu_chulain/cu_chulain_battle_continuation"
 		"MaxLevel"						"1"
-		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_battle_continuation"
 		"AbilityCooldown"				"90"
-
-		"precache"
-		{
-			
-		}
 		
 		"AbilityValues"
         {
             "max_damage" "1300"
             "revive_health" "1"
-            "active_dur" "5"
-            "rune_fire_dmg" "300"
+            "active_dur" "3"
+        }
+	}
+	//=================================================================================================================
+	// Lancer : Battle Continuation (Rune Magic SA)
+	//=================================================================================================================
+	"cu_chulain_battle_continuation_upgrade_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_battle_continuation"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_battle_continuation"
+		"AbilityCooldown"				"90"
+		
+		"AbilityValues"
+        {
+            "max_damage" "900"
+            "revive_health" "1"
+            "active_dur" "1"
+            "ath_duration" "5"
+            "ath_self" "10"
+            "ath_enemy" "30"
+            "rune_fire_radius"		"400"
+			"rune_fire_stun"	"0.35"
+            "rune_fire_dmg" "200"
+        }
+	}
+	//=================================================================================================================
+	// Lancer : Battle Continuation (Improve BC + Rune Magic SA)
+	//=================================================================================================================
+	"cu_chulain_battle_continuation_upgrade_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_battle_continuation"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_battle_continuation"
+		"AbilityCooldown"				"90"
+		
+		"AbilityValues"
+        {
+            "max_damage" "1300"
+            "revive_health" "1"
+            "active_dur" "3"
+            "ath_duration" "5"
+            "ath_self" "10"
+            "ath_enemy" "30"
+            "rune_fire_radius"		"400"
+			"rune_fire_stun"	"0.35"
+            "rune_fire_dmg" "200"
         }
 	}
 }

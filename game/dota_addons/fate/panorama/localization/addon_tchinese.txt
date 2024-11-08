@@ -282,7 +282,7 @@
         "FA_Options_tooltip"                            "Fate 設定 "
 
         "ABOUT_DEV"                                     "命運/另類 II"
-        "ABOUT_DEV_BODY"                                "目前的開發者 by : ZeFiRoFT, Nerd, Seraph, Kagutsuchi"
+        "ABOUT_DEV_BODY"                                "目前的開發者 by : ZeFiRoFT, Nerd, Kagutsuchi"
         "ABOUT_CREDITS"                                 "致謝"
 
         "ABOUT_CREDITS_BODY"

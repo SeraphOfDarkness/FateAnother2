@@ -4,6 +4,13 @@ function OnGoldenRuleThink(keys)
 	local ability = keys.ability
 	local gold_gain = ability:GetSpecialValueFor("gold_gain")
     if caster:IsAlive() and GameRules:GetGameTime() > 75 then 
+    	--================================================--
+		local plyID = caster:GetPlayerOwnerID()
+		local nReliableGold = PlayerResource:GetReliableGold(plyID)
+		local nUnreliableGold = PlayerResource:GetUnreliableGold(plyID)
+
+		caster:SetGold(nReliableGold + nUnreliableGold, true)
+		--================================================--
     	caster:SetGold(0, false)
     	caster:SetGold(caster:GetGold() + gold_gain, true) 
     end
@@ -1134,7 +1141,7 @@ function GilgameshCheckCombo2(caster, ability)
 		else
 			if ability:GetAbilityName() == "gilgamesh_enkidu" 
 				and caster:FindAbilityByName("gilgamesh_combo_final_hour"):IsCooldownReady() 
-				and caster:FindAbilityByName("gilgamesh_gram_upgrade"):IsCooldownReady() 
+				and caster:FindAbilityByName("gilgamesh_gate_of_babylon_toggle"):IsCooldownReady() 
 				and not caster:HasModifier("modifier_max_enuma_elish_cooldown") 
 				and not caster:HasModifier("modifier_gilgamesh_final_hour_cooldown") then
 				if caster.EUsed == true then 
@@ -1149,12 +1156,12 @@ end
 
 function OnFinalHourWindowCreate(keys)
 	local caster = keys.caster 
-	caster:SwapAbilities("gilgamesh_gram_upgrade", "gilgamesh_combo_final_hour", false, true)
+	caster:SwapAbilities("gilgamesh_gate_of_babylon_toggle", "gilgamesh_combo_final_hour", false, true)
 end
 
 function OnFinalHourWindowDestroy(keys)
 	local caster = keys.caster 
-	caster:SwapAbilities("gilgamesh_gram_upgrade", "gilgamesh_combo_final_hour", true, false)
+	caster:SwapAbilities("gilgamesh_gate_of_babylon_toggle", "gilgamesh_combo_final_hour", true, false)
 end
 
 function OnFinalHourWindowDeath(keys)

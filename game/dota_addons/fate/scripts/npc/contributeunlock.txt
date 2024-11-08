@@ -43,6 +43,11 @@
 		"238102534"		"1" //Rorax
 		"140912356"		"1" //卫宫土狼
 	}
+	"npc_dota_hero_legion_commander_7" // Castoria
+	{
+		"99999999999"		"1"
+		"129880666"			"1" //V
+	}
 	"npc_dota_hero_spectre_1" // Casual Dress Artoria(Alter)
 	{
 		"99999999999"		"1"
@@ -87,6 +92,14 @@
 		"919069943"			"1" //Sana
 		"129880666"			"1" //V
 		"156994691"			"1" //LiuXin
+	}
+	"npc_dota_hero_phantom_lancer_4" // Yukina
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_phantom_lancer_5" // Dress Yukina
+	{
+		"99999999999"		"1"
 	}
 	"npc_dota_hero_tusk_1" // Casual Mordred
 	{
@@ -178,6 +191,10 @@
 	{
 		"99999999999"		"1"
 	}
+	"npc_dota_hero_dark_willow_3" // Okita Jetpack
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_bounty_hunter_1" // Hundred Face Hassan
 	{
 		"99999999999"		"1"
@@ -206,6 +223,15 @@
 	"npc_dota_hero_juggernaut_1" // Pepesaki
 	{
 		"99999999999"		"1"
+	}
+	"npc_dota_hero_juggernaut_2" // samurai doge
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_juggernaut_3" // [Limited] Ikki
+	{
+		"99999999999"		"1"
+		"73508309"			"1" //Rinz-Sama
 	}
 	"npc_dota_hero_chen_1" // Salaryman Iskandar
 	{
@@ -300,6 +326,10 @@
 	{
 		"99999999999"		"1"
 	}
+	"npc_dota_hero_naga_siren_2"	// Wedding Kuro
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_lina_1" // Emperor Nero
 	{
 		"99999999999"		"1"
@@ -357,6 +387,10 @@
 		"99999999999"		"1"
 		"238102534"			"1" // Rorax
 	}
+	"npc_dota_hero_bloodseeker_5" // Saitama
+	{
+		"99999999999"		"1"
+	}
 	"npc_dota_hero_queenofpain_1" // Schoolgirl Astolfo
 	{
 		"99999999999"		"1"
@@ -412,6 +446,22 @@
 	"npc_dota_hero_sven_2" // Dragon Armor Lancelot
 	{
 		"99999999999"		"1"
+	}
+	"npc_dota_hero_sven_3" // 
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_sven_4"	// [Limited] Mélusine
+	{
+		"129880666"			"1" VGod
+		"116623791"			"1" Mu
+		"156994691"			"1" LiuXin
+		"141743726"			"1" Mike
+		"919069943"			"1" Sana
+		"194317463"			"1" Yo
+		"1165902318"		"1" Yuki
+		"206236138"			"1" Eli
+		"96116520"			"1"
 	}
 	"npc_dota_hero_omniknight_1" // Samurai Gawain
 	{
@@ -552,6 +602,14 @@
 		"99999999999"		"1"
 	}
 	"npc_dota_hero_phantom_assassin_1" // [Limited] Overlord Albedo
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_dragon_knight_1" // [Heroic] Unarmored Mashu
+	{
+		"99999999999"		"1"
+	}
+	"npc_dota_hero_slark_1"				// [Heroic] Caped MHX
 	{
 		"99999999999"		"1"
 	}

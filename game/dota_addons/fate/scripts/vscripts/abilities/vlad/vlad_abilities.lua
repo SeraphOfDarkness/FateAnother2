@@ -192,6 +192,10 @@ function OnTransfusionStart(keys)
 	if caster.IsBloodletterAcquired then 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_impale_window", {})
 	end
+
+	if caster:HasModifier("modifier_alternate_02") then 
+		caster:EmitSound("Shalltear_D")
+	end
 end
 
 function OnTransfusionThink(keys)
@@ -765,8 +769,16 @@ function OnCurseLanceCreate(keys)
 		caster.CLShield1 = FxDestroyer(caster.CLShield1, false)
 		caster.CLShield2 = FxDestroyer(caster.CLShield2, false)
 	end
-	caster.CLShield1 = FxCreator("particles/custom/vlad/vlad_cl_shield.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
-	caster.CLShield2 = FxCreator("particles/custom/vlad/vlad_cl_shield2.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
+
+	if caster:HasModifier("modifier_alternate_02") then
+		local nCLShieldPFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_cl_shield.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+								ParticleManager:SetParticleControlEnt(nCLShieldPFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+						   		ParticleManager:SetParticleControl(nCLShieldPFX, 1, Vector(150, 150, 150))
+		caster.CLShield1 = nCLShieldPFX
+	else
+		caster.CLShield1 = FxCreator("particles/custom/vlad/vlad_cl_shield.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
+		caster.CLShield2 = FxCreator("particles/custom/vlad/vlad_cl_shield2.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
+	end
 end
 
 function OnCurseLanceThink(keys)
@@ -906,6 +918,7 @@ end
 
 function OnInstantCurseWindowDestroy(keys)
 	local caster = keys.caster 
+	HardCleanse(caster)
 	if caster.IsBloodletterAcquired then
 		caster:SwapAbilities("vlad_cursed_lance_upgrade_3", "vlad_instant_curse", true, false)
 	else
@@ -961,11 +974,20 @@ function OnKazikliBeyStart(keys)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.99 + endcast_pause) -- 2.66 is ideal time if there is to be no endcast pause, for current values of activation and interval
 	StartAnimation(caster, {duration = 2.4, activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.4 })
-	local PI4 = FxCreator("particles/custom/vlad/vlad_kb_hold.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster,0,nil)
-	local PI5 = FxCreator("particles/custom/vlad/vlad_kb_hold_swirl.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
-	ParticleManager:SetParticleControlEnt(PI5, 5, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
-	ParticleManager:SetParticleControlEnt(PI5, 2, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
-	ParticleManager:SetParticleControlEnt(PI5, 7, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+
+	local PI4 = nil
+	local PI5 = nil
+	if caster:HasModifier("modifier_alternate_02") then
+		local nKBCastingPFX =	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_kb_casting.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+								ParticleManager:SetParticleControl(nKBCastingPFX, 1, Vector(aoe_spikes, aoe_spikes, aoe_spikes))
+		PI4 = nKBCastingPFX
+	else
+		PI4 = FxCreator("particles/custom/vlad/vlad_kb_hold.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster,0,nil)
+		PI5 = FxCreator("particles/custom/vlad/vlad_kb_hold_swirl.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
+		ParticleManager:SetParticleControlEnt(PI5, 5, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+		ParticleManager:SetParticleControlEnt(PI5, 2, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+		ParticleManager:SetParticleControlEnt(PI5, 7, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+	end
 
 	Timers:CreateTimer(activation - ability:GetCastPoint(),function()
 		if caster:IsAlive() then
@@ -979,6 +1001,8 @@ function OnKazikliBeyStart(keys)
 			if hitcounter == total_hit - 3 then
 				if caster:HasModifier("modifier_alternate_01") then 
 					EmitGlobalSound("ApoVlad.KB")
+				elseif caster:HasModifier("modifier_alternate_02") then 
+					EmitGlobalSound("Shalltear_R")
 				else
 					EmitGlobalSound("Vlad.KB")
 				end
@@ -1005,8 +1029,18 @@ function OnKazikliBeyStart(keys)
 				
 				FxDestroyer(PI4, false)--destroy vfx1
 				FxDestroyer(PI5, false)
-				local PI1 = ParticleManager:CreateParticle("particles/custom/vlad/vlad_kb_spikesend.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-				ParticleManager:SetParticleControl(PI1, 0, caster:GetAbsOrigin() + Vector(0,0,20))
+				
+				local PI1 = nil
+				if caster:HasModifier("modifier_alternate_02") then
+					local nKBReleasePFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_kb_release.vpcf", PATTACH_WORLDORIGIN, nil)	
+											ParticleManager:SetParticleShouldCheckFoW(nKBReleasePFX, false)
+											ParticleManager:SetParticleControl(nKBReleasePFX, 0, caster:GetAbsOrigin())
+											ParticleManager:SetParticleControl(nKBReleasePFX, 1, Vector(aoe_lastspike, aoe_lastspike, aoe_lastspike))
+					PI1 = nKBReleasePFX
+				else
+					PI1 = 	ParticleManager:CreateParticle("particles/custom/vlad/vlad_kb_spikesend.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+							ParticleManager:SetParticleControl(PI1, 0, caster:GetAbsOrigin() + Vector(0,0,20))
+				end
 
 				Timers:CreateTimer(2, function()
 					FxDestroyer(PI1, false)
@@ -1014,6 +1048,7 @@ function OnKazikliBeyStart(keys)
 			    		dummy:RemoveSelf()
 			    	end
 			  	end)
+
         		caster:EmitSound("Hero_OgreMagi.Bloodlust.Cast")
 				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 				
@@ -1031,8 +1066,17 @@ function OnKazikliBeyStart(keys)
 				        		AddBleed(caster,v,lastspike_bleed_stack)
 							end
 
-				  			PI2[k] = FxCreator("particles/custom/vlad/vlad_kb_ontarget.vpcf", PATTACH_ABSORIGIN, v, 0, nil)
-						  	ParticleManager:SetParticleControl(PI2[k],4, Vector(3.7, 0, 0))
+							if caster:HasModifier("modifier_alternate_02") then
+								local nKBSpikeImpactPFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_kb_spike_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+															ParticleManager:SetParticleShouldCheckFoW(nKBSpikeImpactPFX, false)
+															ParticleManager:SetParticleControl(nKBSpikeImpactPFX, 0, v:GetAbsOrigin())
+															ParticleManager:ReleaseParticleIndex(nKBSpikeImpactPFX)
+								PI2[k] = nKBSpikeImpactPFX
+							else
+					  			PI2[k] = FxCreator("particles/custom/vlad/vlad_kb_ontarget.vpcf", PATTACH_ABSORIGIN, v, 0, nil)
+							  	ParticleManager:SetParticleControl(PI2[k],4, Vector(3.7, 0, 0))
+							end
+
 							PI3[k] = FxCreator("particles/custom/vlad/vlad_impale_bleed.vpcf", PATTACH_ABSORIGIN_FOLLOW, v, 0, nil)
 							ParticleManager:SetParticleControlEnt(PI3[k], 1, v, PATTACH_ABSORIGIN_FOLLOW, nil, v:GetAbsOrigin(), false)
 
@@ -1120,16 +1164,42 @@ function OnLordOfExecutionStart(keys)
 	local TargetExecuteFX = {}
 	giveUnitDataDrivenModifier(caster, caster, "silenced", penalty)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
-	EmitGlobalSound("Vlad.Combo")
+	if caster:HasModifier("modifier_alternate_02") then 
+		EmitGlobalSound("Shalltear_combo")
+		EmitGlobalSound("Shalltear_BGM")
+	else
+		EmitGlobalSound("Vlad.Combo")
+	end
+
 	Timers:CreateTimer(0.15, function()
-		local SpikeFieldFX = FxCreator("particles/custom/vlad/vlad_combo_aoe.vpcf",PATTACH_ABSORIGIN,caster,0,nil)
-		ParticleManager:SetParticleControlEnt( SpikeFieldFX,0 , caster,  PATTACH_ABSORIGIN, nil, caster:GetAbsOrigin(), false )
+		local SpikeFieldFX = nil
+		if caster:HasModifier("modifier_alternate_02") then
+			local nComboReleasePFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_combo_release.vpcf", PATTACH_WORLDORIGIN, nil)
+									 	ParticleManager:SetParticleShouldCheckFoW(nComboReleasePFX, false)
+							 			ParticleManager:SetParticleControl(nComboReleasePFX, 0, caster:GetAbsOrigin())
+							 			ParticleManager:SetParticleControl(nComboReleasePFX, 1, Vector(aoe, aoe, aoe))
+			SpikeFieldFX = nComboReleasePFX
+		else
+			SpikeFieldFX = FxCreator("particles/custom/vlad/vlad_combo_aoe.vpcf",PATTACH_ABSORIGIN,caster,0,nil)
+			ParticleManager:SetParticleControlEnt( SpikeFieldFX,0 , caster,  PATTACH_ABSORIGIN, nil, caster:GetAbsOrigin(), false )
+		end
+
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 			if IsValidEntity(v) and not v:IsNull() then
 				if not v:IsMagicImmune() then
 					v:AddNewModifier(caster, ability, "modifier_stunned", { Duration = stun })
-					TargetAssRavageFX[k] = FxCreator("particles/custom/vlad/vlad_combo_ontarget_stun.vpcf",PATTACH_ABSORIGIN,v,0,nil)
+					
+					if caster:HasModifier("modifier_alternate_02") then
+						local nKBSpikeImpactPFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_kb_spike_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+													ParticleManager:SetParticleShouldCheckFoW(nKBSpikeImpactPFX, false)
+													ParticleManager:SetParticleControl(nKBSpikeImpactPFX, 0, v:GetAbsOrigin())
+													ParticleManager:ReleaseParticleIndex(nKBSpikeImpactPFX)
+						TargetAssRavageFX[k] = nKBSpikeImpactPFX
+					else
+						TargetAssRavageFX[k] = FxCreator("particles/custom/vlad/vlad_combo_ontarget_stun.vpcf",PATTACH_ABSORIGIN,v,0,nil)
+					end
+					
 					ApplyAirborneOnly(v, 2000, 0.2, 1500)
 				end
 				
@@ -1162,6 +1232,7 @@ function OnLordOfExecutionStart(keys)
 						TargetExecuteFX[k] = FxCreator("particles/custom/vlad/vlad_combo_ontarget_execute.vpcf",PATTACH_ABSORIGIN_FOLLOW,v,0,nil)
 						ParticleManager:SetParticleControlEnt( TargetExecuteFX[k], 1, v,  PATTACH_ABSORIGIN_FOLLOW, nil, v:GetAbsOrigin(), false )
 						ParticleManager:SetParticleControlEnt( TargetExecuteFX[k], 5, v,  PATTACH_CENTER_FOLLOW, nil, v:GetAbsOrigin(), false )
+
 						v:SetAbsOrigin(GetGroundPosition(v:GetAbsOrigin(),v))
 
 						if v:IsRealHero() then	
@@ -1263,6 +1334,8 @@ function OnProtectionOfFaithTakeDamage(keys)
 	end
 end
 
+LinkLuaModifier("modifier_vlad_combo_window", "abilities/vlad/vlad_abilities", LUA_MODIFIER_MOTION_NONE)
+
 function VladCheckCombo(caster, ability)
 	if math.ceil(caster:GetStrength()) >= 25 and math.ceil(caster:GetAgility()) >= 25 and math.ceil(caster:GetIntellect()) >= 25 then
 		if string.match(ability:GetAbilityName(), "vlad_rebellious_intent") then
@@ -1277,34 +1350,10 @@ function VladCheckCombo(caster, ability)
 			end)
 		else
 			local newTime =  GameRules:GetGameTime()
-			
-			if caster.IsImproveImpalingAcquired and caster.IsBloodletterAcquired then
-				if string.match(ability:GetAbilityName(), "vlad_cursed_lance") and caster:FindAbilityByName("vlad_ceremonial_purge_upgrade_3"):IsCooldownReady() and caster:FindAbilityByName("vlad_combo"):IsCooldownReady() and not caster:HasModifier("modifier_lord_of_execution_cooldown") then 
-					if caster.QUsed == true then 
-						local duration = 6 - (newTime - caster.QTime)
-						ability:ApplyDataDrivenModifier(caster, caster, "modifier_vlad_combo_window", {duration = duration})	
-					end
-				end
-			elseif not caster.IsImproveImpalingAcquired and caster.IsBloodletterAcquired then
-				if string.match(ability:GetAbilityName(), "vlad_cursed_lance") and caster:FindAbilityByName("vlad_ceremonial_purge_upgrade_2"):IsCooldownReady() and caster:FindAbilityByName("vlad_combo"):IsCooldownReady() and not caster:HasModifier("modifier_lord_of_execution_cooldown") then 
-					if caster.QUsed == true then 
-						local duration = 6 - (newTime - caster.QTime)
-						ability:ApplyDataDrivenModifier(caster, caster, "modifier_vlad_combo_window", {duration = duration})	
-					end
-				end
-			elseif caster.IsImproveImpalingAcquired and not caster.IsBloodletterAcquired then
-				if string.match(ability:GetAbilityName(), "vlad_cursed_lance") and caster:FindAbilityByName("vlad_ceremonial_purge_upgrade_1"):IsCooldownReady() and caster:FindAbilityByName("vlad_combo"):IsCooldownReady() and not caster:HasModifier("modifier_lord_of_execution_cooldown") then 
-					if caster.QUsed == true then 
-						local duration = 6 - (newTime - caster.QTime)
-						ability:ApplyDataDrivenModifier(caster, caster, "modifier_vlad_combo_window", {duration = duration})	
-					end
-				end
-			elseif not caster.IsImproveImpalingAcquired and not caster.IsBloodletterAcquired then
-				if string.match(ability:GetAbilityName(), "vlad_cursed_lance") and caster:FindAbilityByName("vlad_ceremonial_purge"):IsCooldownReady() and caster:FindAbilityByName("vlad_combo"):IsCooldownReady() and not caster:HasModifier("modifier_lord_of_execution_cooldown") then 
-					if caster.QUsed == true then 
-						local duration = 6 - (newTime - caster.QTime)
-						ability:ApplyDataDrivenModifier(caster, caster, "modifier_vlad_combo_window", {duration = duration})	
-					end
+			if string.match(ability:GetAbilityName(), "vlad_cursed_lance") and caster:FindAbilityByName(caster.WSkill):IsCooldownReady() and caster:FindAbilityByName("vlad_combo"):IsCooldownReady() and not caster:HasModifier("modifier_lord_of_execution_cooldown") then 
+				if caster.QUsed == true then 
+					local duration = 6 - (newTime - caster.QTime)
+					caster:AddNewModifier(caster, ability, "modifier_vlad_combo_window", {duration = duration})
 				end
 			end
 		end
@@ -1376,6 +1425,7 @@ function OnProtectionOfFaithAcquired(keys)
 		hero:FindAbilityByName("vlad_protection_of_faith"):SetLevel(1)
 
 		UpgradeAttribute(hero, "vlad_battle_continuation", "vlad_battle_continuation_upgrade", true)
+		hero.FSkill = "vlad_battle_continuation_upgrade"
 
 		NonResetAbility(hero)
 
@@ -1401,9 +1451,13 @@ function OnImproveImpalingAcquired(keys)
 		if hero.IsBloodletterAcquired then 
 			UpgradeAttribute(hero, "vlad_ceremonial_purge_upgrade_2", "vlad_ceremonial_purge_upgrade_3", true)
 			UpgradeAttribute(hero, "vlad_kazikli_bey_upgrade_2", "vlad_kazikli_bey_upgrade_3", true)
+			hero.WSkill = "vlad_ceremonial_purge_upgrade_3"
+			hero.RSkill = "vlad_kazikli_bey_upgrade_3"
 		else
 			UpgradeAttribute(hero, "vlad_ceremonial_purge", "vlad_ceremonial_purge_upgrade_1", true)
 			UpgradeAttribute(hero, "vlad_kazikli_bey", "vlad_kazikli_bey_upgrade_1", true)
+			hero.WSkill = "vlad_ceremonial_purge_upgrade_1"
+			hero.RSkill = "vlad_kazikli_bey_upgrade_1"
 		end
 
 		NonResetAbility(hero)
@@ -1429,8 +1483,10 @@ function OnInstantCurseAcquired(keys)
 
 		if hero.IsBloodletterAcquired then 
 			UpgradeAttribute(hero, "vlad_cursed_lance_upgrade_2", "vlad_cursed_lance_upgrade_3", true)
+			hero.ESkill = "vlad_cursed_lance_upgrade_3"
 		else
 			UpgradeAttribute(hero, "vlad_cursed_lance", "vlad_cursed_lance_upgrade_1", true)
+			hero.ESkill = "vlad_cursed_lance_upgrade_1"
 		end
 
 		NonResetAbility(hero)
@@ -1461,18 +1517,25 @@ function OnBloodLetterAcquired(keys)
 		if hero.IsImproveImpalingAcquired then 
 			UpgradeAttribute(hero, "vlad_ceremonial_purge_upgrade_1", "vlad_ceremonial_purge_upgrade_3", true)
 			UpgradeAttribute(hero, "vlad_kazikli_bey_upgrade_1", "vlad_kazikli_bey_upgrade_3", true)
+			hero.WSkill = "vlad_ceremonial_purge_upgrade_3"
+			hero.RSkill = "vlad_kazikli_bey_upgrade_3"
 		else
 			UpgradeAttribute(hero, "vlad_ceremonial_purge", "vlad_ceremonial_purge_upgrade_2", true)
 			UpgradeAttribute(hero, "vlad_kazikli_bey", "vlad_kazikli_bey_upgrade_2", true)
+			hero.WSkill = "vlad_ceremonial_purge_upgrade_2"
+			hero.RSkill = "vlad_kazikli_bey_upgrade_2"
 		end
 
 		if hero.IsInstantCurseAcquired then 
 			UpgradeAttribute(hero, "vlad_cursed_lance_upgrade_1", "vlad_cursed_lance_upgrade_3", true)
+			hero.ESkill = "vlad_cursed_lance_upgrade_3"
 		else
 			UpgradeAttribute(hero, "vlad_cursed_lance", "vlad_cursed_lance_upgrade_2", true)
+			hero.ESkill = "vlad_cursed_lance_upgrade_2"
 		end
 
 		UpgradeAttribute(hero, "vlad_transfusion", "vlad_transfusion_upgrade", true)
+		hero.DSkill = "vlad_transfusion_upgrade"
 
 		NonResetAbility(hero)
 
@@ -1590,6 +1653,9 @@ function ceremonial_wrapper(CPA)
 
 		  	caster:EmitSound("Hero_Axe.CounterHelix_Blood_Chaser")
 			caster:EmitSound("Hero_Magnataur.ReversePolarity.Anim")
+			if caster:HasModifier("modifier_alternate_02") then 
+				caster:EmitSound("Shalltear_W")
+			end
 
 		  	giveUnitDataDrivenModifier(caster, caster, "drag_pause",0.5)
 			Timers:CreateTimer(delay - ability:GetCastPoint(), function()
@@ -1719,3 +1785,256 @@ end
 function modifier_ceremonial_purge_slow:RemoveOnDeath()
   	return true
 end
+
+--------------------------------------------------
+
+vlad_cursed_lance = class({})
+vlad_cursed_lance_upgrade_1 = class({})
+vlad_cursed_lance_upgrade_2 = class({})
+vlad_cursed_lance_upgrade_3 = class({})
+modifier_instant_cursed_window = class({})
+modifier_vlad_combo_window = class({})
+
+LinkLuaModifier("modifier_cursed_lance_shield", "abilities/vlad/vlad_abilities", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_instant_cursed_window", "abilities/vlad/vlad_abilities", LUA_MODIFIER_MOTION_NONE)
+
+function curselance_wrapper(CLS)
+	function CLS:GetManaCost(iLevel)
+		return 400
+	end
+
+	function CLS:GetHealthCost(iLevel)
+		return self:GetSpecialValueFor("hp_cost")/100 * self:GetCaster():GetMaxHealth()
+	end
+
+	function CLS:OnSpellStart()
+	  	self.caster = self:GetCaster()
+
+	  	self.max_shield = self:GetSpecialValueFor("max_shield")
+		self.max_dmg = self:GetSpecialValueFor("max_dmg")
+		self.duration = self:GetSpecialValueFor("duration")
+
+		if self.caster.IsInstantCurseAcquired then
+			local bonus_shield_per_hp = self:GetSpecialValueFor("bonus_shield_per_bleed")/100
+			local bonus_dmg_per_hp = self:GetSpecialValueFor("bonus_dmg_per_bleed")/100
+			self.max_shield = self.max_shield + (self.caster:GetMaxHealth() * bonus_shield_per_hp)
+			self.max_dmg = self.max_dmg + (self.caster:GetMaxHealth() * bonus_dmg_per_hp)
+		end
+
+		if self.caster.IsBloodletterAcquired then
+			if not self.caster:HasModifier("modifier_vlad_transfusion_self") then 
+				--caster:RemoveModifierByName("modifier_impale_window")
+				if self.caster:HasModifier("modifier_transfusion_blood_power") then
+					local bloodpower = self.caster:GetModifierStackCount("modifier_transfusion_blood_power", self.caster) or 0
+					local bloodpowerduration = self.caster.BloodPower_duration
+					local bonus_shield_per_bloodpower = self:GetSpecialValueFor("bonus_dmg_per_bloodpower") / 100
+					local bonus_dmg_per_bloodpower = self:GetSpecialValueFor("bonus_dmg_per_bloodpower") / 100
+					local bloodpowercap = self.caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bloodpower_cap")
+					local bleed = self.caster:FindAbilityByName("vlad_transfusion_upgrade")
+					self.max_shield = self.max_shield + math.min(self.max_shield * bloodpower * bonus_shield_per_bloodpower, self.max_shield * bloodpowercap * bonus_shield_per_bloodpower)
+					self.max_dmg = self.max_dmg + math.min(self.max_dmg * bloodpower * bonus_dmg_per_bloodpower, self.max_dmg * bloodpowercap * bonus_dmg_per_bloodpower)
+					--[[if bloodpower > bloodpowercap then 
+						ConsumeBloodPower(caster,bloodpower - bloodpowercap,bloodpowerduration)
+					else 
+						caster:RemoveModifierByName("modifier_transfusion_blood_power")
+					end]]
+				end
+			end
+		end
+
+		self.caster.CurseShieldAmount = self.max_shield
+		self.caster.CurseMaxShield = self.max_shield
+		self.caster.CurseMaxDamage = self.max_dmg
+
+		self.caster:AddNewModifier(self.caster, self, "modifier_cursed_lance_shield", {duration = self:GetSpecialValueFor("duration"), shield = self.caster.CurseShieldAmount})
+
+	  	if self.caster.IsInstantCurseAcquired then 
+	  		self.caster:AddNewModifier(self.caster, self, "modifier_instant_cursed_window", {duration = self:GetSpecialValueFor("duration")})
+	  	end
+	  	VladCheckCombo(self.caster,self)
+	end
+
+	function CLS:GetCastAnimation()
+	  return nil
+	end
+
+	function CLS:GetTexture()
+	  return "custom/vlad_ceremonial_purge"
+	end
+end
+
+curselance_wrapper(vlad_cursed_lance)
+curselance_wrapper(vlad_cursed_lance_upgrade_1)
+curselance_wrapper(vlad_cursed_lance_upgrade_2)
+curselance_wrapper(vlad_cursed_lance_upgrade_3)
+
+-------------------
+
+modifier_cursed_lance_shield = class({})
+
+function modifier_cursed_lance_shield:IsHidden() return false end
+function modifier_cursed_lance_shield:IsDebuff() return false end
+function modifier_cursed_lance_shield:IsPurgable() return false end
+function modifier_cursed_lance_shield:RemoveOnDeath() return true end
+function modifier_cursed_lance_shield:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+function modifier_cursed_lance_shield:DeclareFunctions()
+	return {MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT}
+end
+
+function modifier_cursed_lance_shield:GetModifierIncomingDamageConstant(event)
+	--if event.target ~= self:GetParent() then return end
+	--print('checking shield UI event')
+	if IsServer() then
+		if event.damage > 0 then
+			if self.caster.CurseShieldAmount > 0 then 
+				if self.caster.CurseShieldAmount - event.damage > 0 then
+					self.caster.CurseShieldAmount = self.caster.CurseShieldAmount - event.damage
+					CustomNetTables:SetTableValue("sync","curse_lance", {shield = self.caster.CurseShieldAmount})
+					return -event.damage
+				else
+					local dmg = event.damage - self.caster.CurseShieldAmount
+					self.caster.CurseShieldAmount = 0
+	                local dmgtable = {
+	                    attacker = event.attacker,
+	                    victim = event.target,
+	                    damage = dmg,
+	                    damage_type = event.damage_type,
+	                    damage_flags = event.damage_flags,
+	                    ability = event.inflictor
+	                }
+	                ApplyDamage(dmgtable)
+					if not self.caster.IsInstantCurseAcquired then
+						self.caster:RemoveModifierByName("modifier_cursed_lance_shield")
+					end
+					CustomNetTables:SetTableValue("sync","curse_lance", {shield = self.caster.CurseShieldAmount})
+					return 0
+				end
+			end
+		end
+	else
+        local shield = CustomNetTables:GetTableValue("sync","curse_lance").shield or 0
+        return shield 
+    end	
+end
+
+if IsServer() then
+	function modifier_cursed_lance_shield:OnCreated(args)
+		self.caster = self:GetParent()
+		self.ability = self:GetAbility()
+		self.aoe = self.ability:GetSpecialValueFor("aoe")
+		self.caster:EmitSound("hero_bloodseeker.rupture.cast")
+		self:AttachParticle()
+
+		CustomNetTables:SetTableValue("sync","curse_lance", {shield = args.shield})
+	end
+
+	function modifier_cursed_lance_shield:OnRefresh(args)
+		self:DetachParticle()
+		self:OnCreated(args)
+	end
+
+	function modifier_cursed_lance_shield:OnRemoved()
+		local dmg = ((self.caster.CurseMaxShield - math.max(self.caster.CurseShieldAmount or 0,0))/self.caster.CurseMaxShield)*(self.caster.CurseMaxDamage)
+		if dmg > 0 then
+			local CLPreExplosionFX = FxCreator("particles/custom/vlad/vlad_cl_preexplosion.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.caster,0,nil)
+			ParticleManager:SetParticleControlEnt( CLPreExplosionFX, 1, self.caster,  PATTACH_POINT_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), false )
+			Timers:CreateTimer(0.3, function()
+				local CLExplosionFX = FxCreator("particles/custom/vlad/vlad_cl_explosion.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.caster,0,nil)
+				ParticleManager:SetParticleControlEnt( CLExplosionFX, 1, self.caster,  PATTACH_POINT_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), false )
+				ParticleManager:SetParticleControlEnt( CLExplosionFX, 3, self.caster,  PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), false )
+				self.caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+				self.caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+				Timers:CreateTimer(0.15, function()
+					local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetOrigin(), nil, self.aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+					for k,v in pairs(targets) do
+				  		DoDamage(self.caster, v, dmg, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+					end
+				end)
+			end)
+		end
+
+		self:DetachParticle()
+		Timers:CreateTimer(1, function()
+			FxDestroyer(CLPreExplosionFX, false)
+			FxDestroyer(CLExplosionFX, false)
+		end)
+		if self.caster:HasModifier("modifier_instant_cursed_window") then
+			self.caster:RemoveModifierByName("modifier_instant_cursed_window")
+		end
+	end
+
+	function modifier_cursed_lance_shield:AttachParticle()
+		if self.caster:HasModifier("modifier_alternate_02") then
+			local nCLShieldPFX = 	ParticleManager:CreateParticle("particles/heroes/vlad/shaltear/vlad_cl_shield.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
+									ParticleManager:SetParticleControlEnt(nCLShieldPFX, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+							   		ParticleManager:SetParticleControl(nCLShieldPFX, 1, Vector(150, 150, 150))
+			self.caster.CLShield1 = nCLShieldPFX
+		else
+			self.caster.CLShield1 = FxCreator("particles/custom/vlad/vlad_cl_shield.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.caster,0,nil)
+			self.caster.CLShield2 = FxCreator("particles/custom/vlad/vlad_cl_shield2.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.caster,0,nil)
+		end
+	end
+
+	function modifier_cursed_lance_shield:DetachParticle()
+		if self.caster.CLShield1 == nil then 
+		else
+			self.caster.CLShield1 = FxDestroyer(self.caster.CLShield1, false)
+			self.caster.CLShield2 = FxDestroyer(self.caster.CLShield2, false)
+		end
+	end
+end
+
+-------------------------
+
+function modifier_instant_cursed_window:IsHidden() return true end
+function modifier_instant_cursed_window:IsDebuff() return false end
+function modifier_instant_cursed_window:IsPurgable() return false end
+function modifier_instant_cursed_window:RemoveOnDeath() return true end
+function modifier_instant_cursed_window:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if IsServer() then 
+    function modifier_instant_cursed_window:OnCreated(args)
+    	--print('instance curse swap')
+        self.caster = self:GetParent()
+        self.caster:SwapAbilities(self.caster.ESkill, "vlad_instant_curse", false, true)
+        self.caster:FindAbilityByName("vlad_instant_curse"):StartCooldown(0.75)
+    end
+
+    function modifier_instant_cursed_window:OnDestroy()
+        self.caster:SwapAbilities(self.caster.ESkill, "vlad_instant_curse", true, false)
+    end
+end
+
+-------------------------
+
+
+
+function modifier_vlad_combo_window:IsHidden() return true end
+function modifier_vlad_combo_window:IsDebuff() return false end
+function modifier_vlad_combo_window:IsPurgable() return false end
+function modifier_vlad_combo_window:RemoveOnDeath() return true end
+function modifier_vlad_combo_window:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if IsServer() then 
+    function modifier_vlad_combo_window:OnCreated(args)
+        self.caster = self:GetParent()
+        self.caster:SwapAbilities(self.caster.WSkill, self.caster.ComboSkill, false, true)
+    end
+
+    function modifier_vlad_combo_window:OnDestroy()
+        self.caster:SwapAbilities(self.caster.WSkill, self.caster.ComboSkill, true, false)
+    end
+end
+
+
+
+
+
+
+

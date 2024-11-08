@@ -129,6 +129,7 @@ function adskIPKB:construct()
 	self.color = {}
 	self.titlelog = LoadKeyValues("scripts/npc/fate_title.txt")
 	self.pepelog = LoadKeyValues("scripts/npc/pepe_fam.txt")
+	self.tourteam = LoadKeyValues("scripts/npc/fate_tour.txt")
 end
 
 function adskIPKB:CheckingTitle(i)
@@ -138,15 +139,21 @@ function adskIPKB:CheckingTitle(i)
 	elseif IsPepelordPresence(i) == "pepe" then 
 		self.title[i] = "[PEPE LORD]"
 		self.color[i] = "yellow"
-	elseif IsPepelordPresence(i) == "sss" then 
+	--[[elseif IsPepelordPresence(i) == "sss" then 
 		self.title[i] = "[SSS]"
-		self.color[i] = "pink"
+		self.color[i] = "pink"]]
 	elseif IsPepelordPresence(i) == "kagut" then 
 		self.title[i] = "[MR.K]"
 		self.color[i] = "#0075B5"
 	elseif tostring(PlayerResource:GetSteamAccountID(i)) == "39181514" then 
 		self.title[i] = "[MOD]"
 		self.color[i] = "purple"
+	elseif tostring(PlayerResource:GetSteamAccountID(i)) == "73508309" then  
+		self.title[i] = "[THE HERO]"
+		self.color[i] = "gray"
+	elseif tostring(PlayerResource:GetSteamAccountID(i)) == "238102534" then
+		self.title[i] = "[THE JUNIOR]"
+		self.color[i] = "gray"
 	elseif self.titlelog["old_dev"][tostring(PlayerResource:GetSteamAccountID(i))] then 
 		self.title[i] = "[REVERED]"
 		self.color[i] = "gold"
@@ -160,7 +167,7 @@ function adskIPKB:CheckingTitle(i)
 		self.color[i] = "gold" 
 	elseif self.titlelog.translate[tostring(PlayerResource:GetSteamAccountID(i))] then 
 		self.title[i] = "[TOOLTIP]"
-		self.color[i] = "orange"
+		self.color[i] = "green"
 	elseif self.titlelog.troll[tostring(PlayerResource:GetSteamAccountID(i))] then 
 		self.title[i] = "[TROLL]"
 		self.color[i] = "red"
@@ -231,6 +238,20 @@ function adskIPKB:CheckingTitle(i)
 			self.color[i] = "white"
 		end
 	end
+
+	if self.tourteam ~= nil then
+		for team_name,v in pairs (self.tourteam) do 
+			if v[tostring(PlayerResource:GetSteamAccountID(i))] then 
+				if v[tostring(PlayerResource:GetSteamAccountID(i))] == 3 then 
+					self.title[i] = "[★" .. team_name .. "]"
+				else
+					self.title[i] = "[" .. team_name .. "]"
+				end
+				self.color[i] = v.color
+			end
+		end
+	end
+
 	CustomNetTables:SetTableValue("parsy", "title", self.title)
 	CustomNetTables:SetTableValue("parsy", "title_color", self.color)
 	             
@@ -314,6 +335,9 @@ function lkjasdfio(i)
 			elseif IsPepelordPresence(i) == "kagut" then 
 				PlayerTables:CreateTable("title", {dev = "kagut"}, i)
 				ServerTables:SetTableValue("Dev", "kagut", true, true)
+			elseif IsPepelordPresence(i) == "rinz" then 
+				PlayerTables:CreateTable("title", {dev = "rinz"}, i)
+				ServerTables:SetTableValue("Dev", "rinz", true, true)
 			else
 				PlayerTables:CreateTable("title", {dev = "zef"}, i)
 				ServerTables:SetTableValue("Dev", "zef", true, true)
@@ -321,7 +345,13 @@ function lkjasdfio(i)
 		elseif authority_level == 4 then 
 			if tostring(PlayerResource:GetSteamAccountID(i)) == "39181514" then
 				PlayerTables:CreateTable("title", {dev = "mod"}, i)
-				ServerTables:SetTableValue("Dev", "mod", true, true)
+				ServerTables:SetTableValue("Dev", "mod", true, true) 
+			elseif tostring(PlayerResource:GetSteamAccountID(i)) == "73508309" then
+				PlayerTables:CreateTable("title", {dev = "vip1"}, i)
+				ServerTables:SetTableValue("Dev", "vip1", true, true)
+			elseif tostring(PlayerResource:GetSteamAccountID(i)) == "238102534" then
+				PlayerTables:CreateTable("title", {dev = "vip2"}, i)
+				ServerTables:SetTableValue("Dev", "vip2", true, true)
 			end
 		end
 	end
@@ -335,6 +365,8 @@ function IsPepelordPresence(i)
 			return "sss" 
 		elseif tostring(PlayerResource:GetSteamAccountID(i)) == "322802270" then
 			return "kagut" 
+		elseif tostring(PlayerResource:GetSteamAccountID(i)) == "73508309" then
+			return "rinz" 
 		end
 	end
 

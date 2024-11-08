@@ -237,7 +237,7 @@ function yedped:ablyo()
 			if self.PP[n] == nil then 
 				self.PP[n] = "N/A"
 			end
-			Timers:CreateTimer(0.5, function()
+			Timers:CreateTimer(0.1, function()
 				if PlayerResource:IsValidPlayerID(n) then
 					PlayerResource:SetCustomTeamAssignment(n, self.team[n])
 				end

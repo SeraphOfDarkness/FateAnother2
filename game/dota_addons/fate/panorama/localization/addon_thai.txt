@@ -294,7 +294,7 @@
 		"FA_Options_tooltip"                            "ตั้งค่าเฟท"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "ผู้พัฒนาในตอนนี้: ZeFiRoFT, Nerd, Seraph, Kagutsuchi"
+        "ABOUT_DEV_BODY"                                "ผู้พัฒนาในตอนนี้: ZeFiRoFT, Nerd, Kagutsuchi"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"

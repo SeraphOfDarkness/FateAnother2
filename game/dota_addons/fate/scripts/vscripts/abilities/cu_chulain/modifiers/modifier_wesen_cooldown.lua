@@ -339,7 +339,7 @@ function kjlpluo1596:CalCP(pId)
 
 	if not GameRules:IsCheatMode() and not IsInToolsMode() and ServerTables:GetTableValue("Players", "total_player") > 1 then
 		
-		local cp_cap = 500
+		local cp_cap = 1000
 		--local dw = self:SDte(today)
 		local dd = self:DDte(today)
 		local cpg = self:MSCP()

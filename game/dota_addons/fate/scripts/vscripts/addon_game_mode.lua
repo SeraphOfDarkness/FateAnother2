@@ -27,14 +27,15 @@ require('libraries/alternateparticle')
 require('modifiers/modifier_ttr')
 require('libraries/keyvalues')
 require('blink')
+require('fate_config')
 require('wings_code')
 require('fate_loot_grail')
+require('fate_skin')
 require('custom_chatbox')
 --require('unit_voice')
 require('wrappers')
 require('event')
-require('libs/vector_targeting')
-require('libs/ascension')
+require('libraries/vector_targeting')
 
 _G.IsPickPhase = true
 _G.IsPreRound = true
@@ -196,7 +197,8 @@ model_lookup["npc_dota_hero_troll_warlord"] = "models/drake/drake.vmdl"
 
 DoNotKillAtTheEndOfRound = {
     "tamamo_charm",
-    "jeanne_banner"
+    "jeanne_banner",
+    "okita_flag",
 }
 voteResultTable = {
     0, -- 12 kills
@@ -252,7 +254,6 @@ end
 function Activate()
     GameRules.AddonTemplate = FateGameMode()
     GameRules.AddonTemplate:InitGameMode()
-    require('libs/filters')
 end
 
 
@@ -290,8 +291,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_nero.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context) 
-    PrecacheResource("soundfile", "soundevents/hero_musashi.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_mordred.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_muramasa.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
                         --============ Archer ==============--      
@@ -331,6 +331,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_jtr.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_king_hassan.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_semiramis.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_mhx.vsndevts", context)
 
                         --============ Berserker ==============--     
     PrecacheResource("soundfile", "soundevents/hero_atlanta_alter.vsndevts", context)   
@@ -356,7 +357,6 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_omniknight.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tusk.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
-    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_antimage.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_kunkka.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts", context )
                         --============ Archer ==============--      
@@ -397,6 +397,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_riki.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_phantom_assassin.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_slark.vsndevts", context )
 
                         --============ Berserker ==============--      
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ursa.vsndevts", context )
@@ -552,9 +553,6 @@ function Precache( context , pc)
     PrecacheResource('model', "models/items/juggernaut/sinister_shadow_legs/sinister_shadow_legs.vmdl", context)
     PrecacheResource('model', "models/items/juggernaut/sinister_shadow_weapon/sinister_shadow_weapon.vmdl", context)]]
 
-       -- Vector target
-        --VectorTarget:Precache( context )
-
     print("precache complete")
 end
 
@@ -581,8 +579,6 @@ function FateGameMode:OnAllPlayersLoaded()
     GameRules:SendCustomMessage("#Fate_Choose_Hero_Alert_60", 0, 0)
     --FireGameEvent('cgm_timer_display', { timerMsg = "Hero Select", timerSeconds = 61, timerEnd = true, timerPosition = 100})
 
-    -- initialize vector targeting
-    --VectorTarget:Init({noOrderFilter = true })
     -- Send KV to fatepedia
     -- Announce the goal of game
     -- Reveal the vote winner
@@ -1037,7 +1033,7 @@ function FateGameMode:OnPlayerChat(keys)
     --if not plyID then return end
     --if IsDedicatedServer() then plyID = plyID - 1 end -- the index is off by 1 on dedi
     --if GameRules:IsCheatMode() then
-    SendChatToPanorama(text .. " by player " .. plyID)
+    --SendChatToPanorama(text .. " by player " .. plyID)
     --end
     local ply = PlayerResource:GetPlayer(plyID)
     if not ply then return end
@@ -1354,6 +1350,12 @@ function FateGameMode:OnPlayerChat(keys)
     end
 
     if pID ~= nil and goldAmt ~= nil then
+        --================================================--
+        local nReliableGold = PlayerResource:GetReliableGold(plyID)
+        local nUnreliableGold = PlayerResource:GetUnreliableGold(plyID)
+
+        hero:SetGold(nReliableGold + nUnreliableGold, true)
+        --================================================--
         print(goldAmt)
         --if GameRules:IsCheatMode() then
         --SendChatToPanorama("player " .. plyID .. " is trying to send " .. goldAmt .. " gold to player " .. pID)
@@ -1569,6 +1571,14 @@ function FateGameMode:OnPlayerChat(keys)
         end
     end
 
+    if text == "-deleteio" then 
+        if IsInToolsMode() then
+            if string.match(hero:GetUnitName(),"wisp") then
+                UTIL_Remove(hero)
+            end
+        end
+    end
+
     local goldamountinchat = string.match(text, "^-getgold (%d+)")
 
     if goldamountinchat then
@@ -1657,13 +1667,14 @@ function FateGameMode:OnPlayerChat(keys)
         if alvl == 5 then 
             local serv = PlayerResource:GetPlayer(tonumber(plyidd)):GetAssignedHero()
             serv.Skin = alterna
-            if serv:HasModifier("modifier_alternate_0" .. tonumber(alterna)) then 
+            FateSkin():ApplySkin(serv, serv.Skin, alvl, plyID)
+            --[[if serv:HasModifier("modifier_alternate_0" .. tonumber(alterna)) then 
                 serv:RemoveAbility("alternative_0" .. tonumber(alterna))
                 serv:RemoveModifierByName("modifier_alternate_0" .. tonumber(alterna))
             else
                 serv:AddAbility("alternative_0" .. tonumber(alterna))
                 serv:FindAbilityByName("alternative_0" .. tonumber(alterna)):SetLevel(1)
-            end
+            end]]
             return false
         end
     end
@@ -1929,7 +1940,7 @@ function DistributeGoldV2(hero, cutoff)
     local playerID = hero:GetPlayerID()
     if PlayerResource:GetReliableGold(playerID) < cutoff then return end
     LoopOverPlayers(function(ply, plyID, playerHero)
-        if playerHero:GetTeamNumber() == hero:GetTeamNumber() and plyID ~= playerID then
+        if playerHero:GetTeamNumber() == hero:GetTeamNumber() and plyID ~= playerID and playerHero:IsAlive() then
             local pGold = PlayerResource:GetReliableGold(plyID)
             if pGold < 4950 then
                 table.insert(goldTable, pGold)
@@ -2153,10 +2164,7 @@ function FateGameMode:OnHeroInGame(hero)
     hero.IsHeroSpawn = true
 
     Timers:CreateTimer(1.0, function()
-        if hero.Skin > 0 then 
-            hero:AddAbility("alternative_0" .. hero.Skin)
-            hero:FindAbilityByName("alternative_0" .. hero.Skin):SetLevel(1)
-        end
+        
         local team = hero:GetTeam()
         local currentRound = self.nCurrentRound
         if _G.GameMap == "fate_ffa" then 
@@ -2296,7 +2304,7 @@ function FateGameMode:OnHeroInGame(hero)
 
     if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" then
         if self.nCurrentRound == 0 and _G.CurrentGameState == "FATE_PRE_GAME" then
-            giveUnitDataDrivenModifier(hero, hero, "round_pause", 100)
+            giveUnitDataDrivenModifier(hero, hero, "round_pause", 120)
         else
             giveUnitDataDrivenModifier(hero, hero, "round_pause", 10)
         end
@@ -2388,6 +2396,10 @@ function FateGameMode:OnHeroInGame(hero)
             end
         elseif hero:GetName() == "npc_dota_hero_naga_siren" then
             --Attachments:AttachProp(hero, "attach_attack2", "models/kuro/kuro_bow.vmdl")
+        end
+
+        if hero.Skin > 0 then 
+            FateSkin():ApplySkin(hero, hero.Skin)
         end
 
         local player = hero:GetPlayerOwner()
@@ -3006,6 +3018,12 @@ function FateGameMode:OnItemPurchased( keys )
     local itemCost = keys.itemcost           
 
     local hero = PlayerResource:GetPlayer(plyID):GetAssignedHero()
+    --================================================--
+    local nReliableGold = PlayerResource:GetReliableGold(plyID)
+    local nUnreliableGold = PlayerResource:GetUnreliableGold(plyID)
+
+    hero:SetGold(nReliableGold + nUnreliableGold, true)
+    --================================================--
     PlayerResource:SetGold(plyID, 0, false)
     hero:SetGold(0, false)
 
@@ -3965,79 +3983,6 @@ function OnServantCustomizeActivated(Index, keys)
     --caster:SetMana(caster:GetMana() - ability:GetManaCost(1))
 end
 
-function OnConfig1Checked(index, keys)
-    local playerID = EntIndexToHScript(keys.player)
-    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
-    if keys.bOption == 1 then hero.bIsAutoGoldRequestOn = true else hero.bIsAutoGoldRequestOn = false end
-end
-
-function OnConfig2Checked(index, keys)
-    local playerID = EntIndexToHScript(keys.player)
-    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
-    if keys.bOption == 1 then hero.bIsDmgPopupDisabled = true else hero.bIsDmgPopupDisabled = false end
-end
-
-function OnConfig4Checked(index, keys)
-    local playerID = EntIndexToHScript(keys.player)
-    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
-    if keys.bOption == 1 then hero.bIsAlertSoundDisabled = true else hero.bIsAlertSoundDisabled = false end
-end
-
-function OnConfig8Checked(index, keys)
-    local playerID = PlayerResource:GetPlayer(keys.player)
-    if keys.bOption == 1 then playerID.bIsNewItemSystemDisabled = true else playerID.bIsNewItemSystemDisabled = false end
-end
-
-function OnConfig9Checked(index, keys)
-    local playerID = PlayerResource:GetPlayer(keys.player)
-    print(keys.bOption)
-    if keys.bOption == 1 then playerID.bNotifyMasterManaDisabled = true else playerID.bNotifyMasterManaDisabled = false end
-end
-
-function OnConfig11Checked(index, keys)
-    local player = PlayerResource:GetPlayer(keys.player)
-    CustomGameEventManager:Send_ServerToPlayer( player, "custom_master_bar", {bOption= keys.bOption} )
-end
-
-function OnConfig13Checked(index, keys)
-    local playerID = PlayerResource:GetPlayer(keys.player)
-    if keys.bOption == 1 then playerID.bIsAutoCombineEnabled = true else playerID.bIsAutoCombineEnabled = false end
-end
-
-function OnConfig14Checked(index, keys)
-    local playerID = PlayerResource:GetPlayer(keys.player)
-    if keys.bOption == 1 then playerID.IsPadoruEnable = true else playerID.IsPadoruEnable = false end
-end
-
-function OnHeroClicked(Index, keys)
-    local playerID = EntIndexToHScript(keys.player)
-    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
-
-    print(hero:GetName())
-    if hero:GetName() == 'npc_dota_hero_troll_warlord' then 
-        if hero.IsOnBoarded then 
-            print('Drake On Golden Hind')
-        end
-    end
-    if hero.IsIntegrated or hero.IsMounted or hero.IsOnBoarded then
-        -- Find the transport
-        local units = FindUnitsInRadius(hero:GetTeam(), hero:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 0, FIND_CLOSEST, false)
-        for k,v in pairs(units) do
-            local unitname = v:GetUnitName()
-            print(v:GetUnitName())
-            if hero:IsAlive() and v:IsAlive() and v:GetOwnerEntity() == hero then
-                if string.match(v:GetUnitName(), "medea_ancient_dragon") or string.match(v:GetUnitName(), "gille_gigantic_horror") or string.match(v:GetUnitName(), "drake_golden_hind") then
-                    local playerData = {
-                        transport = v:entindex()
-                    }
-                    CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "player_selected_hero_in_transport", playerData )
-                    break
-                end
-            end
-        end
-    end
-end
-
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function FateGameMode:InitGameMode()
@@ -4214,6 +4159,7 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener( "config_option_11_checked", OnConfig11Checked )
     CustomGameEventManager:RegisterListener( "config_option_13_checked", OnConfig13Checked )
     CustomGameEventManager:RegisterListener( "config_option_14_checked", OnConfig14Checked )
+    CustomGameEventManager:RegisterListener( "config_option_15_checked", OnConfig15Checked )
     --CustomGameEventManager:RegisterListener("hotkey_purchase_item", HotkeyPurchaseItem)
     -- CustomGameEventManager:RegisterListener( "player_chat_panorama", OnPlayerChat )
     CustomGameEventManager:RegisterListener( "player_alt_click", OnPlayerAltClick )
@@ -4292,7 +4238,7 @@ function FateGameMode:InitGameMode()
     ServerTables:CreateTable("GameMode", {mode = 'classic'})
     ServerTables:CreateTable("Condition", {dbhruntproh = false, archer = false, kuro = false, female = 0, divine = 0})
     ServerTables:CreateTable("Win", {goal = 0})
-    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false, kagut = false})
+    ServerTables:CreateTable("Dev", {zef = false, pepe = false, mod = false, sss = false, kagut = false, rinz = false, vip2 = false})
     ServerTables:CreateTable("PEPE", {slayer = false, savior = false, pepe = false, total = 0, kill = 0})
     ServerTables:CreateTable("Load", {player = 0})
     ServerTables:CreateTable("AutoBalance", {auto_balance = false})
@@ -4653,6 +4599,11 @@ function FateGameMode:ExecuteOrderFilter(filterTable)
             caster.HippogriffCastLocation = location
        end
     end
+
+    if type(VectorTarget) == "table" and type(VectorTarget.OrderFilter) == "function" then
+        VectorTarget:OrderFilter(filterTable)
+    end
+
     return true
 end
 
@@ -5478,7 +5429,7 @@ function FateGameMode:OnPlayerConnects()
             iupoasldm:initialize(i)
         end
 
-        Timers:CreateTimer(2.0, function()
+        Timers:CreateTimer(1.5, function()
             local red = GameRules:GetCustomGameTeamMaxPlayers(2)
             local black = GameRules:GetCustomGameTeamMaxPlayers(3)
 

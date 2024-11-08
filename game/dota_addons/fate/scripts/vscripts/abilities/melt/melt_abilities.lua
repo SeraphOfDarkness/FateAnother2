@@ -72,8 +72,7 @@ function OnQ(keys)
 			local units = FindUnitsInLine(caster:GetTeamNumber(), casterPos, endPoint, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE)
 			for _, unit in pairs(units) do
 	   		    if caster.IsVirus then
-					local melt_f = caster:FindAbilityByName("melt_f")
-					melt_f:ApplyDataDrivenModifier(caster, unit, "modifier_melt_virus", {})
+					AddVirusStack(caster, unit)
 			    end
 
 			    DoDamage(caster, unit, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
@@ -116,8 +115,7 @@ function OnW(keys)
 
 		for _, enemy in pairs(enemies) do
    		    if caster.IsVirus then
-			local melt_f = caster:FindAbilityByName("melt_f")
-			melt_f:ApplyDataDrivenModifier(caster, enemy, "modifier_melt_virus" ,  {})
+				AddVirusStack(caster, enemy)
 		    end
 
 			DoDamage(caster, enemy, circle_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
@@ -143,8 +141,7 @@ function OnW(keys)
 
         for _, enemy in pairs(enemies) do
    		    if caster.IsVirus then
-				local melt_f = caster:FindAbilityByName("melt_f")
-				melt_f:ApplyDataDrivenModifier(caster, enemy, "modifier_melt_virus" ,  {})
+				AddVirusStack(caster, enemy)
 		    end
             DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
         end
@@ -247,8 +244,7 @@ function OnE(keys)
 					end
 
 			   		if caster.IsVirus then
-						local melt_f = caster:FindAbilityByName("melt_f")
-						melt_f:ApplyDataDrivenModifier(caster, enemies[1], "modifier_melt_virus" ,  {})
+						AddVirusStack(caster, enemies[1])
 					end
 
 	    			enemies[1]:EmitSound("Melt.ESFX")
@@ -294,8 +290,8 @@ function OnR(keys)
 
     local reduce_cast = 0
     if caster.IsComposite then
-	local melt_d = caster:FindAbilityByName("melt_d_upgrade")
-	reduce_cast = melt_d:GetSpecialValueFor("bonus_r_reduce_cast_per25_agi") * (caster:GetAgility() / 25)   
+		local melt_d = caster:FindAbilityByName("melt_d_upgrade")
+		reduce_cast = melt_d:GetSpecialValueFor("bonus_r_reduce_cast_per25_agi") * (caster:GetAgility() / 25)   
     end
 
     local minimum_cast_delay = ability:GetSpecialValueFor("minimum_cast_delay")
@@ -319,8 +315,8 @@ function OnR(keys)
     giveUnitDataDrivenModifier(caster, caster, "jump_pause", cast_delay + 0.05)
 
     Timers:CreateTimer(0.05, function()
-    StartAnimation(caster, {duration=3, activity=ACT_DOTA_ATTACK2, rate=0.5 + reduce_cast})
-	EmitGlobalSound("Melt.R" ..math.random(1,2))
+    	StartAnimation(caster, {duration=3, activity=ACT_DOTA_ATTACK2, rate=0.5 + reduce_cast})
+		EmitGlobalSound("Melt.R" ..math.random(1,2))
     end)
 
     StartAnimation(caster, {duration=3, activity=ACT_DOTA_ATTACK2, rate=0.5 + reduce_cast})
@@ -358,8 +354,7 @@ function OnR(keys)
 
         for _, enemy in pairs(enemies) do
 		    if caster.IsVirus then
-			local melt_f = caster:FindAbilityByName("melt_f")
-			melt_f:ApplyDataDrivenModifier(caster, enemy, "modifier_melt_virus" ,  {})
+				AddVirusStack(caster, enemy)
 		    end
 
             DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
@@ -369,11 +364,27 @@ function OnR(keys)
     end)
 end
 
+function AddVirusStack(hCaster, hTarget, iStack)
+	if iStack == nil then 
+		iStack = 1 
+	end
+	local virus = hCaster:FindAbilityByName("melt_f")
+
+	virus:ApplyDataDrivenModifier(hCaster, hTarget, "modifier_melt_virus", {})
+
+	local stack = hTarget:GetModifierStackCount("modifier_melt_virus", hCaster) or 0
+
+	hTarget:SetModifierStackCount("modifier_melt_virus", hCaster, stack + 1)
+
+end
+
 function OnVirusThink(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target 
 	local damage_per_second = ability:GetSpecialValueFor("damage_per_second")
+	local bonus_damage_stack = ability:GetSpecialValueFor("bonus_damage_stack")
+	local stack = target:GetModifierStackCount("modifier_melt_virus", caster) or 1 - 1
 
     local bonus_dmg = 0
     if caster.IsComposite then
@@ -381,7 +392,7 @@ function OnVirusThink(keys)
 		bonus_dmg = melt_d:GetSpecialValueFor("bonus_melt_virus_damage_per_int") * (caster:GetIntellect())   
     end
 
-	DoDamage(caster, target, damage_per_second + bonus_dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false) 
+	DoDamage(caster, target, damage_per_second + bonus_dmg + (stack * bonus_damage_stack), DAMAGE_TYPE_MAGICAL, 0, ability, false) 
 end
 
 function OnVirusAcquired(keys)
@@ -508,8 +519,7 @@ function OnSplashBuff(keys)
 	for _, enemy in pairs(enemies) do
 		DoDamage(caster, enemy, splash_dmg_per_str * caster:GetStrength(), DAMAGE_TYPE_MAGICAL, 0, ability, false)
 		if caster.IsVirus then
-		local melt_f = caster:FindAbilityByName("melt_f")
-		melt_f:ApplyDataDrivenModifier(caster, enemy, "modifier_melt_virus" ,  {})
+		AddVirusStack(caster, enemy)
 	    end
 	end
 end
@@ -721,8 +731,7 @@ function OnComboSuccess(caster, ability, target, extradelay)
 				--FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
 	   		    if caster.IsVirus then
-					local melt_f = caster:FindAbilityByName("melt_f")
-					melt_f:ApplyDataDrivenModifier(caster, target, "modifier_melt_virus" ,  {})
+					AddVirusStack(caster, target)
 			    end
 
 			    DoDamage(caster, target, caster:GetAttackDamage() * damage_per_slash_multiplier_attack , DAMAGE_TYPE_PHYSICAL, 0, ability, false)
@@ -787,8 +796,7 @@ function OnComboSuccess(caster, ability, target, extradelay)
 
 			for _, enemy in pairs(enemies) do
 	   		    if caster.IsVirus then
-					local melt_f = caster:FindAbilityByName("melt_f")
-					melt_f:ApplyDataDrivenModifier(caster, enemy, "modifier_melt_virus" ,  {})
+					AddVirusStack(caster, enemy)
 			    end
 
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)

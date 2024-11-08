@@ -84,6 +84,9 @@ function gilles_abyssal_contract_wrapper(ability)
 					if hCaster.IsAbyssalConnectionAcquired then		
 						hCaster.Squidlord:FindAbilityByName("gilles_squidlordz_contaminate"):EndCooldown()
 					end
+					hCaster.Squidlord:GetAbilityByIndex(0):EndCooldown()
+					hCaster.Squidlord:GetAbilityByIndex(1):EndCooldown()
+					hCaster.Squidlord:GetAbilityByIndex(2):EndCooldown()
 				else
 					hCaster.Squidlord = CreateUnitByName("gille_gigantic_horror", vTargetPoint, true, nil, nil, hCaster:GetTeamNumber())
 

@@ -49,8 +49,11 @@ function PopupDamageBlock(target, amount)
 end
 
 -- e.g. when last-hitting a creep
-function PopupGoldGain(target, amount)
-    PopupNumbers(target, "gold", Vector(255, 200, 33), 2.0, amount, POPUP_SYMBOL_PRE_PLUS, nil)
+function PopupGoldGain(target, amount, symbol)
+    if symbol == nil then 
+        symbol = POPUP_SYMBOL_PRE_PLUS
+    end
+    PopupNumbers(target, "gold", Vector(255, 200, 33), 2.0, amount, symbol, nil)
 end
 
 -- e.g. when missing uphill

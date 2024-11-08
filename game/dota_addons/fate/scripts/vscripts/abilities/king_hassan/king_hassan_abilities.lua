@@ -374,7 +374,8 @@ function OnComboCast(keys)
 		if caster:HasModifier("modifier_kinghassan_combo_cast") and caster:IsAlive() and target:IsAlive() then
 			EmitGlobalSound("KingHassan.Combo")
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_kinghassan_death_announce", {})
-	 		
+	 		ability:ApplyDataDrivenModifier(caster, target, "modifier_kinghassan_combo_heal_debuff", {})
+	 		target:SetModifierStackCount("modifier_kinghassan_combo_heal_debuff", caster, math.abs(ability:GetSpecialValueFor("heal_reduction")))
 	 		local fear = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
 			for k,v in pairs(fear) do
 				if IsInSameRealm(v:GetAbsOrigin(), caster:GetAbsOrigin()) then 

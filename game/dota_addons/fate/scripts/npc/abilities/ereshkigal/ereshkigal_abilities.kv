@@ -1,0 +1,862 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ereshkigal: Goddess of Death (D)
+	//=================================================================================================================
+	"ereshkigal_d"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_d"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
+		{
+			"non_hell_bonus_stat"	"0.2"
+			"soul_loss"				"50"
+			"non_hell_dmg"			"-15"
+			"hell_bonus_stat"		"1"
+			"hell_bonus_dmg"		"0"
+			"hell_mana_cost"		"50"
+			"soul_search"			"500"
+			"soul_duration"			"30"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Goddess of Death (D) (Divine Core of the Goddess SA)
+	//=================================================================================================================
+	"ereshkigal_d_upgrade_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_d"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
+		{
+			"non_hell_bonus_stat"	"0.2"
+			"soul_loss"				"50"
+			"non_hell_dmg"			"0"
+			"hell_bonus_stat"		"1"
+			"hell_bonus_dmg"		"15"
+			"hell_mana_cost"		"50"
+			"hell_bonus_regen"		"20"
+			"hell_bonus_def"		"20"
+			"hell_bonus_ms"			"20"
+			"soul_search"			"500"
+			"soul_duration"			"30"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Goddess of Death (D) (Hidden Great Crown SA)
+	//=================================================================================================================
+	"ereshkigal_d_upgrade_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_d"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
+		{
+			"non_hell_bonus_stat"	"0.4"
+			"soul_loss"				"30"
+			"non_hell_dmg"			"-15"
+			"hell_bonus_stat"		"1.5"
+			"hell_bonus_dmg"		"0"
+			"hell_mana_cost"		"50"
+			"soul_search"			"500"
+			"soul_duration"			"30"
+			"q_consume"				"1"
+			"w_consume"				"2"
+			"e_consume"				"3"
+			"r_consume"				"4"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Goddess of Death (D) (Divine Core of the Goddess + Hidden Great Crown SA)
+	//=================================================================================================================
+	"ereshkigal_d_upgrade_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_d"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"1"
+
+		"AbilityValues"
+		{
+			"non_hell_bonus_stat"	"0.4"
+			"soul_loss"				"30"
+			"non_hell_dmg"			"-15"
+			"hell_bonus_stat"		"1.5"
+			"hell_bonus_dmg"		"15"
+			"hell_mana_cost"		"50"
+			"hell_bonus_regen"		"20"
+			"hell_bonus_def"		"20"
+			"hell_bonus_ms"			"20"
+			"soul_search"			"500"
+			"soul_duration"			"30"
+			"q_consume"				"1"
+			"w_consume"				"2"
+			"e_consume"				"3"
+			"r_consume"				"4"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Kur (F)
+	//=================================================================================================================
+	"ereshkigal_f"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_f"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"MaxLevel"						"1"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"200"
+		"AbilityManaCost"				"400"
+
+		"AbilityValues"
+		{
+			"delay"					"2"
+			"aoe"					"800"
+			"duration"				"12"
+			"divine_debuff"			"20"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Spear Cage (Q)
+	//=================================================================================================================
+	"ereshkigal_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_q"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"total_arrow"		"5"
+			"distance"			"800"
+			"width"				"150"
+			"damage"			"120 140 160 180 200"
+			"silence"			"0.1"
+			"slow"				"-10"
+			"slow_dur"			"2"
+			"stun"				"0.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Spear Cage (Q) (Mana Burst (Cage) SA)
+	//=================================================================================================================
+	"ereshkigal_q_upgrade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_q"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"total_arrow"		"5"
+			"distance"			"800"
+			"width"				"150"
+			"damage"			"120 140 160 180 200"
+			"bonus_int"			"1"
+			"silence"			"0.1"
+			"slow"				"-10"
+			"slow_dur"			"2"
+			"stun"				"0.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Spirit Devour (W)
+	//=================================================================================================================
+	"ereshkigal_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_w"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"18 17 16 15 14"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"cast_time"			"0.2"
+			"cast_delay"		"0.5"
+			"cast_range"		"800"
+			"aoe"				"300"
+			"damage"			"300 370 440 510 580"
+			"stun"				"0.2"
+			"mana_burn"			"150 190 230 270 310" 
+			"hell_cast"			"0.1" //marble effect
+			"hell_delay"		"0.1"
+			"mana_restore"		"50"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Spirit Devour (W) (Mana Burst (Cage) SA)
+	//=================================================================================================================
+	"ereshkigal_w_upgrade_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_w"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"18 17 16 15 14"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"cast_time"			"0.2"
+			"cast_delay"		"0.5"
+			"cast_range"		"800"
+			"aoe"				"300"
+			"damage"			"300 370 440 510 580"
+			"bonus_int"			"3"
+			"stun"				"0.2"
+			"mana_burn"			"150 190 230 270 310" 
+			"hell_cast"			"0.1" //marble effect
+			"hell_delay"		"0.1"
+			"mana_restore"		"100"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Spirit Devour (W) (Hidden Great Crown SA)
+	//=================================================================================================================
+	"ereshkigal_w_upgrade_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_w"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"18 17 16 15 14"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"cast_time"			"0.2"
+			"cast_delay"		"0.5"
+			"cast_range"		"800"
+			"aoe"				"300"
+			"damage"			"300 370 440 510 580"
+			"stun"				"0.2"
+			"mana_burn"			"150 190 230 270 310" 
+			"steal_stat"		"2 4 6 8 10"
+			"steal_dur"			"10"
+			"soul_gain"			"1"
+			"hell_cast"			"0.1" //marble effect
+			"hell_delay"		"0.1"
+			"mana_restore"		"100"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Soul Devour (W) (Mana Burst (Cage) + Hidden Great Crown SA)
+	//=================================================================================================================
+	"ereshkigal_w_upgrade_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_w"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_charisma"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"18 17 16 15 14"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"cast_time"			"0.2"
+			"cast_delay"		"0.5"
+			"cast_range"		"800"
+			"aoe"				"300"
+			"damage"			"300 370 440 510 580"
+			"bonus_int"			"3"
+			"stun"				"0.2"
+			"mana_burn"			"150 190 230 270 310" 
+			"steal_stat"		"2 4 6 8 10"
+			"steal_dur"			"10"
+			"soul_gain"			"1"
+			"hell_cast"			"0.1" //marble effect
+			"hell_delay"		"0.1"
+			"mana_restore"		"100"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Spirit Cage (E)
+	//=================================================================================================================
+	"ereshkigal_e"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_e"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"25 24 23 22 21"
+		"AbilityValues"
+		{
+			"delay"						"1"
+			"cast_range"				"700"
+			"aoe"						"300"
+			"damage"					"400 450 500 550 600"
+			"cage_dur"					"2 2.3 2.6 2.9 3.2"
+			"hp_drain"					"50 65 80 95 110"
+			"revoke"					"0.5 0.7 0.9 1.1 1.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Spirit Cage (E) (Mana Burst (Cage) SA)
+	//=================================================================================================================
+	"ereshkigal_e_upgrade_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_e"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"25 24 23 22 21"
+		"AbilityValues"
+		{
+			"delay"						"1"
+			"cast_range"				"700"
+			"aoe"						"300"
+			"damage"					"400 450 500 550 600"
+			"bonus_int"					"3"
+			"cage_dur"					"2 2.3 2.6 2.9 3.2"
+			"hp_drain"					"50 65 80 95 110"
+			"revoke"					"0.5 0.7 0.9 1.1 1.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Spirit Cage (E) (Protection of the Underworld SA)
+	//=================================================================================================================
+	"ereshkigal_e_upgrade_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_e"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"25 24 23 22 21"
+		"AbilityValues"
+		{
+			"delay"						"1"
+			"cast_range"				"700"
+			"aoe"						"300"
+			"damage"					"400 450 500 550 600"
+			"cage_dur"					"2 2.3 2.6 2.9 3.2"
+			"hp_drain"					"50 65 80 95 110"
+			"damage_debuff"				"-10 -20 -30 -40 -50"
+			"debuff_dur"				"10"
+			"revoke"					"0.5 0.7 0.9 1.1 1.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Spirit Cage (E) (Mana Burst (Cage) + Protection of the Underworld SA)
+	//=================================================================================================================
+	"ereshkigal_e_upgrade_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_e"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"25 24 23 22 21"
+		"AbilityValues"
+		{
+			"delay"						"1"
+			"cast_range"				"700"
+			"aoe"						"300"
+			"damage"					"400 450 500 550 600"
+			"bonus_int"					"3"
+			"cage_dur"					"2 2.3 2.6 2.9 3.2"
+			"hp_drain"					"50 65 80 95 110"
+			"damage_debuff"				"-10 -20 -30 -40 -50"
+			"debuff_dur"				"10"
+			"revoke"					"0.5 0.7 0.9 1.1 1.3" //marble effect
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Red Lightning of the Underworld (R)
+	//=================================================================================================================
+	"ereshkigal_r"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_r"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"51 50 49 48 47"
+		"AbilityValues"
+		{
+			"cast_time"					"0.3"
+			"cast_range"				"800"
+			"radius"					"800"
+			"width"						"200"
+			"speed"						"1200"
+			"hell_dur"					"2 2.25 2.5 2.75 3"
+			"root_dur"					"1 1.25 1.5 1.75 2"
+			"damage"					"800 1000 1200 1400 1600"
+			"outer_dmg"					"50"
+			"heal_red"					"-20"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Red Lightning of the Underworld (R) (Territory Creation SA)
+	//=================================================================================================================
+	"ereshkigal_r_upgrade_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_r"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"51 50 49 48 47"
+		"AbilityValues"
+		{
+			"cast_time"					"0.3"
+			"cast_range"				"800"
+			"radius"					"800"
+			"width"						"200"
+			"speed"						"1200"
+			"hell_dur"					"4 4.25 4.5 4.75 5"
+			"root_dur"					"2 2.25 2.5 2.75 3"
+			"damage"					"800 1000 1200 1400 1600"
+			"outer_dmg"					"50"
+			"heal_red"					"-50"
+			"team_buff"					"3 6 9 12 15"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Red Lightning of the Underworld (R) (Protection of the Underworld SA)
+	//=================================================================================================================
+	"ereshkigal_r_upgrade_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_r"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"51 50 49 48 47"
+		"AbilityValues"
+		{
+			"cast_time"					"0.3"
+			"cast_range"				"800"
+			"radius"					"800"
+			"width"						"200"
+			"speed"						"1200"
+			"hell_dur"					"2 2.25 2.5 2.75 3"
+			"root_dur"					"1 1.25 1.5 1.75 2"
+			"damage"					"800 1000 1200 1400 1600"
+			"bonus_int"					"5"
+			"outer_dmg"					"50"
+			"heal_red"					"-20"
+			"physic_red"				"-75"
+			"slow"						"-5 -10 -15 -20 -25"
+			"def_debuff"				"-3 -6 -9 -12 -15"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal: Red Lightning of the Underworld (R) (Territory Creation + Protection of the Underworld SA)
+	//=================================================================================================================
+	"ereshkigal_r_upgrade_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_r"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jeanne/jeanne_saint"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"51 50 49 48 47"
+		"AbilityValues"
+		{
+			"cast_time"					"0.3"
+			"cast_range"				"800"
+			"radius"					"800"
+			"width"						"200"
+			"speed"						"1200"
+			"hell_dur"					"4 4.25 4.5 4.75 5"
+			"root_dur"					"2 2.25 2.5 2.75 3"
+			"damage"					"800 1000 1200 1400 1600"
+			"bonus_int"					"5"
+			"outer_dmg"					"50"
+			"heal_red"					"-50"
+			"physic_red"				"-75"
+			"slow"						"-5 -10 -15 -20 -25"
+			"def_debuff"				"-3 -6 -9 -12 -15"
+			"team_buff"					"3 6 9 12 15"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Kur Kigal Irkalla
+	//=================================================================================================================
+	"ereshkigal_combo"
+	{	
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/ishtar/ishtar_combo"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"200"
+		"AbilityManaCost"				"800"
+		"AbilityValues"
+		{
+			"delay_before_tele"		"1"
+			"cast"					"5"
+			"reveal"				"3"
+			"aoe"					"800"
+			"damage"				"2500"
+			"soul_damage"			"200"
+			"root"					"4"
+			"revoke"				"2"
+		}
+	}
+	//=================================================================================================================
+	// Ereshkigal : Combo Launch 
+	//=================================================================================================================
+	"ereshkigal_combo_target"
+	{	
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/ishtar/ishtar_combo"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"40000"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"0"
+	}
+	//=================================================================================================================
+	// Ereshkigal : Combo Launch 
+	//=================================================================================================================
+	"ereshkigal_combo_dummy"
+	{	
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/ishtar/ishtar_combo"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"      		"3"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"0"
+	}
+	//=======================================
+	// Ereshkigal Attribute: Territory Creation
+	//=======================================
+	"ereshkigal_attribute_territory"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/ereshkigal/ereshkigal_territory"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"17"
+		"AbilityValues"
+		{
+			"r_hell_dur"		"2"
+			"r_team_buff"		"3 6 9 12 15"
+			"r_bonus_root"		"1"
+			"r_heal_red"		"-30"
+			"f_delay"			"2"
+			"f_aoe"				"800"
+			"f_duration"		"12"
+			"f_divine_debuff"	"20"
+		}
+	}
+	//=======================================
+	// Ereshkigal Attribute: Divine Core of the Goddess
+	//=======================================
+	"ereshkigal_attribute_divine"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/ereshkigal/ereshkigal_territory"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+		"AbilityValues"
+		{
+			"non_hell_dmg"			"15"
+			"hell_bonus_dmg"		"15"
+			"hell_bonus_regen"		"20"
+			"hell_bonus_def"		"20"
+			"hell_bonus_ms"			"20"
+		}
+	}
+	//=======================================
+	// Ereshkigal Attribute: Hidden Great Crown
+	//=======================================
+	"ereshkigal_attribute_crown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/ereshkigal/ereshkigal_territory"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+		"AbilityValues"
+		{
+			"w_steal_stat"			"2 4 6 8 10"
+			"w_steal_dur"			"10"
+			"q_consume"				"1"
+			"w_consume"				"2"
+			"e_consume"				"3"
+			"r_consume"				"4"
+		}
+	}
+	//=======================================
+	// Ereshkigal Attribute: Mana Burst (Cage)
+	//=======================================
+	"ereshkigal_attribute_mana_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/ereshkigal/ereshkigal_territory"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+		"AbilityValues"
+		{
+			"q_bonus_int"			"1"
+			"w_bonus_int"			"3"
+			"e_bonus_int"			"3"
+		}
+	}
+	//=======================================
+	// Ereshkigal Attribute: Protection of the Underworld
+	//=======================================
+	"ereshkigal_attribute_mana_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ereshkigal/ereshkigal_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/ereshkigal/ereshkigal_territory"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+		"AbilityValues"
+		{
+			"r_bonus_int"			"5"
+			"slow"					"-5 -10 -15 -20 -25"
+			"def_debuff"			"-3 -6 -9 -12 -15"
+			"physic_red"			"-75"
+		}
+	}
+}

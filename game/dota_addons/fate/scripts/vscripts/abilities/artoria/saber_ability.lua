@@ -29,6 +29,10 @@ function CreateWind(keys)
 	caster.invisible_air_reach_target = false
 
 	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+	if caster:HasModifier("modifier_alternate_07") then
+		caster:EmitSound("Castoria_Q")
+	end
 	
 	if dist > 250 then 
 		caster.invisible_air_pos = caster:GetAbsOrigin() + (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * 150
@@ -214,8 +218,11 @@ function OnCaliburnHit(keys)
     	caster:EmitSound("Saber_Lily_Caliburn")
     elseif caster:HasModifier("modifier_alternate_05") then 
     	caster:EmitSound("Saber-Wedding-W")
+    elseif caster:HasModifier("modifier_alternate_07") then 
+    	caster:EmitSound("Castoria_W")
     elseif caster:HasModifier("modifier_alternate_06") then 
     	caster:EmitSound("Arthur.Caliburn")
+    
     else
     	caster:EmitSound("saber_attack_01")
     end
@@ -316,7 +323,7 @@ function OnExcaliburStart(keys)
 		if caster:IsAlive() then
 			if caster:HasModifier("modifier_alternate_01") then
 				UnfreezeAnimation(caster)
-			elseif caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_06") then
+			elseif caster:HasModifier("modifier_alternate_02") or caster:HasModifier("modifier_alternate_06") or caster:HasModifier("modifier_alternate_07") then
 				StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.00})
 			elseif caster:HasModifier("modifier_alternate_03") then
 				UnfreezeAnimation(caster)
@@ -461,6 +468,8 @@ function OnMaxStart(keys)
 	    	ParticleManager:DestroyParticle(sword_glow_fx, true)
 	    	ParticleManager:ReleaseParticleIndex(sword_glow_fx)
 	    end)
+	elseif caster:HasModifier("modifier_alternate_07") then 
+	    StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
 	else
 		StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.21})
 	end
@@ -498,6 +507,9 @@ function OnMaxStart(keys)
 		EmitGlobalSound("Saber_Lily_Max_Chant_" .. math.random(1,2))
 	elseif caster:HasModifier("modifier_alternate_05") then 
 		EmitGlobalSound("Saber-Wedding-Combo" .. math.random(1,2))
+	elseif caster:HasModifier("modifier_alternate_07") then 
+		EmitGlobalSound("Castoria_Combo") 
+		EmitGlobalSound("Castoria_BGM") 
 	elseif caster:HasModifier("modifier_alternate_06") then 
 		EmitGlobalSound("Arthur.Combo" .. math.random(1,2)) 
 		EmitGlobalSound("Arthur.BGM") 
@@ -518,6 +530,8 @@ function OnMaxStart(keys)
 			EmitGlobalSound("Saber_Lily_Max_Excalibur")
 		elseif caster:HasModifier("modifier_alternate_05") then 
 			EmitGlobalSound("Saber-Wedding-Combo-Excal")
+		elseif caster:HasModifier("modifier_alternate_07") then 
+			EmitGlobalSound("Saber-Wedding-Combo-Excal") 
 		elseif caster:HasModifier("modifier_alternate_06") then 
 			EmitGlobalSound("Arthur.Excalibur") 
 		else
@@ -542,6 +556,8 @@ function OnMaxStart(keys)
 	    	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.67})
 	    elseif caster:HasModifier("modifier_alternate_06") then
 
+	    elseif caster:HasModifier("modifier_alternate_07") then 
+	    	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.0})
 		elseif caster:HasModifier("modifier_alternate_03") then 
 			UnfreezeAnimation(caster)
 		else
@@ -688,7 +704,9 @@ function OnAvalonStart(keys)
 
 	caster:EmitSound("Hero_Omniknight.GuardianAngel.Cast")
 	EmitGlobalSound("Saber.Avalon")
-	if caster:HasModifier("modifier_alternate_06") then 
+	if caster:HasModifier("modifier_alternate_07") then 
+		EmitGlobalSound("Castoria_E")
+	elseif caster:HasModifier("modifier_alternate_06") then 
 		EmitGlobalSound("Arthur.Avalon")
 	else
 		EmitGlobalSound("Saber.Avalon_Shout")
@@ -717,7 +735,11 @@ function AvalonOnTakeDamage(keys)
 	--if caster.IsAvalonPenetrated then return end
 
 	if caster:IsAlive() and not caster:HasModifier("pause_sealdisabled") and not caster:HasModifier("modifier_max_excalibur") and caster.avalon_proc > 0 and caster.IsAvalonProc == true and caster:GetTeam() ~= attacker:GetTeam() and caster.IsAvalonOnCooldown == false and (caster:GetAbsOrigin() - attacker:GetAbsOrigin()):Length2D() < range then 
-		if emitwhichsound == 1 then attacker:EmitSound("Saber.Avalon_Counter1") else attacker:EmitSound("Saber.Avalon_Counter2") end
+		if caster:HasModifier("modifier_alternate_07") then
+			attacker:EmitSound("Castoria_E_Dash")
+		else
+			attacker:EmitSound("Saber.Avalon_Counter" .. RandomInt(1,2))
+		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_saber_avalon_dash", {})
 		AvalonDash(caster, attacker, damage, ability)
 		caster.IsAvalonOnCooldown = true
@@ -914,7 +936,9 @@ function OnStrikeAirStart(keys)
 			end
 		end
 	end})
-	if caster:HasModifier('modifier_alternate_06') then 
+	if caster:HasModifier('modifier_alternate_07') then 
+		EmitGlobalSound("Castoria_D")
+	elseif caster:HasModifier('modifier_alternate_06') then 
 		EmitGlobalSound("Arthur.Kaze" .. RandomInt(1, 2))
 	else
 		EmitGlobalSound("Saber.StrikeAir_Cast")

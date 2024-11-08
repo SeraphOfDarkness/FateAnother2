@@ -1119,6 +1119,7 @@ end
 
 function OnCalydonianSnipeWindowCreate(keys)
 	local caster = keys.caster 
+    local ability = keys.ability
     local ply = caster:GetPlayerOwner()
     if ply == nil then 
         ply = PlayerResource:GetPlayer(caster:GetPlayerOwnerID())
@@ -1138,7 +1139,10 @@ function OnCalydonianSnipeWindowCreate(keys)
         Timers:RemoveTimer(caster.CameraTimerDown)
         caster.CameraTimerDown = nil
     end
-    if caster:IsAlive() then 
+    --========================
+    local bIsToggledVision = (not ability:IsHidden() and ability:GetAutoCastState())
+    --========================
+    if caster:IsAlive() and bIsToggledVision then 
         caster.CameraTimerUp = Timers:CreateTimer(function()
             if not caster:IsAlive() then 
                 CustomGameEventManager:Send_ServerToPlayer( ply, "cam_distance", {camera= caster.base_camera} )

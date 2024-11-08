@@ -362,7 +362,8 @@ function modifier_atalanta_evil_beast:OnAttackLanded(args)
 	local target = args.target
 	local angle = 120
 	local radius = self:GetAbility():GetSpecialValueFor("evil_splash")
-	local evil_dmg = self:GetAbility():GetSpecialValueFor("evil_dmg")
+	local evil_dmg = self:GetAbility():GetSpecialValueFor("evil_dmg") 
+	local evil_splash_dmg = self:GetAbility():GetSpecialValueFor("evil_splash_dmg") / 100
 	local attack = caster:GetAverageTrueAttackDamage(caster)
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do	
@@ -391,7 +392,7 @@ function modifier_atalanta_evil_beast:OnAttackLanded(args)
 				self:GetAbility():Curse(v)
 				self:GetAbility():Curse(v)
 				if v ~= target then 
-					DoDamage(caster, v, attack, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+					DoDamage(caster, v, attack * evil_splash_dmg, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 				end
 			--end
 		end

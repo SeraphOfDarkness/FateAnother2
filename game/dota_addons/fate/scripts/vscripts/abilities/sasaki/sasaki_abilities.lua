@@ -100,6 +100,8 @@ function OnHeartStart(keys)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_of_harmony", {})
 	caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
+
+	
 end
 
 function OnHeartInterrupt(keys)
@@ -170,7 +172,11 @@ function OnHeartCounter(caster,target,ability)
 		cleanseCounter = cleanseCounter + 1
 		return interval / 2
 	end)
-	target:EmitSound("FA.Omigoto")
+	if caster:HasModifier("modifier_alternate_03") then 
+		target:EmitSound("Ikki_W")
+	else
+		target:EmitSound("FA.Omigoto")
+	end
 	EmitGlobalSound("FA.Quickdraw")
 end
 
@@ -220,6 +226,10 @@ function OnWBStart(keys)
 		giveUnitDataDrivenModifier(caster, caster, "drag_pause", stun/5)
 	else
 		giveUnitDataDrivenModifier(caster, caster, "drag_pause", stun)
+	end
+
+	if caster:HasModifier("modifier_alternate_03") then 
+		caster:EmitSound("Ikki_E")
 	end
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), casterInitOrigin, nil, radius
@@ -292,7 +302,11 @@ function TGPlaySound(keys)
 		return
 	end
 
-	EmitGlobalSound("FA.TGReady")
+	if caster:HasModifier("modifier_alternate_03") then 
+		EmitGlobalSound("Ikki_R_Cast")
+	else
+		EmitGlobalSound("FA.TGReady")
+	end
 
 	local diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 	local firstImpactIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
@@ -334,8 +348,11 @@ function OnTGStart(keys)
 		target:TriggerSpellReflect(ability)
 		--if IsSpellBlocked(target) then return end -- Linken effect checker
 		EmitGlobalSound("FA.Chop")
-
-		EmitGlobalSound("FA.TG")
+		if caster:HasModifier("modifier_alternate_03") then 
+			EmitGlobalSound("Ikki_R")
+		else
+			EmitGlobalSound("FA.TG")
+		end
 
 		if keys.Locator then
 			giveUnitDataDrivenModifier(caster, caster, "jump_pause", pause)
@@ -356,7 +373,7 @@ function OnTGStart(keys)
 				local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 				caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
 				if caster.IsGanryuAcquired then 
-					if target:HasModifier("jump_pause") then
+					if target:IsInvulnerable() then
 						DoDamage(caster, target, damage/2, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
 					else
 						DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
@@ -394,7 +411,7 @@ function OnTGStart(keys)
 				local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 				caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
 				if caster.IsGanryuAcquired then 
-					if target:HasModifier("jump_pause") then
+					if target:IsInvulnerable() then
 						DoDamage(caster, target, damage/2, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
 					else
 						DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
@@ -434,8 +451,10 @@ function OnTGStart(keys)
 					lasthit_damage = 0
 				end -- if target has instinct up, block the last hit
 				if caster.IsGanryuAcquired then	
-					if target:HasModifier("jump_pause") or (IsSpellBlocked(target) and target:GetName() == "npc_dota_hero_legion_commander") then
-						DoDamage(caster, target, lasthit_damage/2, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
+					if target:IsInvulnerable() then
+						if not (IsSpellBlocked(target) and target:GetName() == "npc_dota_hero_legion_commander") then
+							DoDamage(caster, target, lasthit_damage/2, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, ability, false)
+						end
 					else
 						DoDamage(caster, target, lasthit_damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
 						target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
@@ -533,6 +552,9 @@ function OnQuickdrawStart(keys)
 	caster:RemoveModifierByName("modifier_sasaki_quickdraw_window")
 	local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.4)
+	if caster:HasModifier("modifier_alternate_03") then 
+		caster:EmitSound("Ikki_QQ")
+	end
 	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
@@ -675,7 +697,12 @@ function OnTMLanded(keys)
 	ApplyAirborne(caster, target, 2.3)
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "jump_pause", 2.8)
 	caster:RemoveModifierByName("modifier_tsubame_mai")
-	EmitGlobalSound("FA.Owarida")
+	if caster:HasModifier("modifier_alternate_03") then 
+		EmitGlobalSound("Ikki_Combo")
+		EmitGlobalSound("Ikki_BGM")
+	else
+		EmitGlobalSound("FA.Owarida")
+	end
 	EmitGlobalSound("FA.Quickdraw")
 	CreateSlashFx(caster, target:GetAbsOrigin()+Vector(0, 0, -300), target:GetAbsOrigin()+Vector(0,0,500))
 	local angle = 180 + caster:GetAnglesAsVector().y

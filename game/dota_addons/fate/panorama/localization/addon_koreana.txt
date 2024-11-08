@@ -381,7 +381,7 @@ Rule
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "asdfasdfCurrently developed by: ZeFiRoFT,NERD,Seraph,Kagutsugi"
+        "ABOUT_DEV_BODY"                                "asdfasdfCurrently developed by: ZeFiRoFT,NERD,Kagutsugi"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"

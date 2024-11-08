@@ -108,6 +108,18 @@ SkinID
 	"105"		"npc_dota_hero_terrorblade_2"		// [Myth] DMC Vergil
 	"106"		"npc_dota_hero_necrolyte_1"			// [Normal] No Coated Hans
 	"107"		"npc_dota_hero_spectre_4"			// [Legend] Shinjuku Artoria (Alter)
-	//"108"		"npc_dota_hero_phantom_assassin_1"	// [Limited] Overlord Albedo"
-	//"109"		"npc_dota_hero_tidehunter_2" 		// [Limited] Overlord Shaltear
-}
+	"108"		"npc_dota_hero_phantom_assassin_1"	// [Limited] Overlord Albedo
+	"109"		"npc_dota_hero_tidehunter_2" 		// [Limited] Overlord Shaltear
+	"110"		"npc_dota_hero_legion_commander_7"	// [Limited] Castoria
+	"111"		"npc_dota_hero_juggernaut_3"		// [Limited] Ikki
+	"112"		"npc_dota_hero_bloodseeker_5"		// [Limited] Saitama
+	"113"		"npc_dota_hero_dragon_knight_1"		// [Heroic] Unarmor Mashu
+	"114"		"npc_dota_hero_dark_willow_3"		// [Legend] Okita Jetpack
+	"115"		"npc_dota_hero_sven_3"				// [Limited] Shu
+	"116"		"npc_dota_hero_juggernaut_2"		// [MEME] Samurai Doge
+	"117"		"npc_dota_hero_naga_siren_2"		// [Legend] Wedding Kuro
+	"118"		"npc_dota_hero_phantom_lancer_4"	// [Limited] Yukina
+	"119"		"npc_dota_hero_phantom_lancer_5"	// [Limited] Dress Yukina
+	"120"		"npc_dota_hero_slark_1"				// [Heroic] Caped MHX
+	"121"		"npc_dota_hero_sven_4"				// [Limited] Mélusine
+}	

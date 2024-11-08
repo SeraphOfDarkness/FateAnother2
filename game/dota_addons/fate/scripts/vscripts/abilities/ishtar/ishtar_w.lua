@@ -31,6 +31,9 @@ function ishtar_w:GetGemConsume(iMaxGemUse)
 	local caster = self:GetCaster()
 	local gem_consume = 0
 	if caster:HasModifier("modifier_ishtar_gem_consume") then 
+		if caster:FindAbilityByName(caster.FSkill):GetToggleState() == false then 
+			caster:FindAbilityByName(caster.FSkill):ToggleAbility()
+		end
 		local gem = caster:GetModifierStackCount("modifier_ishtar_gem", caster) or 0
 		gem_consume = math.min(iMaxGemUse, gem)
 		caster:FindAbilityByName(caster.DSkill):AddGem(-gem_consume)

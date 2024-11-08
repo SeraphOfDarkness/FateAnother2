@@ -8,7 +8,7 @@ UniqueID
 		"owner"
 		{
 			"179419427"		"1" //Nerd
-			//"96116520" 		"1"
+			"96116520" 		"1"
 		}
 	}
 	"02" //Guts
@@ -19,6 +19,8 @@ UniqueID
 		{
 			"181266012"		"1" //Goeniko
 			"73508309"		"1" //Rinz-Sama
+			"238102534"		"1" //Rorax
+			"179419427"		"1" //Nerd
 			"96116520" 		"1"
 		}
 	}
@@ -31,25 +33,98 @@ UniqueID
 			"238102534"		"1" //Rorax
 			"73508309"		"1" //Rinz-Sama
 			"140912356"		"1" //卫宫土狼
+			"49297047"		"1" // classic
+			"179419427"		"1" //Nerd
 			"96116520" 		"1"
 		}
 	}
-	"04" // Overlord Albedo"
+	//"04" // Overlord Albedo"
+	//{
+	//	"hero"			"npc_dota_hero_phantom_assassin"
+	//	"skin"			"1"
+	//	"owner"
+	//	{
+	//		"96116520" 		"1"
+	//		"39181514"		"1" // NISE
+	//		"73508309"		"1" //Rinz-Sama
+	//		"238102534"		"1" //Rorax
+	//		"179419427"		"1" //Nerd
+	//	}
+	//}
+	//"05" // Overlord Shaltear"
+	//{
+	//	"hero"			"npc_dota_hero_tidehunter"
+	//	"skin"			"2"
+	//	"owner"
+	//	{
+	//		"96116520" 		"1"
+	//		"238102534"		"1" //Rorax
+	//		"49297047"		"1" // classic
+	//		"73508309"		"1" //Rinz-Sama
+	//		"322802270"		"1" //kagut
+	//		"179419427"		"1" //Nerd
+	//	}
+	//}
+	"06" //Castoria
 	{
-		"hero"			"npc_dota_hero_phantom_assassin"
-		"skin"			"1"
+		"hero"			"npc_dota_hero_legion_commander"
+		"skin"			"7"
 		"owner"
 		{
+			"129880666"		"1" //VGod
+			"73508309"		"1" //Rinz-Sama
+			"238102534"		"1" //Rorax
+			"179419427"		"1" //Nerd
 			"96116520" 		"1"
 		}
 	}
-	"05" // Overlord Shaltear"
+	"07" // Ikki
 	{
-		"hero"			"npc_dota_hero_tidehunter"
-		"skin"			"2"
+		"hero"			"npc_dota_hero_juggernaut"
+		"skin"			"3"
 		"owner"
 		{
 			"96116520" 		"1"
+			"73508309"		"1" //Rinz-Sama
+			"238102534"		"1" //Rorax
+			"322802270"		"1" //kagut
+		}
+	}
+	//"08" //Saitama
+	//{
+	//	"hero"			"npc_dota_hero_bloodseeker"
+	//	"skin"			"5"
+	//	"owner"
+	//	{
+	///		"98361261"		"1" //Knowbless
+	//		"73508309"		"1" //Rinz-Sama
+	//		"238102534"		"1" //Rorax
+	//		"179419427"		"1" //Nerd
+	//		"96116520" 		"1"
+	//	}
+	//}
+	"09" // Shu
+	{
+		"hero"			"npc_dota_hero_sven"
+		"skin"			"3"
+		"owner"
+		{
+			"96116520" 		"1"
+			"238102534"		"1" //Rorax
+			"73508309"		"1" //Rinz-Sama
+			"179419427"		"1" //Nerd
+		}
+	}
+	"10" // Dress Yukina
+	{
+		"hero"			"npc_dota_hero_phantom_lancer"
+		"skin"			"5"
+		"owner"
+		{
+			"96116520" 		"1"
+			"238102534"		"1" //Rorax
+			"73508309"		"1" //Rinz-Sama
+			"179419427"		"1" //Nerd
 		}
 	}
 }

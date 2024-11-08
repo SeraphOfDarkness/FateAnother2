@@ -22,14 +22,18 @@ function DraftSelectioN:constructor()
 	self.SelectedBar = {}
 	self.BannedBar = {}
 	self.BanOrder = {}
+	self.SuggestBan = {}
+	self.PlayerSuggest = {}
 	self.PickOrder = {}
 	self.DC_count = {}
 	self.PlayerTeam1Count = GameRules:GetCustomGameTeamMaxPlayers(2)
 	self.PlayerTeam2Count = GameRules:GetCustomGameTeamMaxPlayers(3)
 	self.max_player = self.PlayerTeam1Count + self.PlayerTeam2Count
 	self.BannedHeroes = {}
+	self.AllBannedHeroes = {}
 	self.RedFaction = {}
 	self.BlackFaction = {}
+	self.BanPanel = {}
 	self.RedTeamNumber = "1"
 	self.BlackTeamNumber = "2"
 	self.RedTeam = {}
@@ -79,10 +83,10 @@ function DraftSelectioN:constructor()
 		ban = true,
 		total_ban = GameRules.AddonTemplate.voteBanHeroTable or 0,
 		load_time = 5,
-		ban_time = 20 ,
+		ban_time = 30 ,
 		pick_time = 30 ,
 		show_time = 2,
-		ban_order = 0,
+		ban_order = 1,
 		pick_order = 1,
 		total_pick_order = 1 + (self.max_player/2),
 		devPresence = false,
@@ -105,18 +109,24 @@ function DraftSelectioN:constructor()
 		end
 	end
 
-	if IsInToolsMode() then 		
+	if IsInToolsMode() then 	
+		self.Draft.ban_time = 10	
+		self.Draft.load_time = 10
 		CustomNetTables:SetTableValue("draft", "mode", {mode="tool"})
-		for i = 0, 13 do 
-            if i > 0 then 
+		local j = 8
+		if PlayerResource:GetTeam(0) == 3 then
+			j = 7 
+		end
+		for i = 1, 13 do 
+            --if i > 0 then 
                 Tutorial:AddBot("npc_dota_hero_wisp", "", "", false)
-                if i > 0 and i < 8 then
+                if i < j then
                     PlayerResource:SetCustomTeamAssignment(i, 3)
                 else
                     PlayerResource:SetCustomTeamAssignment(i, 2)
                 end
 
-            end
+            --end
         end
 	end
 
@@ -196,6 +206,15 @@ function DraftSelectioN:constructor()
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Mod_Presence"} )
 		end
 
+		if ServerTables:GetTableValue("Dev", "rinz") == true then 
+			self.devPresence = true
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Vip1_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "vip2") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Vip2_Presence"} )
+		end
+
 		if ServerTables:GetTableValue("PEPE", "pepe") == true and ServerTables:GetTableValue("PEPE", "slayer") == true then 
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Slayer"} )
 		end
@@ -209,6 +228,9 @@ function DraftSelectioN:constructor()
 	end)
 	self.BanListener = CustomGameEventManager:RegisterListener("draft_hero_preban", function(id, ...)
 	    Dynamic_Wrap(self, "OnPreBan")(self, ...) 
+	end)
+	self.ChangePortraitListener = CustomGameEventManager:RegisterListener("draft_hero_suggest_ban", function(id, ...)
+	    Dynamic_Wrap(self, "OnSuggestBan")(self, ...) 
 	end)
 	self.SkinListener = CustomGameEventManager:RegisterListener("draft_hero_skin", function(id, ...)
 	    Dynamic_Wrap(self, "OnSkin")(self, ...) 
@@ -289,20 +311,26 @@ function DraftSelectioN:StartBanPhase()
 
 	self.Time = self.Draft.ban_time
 	self.Draft.GamePhase = "ban"
-	self.BanOrder = {
+	self.BanPanel = {
 		red = {},
 		black = {},
 	}
 
 	for i = 1,self.Draft.total_ban do 
-		if i % 2 < 1 then 
+		if i % 2 == 1 then 
 			--self.BanOrder.black['playerId' .. (math.floor(i/2) + 1)] = self.BlackFaction[self.PlayerTeam2Count - math.floor(i/2) + 1]
+			table.insert(self.BanOrder, i, {teamNum = self.BlackTeamNumber, playerId = self.BlackFaction[math.floor(i/2) + 1]})
+			table.insert(self.BanPanel.black, math.floor(i/2) + 1, {playerId = self.BlackFaction[math.floor(i/2) + 1]})
 			--table.insert(self.BanOrder, i, {teamNum = self.BlackTeamNumber, playerId = self.BlackFaction[self.PlayerTeam2Count - math.floor(i/2) + 1]})
-			table.insert(self.BanOrder.black, math.floor(i/2), {playerId = self.BlackFaction[self.PlayerTeam2Count - math.floor(i/2) + 1]})
+			--table.insert(self.BanOrder.black, math.floor(i/2), {playerId = self.BlackFaction[self.PlayerTeam2Count - math.floor(i/2) + 1]}) -- ban  order from bottom
+			--table.insert(self.BanOrder.black, math.floor(i/2), {playerId = self.BlackFaction[math.floor(i/2)]}) -- ban order from top
 		else
 			--self.BanOrder.red['playerId' .. math.floor(i/2)] = self.RedFaction[self.PlayerTeam1Count - math.floor(i/2)]
+			table.insert(self.BanOrder, i, {teamNum = self.RedTeamNumber, playerId = self.RedFaction[math.floor(i/2)]})
+			table.insert(self.BanPanel.red, math.floor(i/2), {playerId = self.RedFaction[math.floor(i/2)]})
 			--table.insert(self.BanOrder, i, {teamNum = self.RedTeamNumber, playerId = self.RedFaction[self.PlayerTeam1Count - math.floor(i/2)]})
-			table.insert(self.BanOrder.red, (math.floor(i/2) + 1), {playerId = self.RedFaction[self.PlayerTeam1Count - math.floor(i/2)]})
+			--table.insert(self.BanOrder.red, (math.floor(i/2) + 1), {playerId = self.RedFaction[self.PlayerTeam1Count - math.floor(i/2)]}) -- ban  order from bottom
+			--table.insert(self.BanOrder.red, (math.floor(i/2) + 1), {playerId = self.RedFaction[(math.floor(i/2) + 1)]}) -- ban order from top
 		end
 	end
 	if IsInToolsMode() then 
@@ -310,16 +338,17 @@ function DraftSelectioN:StartBanPhase()
 		for k,v in pairs (self.BanOrder) do 
 			--print(k,v)
 			for a,b in pairs (v) do
-				--print(k,a,b)
-				for c,d in pairs (b) do 
+				print(k,a,b)
+				--[[for c,d in pairs (b) do 
 					print(k,a,c,d)
-				end
+				end]]
 			end
 		end
-		self.BanOrder.red[1] = {playerId = 0}
+		--self.BanOrder.red[1] = {playerId = 0}
 	end	
 	--print(self.BanOrder[self.ban_order])
-	CustomNetTables:SetTableValue("draft", "banorder", self.BanOrder)
+	CustomNetTables:SetTableValue("draft", "bantopbar", self.BanPanel)
+	CustomNetTables:SetTableValue("draft", "banorder", self.BanOrder[self.Draft.ban_order])
 	CustomNetTables:SetTableValue("draft", "gamephase", {gamephase = self.Draft.GamePhase})
 	CustomNetTables:SetTableValue("draft", "pickorder", {playerId1 = nil, playerId2 = nil})
 	self:UpdateTime()
@@ -344,6 +373,23 @@ function DraftSelectioN:OnPreSelect(args)
     CustomNetTables:SetTableValue("draft", "preselect", self.PreSelected)
 end
 
+function DraftSelectioN:OnSuggestBan(args)
+	local playerId = args.playerId
+    local hero = args.hero
+    local team = args.team
+    local old = ""
+
+    if self.PlayerSuggest[playerId] ~= nil then
+    	old = self.PlayerSuggest[playerId]
+    	self.SuggestBan[old] = nil
+    end
+
+    self.SuggestBan[hero] = team
+    self.PlayerSuggest[playerId] = hero 
+
+    CustomNetTables:SetTableValue("draft", "suggestban", self.SuggestBan)
+end
+
 function DraftSelectioN:OnDCBan()
 
 	Timers:CreateTimer('draft_ban_timer', {
@@ -353,15 +399,17 @@ function DraftSelectioN:OnDCBan()
 		--Timers:RemoveTimer('draft_timer')
 		--Timers:RemoveTimer('draft_ban_timer')
 		self.Draft.GamePhase = "blank"
+		self.SuggestBan = {}
+		CustomNetTables:SetTableValue("draft", "suggestban", self.SuggestBan)
 		CustomNetTables:SetTableValue("draft", "gamephase", {gamephase = self.Draft.GamePhase})
-		Timers:CreateTimer(self.Draft.show_time, function()	
+		--[[Timers:CreateTimer(self.Draft.show_time, function()	
 			self:StartPickPhase()
-		end)
-		--[[local player_ban = {
+		end)]]
+		local player_ban = {
 			playerId = self.BanOrder[self.Draft.ban_order]['playerId'],
 		    hero = nil,
 		}
-        self:OnBan(player_ban)]]
+        self:OnBan(player_ban)
     end})
 end
 
@@ -371,22 +419,26 @@ function DraftSelectioN:OnBan(args)
 	--[[if IsInToolsMode() then 
 		self.Draft.total_ban = 1
 	end	]]
+	for k,v in pairs(args) do
+		print(k,v)
+	end
 
 	if self.BannedPlayer[playerId] == playerId then
 	   	return 
 	end
 
-	if self.Draft.GamePhase == "blank" then 
+	--[[if self.Draft.GamePhase == "blank" then 
     	print('blank state')
     	return 
-    end
+    end]]
 
 	if args.hero ~= nil then
 	    local hero = args.hero
 
 	    self.AvailableHeroes[hero] = nil
 	    self.BannedHeroes[hero] = playerId
-
+	    self.AllBannedHeroes[hero] = hero
+	    CustomNetTables:SetTableValue("draft", "allbanhero", self.AllBannedHeroes)
 	    CustomNetTables:SetTableValue("draft", "banned", self.BannedHeroes)
 	    CustomNetTables:SetTableValue("draft", "available", self.AvailableHeroes)
 	    self.BannedPlayer[playerId] = hero 
@@ -399,13 +451,13 @@ function DraftSelectioN:OnBan(args)
 
 	self.Draft.ban_order = self.Draft.ban_order + 1
 
-	--[[self.Time = "undefined"
+	self.Time = "undefined"
 	Timers:RemoveTimer('draft_timer')
 	Timers:RemoveTimer('draft_ban_timer')
 	self.Draft.GamePhase = "blank"
-	CustomNetTables:SetTableValue("draft", "gamephase", {gamephase = self.Draft.GamePhase})]]
+	CustomNetTables:SetTableValue("draft", "gamephase", {gamephase = self.Draft.GamePhase})
 
-	--[[if self.Draft.ban_order <= self.Draft.total_ban then	
+	if self.Draft.ban_order <= self.Draft.total_ban then	
 		Timers:CreateTimer(self.Draft.show_time, function()
 			self.Draft.GamePhase = "ban"
 			CustomNetTables:SetTableValue("draft", "banorder", self.BanOrder[self.Draft.ban_order])
@@ -415,8 +467,8 @@ function DraftSelectioN:OnBan(args)
 			self:OnDCBan()
 		end)
 	else
-		CustomNetTables:SetTableValue("draft", "banorder", {playerId = nil})]]
-	if self.Draft.ban_order >= self.Draft.total_ban then	
+		CustomNetTables:SetTableValue("draft", "banorder", {playerId = nil})
+	--if self.Draft.ban_order >= self.Draft.total_ban then	
 		self.Time = "undefined"
 		Timers:RemoveTimer('draft_timer')
 		Timers:RemoveTimer('draft_ban_timer')
@@ -444,7 +496,7 @@ function DraftSelectioN:OnSkin(args)
 
     if self.HeroUniqueSkin[hero] and self:IsSkinRevert(skin + next_skin, self.AvailableSkins[hero]) then 
     	--if (skin + next_skin == -1) or (skin + next_skin == self.AvailableSkins[hero] + 1) then
-	    	print('gonna trigger unique skin')
+	    	--print('gonna trigger unique skin')
 		    for k,v in pairs (self.Unique) do 
 		    	local unique_skin = v.hero
 		    	if v.hero == hero then 
@@ -474,7 +526,7 @@ function DraftSelectioN:OnSkin(args)
 		end
 	end
 
-    print('skin = ' .. skin)
+    --print('skin = ' .. skin)
 
     self.SkinSelect[hero] = skin
 
@@ -500,11 +552,11 @@ function DraftSelectioN:OnSkin(args)
     end
 
     if IsEventSkin(sID) then 
-		print('event skin')
+		--print('event skin')
 		self.skinAccess[playerId] = true
 		
     elseif PlayerTables:GetTableValue("database", "db", playerId) == true and iupoasldm.jyiowe[playerId].IFY ~= nil then 
-		print('skin pick from database')
+		--print('skin pick from database')
 		if iupoasldm.jyiowe[playerId].IFY.SKID[sID] == true then 
 			self.skinAccess[playerId] = true
 		else
@@ -569,7 +621,7 @@ function DraftSelectioN:GetSkin(pId, hero)
 			--print('default skin ' .. self.ddta[pId].IFY.HID[hID].DSK)
 		if hID == nil then 
 			SendChatToPanorama('Player ' .. pId .. ' : Hero ID not found')
-			print('Hero ID not found')
+			--print('Hero ID not found')
 		else
 			if iupoasldm.jyiowe[pId].IFY.HID[hID].DSK > 0 then
 					--print('default skin check')
@@ -578,12 +630,12 @@ function DraftSelectioN:GetSkin(pId, hero)
 					--print(sID)
 				if sID == nil then
 					SendChatToPanorama('Player ' .. pId .. ' : Skin ID not found')
-					print('Skin ID not fount')
+					--print('Skin ID not fount')
 				else
 					if iupoasldm.jyiowe[pId].IFY.SKID[sID] == true then
 						skin = iupoasldm.jyiowe[pId].IFY.HID[hID].DSK
 						SendChatToPanorama('Player ' .. pId .. ' default skin = ' .. skin)
-						print(hero .. ' default skin = ' .. skin)
+						--print(hero .. ' default skin = ' .. skin)
 					else
 						skin = 0
 					end
@@ -616,11 +668,11 @@ function DraftSelectioN:StartPickPhase()
 		end
 	end
 
-	if IsInToolsMode() then
+	--[[if IsInToolsMode() then
 		self.Draft.pick_order = 2 
 		self.Draft.total_pick_order = 2
 		self.PickOrder[self.Draft.pick_order] = {teamNum = "1", playerId1 = 0, playerId2 = nil}
-	end
+	end]]
 
 	CustomNetTables:SetTableValue("draft", "pickorder", self.PickOrder[self.Draft.pick_order])
 	CustomNetTables:SetTableValue("draft", "hilight", self.PickOrder[self.Draft.pick_order])
@@ -636,7 +688,7 @@ function DraftSelectioN:OnDCRandom()
 	Timers:CreateTimer('draft_random_timer', {
 		endTime = self.Draft.pick_time,
 		callback = function()
-		print('time out random')
+		--print('time out random')
 		local player1 = {
 			playerId = self.PickOrder[self.Draft.pick_order]['playerId1'],
 		    hero = nil,
@@ -780,9 +832,9 @@ function DraftSelectioN:NextSelect()
 		end
 	end
 
-	if IsInToolsMode() then
+	--[[if IsInToolsMode() then
 		self.Draft.pick_order = 3 
-	end
+	end]]
 end
 
 function DraftSelectioN:OnRandom(args)
@@ -881,20 +933,8 @@ function DraftSelectioN:OnSummonTimer()
 						local skin = self:LastCheckSkin(i, Hero:GetUnitName(), self.SkinSelect[self.Picked[i]]) 
 						--if skin > 0 then
 							print('hero skin = ' .. Hero.Skin)
-							if Hero.Skin ~= skin then     						
-								if Hero.Skin > 0 then
-									print('remove skin')
-									Hero:RemoveAbility("alternative_0" .. Hero.Skin)
-									Hero:RemoveModifierByName("modifier_alternate_0" .. Hero.Skin)
-									Hero.Skin = 0
-								end
-								Timers:CreateTimer(0.5, function()
-									if skin > 0 then
-										Hero:AddAbility("alternative_0" .. skin)
-										Hero:FindAbilityByName("alternative_0" .. skin):SetLevel(1)
-										Hero.Skin = skin
-									end
-								end)
+							if Hero.Skin ~= skin then  
+								FateSkin():ApplySkin(Hero, skin)    						
 							end
 						--[[else
 							if Hero.Skin > 0 then

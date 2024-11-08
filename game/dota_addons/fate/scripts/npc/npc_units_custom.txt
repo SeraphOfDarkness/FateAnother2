@@ -9,6 +9,7 @@
 #base "units/musashi/musashi_units.kv"
 #base "units/mashu/mashu_units.kv"
 #base "units/zhuge_liang/zhuge_liang_unit.kv"
+#base "heroes/npc_fate_hero_showcase_skin.kv"
 
 // Units File
 "DOTAUnits"
@@ -798,7 +799,7 @@
 		"Ability11"					"fate_empty2"
 		"ArmorPhysical"				"0"			// Physical protection.
 
-		"BountyXP"					"200"	// Experience earn.
+		"BountyXP"					"300"	// Experience earn.
 		"BountyGoldMin"				"2000"		// Gold earned min.
 		"BountyGoldMax"				"2000"		// Gold earned max.
 
@@ -843,7 +844,7 @@
 		"Ability11"					"fate_empty2"
 		"ArmorPhysical"				"0"			// Physical protection.
 
-		"BountyXP"					"200"	// Experience earn.
+		"BountyXP"					"300"	// Experience earn.
 		"BountyGoldMin"				"2000"		// Gold earned min.
 		"BountyGoldMax"				"2000"		// Gold earned max.
 

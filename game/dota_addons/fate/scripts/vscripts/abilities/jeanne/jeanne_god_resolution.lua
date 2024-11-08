@@ -102,11 +102,11 @@ function modifier_jeanne_gods_resolution:GetOverrideAnimationRate()
 	return 1.0
 end
 
-function modifier_jeanne_gods_resolution_buff2:GetModifierPhysicalArmorBonus()
+function modifier_jeanne_gods_resolution:GetModifierPhysicalArmorBonus()
 	return self:GetAbility():GetSpecialValueFor("channel_def")
 end
 
-function modifier_jeanne_gods_resolution_buff2:GetModifierMagicalResistanceBonus()
+function modifier_jeanne_gods_resolution:GetModifierMagicalResistanceBonus()
 	return self:GetAbility():GetSpecialValueFor("channel_def")
 end
 
@@ -194,7 +194,12 @@ function modifier_jeanne_gods_resolution_slow:GetTexture()
 end
 
 function modifier_jeanne_gods_resolution_slow:DeclareFunctions()
-	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,}
+	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+end
+
+function modifier_jeanne_gods_resolution_slow:GetModifierAttackSpeedBonus_Constant(keys)
+	return self:GetAbility():GetSpecialValueFor("slow_amount")
 end
 
 function modifier_jeanne_gods_resolution_slow:GetModifierMoveSpeedBonus_Percentage()

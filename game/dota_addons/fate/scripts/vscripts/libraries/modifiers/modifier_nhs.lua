@@ -35,6 +35,7 @@ function HeroSelectioN:constructor()
 		self.BanVotedPlayer = {}
 		self.SameHeroVote = {}
 		self.SameHeroVotedPlayer = {}
+		self.Tester = {}
         local heroList = LoadKeyValues("scripts/npc/herolist.txt")
         local heroList2 = LoadKeyValues("scripts/npc/herolist.txt")
         local heroes = LoadKeyValues("scripts/npc/heroes.txt")
@@ -46,6 +47,7 @@ function HeroSelectioN:constructor()
         self.NewbieBan = LoadKeyValues("scripts/npc/newbie_ban.txt")
         self.Unique = LoadKeyValues("scripts/npc/unique.txt")
         self.HiddenHero = LoadKeyValues("scripts/npc/hero_hidden.txt")
+        self.UnAvailableSkin = LoadKeyValues("scripts/npc/skin_unavailable.txt")
         self.kiuok = LoadKeyValues("scripts/npc/abilities/heroes/hero.txt")
         self.kiuok2 = LoadKeyValues("scripts/npc/abilities/heroes/sketch.txt")
         self.titlelog = LoadKeyValues("scripts/npc/fate_title.txt")
@@ -72,6 +74,7 @@ function HeroSelectioN:constructor()
 		self.HiD = {}
 		self.SiD = {}
 		self.HeroUniqueSkin = {}
+		self.player_skin_table = {}
 		self.HeroSelectStart = "selection"
 		self.AutoBalance = 0
 		self.total_ban = GameRules.AddonTemplate.voteBanHeroTable or 0
@@ -183,6 +186,11 @@ function HeroSelectioN:constructor()
 			    local alvl = PlayerTables:GetTableValue("authority", 'alvl', i)
 			    table.insert(self.PAuthority, i, alvl) 
 
+			    if self.titlelog.balancer[tostring(PlayerResource:GetSteamAccountID(i))] or self.titlelog.translate[tostring(PlayerResource:GetSteamAccountID(i))] then 
+			    	self.Tester[i] = 1
+			    end
+
+
 			    if self.SpecBan[tostring(id)] then 
 			    	SendChatToPanorama('Player ' .. i .. ' was in hero ban list')
 			    	for k,v in pairs (self.SpecBan[tostring(id)]) do
@@ -209,8 +217,10 @@ function HeroSelectioN:constructor()
 					if PlayerTables:GetTableValue("database", "db", i) == true then 
 						local new_lvl = iupoasldm.jyiowe[i].IFY.ATLVL
 						skoyhidpo:initialize(i)
+						print('Player ' .. i .. ' Title = ' .. iupoasldm.jyiowe[i].IFY.PM)
 
 						if iupoasldm.jyiowe[i].IFY.PM == -10 then -- BAN Player
+							print('player ' .. i .. ' is banned.')
 							local ddt = PlayerTables:GetAllTableValues("hHero", i)
 							local IOHero = PlayerResource:GetSelectedHeroEntity(i) or (ddt ~= nil and EntIndexToHScript(ddt.io) )
 							if string.match(IOHero:GetUnitName(),"wisp") then
@@ -248,7 +258,7 @@ function HeroSelectioN:constructor()
 					    		CustomNetTables:SetTableValue("nselection", "specban", self.SpecBanPlayer)
 					    	end
 					    end
-						if --[[ServerTables:GetTableValue("Dev", "pepe") == true and]] self.titlelog.balancer[tostring(PlayerResource:GetSteamAccountID(i))] or self.PAuthority[i] == 5 or self.PAuthority[i] == 4 then 
+						if --[[ServerTables:GetTableValue("Dev", "pepe") == true and]] self.titlelog.balancer[tostring(PlayerResource:GetSteamAccountID(i))] or self.titlelog.translate[tostring(PlayerResource:GetSteamAccountID(i))] or self.PAuthority[i] == 5 or self.PAuthority[i] == 4 then 
 							CustomNetTables:SetTableValue("nselection", "hidden", self.HiddenHero)
 						end
 						--print('lvl authority ' .. new_lvl)
@@ -317,6 +327,15 @@ function HeroSelectioN:constructor()
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Mod_Presence"} )
 		end
 
+		if ServerTables:GetTableValue("Dev", "rinz") == true then 
+			self.devPresence = true
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Vip1_Presence"} )
+		end
+
+		if ServerTables:GetTableValue("Dev", "vip2") == true then 
+			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Vip2_Presence"} )
+		end
+
 		if ServerTables:GetTableValue("PEPE", "pepe") == true and ServerTables:GetTableValue("PEPE", "slayer") == true then 
 			CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=0, chattype=0, text="#Fate_Pepe_Slayer"} )
 		end
@@ -337,6 +356,9 @@ function HeroSelectioN:constructor()
 		
 		self.SkinListener = CustomGameEventManager:RegisterListener("nselection_hero_skin", function(id, ...)
 	        Dynamic_Wrap(self, "OnSkin")(self, ...) 
+	    end)
+	    self.SkinSelectListener = CustomGameEventManager:RegisterListener("nselection_hero_new_skin", function(id, ...)
+	        Dynamic_Wrap(self, "OnSkinSelect")(self, ...) 
 	    end)
 	    self.ClickListener = CustomGameEventManager:RegisterListener("nselection_hero_pick", function(id, ...)
 	        Dynamic_Wrap(self, "OnSelect")(self, ...) 
@@ -374,6 +396,8 @@ function HeroSelectioN:constructor()
         CustomNetTables:SetTableValue("nselection", "skintier", self.skintier)
         CustomNetTables:SetTableValue("nselection", "skinaccess", self.skinAccess)
         CustomNetTables:SetTableValue("nselection", "authority", self.PAuthority)
+        CustomNetTables:SetTableValue("nselection", "tester", self.Tester)
+        CustomNetTables:SetTableValue("nselection", "newskin", self.player_skin_table)
 
         CustomNetTables:SetTableValue("nselection", "specban", self.SpecBanPlayer)
         CustomNetTables:SetTableValue("nselection", "banplayer", self.BanPlayer)
@@ -454,8 +478,8 @@ function HeroSelectioN:OnDCRandom()
 			self:OnRandom({playerId = k})
 		end
 	end
-	local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player")
-	for i = 0, max_player - 1 do
+	local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player") or 14
+	for i = 0, self.max_player - 1 do
 		if PlayerResource:IsValidPlayer(i) and not self.PickedPlayer[i] then
 			if self.PickedPlayer[i] ~= i and not self.Picked[i] then 
 				SendChatToPanorama('Player ' .. i .. ' didnt selected any hero')
@@ -470,6 +494,33 @@ function HeroSelectioN:IsSkinRevert(next_skin, max)
 		return true 
 	end
 	return false 
+end
+
+function HeroSelectioN:OnSkinSelect(args)
+	local playerId = args.playerId
+    local hero = self.Picked[playerId]
+    local skin = args.skin
+
+    self.SkinSelect[hero] = skin
+
+    if self.skinTier["LimitedSkin"][hero .. "_" .. skin] == 1 then 
+		self.skintier[hero] = 4
+	elseif self.skinTier["UltimateSkin"][hero .. "_" .. skin] == 1 then 
+		self.skintier[hero] = 3
+	elseif self.skinTier["HeroicSkin"][hero .. "_" .. skin] == 1 then 
+    	self.skintier[hero] = 2
+    elseif self.skinTier["NormalSkin"][hero .. "_" .. skin] == 1 or self.skinTier["FreeSkin"][hero .. "_" .. skin] == 1 then 
+    	self.skintier[hero] = 1
+    else
+    	self.skintier[hero] = 0
+    end
+
+    CustomNetTables:SetTableValue("nselection", "skintier", self.skintier)
+    CustomNetTables:SetTableValue("nselection", "skinselect", self.SkinSelect)
+
+    local ddt = PlayerTables:GetAllTableValues("hHero", playerId)
+    local Hero = PlayerResource:GetSelectedHeroEntity(playerId) or EntIndexToHScript(ddt.hhero)
+    FateSkin():ApplySkin(Hero, skin)    
 end
 
 function HeroSelectioN:OnSkin(args)
@@ -721,8 +772,8 @@ function HeroSelectioN:OnSameHeroVoteFinal()
 
 	Timers:CreateTimer(0.1, function()
 		local hero = self.same_hero[1]['hero']
-		local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player")
-		for i = 0, max_player - 1 do
+		local max_player = ServerTables:GetTableValue("MaxPlayers", "total_player") or 14
+		for i = 0, self.max_player - 1 do
 			if PlayerResource:IsValidPlayer(i) then
 				self.Picked[i] = hero
 			    self.SkinSelect[hero] = self:GetSkin(i, hero)
@@ -857,7 +908,10 @@ function HeroSelectioN:OnSelect(args)
 		end
 	end
 	self.HIDtable[playerId] = self:GetHID(hero)
+	self.player_skin_table[playerId] = self:GetAllHeroSkins(hero, playerId)
 	self:OnSummon({playerId = playerId})
+	CustomNetTables:SetTableValue("nselection", "newskin", self.player_skin_table)
+	CustomGameEventManager:Send_ServerToPlayer(player, "newskinlist", self.player_skin_table[playerId])
 end
 
 function HeroSelectioN:OnRandom(args)
@@ -867,23 +921,50 @@ function HeroSelectioN:OnRandom(args)
     local player = PlayerResource:GetPlayer(playerId)
     local PID = PlayerResource:GetSteamAccountID(playerId)
 
-    if self.BanPlayer[playerId] then return end
+    if self.BanPlayer[playerId] ~= nil then return end
 
-    if self.SpecBan[tostring(PID)] then 
+    --[[if PID ~= nil and self.SpecBan[tostring(PID)] ~= nil then 
     	SendChatToPanorama('Player ' .. playerId .. ' was in hero ban list')
     	if self.SpecBan[tostring(PID)][hero] == 1 then 
     		SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' was banned')
     		hero = self:Random() 
     	end
-    elseif self.NewbieBanPlayer[playerId] then 
+    elseif self.NewbieBanPlayer[playerId] ~= nil then 
     	SendChatToPanorama('Player ' .. playerId .. ' is Newbie')
     	if self.NewbieBanPlayer[playerId][hero] == 1 then 
     		SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' was banned')
     		hero = self:Random() 
     	end
-    else
+    elseif self.SpecBanPlayer[playerId] ~= nil then
+    	if self.SpecBanPlayer[playerId][tostring(PID)] == 1 then 
+    		SendChatToPanorama('Player ' .. playerId .. ': ' .. hero .. ' was banned')
+    		hero = self:Random() 
+    	end
+    else]]
 	    if self.SelectedBar[playerId] ~= nil and self.SelectedBar[playerId] ~= "random" and (self.AvailableHeroes[self.SelectedBar[playerId]] ~= nil or self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1) and self.BanHero[self.SelectedBar[playerId]] == nil then 
-	    	if self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1 then 
+	    	if PID ~= nil and self.SpecBan[tostring(PID)] ~= nil then 
+		    	SendChatToPanorama('Player ' .. playerId .. ' was in hero ban list')
+		    	if self.SpecBan[tostring(PID)][self.SelectedBar[playerId]] == 1 then 
+		    		SendChatToPanorama('Player ' .. playerId .. ': ' .. self.SelectedBar[playerId] .. ' was banned')
+		    		hero = self:Random() 
+		    	end
+		    elseif self.NewbieBanPlayer[playerId] ~= nil then 
+		    	SendChatToPanorama('Player ' .. playerId .. ' is Newbie')
+		    	if self.NewbieBanPlayer[playerId][self.SelectedBar[playerId]] == 1 then 
+		    		SendChatToPanorama('Player ' .. playerId .. ': ' .. self.SelectedBar[playerId] .. ' was banned')
+		    		hero = self:Random() 
+		    	end
+		    elseif self.SpecBanPlayer[playerId] ~= nil then
+		    	local hero_id = self:GetHID(self.SelectedBar[playerId])
+		    	if type(hero_id) == "number" then 
+		    		print('hero id is number')
+		    		hero_id = tostring(hero_id)
+		    	end
+		    	if self.SpecBanPlayer[playerId][hero_id] == 1 then 
+		    		SendChatToPanorama('Player ' .. playerId .. ': ' .. self.SelectedBar[playerId] .. ' was banned')
+		    		hero = self:Random() 
+		    	end
+	    	elseif self.UnAvailableHeroes[self.SelectedBar[playerId]] == 1 then 
 	    		if (self.PAuthority[playerId] >= 1 or PlayerTables:GetTableValue("authority", 'alvl', playerId) > 0) then 
 	    			hero = self.SelectedBar[playerId] 
 	    		else
@@ -895,9 +976,10 @@ function HeroSelectioN:OnRandom(args)
 	    else
 	    	hero = self:Random()
 	    end
-	end
+	--end
 
     print(hero)
+    SendChatToPanorama('Player ' .. playerId .. ' has random select ' .. hero .. '.')
     self.Picked[playerId] = hero
 	self.AvailableHeroes[hero] = nil
 	self.SkinSelect[hero] = self:GetSkin(playerId, hero)
@@ -913,7 +995,10 @@ function HeroSelectioN:OnRandom(args)
 	CustomGameEventManager:Send_ServerToAllClients( "preheroselect",  {hero=hero,playerId=playerId}) 
 
 	self.HIDtable[playerId] = self:GetHID(hero)
+	self.player_skin_table[playerId] = self:GetAllHeroSkins(hero, playerId)
 	self:OnSummon({playerId = playerId})
+	CustomNetTables:SetTableValue("nselection", "newskin", self.player_skin_table)
+	CustomGameEventManager:Send_ServerToPlayer(player, "newskinlist", self.player_skin_table[playerId])
 end
 
 function HeroSelectioN:Random()
@@ -936,6 +1021,7 @@ function HeroSelectioN:Random()
 	--print('hero name ' .. hero_select)
 
 	if self.AvailableHeroes[hero_select] == 1 then 
+		SendChatToPanorama( hero_select .. ' has been randomed.')
 		return hero_select
 	else
 		self:Random()
@@ -947,8 +1033,8 @@ function HeroSelectioN:OnSummonTimer()
 	ServerTables:CreateTable("HeroSelection", self.Picked)
 	self.summon_time = true
 
-	local max_player = math.max(ServerTables:GetTableValue("MaxPlayers", "total_player"), self.max_player)
-	for i = 0, max_player - 1 do
+	local max_player = math.max(ServerTables:GetTableValue("MaxPlayers", "total_player"), self.max_player) or 14
+	for i = 0, self.max_player - 1 do
 		Timers:CreateTimer(i * 0.5, function()
 			
 			if PlayerResource:IsValidPlayer(i) then
@@ -963,20 +1049,21 @@ function HeroSelectioN:OnSummonTimer()
 						local skin = self:LastCheckSkin(i, Hero:GetUnitName(), self.SkinSelect[self.Picked[i]]) 
 						--if skin > 0 then
 							print('hero skin = ' .. Hero.Skin)
-							if Hero.Skin ~= skin then     						
-								if Hero.Skin > 0 then
-									print('remove skin')
-									Hero:RemoveAbility("alternative_0" .. Hero.Skin)
-									Hero:RemoveModifierByName("modifier_alternate_0" .. Hero.Skin)
-									Hero.Skin = 0
-								end
-								Timers:CreateTimer(0.5, function()
-									if skin > 0 then
-										Hero:AddAbility("alternative_0" .. skin)
-										Hero:FindAbilityByName("alternative_0" .. skin):SetLevel(1)
-										Hero.Skin = skin
-									end
-								end)
+							if Hero.Skin ~= skin then 
+								FateSkin():ApplySkin(Hero, skin)    						
+							--	if Hero.Skin > 0 then
+							--		print('remove skin')
+							--		Hero:RemoveAbility("alternative_0" .. Hero.Skin)
+							--		Hero:RemoveModifierByName("modifier_alternate_0" .. Hero.Skin)
+							--		Hero.Skin = 0
+							--	end
+							--	Timers:CreateTimer(0.5, function()
+							--		if self.SkinSelect[self.Picked[i]] > 0 then
+							--			Hero:AddAbility("alternative_0" .. self.SkinSelect[self.Picked[i]])
+							--			Hero:FindAbilityByName("alternative_0" .. self.SkinSelect[self.Picked[i]]):SetLevel(1)
+							--			Hero.Skin = self.SkinSelect[self.Picked[i]]
+							--		end
+							--	end)]]
 							end
 						--[[else
 							if Hero.Skin > 0 then
@@ -1127,14 +1214,16 @@ function HeroSelectioN:OnSummon(args)
 
     if hero == nil then 
     	SendChatToPanorama('Player ' .. playerId .. ' : No hero select at summon phase, random new one')
-    	hero = self:Random()
+    	self:OnRandom(args)
+    	return
+    	--[[hero = self:Random()
     	self.Picked[playerId] = hero
     	self.AvailableHeroes[hero] = nil
     	self.SkinSelect[hero] = 0
 		self.PickedPlayer[playerId] = playerId
 		self.HIDtable[playerId] = self:GetHID(hero)
 		ServerTables:SetTableValue("HeroSelection", playerId, hero, true)
-		ServerTables:SetTableValue("HeroID", playerId, self:GetHID(hero), true)
+		ServerTables:SetTableValue("HeroID", playerId, self:GetHID(hero), true)]]
     end
 
     --[[if self.skinTier["NormalSkin"][hero .. "_" .. skin] == 1 then 
@@ -1180,7 +1269,7 @@ end
 function HeroSelectioN:AssignHero(playerId, hero, skin)
 	local ddt = PlayerTables:GetAllTableValues("hHero", playerId)
     --PrecacheUnitByNameAsync(hero, function()
-    local oldHero = PlayerResource:GetSelectedHeroEntity(playerId) or (ddt ~= nil and EntIndexToHScript(ddt.hhero)) or (ddt ~= nil and EntIndexToHScript(ddt.io) )
+    local oldHero = PlayerResource:GetSelectedHeroEntity(playerId) --or (ddt.hhero ~= nil and EntIndexToHScript(ddt.hhero)) or (ddt.io ~= nil and EntIndexToHScript(ddt.io) )
     --local hero_name = oldHero:GetUnitName()
     --print(hero_name)
     
@@ -1216,6 +1305,7 @@ function HeroSelectioN:AssignHero(playerId, hero, skin)
     		SendChatToPanorama('Player ' .. playerId .. ' : Summon Spirit had been Deleted!!!')
             self:OnSpawn({playerId = playerId})
         else
+        	oldHero = PlayerResource:GetSelectedHeroEntity(playerId) or (ddt.hhero ~= nil and EntIndexToHScript(ddt.hhero)) or (ddt.io ~= nil and EntIndexToHScript(ddt.io)) 
         	if not string.match(oldHero:GetUnitName(),"wisp") then 
 	    		SendChatToPanorama('Player ' .. playerId .. ' : Double Summon BRUHHH!!!')
 	    		return nil 
@@ -1334,6 +1424,72 @@ function HeroSelectioN:AssignHero(playerId, hero, skin)
    -- end)
 end
 
+function HeroSelectioN:GetAllHeroSkins(sHeroName, playerId)
+	local skin_table = {}
+	for sID, skin in pairs (self.kiuok2) do 
+		--print(sID, skin, sHeroName)
+		if string.match(skin, sHeroName) then 
+			--print(sHeroName)
+			if self:NewCheckSkin(sID, playerId, skin) == true then
+				local SKIN = string.gsub(skin, sHeroName .. '_', "")
+				--print('hero: ' .. sHeroName .. ', skin available: ' .. SKIN)
+				skin_table[SKIN] = true
+			end
+		end
+	end
+	--print('get all hero skins')
+	--print(skin_table)
+	return skin_table
+end
+
+function HeroSelectioN:NewCheckSkin(sID, playerId, skin)
+	local is_skin_available = false
+	if IsEventSkin(sID) then 
+		is_skin_available = true
+	elseif self.UnAvailableSkin.UnAvai[sID] ~= nil then
+		print('limited skin detect')
+		if PlayerTables:GetTableValue("database", "db", playerId) == true and iupoasldm.jyiowe[playerId].IFY ~= nil then
+			is_skin_available = iupoasldm.jyiowe[playerId].IFY.SKID[sID]
+		else
+			if self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] ~= nil and self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] == 1 then 
+				is_skin_available = true
+			end
+		end
+	elseif self.devPresence == true then
+		is_skin_available = true
+    elseif PlayerTables:GetTableValue("database", "db", playerId) == true and iupoasldm.jyiowe[playerId].IFY ~= nil then 
+    	is_skin_available = iupoasldm.jyiowe[playerId].IFY.SKID[sID]
+	else
+		if self.skinTier["FreeSkin"][skin] == 1 then 
+	    	is_skin_available = true
+	    elseif self.skinTier["NormalSkin"][skin] == 1 then 
+	    	if (self.PAuthority[playerId] > 0) or (self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] ~= nil and self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] == 1) then 
+	    		is_skin_available = true
+	    	else
+	    		is_skin_available = false
+	    	end
+	    elseif self.skinTier["HeroicSkin"][skin] == 1 then 
+	    	if (self.PAuthority[playerId] >= 3) or (self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] ~= nil and self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] == 1) then 
+	    		is_skin_available = true
+	    	else
+	    		is_skin_available = false
+	    	end
+	    elseif self.skinTier["UltimateSkin"][skin] == 1 then 
+	    	if (self.PAuthority[playerId] >= 4) or (self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] ~= nil and self.ContributeUnlock[skin][tostring(PlayerResource:GetSteamAccountID(playerId))] == 1) then 
+	    		is_skin_available = true
+	    	else
+	    		is_skin_available = false
+	    	end
+	    elseif self.skinTier["LimitedSkin"][skin] == 1 then 
+	    	if self.PAuthority[playerId] == 5 then 
+	    		is_skin_available = true
+	    	else
+	    		is_skin_available = false
+	    	end
+	    end
+	end
+	return is_skin_available
+end
 
 function GetHeroInfo(D2hero, hero, roleList)
 			
@@ -1416,9 +1572,17 @@ end
 function IsSkinEnable(skin, SteamId, authority)
 	local qqeiuojk = LoadKeyValues("scripts/npc/skinaccess.txt")
     local asdfioyjkl = LoadKeyValues("scripts/npc/contributeunlock.txt")
+    if type(SteamId) == "number" then 
+    	SteamId = tostring(SteamId)
+    end
 
     if authority == 5 then 
-    	return true 
+    	if qqeiuojk['LimitedSkin'][skin] == 1 then 
+    		return false 
+    	else
+    		return true 
+    	end
+    	--return true 
     elseif authority == 4 then 
     	if qqeiuojk['LimitedSkin'][skin] == 1 then 
     		return false 

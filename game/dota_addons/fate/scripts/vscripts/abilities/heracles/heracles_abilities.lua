@@ -317,8 +317,8 @@ function OnBerserkStart(keys)
 	local radius = ability:GetSpecialValueFor("radius")
 	local delay = 0 
 	if caster.IsMadEnhancementAcquired then 
-		delay = 0.3 
-		giveUnitDataDrivenModifier(caster, caster, "pause_sealabled", delay)
+		delay = ability:GetSpecialValueFor("cast_time") 
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_heracles_berserk_cast", {Duration = delay})
 		StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_3, rate=2.5})
 	end
 	Timers:CreateTimer(delay, function()

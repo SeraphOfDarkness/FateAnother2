@@ -382,12 +382,16 @@ function tigerstrikewrapper(TPM)
 	end
 
 	function TPM:GetAbilityTextureName()
-		if self:CheckSequence() == 3 then
-			return "custom/lishuwen_fierce_tiger_strike_3"
-		elseif self:CheckSequence() == 2 then
-			return "custom/lishuwen_fierce_tiger_strike_2"
+		if self:GetCaster():HasModifier("modifier_alternate_05") then 
+			return "custom/lishuwen/saitama_e"
 		else
-			return "custom/lishuwen_fierce_tiger_strike"
+			if self:CheckSequence() == 3 then
+				return "custom/lishuwen_fierce_tiger_strike_3"
+			elseif self:CheckSequence() == 2 then
+				return "custom/lishuwen_fierce_tiger_strike_2"
+			else
+				return "custom/lishuwen_fierce_tiger_strike"
+			end
 		end
 	end
 
@@ -1207,6 +1211,8 @@ function OnNSSCastStart(keys)
 
 	if caster:HasModifier('modifier_alternate_02') then 
 		caster:EmitSound("Li-Boss-R")
+	elseif caster:HasModifier("modifier_alternate_05") then 
+		caster:EmitSound("Saitama_R")
 	else
 		caster:EmitSound("Lishuwen_NP1")
 	end
@@ -1271,7 +1277,9 @@ function OnNSSStart(keys)
 	end
 	
 	-- apply delay indicator
+	
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
+
     local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
     ParticleManager:SetParticleControl( groundFx1, 0, target:GetAbsOrigin())
     local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
@@ -1494,6 +1502,10 @@ function OnDragonStrike3Start(keys)
 	end
 
 	keys.Damage = keys.Damage + (caster:GetAverageTrueAttackDamage(caster) * bonus_damage)
+
+	if caster:HasModifier("modifier_alternate_05") then 
+		EmitGlobalSound("Saitama_BGM")
+	end
 
 	local endpoint = nil
 	local counter = 0

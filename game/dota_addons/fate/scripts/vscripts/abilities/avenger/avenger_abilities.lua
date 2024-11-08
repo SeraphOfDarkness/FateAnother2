@@ -806,7 +806,7 @@ function OnVergAvestaDamageTrack (keys)
 	ParticleManager:SetParticleControl( caster.verg_counter_fx, 3, Vector( 252, 75, 75 ) )--color
 	ParticleManager:SetParticleControl( caster.verg_counter_fx, 4, Vector( 30,0,0) ) --size/radius, 0 ,0
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_verg_marker", {})		
+	ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_verg_marker", {})		
 
 	if not attacker:IsRealHero() then
 		local attacker2 = attacker:GetPlayerOwner():GetAssignedHero()
@@ -819,7 +819,7 @@ function OnVergAvestaDamageTrack (keys)
 		end
 		
 		if IsValidEntity(attacker2) and not attacker2:IsNull() then
-			ability:ApplyDataDrivenModifier(caster, attacker2, "modifier_verg_marker", {})	
+			ability:ApplyDataDrivenModifier(attacker2, attacker2, "modifier_verg_marker", {})	
 		end
 	end
 

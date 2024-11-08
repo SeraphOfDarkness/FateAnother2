@@ -1852,9 +1852,30 @@ HeroRoles
 				{
 					"weight"	"100"	// weight to calculate
 					"criteria"	"3"
-					"dDeal"		"999999999"	// > avg dmg deal per round
-					"KD"		"99.0"	// > total KD
-					"Assist"	"9999"	// > Assist
+					"dDeal"		"3000"	// > avg dmg deal per round
+					"KD"		"2.0"	// > total KD
+					"Assist"	"20"	// > Assist
+				}		
+			}
+		}
+	}
+	"npc_dota_hero_slark"
+	{
+		"Sex"			"Female"
+		"Class"			"Assassin"
+		"Trait"			"" 
+		"Roles"			"burst" 	
+		"Role" 							
+		{
+			"1"
+			{			
+				"burst"	
+				{
+					"weight"	"100"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"2500"	// > avg dmg deal per round
+					"KD"		"2.0"	// > total KD
+					"Assist"	"10"	// > Assist
 				}		
 			}
 		}

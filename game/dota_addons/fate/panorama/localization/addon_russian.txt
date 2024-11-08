@@ -257,7 +257,7 @@
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Another II"
-        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT, Nerd, Seraph, Kagutsuchi"
+        "ABOUT_DEV_BODY"                                "Currently developed by: ZeFiRoFT, Nerd, Kagutsuchi"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"

@@ -3,14 +3,19 @@ modifier_loot_aura = class({})
 
 LinkLuaModifier("modifier_loot_aura", "fate_loot_grail", LUA_MODIFIER_MOTION_NONE)
 
-GRAIL_COOLDOWN = 600
-GRAIL_COOLDOWN_COUNTER = 600
+GRAIL_COOLDOWN = 1200
+GRAIL_COOLDOWN_COUNTER = 1200
 TIMER_BEFORE_DROP = 30
-LOOTZONE = 450
+LOOTZONE = 600
+CAPTURE_TIME = 30
+MANA_REWARD = 10
+HP_REWARD = 6
+MINIMUM_PROGRESS = 1
+BONUS_PROGRESS = 0.1
 
 function Fate_Grail_Loot:constructor()
-	self.grail_cooldown = GRAIL_COOLDOWN
-	self.grail_cooldown_counter = GRAIL_COOLDOWN_COUNTER
+	self.grail_cooldown = GRAIL_COOLDOWN or 1200
+	self.grail_cooldown_counter = GRAIL_COOLDOWN_COUNTER or 1200
 	self.timer_before_drop = TIMER_BEFORE_DROP
 	if IsInToolsMode() then 
 		self.grail_cooldown = 10
@@ -20,7 +25,7 @@ function Fate_Grail_Loot:constructor()
 	self.Is_grail_claim = false
 	self.black_grail_perc = 0
 	self.grail_drop_loc_1 = Vector(960, 6250, 257)
-	self.grail_drop_loc_2 = Vector(600, 2150, 265)
+	self.grail_drop_loc_2 = Vector(600, 2150, 285)
 	self.grail_drop_loc_3 = Vector(607, -1300, 257)
 
 end
@@ -85,6 +90,8 @@ function Fate_Grail_Loot:StartGrailDrop()
 		else
 			self:SpawnLootZone(grail_loc)
 		end
+		self:constructor()
+		self:StartTimer()
 	end)
 end
 
@@ -107,16 +114,16 @@ end
 
 function Fate_Grail_Loot:ClearEffect()
 
-	self.grail_cooldown = GRAIL_COOLDOWN
-	self.grail_cooldown_counter = GRAIL_COOLDOWN_COUNTER
-	self.timer_before_drop = TIMER_BEFORE_DROP
+	--self.grail_cooldown = GRAIL_COOLDOWN
+	--self.grail_cooldown_counter = GRAIL_COOLDOWN_COUNTER
+	--self.timer_before_drop = TIMER_BEFORE_DROP
 
 	if IsValidEntity(self.holy_grail_dummy) and not self.holy_grail_dummy:IsNull() then 
 		self.holy_grail_dummy:ForceKill(false)
 	end
 	self.Is_grail_claim = false
 
-	self:StartTimer()
+	--self:StartTimer()
 end
 
 ----------------
@@ -132,7 +139,7 @@ function modifier_loot_aura:OnCreated(table)
 	self.parent = self:GetParent()
 	self.vLoc = GetGroundPosition(self.parent:GetAbsOrigin(), self.parent) 
 	self.progress_tick = 0.1
-	self.max_time = 10
+	self.max_time = CAPTURE_TIME or 30
 	self.progress_percent_person = 1
 	self.radius = LOOTZONE
 	self.grail_claim = false
@@ -186,25 +193,32 @@ function modifier_loot_aura:OnIntervalThink()
 
 	local left_team_count = 0
 	local right_team_count = 0
+	local leftplayers = {}
+	local rightplayers = {}
 
 	local hero_detect = FindUnitsInRadius(self.parent:GetTeam(), self.base_loc, nil, self.radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	for k,v in pairs (hero_detect) do 
 		if v:IsRealHero() and not v:IsIllusion() then 
 
 			if v:GetTeamNumber() == self.left_team then 
-				left_team_count = left_team_count + 1 
+				left_team_count = left_team_count + 1
+				table.insert(leftplayers, v) 
 			elseif v:GetTeamNumber() == self.right_team then 
 				right_team_count = right_team_count + 1 
+				table.insert(rightplayers, v) 
 			end
 		end
 	end
 
-	self:UpdateProgress(left_team_count, right_team_count)
+	self:UpdateProgress(left_team_count, right_team_count, leftplayers, rightplayers)
 end
 
-function modifier_loot_aura:UpdateProgress(iLeftTeamCount, iRightTeamCount)
+function modifier_loot_aura:UpdateProgress(iLeftTeamCount, iRightTeamCount, tLeftplayers, tRightplayers)
 
 	local diff = iLeftTeamCount - iRightTeamCount
+	if diff > 1 then 
+		diff = MINIMUM_PROGRESS + (diff * BONUS_PROGRESS)
+	end
 	--print('left side count ' .. iLeftTeamCount)
 	--print('right side count ' .. iRightTeamCount)
 
@@ -246,30 +260,35 @@ function modifier_loot_aura:UpdateProgress(iLeftTeamCount, iRightTeamCount)
 	self:UpdateProgressFX(self.left_team_progress, self.rigth_team_progress, self.current_team_progress)
 	--print('current team progress: ' .. self.current_team_progress)
 	if self.left_team_progress >= 100 and self.grail_claim == false then 
-		self:GrantReward(self.left_team)
+		self:GrantReward(self.left_team, tLeftplayers)
 	elseif self.rigth_team_progress >= 100 and self.grail_claim == false then 
-		self:GrantReward(self.right_team)
+		self:GrantReward(self.right_team, tRightplayers)
 	end
 end
 
-function modifier_loot_aura:GrantReward(iTeam)
+function modifier_loot_aura:GrantReward(iTeam, tInsidePlayers)
 	--if iTeamProgressPercent >= 100 then 
 		LoopOverPlayers(function(player, playerID, playerHero)
 	    	--print("looping through " .. playerHero:GetName())
 	        if playerHero:GetTeamNumber() == iTeam and player and playerHero then
-	        	playerHero.ShardAmount = (playerHero.ShardAmount or 0) + 1
-                playerHero.ServStat:onConGrail()
-                local statTable = CreateTemporaryStatTable(playerHero)
-                CustomGameEventManager:Send_ServerToPlayer( player, "servant_stats_updated", statTable )
+	        	playerHero.MasterUnit:Heal(HP_REWARD, playerHero)
+                playerHero.MasterUnit:GiveMana(MANA_REWARD)
+                playerHero.MasterUnit2:Heal(HP_REWARD, playerHero)
+                playerHero.MasterUnit2:GiveMana(MANA_REWARD)
 	        end
 	    end)
+	    tInsidePlayers[1].ShardAmount = (tInsidePlayers[1].ShardAmount or 0) + 1
+	    tInsidePlayers[1].ServStat:onConGrail()
+        local statTable = CreateTemporaryStatTable(tInsidePlayers[1])
+        CustomGameEventManager:Send_ServerToPlayer( tInsidePlayers[1]:GetPlayerOwner(), "servant_stats_updated", statTable )
+
 	    GameRules:SendCustomMessage("#Fate_Get_Grail_Drop" .. iTeam-1, 0, 0)
 	    ParticleManager:DestroyParticle(self.base_fx, true)
 		ParticleManager:ReleaseParticleIndex(self.base_fx) 
 		ParticleManager:DestroyParticle(self.holy_grail_dummy_fx, true)
 		ParticleManager:ReleaseParticleIndex(self.holy_grail_dummy_fx)
 		self:Destroy()
-		Fate_Grail_Loot:constructor()
+
 		Fate_Grail_Loot:ClearEffect()
 		
 		self.grail_claim = true

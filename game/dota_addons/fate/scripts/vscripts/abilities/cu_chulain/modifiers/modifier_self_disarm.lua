@@ -24,7 +24,7 @@ function skoyhidpo:construct()
 		self.spcio = LoadKeyValues("scripts/npc/skin_shop.txt")
 		self.unavi = LoadKeyValues("scripts/npc/skin_unavailable.txt")
 		self.pepelog = LoadKeyValues("scripts/npc/pepe_fam.txt")
-		local unavai = self:check()
+		local unavai = self.unavi.UnAvai
 		--[[for k,v in pairs (unavai) do
 			print(k,v)
 		end]]

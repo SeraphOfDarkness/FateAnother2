@@ -53,4 +53,5 @@
 	"npc_dota_hero_nyx_assassin"		"npc_dota_hero_melt"
 	"npc_dota_hero_muerta"				"npc_dota_hero_billy"
 	"npc_dota_hero_terrorblade"			"npc_dota_hero_saito"
+	"npc_dota_hero_slark"			"npc_dota_hero_mhx"
 }

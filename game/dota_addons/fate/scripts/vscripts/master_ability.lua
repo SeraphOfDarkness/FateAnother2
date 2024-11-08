@@ -424,16 +424,6 @@ SaitoAttribute = {
 	"saito_style",
 	attrCount = 5
 }
-MusashiAttribute = 
-{
-	"musashi_attributes_battle_continuation",
-	"musashi_attributes_improve_tengan",
-	"musashi_attributes_gorin_no_sho",
-	"musashi_attributes_mukyuu",
-	"musashi_attributes_niten_ichiryuu",
-	"musashi_ishana_daitenshou",
-	attrCount = 5
-}
 MashuAttribute = {
 	"mashu_attribute_barrel",
 	"mashu_attribute_shield",
@@ -583,7 +573,7 @@ end
 
 function ResetItems(hero)
 	-- Reset all items
-	for i=0, 14 do
+	for i=DOTA_ITEM_SLOT_1, DOTA_ITEM_NEUTRAL_SLOT do
 		local item = hero:GetItemInSlot(i) 
 		if item ~= nil then
 			item:EndCooldown()
@@ -1072,8 +1062,6 @@ function FindAttribute(name)
 		attributes = NobuAttribute
 	elseif name == "npc_dota_hero_terrorblade" then
 		attributes = SaitoAttribute
-	elseif name == "npc_dota_hero_antimage" then
-		attributes = MusashiAttribute
 	elseif name == "npc_dota_hero_dragon_knight" then
 		attributes = MashuAttribute
 	elseif name == "npc_dota_hero_oracle" then
@@ -1553,6 +1541,13 @@ function OnHeroGainGold(keys)
 	local hero = ply:GetAssignedHero()
 
 	if hero.Goldgained ~= nil then
+		--================================================--
+		local plyID = caster:GetPlayerOwnerID()
+        local nReliableGold = PlayerResource:GetReliableGold(plyID)
+        local nUnreliableGold = PlayerResource:GetUnreliableGold(plyID)
+
+        hero:SetGold(nReliableGold + nUnreliableGold, true)
+        --================================================--
 		hero:SetGold(0, false)
         hero:SetGold(hero:GetGold() + (hero.Goldgained * 2), true)
     end
@@ -1565,6 +1560,11 @@ function OnAvariceAcquired(keys)
 	if hero.ShardAmount == 0 or hero.ShardAmount == nil then 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Shard")
 		return 
+	--================================================--
+	elseif (hero.AvariceCount or 0) >= 4 then
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Avarice5")
+		return
+	--================================================--
 	else 
 		hero.ShardAmount = hero.ShardAmount - 1
 		hero.ServStat:getS1()

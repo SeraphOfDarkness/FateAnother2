@@ -45,6 +45,32 @@ function AbilityBlink(hCaster, vTarget, fMaxDistance, tParams)
     hCaster:EmitSound(sInSound)
 end
 
+function AbilityBlinkNoEffects(hCaster, vTarget, fMaxDistance)
+    local vPos = hCaster:GetAbsOrigin()
+    local vDifference = vTarget - vPos
+    
+    local vDirection = vDifference:Normalized()
+    local fDistance = vDifference:Length()
+    if fDistance >= fMaxDistance then fDistance = fMaxDistance end
+    local vBlinkPos = vPos + (vDirection * fDistance)
+    
+    if bNavCheck then
+        local i = 0
+        local iStep = 10
+        local iSteps = math.ceil(fDistance / iStep)
+
+        while GridNav:IsBlocked( vBlinkPos ) or not GridNav:IsTraversable( vBlinkPos )do
+            i = i + 1
+            vBlinkPos = vPos + (vDirection * (fDistance - i * iStep))
+            if i >= iSteps then break end
+        end
+    end
+    
+    ProjectileManager:ProjectileDodge(hCaster)
+    FindClearSpaceForUnit(hCaster, vBlinkPos, true)
+end
+
+
 function AbilityBlinkCastError(hCaster, vLocation)
     if IsClient() then require('libraries/util') end
     

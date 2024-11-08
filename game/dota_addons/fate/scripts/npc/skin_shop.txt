@@ -108,6 +108,18 @@ SkinShop
 	"105"		"15000"		// [Myth] DMC Vergil
 	"106"		"1000"		// [Normal] No Coat Hans
 	"107"		"6000"		// [Legend] Shijuku Artoria (Alter)
-	//"108"		"limit"		// [Limited] Overlord Albedo
-	//"109"		"limit" 	// [Limited] Overlord Shaltear
+	"108"		"100000"	// [Limited] Overlord Albedo
+	"109"		"100000" 	// [Limited] Overlord Shaltear
+	"110"		"limit" 	// [Limited] Castoria
+	"111"		"limit" 	// [Limited] Ikki
+	"112"		"100000"	// [Limited] Saitama
+	"113"		"2000"		// [Heroic] Unarmored Mashu
+	"114"		"6000"		// [Legend] Okita Jetpack
+	"115"		"limit"		// [Limited] Shu
+	"116"		"15000"		// [MEME] Samurai Doge
+	"117"		"6000"		// [Legend] Wedding Kuro
+	"118"		"100000"	// [Limited] Yukina
+	"119"		"limit"		// [Limited] Dress Yukina
+	"120"		"2000"		// [Heroic] Caped MHX
+	"121"		"limit"		// [Limited] Mélusine
 }

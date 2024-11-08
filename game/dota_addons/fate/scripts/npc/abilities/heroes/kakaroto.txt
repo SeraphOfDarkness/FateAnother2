@@ -33,4 +33,28 @@ GifTCODE
 		"EndDate"		"14/09/24"
 		"RewardCP"		"3000"
 	}
+	"05"		
+	{
+		"GiftID"		"05"
+		"Code"			"FarewellSSS"
+		"StartDate"		"24/09/24"
+		"EndDate"		"01/10/24"
+		"RewardCP"		"10000"
+	}
+	"06"		
+	{
+		"GiftID"		"06"
+		"Code"			"1stCPEvent"
+		"StartDate"		"02/10/24"
+		"EndDate"		"14/10/24"
+		"RewardCP"		"5000"
+	}
+	"07"		
+	{
+		"GiftID"		"07"
+		"Code"			"Tour4-2"
+		"StartDate"		"15/10/24"
+		"EndDate"		"21/10/24"
+		"RewardCP"		"2000"
+	}
 }

@@ -189,12 +189,11 @@ CDOTA_BaseNPC.FateHeal = function(self, fHeal, hSource, bStatic)
         hSource.ServStat:onHeal(math.min(fHeal, missing_hp))
     end
 
-    if self:HasModifier("modifier_zhuge_liang_array_heal_debuff") then 
+    if IsHealReduction(self) then 
         print('heal cut')
         print('heal before cut =' .. fHeal)
-        local debuff = self:FindModifierByName("modifier_zhuge_liang_array_heal_debuff")
-        local heal_debuff = debuff:GetStackCount()/100 
-        fHeal = fHeal * heal_debuff
+        local heal_debuff = HealReductionPercent(self)
+        fHeal = fHeal * (1 - heal_debuff)
         print('heal after cut =' .. fHeal)
     end
 

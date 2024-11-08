@@ -1067,6 +1067,12 @@ function OnMazeLock(keys)
 	local target = keys.target 
 	local radius = ability:GetSpecialValueFor("radius")
 
+	--========================--
+	if not target then
+		return
+	end
+	--========================--
+
 	if math.abs((caster.MazeDummyCenter - target:GetAbsOrigin()):Length2D()) > radius then 
 		local diff = target:GetAbsOrigin() - caster.MazeDummyCenter
 		diff = diff:Normalized()
