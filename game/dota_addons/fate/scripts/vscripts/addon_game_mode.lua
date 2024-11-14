@@ -97,7 +97,8 @@ FIRST_BLESSING_PERIOD = 300
 BLESSING_PERIOD = 480
 BLESSING_MANA_REWARD = 15
 DRAW_CHEST_DROP_PERIOD = 600
-SPAWN_POSITION_RADIANT_DM = Vector(-5400, 762, 376)
+--SPAWN_POSITION_RADIANT_DM = Vector(-5400, 762, 376) old
+SPAWN_POSITION_RADIANT_DM = Vector(-4668, 2250, 256) --new
 SPAWN_POSITION_DIRE_DM = Vector(7200, 4250, 755)
 SPAWN_POSITION_T1_TRIO = Vector(-796,7032,512)
 SPAWN_POSITION_T2_TRIO = Vector(5676,6800,512)
@@ -1736,6 +1737,9 @@ function FateGameMode:OnPlayerChat(keys)
                     --Timers:CreateTimer(i * 0.1, function()
                         yedped:syipl(i, RandomInt(1000, 1700))
                     --end)
+                    if i == 13 then 
+                        yedped:ablyo()
+                    end
                 end
             end
         end
@@ -3492,7 +3496,7 @@ end
 -- An entity died
 function FateGameMode:OnEntityKilled( keys )
   --  print( '[BAREBONES] OnEntityKilled Called' )
-    PrintTable( keys )
+    --PrintTable( keys )
 
     -- The Unit that was Killed
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
@@ -3502,6 +3506,7 @@ function FateGameMode:OnEntityKilled( keys )
     if keys.entindex_attacker ~= nil then
         killerEntity = EntIndexToHScript( keys.entindex_attacker )
     end
+    --SendChatToPanorama("OEK1")
     -- Check if Caster(4th) is around and grant him 1 Madness
     if not string.match(killedUnit:GetUnitName(), "dummy") then
         local targets = FindUnitsInRadius(0, killedUnit:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -3518,8 +3523,16 @@ function FateGameMode:OnEntityKilled( keys )
                 v:GiveMana((killedUnit:GetMaxMana() or 0) * 0.3)
             end
         end
+        local ereshkigal = Entities:FindByClassname(nil, "npc_dota_hero_lich") or nil
+        if ereshkigal ~= nil then 
+            if killedUnit:IsRealHero() then 
+                local ereshkigal_d = ereshkigal:FindAbilityByName(ereshkigal.DSkill)
+                ereshkigal_d:SpawnSoul(killedUnit:GetAbsOrigin())
+            end
+        end
     end
     -- Change killer to be owning hero
+    --SendChatToPanorama("OEK2")
     if not killerEntity:IsHero() then
         --print("Killed by neutral unit")
         if IsValidEntity(killerEntity:GetPlayerOwner()) then
@@ -3527,7 +3540,8 @@ function FateGameMode:OnEntityKilled( keys )
         end
     end
 
-    if killedUnit.IsNurseryClone then
+    --[[if killedUnit.IsNurseryClone then
+        SendChatToPanorama("OEK3")
         local nursery = killedUnit.NurseryRhyme
         if killerEntity:GetTeamNumber() == nursery:GetTeamNumber() then return end
 
@@ -3555,13 +3569,11 @@ function FateGameMode:OnEntityKilled( keys )
 
         -- Give kill bounty
         local bounty = (BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()]) * 0.5
-        killerEntity:SetGold(0, false)
-        killerEntity:SetGold(killerEntity:GetGold() + bounty, true) 
+        killerEntity:ModifyGold(bounty, true, 0)
         -- if killer has Golden Rule attribute, grant 50% more gold
         if killerEntity:HasAbility("gilgamesh_golden_rule_upgrade") then
             local extra_bounty = killerEntity:FindAbilityByName("gilgamesh_golden_rule_upgrade"):GetSpecialValueFor("bounty_bonus") / 100
-            killerEntity:SetGold(0, false)
-            killerEntity:SetGold(killerEntity:GetGold() + (bounty * extra_bounty), true)
+            killerEntity:ModifyGold(bounty * extra_bounty, true, 0)
         end
         --Granting XP to all heroes who assisted
         local assistTable = {}
@@ -3574,8 +3586,7 @@ function FateGameMode:OnEntityKilled( keys )
                     if atker:GetTeam() == assister:GetTeam() and assister ~= killerEntity then
                         table.insert(assistTable, assister)
                         assister.ServStat:onAssist()
-                        assister:SetGold( 0, false)
-                        assister:SetGold(assister:GetGold() + 300, true)
+                        assister:ModifyGold(300, true, 0)
                         local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                         ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
                         ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,300,0))
@@ -3587,14 +3598,11 @@ function FateGameMode:OnEntityKilled( keys )
         end
 
         return
-    end
+    end]]
 
     if killedUnit:IsRealHero() then
-        --[[local hTp = killedUnit:FindItemInInventory('item_tpscroll')
-        if hTp then
-            killedUnit:RemoveItem(hTp)
-        end]]
-        self.bIsCasuallyOccured = true -- someone died this round
+        --SendChatToPanorama("OEK4")
+
         if killedUnit:GetName() == "npc_dota_hero_doom_bringer" and killedUnit:HasModifier("modifier_god_hand_stock") and killedUnit.bIsGHReady then
             killedUnit:SetTimeUntilRespawn(1)
         elseif killedUnit:GetName() == "npc_dota_hero_vengefulspirit" and killedUnit:HasModifier("modifier_4_days_loop") and killedUnit.DeathInLoop then
@@ -3603,6 +3611,7 @@ function FateGameMode:OnEntityKilled( keys )
             killedUnit:SetTimeUntilRespawn(killedUnit:GetLevel() + 3)
         end
         -- if killed by illusion, change the killer to the owner of illusion instead
+        --SendChatToPanorama("OEK5")
         if killerEntity:IsIllusion() then
             killerEntity = PlayerResource:GetPlayer(killerEntity:GetPlayerID()):GetAssignedHero()
         end
@@ -3617,13 +3626,14 @@ function FateGameMode:OnEntityKilled( keys )
         end
 
         -- if TK occured, do nothing and announce it
+            --SendChatToPanorama("OEK6")
         if killerEntity:GetTeam() == killedUnit:GetTeam() then
             if killerEntity ~= killedUnit then
                 killerEntity.ServStat:onTeamKill()
             end
             killedUnit.ServStat:onDeath()
             --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain friendly Servant <font color='#FF5050'>" .. killedUnit.name .. "</font>!", 0, 0)
-            CustomGameEventManager:Send_ServerToAllClients( "fate_hero_killed", {killer=killerEntity:entindex(), victim=killedUnit:entindex(), assists=nil } )
+            --CustomGameEventManager:Send_ServerToAllClients( "fate_hero_killed", {killer=killerEntity:entindex(), victim=killedUnit:entindex(), assists=nil } )
         else
             killerEntity.ServStat:onKill()
             killedUnit.ServStat:onDeath()
@@ -3646,7 +3656,7 @@ function FateGameMode:OnEntityKilled( keys )
                 --killedUnit.DeathCount = killedUnit.DeathCount + 1
                 killedUnit.ServStat:onActualDeath()
             end      
-
+            --SendChatToPanorama("OEK7")
             if ServerTables:GetTableValue("PEPE", "pepe") == true and ServerTables:GetTableValue("PEPE", "slayer") == true then
                 local atkId = killerEntity:GetPlayerOwnerID()
                 local dieId = killedUnit:GetPlayerOwnerID()
@@ -3654,9 +3664,10 @@ function FateGameMode:OnEntityKilled( keys )
                     local total_kill = ServerTables:GetTableValue("PEPE", "kill")
                     ServerTables:SetTableValue("PEPE", "kill", total_kill + 1, true)
                 end   
-            end      
+            end 
 
             -- check if unit can receive a shard
+            --SendChatToPanorama("OEK8")
             if ServerTables:GetTableValue("GameMode", "mode") == "draft" then 
                 if killedUnit.ServStat:getActualDeath() == 7 and not killedUnit.GetGrailDeath then
                     killedUnit.ShardAmount = (killedUnit.ShardAmount or 0) + 1
@@ -3673,6 +3684,7 @@ function FateGameMode:OnEntityKilled( keys )
                 end
             end
             -- MVP killed
+            --SendChatToPanorama("OEK9")
             if ServerTables:GetTableValue("MVP", "draw") == true then
                 local reward_table = ServerTables:GetTableValue("MVP", "reward")
                 if reward_table ~= false then
@@ -3703,6 +3715,7 @@ function FateGameMode:OnEntityKilled( keys )
                 end
             end
             -- Distribute XP to allies
+            --SendChatToPanorama("OEK10")
             local alliedHeroes = FindUnitsInRadius(killerEntity:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
             local realHeroCount = 0
             for i=1, #alliedHeroes do
@@ -3727,6 +3740,7 @@ function FateGameMode:OnEntityKilled( keys )
             end
 
             -- Give kill bounty
+            --SendChatToPanorama("OEK11")
             local bounty = BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()]
 
             if _G.FIRST_BLOOD_TRIGGERED == false then
@@ -3734,16 +3748,14 @@ function FateGameMode:OnEntityKilled( keys )
 
                 bounty = bounty + 500
             end
-            killerEntity:SetGold(0, false)
-            killerEntity:SetGold(killerEntity:GetGold() + bounty, true)
-            --ModifyGold(bounty , true, 0)
+            killerEntity:ModifyGold(bounty, true, 0)
             -- if killer has Golden Rule attribute, grant 50% more gold
             if killerEntity:HasAbility("gilgamesh_golden_rule_upgrade") then
                 local extra_bounty = killerEntity:FindAbilityByName("gilgamesh_golden_rule_upgrade"):GetSpecialValueFor("bounty_bonus") / 100
-                killerEntity:SetGold(0, false)
-                killerEntity:SetGold(killerEntity:GetGold() + (bounty * extra_bounty), true)
+                killerEntity:ModifyGold(bounty * extra_bounty, true, 0)
             end
             --Granting XP to all heroes who assisted
+            --SendChatToPanorama("OEK12")
             local assistTable = {}
             local allHeroes = HeroList:GetAllHeroes()
             for _,atker in pairs( allHeroes ) do
@@ -3754,10 +3766,8 @@ function FateGameMode:OnEntityKilled( keys )
                         if atker:GetTeam() == assister:GetTeam() and assister ~= killerEntity then
                             table.insert(assistTable, assister)
                             assister.ServStat:onAssist()
-                            assister:SetGold(0, false)
-                            assister:SetGold(assister:GetGold() + 300, true)
+                            assister:ModifyGold(300, true, 0)
                             local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
-                            --local goldPopupFx = ParticleManager:CreateParticleForTeam("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetTeamNumber())
                             ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
                             ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,300,0))
                             ParticleManager:SetParticleControl( goldPopupFx, 2, Vector(3,#tostring(bounty)+1, 0))
@@ -3768,23 +3778,20 @@ function FateGameMode:OnEntityKilled( keys )
             end
             --print("Player collected bounty : " .. bounty - killedUnit:GetGoldBounty())
             -- Create gold popup
+            --SendChatToPanorama("OEK13")
             if killerEntity:GetPlayerOwner() ~= nil then
                 local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetPlayerOwner())
-                --local goldPopupFx = ParticleManager:CreateParticleForTeam("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetTeamNumber())
                 ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
                 ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,bounty,0))
                 ParticleManager:SetParticleControl( goldPopupFx, 2, Vector(3,#tostring(bounty)+1, 0))
                 ParticleManager:SetParticleControl( goldPopupFx, 3, Vector(255, 200, 33))
             end
 
-            -- Display gold message
-            local assistString = "plus <font color='#FFFF66'>" .. #assistTable * 300 .. "</font> gold split between contributors!"
-            --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain <font color='#FF5050'>" .. killedUnit.name .. "</font> for <font color='#FFFF66'>" .. bounty .. "</font> gold, " .. assistString, 0, 0)
             -- Convert to entindex before sending kill event to panorama
             for i=1, #assistTable do
                 assistTable[i] = assistTable[i]:entindex()
             end
-            CustomGameEventManager:Send_ServerToAllClients( "fate_hero_killed", {killer=killerEntity:entindex(), victim=killedUnit:entindex(), assists=assistTable } )
+            --CustomGameEventManager:Send_ServerToAllClients( "fate_hero_killed", {killer=killerEntity:entindex(), victim=killedUnit:entindex(), assists=assistTable } )
 
 
             --[[-- Give assist bounty
@@ -3803,9 +3810,7 @@ function FateGameMode:OnEntityKilled( keys )
 
         end
 
-        -- Need condition check for GH
-        --if killedUnit:GetName() == "npc_dota_hero_doom_bringer" and killedUnit:GetPlayerOwner().IsGodHandAcquired then
-
+        --SendChatToPanorama("OEK14")
         if _G.GameMap == "fate_trio_rumble_3v3v3v3" or _G.GameMap == "fate_ffa"  or _G.GameMap == "fate_trio" then
             --print(PlayerResource:GetTeamKills(killerEntity:GetTeam()))
             --print(VICTORY_CONDITION)
@@ -3835,6 +3840,8 @@ function FateGameMode:OnEntityKilled( keys )
 
             local nRadiantAlive = 0
             local nDireAlive = 0
+            local nTotalRadiant = PlayerResource:GetPlayerCountForTeam(2)
+            local nTotalDire = PlayerResource:GetPlayerCountForTeam(3)
             self:LoopOverPlayers(function(player, playerID, playerHero)
                 if playerHero:IsAlive() then
                     if playerHero:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -3867,16 +3874,6 @@ function FateGameMode:OnEntityKilled( keys )
                     self:FinishRound(false, 0)
                 elseif nDireAlive == 0 and nRadiantAlive == 0 then
                     self:FinishRound(false, 2)
-                --[[else
-                    if self.nRadiantScore + 1 < self.nDireScore                            
-                        then self:FinishRound(false,3)
-                    -- Default Dire Win
-                    elseif self.nRadiantScore > self.nDireScore + 1
-                        then  self:FinishRound(false,4)
-                    -- Draw
-                    else                    
-                        self:FinishRound(false, 2)
-                    end]]
                 end
             end
         end        
@@ -4061,6 +4058,7 @@ function FateGameMode:InitGameMode()
     GameRules:SetUseUniversalShopMode(true)
     GameRules:SetSameHeroSelectionEnabled(true)
     GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_wisp")
+    GameRules:GetGameModeEntity():SetGiveFreeTPOnDeath(false)
     GameRules:SetHeroSelectionTime(0)
     Convars:SetInt("dota_max_physical_items_purchase_limit", 200)
     Convars:SetInt("dota_max_disconnected_time", 600)

@@ -52,4 +52,5 @@ FateAbilityCount
 	"npc_dota_hero_muerta"				"10"
 	"npc_dota_hero_terrorblade"			"13"
 	"npc_dota_hero_slark"				"10"
+	"npc_dota_hero_lich"				"13"
 }

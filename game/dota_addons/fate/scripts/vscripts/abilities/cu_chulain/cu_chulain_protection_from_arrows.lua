@@ -21,7 +21,11 @@ function cu_chulain_protection_from_arrows:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration = self:GetSpecialValueFor("duration") })
 	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_cooldown", { Duration = self:GetCooldown(1) })
 
-	caster:EmitSound("Cu_Skill_" .. math.random(1,4))
+	if caster:HasModifier("modifier_alternate_04") or caster:HasModifier("modifier_alternate_05") then 
+		caster:EmitSound("Yukina_D")
+	else
+		caster:EmitSound("Cu_Skill_" .. math.random(1,4))
+	end
 end
 
 function cu_chulain_protection_from_arrows:GetIntrinsicModifierName()

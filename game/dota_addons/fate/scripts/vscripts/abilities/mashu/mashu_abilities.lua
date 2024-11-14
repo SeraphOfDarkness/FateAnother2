@@ -818,8 +818,6 @@ function OnMashuCombo(keys)
 
 	EmitGlobalSound("Mashu.Combo1")
 	EmitGlobalSound("Mashu.ComboCharging1")
-	EmitGlobalSound("Mashu.ComboCharging2")
-	EmitGlobalSound("Mashu.ComboCharging3")
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mashu_combo_chanting", {})
 

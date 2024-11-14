@@ -54,7 +54,7 @@ function piercingspearwrapper(abil)
 		self.caster:SetForwardVector(self.direction)
 
 		if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
-			self.caster:EmitSound("Yukina_W") 
+			self.caster:EmitSound("Yukina_W1") 
 		else
 			self.caster:EmitSound("cu_skill_" .. math.random(1,4))
 		end
@@ -152,7 +152,8 @@ function modifier_piercing_spear:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 function modifier_piercing_spear:CheckState()
-    local state = { [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+    local state = { --[MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
+    				--[MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
                     [MODIFIER_STATE_MUTED] = true,
                     [MODIFIER_STATE_DISARMED] = true,
                     [MODIFIER_STATE_SILENCED] = true,
@@ -206,6 +207,11 @@ function modifier_piercing_spear:GetPriority() return MODIFIER_PRIORITY_HIGH end
 function modifier_piercing_spear:UpdateHorizontalMotion(me, dt)
 
 	if self.accu_distance >= self.distance then 
+		self:Destroy()
+		return nil 
+	end
+
+	if GridNav:IsBlocked(self.caster:GetAbsOrigin()) or not GridNav:IsTraversable(self.caster:GetAbsOrigin()) then 
 		self:Destroy()
 		return nil 
 	end

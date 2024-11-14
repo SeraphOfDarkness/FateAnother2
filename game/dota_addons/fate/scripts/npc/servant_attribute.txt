@@ -468,4 +468,13 @@ ServantAttribute
 		"SA5"	"fate_empty1"
 		"SCombo"	"mhx_combo"
 	}
+	"npc_dota_hero_lich"
+	{
+		"SA1"	"ereshkigal_attribute_territory"
+		"SA2"	"ereshkigal_attribute_divine"
+		"SA3"	"ereshkigal_attribute_crown"
+		"SA4"	"ereshkigal_attribute_mana_burst"
+		"SA5"	"ereshkigal_attribute_underworld"
+		"SCombo"	"ereshkigal_combo"
+	}
 }

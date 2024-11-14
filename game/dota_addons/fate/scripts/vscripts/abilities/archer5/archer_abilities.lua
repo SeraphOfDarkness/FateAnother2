@@ -200,7 +200,7 @@ function OnHruntStart(keys, bInterrupted)
 	local base_damage = ability:GetSpecialValueFor("damage")
 	local mana_used = ability:GetSpecialValueFor("mana_used")
 	ability:StartCooldown(ability:GetCooldown(1))
-	EmitGlobalSound("Emiya_Hrunt" .. math.random(1,2))
+	EmitGlobalSound("Emiya_Hrunt")
 	caster:RemoveModifierByName("modifier_archer_hrunting_window")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hrunting_cooldown", {ability:GetCooldown(1)})
 	caster.HruntDamage =  base_damage + (caster:GetMana() * mana_used / 100)
@@ -353,11 +353,7 @@ function OnRhoStart(keys)
 	if caster:HasModifier("modifier_alternate_02") then 
 		caster:EmitSound("Shirou.RhoAias" ) 
 	else
-		if soundQueue == 1 then
-			caster:EmitSound("Archer.RhoAias" ) 
-		else
-			caster:EmitSound("Emiya_Rho_Aias_Alt")
-		end
+		caster:EmitSound("Archer.RhoAias" ) 
 	end
 	caster:EmitSound("Hero_EmberSpirit.FlameGuard.Cast")
 
@@ -469,7 +465,7 @@ function KanshouByakuyaStart (keys)
 	local right_forward = (target_destination - rsword_origin):Normalized()	
 
 	if math.random(1,10) < 5 then
-		caster:EmitSound("emiya_kanshou_byakuya_" .. math.random(1,2))
+		caster:EmitSound("emiya_kanshou_byakuya")
 	end
 
 	if caster.IsOveredgeAcquired then
@@ -643,7 +639,7 @@ function OnBPStart(keys, bInterrupted)
 		bDodgeable = true
 	}
 	ProjectileManager:CreateTrackingProjectile(info) 
-	caster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))
+	caster:EmitSound("Emiya_Caladbolg")
 	-- give vision for enemy
 	if IsValidEntity(target) then
 		SpawnVisionDummy(target, caster:GetAbsOrigin(), 500, 2, false)
@@ -744,7 +740,7 @@ function OnCraneWingStart (keys)
 	if caster:HasModifier('modifier_alternate_02') or caster:HasModifier('modifier_alternate_03') or caster:HasModifier('modifier_alternate_05') then 
 		caster:EmitSound("Shirou-Crane")
 	else
-		caster:EmitSound("Emiya_Crane" .. math.random(1,3))
+		caster:EmitSound("Emiya_Crane")
 	end
 
 	if caster:HasModifier("modifier_alternate_01") then

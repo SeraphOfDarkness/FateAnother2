@@ -52,8 +52,11 @@ function gae_dearg_wrapper(ability)
 		--caster:EmitSound("ZL.Dearg_Cast")
 
 		self.SoundQueue = math.random(1,3)
-
-		caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+		if caster:HasModifier("modifier_alternate_01") then 
+	    	caster:EmitSound("Rentaro_R_Cast")
+	    else
+			caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+		end
 
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
@@ -115,9 +118,13 @@ function gae_dearg_wrapper(ability)
 			damage = min_damage
 		end
 
-		EmitGlobalSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
-
-		target:EmitSound("Hero_Lion.Impale")
+		if caster:HasModifier("modifier_alternate_01") then 
+	    	EmitGlobalSound("Rentaro_R_Hit")
+	    	target:EmitSound("Rentaro_R_SFX")
+	    else
+			EmitGlobalSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
+			target:EmitSound("Hero_Lion.Impale")
+		end
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2})
 		target:AddNewModifier(caster, nil, "modifier_silence", {duration=0.1})
 

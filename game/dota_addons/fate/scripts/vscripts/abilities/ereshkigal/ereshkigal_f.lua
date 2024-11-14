@@ -1,0 +1,1 @@
+ereshkigal_f = class({})

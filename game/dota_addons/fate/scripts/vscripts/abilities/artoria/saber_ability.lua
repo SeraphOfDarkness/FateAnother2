@@ -217,7 +217,7 @@ function OnCaliburnHit(keys)
     if caster:HasModifier("modifier_alternate_04") then 
     	caster:EmitSound("Saber_Lily_Caliburn")
     elseif caster:HasModifier("modifier_alternate_05") then 
-    	caster:EmitSound("Saber-Wedding-W")
+    	caster:EmitSound("Saber_Wedding_W")
     elseif caster:HasModifier("modifier_alternate_07") then 
     	caster:EmitSound("Castoria_W")
     elseif caster:HasModifier("modifier_alternate_06") then 
@@ -506,12 +506,12 @@ function OnMaxStart(keys)
 	if caster:HasModifier("modifier_alternate_04") then 
 		EmitGlobalSound("Saber_Lily_Max_Chant_" .. math.random(1,2))
 	elseif caster:HasModifier("modifier_alternate_05") then 
-		EmitGlobalSound("Saber-Wedding-Combo" .. math.random(1,2))
+		EmitGlobalSound("Saber_Wedding_Combo" .. math.random(1,2))
 	elseif caster:HasModifier("modifier_alternate_07") then 
 		EmitGlobalSound("Castoria_Combo") 
 		EmitGlobalSound("Castoria_BGM") 
 	elseif caster:HasModifier("modifier_alternate_06") then 
-		EmitGlobalSound("Arthur.Combo" .. math.random(1,2)) 
+		EmitGlobalSound("Arthur.Combo") 
 		EmitGlobalSound("Arthur.BGM") 
 	else
 		EmitGlobalSound("Saber_Max_Chant_" .. math.random(1,2))
@@ -528,10 +528,8 @@ function OnMaxStart(keys)
 		callback = function()
 		if caster:HasModifier("modifier_alternate_04") then 
 			EmitGlobalSound("Saber_Lily_Max_Excalibur")
-		elseif caster:HasModifier("modifier_alternate_05") then 
-			EmitGlobalSound("Saber-Wedding-Combo-Excal")
-		elseif caster:HasModifier("modifier_alternate_07") then 
-			EmitGlobalSound("Saber-Wedding-Combo-Excal") 
+		elseif caster:HasModifier("modifier_alternate_05") or caster:HasModifier("modifier_alternate_07") then 
+			EmitGlobalSound("Saber_Wedding_Combo_Excal")
 		elseif caster:HasModifier("modifier_alternate_06") then 
 			EmitGlobalSound("Arthur.Excalibur") 
 		else
@@ -939,7 +937,7 @@ function OnStrikeAirStart(keys)
 	if caster:HasModifier('modifier_alternate_07') then 
 		EmitGlobalSound("Castoria_D")
 	elseif caster:HasModifier('modifier_alternate_06') then 
-		EmitGlobalSound("Arthur.Kaze" .. RandomInt(1, 2))
+		EmitGlobalSound("Arthur.Kaze")
 	else
 		EmitGlobalSound("Saber.StrikeAir_Cast")
 	end

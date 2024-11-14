@@ -95,9 +95,10 @@ function ishtar_attribute_venus:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.IsVenusAcquired) then
-		hero.IsVenusAcquired = true
-
+		
 		hero:RemoveModifierByName("modifier_ishtar_combo_window")
+
+		hero.IsVenusAcquired = true
 
 		UpgradeAttribute(hero, 'ishtar_q', 'ishtar_q_upgrade', true)
 		UpgradeAttribute(hero, 'ishtar_e', 'ishtar_e_upgrade', true)

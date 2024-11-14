@@ -111,7 +111,7 @@ function yedped:start()
 
 end
 
-function yedped:jupa870(pId)
+function yedped:jupa870(pId) -- ใช้จริง
 	if PlayerTables:GetTableValue("database", "db", pId) == true then 
 
 		self.MRN[pId] = iupoasldm.jyiowe[pId].STT.MRT
@@ -214,7 +214,16 @@ function yedped:syipl(id, MMR)
 		self.CGroup[id] = MMR
 		self.CPlayers = self.CPlayers + 1
 	end
-	--print('player ' .. id .. ' has MMR ' .. MMR)
+	if self.MRN[id] == "N/A" then 
+		print('player ' .. id .. ' no MMR ')
+		if type(MMR) == "string" then 
+			print('player ' .. id .. ' MMR is string')
+			MMR = tonumber(MMR)
+		end
+		self.MRN[id] = MMR 
+	end
+	
+	print('player ' .. id .. ' has MMR ' .. MMR)
 end
 
 function yedped:ablyo()
@@ -392,7 +401,7 @@ function yedped:shuf()
 		--SendChatToPanorama('Player ' .. i .. ': MMR ' .. self.MRN[i] .. ': actual team ' .. self.team[i])
 		PlayerResource:SetCustomTeamAssignment(i, self.team[i])
 		--local player_team = PlayerResource:GetCustomTeamAssignment(i)
-		--SendChatToPanorama('Player ' .. i .. ': actual team ' .. player_team)
+		SendChatToPanorama('Player ' .. i .. ': actual team ' .. player_team)
 	end
 	ServerTables:SetTableValue("AutoBalance", "auto_balance", true, true)
 	
@@ -405,7 +414,7 @@ function yedped:maxcut(iTeam)
 
 	for pId, MMR in pairs (self.MRN) do 
 		if not self.team[pId] then
-		--print('player ' .. pId .. ' MMR ' .. MMR)
+		print('player ' .. pId .. ' MMR ' .. MMR)
 			if MMR > highest then 
 				highest = MMR 
 				Id = pId 

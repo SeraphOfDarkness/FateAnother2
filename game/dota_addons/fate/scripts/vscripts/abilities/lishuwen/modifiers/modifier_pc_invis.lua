@@ -425,6 +425,10 @@ function iupoasldm:checkupdate(pId)
 		end
 	end
 
+	if self.jyiowe[pId].IFY.PP <= 50 then 
+		self.jyiowe[pId].IFY.PM = -10
+	end
+
 	if self.jyiowe[pId].IFY.PM == -10 then
 		local today = GetSystemDate()
 		local lasdfi = tostring(self.jyiowe[pId].LD.LST)

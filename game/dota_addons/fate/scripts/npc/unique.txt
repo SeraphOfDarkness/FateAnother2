@@ -103,10 +103,22 @@ UniqueID
 	//		"96116520" 		"1"
 	//	}
 	//}
-	"09" // Shu
+	//"09" // Shu
+	//{
+	//	"hero"			"npc_dota_hero_sven"
+	//	"skin"			"3"
+	//	"owner"
+	//	{
+	//		"96116520" 		"1"
+	//		"238102534"		"1" //Rorax
+	//		"73508309"		"1" //Rinz-Sama
+	//		"179419427"		"1" //Nerd
+	//	}
+	//}
+	"10" // Dress Yukina
 	{
-		"hero"			"npc_dota_hero_sven"
-		"skin"			"3"
+		"hero"			"npc_dota_hero_phantom_lancer"
+		"skin"			"5"
 		"owner"
 		{
 			"96116520" 		"1"
@@ -115,10 +127,10 @@ UniqueID
 			"179419427"		"1" //Nerd
 		}
 	}
-	"10" // Dress Yukina
+	"11" // Rentaro
 	{
-		"hero"			"npc_dota_hero_phantom_lancer"
-		"skin"			"5"
+		"hero"			"npc_dota_hero_huskar"
+		"skin"			"1"
 		"owner"
 		{
 			"96116520" 		"1"

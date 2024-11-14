@@ -220,7 +220,7 @@ lubu_blade_wrapper(lubu_circular_blade)
 modifier_lubu_circular_window = class({})	
 
 function modifier_lubu_circular_window:GetAttributes() 
-	return {MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE, MODIFIER_ATTRIBUTE_PERMANENT}
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 function modifier_lubu_circular_window:IsHidden()
@@ -247,7 +247,7 @@ end
 modifier_lubu_circular_tracker = class({})	
 
 function modifier_lubu_circular_tracker:GetAttributes() 
-	return {MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE, MODIFIER_ATTRIBUTE_PERMANENT}
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_lubu_circular_tracker:IsHidden()

@@ -104,10 +104,11 @@ function atalanta_bow_attribute:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.BowAcquired) then
+		
+		hero:RemoveModifierByName("modifier_atalanta_combo_window")
+
 		hero.BowAcquired = true
 
-		hero:RemoveModifierByName("modifier_atalanta_combo_window")
-		
 		if hero.WildBeastLogicAcquired then 
 			UpgradeAttribute(hero, 'atalanta_alter_jump_upgrade_1', 'atalanta_alter_jump_upgrade_3', true)	
 			hero.ESkill = "atalanta_alter_jump_upgrade_3"
@@ -135,6 +136,9 @@ function atalanta_logic_attribute:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	if not MasterCannotUpgrade(hero, caster, self, hero.WildBeastLogicAcquired) then
+
+		hero:RemoveModifierByName("modifier_atalanta_combo_window")
+		
 		hero.WildBeastLogicAcquired = true
 
 		UpgradeAttribute(hero, 'atalanta_alter_roar', 'atalanta_alter_roar_upgrade', true)	

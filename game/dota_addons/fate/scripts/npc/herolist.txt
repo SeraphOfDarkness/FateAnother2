@@ -56,4 +56,6 @@
 	"npc_dota_hero_nyx_assassin"		"1"
 	"npc_dota_hero_muerta"			"1"
 	"npc_dota_hero_terrorblade"			"1"
+	//"npc_dota_hero_slark"			"1"	
+	//"npc_dota_hero_lich"			"1"	
 }

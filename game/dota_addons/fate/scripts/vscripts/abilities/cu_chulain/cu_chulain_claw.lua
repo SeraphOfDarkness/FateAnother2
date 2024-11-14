@@ -71,6 +71,10 @@ function clawwrapper(abil)
 
 		giveUnitDataDrivenModifier(self.caster, self.caster, "pause_sealenabled", self.cast)
 
+		if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+			self.caster:EmitSound("Yukina_F")
+		end
+
 		Timers:CreateTimer(self.cast, function()
 
 			EmitSoundOnLocationWithCaster(self.target_loc, "Hero_MonkeyKing.Strike.Impact", self.caster)

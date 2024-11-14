@@ -87,7 +87,7 @@ function cugaebolgjump_wrapper(abil)
 			StartAnimation(self.caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=2})
 			local projectileOrigin = self.caster:GetAbsOrigin() + Vector(0,0,300)
 
-			local particle_name = "particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"
+			local particle_name = "particles/custom/lancer/lancer_gae_bolg_projectile_new.vpcf"
 			if self.caster:HasModifier("modifier_alternate_04") then 
 				particle_name = "particles/custom/lancer/lancer_white_gae_bolg_projectile.vpcf"
 			end

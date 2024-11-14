@@ -5,15 +5,12 @@ modifier_ishtar_combo_walk = class({})
 modifier_ishtar_combo_cast = class({})
 modifier_ishtar_combo_vision = class({})
 modifier_ishtar_combo_thinker = class({})
-modifier_ishtar_combo_camera = class({})
 modifier_ishtar_combo_cooldown = class({})
 LinkLuaModifier("modifier_ishtar_combo_walk", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_ishtar_combo_cast", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ishtar_combo_vision", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ishtar_combo_thinker", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ishtar_combo_camera", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ishtar_combo_cooldown", "abilities/ishtar/ishtar_combo_new", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_jeanne_vision", "abilities/jeanne/modifiers/modifier_jeanne_vision", LUA_MODIFIER_MOTION_NONE)
 
 function ishtar_combo:GetBehavior()
 	if self:GetCaster():IsRealHero() then 
@@ -65,6 +62,9 @@ function ishtar_combo:OnSpellStart()
 	self.caster:RemoveModifierByName("modifier_ishtar_combo_window")
 	self.caster:AddNewModifier(self.caster, self, "modifier_ishtar_combo_cooldown", {duration = self:GetCooldown(1)})
 
+	local ishtar_r = self.caster:FindAbilityByName(self.caster.RSkill)
+	ishtar_r:StartCooldown(ishtar_r:GetCooldown(ishtar_r:GetLevel()))
+	
 	self.aoe = self:GetSpecialValueFor("aoe")
 	self.damage = self:GetSpecialValueFor("damage")
 	local c_gem = self.caster:FindAbilityByName(self.caster.FSkill)
@@ -258,12 +258,6 @@ if IsServer() then
 	function ishtar_combo:ZoomOut()
 		local count_tick = 0
 	    local max_tick = 10
-
-	    --[[LoopOverPlayers(function(player, playerID, playerHero)
-	        if playerHero:GetTeamNumber() ~= self.caster:GetTeamNumber() and playerHero:IsAlive() and not playerHero:IsInvisible() then
-	        	playerHero:AddNewModifier(self.caster, self, "modifier_jeanne_vision", { Duration = self:GetSpecialValueFor("reveal") })
-	        end
-	    end)]]
 
 	    if not string.match(GetMapName(), "fate_elim") then return end
 	    if self.CameraTimerDown ~= nil then 
@@ -474,54 +468,12 @@ if IsServer() then
 	function modifier_ishtar_combo_vision:OnCreated(args)
 		self.caster = self:GetParent()
 		self.caster:SwapAbilities(self.caster.RSkill, "ishtar_combo_beam", false, true)
-		--self.caster:AddNewModifier(self.caster, self:GetAbility(), "modifier_ishtar_combo_camera", {duration = 1.0, ZoomOut = 1, camera = 1900})
 	end
 
 	function modifier_ishtar_combo_vision:OnDestroy()
 		self.caster:SwapAbilities(self.caster.RSkill, "ishtar_combo_beam", true, false)
-		--self.caster:AddNewModifier(self.caster, self:GetAbility(), "modifier_ishtar_combo_camera", {duration = 1.0, ZoomOut = -1, camera = 2400})
 	end
 end
-
-------------------------------------------------
-
-function modifier_ishtar_combo_camera:IsHidden() return true end
-function modifier_ishtar_combo_camera:IsDebuff() return false end
-function modifier_ishtar_combo_camera:IsPurgable() return false end
-function modifier_ishtar_combo_camera:RemoveOnDeath() return true end
-function modifier_ishtar_combo_camera:GetAttributes()
-    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
---[[function modifier_ishtar_combo_camera:OnCreated(args)
-	self.caster = self:GetParent()
-	if IsServer() then
-		self.pID = args.pID
-		print('player id ' .. self.pID)
-	    self.ply = PlayerResource:GetPlayer(self.pID)
-		self.count_tick = 0
-	    self.max_tick = 10
-		self.base_camera = 1900
-	    self.bonus_camera = 100
-	    self.current_camera = args.camera
-	    self:StartIntervalThink(0.34)
-	    self.ZoomOut = args.ZoomOut
-	end
-end
-
-function modifier_ishtar_combo_camera:OnIntervalThink()
-	if self.count_tick >= self.max_tick then 
-		self:Destroy()
-	end
-	if self.ZoomOut == 1 then
-		self.current_camera = math.min(self.current_camera + (self.bonus_camera * self.ZoomOut), self.base_camera + (self.max_tick * self.bonus_camera))
-	else
-		self.current_camera = math.max(self.current_camera - self.bonus_camera, self.base_camera)
-	end
-    CustomGameEventManager:Send_ServerToPlayer( self.ply, "cam_distance", {camera= self.current_camera} )
-
-	self.count_tick = self.count_tick + 1 
-end]]
 
 -------------------------------------------
 
@@ -544,67 +496,11 @@ function modifier_ishtar_combo_cast:CheckState()
 end
 
 function modifier_ishtar_combo_cast:OnCreated(args)
-	--[[self.caster = self:GetParent()
-	self.aoe = self:GetAbility():GetSpecialValueFor("aoe")
-	self.damage = self:GetAbility():GetSpecialValueFor("damage")
-	self.gem_damage = self:GetAbility():GetSpecialValueFor("gem_damage")
-	self.dps = self:GetAbility():GetSpecialValueFor("dps")
-	self.dps_duration = self:GetAbility():GetSpecialValueFor("dps_duration")
-	self.speed = 10000
-	self.gem_consume = self:GetAbility():GetGemConsume()
-	self.bonus_damage = self.gem_damage * self.gem_consume]]
+
 end
 
 function modifier_ishtar_combo_cast:OnDestroy()
-	--[[if self.caster:IsAlive() then 
-		self.target_loc = self:GetAbility():GetTargetLoc()
-		local distance = (self.target_loc - self.caster:GetOrigin()):Length2D()
 
-		self.throw_particle = ParticleManager:CreateParticle("particles/ishtar/ishtar_combo/projectile/ishtar_projectile_main_main.vpcf", PATTACH_WORLDORIGIN, self.caster)
-		ParticleManager:SetParticleControl(self.throw_particle, 0, self.caster:GetOrigin())
-		ParticleManager:SetParticleControl(self.throw_particle, 1, (self.target_loc - self.caster:GetOrigin()):Normalized() * self.speed)
-		ParticleManager:SetParticleControl(self.throw_particle, 9, self.caster:GetOrigin())
-
-		Timers:CreateTimer(distance/self.speed, function()
-			ParticleManager:DestroyParticle(self.throw_particle, false)
-			ParticleManager:ReleaseParticleIndex(self.throw_particle)
-
-			local pcExplosion = ParticleManager:CreateParticle("particles/ishtar/ishtar_combo/impact/ishtar_combo_impact.vpcf", PATTACH_WORLDORIGIN, nil)
-    		ParticleManager:SetParticleControl(pcExplosion, 0, self.target_loc)
-
-			EmitGlobalSound("Ishtar.ComboImpact1")
-			EmitGlobalSound("Ishtar.ComboImpact2")
-			EmitGlobalSound("Ishtar.ComboImpact3")
-			EmitGlobalSound("Ishtar.ComboImpact4")
-
-			Timers:CreateTimer(0.23, function()
-				EmitGlobalSound("Ishtar.ComboImpactOuter")
-				ParticleManager:DestroyParticle(pcExplosion, false)
-				ParticleManager:ReleaseParticleIndex(pcExplosion)
-				local origin = self:GetAbility():GetOriginLoc()
-				self.portal_in_fx2 = ParticleManager:CreateParticle("particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_darkrift_end_lensflare.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
-				ParticleManager:SetParticleControl(self.portal_in_fx2, 2, self.caster:GetOrigin())	
-				self.portal_out_fx2 = ParticleManager:CreateParticle("particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_darkrift_end_lensflare.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
-				ParticleManager:SetParticleControl(self.portal_out_fx2, 2, origin)	
-			end)
-
-			local target_area = FindUnitsInRadius(self.caster:GetTeam(), self.target_loc, nil, self.aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			for k,v in pairs(target_area) do 
-				if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then 
-					DoDamage(self.caster, v, self.damage + self.bonus_damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-				end
-			end
-			CreateModifierThinker(self.caster, self:GetAbility(), "modifier_ishtar_combo_thinker", { Duration = self.dps_duration,
-																				 Damage = self.dps,
-																				 Radius = self.aoe}
-																				, self.target_loc, self.caster:GetTeamNumber(), false)
-			Timers:CreateTimer(0.5, function()
-				EmitGlobalSound("Ishtar.ComboTeleport")
-				self.caster:AddNewModifier(self.caster, nil, "modifier_camera_follow", {duration = 1.0})
-				self.caster:SetAbsOrigin(self:GetAbility():GetOriginLoc())
-			end)
-		end)
-	end]]
 end
 
 ----------------------

@@ -4245,6 +4245,7 @@ At the end of <font color='#FFFF28'>Battle Continuation</font>, Cu Chulainn plac
         //      Lancer(4th)
         //====================================
         "npc_dota_hero_huskar"  "Diarmuid"
+        "npc_dota_hero_huskar_1"  "[Limited] Rentaro"
         "npc_dota_hero_huskar_summon"		"Servant <font color='#58ACFA'>Diarmuid</font> has been summoned."
         "npc_dota_hero_huskar_enable_combo"	"Enable Combo: Rampant Warrior"
 
@@ -16631,6 +16632,7 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         //====================================
         "npc_dota_hero_slark"             "Mysterious Heroine X"
         "npc_dota_hero_slark_1"             "[Heroic] Caped Mysterious Heroine X"
+        "npc_dota_hero_slark_2"             "[Limited] Spriggan Kirito"
         "npc_dota_hero_slark_summon"		"Servant <font color='#58ACFA'>Mysterious Heroine X</font> has been summoned."
         "npc_dota_hero_slark_enable_combo"	"Enable Combo: Secret Calibur - Sword of Unsigned Victory"
 
@@ -16769,6 +16771,14 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         "DOTA_Tooltip_modifier_mhx_r_charging"                           "Charging up."
 
         "DOTA_Tooltip_modifier_mhx_combo_cooldown"            			"Combo Cooldown"
+
+        //====================================
+        //      Ereshkigal
+        //====================================
+        "npc_dota_hero_lich"             "Ereshkigal" 
+        "npc_dota_hero_lich_1"            "[Legend] Zettai Kyouiki Rin Ishtar"
+        "npc_dota_hero_lich_summon"		"Servant <font color='#58ACFA'>Ereshkigal</font> has been summoned."
+        "npc_dota_hero_lich_enable_combo"	"Enable Combo: Jabal Hamlin Breaker - Mountain Range-Shaking Firewood of Venus"
 
 
 		///////////////////////////////////////////////////

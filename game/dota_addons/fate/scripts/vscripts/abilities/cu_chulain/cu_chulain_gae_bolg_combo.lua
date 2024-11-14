@@ -2,8 +2,10 @@ cu_chulain_gae_bolg_combo = class({})
 cu_chulain_gae_bolg_combo_upgrade = class({})
 modifier_cu_wesen_anim = class({})
 modifier_wesen_cooldown = class({})
+modifier_cu_wesen_anim_hibernate = class({})
 
 LinkLuaModifier("modifier_cu_wesen_anim", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_cu_wesen_anim_hibernate", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_wesen_cooldown", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 
 function wesenwrapper(abil)
@@ -71,7 +73,12 @@ function wesenwrapper(abil)
 		end
 
 		giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealdisabled", 3.0)
-		--StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
+		
+		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim", { Duration = 5 ,
+																					Damage = self:GetSpecialValueFor("damage"),
+																					HB = self:GetSpecialValueFor("hb_threshold"),
+																					Stun = self:GetSpecialValueFor("stun")})
+		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim_hibernate", { Duration = 5 })
 		Timers:CreateTimer(1.6, function()
 			if hCaster:IsAlive() then
 				if hCaster:HasModifier("modifier_alternate_02") then 
@@ -101,14 +108,14 @@ function wesenwrapper(abil)
 		hCaster:FindAbilityByName(hCaster.ESkill):StartCooldown(hCaster:FindAbilityByName(hCaster.ESkill):GetCooldown(hCaster:FindAbilityByName(hCaster.ESkill):GetLevel()))
 
 		Timers:CreateTimer(1.8, function() 
-			if (hCaster.IsHeartSeekerAcquired or hCaster:IsAlive()) and hCaster:IsAlive() then
+			if (hCaster.IsHeartSeekerAcquired or hCaster:IsAlive()) and hTarget:IsAlive() then
 
-				if not IsValidEntity(hTarget) or hTarget:IsNull() then return end
+				hCaster:RemoveModifierByName("modifier_cu_wesen_anim_hibernate")
 
-				hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim", { Duration = 3 ,
-																					Damage = self:GetSpecialValueFor("damage"),
-																					HB = self:GetSpecialValueFor("hb_threshold"),
-																					Stun = self:GetSpecialValueFor("stun")})
+				if not IsValidEntity(hTarget) or hTarget:IsNull() then 
+					hCaster:RemoveModifierByName("modifier_cu_wesen_anim")
+				end
+
 			end
 		end)
 	end
@@ -122,7 +129,7 @@ wesenwrapper(cu_chulain_gae_bolg_combo_upgrade)
 function modifier_cu_wesen_anim:IsHidden() return true end
 function modifier_cu_wesen_anim:IsDebuff() return false end
 function modifier_cu_wesen_anim:IsPurgable() return false end
-function modifier_cu_wesen_anim:RemoveOnDeath() return true end
+function modifier_cu_wesen_anim:RemoveOnDeath() return false end
 function modifier_cu_wesen_anim:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -131,7 +138,11 @@ function modifier_cu_wesen_anim:DeclareFunctions()
 			MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE }
 end
 function modifier_cu_wesen_anim:GetOverrideAnimation()
-	return ACT_DOTA_CAST_ABILITY_1
+	if not self:GetParent():HasModifier("modifier_cu_wesen_anim_hibernate") then
+		return ACT_DOTA_CAST_ABILITY_5
+	else
+		return nil 
+	end
 end
 function modifier_cu_wesen_anim:CheckState()
     local state = { [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
@@ -155,6 +166,11 @@ function modifier_cu_wesen_anim:OnCreated(args)
 	self.stun = args.Stun 
 	self.HB = args.HB
 
+	--[[if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+		self.shadowfx = ParticleManager:CreateParticle( "particles/custom/lancer/yukina_combo_shadow.vpcf", PATTACH_ABSORIGIN, self.caster )
+		ParticleManager:SetParticleControlEnt(self.shadowfx, 0, self.caster, PATTACH_ABSORIGIN, "attach_origin", self.caster:GetAbsOrigin(), false)
+	end]]
+
 	if IsServer() then 
 		self.dash_duration = self:GetRemainingTime()
 		self.speed = 3000
@@ -167,6 +183,10 @@ function modifier_cu_wesen_anim:OnCreated(args)
 end
 
 function modifier_cu_wesen_anim:UpdateHorizontalMotion(me, dt)
+
+	if self.caster:HasModifier("modifier_cu_wesen_anim_hibernate") then 
+		return nil 
+	end
 
     if IsInSameRealm(self.caster:GetAbsOrigin(), self.target:GetAbsOrigin()) then 
         self.speed = 3000
@@ -182,6 +202,10 @@ function modifier_cu_wesen_anim:UpdateHorizontalMotion(me, dt)
         return nil
     end
 
+    --[[if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+		ParticleManager:SetParticleControlEnt(self.shadowfx, 0, self.caster, PATTACH_ABSORIGIN, "attach_origin", self.caster:GetAbsOrigin(), false)
+	end]]
+
     self:Dash(me, dt)
 end
 
@@ -194,6 +218,7 @@ function modifier_cu_wesen_anim:Dash(me, dt)
     local target = pos + direction:Normalized() * (self.speed * dt)
 
     self.caster:SetOrigin(target)
+    --self.caster:SetForwardVector(direction:Normalized())
     self.caster:FaceTowards(targetpos)
 end
 
@@ -204,6 +229,12 @@ function modifier_cu_wesen_anim:WesenHit()
 	Timers:CreateTimer( 3.0, function()
 		ParticleManager:DestroyParticle( RedScreenFx, false )
 	end)
+
+	--[[if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+		ParticleManager:DestroyParticle(self.shadowfx, true)
+		ParticleManager:ReleaseParticleIndex(self.shadowfx)
+	end]]
+
 	self.target:EmitSound("Hero_Lion.Impale")
 	if self.caster:HasModifier("modifier_alternate_02") then 
 		StartAnimation(self.caster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=1})
@@ -221,7 +252,7 @@ function modifier_cu_wesen_anim:WesenHit()
 
 	DoDamage(self.caster, self.target, self.damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
 
-	if IsValidEntity(target) and not target:IsNull() and target:IsAlive() then
+	if IsValidEntity(self.target) and not self.target:IsNull() and self.target:IsAlive() then
 		if self.target:GetHealthPercent() <= self.HB and not self.target:IsMagicImmune() and not IsUnExecute(self.target) then
 			local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, self.target)
 			ParticleManager:SetParticleControl( hb, 0, self.target:GetAbsOrigin())
@@ -271,5 +302,15 @@ function modifier_wesen_cooldown:IsDebuff() return true end
 function modifier_wesen_cooldown:IsPurgable() return false end
 function modifier_wesen_cooldown:RemoveOnDeath() return false end
 function modifier_wesen_cooldown:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+---------------------
+
+function modifier_cu_wesen_anim_hibernate:IsHidden() return true end
+function modifier_cu_wesen_anim_hibernate:IsDebuff() return false end
+function modifier_cu_wesen_anim_hibernate:IsPurgable() return false end
+function modifier_cu_wesen_anim_hibernate:RemoveOnDeath() return false end
+function modifier_cu_wesen_anim_hibernate:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

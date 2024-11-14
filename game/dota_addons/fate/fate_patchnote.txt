@@ -1,4 +1,553 @@
 
+Fix Cu combo
+Fix Terrain
+Update minimap
+upgrade some sfx
+[Limited] Shu available in skin shop
+
+-----------
+
+Fix Terrain
+Ban player now got instant random
+Fix no random hero at the end of hero selection
+
+----------
+
+Update terrain
+Fix Ishtar R wont cooldown after combo
+
+Astolfo
+-Trap of Argalia
+no longer use while being rooted
+
+Cu
+-Piercin Spear
+Charge time: 0.3 >> 0.2
+double speed
+
+-Claw of Sky
+Cast Range: 300 >> 400
+AOE: 300 >> 250
+
+--------
+
+Fix Cu skill can reset, combo not hit while ded
+Fix Sound
+
+--------
+
+Fix Autobalance
+Fix Sound
+
+---------
+
+Fix Cu
+Fix Lu Bu
+Fix Artoria sound
+
+----------
+
+Rework Cu Chulainn's Q W SA 4,5 + New skill
+
+Frankenstein
+-Attribute: Bridal Chest
+Electric Shield Max Amount: 100% Max HP >> 70% Max HP
+
+Atalanta Alter
+-Curse of Calydonian Boar
+Evil Beast bonus damage: 100 >> 80
+Evil Beast splash damage: 100% >> 80%
+
+-Beast Transformation
+Attack Count: 4 5 6 7 8 >> 3 3 4 4 5
+Attack Damage: 70% >> 50%
+
+-Crossing Arcadia
+AOE: 400 >> 300
+
+-Attribute: Wild Beast Logic
+Crossing Arcadia Pull Radius: 700 >> 600
+Crossing Arcadia Pull Distance: 400 >> 300
+
+-Attribute: Curse Moon
+Combo Bonus damage per curse stack: 1% >> 0.7%
+
+--------
+
+Fix Tooltip
+Add [Limited] Melusine (Lancelot) 
+
+-------
+
+Fix MHX anim, cooldown indicator, suggest item
+Fix not Random hero when time out
+Fix Ishtar F
+Fix Tooltip
+Add Skin Shop Showcase
+
+--------
+
+Fix MHX R
+Fix Robin Skill layout after take SA
+Fix MHX model
+Fix Penalty ban
+
+----------
+
+Fix tooltip
+Fix saito dash out of map
+Add tour team
+
+-------
+
+Fix IO not random
+
+---------
+
+Fix Gilles-squid select hero
+Fix Tooltip
+Fix new Robin poison can not be dispel
+Update Draft ban order
+
+Add Gift Code
+Code: Tour4-2
+Reward: 2000 CP 
+Available date til 21/10/24
+
+Robin
+-Attribute: Rightenious Thief
+Steal Gold: 30 >> 50
+
+Tamamo
+-Attribute: Territory Creation
+Amaterasu Silence: 0.5 0.75 1 1.25 1.5 >> 0.2 0.4 0.6 0.8 1.0
+
+Semiramis
+-Binding Chain
+Max Duration: 2 2.5 3 3.5 4 >> 2 2.25 2.5 2.75 3
+Min Duration: 1 1.25 1.5 1.75 2 >> 0.6 0.7 0.8 0.9 1
+
+Gilles
+-Abyssal Contract
+Squid now refresh QWE cooldown
+
+-----------
+
+Tamamo
+-Subteranean Grasp
+Cast Range: 1200 >> 600 700 800 900 1000
+
+-Attribute: Witchcraft
+Fiery Explode no longer stun
+Fiery Explode damage: 50 >> 200
+Frigid Freeze now reducing healing effect by 30%
+
+-Attribute: Territory Creation
+Amaterasu Silence: 1.5 >> 0.5 0.75 1 1.25 1.5
+Amaterasu Instant Heal: 30% >> 20%
+Cooldown Reduction: 20 >> 12
+
+Robin
+Remove Clavoyance + Attribute: No Face May King
+Add new SA(One drop of a Viper)
+
+-Nirnroot Sommersault
+Stun Duration: 1 1.25 1.5 1.75 2 >> 0.4
+Now knockback target 200
+Now Robin become invulnerable while dash back
+
+-Mandrake Bomb
+Now become Trap
+Trigger radius: 200
+Smoke AOE: 400
+No more damage to healing target
+Now reduce attack: -4% -8% -12% -16% -20%
+reduce all stat: 2 4 6 8 10
+
+-Hunter Rain
+No longer slow
+
+-Combo: Yew Bow - Bow of Prayer
+DPS: 300 >> 180
+Poison Duration: 3.5 >> 6
+Yew Bow chain damage: 700 >> 400
+Root chain damage: 400 >> 200
+Mandrake chain damage: 300 >> 150
+Paralyze chain damage: 200
+Viper chain damage: 200
+
+-Attribute: Subversive Activities
+Pit Fall: now drag enemy to center of trap
+Explosive Barrel: increase 100 damage
+
+-Attribute: Taxine
+Nirnroot Sommersault will apply Paralyze debuff
+Paralyze duration: 1 1.25 1.5 1.75 2
+Paralyze slow: 100%
+
+-Attribute: Rightenious Thief
+Cost: 12 >> 16
+Enable Rightenious Thief: +200vision +40%attack speed +4Gold per sec
+Normal attack will steal 30Gold from enemy hero
+If enemy has gold less than 40% of Robin gold, Robin deal bonus 1xAGI pure damage to target
+Faceless King become No Face May King
+No Face May King can be activated.
+While invis, next Arrow skills(Nirnroot Sommersault, Yew Bow, Hunter Rain) will deal bonus 2xAGI magic damage to target
+
+-Attribute: Guerilla
+Enable Hunter Rain
+
+-Attribute: One drop of a Viper
+Cost 12
+Enable One drop of a Viper: every 3 hits of Robin normal attack, next attack will apply random poison from his skills to target (default: yew bow + yew bow root, when take SA will unlock more poison)
+Hunter Rain will apply Viper Venom (blind + silence)
+Viper Venom duration: 0.4 0.6 0.8 1.0 1.2
+
+--------
+
+Enable Okita
+
+Okita
+-Attribute: Tennen
+Beam damage: 500 + (300% x ATK) + (AGI x 3) >> 500 + (200% x ATK) + (AGI x 3)
+
+Atalanta
+-Celestial Arrow
+Bonus Toggle damage: 30 40 50 60 70 >> 20 25 30 35 40
+Mana Cost: 50 >> 30
+
+-Tauropolos
+Bonus ASPD: 60 75 90 105 120 >> 40 50 60 70 80
+
+-------
+
+Disable Okita
+
+----------
+Disable Musashi
+Fix CP Shop
+Fix Chatbox button
+
+Cu Chulainn
+-Wesen Gaebolg
+Damage: 1400 >> 1700
+No longer strong dispel target
+
+--------
+
+Fix non spawn hero
+
+Saito
+-Mind Eye
+Root Duration: 2.25s > 1.5s
+
+-Freely Drawn Sword
+Damage Reduction max Stack: 5 5 6 6 7 >> 5
+
+-Attribute: Kijinmaru Kunishige
+Formless Slash revoke damage: 2.5 >> 1.3
+
+-Attribute: Freestyle
+Aura Max Damage Reduction: -30% >> -20%
+Aura Min Damage Reduction: -15% >> -10%
+
+-Attribute: Memoir
+Okita bonus AGI: 3 >> 1
+
+Musashi
+-Accel Turn
+Cooldown: 23 21 19 17 15 >> 19 18 17 16 15
+Dash Back Distance: 500 600 700 800 900 >> 500 550 600 650 700
+
+-Attribute: Battle Continuation
+Duration: 3s >> 2s
+
+Lancelot
+-Double Edge
+Bonus Damage taken: 30% 27.5% 25% 22.5% 20% >> 30% 27% 24% 21% 18%
+
+Atalanta
+-Celestial Arrow
+Mana Cost: 10 >> 50
+
+Zhuge Liang
+-Strategy Advice: Offense
+Bonus ATK: 20% 25% 30% 35% 40% >> 10% 15% 20% 25% 30%
+Bonus ASPD: 20% 25% 30% 35% 40% >> 10% 15% 20% 25% 30%
+
+-Unreturn Formation
+Armor Reduction: 10% 15% 20% 25% 30% >> 10% 14% 18% 22% 26%
+MR Reduction: 10% 15% 20% 25% 30% >> 10% 14% 18% 22% 26%
+
+-Attribute: Chu Shi Biao
+Offense crit: 25% >> 20%
+Offense Crit DMG: 150% >> 130%
+
+-------
+
+Fix Elizabeth's R/Combo to Cage deal damage to Invulnerable ability(Vlad BC, etc)
+Fix Robin theif gold gain
+Fix Heracles can use Nine while Berserk with SA
+Fix Portrait size
+
+Code: 1stCPEvent
+Reward: 5000 CP 
+Available date til 14/10/24
+
+Edmond
+-Monte Cristo Mythology
+Cast time: 0.7s >> 0.5
+now become uninterrupt cast
+
+---------
+
+Fix Tooltip
+Fix Hitbox
+Adjust database request timer
+Adjust Gift Code Box
+Add [Limited] Himeraki Yukina (Cu Chulainn)
+
+Lancelot
+-Rosa
+Stun duration: 0.7s >> 0.9s
+
+Muramasa
+-Tsumukari Muramasa
+Delay before explode: 1.05s >> 0.9s
+
+Meltryllis
+-Attribute: Melt Virus
+Cost: 8 >> 9
+virus can be stackable and deal bonus 3 damage per stack
+virus slow 1% per stack
+
+----------
+
+Add Gift Code
+
+Code: FarewellSSS
+Reward: 10000 CP 
+Available date til 01/10/24
+
+---------
+
+Add [Legend] Wedding Chloe
+
+Hassan
+-Attribute: Shadow Strike
+Now increase Zabaniya speed by 300
+
+--------
+
+Add [MEME] Samurai Doge
+
+-------
+
+Fix Skin Shop
+Add Config Unselected Master 2
+
+-----------
+
+* [LIMITED] Shalltear Bloodfallen
+- Improved/updated BGM and SFX
+- Now has special Arcana particles on abilities when skin is used
+
+* Gilgamesh
+- COMBO: The Final Hour sequence changed from E - Q > F to E - Q > D
+- Updated CN Tooltips
+- Updated EN Tooltips
+
+-----------
+
+Fix Grail Draw
+Fix Robin R Heal Reduction
+Fix Draft Ban
+Fix Jeanne combo error with Mashu Shield
+
+Draft Ban time: 20s >> 30s
+Grail Draw Cooldown: 10 min >> 20 min
+Grail capture time: 10s >> 30s
+Add ALT+LMB to suggest hero selection in Draft Mode
+Grail Draw Reward: 1 shard >> 10 Mana + 6 Hp (+1 shard for random player who stay in circle)
+Recalculate Grail capture progress (maximum 7 >> 2)
+
+------
+
+Fix Mashu hitbox
+Add [Legend] Okita Jetpack
+
+--------
+
+Add [Heroic] Unarmored Mashu
+
+Vlad
+-Attribute: Instant Curse
+Cost: 6 >> 10
+Vlad become immune to most of crowd control
+At the end of duration, remove negative effect to Vlad
+
+Li Shuwen
+-Tiger Strike
+3rd Damage: 450 525 600 675 750 >> 400 450 500 550 600
+
+-Berserk
+Tiger STrike (Berserk) Crit damage: 200% >> 150%
+
+King Hassan
+-Combo
+Target will get 50% heal reduction
+
+Robin
+-Yew Bow
+Poison has 10% heal reduction
+
+-Attribute: Taxine of Yew Tree
+Bonus Heal Reduction: 10%
+
+-----------
+
+Vlad
+-Attribute: Innocent Monster
+While Rebellious Intent active, Vlad become immune to most of crowd control
+
+---------
+
+Fix BGM
+Fix Han's skin illusion model
+
+Vlad
+-Battle Continuation
+Now can use while being stunned
+
+--------
+
+* Fixed bug where gold is not granted from killing neutral and non-hero units
+
+* Gold from -gold can now work to be transferred to allies
+* -all now only transfers gold to allies that are not dead
+* Shard of Avarice can now only be taken up to 4 times max for each team
+
+* Shard of Anti-Magic
+- Now also grants CC immunity
+- Updated tooltips
+
+* Shard of Replenishment
+- Now bonus health regen and mana regen can no longer be dispelled
+
+Angra Mainyu
+
+* Verg Avesta Marker [DEBUFF]
+- Now works with enemies within mounted units and invulnerable enemies
+
+Atalanta
+
+* Calydonian Snipe [SA] can now be toggled on/off on Calydonian Hunt [W] to enable or disable the high camera
+
+* Updated tooltips
+
+Astolfo
+
+* Hippogriff - Ride [COMBO]
+- Rush damage increased from 800 to 900
+
+* Evaporation of Sanity [SA]
+- Casa Di Logistilla [F] active magic resistance increased from 90% to 100%
+
+Chloe von Einzbern
+
+* Spellbook can now be opened/closed while stunned/silenced or using other abilities
+
+* Rosa Ichthys [E] [E]
+- Stun duration increased from 0.7 to 1
+
+* Fake Nine Lives [E] [R]
+- Cast range increased from 250 to 350
+- Maximum range increased from 350 to 450
+
+* Improve Projection Magic [SA]
+- Rho Aias Image [E] [D] knock distance reduced from 300 to 250
+
+Drake
+
+* Fixed Golden Hind not granting gold when killed
+
+* Golden Hind [UNIT]
+- Now has 600 BountyXP and 2500 BountyGoldMinMax
+
+Edmond Dantes
+
+* Monte Cristo Mythology [R]
+- Now no longer immediate and has 0.7 cast point
+
+Jack the Ripper
+
+* Maria the Ripper (Curse) [R]
+- Removed the extra hidden clause that deals 9999 pure damage, if the target can not be executed from Maria the Ripper (curse), so now it just works as a normal execution
+
+Jeanne d'Arc
+
+* Fixed God's Resolution [E] attack speed reduction not working
+* Fixed God's Resolution Praying not granting 20 armor and 20 magic resistance bonus
+* Fixed Purge the Unjust [W] ability level from 5 to 6
+
+* Punishment [SA]
+- God's Resolution [E] pillar damage increased from 200 to 300
+
+Medea
+
+* Workshop
+- BountyXP increased from 200 to 300
+
+Musashi
+
+* Ganryuu Jima [R]
+- Now can cast again inside the marble area
+
+Saitō Hajime
+
+* Fixed Undefeated Style [COMBO] revoke/stun not removed on null units
+* Fixed/removed hidden feature from Invincible Sword [SA] Q -> W
+
+* Flashblade [Q]
+- After image radius increased from 260 to 270
+
+* Steelwing [W]
+- Knockback radius reduced from 350 to 340
+
+* Shadowslash [E]
+- Pull radius increased from 360 to 370
+
+* Formlessness [R2]
+- Now no longer pierces spell immunity
+
+* Tetra-Step [Q2]
+- AoE radius increased from 315 to 325
+
+* Undefeatable Style [COMBO]
+- Cooldown increased from 150 to 180
+
+Semiramis
+
+* Hanging Gardens of Babylon [UNIT]
+- BountyXP increased from 150 to 300
+- BountyGoldMinMax increased from 1000 to 2000
+
+Tamamo no Mae
+
+* Soulstream [Q]
+- Cooldown increased from 3 3 2 2 1 to 3 2.6 2.2 1.8 1.4
+
+* Eightfold Blessing of Amaterasu [R]
+- Health restore per cast reduced from 300 to 200
+
+Zhuge Liang
+
+* Added Lua error prevention for Unreturn Formation Sentinel Maze [R] lock
+
+* Unreturn Formation Sentinel Maze [R]
+- Now no longer pierces spell immunity
+
+
 Fix Vlad shield
 
 Medusa

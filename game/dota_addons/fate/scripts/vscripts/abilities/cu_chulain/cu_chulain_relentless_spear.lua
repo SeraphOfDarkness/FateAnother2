@@ -80,9 +80,9 @@ function relentlesswrapper(abil)
 		local caster = self:GetCaster()
 		caster:RemoveModifierByName("modifier_relentless_spear")
 		if caster.IsCelticRuneAcquired then 
-			if bInterrupted == false then 
+			--if bInterrupted == false then 
 				self:ApplyRuneFerocity(self:GetSpecialValueFor("bonus_aspd_dur"))
-			end
+			--end
 		end
 	end
 

@@ -57,8 +57,11 @@ function gae_buidhe_wrapper(ability)
 		--caster:EmitSound("ZL.Buidhe_Cast")
 
 		self.SoundQueue = math.random(1,2)
-
-		caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
+		if caster:HasModifier("modifier_alternate_01") then 
+	    	caster:EmitSound("Rentaro_E_Cast")
+	    else
+			caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
+		end
 
 		local particle = ParticleManager:CreateParticle("particles/custom/diarmuid/diarmuid_gae_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
@@ -96,8 +99,13 @@ function gae_buidhe_wrapper(ability)
 		local healthDiff = target:GetHealth()
 		local hp_dmg_lock = self:GetSpecialValueFor("hp_dmg_lock")
 
-		EmitGlobalSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
-		target:EmitSound("Hero_Lion.Impale")
+		if caster:HasModifier("modifier_alternate_01") then 
+	    	EmitGlobalSound("Rentaro_E_Hit")
+	    	target:EmitSound("Rentaro_E_SFX")
+	    else
+			EmitGlobalSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
+			target:EmitSound("Hero_Lion.Impale")
+		end
 		
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=2})
 

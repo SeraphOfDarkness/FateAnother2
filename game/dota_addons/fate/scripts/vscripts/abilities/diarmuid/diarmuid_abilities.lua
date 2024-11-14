@@ -43,7 +43,7 @@ function OnMindsEyeStart(keys)
 	local ability = keys.ability 
 	local duration = ability:GetSpecialValueFor("duration")
 	local dash = ability:GetSpecialValueFor("dash")
-	local dash_dur = 0.2
+	local dash_dur = 0.1
 	local target_loc = ability:GetCursorPosition()
 	local bonus_vision = ability:GetSpecialValueFor("bonus_vision")
 	local vision_duration = ability:GetSpecialValueFor("vision_duration")
@@ -60,10 +60,14 @@ function OnMindsEyeStart(keys)
 	giveUnitDataDrivenModifier(caster, caster, "drag_pause", dash_dur)
 	StartAnimation(caster, {duration=dash_dur, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
 
+	if caster:HasModifier("modifier_alternate_01") then 
+    	caster:EmitSound("Rentaro_F")
+    end
+
 	local dash = Physics:Unit(caster)
 	caster:PreventDI()
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * 1400)
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * 3000)
 	caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 	caster:FollowNavMesh(false)
 	ProjectileManager:ProjectileDodge(caster)
@@ -98,6 +102,10 @@ function OnChargeStart(keys)
 	local rampant_cooldown = ability:GetSpecialValueFor("rampant_cooldown")
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+
+	if caster:HasModifier("modifier_alternate_01") then 
+    	caster:EmitSound("Rentaro_Q")
+    end
 
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=1.0})
 
@@ -168,7 +176,11 @@ function OnDoubleSpearStart(keys)
 		return
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_double_spearsmanship_active", {})
-	caster:EmitSound("Diarmuid_Skill_1")
+	if caster:HasModifier("modifier_alternate_01") then 
+    	caster:EmitSound("Rentaro_W")
+    else
+		caster:EmitSound("Diarmuid_Skill_1")
+	end
 end
 
 function OnDoubleSpearProc(keys)
@@ -461,7 +473,12 @@ function OnRampantWarriorStart(keys)
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(ability:GetCooldown(1))
 	ability:StartCooldown(ability:GetCooldown(1))
-	EmitGlobalSound("Diarmuid_Combo_" .. math.random(1,2))
+	if caster:HasModifier("modifier_alternate_01") then 
+    	EmitGlobalSound("Rentaro_Combo")
+    	EmitGlobalSound("Rentaro_BGM")
+    else
+		EmitGlobalSound("Diarmuid_Combo_" .. math.random(1,2))
+	end
 end
 
 function DiarmuidCheckCombo(caster,ability)

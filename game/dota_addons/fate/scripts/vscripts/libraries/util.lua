@@ -1,6 +1,7 @@
 -- where the misc functios gather
 heroList = LoadKeyValues("scripts/npc/herolist.txt")
 testList = LoadKeyValues("scripts/npc/herotest.txt")
+hiddenList = LoadKeyValues("scripts/npc/hero_hidden.txt")
 aotkCenter = Vector(500, -4800, 208)
 ubwCenter = Vector(5600, -4398, 200)
 fate_ability_count = LoadKeyValues("scripts/npc/fate_ability_count.txt")
@@ -387,6 +388,8 @@ locks = {
     "modifier_mashu_protect_self",
     "modifier_melt_combo_slow",
     "modifier_medea_trap_lock",
+    "modifier_ereshkigal_cage",
+    "modifier_ereshkigal_marble_aura_debuff",
 }
 
 no_tp = {
@@ -666,11 +669,13 @@ CannotReset = {
     "archer_hrunting",
     "archer_hrunting_upgrade",
     "archer_arrow_rain",
-    "lancer_battle_continuation",
-    "lancer_battle_continuation_upgrade",
-    "lancer_protection_from_arrows",
-    "lancer_wesen_gae_bolg",
-    "lancer_wesen_gae_bolg_upgrade",
+    "cu_chulain_battle_continuation",
+    "cu_chulain_battle_continuation_upgrade_1",
+    "cu_chulain_battle_continuation_upgrade_2",
+    "cu_chulain_battle_continuation_upgrade_3",
+    "cu_chulain_protection_from_arrows",
+    "cu_chulain_gae_bolg_combo",
+    "cu_chulain_gae_bolg_combo_upgrade",
     "medusa_bellerophon_2",
     "medusa_bellerophon_2_upgrade",
     "medusa_bloodfort_andromeda",
@@ -2223,7 +2228,7 @@ end
 function OnExperienceZoneThink(keys)
     local hero = keys.target
     local gold = keys.ability:GetSpecialValueFor("gold")
-    if hero:IsRealHero() and hero:IsHero() and not hero:IsIllusion() and (heroList[hero:GetName()] == 1 or testList[hero:GetName()] == 1) then
+    if hero:IsRealHero() and hero:IsHero() and not hero:IsIllusion() and (heroList[hero:GetName()] == 1 or testList[hero:GetName()] == 1 or hiddenList[hero:GetName()] == 1 ) then
         hero:SetGold(hero:GetGold() + gold, true)
         if hero:GetLevel() < 24 then
             hero:AddExperience(hero:GetLevel() * 2 + 15, false, false)

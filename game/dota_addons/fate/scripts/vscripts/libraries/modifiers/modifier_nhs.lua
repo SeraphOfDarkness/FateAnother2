@@ -221,18 +221,18 @@ function HeroSelectioN:constructor()
 
 						if iupoasldm.jyiowe[i].IFY.PM == -10 then -- BAN Player
 							print('player ' .. i .. ' is banned.')
-							local ddt = PlayerTables:GetAllTableValues("hHero", i)
+							--[[local ddt = PlayerTables:GetAllTableValues("hHero", i)
 							local IOHero = PlayerResource:GetSelectedHeroEntity(i) or (ddt ~= nil and EntIndexToHScript(ddt.io) )
 							if string.match(IOHero:GetUnitName(),"wisp") then
 								UTIL_Remove(IOHero)
-							end
+							end]]
 							self.BanPlayer[i] = 1
 
-							if IsServer() then
+							--[[if IsServer() then
 					            DisconnectClient(i, true)
-					        end
+					        end]]
 					        CustomNetTables:SetTableValue("nselection", "banplayer", self.BanPlayer)
-							CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=i, chattype=-1, text=" is BANNED."} )
+							CustomGameEventManager:Send_ServerToAllClients( "fate_chat_display", {playerId=i, chattype=-1, text=" is BANNED and instant RANDOM."} )
 						end
 
 						if iupoasldm.jyiowe[i].LD.ACD == nil or iupoasldm.jyiowe[i].LD.ACD < 3 then 
@@ -437,20 +437,33 @@ function HeroSelectioN:constructor()
 
 		        	Timers:CreateTimer(self.pick_time, function() 
 
-		        		Timers:CreateTimer(self.strategy_time + self.standby_time + 5, function() 
-				        	GameRules:ForceGameStart()
-			    			CustomGameEventManager:Send_ServerToAllClients( "bgm_intro", {bgm=1} )	
-			    			GameRules.AddonTemplate:CheckCondition()
-			    		end)
-			    		if self.sameheromode == true then 
+		        		if self.sameheromode == true then 
 			    			self:OnSameHeroVoteFinal()
 			    		else
 		        			self:OnDCRandom()
 		        		end
 		        		Timers:CreateTimer(self.strategy_time, function() 
 			    			self:OnSummonTimer()
-			    			
 			        	end)
+
+		        		Timers:CreateTimer(self.strategy_time + self.standby_time + 5, function() 
+				        	GameRules:ForceGameStart()
+			    			CustomGameEventManager:Send_ServerToAllClients( "bgm_intro", {bgm=1} )	
+			    			GameRules.AddonTemplate:CheckCondition()
+			    			for i = 0, self.max_player - 1 do
+								Timers:CreateTimer(i * 0.5, function()
+									if PlayerResource:IsValidPlayer(i) then
+										local Hero = PlayerResource:GetSelectedHeroEntity(i)
+										if string.match(Hero:GetUnitName(), "wisp") then
+											print('start game random')
+											self:OnRandom({playerId = i})
+									    end
+									end
+								end)
+		        			end
+		        		end)
+											
+			    		
 		        	end)
 		        end)
 	        end)
@@ -921,7 +934,7 @@ function HeroSelectioN:OnRandom(args)
     local player = PlayerResource:GetPlayer(playerId)
     local PID = PlayerResource:GetSteamAccountID(playerId)
 
-    if self.BanPlayer[playerId] ~= nil then return end
+    --if self.BanPlayer[playerId] ~= nil then return end
 
     --[[if PID ~= nil and self.SpecBan[tostring(PID)] ~= nil then 
     	SendChatToPanorama('Player ' .. playerId .. ' was in hero ban list')
@@ -970,6 +983,8 @@ function HeroSelectioN:OnRandom(args)
 	    		else
 	    			hero = self:Random()
 	    		end
+	    	elseif self.BanPlayer[playerId] ~= nil then
+		    	hero = self:Random() 
 	    	else
 	    		hero = self.SelectedBar[playerId] 
 	    	end
@@ -1210,7 +1225,7 @@ function HeroSelectioN:OnSummon(args)
     local hero = self.Picked[playerId]
     local skin = self.SkinSelect[hero] or 0
 
-    if self.BanPlayer[playerId] then return end
+    --if self.BanPlayer[playerId] then return end
 
     if hero == nil then 
     	SendChatToPanorama('Player ' .. playerId .. ' : No hero select at summon phase, random new one')

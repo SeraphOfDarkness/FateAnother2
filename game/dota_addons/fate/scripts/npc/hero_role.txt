@@ -1781,7 +1781,7 @@ HeroRoles
 		"Sex"			"Female"
 		"Class"			"Lancer"
 		"Trait"			"dragon" 
-		"Roles"			"burst, carry" 	
+		"Roles"			"burst,carry" 	
 		"Role" 							
 		{
 			"1"
@@ -1813,7 +1813,7 @@ HeroRoles
 		"Sex"			"Female"
 		"Class"			"AlterEgo"
 		"Trait"			"divine" 
-		"Roles"			"burst, mobility" 	
+		"Roles"			"burst,mobility" 	
 		"Role" 							
 		{
 			"1"
@@ -1877,6 +1877,36 @@ HeroRoles
 					"KD"		"2.0"	// > total KD
 					"Assist"	"10"	// > Assist
 				}		
+			}
+		}
+	}
+	"npc_dota_hero_lich"
+	{
+		"Sex"			"Female"
+		"Class"			"Lancer"
+		"Trait"			"" 
+		"Roles"			"burst,control" 	
+		"Role" 							
+		{
+			"1"
+			{			
+				"burst"	
+				{
+					"weight"	"70"	// weight to calculate
+					"criteria"	"3"
+					"dDeal"		"2500"	// > avg dmg deal per round
+					"KD"		"2.0"	// > total KD
+					"Assist"	"10"	// > Assist
+				}		
+			}
+			"2"	
+			{			
+				"control"	
+				{
+					"weight"	"30"	// weight to calculate
+					"criteria"	"1"
+					"CC1"		"30"	// > avg CC duration per round
+				}
 			}
 		}
 	}

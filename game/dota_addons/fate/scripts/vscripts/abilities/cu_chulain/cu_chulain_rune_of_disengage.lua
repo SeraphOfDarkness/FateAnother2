@@ -32,6 +32,10 @@ function disengage_wrapper(abil)
 
 		HardCleanse(self.caster)
 		self.caster:EmitSound("Hero_PhantomLancer.Doppelwalk")
+
+		if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+			self.caster:EmitSound("Yukina_Q")
+		end
 		local i = 1
 		while GridNav:IsBlocked(newLoc) or not GridNav:IsTraversable(newLoc) or i == 100 do
 			i = i+1

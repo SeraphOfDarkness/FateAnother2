@@ -52,4 +52,5 @@ HeroesID
 	"50"		"npc_dota_hero_muerta"
 	"51"		"npc_dota_hero_terrorblade"
 	"52"		"npc_dota_hero_slark"
+	"53"		"npc_dota_hero_lich"
 }

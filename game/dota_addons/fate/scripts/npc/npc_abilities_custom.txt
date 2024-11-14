@@ -57,6 +57,7 @@
 #base "abilities/billy/billy_abilities.kv"
 #base "abilities/saito/saito_abilities.kv"
 #base "abilities/mhx/mhx_abilities.kv"
+#base "abilities/ereshkigal/ereshkigal_abilities.kv"
 
 "DOTAAbilities"
 {
@@ -719,7 +720,7 @@
 		
 		"Modifiers"
 		{
-			"modifier_alternate_06"
+			"modifier_alternate_07"
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"

@@ -39,6 +39,10 @@ function OnGKStart(keys)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sasaki_quickdraw_window", {})
 	end
 
+	if caster:HasModifier("modifier_alternate_03") then 
+		target:EmitSound("Ikki_Q")
+	end
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gate_keeper_self_buff", {})
 
 	local gkdummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
@@ -748,7 +752,9 @@ function OnTMLanded(keys)
 		if caster:IsAlive() then
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,target:GetAbsOrigin().z))
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai_tg_cast_anim", {})
-			EmitGlobalSound("FA.TGReady")
+			if not caster:HasModifier("modifier_alternate_03") then 
+				EmitGlobalSound("FA.TGReady")
+			end
 			ExecuteOrderFromTable({
 				UnitIndex = caster:entindex(),
 				OrderType = DOTA_UNIT_ORDER_STOP,
