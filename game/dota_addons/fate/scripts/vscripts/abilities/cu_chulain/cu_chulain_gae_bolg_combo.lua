@@ -74,19 +74,19 @@ function wesenwrapper(abil)
 
 		giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealdisabled", 3.0)
 		
-		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim", { Duration = 5 ,
+		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim", { Duration = 15 ,
 																					Damage = self:GetSpecialValueFor("damage"),
 																					HB = self:GetSpecialValueFor("hb_threshold"),
 																					Stun = self:GetSpecialValueFor("stun")})
-		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim_hibernate", { Duration = 5 })
+		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim_hibernate", { Duration = 15 })
 		Timers:CreateTimer(1.6, function()
 			if hCaster:IsAlive() then
-				if hCaster:HasModifier("modifier_alternate_02") then 
-					StartAnimation(hCaster, {duration=3, activity=ACT_DOTA_ATTACK_EVENT, rate=1})
+				if hCaster:HasModifier("modifier_alternate_01") then 
+					StartAnimation(hCaster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
 				elseif hCaster:HasModifier("modifier_alternate_04") or hCaster:HasModifier("modifier_alternate_05") then 
-					StartAnimation(hCaster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
+					StartAnimation(hCaster, {duration=5, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
 				else
-					StartAnimation(hCaster, {duration=3, activity=ACT_DOTA_ATTACK, rate=3})
+					StartAnimation(hCaster, {duration=5, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
 				end
 			end
 		end)
@@ -133,7 +133,7 @@ function modifier_cu_wesen_anim:RemoveOnDeath() return false end
 function modifier_cu_wesen_anim:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-function modifier_cu_wesen_anim:DeclareFunctions()
+--[[function modifier_cu_wesen_anim:DeclareFunctions()
 	return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION, 
 			MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE }
 end
@@ -143,7 +143,7 @@ function modifier_cu_wesen_anim:GetOverrideAnimation()
 	else
 		return nil 
 	end
-end
+end]]
 function modifier_cu_wesen_anim:CheckState()
     local state = { [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                     [MODIFIER_STATE_MUTED] = true,
@@ -154,9 +154,9 @@ function modifier_cu_wesen_anim:CheckState()
                 }
     return state
 end
-function modifier_cu_wesen_anim:GetOverrideAnimation()
+--[[function modifier_cu_wesen_anim:GetOverrideAnimation()
 	return 1.0
-end
+end]]
 
 function modifier_cu_wesen_anim:OnCreated(args)
 	self.caster = self:GetParent()

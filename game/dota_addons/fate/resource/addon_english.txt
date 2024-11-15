@@ -1432,7 +1432,7 @@ Cu Chulainn is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>re
 		"DOTA_Tooltip_ability_cu_attribute_death_flight_bonus_range"	"BONUS CAST RANGE:"
 
 		"DOTA_Tooltip_Ability_cu_attribute_the_heartseeker"				"<font color='#9FFFCC'>Attribute: The Heartseeker</font>"
-		"DOTA_Tooltip_ability_cu_attribute_the_heartseeker_Description"	"<font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>: Reduce its cast time by %gb_cast% secodns and increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> by %gb_bonus_hb%%%. \n<font color='#FF04EF'>Wesen Gae Bolg</font>: Increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> by %combo_heartbreak%%% and the spear will always strike its target even if Cu Chulainn is dead. \n Enables <font color='#FFB266'>Claw of Sky</font> \n<font color='#FFB266'>Claw of Sky</font>: Cu Chulainn slams his lance to target area, dealing damage and <font color='#FF3399'>stunning</font> all enemies with in radius. \n <font color='#FFB266'>Claw of Sky</font> share level with <font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>."
+		"DOTA_Tooltip_ability_cu_attribute_the_heartseeker_Description"	"<font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>: Reduce its cast time by %gb_cast% seconds and increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> by %gb_bonus_hb%%%. \n<font color='#FF04EF'>Wesen Gae Bolg</font>: Increases the target's health threshold for <font color='#FF3399'>Heartbreak</font> by %combo_heartbreak%%% and the spear will always strike its target even if Cu Chulainn is dead. \n Enables <font color='#FFB266'>Claw of Sky</font> \n<font color='#FFB266'>Claw of Sky</font>: Cu Chulainn slams his lance to target area, dealing damage and <font color='#FF3399'>stunning</font> all enemies with in radius. \n <font color='#FFB266'>Claw of Sky</font> share level with <font color='#58ACFA'>Gae Bolg: The Spear of Impaling Barbed Death</font>."
 		"DOTA_Tooltip_ability_cu_attribute_the_heartseeker_Lore"			"The heart of his opponent has already been pierced as Cu Chulainn declares. He merely thrust his opponent as an act of formality."
 		"DOTA_Tooltip_ability_cu_attribute_the_heartseeker_claw_cast"		"CLAW CAST TIME:"
 		"DOTA_Tooltip_ability_cu_attribute_the_heartseeker_claw_cast_range"	"CLAW CAST RANGE:"
@@ -16776,9 +16776,86 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         //      Ereshkigal
         //====================================
         "npc_dota_hero_lich"             "Ereshkigal" 
-        "npc_dota_hero_lich_1"            "[Legend] Zettai Kyouiki Rin Ishtar"
+        "npc_dota_hero_lich_1"            "[Heroic] Black Dress Ereshkigal"
         "npc_dota_hero_lich_summon"		"Servant <font color='#58ACFA'>Ereshkigal</font> has been summoned."
         "npc_dota_hero_lich_enable_combo"	"Enable Combo: Jabal Hamlin Breaker - Mountain Range-Shaking Firewood of Venus"
+
+        /////////////////// Innate ///////////////////////////
+
+        "DOTA_Tooltip_Ability_ereshkigal_d"			"<font color='#FFFFFF'>Goddess of Death</font>"
+        "DOTA_Tooltip_ability_ereshkigal_d_Description"		
+"<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
+<font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
+<font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
+Ereshkigal can collects <font color='#99FF33'>Soul</font> when she stay nearby %soul_search% range.
+Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
+<font color='#9FFFCC'>Upgradable with Attribute: Hidden Great Crown and Divine Core of the Goddess</font>."
+
+		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_1"		"<font color='#9FFFCC'>Goddess of Death</font>"
+        "DOTA_Tooltip_ability_ereshkigal_d_upgrade_1_Description"		
+"<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal gains bonus %hell_bonus_regen% HP/Mana regen, %hell_bonus_def% armor/magic resistance and %hell_bonus_ms%%% movespeed while her abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
+<font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
+<font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
+Ereshkigal can collects <font color='#99FF33'>Soul</font> when she stay nearby %soul_search% range.
+Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
+<font color='#9FFFCC'>Upgradable with Attribute: Hidden Great Crown</font>."
+
+		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_2"			"<font color='#9FFFCC'>Goddess of Death</font>"
+        "DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_Description"		
+"<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
+Ereshkigal will automatically consume <font color='#99FF33'>Soul</font> to refresh her abilities
+<font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
+<font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
+Ereshkigal can collects <font color='#99FF33'>Soul</font> when she stay nearby %soul_search% range.
+Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
+<font color='#9FFFCC'>Upgradable with Attribute: Divine Core of the Goddess</font>."
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_q_consume"    "Q SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_w_consume"    "W SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_e_consume"    "E SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_r_consume"    "R SOUL CONSUME:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_3"			"<font color='#9FFFCC'>Goddess of Death</font>"
+        "DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_Description"		
+"<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal gains bonus %hell_bonus_regen% HP/Mana regen, %hell_bonus_def% armor/magic resistance and %hell_bonus_ms%%% movespeed while abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
+Ereshkigal will automatically consume <font color='#99FF33'>Soul</font> to refresh her abilities
+<font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
+<font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
+Ereshkigal can collects <font color='#99FF33'>Soul</font> when she stay nearby %soul_search% range.
+Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death."
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_q_consume"    "Q SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_w_consume"    "W SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_e_consume"    "E SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_r_consume"    "R SOUL CONSUME:"
+
+		///////////////////////// Basic //////////////////
+
+		"DOTA_Tooltip_Ability_ereshkigal_q"			"<font color='#58ACFA'>Spear Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_q_Description"		
+"Ereshkigal fires %total_arrow% spear to target location, dealing magical damage and appling <font color='#FF3399'>Spear Cage Slow</font> to enemies for %slow_dur% seconds.
+<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy for %silence% second.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage)</font>."
+		"DOTA_Tooltip_ability_ereshkigal_q_distance"    "DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_q_damage"    	"DAMAGE PER SPEAR:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_q_upgrade"			"<font color='#9FFFCC'>Spear Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_q_upgrade_Description"		
+"Ereshkigal fires %total_arrow% spear to target location, dealing magical damage based on Ereshkigal's <font color='#00F7FF'>INT</font> and appling <font color='#FF3399'>Spear Cage Slow</font> to enemies for %slow_dur% seconds.
+<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy for %silence% second."
+		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_distance"    "DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_damage"    	"DAMAGE PER SPEAR:"
+		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_bonus_int"   "BONUS DAMAGE PER INT:"
 
 
 		///////////////////////////////////////////////////

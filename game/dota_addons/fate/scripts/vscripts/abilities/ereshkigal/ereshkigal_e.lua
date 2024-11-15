@@ -34,9 +34,16 @@ function EreshkigalEWrapper(abil)
 			self.damage = self.damage + (bonus_int * self.caster:GetIntellect())
 		end
 
-		--self:UseSoul()
+		--self:UseSoul() 
 
-		--particle
+		local CageDropFx = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_cage.vpcf", PATTACH_WORLDORIGIN, self.caster)
+		ParticleManager:SetParticleControl(CageDropFx, 0, self.target_loc + Vector(0,0,-600)) 
+		ParticleManager:SetParticleControl(CageDropFx, 1, self.target_loc) 
+		ParticleManager:SetParticleControl(CageDropFx, 2, Vector(self.delay,0,0)) 
+		Timers:CreateTimer(self.delay, function()
+			ParticleManager:DestroyParticle(CageDropFx, true)
+			ParticleManager:ReleaseParticleIndex(CageDropFx)
+		end)
 
 		Timers:CreateTimer(self.delay, function()
 			if self.caster:IsAlive() then 
@@ -55,6 +62,17 @@ function EreshkigalEWrapper(abil)
 							if self.IsHell == true then 
 								giveUnitDataDrivenModifier(self.caster, v, "revoked", self.revoke)
 							end
+
+							v:SetAbsOrigin(self.target_loc)
+
+							local CageFx = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_cage.vpcf", PATTACH_WORLDORIGIN, self.caster)
+							ParticleManager:SetParticleControl(CageFx, 0, self.target_loc) 
+							ParticleManager:SetParticleControl(CageFx, 1, self.target_loc) 
+							ParticleManager:SetParticleControl(CageFx, 2, Vector(self.cage_dur,0,0)) 
+							Timers:CreateTimer(self.cage_dur, function()
+								ParticleManager:DestroyParticle(CageFx, true)
+								ParticleManager:ReleaseParticleIndex(CageFx)
+							end)
 
 							if self.caster.IsUnderworldAcquired then 
 								self.damage_debuff = self:GetSpecialValueFor("damage_debuff")
@@ -117,6 +135,9 @@ function modifier_ereshkigal_cage:OnCreated(args)
 	self.ability = self:GetAbility()
 
 	self.hp_drain = args.HPDrain 
+	if self.hp_drain == nil then 
+		self.hp_drain = self.ability:GetSpecialValueFor("hp_drain")
+	end
 	self:StartIntervalThink(0.33)
 end
 
@@ -128,7 +149,7 @@ function modifier_ereshkigal_cage:OnIntervalThink()
 	if self.ability == nil then 
 		self.ability = self.caster:FindAbilityByName(self.caster.ESkill)
 	end
-	DoDamage(self.caster, self.target, self.hp_drain * 0.33, DAMAGE_TYPE_MAGICAL, self.ability, self, false)
+	DoDamage(self.caster, self.target, self.hp_drain * 0.33, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 	self.caster:FateHeal(self.hp_drain*0.33, true)
 end
 
@@ -161,6 +182,12 @@ function modifier_ereshkigal_cage_debuff:OnDestroy()
 end
 function modifier_ereshkigal_cage_debuff:GetModifierTotalDamageOutgoing_Percentage()
 	return self.debuff
+end
+function modifier_ereshkigal_cage_debuff:GetEffectName()
+	return "particles/items3_fx/nemesis_curse_debuff.vpcf"
+end
+function modifier_ereshkigal_cage_debuff:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
 end
 
 

@@ -151,6 +151,13 @@ function modifier_ereshkigal_steal:OnDestroy()
 
 end
 
+function modifier_ereshkigal_steal:GetEffectName()
+	return "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_debuff.vpcf"
+end
+function modifier_ereshkigal_steal:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
 -----------------------------
 
 function modifier_ereshkigal_steal_self:IsHidden() return false end
@@ -187,5 +194,11 @@ end
 
 function modifier_ereshkigal_steal_self:OnDestroy()
 
+end
+function modifier_ereshkigal_steal_self:GetEffectName()
+	return "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_debuff.vpcf"
+end
+function modifier_ereshkigal_steal_self:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
 end
 

@@ -33,12 +33,18 @@ function EreshkigalQWrapper(abil)
 		end
 		self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_q_anim", {Duration = 0.25})
 		self.arrow_spawn_loc = {}
-		for i = 1, self.total_arrow do 
-			self.arrow_spawn_loc[i] = self.caster:GetAbsOrigin() + (self.right_vec * (self.width-20) * (i-1) * (-1^i))
+		self.side = self.right_vec
+		for i = 0, self.total_arrow - 1 do 
+			if i % 2 == 1 then 
+				self.side = self.right_vec
+			else
+				self.side = -self.right_vec
+			end
+			self.arrow_spawn_loc[i] = self.caster:GetAbsOrigin() + (self.side * (self.width/2) * math.ceil(i/2))
 			Timers:CreateTimer(i * 0.04, function()
 				local Arrow = {
 					Ability = self,
-			        EffectName = "",
+			        EffectName = "particles/custom/ereshkigal/ereshkigal_spear_arrow.vpcf",
 			        vSpawnOrigin = self.arrow_spawn_loc[i] + Vector(0,0,40),
 			        fDistance = self.distance,
 			        fStartRadius = self.width,

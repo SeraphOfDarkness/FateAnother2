@@ -1178,7 +1178,7 @@ tLightningResist = {
 }
 
 tProjectileParry = {
-    "modifier_lancer_protection_from_arrows_active"
+    "modifier_protection_from_arrows_active"
 }
 
 tBeamAbilities = {

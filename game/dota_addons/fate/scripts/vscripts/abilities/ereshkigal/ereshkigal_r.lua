@@ -40,24 +40,15 @@ function ereshkigal_r_wrapper(ability)
 	end
 
 	function ability:GetCastPoint()
-		return self:GetSpecialValueFor("cast_time")
+		return 0
 	end
 
 	function ability:GetCastAnimation()
-		return ACT_DOTA_CAST_ABILITY_4
+		return nil 
 	end
 
 	function ability:GetPlaybackRateOverride()
 		return 1.0
-	end
-
-	function ability:OnAbilityPhaseStart()
-		self.caster = self:GetCaster()
-		self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_anim_sfx", {Duration = self:GetCastPoint()})
-	end
-
-	function ability:OnAbilityPhaseInterrupted()
-		self.caster:RemoveModifierByName("modifier_ereshkigal_anim_sfx")
 	end
 	
 	function ability:OnSpellStart()
@@ -72,6 +63,7 @@ function ereshkigal_r_wrapper(ability)
 		self.heal_red = self:GetSpecialValueFor("heal_red")
 		self.origin = self.caster:GetAbsOrigin()
 		self.damage = self:GetSpecialValueFor("damage")
+		self.cast_time = self:GetSpecialValueFor("cast_time")
 		if self.caster.IsUnderworldAcquired then 
 			local bonus_int = self:GetSpecialValueFor("bonus_int") * self.caster:GetIntellect()
 			self.damage = self.damage + bonus_int
@@ -82,43 +74,64 @@ function ereshkigal_r_wrapper(ability)
 		self.outer_dmg = self.damage * self:GetSpecialValueFor("outer_dmg")/100
 
 		if self:IsCastInsideMarble(self.target_loc) then
-			self:HellPillar()	
+			self.cast_time = self:GetSpecialValueFor("hell_cast")
+			self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_anim_sfx", {Duration = self.cast_time})
+			StartAnimation(self.caster, {duration = self.cast_time, activity = ACT_DOTA_CAST_ABILITY_4, rate = 2})
+			self:GenerateSFX()
+			Timers:CreateTimer(self.cast_time * 0.8, function()
+				self:DestroySFX()
+			end)
+			Timers:CreateTimer(self.cast_time, function()
+				if self.caster:IsAlive() then
+					self:HellPillar()	
+				end
+			end)
 		else
-			self.LightningSFX1 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
-			ParticleManager:SetParticleControl(self.LightningSFX1, 0, self.caster:GetAbsOrigin() + Vector(0,0,1500))
-			ParticleManager:SetParticleControl(self.LightningSFX1, 1, self.caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(self.LightningSFX1, 2, self.caster:GetAbsOrigin()) 
-			
-			self.LightningSFX2 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_lightning_bolt_aoe.vpcf", PATTACH_WORLDORIGIN, self.caster)
-			ParticleManager:SetParticleControl(self.LightningSFX2, 0, self.caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(self.LightningSFX2, 1, Vector(180,0,0))
-			local projectile = {
-				Source = self.caster,
-				EffectName = "particles/custom/ereshkigal/ereshkigal_red_light.vpcf",
-				Ability = self,
-				vSpawnOrigin = self.origin,
-				fDistance = self.radius,
-				fStartRadius = self.width,
-				fEndRadius = self.width,
-				bHasFrontalCone = false,
-				fExpireTime = GameRules:GetGameTime() + (self.radius/self.speed),
-				vVelocity = self.caster:GetForwardVector() * self.speed,
-				fMaxSpeed = 2000,
-				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
-				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-				bProvidesVision = true, 
-				iVisionRadius = self.width,
-				iVisionTeamNumber = self.caster:GetTeamNumber(),
-				bDrawsOnMinimap = false,
-				bVisibleToEnemies = true,
-				ExtraData = {Damage = self.damage, OutDamage = self.outer_dmg, OutRadius = self.radius, InRadius = self.width, Root = self.root}
-			}
+			self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_anim_sfx", {Duration = self.cast_time + 0.2})
+			StartAnimation(self.caster, {duration = self.cast_time+0.2, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1})
+			self:GenerateSFX()
+			Timers:CreateTimer(self.cast_time * 0.8, function()
+				self:DestroySFX()
+			end)
+			Timers:CreateTimer(self.cast_time, function()
+				
+				if self.caster:IsAlive() then
+					self.LightningSFX1 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+					ParticleManager:SetParticleControl(self.LightningSFX1, 0, self.caster:GetAbsOrigin() + Vector(0,0,1500))
+					ParticleManager:SetParticleControl(self.LightningSFX1, 1, self.caster:GetAbsOrigin())
+					ParticleManager:SetParticleControl(self.LightningSFX1, 2, self.caster:GetAbsOrigin()) 
+					
+					self.LightningSFX2 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_lightning_bolt_aoe.vpcf", PATTACH_WORLDORIGIN, self.caster)
+					ParticleManager:SetParticleControl(self.LightningSFX2, 0, self.caster:GetAbsOrigin())
+					ParticleManager:SetParticleControl(self.LightningSFX2, 1, Vector(180,0,0))
+					local projectile = {
+						Source = self.caster,
+						EffectName = "particles/custom/ereshkigal/ereshkigal_red_light.vpcf",
+						Ability = self,
+						vSpawnOrigin = self.origin,
+						fDistance = self.radius,
+						fStartRadius = self.width,
+						fEndRadius = self.width,
+						bHasFrontalCone = false,
+						fExpireTime = GameRules:GetGameTime() + (self.radius/self.speed),
+						vVelocity = self.caster:GetForwardVector() * self.speed,
+						fMaxSpeed = 2000,
+						iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+						iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+						iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+						bProvidesVision = true, 
+						iVisionRadius = self.width,
+						iVisionTeamNumber = self.caster:GetTeamNumber(),
+						bDrawsOnMinimap = false,
+						bVisibleToEnemies = true,
+						ExtraData = {Damage = self.damage, OutDamage = self.outer_dmg, OutRadius = self.radius, InRadius = self.width, Root = self.root}
+					}
 
-			self.pillar_projectile = ProjectileManager:CreateLinearProjectile(projectile)
+					self.pillar_projectile = ProjectileManager:CreateLinearProjectile(projectile)
+				end
+			end)
 		end
 
-		--self:UseSoul()
 	end
 
 	function ability:OnProjectileThinkHandle(iProjectileHandle)
@@ -133,6 +146,7 @@ function ereshkigal_r_wrapper(ability)
 		if hTarget == nil then return false end 
 
 		DoDamage(self.caster, hTarget, tExtra.Damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
+		hTarget:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = tExtra.Root})
 
 		if not hTarget:IsRealHero() then return false end
 
@@ -154,6 +168,17 @@ function ereshkigal_r_wrapper(ability)
 		return true	
 	end
 
+	function ability:GenerateSFX()
+		self.SpinFx = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_blue_spin.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
+		ParticleManager:SetParticleControl(self.SpinFx, 0, self.caster:GetAbsOrigin())
+		ParticleManager:SetParticleControlEnt(self.SpinFx, 1,  self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin(), false)
+		ParticleManager:SetParticleControlEnt(self.SpinFx, 3,  self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin(), false)
+	end
+
+	function ability:DestroySFX()
+		ParticleManager:DestroyParticle(self.SpinFx, true)
+		ParticleManager:ReleaseParticleIndex(self.SpinFx)
+	end
 	function ability:HellPillar()
 		local tEnemies = FindUnitsInRadius(self.caster:GetTeam(), self.target_loc, nil, self:GetSpecialValueFor("hell_aoe"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,enemy in pairs (tEnemies) do
@@ -173,7 +198,7 @@ function ereshkigal_r_wrapper(ability)
 		local soul_stack = self.caster:GetModifierStackCount("modifier_ereshkigal_soul", self.caster) or 0 
 
 		if soul_stack >= self.r_consume then 
-			ereshkigal_d:CollectSoul(self.r_consume)
+			ereshkigal_d:CollectSoul(-self.r_consume)
 			self:EndCooldown()
 		end
 	end
@@ -226,7 +251,7 @@ function ereshkigal_r_wrapper(ability)
 																								Radius = self.radius, 
 																								Buff = self:GetSpecialValueFor("team_buff")})
 		end
-
+		self.caster:RemoveModifierByName("modifier_ereshkigal_anim_sfx")
 		return zone -- hZoneDummy
 	end
 
@@ -550,6 +575,7 @@ if IsServer() then
 	function modifier_ereshkigal_self:OnCreated(args)
 		self.caster = self:GetCaster()
 		self.caster:FindAbilityByName(self.caster.DSkill):ApplyDeathAuthority()
+		self:GetAbility():UseSoul()
 	end
 
 	function modifier_ereshkigal_self:OnRemoved()
@@ -566,11 +592,18 @@ function modifier_ereshkigal_anim_sfx:RemoveOnDeath() return true end
 function modifier_ereshkigal_anim_sfx:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-
+function modifier_ereshkigal_anim_sfx:CheckState()
+    local state = { [MODIFIER_STATE_MUTED] = true,
+                    [MODIFIER_STATE_DISARMED] = true,
+                    [MODIFIER_STATE_SILENCED] = true,
+                    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                }
+    return state
+end
 if IsServer() then
 	function modifier_ereshkigal_anim_sfx:OnCreated(args)
 		self.caster = self:GetCaster()
-		self:CreateFx()
+		--self:CreateFx()
 		--self:StartIntervalThink(0.19)
 	end
 
@@ -585,7 +618,7 @@ if IsServer() then
 	end
 
 	function modifier_ereshkigal_anim_sfx:OnRemoved()
-		self:RemoveFx()
+		--self:RemoveFx()
 	end
 end
 
