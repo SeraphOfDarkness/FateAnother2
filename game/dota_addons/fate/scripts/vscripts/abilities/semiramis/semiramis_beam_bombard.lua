@@ -37,7 +37,12 @@ function SemiBeamWrapper(ability)
 			beam_numbers = beam_numbers + math.floor(caster:GetIntellect()/bonus_beam_int)
 		end
 
-	   	caster:EmitSound("Semi.CasterE")
+    -- Sound effects
+	    if caster:HasModifier("modifier_alternate_01") then
+			caster:EmitSound("Albedo.CasterE")
+	    else
+	   		caster:EmitSound("Semi.CasterE")
+	    end
 
 		Timers:CreateTimer(cast_delay,function()
 			local cast_spot = caster:GetAbsOrigin()

@@ -16627,6 +16627,8 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
 		"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"%LAST SLASH BONUS DMG PER ATK:"
 
 		
+		
+		
 		//====================================
         //      MHX - NERDO PEPEGO MHX
         //====================================
@@ -16654,15 +16656,17 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         "DOTA_Tooltip_ability_mhx_q_upgrade_extra_r_range"                    "SECRET CALIBUR BONUS RANGE:"
 
         "DOTA_Tooltip_Ability_mhx_w"			"<font color='#58ACFA'>Galactic Meteor Slice</font>"
-        "DOTA_Tooltip_ability_mhx_w_Description"		"Slashes downward, creating a blade shockwave forward dealing damage to enemies hit. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Burst Blade</font>."
+        "DOTA_Tooltip_ability_mhx_w_Description"		"Slashes downward, creating a blade shockwave forward dealing damage and <font color='#FF3399'>slowing</font> enemies hit. \n\n<font color='#9FFFCC'>Upgradable with Attribute: Burst Blade</font>."
         "DOTA_Tooltip_ability_mhx_w_cast_delay"                    "CAST DELAY:"
         "DOTA_Tooltip_ability_mhx_w_range"                    "RANGE:"
         "DOTA_Tooltip_ability_mhx_w_width"                    "WIDTH:"
         "DOTA_Tooltip_ability_mhx_w_damage"                    "DAMAGE:"
         "DOTA_Tooltip_ability_mhx_w_projectile_speed"          "SHOCKWAVE SPEED:"
+        "DOTA_Tooltip_ability_mhx_w_slow_amount"          "%SLOW AMOUNT:"
+        "DOTA_Tooltip_ability_mhx_w_slow_duration"          "SLOW DURATION:"
 
         "DOTA_Tooltip_Ability_mhx_w_upgrade"			"<font color='#9FFFCC'>Galactic Meteor Slice</font>"
-        "DOTA_Tooltip_ability_mhx_w_upgrade_Description"		"Slashes downward, creating a blade shockwave forward dealing damage to enemies hit which splits after a short delay, extending it's reach."
+        "DOTA_Tooltip_ability_mhx_w_upgrade_Description"		"Slashes downward, creating a blade shockwave forward dealing damage and <font color='#FF3399'>slowing</font> enemies hit which splits after a short delay, extending it's reach."
         "DOTA_Tooltip_ability_mhx_w_upgrade_cast_delay"                    "CAST DELAY:"
         "DOTA_Tooltip_ability_mhx_w_upgrade_range"                    "RANGE:"
         "DOTA_Tooltip_ability_mhx_w_upgrade_width"                    "WIDTH:"
@@ -16671,12 +16675,17 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         "DOTA_Tooltip_ability_mhx_w_upgrade_w_split"          "SPLIT COUNT:"
         "DOTA_Tooltip_ability_mhx_w_upgrade_w_split_range"          "SPLIT RANGE:"
         "DOTA_Tooltip_ability_mhx_w_upgrade_split_delay"          "SPLIT DELAY:"
+        "DOTA_Tooltip_ability_mhx_w_upgrade_slow_amount"          "%SLOW AMOUNT:"
+        "DOTA_Tooltip_ability_mhx_w_upgrade_slow_duration"          "SLOW DURATION:"
 
         "DOTA_Tooltip_Ability_mhx_e"			"<font color='#9FFFCC'>Cross Calibur</font>"
-        "DOTA_Tooltip_ability_mhx_e_Description"		"Jumps up, slashing both blades down creating an X pattern dealing damage to all nearby enemies hit while becoming <font color='#FFFF28'>invulnerable</font> for a short duration."
+        "DOTA_Tooltip_ability_mhx_e_Description"		"Jumps up, slashing both blades down creating an X pattern dealing damage to all nearby enemies hit while becoming <font color='#FFFF28'>invulnerable</font> for a short duration. Enemies hit will echo and take extra damage and get <font color='#FF3399'>rooted</font> after a short delay."
         "DOTA_Tooltip_ability_mhx_e_cast_delay"                    "CAST DELAY:"
         "DOTA_Tooltip_ability_mhx_e_damage"                    "DAMAGE:"
         "DOTA_Tooltip_ability_mhx_e_aoe"                    	"RADIUS:"
+        "DOTA_Tooltip_ability_mhx_e_refactor_damage"                    	"ECHO DAMAGE:"
+        "DOTA_Tooltip_ability_mhx_e_refactor_root"                    	"ECHO ROOT DURATION:"
+        "DOTA_Tooltip_ability_mhx_e_refactor_delay"                    	"ECHO DELAY:"
 
         "DOTA_Tooltip_Ability_mhx_d"			"<font color='#9FFFCC'>Prana Endowment</font>"
         "DOTA_Tooltip_ability_mhx_d_Description"		"<font color='#58ACFA'>ACTIVE</font>: Temporarily gains empowered prana, allowing the next cast of <font color='#9FFFCC'>Secret Calibur</font> to consume this buff and gain bonus slash damage, bonus slash count.\n<font color='#58ACFA'>PASSIVE</font>: Causes attacks to gain a chance to <font color='#FF3399'>ministuns</font> the target for a very short duration, also affects slashes from <font color='#9FFFCC'>Secret Calibur</font> with half the stun duration."
@@ -16717,12 +16726,13 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
         "DOTA_Tooltip_ability_mhx_r_upgrade_burst_aoe"                    "BURST AOE:"
         "DOTA_Tooltip_ability_mhx_r_upgrade_stun_chance_multiplier"        "PRANA ENDOWMENT STUN CHANCE MULTIPLIER:"
 
-        "DOTA_Tooltip_Ability_mhx_combo"			"<font color='#9FFFCC'>Secret Calibur</font>"
-        "DOTA_Tooltip_ability_mhx_combo_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : Q -> R in 3 seconds.</font> \nAfter a short duration, dashes in a straight line capturing the furthest enemy hit. Teleporting to the target and rapidly slashing the target dealing damage with a chance of <font color='#FF3399'>ministunning</font> the target based on current level of <font color='#9FFFCC'>Prana Endowment</font> before finally cutting through the target dealing a burst of damage in an instant. \nMissing will cause this ability to go on a shorter cooldown."
+        "DOTA_Tooltip_Ability_mhx_combo"			"<font color='#9FFFCC'>Secret Calibur - Sword of Unsigned Victory</font>"
+        "DOTA_Tooltip_ability_mhx_combo_Description"		"<font color='#FF04EF'>Combo Requirement : 25 all stats</font>\n<font color='#FF04EF'>Combo Sequence : Q -> R in 3 seconds.</font> \nAfter a short duration, dashes in a straight line capturing the furthest enemy hit. Teleporting to the target and rapidly slashing the target dealing damage based on her <font color='#80FF00'>AGI</font> with a chance of <font color='#FF3399'>ministunning</font> the target based on current level of <font color='#9FFFCC'>Prana Endowment</font> before finally cutting through the target dealing a burst of damage in an instant. \nMissing will cause this ability to go on a shorter cooldown."
         "DOTA_Tooltip_ability_mhx_combo_cast_delay"                    "CAST DELAY:"
         "DOTA_Tooltip_ability_mhx_combo_range"                    "DASH RANGE:"
         "DOTA_Tooltip_ability_mhx_combo_width"                    "DASH WIDTH:"
         "DOTA_Tooltip_ability_mhx_combo_damage_slash"                    "DAMAGE PER SLASH:"
+        "DOTA_Tooltip_ability_mhx_combo_damage_slash_agi_scale"                    "SLASH DAMAGE PER AGI:"
         "DOTA_Tooltip_ability_mhx_combo_slash_count"                    "SLASH COUNT:"
         "DOTA_Tooltip_ability_mhx_combo_slash_duration"                    "SLASH DURATION:"
         "DOTA_Tooltip_ability_mhx_combo_burst_delay"                    "BURST DELAY:"
@@ -16772,21 +16782,24 @@ When <font color='#FFFF28'>Poison Arrow Tip Stack</font>'s stack reach %max_stac
 
         "DOTA_Tooltip_modifier_mhx_combo_cooldown"            			"Combo Cooldown"
 
+        "DOTA_Tooltip_modifier_mhx_w_debuff"            			"Slow"
+
+
         //====================================
         //      Ereshkigal
         //====================================
         "npc_dota_hero_lich"             "Ereshkigal" 
         "npc_dota_hero_lich_1"            "[Heroic] Black Dress Ereshkigal"
         "npc_dota_hero_lich_summon"		"Servant <font color='#58ACFA'>Ereshkigal</font> has been summoned."
-        "npc_dota_hero_lich_enable_combo"	"Enable Combo: Jabal Hamlin Breaker - Mountain Range-Shaking Firewood of Venus"
+        "npc_dota_hero_lich_enable_combo"	"Enable Combo: The Bellows of Kur that Tramples upon Ekur"
 
         /////////////////// Innate ///////////////////////////
 
         "DOTA_Tooltip_Ability_ereshkigal_d"			"<font color='#FFFFFF'>Goddess of Death</font>"
         "DOTA_Tooltip_ability_ereshkigal_d_Description"		
 "<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
-<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
-<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals penalty %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Materialize Underworld</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and no longer penalty damage.
 <font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
 <font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
 <font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
@@ -16797,8 +16810,8 @@ Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
 		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_1"		"<font color='#9FFFCC'>Goddess of Death</font>"
         "DOTA_Tooltip_ability_ereshkigal_d_upgrade_1_Description"		
 "<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
-<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
-<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word.
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Materialize Underworld</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal bonus %hell_bonus_dmg%%% damage.
 <font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal gains bonus %hell_bonus_regen% HP/Mana regen, %hell_bonus_def% armor/magic resistance and %hell_bonus_ms%%% movespeed while her abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
 <font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
 <font color='#99FF33'>Soul</font> will be last long %soul_duration% seconds after hero died.
@@ -16809,8 +16822,8 @@ Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
 		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_2"			"<font color='#9FFFCC'>Goddess of Death</font>"
         "DOTA_Tooltip_ability_ereshkigal_d_upgrade_2_Description"		
 "<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
-<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
-<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals penalty %non_hell_dmg%%% damage
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Materialize Underworld</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and no longer penalty damage.
 <font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
 Ereshkigal will automatically consume <font color='#99FF33'>Soul</font> to refresh her abilities
 <font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
@@ -16826,8 +16839,8 @@ Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death.
 		"DOTA_Tooltip_Ability_ereshkigal_d_upgrade_3"			"<font color='#9FFFCC'>Goddess of Death</font>"
         "DOTA_Tooltip_ability_ereshkigal_d_upgrade_3_Description"		
 "<font color='#58ACFA'>PASSIVE</font>: Ereshkigal has <font color='#FF9900'>Goddess of Death</font> and can collect <font color='#99FF33'>Soul</font> from dead heroes.
-<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word, she will deals %non_hell_dmg%%% damage
-<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Soul</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal %hell_bonus_dmg%%% damage.
+<font color='#FF3399'>Goddess of Death</font>: When Ereshkigal stays in mortal word.
+<font color='#FFFF28'>Goddess of Death</font>: When Ereshkigal stays inside <font color='#99FF33'>Materialize Underworld</font> she gains <font color='#FFFF28'>Queen of Underworld</font> and deal bonus %hell_bonus_dmg%%% damage.
 <font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal gains bonus %hell_bonus_regen% HP/Mana regen, %hell_bonus_def% armor/magic resistance and %hell_bonus_ms%%% movespeed while abilities(<font color='#58ACFA'>Spirit Devourer, Spirit Cage and Kur Kigal Irkalla</font>) mana cost will reduced by %hell_mana_cost%%%.
 Ereshkigal will automatically consume <font color='#99FF33'>Soul</font> to refresh her abilities
 <font color='#99FF33'>Soul</font>: Ereshkigal gains bonus %non_hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has stays in mortal world or %hell_bonus_stat% <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> when she has <font color='#FFFF28'>Queen of Underworld</font>.
@@ -16844,19 +16857,314 @@ Ereshkigal loss %soul_loss%%% <font color='#99FF33'>Soul</font> upon death."
 		"DOTA_Tooltip_Ability_ereshkigal_q"			"<font color='#58ACFA'>Spear Cage</font>"
         "DOTA_Tooltip_ability_ereshkigal_q_Description"		
 "Ereshkigal fires %total_arrow% spear to target location, dealing magical damage and appling <font color='#FF3399'>Spear Cage Slow</font> to enemies for %slow_dur% seconds.
-<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy for %silence% second.
+<font color='#FF3399'>Spear Cage Slow</font>: slow target.
+<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy for <font color='#99FF33'>Materialize Underworld</font> %silence% second.
 <font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage)</font>."
 		"DOTA_Tooltip_ability_ereshkigal_q_distance"    "DISTANCE:"
 		"DOTA_Tooltip_ability_ereshkigal_q_damage"    	"DAMAGE PER SPEAR:"
+		"DOTA_Tooltip_ability_ereshkigal_q_slow"    	"%SLOW:"
 
 		"DOTA_Tooltip_Ability_ereshkigal_q_upgrade"			"<font color='#9FFFCC'>Spear Cage</font>"
         "DOTA_Tooltip_ability_ereshkigal_q_upgrade_Description"		
 "Ereshkigal fires %total_arrow% spear to target location, dealing magical damage based on Ereshkigal's <font color='#00F7FF'>INT</font> and appling <font color='#FF3399'>Spear Cage Slow</font> to enemies for %slow_dur% seconds.
-<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy for %silence% second."
+<font color='#FF3399'>Spear Cage Slow</font>: slow target.
+<font color='#FF9900'>Queen of Underworld</font>: applies <font color='#FF3399'>silence</font> to enemy inside <font color='#99FF33'>Materialize Underworld</font> for %silence% second."
 		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_distance"    "DISTANCE:"
 		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_damage"    	"DAMAGE PER SPEAR:"
 		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_bonus_int"   "BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ereshkigal_q_upgrade_slow"    	"%SLOW:"
 
+		"DOTA_Tooltip_Ability_ereshkigal_w"			"<font color='#58ACFA'>Spirit Devourer</font>"
+        "DOTA_Tooltip_ability_ereshkigal_w_Description"		
+"After delay %cast_delay% seconds Ereshkigal summon spirit from underworld to target location, devouring nearest enemy hero, dealing damage and <font color='#FF3399'>stunning</font> for %stun% seconds.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten delay to %hell_cast% seconds while burning enemy's mana and restore Ereshkigal's mana.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage) and Hidden Great Crown</font>."
+		"DOTA_Tooltip_ability_ereshkigal_w_cast_range"  "CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_mana_burn"    "MANA BURN:"
+		"DOTA_Tooltip_ability_ereshkigal_w_mana_restore" "%MANA RESTORE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_w_upgrade_1"	"<font color='#9FFFCC'>Spirit Devourer</font>"
+        "DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_Description"		
+"After delay %cast_delay% seconds Ereshkigal summon spirit from underworld to target location, devouring nearest enemy hero, dealing damage based on Ereshkigal's <font color='#00F7FF'>INT</font> and <font color='#FF3399'>stunning</font> for %stun% seconds.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten delay to %hell_cast% seconds while burning enemy's mana and restore Ereshkigal's mana.
+<font color='#9FFFCC'>Upgradable with Attribute: Hidden Great Crown</font>."
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_cast_range"  "CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_bonus_int"   "BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_mana_burn"    "MANA BURN:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_1_mana_restore" "%MANA RESTORE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_w_upgrade_2"	"<font color='#9FFFCC'>Spirit Devourer</font>"
+        "DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_Description"		
+"After delay %cast_delay% seconds Ereshkigal summon spirit from underworld to target location, devouring nearest enemy hero, dealing damage, <font color='#FF3399'>stunning</font> for %stun% seconds and apply <font color='#FF3399'>Soul Steal</font> for %steal_dur% seconds while Ereshkigal gains %soul_gain% <font color='#99FF33'>Soul</font>.
+<font color='#FF3399'>Soul Steal</font>: stealing <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> from target to Ereshkigal. 
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten delay to %hell_cast% seconds while burning enemy's mana and restore Ereshkigal's mana.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage)</font>."
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_cast_range"  "CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_steal_stat"   "SOUL STEAL STAT:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_mana_burn"    "MANA BURN:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_2_mana_restore" "%MANA RESTORE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_w_upgrade_3"	"<font color='#9FFFCC'>Spirit Devourer</font>"
+        "DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_Description"		
+"After delay %cast_delay% seconds Ereshkigal summon spirit from underworld to target location, devouring nearest enemy hero, dealing damage based on Ereshkigal's <font color='#00F7FF'>INT</font>, <font color='#FF3399'>stunning</font> for %stun% seconds and apply <font color='#FF3399'>Soul Steal</font> for %steal_dur% seconds while Ereshkigal gains %soul_gain% <font color='#99FF33'>Soul</font>.
+<font color='#FF3399'>Soul Steal</font>: stealing <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> from target to Ereshkigal. 
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten delay to %hell_cast% seconds while burning enemy's mana and restore Ereshkigal's mana."
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_cast_range"  "CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_bonus_int"   "BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_steal_stat"   "SOUL STEAL STAT:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_mana_burn"    "MANA BURN:"
+		"DOTA_Tooltip_ability_ereshkigal_w_upgrade_3_mana_restore" "%MANA RESTORE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_e"			"<font color='#58ACFA'>Spirit Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_e_Description"		
+"Ereshkigal summon cage from underworld to target location. After delay %delay% second, cage will suck up nearest enemy hero, dealing damage and apply <font color='#FF3399'>Spirit Cage</font> for durations.
+<font color='#FF3399'>Spirit Cage</font>: Target becomes <font color='#FF3399'>rooted, silence, muted</font> and
+HP drained.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will apply <font color='#FF3399'>revoke</font> for short duration.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage) and Protection of the Underworld</font>."
+		"DOTA_Tooltip_ability_ereshkigal_e_cast_range"  "CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_cage_dur"    "CAGE DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_hp_drain" 	"HP DRAIN PER SEC:"
+		"DOTA_Tooltip_ability_ereshkigal_e_revoke" 		"REVOKE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_e_upgrade_1"		"<font color='#9FFFCC'>Spirit Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_Description"		
+"Ereshkigal summon cage from underworld to target location. After delay %delay% second, cage will suck up nearest enemy hero, dealing damage based on Ereshkigal's <font color='#00F7FF'>INT</font> and apply <font color='#FF3399'>Spirit Cage</font> for durations.
+<font color='#FF3399'>Spirit Cage</font>: Target becomes <font color='#FF3399'>rooted, silence, muted</font> and
+HP drained.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will apply <font color='#FF3399'>revoke</font> for short duration.
+<font color='#9FFFCC'>Upgradable with Attribute: Protection of the Underworld</font>."
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_cast_range"  	"CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_bonus_int"   	"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_cage_dur"    	"CAGE DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_hp_drain" 		"HP DRAIN PER SEC:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_1_revoke" 		"REVOKE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_e_upgrade_2"			"<font color='#9FFFCC'>Spirit Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_Description"		
+"Ereshkigal summon cage from underworld to target location. After delay %delay% second, cage will suck up nearest enemy hero, dealing damage, apply <font color='#FF3399'>Spirit Cage</font> and <font color='#FF3399'>Spirit Cage Debuff</font> for durations.
+<font color='#FF3399'>Spirit Cage</font>: Target becomes <font color='#FF3399'>rooted, silence, muted</font> and
+HP drained.
+<font color='#FF3399'>Spirit Cage Debuff</font>: Reduce target damage.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will apply <font color='#FF3399'>revoke</font> for short duration.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage)</font>."
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_cast_range"  	"CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_cage_dur"    	"CAGE DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_hp_drain" 		"HP DRAIN PER SEC:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_damage_debuff" "%DEBUFF DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_debuff_dur" 	"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_2_revoke" 		"REVOKE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_e_upgrade_3"			"<font color='#9FFFCC'>Spirit Cage</font>"
+        "DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_Description"		
+"Ereshkigal summon cage from underworld to target location. After delay %delay% second, cage will suck up nearest enemy hero, dealing damage based on Ereshkigal's <font color='#00F7FF'>INT</font>, apply <font color='#FF3399'>Spirit Cage</font> and <font color='#FF3399'>Spirit Cage Debuff</font> for durations.
+<font color='#FF3399'>Spirit Cage</font>: Target becomes <font color='#FF3399'>rooted, silence, muted</font> and
+HP drained.
+<font color='#FF3399'>Spirit Cage Debuff</font>: Reduce target damage.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will apply <font color='#FF3399'>revoke</font> for short duration.
+<font color='#9FFFCC'>Upgradable with Attribute: Mana Burst (Cage)</font>."
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_cast_range"  	"CAST RANGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_aoe"    		"AOE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_damage"    	"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_bonus_int"   	"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_cage_dur"    	"CAGE DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_hp_drain" 		"HP DRAIN PER SEC:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_damage_debuff" "%DEBUFF DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_debuff_dur" 	"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_e_upgrade_3_revoke" 		"REVOKE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_r"			"<font color='#58ACFA'>Kur Kigal Irkalla</font>"
+        "DOTA_Tooltip_ability_ereshkigal_r_Description"		
+"Ereshkigal channels power of underworld for %cast_time% second, then release an earthquake toward target location, dealing damage and <font color='#FF3399'>rooting</font> enemy heroes for durations. 
+Upon hit or reach its end, its create <font color='#99FF33'>Materialize Underworld</font> zone for durations.
+<font color='#99FF33'>Materialize Underworld</font>: all enemies gain <font color='#FF3399'>Materialize Underworld Debuff</font> while Ereshkigal gains <font color='#FF9900'>Queen of Underworld</font>.
+<font color='#FF3399'>Materialize Underworld Debuff</font>: target will be <font color='#FF3399'>locked</font> and reducing healing effect by %heal_red%%%.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten channel time to %hell_cast% seconds, increase aoe to %hell_aoe% and instant dealing damage and <font color='#FF3399'>rooting</font> all enemies within target area.
+<font color='#99FF33'>Materialize Underworld</font> will vanish when Ereshkigal exits.
+Ereshkigal wil be last as long as she stay inside <font color='#99FF33'>Materialize Underworld</font>.
+<font color='#9FFFCC'>Upgradable with Attribute: Territory Creation and Protection of the Underworld</font>."
+		"DOTA_Tooltip_ability_ereshkigal_r_cast_range"  "EARTHQUAKE DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_width"    	"EARTHQUAKE WIDTH:"
+		"DOTA_Tooltip_ability_ereshkigal_r_radius"    	"UNDERWORLD RADIUS:"
+		"DOTA_Tooltip_ability_ereshkigal_r_hell_dur"    "UNDERWORLD DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_r_damage" 		"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_outer_dmg" 	"%OUTER DAMAGE:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_r_upgrade_1"			"<font color='#9FFFCC'>Kur Kigal Irkalla</font>"
+        "DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_Description"		
+"Ereshkigal channels power of underworld for %cast_time% second, then release an earthquake toward target location, dealing damage and <font color='#FF3399'>rooting</font> enemy heroes for durations. 
+Upon hit or reach its end, its create <font color='#99FF33'>Materialize Underworld</font> zone for durations.
+<font color='#99FF33'>Materialize Underworld</font>: all enemies gain <font color='#FF3399'>Materialize Underworld Debuff</font>, all allies gain <font color='#FFFF28'>Materialize Underworld Buff</font> while Ereshkigal gains <font color='#FF9900'>Queen of Underworld</font>.
+<font color='#FF3399'>Materialize Underworld Debuff</font>: target will be <font color='#FF3399'>locked</font> and reducing healing effect by %heal_red%%%.
+<font color='#FFFF28'>Materialize Underworld Buff</font>: target gain bonus armor and magic resistance.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten channel time to %hell_cast% seconds, increase aoe to %hell_aoe% and instant dealing damage and <font color='#FF3399'>rooting</font> all enemies within target area.
+<font color='#99FF33'>Materialize Underworld</font> will vanish when Ereshkigal exits.
+Ereshkigal wil be last as long as she stay inside <font color='#99FF33'>Materialize Underworld</font>.
+<font color='#9FFFCC'>Upgradable with Attribute: Protection of the Underworld</font>."
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_cast_range"  "EARTHQUAKE DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_width"    	"EARTHQUAKE WIDTH:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_radius"    	"UNDERWORLD RADIUS:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_hell_dur"    "UNDERWORLD DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_damage" 		"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_outer_dmg" 	"%OUTER DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_1_team_buff" 	"ALLIES BONUS ARMOR/MR:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_r_upgrade_2"		"<font color='#9FFFCC'>Kur Kigal Irkalla</font>"
+        "DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_Description"		
+"Ereshkigal channels power of underworld for %cast_time% second, then release an earthquake toward target location, dealing damage and <font color='#FF3399'>rooting</font> enemy heroes for durations. 
+Upon hit or reach its end, its create <font color='#99FF33'>Materialize Underworld</font> zone for durations.
+<font color='#99FF33'>Materialize Underworld</font>: all enemies gain <font color='#FF3399'>Materialize Underworld Debuff</font> while Ereshkigal gains <font color='#FF9900'>Queen of Underworld</font>.
+<font color='#FF3399'>Materialize Underworld Debuff</font>: target will be <font color='#FF3399'>locked</font>, reducing healing effect by %heal_red%%%, armor, magic resistance and being <font color='#FF3399'>slowed</font>.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten channel time to %hell_cast% seconds, increase aoe to %hell_aoe% and instant dealing damage and <font color='#FF3399'>rooting</font> all enemies within target area.
+<font color='#99FF33'>Materialize Underworld</font> will vanish when Ereshkigal exits.
+Ereshkigal wil be last as long as she stay inside <font color='#99FF33'>Materialize Underworld</font>.
+<font color='#9FFFCC'>Upgradable with Attribute: Territory Creation</font>."
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_cast_range"  "EARTHQUAKE DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_width"    		"EARTHQUAKE WIDTH:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_radius"    	"UNDERWORLD RADIUS:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_hell_dur"   	"UNDERWORLD DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_damage" 		"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_outer_dmg" 	"%OUTER DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_slow" 			"%ENEMIES SLOW:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_2_def_debuff" 	"%ENEMIES ARMOR/MR DEBUFF:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_r_upgrade_3"		"<font color='#9FFFCC'>Kur Kigal Irkalla</font>"
+        "DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_Description"		
+"Ereshkigal channels power of underworld for %cast_time% second, then release an earthquake toward target location, dealing damage and <font color='#FF3399'>rooting</font> enemy heroes for durations. 
+Upon hit or reach its end, its create <font color='#99FF33'>Materialize Underworld</font> zone for durations.
+<font color='#99FF33'>Materialize Underworld</font>: all enemies gain <font color='#FF3399'>Materialize Underworld Debuff</font>, all allies gain <font color='#FFFF28'>Materialize Underworld Buff</font> while Ereshkigal gains <font color='#FF9900'>Queen of Underworld</font>.
+<font color='#FF3399'>Materialize Underworld Debuff</font>: target will be <font color='#FF3399'>locked</font>, reducing healing effect by %heal_red%%%, armor, magic resistance and being <font color='#FF3399'>slowed</font>.
+<font color='#FFFF28'>Materialize Underworld Buff</font>: target gain bonus armor and magic resistance.
+<font color='#FF9900'>Queen of Underworld</font>: Casting inside <font color='#99FF33'>Materialize Underworld</font> will shorten channel time to %hell_cast% seconds, increase aoe to %hell_aoe% and instant dealing damage and <font color='#FF3399'>rooting</font> all enemies within target area.
+<font color='#99FF33'>Materialize Underworld</font> will vanish when Ereshkigal exits.
+Ereshkigal wil be last as long as she stay inside <font color='#99FF33'>Materialize Underworld</font>."
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_cast_range"  "EARTHQUAKE DISTANCE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_width"    		"EARTHQUAKE WIDTH:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_radius"    	"UNDERWORLD RADIUS:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_hell_dur"   	"UNDERWORLD DURATION:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_damage" 		"DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_outer_dmg" 	"%OUTER DAMAGE:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_team_buff" 	"ALLIES BONUS ARMOR/MR:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_slow" 			"%ENEMIES SLOW:"
+		"DOTA_Tooltip_ability_ereshkigal_r_upgrade_3_def_debuff" 	"%ENEMIES ARMOR/MR DEBUFF:"
+
+		//////////////////////// Special ////////////////////
+
+		"DOTA_Tooltip_Ability_ereshkigal_f"		"<font color='#FFB266'>Kur</font>"
+        "DOTA_Tooltip_ability_ereshkigal_f_Description"		
+"After delay %delay% seconds, all heroes and units within %aoe% radius are teleported to Ereshkigal's Kur."
+
+		//////////////////// Combo /////////////////////////
+
+		"DOTA_Tooltip_Ability_ereshkigal_combo"				"<font color='#FF04EF'>Combo: The Bellows of Kur that Tramples upon Ekur</font>"
+        "DOTA_Tooltip_Ability_ereshkigal_combo_Description"	"
+<font color='#FF04EF'>Combo Requirement : 25 all stats</font>
+<font color='#FF04EF'>Combo Sequence : Q - D -> R within 4 seconds</font>
+<font color='#FF9900'>Death Match: Jeanne can use combo after 1.30 min.</font> 
+Ereshkigal channels seven gates for %delay_before_tele% second to open Kur, After teleporting up Ereshkigal gain vision over visible enemy heroes while enable <font color='#58ACFA'>The Bellows of Kur that Tramples upon Ekur - Target Location</font> for %reveal% seconds.
+<font color='#58ACFA'>The Bellows of Kur that Tramples upon Ekur - Target Location</font>: Select the target area. If this abily is not used in time, Ereshkigal will randomly aim to enemy hero location.
+After charging up for %cast% seconds, Ereshkigal tramples target area, creating <font color='#99FF33'>Materialize Underworld</font> zone, dealing damage based on <font color='#99FF33'>Soul</font>, <font color='#FF3399'>rooted</font> and <font color='#FF3399'>revoked</font>.
+Ereshkigal is <font color='#FF3399'>stunned</font> until she teleport to Kur and becoming <font color='#FFFF28'>invulnerable</font> and <font color='#FFFF28'>untargetable</font>.
+Ereshkigal will teleport back to original location after finishing this ability.
+<font color='#FF04EF'>The Bellows of Kur that Tramples upon Ekur</font> can not used inside Reality Marble while <font color='#58ACFA'>The Bellows of Kur that Tramples upon Ekur - Target Location</font> can not target Reality Marble."
+        "DOTA_Tooltip_ability_ereshkigal_combo_aoe"					"AOE:"
+        "DOTA_Tooltip_ability_ereshkigal_combo_damage"				"BASE DAMAGE:"
+        "DOTA_Tooltip_ability_ereshkigal_combo_soul_damage"			"BONUS DAMAGE PER SOUL:"
+        "DOTA_Tooltip_ability_ereshkigal_combo_root"				"ROOT DURATION:"
+        "DOTA_Tooltip_ability_ereshkigal_combo_revoke"				"REVOKE DURATION:"
+
+		/////////////////// Modifier //////////////////// 
+
+		"DOTA_Tooltip_modifier_goddess_of_death_passive"				"Goddess of Death"
+		"DOTA_Tooltip_modifier_goddess_of_death_passive_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_authority"				"Queen of Underworld"
+		"DOTA_Tooltip_modifier_ereshkigal_authority_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_soul"				"Soul"
+		"DOTA_Tooltip_modifier_ereshkigal_soul_Description"	"+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% STR, +%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% AGI, +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% INT"
+
+		"DOTA_Tooltip_modifier_ereshkigal_q_slow"				"Ereshkigal Spear Cage Slow"
+		"DOTA_Tooltip_modifier_ereshkigal_q_slow_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_steal"				"Ereshkigal Soul Steal"
+		"DOTA_Tooltip_modifier_ereshkigal_steal_Description"	"-%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% STR, -%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% AGI, -%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% INT"
+
+		"DOTA_Tooltip_modifier_ereshkigal_steal_self"				"Ereshkigal Soul Steal Self"
+		"DOTA_Tooltip_modifier_ereshkigal_steal_self_Description"	"+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% STR, +%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% AGI, +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% INT"
+
+		"DOTA_Tooltip_modifier_ereshkigal_cage"				"Ereshkigal Spirit Cage"
+		"DOTA_Tooltip_modifier_ereshkigal_cage_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_cage_debuff"				"Ereshkigal Spirit Cage Debuff"
+		"DOTA_Tooltip_modifier_ereshkigal_cage_debuff_Description"	"-%dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%% damage"
+
+		"DOTA_Tooltip_modifier_ereshkigal_marble_aura_debuff"				"Materialize Underworld Debuff"
+		"DOTA_Tooltip_modifier_ereshkigal_marble_aura_debuff_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_marble_aura_buff"				"Materialize Underworld Buff"
+		"DOTA_Tooltip_modifier_ereshkigal_marble_aura_buff_Description"	""
+
+		"DOTA_Tooltip_modifier_ereshkigal_combo_cooldown"				"The Bellows of Kur that Tramples upon Ekur Cooldown"
+		"DOTA_Tooltip_modifier_ereshkigal_combo_cooldown_Description"	""
+
+		/////////////// Attribute /////////////////////////
+
+		"DOTA_Tooltip_Ability_ereshkigal_attribute_territory"		"<font color='#9FFFCC'>Territory Creation</font>"
+        "DOTA_Tooltip_ability_ereshkigal_attribute_territory_Description"		
+"<font color='#58ACFA'>Kur Kigal Irkalla</font>: Increase <font color='#99FF33'>Materialize Underworld</font>'s duration by %r_hell_dur% seconds and <font color='#FF3399'>root</font> duration by %r_bonus_root% second. 
+<font color='#FF3399'>Materialize Underworld Debuff</font>: Increase healing reduction by %r_heal_red%%%.
+All allies gain <font color='#FFFF28'>Materialize Underworld Buff</font> while staying inside <font color='#99FF33'>Materialize Underworld</font>.
+<font color='#FFFF28'>Materialize Underworld Buff</font>: target gain bonus armor and magic resistance."
+		"DOTA_Tooltip_ability_ereshkigal_attribute_territory_r_team_buff" 	"ALLIES BONUS ARMOR/MR:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_attribute_divine"		"<font color='#9FFFCC'>Divine Core of the Goddess</font>"
+        "DOTA_Tooltip_ability_ereshkigal_attribute_divine_Description"		
+"<font color='#FFFFFF'>Goddess of Death</font>: Ereshkigal no longer has penalty damage while staying in mortal world.
+Staying inside <font color='#99FF33'>Materialize Underworld</font>, Ereshkigal gain bonus %hell_bonus_dmg%%% damage. 
+<font color='#FFFF28'>Queen of Underworld</font>: Ereshkigal gains bonus %hell_bonus_regen% HP/Mana regen, %hell_bonus_def% armor/magic resistance and %hell_bonus_ms%%% movespeed."
+
+		"DOTA_Tooltip_Ability_ereshkigal_attribute_crown"		"<font color='#9FFFCC'>Hidden Great Crown</font>"
+        "DOTA_Tooltip_ability_ereshkigal_attribute_crown_Description"		
+"<font color='#FFFFFF'>Goddess of Death</font>: Increaes <font color='#99FF33'>Soul</font>'s bonus <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> by %d_non_hell% while increasing %d_hell% bonus <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> instead when Ereshkigal has <font color='#FFFF28'>Queen of Underworld</font>.
+<font color='#58ACFA'>Spirit Devourer</font>: Apply <font color='#FF3399'>Soul Steal</font> for %w_steal_dur% seconds to the target while Ereshkigal gains %w_soul_gain% <font color='#99FF33'>Soul</font>.
+<font color='#FF3399'>Soul Steal</font>: stealing <font color='#FF0000'>STR</font>, <font color='#80FF00'>AGI</font> and <font color='#00F7FF'>INT</font> from target to Ereshkigal.
+Ereshkigal will automatically consume <font color='#99FF33'>Soul</font> to refresh her abilities."
+		"DOTA_Tooltip_ability_ereshkigal_attribute_crown_w_steal_stat" 	"SOUL STEAL STAT:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_crown_q_consume"    "Q SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_crown_w_consume"    "W SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_crown_e_consume"    "E SOUL CONSUME:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_crown_r_consume"    "R SOUL CONSUME:"
+
+		"DOTA_Tooltip_Ability_ereshkigal_attribute_mana_burst"		"<font color='#9FFFCC'>Mana Burst (Cage)</font>"
+        "DOTA_Tooltip_ability_ereshkigal_attribute_mana_burst_Description"		
+"<font color='#58ACFA'>Spear Cage</font>: Increase bonus damage by %q_bonus_int% per Ereshkigal's <font color='#00F7FF'>INT</font>
+<font color='#58ACFA'>Spirit Devourer</font>: Increase bonus damage by %w_bonus_int% per Ereshkigal's <font color='#00F7FF'>INT</font>
+<font color='#58ACFA'>Spirit Cage</font>: Increase bonus damage by %e_bonus_int% per Ereshkigal's <font color='#00F7FF'>INT</font>"
+
+		"DOTA_Tooltip_Ability_ereshkigal_attribute_underworld"		"<font color='#9FFFCC'>Protection of the Underworld</font>"
+        "DOTA_Tooltip_ability_ereshkigal_attribute_underworld_Description"		
+"<font color='#58ACFA'>Spirit Cage</font>: Apply <font color='#FF3399'>Spirit Cage Debuff</font> for %e_debuff_dur% seconds
+<font color='#FF3399'>Spirit Cage Debuff</font>: Reduce target damage.
+<font color='#58ACFA'>Kur Kigal Irkalla</font> Increase bonus damage by %r_bonus_int% per Ereshkigal's <font color='#00F7FF'>INT</font>
+<font color='#FF3399'>Materialize Underworld Debuff</font>: target will be reduced armor, magic resistance and being <font color='#FF3399'>slowed</font>."
+		"DOTA_Tooltip_ability_ereshkigal_attribute_underworld_e_damage_debuff"    "%CAGE DEBUFF DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_underworld_slow"    		"%SLOW:"
+		"DOTA_Tooltip_ability_ereshkigal_attribute_underworld_def_debuff"   "ARMOR/MR DEBUFF:"
 
 		///////////////////////////////////////////////////
 

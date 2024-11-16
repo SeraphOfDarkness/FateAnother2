@@ -2201,7 +2201,7 @@
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade"							"<font color='#9FFFCC'>심안 (거짓)</font>"
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_Description"				"<font color='#58ACFA'>지속 효과</font>: 기본 공격 시 <font color='#80FF00'>민첩</font>에 비례하여 보너스 순수 피해를 줍니다. 적이 마스터와 <font color='#FF3399'>단절</font> 상태일 경우, 피해가 상당히 증폭됩니다."
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_Lore"						"A strong mind sees what the eye cannot see."
-		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio"					"민첩 계수:
+		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio"					"민첩 계수:"
 		"DOTA_Tooltip_ability_sasaki_minds_eye_upgrade_agi_ratio_revoked"		"단절 대상 민첩 계수:"
 
 		/////////////////////////////////// Basic ///////////////////////////////
@@ -6480,7 +6480,7 @@
 		"DOTA_Tooltip_modifier_gust_heaven_indicator"                  		"주상: 밀천"
 		"DOTA_Tooltip_modifier_gust_heaven_indicator_Description"		""
 
-		"DOTA_Tooltip_modifier_amaterasu_ally"					"수천일광천조팔야진석
+		"DOTA_Tooltip_modifier_amaterasu_ally"					"수천일광천조팔야진석"
 		"DOTA_Tooltip_modifier_amaterasu_ally_Description"		"이동 속도 +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, 공격 속도 +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%."
 
 		"DOTA_Tooltip_modifier_amaterasu_territory_heal"               		"수천일광천조팔야진석 회복"
@@ -14778,7 +14778,7 @@
         //"DOTA_Tooltip_ability_mashu_attribute_shield_w_def_ally"							"아군 보너스 방어력:"
 
         "DOTA_Tooltip_Ability_mashu_attribute_chalk"									"<font color='#9FFFCC'>속성: 때때로 흐려지는 백악의 벽</font>"
-        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"				""<font color='#58ACFA'>지금은 여린 눈꽃의 벽</font>: <font color='#58ACFA'>지속 효과</font>: 받는 피해 감소와 보너스 체력 재생을 얻습니다. \n<font color='#58ACFA'>활성화</font>: 시전시간이 감소하고 시전 후 <font color='#FFFF28'>무적</font>을 얻습니다. 가장 가까이 있는 아군 또한 <font color='#FFFF28'>무적</font>이 됩니다. <font color='#FF3399'>기절</font> 상태에서도 <font color='#58ACFA'>지금은 여린 눈꽃의 벽</font>을 시전할 수 있습니다."
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"				"<font color='#58ACFA'>지금은 여린 눈꽃의 벽</font>: <font color='#58ACFA'>지속 효과</font>: 받는 피해 감소와 보너스 체력 재생을 얻습니다. \n<font color='#58ACFA'>활성화</font>: 시전시간이 감소하고 시전 후 <font color='#FFFF28'>무적</font>을 얻습니다. 가장 가까이 있는 아군 또한 <font color='#FFFF28'>무적</font>이 됩니다. <font color='#FF3399'>기절</font> 상태에서도 <font color='#58ACFA'>지금은 여린 눈꽃의 벽</font>을 시전할 수 있습니다."
 		"DOTA_Tooltip_ability_mashu_attribute_chalk_passive_dr"				"%지속 효과 피해 감소:"
         "DOTA_Tooltip_ability_mashu_attribute_chalk_passive_hp_reg"		"%지속 효과 체력 재생:"
         "DOTA_Tooltip_ability_mashu_attribute_chalk_cast_rdr"					"시전시간 감소:"
@@ -15134,7 +15134,7 @@
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_cast_delay"		"시전시간:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_cast_range"		"도약 최대 거리:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_damage"			"피해:"
-		"DOTA_Tooltip_Ability_atalanta_alter_jump_radius"				"효과 범위:""
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_radius"				"효과 범위:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_curse_stacks"	"저주 중첩:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_slow_dur"			"둔화 지속시간:"
 
@@ -15143,7 +15143,7 @@
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_cast_delay"		"시전시간:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_cast_range"		"도약 최대 거리:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_damage"			"피해:"
-		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_radius"				"효과 범위:""
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_radius"				"효과 범위:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_curse_stacks"	"저주 중첩:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_1_slow_dur"			"둔화 지속시간:"
 
@@ -15152,7 +15152,7 @@
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_cast_delay"		"시전시간:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_cast_range"		"도약 최대 거리:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_damage"			"피해:"
-		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_radius"				"효과 범위:""
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_radius"				"효과 범위:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_curse_stacks"	"저주 중첩:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_2_slow_dur"			"둔화 지속시간:"
 
@@ -15161,7 +15161,7 @@
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_cast_delay"		"시전시간:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_cast_range"		"도약 최대 거리:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_damage"			"피해:"
-		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_radius"				"효과 범위:""
+		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_radius"				"효과 범위:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_curse_stacks"	"저주 중첩:"
 		"DOTA_Tooltip_Ability_atalanta_alter_jump_upgrade_3_slow_dur"			"둔화 지속시간:"
 

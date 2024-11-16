@@ -6,11 +6,18 @@ function OnQ(keys)
 	local targetpoint = ability:GetCursorPosition()
 
 	--marble here
-	caster:EmitSound("MHX.Q" ..math.random(1,2))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mhx_q_buff", {})
 
 	local fRange = ability:GetSpecialValueFor("range")
+
 	caster:EmitSound("MHX.QSFX")
+    -- Sound effects
+    if caster:HasModifier("modifier_alternate_02") then
+		caster:EmitSound("KIRITO.Q")
+    else
+		caster:EmitSound("MHX.Q" ..math.random(1,2))
+    end
+
  	AbilityBlinkNoEffects(caster,targetpoint, fRange, {})
 
  	local newpos = caster:GetAbsOrigin()
@@ -66,7 +73,11 @@ function OnWStart(keys)
         caster.air_burst = ProjectileManager:CreateLinearProjectile(air_burst)
 
         -- Sound effects
-        caster:EmitSound("MHX.W" ..math.random(1,2))
+        if caster:HasModifier("modifier_alternate_02") then
+        	caster:EmitSound("KIRITO.W" ..math.random(1,2))
+        else
+        	caster:EmitSound("MHX.W" ..math.random(1,2))
+        end
         caster:EmitSound("MHX.WSFX")
         caster:EmitSound("MHX.WSFXFOLLOW1")
         caster:EmitSound("MHX.WSFXFOLLOW2")
@@ -108,6 +119,9 @@ function OnWHit(keys)
     end
 
     target:EmitSound("MHX.WSFX2")
+    if not target:IsMagicImmune() or not IsImmuneToSlow(target) then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_mhx_w_debuff", {Duration = 1})
+	end
 end
 
 function LaunchSplitProjectiles(caster, ability, origin, speed, width, split_range, split_damage_perc,fowardvec)
@@ -168,12 +182,20 @@ function OnE(keys)
 	local aoe = ability:GetSpecialValueFor("aoe")
 	local damage = ability:GetSpecialValueFor("damage")
 	local cast_delay = ability:GetSpecialValueFor("cast_delay")
+	local refactor_damage = ability:GetSpecialValueFor("refactor_damage")
+	local refactor_root = ability:GetSpecialValueFor("refactor_root")
+	local refactor_delay = ability:GetSpecialValueFor("refactor_delay")
 
 	StartAnimation(caster, {duration = cast_delay, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=2})
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", cast_delay)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", cast_delay - 0.15)
 
-	caster:EmitSound("MHX.EVOICE")
+    -- Sound effects
+    if caster:HasModifier("modifier_alternate_02") then
+    	caster:EmitSound("KIRITO.E" ..math.random(1,3))
+    else
+		caster:EmitSound("MHX.EVOICE")
+    end
 
 
     Timers:CreateTimer(cast_delay - 0.125, function()
@@ -197,7 +219,19 @@ function OnE(keys)
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(targets) do
 				if IsValidEntity(v) and not v:IsNull() and v:IsAlive() then
-			       	DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)	  
+			       	DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+    				Timers:CreateTimer(refactor_delay, function()
+			       		DoDamage(caster, v, refactor_damage , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+						v:AddNewModifier(caster, ability, "modifier_rooted", {Duration = refactor_root}) 
+						local particleeff11 = ParticleManager:CreateParticle("particles/econ/items/ursa/ursa_ti10/ursa_ti10_earthshock_electric_center.vpcf", PATTACH_ABSORIGIN, v)
+						ParticleManager:SetParticleControl(particleeff11, 0, v:GetAbsOrigin())
+						local particleeff22 = ParticleManager:CreateParticle("particles/econ/items/ursa/ursa_ti10/ursa_ti10_earthshock_electric_vertical_child.vpcf", PATTACH_ABSORIGIN, v)
+						ParticleManager:SetParticleControl(particleeff22, 0, v:GetAbsOrigin())
+						local particleeff33 = ParticleManager:CreateParticle("particles/econ/items/vengeful/vengeful_arcana/vengeful_arcana_nether_swap_explosion_shockwave_top.vpcf", PATTACH_ABSORIGIN, v)
+						ParticleManager:SetParticleControl(particleeff33, 0, v:GetAbsOrigin())
+						local particleeff44 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_shock.vpcf", PATTACH_ABSORIGIN, v)
+						ParticleManager:SetParticleControl(particleeff44, 0, v:GetAbsOrigin())
+    				end)
 		       	end
 		    end
 		end
@@ -252,8 +286,8 @@ function OnR(keys)
 	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particleeff1, 1, target_position)
 
-	local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin())
+	local particleeff12 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(particleeff12, 0, caster:GetAbsOrigin())
 
 	local casterslashingPosition = caster_position + direction * (range * 5 / 8)
 
@@ -274,8 +308,14 @@ function OnR(keys)
 		caster:RemoveModifierByName("modifier_mhx_prana")
 	end
 
+	local soundindex = math.random(1,3)
 	--playchargingaudio here.
-	EmitGlobalSound("MHX.RCAST" ..math.random(1,2))
+    if caster:HasModifier("modifier_alternate_02") then
+    	EmitGlobalSound("KIRITO.RSTART" ..soundindex)
+    else
+		EmitGlobalSound("MHX.RCAST" ..math.random(1,2))
+    end
+
 	EmitGlobalSound("MHX.RCASTSFX")
 
     Timers:CreateTimer(0.3, function()
@@ -284,9 +324,9 @@ function OnR(keys)
 
     Timers:CreateTimer(cast_delay - 0.1, function()
 		if caster:IsAlive() then	
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_dash.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(particleeff1, 1, target_position)
+			local particleeff13 = ParticleManager:CreateParticle("particles/mhx/mhx_r_dash.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff13, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particleeff13, 1, target_position)
 		end
 	end)
 
@@ -301,18 +341,24 @@ function OnR(keys)
 
     Timers:CreateTimer(cast_delay, function()
 		EmitGlobalSound("MHX.RDASH")
-		EmitGlobalSound("MHX.RBURSTVOICE")
+
+		    if caster:HasModifier("modifier_alternate_02") then
+		    	EmitGlobalSound("KIRITO.RBLAST" ..soundindex)
+		    else
+				EmitGlobalSound("MHX.RBURSTVOICE")
+		    end
+
 		if caster:IsAlive() then	
 			caster:SetAbsOrigin(casterslashingPosition)
 			giveUnitDataDrivenModifier(caster, caster, "jump_pause", slash_duration + burst_delay)
 			StartAnimation(caster, {duration=slash_duration + 0.2, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2.5})
 
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, target_position)
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area3.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, target_position)
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast1.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, target_position)
+			local particleeff14 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff14, 0, target_position)
+			local particleeff15 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area3.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff15, 0, target_position)
+			local particleeff16 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast1.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff16, 0, target_position)
 
     		local targets = FindUnitsInLine(caster:GetTeamNumber(), caster_position, target_position, nil, width, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE)
 			for k,v in pairs(targets) do
@@ -333,12 +379,12 @@ function OnR(keys)
 			        -- Example: DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					local rng = RandomInt(0,100)
 					if (rng < 32) then
-						local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
-						ParticleManager:SetParticleControl(particleeff1, 0, target_position)
+						local particleeff17 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
+						ParticleManager:SetParticleControl(particleeff17, 0, target_position)
 					end
 
-					local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 0, target_position)
+					local particleeff18 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff18, 0, target_position)
 
 					EmitSoundOnLocationWithCaster(target_position, "MHX.RSLASH" ..math.random(1,4), caster)
 					EmitSoundOnLocationWithCaster(target_position, "MHX.RSLASHBONUS" ..math.random(1,2), caster)
@@ -376,11 +422,12 @@ function OnR(keys)
 
     Timers:CreateTimer(cast_delay + slash_duration + burst_delay, function()
 		if caster:IsAlive() then	
-			EmitGlobalSound("MHX.RBURSTSFX" ..math.random(1,2))
 			EmitGlobalSound("MHX.RBURSTSFXFOLLOW")
 
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, target_position)
+			EmitGlobalSound("MHX.RBURSTSFX" ..math.random(1,2))
+
+			local particleeff19 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff19, 0, target_position)
 
 			local targets = FindUnitsInRadius(caster:GetTeam(), target_position, nil, burst_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(targets) do
@@ -392,6 +439,18 @@ function OnR(keys)
 	end)
 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+end
+
+function FaceUnit(caster, target)
+    if not caster or not target or not target:IsAlive() then
+        return
+    end
+
+    -- Calculate the direction from the caster to the target
+    local direction = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
+
+    -- Set the caster's forward vector to face the target
+    caster:SetForwardVector(direction)
 end
 
 function OnCombo(keys)
@@ -406,6 +465,7 @@ function OnCombo(keys)
 	local slash_duration = ability:GetSpecialValueFor("slash_duration")
 	local burst_delay = ability:GetSpecialValueFor("burst_delay")
 	local damage_burst = ability:GetSpecialValueFor("damage_burst")
+	local damage_slash_agi_scale = ability:GetSpecialValueFor("damage_slash_agi_scale")
 	local targetpoint = ability:GetCursorPosition()
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_mhx_combo_cooldown", {Duration = ability:GetCooldown(1)})
@@ -441,14 +501,19 @@ function OnCombo(keys)
 
 	local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-	local particleeff1 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-	local particleeff1 = ParticleManager:CreateParticle("particles/creatures/aghanim/aghanim_blink_ground_rings.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-	local particleeff1 = ParticleManager:CreateParticle("particles/creatures/aghanim/aghanim_portal_summon_impact_cast_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+	local particleeff12 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particleeff12, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+	local particleeff13 = ParticleManager:CreateParticle("particles/creatures/aghanim/aghanim_blink_ground_rings.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particleeff13, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+	local particleeff14 = ParticleManager:CreateParticle("particles/creatures/aghanim/aghanim_portal_summon_impact_cast_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particleeff14, 0, caster:GetAbsOrigin() + Vector(0,0,30))
 
+    if caster:HasModifier("modifier_alternate_02") then
+	EmitGlobalSound("KIRITO.COMBOSTART")
+    else
 	EmitGlobalSound("MHX.COMBOSTARTVOICE")
+    end
+
 
     Timers:CreateTimer(0.1, function()
 		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_3 , rate=1})
@@ -471,6 +536,8 @@ function OnCombo(keys)
 		caster:RemoveModifierByName("modifier_mhx_prana")
 	end
 
+	damage_slash = damage_slash + damage_slash_agi_scale * caster:GetAgility()
+
 	--DASHING CHECK
     Timers:CreateTimer(cast_delay, function()
 		if caster:IsAlive() then	
@@ -485,15 +552,15 @@ function OnCombo(keys)
 
 			local particleeff1 = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_splinter_explosion_flare_ring.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-			local particleeff1 = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/void_spirit_prison_end_top_flare.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-			local particleeff1 = ParticleManager:CreateParticle("particles/econ/events/ti10/soccer_ball/soccer_ball_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 10, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff12 = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/void_spirit_prison_end_top_flare.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff12, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff13 = ParticleManager:CreateParticle("particles/econ/events/ti10/soccer_ball/soccer_ball_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff13, 10, caster:GetAbsOrigin() + Vector(0,0,30))
 
 			-- Find unit in line, furthest from caster
 			local targets = FindUnitsInLine(caster:GetTeamNumber(), caster_position, target_position, nil, width, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE)
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_path.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin())
+			local particleeff14 = ParticleManager:CreateParticle("particles/mhx/mhx_path.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff14, 0, caster:GetAbsOrigin())
 			-- Check if there are any targets
 			if not targets or #targets == 0 then
 				--SET CD TO FAIL CD
@@ -503,7 +570,7 @@ function OnCombo(keys)
     			ability:ApplyDataDrivenModifier(caster, caster, "modifier_mhx_combo_cooldown", {Duration = fail_cooldown})
 				ability:StartCooldown(fail_cooldown)
 				caster:SetAbsOrigin(target_position)
-				ParticleManager:SetParticleControl(particleeff1, 1, target_position)
+				ParticleManager:SetParticleControl(particleeff14, 1, target_position)
 				caster:RemoveModifierByName("pause_sealdisabled")
 				caster:RemoveModifierByName("jump_pause")
 				return 
@@ -525,47 +592,52 @@ function OnCombo(keys)
 			local calculateoffset = caster_position - furthest_target:GetAbsOrigin()
 			local dirNew = (furthest_target:GetAbsOrigin() - caster_position):Normalized()
 			local casterslashingPosition = furthest_target:GetAbsOrigin() + dirNew * 125
-			caster:SetForwardVector(furthest_target:GetAbsOrigin())
 
-			ParticleManager:SetParticleControl(particleeff1, 1, furthest_target:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particleeff14, 1, furthest_target:GetAbsOrigin())
 			EmitGlobalSound("MHX.RDASH")
 
-			EmitGlobalSound("MHX.COMBOSUCCESS")
+		    if caster:HasModifier("modifier_alternate_02") then
+				EmitGlobalSound("KIRITO.COMBOCAST")
+				EmitGlobalSound("KIRITO.COMBOBGM")
+		    else
+				EmitGlobalSound("MHX.COMBOSUCCESS")
+		    end
+
 			caster:SetAbsOrigin(casterslashingPosition)
 
-			local particleeff1 = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/astral_step/astral_step_portal_flare.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area2.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
-			local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast2.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(particleeff1, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff167 = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/astral_step/astral_step_portal_flare.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff167, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff188 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff188, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff19 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff19, 0, caster:GetAbsOrigin() + Vector(0,0,30))
+			local particleeff10 = ParticleManager:CreateParticle("particles/mhx/mhx_r_cast2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particleeff10, 0, caster:GetAbsOrigin() + Vector(0,0,30))
 
 			local interval = slash_duration / slash_count  -- Time between each slash
 
 			for i = 1, slash_count do
 			    Timers:CreateTimer(i * interval, function()
-			    	if furthest_target:IsAlive() then
-			    	caster:SetAbsOrigin(furthest_target:GetAbsOrigin() + dirNew * 125)
-			        -- This will be called every 'interval' seconds for 'slash_count' times
-			        -- Perform your slash logic here (e.g., apply damage, play animation, etc.)
-			        -- Example: DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-					caster:SetForwardVector(furthest_target:GetAbsOrigin())
+			    	if furthest_target:IsAlive() and not furthest_target:IsNull() then
+				    	caster:SetAbsOrigin(furthest_target:GetAbsOrigin() + dirNew * 125)
+				        -- This will be called every 'interval' seconds for 'slash_count' times
+				        -- Perform your slash logic here (e.g., apply damage, play animation, etc.)
+				        -- Example: DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+						FaceUnit(caster, furthest_target)
 			    	end
 			    	
 					local rng = RandomInt(0,100)
 					if (rng < 20) then
 						local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
-						ParticleManager:SetParticleControl(particleeff1, 0, furthest_target:GetAbsOrigin())
+						ParticleManager:SetParticleControl(particleeff112, 0, furthest_target:GetAbsOrigin())
 					end
 
-					local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 0, furthest_target:GetAbsOrigin())
-					local particleeff1 = ParticleManager:CreateParticle("particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_cast_lightning_sparks.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 1, furthest_target:GetAbsOrigin() + Vector(0,0,50))
-					local particleeff1 = ParticleManager:CreateParticle("particles/econ/items/disruptor/disruptor_ti8_immortal_weapon/disruptor_ti8_immortal_thunder_strike_buff_sparks_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 3, furthest_target:GetAbsOrigin() + Vector(0,0,50))
+					local particleeff112 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_slashfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff112, 0, furthest_target:GetAbsOrigin())
+					local particleeff1111 = ParticleManager:CreateParticle("particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_cast_lightning_sparks.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff1111, 1, furthest_target:GetAbsOrigin() + Vector(0,0,50))
+					local particleeff134 = ParticleManager:CreateParticle("particles/econ/items/disruptor/disruptor_ti8_immortal_weapon/disruptor_ti8_immortal_thunder_strike_buff_sparks_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff134, 3, furthest_target:GetAbsOrigin() + Vector(0,0,50))
 
 
 					EmitSoundOnLocationWithCaster(furthest_target:GetAbsOrigin(), "MHX.RSLASH" ..math.random(1,4), caster)
@@ -589,10 +661,10 @@ function OnCombo(keys)
 
 			Timers:CreateTimer(slash_duration + burst_delay - 0.12, function()
 				if caster:IsAlive() then	
-					local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_x2.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 0, furthest_target:GetAbsOrigin())
-					local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_x.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 0, furthest_target:GetAbsOrigin())
+					local particleeff169 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_x2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff169, 0, furthest_target:GetAbsOrigin())
+					local particleeff165 = ParticleManager:CreateParticle("particles/mhx/mhx_combo_x.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff165, 0, furthest_target:GetAbsOrigin())
 				end
 			end)
 
@@ -601,11 +673,16 @@ function OnCombo(keys)
 					EmitGlobalSound("MHX.RBURSTSFX" ..math.random(1,2))
 					EmitGlobalSound("MHX.RBURSTSFXFOLLOW")
 
-					local particleeff1 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(particleeff1, 0, furthest_target:GetAbsOrigin())
+					local particleeff1666 = ParticleManager:CreateParticle("particles/mhx/mhx_r_slash_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(particleeff1666, 0, furthest_target:GetAbsOrigin())
 
 					DoDamage(caster, furthest_target, damage_burst , DAMAGE_TYPE_MAGICAL, 0, ability, false)	 
-					caster:SetAbsOrigin(furthest_target:GetAbsOrigin() - calculateoffset)
+
+					if furthest_target:IsAlive() and not furthest_target:IsNull() then
+				    	caster:SetAbsOrigin(furthest_target:GetAbsOrigin() + dirNew * 125)
+					else
+						caster:SetAbsOrigin(caster:GetAbsOrigin())
+					end
 				end
 			end)
 		end
@@ -619,6 +696,9 @@ function OnBuff(keys)
     local ability = keys.ability
 	local duration = ability:GetSpecialValueFor("duration")
 
+    if caster:HasModifier("modifier_alternate_02") then
+		caster:EmitSound("KIRITO.D")
+    end
     caster:EmitSound("MHX.DSFX")
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_mhx_prana", {Duration = duration})
 

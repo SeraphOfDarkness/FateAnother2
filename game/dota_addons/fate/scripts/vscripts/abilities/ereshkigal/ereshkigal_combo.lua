@@ -73,7 +73,7 @@ function ereshkigal_combo:OnSpellStart()
 	self.bonus_damage = self.soul_damage * self.total_soul
 	self.beam = self.caster:FindAbilityByName("ereshkigal_combo_target")
 	self.lightning_charge = 2
-	self.hell_loc = Vector(0,2000,1000)
+	self.hell_loc = Vector(0,2000,256)
 
 	self.base_camera = Convars:GetInt("dota_camera_distance") or 1900
     self.bonus_camera = 100

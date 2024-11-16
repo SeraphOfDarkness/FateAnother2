@@ -1,4 +1,4 @@
 "CustomHeroList"
 {
-	//"npc_dota_hero_terrorblade"		"1"
+	"npc_dota_hero_slark"		"1"
 }

@@ -653,6 +653,7 @@ tModifierCooldown = {
     "modifier_billy_combo_cooldown",
     "modifier_saito_style_combo_indicator",
     "modifier_mhx_combo_cooldown",
+    "modifier_ereshkigal_combo_cooldown",
 }
 
 CannotReset = {
@@ -2558,7 +2559,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 targetHero = target
             end        
             
-            if not target.IsNurseryClone then
+            --[[if not target.IsNurseryClone then
                 local dmg_stat = dmg 
                 if sourceHero:GetTeam() == targetHero:GetTeam() then 
                     dmg_stat = 0 
@@ -2567,7 +2568,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 if not targetHero:IsIllusion() then -- band aid for NR's shapeshift.
         	        targetHero.ServStat:takeDamageBeforeReduction(dmg_stat)
         	    end
-            end  
+            end  ]]
         end  
     end
     -- END

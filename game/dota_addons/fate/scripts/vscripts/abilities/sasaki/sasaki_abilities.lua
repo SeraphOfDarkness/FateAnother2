@@ -40,7 +40,7 @@ function OnGKStart(keys)
 	end
 
 	if caster:HasModifier("modifier_alternate_03") then 
-		target:EmitSound("Ikki_Q")
+		caster:EmitSound("Ikki_Q")
 	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gate_keeper_self_buff", {})

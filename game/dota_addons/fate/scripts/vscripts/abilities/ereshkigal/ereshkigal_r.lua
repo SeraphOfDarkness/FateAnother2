@@ -150,6 +150,16 @@ function ereshkigal_r_wrapper(ability)
 
 		if not hTarget:IsRealHero() then return false end
 
+		local RockRootFX = ParticleManager:CreateParticle("particles/econ/items/earthshaker/deep_magma/deep_magma_cyan/deep_magma_cyan_fissure.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+		ParticleManager:SetParticleControl(RockRootFX, 0, hTarget:GetAbsOrigin())
+		ParticleManager:SetParticleControl(RockRootFX, 1, hTarget:GetAbsOrigin())
+		ParticleManager:SetParticleControl(RockRootFX, 2, Vector(tExtra.Root,0,0))
+
+		Timers:CreateTimer(tExtra.root, function()
+			ParticleManager:DestroyParticle(RockRootFX, true)
+			ParticleManager:ReleaseParticleIndex(RockRootFX)
+		end)
+
 		local tEnemies = FindUnitsInRadius(self.caster:GetTeam(), vLocation, nil, tExtra.OutRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,enemy in pairs (tEnemies) do
 			if enemy ~= hTarget then
@@ -180,10 +190,20 @@ function ereshkigal_r_wrapper(ability)
 		ParticleManager:ReleaseParticleIndex(self.SpinFx)
 	end
 	function ability:HellPillar()
+
 		local tEnemies = FindUnitsInRadius(self.caster:GetTeam(), self.target_loc, nil, self:GetSpecialValueFor("hell_aoe"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,enemy in pairs (tEnemies) do
 			enemy:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = self.root})
+			local RockRootFX = ParticleManager:CreateParticle("particles/econ/items/earthshaker/deep_magma/deep_magma_cyan/deep_magma_cyan_fissure.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+			ParticleManager:SetParticleControl(RockRootFX, 0, enemy:GetAbsOrigin())
+			ParticleManager:SetParticleControl(RockRootFX, 1, enemy:GetAbsOrigin())
+			ParticleManager:SetParticleControl(RockRootFX, 2, Vector(self.root,0,0))
 			DoDamage(self.caster, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
+
+			Timers:CreateTimer(self.root, function()
+				ParticleManager:DestroyParticle(RockRootFX, true)
+				ParticleManager:ReleaseParticleIndex(RockRootFX)
+			end)
 		end
 	end
 

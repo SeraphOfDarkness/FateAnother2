@@ -150,7 +150,7 @@ function modifier_ereshkigal_cage:OnIntervalThink()
 		self.ability = self.caster:FindAbilityByName(self.caster.ESkill)
 	end
 	DoDamage(self.caster, self.target, self.hp_drain * 0.33, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-	self.caster:FateHeal(self.hp_drain*0.33, true)
+	self.caster:FateHeal(self.hp_drain*0.33, self.caster, true)
 end
 
 function modifier_ereshkigal_cage:OnDestroy()

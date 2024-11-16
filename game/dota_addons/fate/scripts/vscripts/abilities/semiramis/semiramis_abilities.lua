@@ -69,7 +69,12 @@ function OnPoisonousBite(keys)
 	local stay_dmg = ability:GetSpecialValueFor("stay_dmg") / 100
 	local out_dmg = ability:GetSpecialValueFor("out_dmg") / 100
 
-   	caster:EmitSound("Semi.AssassinR")
+    -- Sound effects
+    if caster:HasModifier("modifier_alternate_01") then
+		EmitGlobalSound("Albedo.AssassinR" ..math.random(1,2))
+    else
+   		EmitGlobalSound("Semi.AssassinR")
+    end
 
 	Timers:CreateTimer(cast_delay - ability:GetCastPoint(), function()
 		if caster:IsAlive() then
@@ -220,7 +225,12 @@ function SemiramisChainsCast(keys)
 
 	bind_duration = math.max(min_dur, max_dur * (1 - magic_res))
 
-   	caster:EmitSound("Semi.CasterQ")
+    -- Sound effects
+    if caster:HasModifier("modifier_alternate_01") then
+   		caster:EmitSound("Albedo.CasterQ" ..math.random(1,2))
+    else
+   		caster:EmitSound("Semi.CasterQ")
+    end
    	target:EmitSound("Semi.CasterQSFX")
    	target:EmitSound("Semi.CasterQSFX2")
 	target:AddNewModifier(caster, ability, "modifier_binding_chains", { Duration = bind_duration, MagicResist =  mr_red })
@@ -251,7 +261,13 @@ function OnBarrierStart(keys)
 		caster.ShieldAmount = keys.MaxShield
 	end]]
 	
-   	caster:EmitSound("Semi.CasterW")
+    -- Sound effects
+    if caster:HasModifier("modifier_alternate_01") then
+   		caster:EmitSound("Albedo.CasterW1")
+    else
+   		caster:EmitSound("Semi.CasterW")
+    end
+
    	caster:EmitSound("Semi.CasterWSFX")
 
 	-- Create particle
@@ -386,7 +402,12 @@ function OnSnakePoisonStart(keys)
 	local aoe = ability:GetSpecialValueFor("aoe")
 	local speed = 1500
 
+    if caster:HasModifier("modifier_alternate_01") then
+   		caster:EmitSound("Albedo.AssassinW" ..math.random(1,2))
+    else
    	caster:EmitSound("Semi.AssassinW")
+    end
+
    	caster:EmitSound("Semi.AssassinWSFX")
    	caster:EmitSound("Semi.AssassinWSFX2")
 
@@ -617,14 +638,23 @@ function OnHangingGardensCast(keys)
 	local cracks = ParticleManager:CreateParticle( "particles/semiramis/hanging_garden_crack.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl(cracks, 0, targetpoint)
 
-	EmitGlobalSound("Semi.CasterR1")
+    if caster:HasModifier("modifier_alternate_01") then
+   		EmitGlobalSound("Albedo.CasterRStart" ..math.random(1,2))
+    else
+		EmitGlobalSound("Semi.CasterR1")
+    end
 	EmitGlobalSound("Semi.CasterR1SFX")
 
 
 	Timers:CreateTimer(cast_delay, function()
 		if caster:IsAlive() then
 
-	   		EmitGlobalSound("Semi.CasterR2")
+		    if caster:HasModifier("modifier_alternate_01") then
+		   		EmitGlobalSound("Albedo.CasterRFinish")
+		    else
+			   	EmitGlobalSound("Semi.CasterR2")
+		    end
+
 	   		EmitGlobalSound("Semi.CasterR2SFX")
 
 			ParticleManager:DestroyParticle(cracks, true)
@@ -793,7 +823,12 @@ function OnTiatumUmuCast(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tiatum_umu_cooldown", {Duration = ability:GetCooldown(1)})	
 	caster:RemoveModifierByName("modifier_combo_window")
 
-   	EmitGlobalSound("Semi.Combo")
+    if caster:HasModifier("modifier_alternate_01") then
+   		EmitGlobalSound("Albedo.Combo")
+    else
+		EmitGlobalSound("Semi.Combo")
+    end
+
 
 	if garden == nil then
 		garden = CreateUnitByName("semiramis_hanging_gardens", targetpoint, true, nil, caster, caster:GetTeamNumber())		
@@ -846,6 +881,8 @@ function OnTiatumUmuCast(keys)
 	end)
 
 	Timers:CreateTimer(cast_delay + 0.1, function()
+   		EmitGlobalSound("Albedo.BGM")
+   		
 		local laser = ParticleManager:CreateParticle( "particles/semiramis/tiatum_umu_laser.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl( laser, 0, garden:GetAbsOrigin() + Vector(0,0,300))
 		ParticleManager:SetParticleControl( laser, 1, targetpoint)
@@ -1004,7 +1041,11 @@ function OnPoisonousCloudCast(keys)
 	local damage = ability:GetSpecialValueFor("damage")
 	local duration = ability:GetSpecialValueFor("duration")
 
-   	caster:EmitSound("Semi.AssassinE")
+    if caster:HasModifier("modifier_alternate_01") then
+   		caster:EmitSound("Albedo.AssassinE" ..math.random(1,2))
+    else
+   		caster:EmitSound("Semi.AssassinE")
+    end
 
 	Timers:CreateTimer(cast_delay, function()
 		if caster:IsAlive() then

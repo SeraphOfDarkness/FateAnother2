@@ -201,8 +201,10 @@ function modifier_ereshkigal_soul:OnAbilityExecuted(args)
 	end
 
 	if self:GetStackCount() >= soul_consume then 
-		args.ability:EndCooldown()
-		self:GetAbility():CollectSoul(-soul_consume)
+		Timers:CreateTimer(0.066, function()
+			args.ability:EndCooldown()
+			self:GetAbility():CollectSoul(-soul_consume)
+		end)
 	end
 end
 

@@ -41,13 +41,15 @@ function EreshkigalWWrapper(abil)
 		end
 		self.stun = self:GetSpecialValueFor("stun")
 		self.mana_burn = self:GetSpecialValueFor("mana_burn")
+		local forward_vec = self.caster:GetForwardVector()
 
-		self.DevourerSFX1 = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_spirit_devourer.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
-		ParticleManager:SetParticleControl(self.DevourerSFX1, 0, self.target_loc + Vector(RandomInt(-200, 200),RandomInt(-200, 200),100)) --spawn
-		ParticleManager:SetParticleControl(self.DevourerSFX1, 1, Vector(self.cast_delay + 0.1,0,0)) -- duration
-		ParticleManager:SetParticleControl(self.DevourerSFX1, 2, self.target_loc)  --land
+		local DevourerSFX1 = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_spirit_devourer.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+		ParticleManager:SetParticleControl(DevourerSFX1, 0, self.target_loc - (forward_vec * self:GetAOERadius())) --spawn
+		ParticleManager:SetParticleControl(DevourerSFX1, 1, forward_vec * self:GetAOERadius()/self.cast_delay) -- direction
 
 		Timers:CreateTimer(self.cast_delay, function()
+			ParticleManager:DestroyParticle(DevourerSFX1, true)
+			ParticleManager:ReleaseParticleIndex(DevourerSFX1)
 			if self.caster:IsAlive() then 
 
 				--self:UseSoul()
