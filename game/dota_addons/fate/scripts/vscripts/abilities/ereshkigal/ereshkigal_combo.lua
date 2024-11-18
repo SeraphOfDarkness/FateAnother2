@@ -72,20 +72,24 @@ function ereshkigal_combo:OnSpellStart()
 	self.total_soul = self:UseSoul()
 	self.bonus_damage = self.soul_damage * self.total_soul
 	self.beam = self.caster:FindAbilityByName("ereshkigal_combo_target")
-	self.lightning_charge = 2
+	--self.lightning_charge = 2
 	self.hell_loc = Vector(0,2000,256)
 
 	self.base_camera = Convars:GetInt("dota_camera_distance") or 1900
     self.bonus_camera = 100
     self.current_camera = Convars:GetInt("dota_camera_distance") or 1900
 
+    self.total_spikesfx = 12
+    self.spikesfx_count = 1
+    local spikesfx = {}
+
 	giveUnitDataDrivenModifier(self.caster, self.caster, "pause_sealdisabled", self:GetSpecialValueFor("delay_before_tele") + 0.1)
 	self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_combo_tele", {duration = self:GetSpecialValueFor("delay_before_tele")})
+	EmitGlobalSound("Ereshkigal.Combo_1")
+	--self.warp_cicle = ParticleManager:CreateParticle("", PATTACH_CUSTOMORIGIN, self.caster)
+	--ParticleManager:SetParticleControl(self.warp_cicle, 0, self.caster:GetAbsOrigin())	
 
-	self.warp_cicle = ParticleManager:CreateParticle("", PATTACH_CUSTOMORIGIN, self.caster)
-	ParticleManager:SetParticleControl(self.warp_cicle, 0, self.caster:GetAbsOrigin())	
-
-	EmitGlobalSound("Ishtar.ComboStart")
+	--EmitGlobalSound("Ishtar.ComboStart")
 
 	Timers:CreateTimer(self:GetSpecialValueFor("delay_before_tele"), function()
 		self.caster:RemoveModifierByName("modifier_ereshkigal_combo_tele")
@@ -93,29 +97,33 @@ function ereshkigal_combo:OnSpellStart()
 
 		if self.caster:IsAlive() then 
 			
-			for i=2, 13 do
+			--[[for i=2, 13 do
 				if self.caster:GetTeamNumber() ~= i then
 					AddFOWViewer(i, self.hell_loc, 1000, self:GetSpecialValueFor("cast"), false)
 				end
-			end
-			AddFOWViewer(self.caster:GetTeamNumber(), Vector(0,2000,1000), 10000, self:GetSpecialValueFor("cast") - 1, false)
+			end]]
+			AddFOWViewer(self.caster:GetTeamNumber(), Vector(0,2000,1000), 10000, self:GetSpecialValueFor("reveal"), false)
 			self.channel_dummy = self.caster:FindAbilityByName("ereshkigal_combo_dummy")
 			self.channel_dummy:SetChanneling(true)
 			
-			EmitGlobalSound("Ishtar.ComboTeleport")
-			self.caster:SetOrigin(self.hell_loc)
+			--EmitGlobalSound("Ishtar.ComboTeleport")
+			--self.caster:SetOrigin(self.hell_loc)
+			self.caster:AddEffects(EF_NODRAW)
 
 			giveUnitDataDrivenModifier(self.caster, self.caster, "jump_pause", self:GetSpecialValueFor("cast"))
 			self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_combo_cast", {duration = self:GetSpecialValueFor("cast") + 0.5})
 			self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_combo_vision", {duration = self:GetSpecialValueFor("reveal")})
-			StartAnimation(self.caster, {duration=self.lightning_charge, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.0})
+			StartAnimation(self.caster, {duration=self:GetSpecialValueFor("reveal") - 0.5, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.0})
 			Timers:CreateTimer(0.1, function()
 				self:ZoomOut()
-				self.hand_fx1 = ParticleManager:CreateParticle("particles/ishtar/ishtar-r/ishtar_hand_yellow_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
-				ParticleManager:SetParticleControlEnt(self.hand_fx1, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin() + Vector(0,0,50), false)
-				ParticleManager:SetParticleControlEnt(self.hand_fx1, 1, self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin() + Vector(0,0,50), false)
+				--self.hand_fx1 = ParticleManager:CreateParticle("particles/ishtar/ishtar-r/ishtar_hand_yellow_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
+				--ParticleManager:SetParticleControlEnt(self.hand_fx1, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin() + Vector(0,0,50), false)
+				--ParticleManager:SetParticleControlEnt(self.hand_fx1, 1, self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin() + Vector(0,0,50), false)
 			end)
-			Timers:CreateTimer(self.lightning_charge, function()
+			Timers:CreateTimer(2, function()
+				EmitGlobalSound("Ereshkigal.Combo_2")
+			end)
+			--[[Timers:CreateTimer(self.lightning_charge, function()
 				EmitGlobalSound("Ishtar.Combo2")
 				ParticleManager:DestroyParticle(self.hand_fx1, true)
 				ParticleManager:ReleaseParticleIndex(self.hand_fx1)
@@ -128,12 +136,30 @@ function ereshkigal_combo:OnSpellStart()
 				ParticleManager:SetParticleControlEnt(self.charge_arrow_fx, 3, self.caster, PATTACH_POINT_FOLLOW, "attach_arrow", self.caster:GetAbsOrigin(), false)
 				self.ring_fx = ParticleManager:CreateParticle("particles/ishtar/ishtar_combo/ishtar_combo_ring.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
 				ParticleManager:SetParticleControlEnt(self.ring_fx, 1, self.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), false)
+			end)]]
+			Timers:CreateTimer(self:GetSpecialValueFor("reveal") + 0.5, function() 
+				self.target_loc = self.beam.target_loc or self.beam:GetTargetLoc(self.caster) 
+				if self.target_loc.y < -2000 then 
+					self.target_loc = self.beam:GetTargetLoc(self.caster)
+				end
+				self.ereshkigal_r:CreatePseudoMarble(self.target_loc)
+				EmitGlobalSound("Ereshkigal.Combo_2")
+				--EmitGlobalSound("Ishtar.RComboChargeSFXOuter")
+				--FreezeAnimation(self.caster)
+
+				local LightningPillarFX = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_kur_spike.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+				ParticleManager:SetParticleControl(LightningPillarFX, 0, self.target_loc)
+				ParticleManager:SetParticleControl(LightningPillarFX, 1, self.target_loc)
+				ParticleManager:SetParticleControl(LightningPillarFX, 3, Vector(self.aoe - 150,self.aoe - 150,-100))
+				ParticleManager:SetParticleControl(LightningPillarFX, 4, Vector(-self.aoe + 150,-self.aoe + 150,-100))
+
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(LightningPillarFX, true)
+					ParticleManager:ReleaseParticleIndex(LightningPillarFX)
+				end)
+
 			end)
-			Timers:CreateTimer(self.lightning_charge + 1.0, function() 
-				EmitGlobalSound("Ishtar.RComboChargeSFXOuter")
-				FreezeAnimation(self.caster)
-			end)
-			Timers:CreateTimer(4.5, function()
+			--[[Timers:CreateTimer(4.5, function()
 				ParticleManager:DestroyParticle(self.charge_fx1, true)
 				ParticleManager:ReleaseParticleIndex(self.charge_fx1)
 				ParticleManager:DestroyParticle(self.charge_fx2, true)
@@ -147,38 +173,34 @@ function ereshkigal_combo:OnSpellStart()
 				Timers:CreateTimer(0.2, function()
 					EmitGlobalSound("Ishtar.ComboCharging")
 				end)
-			end)
+			end)]]
 		end
-		Timers:CreateTimer(0.5, function()
-			ParticleManager:DestroyParticle(self.warp_cicle, false)
-			ParticleManager:ReleaseParticleIndex(self.warp_cicle)
-		end)
 
 		Timers:CreateTimer(self:GetSpecialValueFor("cast"), function()
-			if self.caster:IsAlive() then 
+			--if self.caster:IsAlive() then 
 
-				EmitGlobalSound("Ishtar.ComboJabalLaunch")
+				--EmitGlobalSound("Ishtar.ComboJabalLaunch")
 
-				EmitGlobalSound("Ishtar.Shoot")
-				EmitGlobalSound("Ishtar.ComboShoot")
-				EmitGlobalSound("Ishtar.ComboShoot2")
+				--EmitGlobalSound("Ishtar.Shoot")
+				--EmitGlobalSound("Ishtar.ComboShoot")
+				--EmitGlobalSound("Ishtar.ComboShoot2")
 
 
-				self.target_loc = self.beam.target_loc or self.beam:GetTargetLoc(self.caster) 
+				--[[self.target_loc = self.beam.target_loc or self.beam:GetTargetLoc(self.caster) 
 				if self.target_loc.y < -2000 then 
 					self.target_loc = self.beam:GetTargetLoc(self.caster)
-				end
+				end]]
 				
 
 				self.channel_dummy:EndChannel(true)
 				self.channel_dummy:SetChanneling(false)
 
-				self.ereshkigal_r:CreatePseudoMarble(self.target_loc)
+				--self.ereshkigal_r:CreatePseudoMarble(self.target_loc)
 
-				local pcExplosion = ParticleManager:CreateParticle("particles/ishtar/ishtar_combo/impact/ishtar_combo_impact.vpcf", PATTACH_WORLDORIGIN, self.caster)
+				--[[local pcExplosion = ParticleManager:CreateParticle("particles/ishtar/ishtar_combo/impact/ishtar_combo_impact.vpcf", PATTACH_WORLDORIGIN, self.caster)
 		    	ParticleManager:SetParticleControl(pcExplosion, 0, self.target_loc + Vector(0,0,50))
 		    	ParticleManager:SetParticleControl(pcExplosion, 1, self.target_loc + Vector(0,0,50))
-		    	ParticleManager:SetParticleControl(pcExplosion, 3, self.target_loc + Vector(0,0,50))
+		    	ParticleManager:SetParticleControl(pcExplosion, 3, self.target_loc + Vector(0,0,50))]]
 
 				EmitGlobalSound("Ishtar.ComboImpact1")
 				EmitGlobalSound("Ishtar.ComboImpact2")
@@ -186,14 +208,14 @@ function ereshkigal_combo:OnSpellStart()
 				EmitGlobalSound("Ishtar.ComboImpact4")
 
 				Timers:CreateTimer(0.23, function()
-					EmitGlobalSound("Ishtar.ComboImpactOuter")
-					ParticleManager:DestroyParticle(pcExplosion, false)
-					ParticleManager:ReleaseParticleIndex(pcExplosion)
-					local origin = self:GetOriginLoc()
+					--EmitGlobalSound("Ishtar.ComboImpactOuter")
+					--ParticleManager:DestroyParticle(pcExplosion, false)
+					--ParticleManager:ReleaseParticleIndex(pcExplosion)
+					--[[local origin = self:GetOriginLoc()
 					self.portal_in_fx2 = ParticleManager:CreateParticle("particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_darkrift_end_lensflare.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 					ParticleManager:SetParticleControl(self.portal_in_fx2, 2, self.caster:GetOrigin())	
 					self.portal_out_fx2 = ParticleManager:CreateParticle("particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_darkrift_end_lensflare.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
-					ParticleManager:SetParticleControl(self.portal_out_fx2, 2, origin)	
+					ParticleManager:SetParticleControl(self.portal_out_fx2, 2, origin)	]]
 				end)
 
 				local target_area = FindUnitsInRadius(self.caster:GetTeam(), self.target_loc, nil, self.aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -202,18 +224,33 @@ function ereshkigal_combo:OnSpellStart()
 						giveUnitDataDrivenModifier(self.caster, v, "revoked", self.revoke)
 						giveUnitDataDrivenModifier(self.caster, v, "rooted", self.root)
 						DoDamage(self.caster, v, self.damage + self.bonus_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+						spikesfx[self.spikesfx_count] = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_combo_pillar.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+						ParticleManager:SetParticleControl(spikesfx[self.spikesfx_count], 0, v:GetAbsOrigin())	
+						self.spikesfx_count = self.spikesfx_count + 1
 					end
 				end
-					
+
+				for i = self.spikesfx_count, self.total_spikesfx do 
+					spikesfx[i] = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_combo_pillar.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+					ParticleManager:SetParticleControl(spikesfx[i], 0, self.target_loc + RandomVector(self.aoe - 200))	
+				end
+
 				Timers:CreateTimer(0.5, function()
-					EmitGlobalSound("Ishtar.ComboTeleport")
+					--EmitGlobalSound("Ishtar.ComboTeleport")
 					self:ZoomIn()
+					self.caster:RemoveEffects(EF_NODRAW)
 						--self.caster:SetAbsOrigin(self:GetOriginLoc())
-					FindClearSpaceForUnit(self.caster,self:GetOriginLoc(), true)
+					--FindClearSpaceForUnit(self.caster,self:GetOriginLoc(), true)
 					self.caster:AddNewModifier(self.caster, nil, "modifier_camera_follow", {duration = 1.0})
 				end)
 
-			end
+				Timers:CreateTimer(1, function()
+					for i = 1, self.total_spikesfx do 
+						ParticleManager:DestroyParticle(spikesfx[i], true)
+						ParticleManager:ReleaseParticleIndex(spikesfx[i])
+					end
+				end)
+			--end
 
 
 		end)
@@ -309,7 +346,7 @@ function ereshkigal_combo_target:GetCustomCastErrorLocation(hLocation)
 end
 
 function ereshkigal_combo_target:GetAOERadius()
-	return self:GetSpecialValueFor("aoe")
+	return 800
 end
 
 function ereshkigal_combo_target:OnSpellStart()

@@ -81,6 +81,7 @@ if IsServer() then
 					caster:FindAbilityByName("cu_chulain_piercing_spear_upgrade"):ApplyRuneAccel(ability:GetSpecialValueFor("ath_duration"))
 					caster:FindAbilityByName("cu_chulain_claw_upgrade"):ApplyRuneCombat(ability:GetSpecialValueFor("ath_duration"))
 					caster:AddNewModifier(caster, ability, "modifier_cu_ath_ngabla", { Duration = ability:GetSpecialValueFor("ath_duration") })
+					ResetAbilities(caster)
 					args.attacker:AddNewModifier(caster, ability, "modifier_cu_ath_ngabla_enemy", { Duration = ability:GetSpecialValueFor("ath_duration") })
 				end
 			end
@@ -117,8 +118,9 @@ if IsServer() then
 	end
 
 	function modifier_cu_battle_continuation_active:OnDestroy()
-		self.ability:StartCooldown(self.ability:GetCooldown(1))
 		self.caster:AddNewModifier(self.caster, self.ability, "modifier_cu_battle_continuation_cooldown", { Duration = self.ability:GetCooldown(1) })
+		self.ability:StartCooldown(self.ability:GetCooldown(1))
+		
 		if self:GetParent().IsCelticRuneAcquired then
 			if self.caster :IsAlive() then
 				local lancertrap = CreateUnitByName("lancer_trap", self.caster:GetAbsOrigin(), true, self.caster , self.caster , self.caster:GetTeamNumber())
@@ -162,7 +164,7 @@ function modifier_cu_battle_continuation_cooldown:IsDebuff() return true end
 function modifier_cu_battle_continuation_cooldown:IsPurgable() return false end
 function modifier_cu_battle_continuation_cooldown:RemoveOnDeath() return false end
 function modifier_cu_battle_continuation_cooldown:GetAttributes()
-    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 -------------------------------------
@@ -197,7 +199,7 @@ function modifier_cu_ath_ngabla_enemy:GetTexture()
 	return "custom/cu_chulain/cu_chulain_ath_ngabla"
 end 
 function modifier_cu_ath_ngabla_enemy:GetEffectName()
-	return "particles/custom/lancer/lancer_rune_ath_enemy.vpcf"
+	return "particles/econ/items/omniknight/omni_crimson_witness_2021/omniknight_crimson_witness_2021_degen_aura_debuff.vpcf"
 end
 function modifier_cu_ath_ngabla_enemy:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW

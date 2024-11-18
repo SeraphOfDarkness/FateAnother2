@@ -1,11 +1,13 @@
 cu_chulain_gae_bolg_combo = class({})
 cu_chulain_gae_bolg_combo_upgrade = class({})
 modifier_cu_wesen_anim = class({})
+modifier_cu_wesen_sfx = class({})
 modifier_wesen_cooldown = class({})
 modifier_cu_wesen_anim_hibernate = class({})
 
+LinkLuaModifier("modifier_cu_wesen_sfx", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_wesen_anim", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_cu_wesen_anim_hibernate", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_cu_wesen_anim_hibernate", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wesen_cooldown", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 
 function wesenwrapper(abil)
@@ -57,7 +59,7 @@ function wesenwrapper(abil)
 	function abil:OnSpellStart()
 		local hCaster = self:GetCaster()
 		local hTarget = self:GetCursorTarget()
-		self.target = self:GetCursorTarget()
+		self.dash_speed = 3000
 
 		if not hCaster.HeartSeekerImproved and IsSpellBlocked(hTarget) then
 			return
@@ -73,12 +75,9 @@ function wesenwrapper(abil)
 		end
 
 		giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealdisabled", 3.0)
-		
-		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim", { Duration = 15 ,
-																					Damage = self:GetSpecialValueFor("damage"),
-																					HB = self:GetSpecialValueFor("hb_threshold"),
-																					Stun = self:GetSpecialValueFor("stun")})
-		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim_hibernate", { Duration = 15 })
+
+		hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_sfx", { Duration = 10})
+		--hCaster:AddNewModifier(hCaster, self, "modifier_cu_wesen_anim_hibernate", { Duration = 15 })
 		Timers:CreateTimer(1.6, function()
 			if hCaster:IsAlive() then
 				if hCaster:HasModifier("modifier_alternate_01") then 
@@ -110,13 +109,117 @@ function wesenwrapper(abil)
 		Timers:CreateTimer(1.8, function() 
 			if (hCaster.IsHeartSeekerAcquired or hCaster:IsAlive()) and hTarget:IsAlive() then
 
-				hCaster:RemoveModifierByName("modifier_cu_wesen_anim_hibernate")
+				if not IsValidEntity(hTarget) or hTarget:IsNull() then return end
 
-				if not IsValidEntity(hTarget) or hTarget:IsNull() then 
-					hCaster:RemoveModifierByName("modifier_cu_wesen_anim")
-				end
+				local lancer = Physics:Unit(hCaster)
+
+			    hCaster:OnHibernate(function(unit)
+			    	hCaster:SetPhysicsVelocity((hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Normalized() * self.dash_speed)
+			    	hCaster:PreventDI()
+			    	hCaster:SetPhysicsFriction(0)
+			    	hCaster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+			    	hCaster:FollowNavMesh(false)	
+			    	hCaster:SetAutoUnstuck(false)
+			    	hCaster:OnPhysicsFrame(function(unit)
+						local diff = hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()
+						local dir = diff:Normalized()
+						if IsInSameRealm(hCaster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
+							unit:SetPhysicsVelocity(dir * self.dash_speed)
+						else
+							unit:SetPhysicsVelocity(dir * self.dash_speed * 10)
+						end
+						local forward_vec = (hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Normalized()
+						forward_vec.z = 0
+						hCaster:SetForwardVector(forward_vec)
+						hCaster:RemoveModifierByName("modifier_zhuge_liang_array_enemy")
+						hCaster:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
+
+						if diff:Length() < 100 then
+							unit:PreventDI(false)
+							unit:SetPhysicsVelocity(Vector(0,0,0))
+							unit:OnPhysicsFrame(nil)
+							unit:OnHibernate(nil)
+							unit:SetAutoUnstuck(true)
+				        	FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				        	self.damage = self:GetSpecialValueFor("damage")
+							self.HB = self:GetSpecialValueFor("hb_threshold")
+							self.stun = self:GetSpecialValueFor("stun")
+				        	self:WesenHit(hCaster, hTarget, self.damage, self.HB, self.stun)
+						end
+					end)
+				end)
 
 			end
+		end)
+	end
+
+	function abil:WesenHit(hCaster, hTarget, iDamage, HB, fStun)
+		
+		hCaster:RemoveModifierByName("pause_sealdisabled")
+
+		local RedScreenFx = ParticleManager:CreateParticle("particles/custom/screen_red_splash.vpcf", PATTACH_EYES_FOLLOW, hCaster)
+		Timers:CreateTimer( 3.0, function()
+			ParticleManager:DestroyParticle( RedScreenFx, false )
+		end)
+
+		--[[if self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
+			ParticleManager:DestroyParticle(self.shadowfx, true)
+			ParticleManager:ReleaseParticleIndex(self.shadowfx)
+		end]]
+
+		hTarget:EmitSound("Hero_Lion.Impale")
+		if hCaster:HasModifier("modifier_alternate_02") then 
+			StartAnimation(hCaster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT_BASH, rate=1})
+		elseif hCaster:HasModifier("modifier_alternate_04") or hCaster:HasModifier("modifier_alternate_05") then 
+			StartAnimation(hCaster, {duration=0.3, activity=ACT_DOTA_ATTACK_EVENT, rate=1})
+		else
+			StartAnimation(hCaster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=2})
+		end
+
+		ApplyStrongDispel(hTarget)
+
+		giveUnitDataDrivenModifier(hCaster, hTarget, "can_be_executed", 0.033)
+
+		hTarget:AddNewModifier(hCaster, hTarget, "modifier_stunned", {duration = fStun})
+
+		DoDamage(hCaster, hTarget, iDamage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+
+		if IsValidEntity(hTarget) and not hTarget:IsNull() and hTarget:IsAlive() then
+			if hTarget:GetHealthPercent() <= HB and not hTarget:IsMagicImmune() and not IsUnExecute(hTarget) then
+				local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
+				ParticleManager:SetParticleControl( hb, 0, hTarget:GetAbsOrigin())
+				hTarget:Execute(self, hCaster, { bExecution = true })
+									
+				Timers:CreateTimer( 3.0, function()
+					ParticleManager:DestroyParticle( hb, false )
+					ParticleManager:ReleaseParticleIndex(hb)
+				end)
+			end  -- check for HB
+		end
+
+							-- Blood splat
+		local splat = ParticleManager:CreateParticle("particles/generic_gameplay/screen_blood_splatter.vpcf", PATTACH_EYES_FOLLOW, hTarget)	
+		local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
+		ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(culling_kill_particle, 2, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(culling_kill_particle, 4, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(culling_kill_particle, 8, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)	
+
+							-- Add dagon particle
+		local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN_FOLLOW, hCaster)
+		ParticleManager:SetParticleControlEnt(dagon_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), false)
+		local particle_effect_intensity = 800
+		ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity,0,0))
+					
+		hCaster:RemoveModifierByName("modifier_cu_wesen_sfx")
+
+		Timers:CreateTimer( 3.0, function()
+			ParticleManager:DestroyParticle( dagon_particle, false )
+								--ParticleManager:DestroyParticle( flashIndex, false )
+			ParticleManager:DestroyParticle( splat, false )
+			ParticleManager:DestroyParticle( culling_kill_particle, false )
+			ParticleManager:ReleaseParticleIndex(culling_kill_particle)	
 		end)
 	end
 end
@@ -125,6 +228,45 @@ wesenwrapper(cu_chulain_gae_bolg_combo)
 wesenwrapper(cu_chulain_gae_bolg_combo_upgrade)
 	
 ---------------------------------
+
+function modifier_cu_wesen_sfx:IsHidden() return true end
+function modifier_cu_wesen_sfx:IsDebuff() return false end
+function modifier_cu_wesen_sfx:IsPurgable() return false end
+function modifier_cu_wesen_sfx:RemoveOnDeath() return false end
+function modifier_cu_wesen_sfx:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_cu_wesen_sfx:OnCreated(args)
+	self.caster = self:GetParent()
+	self:AttachSFX()
+end
+
+function modifier_cu_wesen_sfx:OnRefresh(args)
+	self:DetachSFX()
+	self.OnCreated(args)
+end
+
+function modifier_cu_wesen_sfx:OnRemoved()
+	self:DetachSFX()
+end
+
+function modifier_cu_wesen_sfx:AttachSFX()
+	local particle = "particles/custom/lancer/lancer_spear_glow_red.vpcf"
+	if self.caster:HasModifier("modifier_alternate_04") then
+		particle = "particles/custom/lancer/lancer_spear_glow_white.vpcf"
+	end
+	self.spear_sfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, self.caster)
+	ParticleManager:SetParticleControlEnt(self.spear_sfx, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_weapon", self.caster:GetAbsOrigin(), false)
+	ParticleManager:SetParticleControlEnt(self.spear_sfx, 7, self.caster, PATTACH_POINT_FOLLOW, "attach_weapon", self.caster:GetAbsOrigin(), false)
+end
+
+function modifier_cu_wesen_sfx:DetachSFX()
+	ParticleManager:DestroyParticle(self.spear_sfx, true)
+	ParticleManager:ReleaseParticleIndex(self.spear_sfx)
+end
+
+----------------------------------
 
 function modifier_cu_wesen_anim:IsHidden() return true end
 function modifier_cu_wesen_anim:IsDebuff() return false end
@@ -302,7 +444,7 @@ function modifier_wesen_cooldown:IsDebuff() return true end
 function modifier_wesen_cooldown:IsPurgable() return false end
 function modifier_wesen_cooldown:RemoveOnDeath() return false end
 function modifier_wesen_cooldown:GetAttributes()
-    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 ---------------------

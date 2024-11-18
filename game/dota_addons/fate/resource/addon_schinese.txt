@@ -6496,498 +6496,382 @@
 		"DOTA_Tooltip_modifier_cosmic_orbit_Description"                              "Attacks deals bonus damage."
 
         //====================================
-        //      Ruler(Apocrypha)
+        //      贞德
         //====================================
-        "npc_dota_hero_mirana"             "贞德"
-        "npc_dota_hero_mirana_1"			"[普通] 白贞德"
-        "npc_dota_hero_mirana_2"			"[王者] 圣诞贞德"
-        "npc_dota_hero_mirana_summon"		"从者 <font color='#58ACFA'>贞德</font> 已经被召唤."
-        "npc_dota_hero_mirana_enable_combo"	"激活连击技能: 红莲圣女"
+        "npc_dota_hero_mirana"             	"贞德"
+        "npc_dota_hero_mirana_1"			"[普通] 纯白贞德"
+        "npc_dota_hero_mirana_2"			"[传说] 聖誕贞德"
+        "npc_dota_hero_mirana_summon"		"从者 <font color='#58ACFA'>贞德</font> 已被召唤."
+        "npc_dota_hero_mirana_enable_combo"	"激活 连击技能: 红莲圣女"
 
         /////////////////// Innate ////////////////////////
 
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex"	"<font color='#FFFFFF'>对魔力: EX</font>"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Description"	"<font color='#58ACFA'>被动:</font> 贞德随时间获得<font color='#FFFF28'>对魔力: EX</font>层数. \n贞德在被击中或攻击时失去<font color='#FFFF28'>对魔力: EX</font>层数."
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Lore"		"一个坚定的灵魂即是自身无法穿透的护盾。"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_bonus_mr_per_stack"	"%每层额外魔法抗性:"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_max_stack"				"最大层数:"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_regen_duration"		"回复时间:"
-
 		"DOTA_Tooltip_Ability_jeanne_saint"		"<font color='#FFFFFF'>圣人</font>"
-        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"<font color='#58ACFA'>被动:</font> 当贞德队伍人数少于对方时，就能获得 <font color='#FF9900'>圣人</font>效果. \n<font color='#FF9900'>圣人</font>: 贞德技能获得增强. \n<font color='#58ACFA'>领袖气质</font>: 增加一级. \n<font color='#58ACFA'>消除不公</font>: 增加一级. \n<font color='#58ACFA'>神明裁决</font>: 激活时 <font color='#FF3399'>短暂眩晕</font>，被动获得 <font color='#FF3399'>禁咒</font>. \n<font color='#58ACFA'>吾主在此</font>: 对敌人施加<font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font>. \n<font color='#FF04EF'>红莲圣女</font>: 基于贞德最大生命值增加伤害. \n\n<font color='#9FFFCC'>可选属性升级: 强化圣人</font>."
-        "DOTA_Tooltip_Ability_jeanne_saint_Lore"	"正义的天平从不放过一个罪人。"
+        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"<font color='#58ACFA'>被动:</font> 当贞德队伍人数少于对方时贞德获得 <font color='#FF9900'>圣人</font> 效果. 
+        <font color='#FF9900'>圣人</font>: 增强贞德的技能效果. 
+        <font color='#58ACFA'>领袖气质</font>: 增加 %lvl% 等级. 
+        <font color='#58ACFA'>清除不公</font>: 增加 %lvl% 等级. 
+        <font color='#58ACFA'>神明裁決</font>: 施放时持续施加 <font color='#FF3399'>短暂眩晕</font> 並且 <font color='#FFFF28'>神明裁決增益</font>的攻击也会 <font color='#FF3399'>短暂眩晕</font> 目标.
+        <font color='#58ACFA'>吾主在此</font>: 当贞德施法时持续为所有附近盟友<font color='#FFFF28'>治愈</font> %heal% 生命值.  
+        <font color='#FF04EF'>红莲圣女</font>: 增加伤害基于贞德最大生命值. 
+        <font color='#9FFFCC'>可升级属性: 强化圣人</font>."
+        "DOTA_Tooltip_Ability_jeanne_saint_Lore"	"正义的天平从不放过一个罪人."
 
         "DOTA_Tooltip_Ability_jeanne_saint_upgrade"		"<font color='#9FFFCC'>圣人</font>"
-        "DOTA_Tooltip_Ability_jeanne_saint_upgrade_Description"	"<font color='#58ACFA'>被动:</font> 当贞德队伍人数少于或等于对方时，就能获得 <font color='#FF9900'>圣人</font>. \n<font color='#FF9900'>圣人</font>: 贞德技能获得增强. \n<font color='#FF9900'>圣人</font>: 贞德技能获得增强. \n<font color='#58ACFA'>领袖气质</font>: 增加一级. \n<font color='#58ACFA'>消除不公</font>: 增加一级. \n<font color='#58ACFA'>神明裁决</font>: 激活时 <font color='#FF3399'>短暂眩晕</font>，被动获得 <font color='#FF3399'>禁咒</font>. \n<font color='#58ACFA'>吾主在此</font>: 对敌人施加<font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font>.
-         \n<font color='#FF04EF'>红莲圣女</font>: 基于贞德最大生命值增加伤害. \n 所有敌人获得<font color='#FF3399'>圣人减益</font>. \n<font color='#FF3399'>圣人减益</font>: 目标受到伤害增加."
-        "DOTA_Tooltip_Ability_jeanne_saint_upgrade_Lore"	"正义的天平从不放过一个罪人。"
-        "DOTA_Tooltip_Ability_jeanne_saint_upgrade_saint_debuff"	"%圣人减益增加伤害:"
+        "DOTA_Tooltip_Ability_jeanne_saint_upgrade_Description"	"<font color='#58ACFA'>被动:</font> 当贞德队伍人数少于或等于对方时贞德获得 <font color='#FF9900'>圣人</font> . 
+        <font color='#FF9900'>圣人</font>: 增强贞德的技能效果. 
+        <font color='#58ACFA'>领袖气质</font>: <font color='#58ACFA'>领袖气质</font>: 增加 %lvl% 等级並且当至少1名英雄死亡时贞德获得 <font color='#FFFF28'>领袖气质</font>. 
+        <font color='#58ACFA'>清除不公</font>: 增加技能 %lvl% 等级. 
+        <font color='#58ACFA'>神明裁決</font>: 施放时持续施加 <font color='#FF3399'>短暂眩晕</font> 並且 <font color='#FFFF28'>神明裁決增益</font>的攻击也会 <font color='#FF3399'>短暂眩晕</font> 目标.
+        <font color='#58ACFA'>吾主在此</font>: 当贞德施法时持续为所有附近盟友<font color='#FFFF28'>治愈</font> %heal% 生命值.  
+        <font color='#FF04EF'>红莲圣女</font>: 增加伤害基于贞德最大生命值."
+        "DOTA_Tooltip_Ability_jeanne_saint_upgrade_Lore"	"正义的天平从不放过一个罪人."
 
         /////////////////////// Basic //////////////////////////
 
         "DOTA_Tooltip_Ability_jeanne_charisma"		"<font color='#58ACFA'>领袖气质</font> "
-        "DOTA_Tooltip_Ability_jeanne_charisma_Description"	"目标获得<font color='#FFFF28'>领袖气质</font> 效果. <font color='#FFFF28'>领袖气质</font>: 增加主属性，攻击速度，获得 <font color='#FFFF28'>真实视野</font>. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_charisma_Lore"		"成为国家军队的领导人，便是无人怀疑贞德的16岁外表下领导才能的明证。"
+        "DOTA_Tooltip_Ability_jeanne_charisma_Description"	"目标在持续时间内获得 <font color='#FFFF28'>领袖气质</font> . 
+        <font color='#FFFF28'>领袖气质</font>: 增加目标的主属性, 攻击速度, 和获得 <font color='#FFFF28'>真实视野</font>. 
+        <font color='#9FFFCC'>可升级属性: 天之啟示</font>.
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_charisma_Lore"		"Once the commander of national army, Jeanne's ability to compel a person makes her sixteen-year-old appearance hardly relevant."
         "DOTA_Tooltip_Ability_jeanne_charisma_stat_modifier"	"额外主属性:"
         "DOTA_Tooltip_Ability_jeanne_charisma_bonus_aspd"		"%额外攻速:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_radius_modifier"	"真视范围:"
+        "DOTA_Tooltip_Ability_jeanne_charisma_radius_modifier"	"真视视野范围:"
         "DOTA_Tooltip_Ability_jeanne_charisma_duration"			"持续时间:"
 
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint"		"<font color='#58ACFA'>领袖气质</font> <font color='#FF9900'>(圣人)</font> "
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_Description"	"目标获得<font color='#FFFF28'>领袖气质</font> 效果. <font color='#FFFF28'>领袖气质</font>: 增加主属性，攻击速度，获得 <font color='#FFFF28'>真实视野</font>. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_Lore"	"成为国家军队的领导人，便是无人怀疑贞德的16岁外表下领导才能的明证。"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_stat_modifier"	"额外主属性:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_bonus_aspd"		"%额外攻速:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_radius_modifier"	"真视范围:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_duration"			"持续时间:"
-
         "DOTA_Tooltip_Ability_jeanne_charisma_upgrade"		"<font color='#9FFFCC'>领袖气质</font> "
-        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_Description"	"目标在持续时间内获得<font color='#FFFF28'>领袖气质</font> 同时<font color='#FFFF28'>驱散</font>负面效果. \n<font color='#FFFF28'>领袖气质</font>: 增加主属性，攻击速度，获得 <font color='#FFFF28'>真实视野</font>."
-        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_Lore"		"成为国家军队的领导人，便是无人怀疑贞德的16岁外表下领导才能的明证"
+        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_Description"	"目标在持续时间内获得 <font color='#FFFF28'>领袖气质</font> 並且 <font color='#FFFF28'>驱散</font> 负面效果.
+        <font color='#FFFF28'>领袖气质</font>: 增加目标的主属性, 攻击速度, 和获得 <font color='#FFFF28'>真实视野</font>.
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_Lore"		"Once the commander of national army, Jeanne's ability to compel a person makes her sixteen-year-old appearance hardly relevant."
         "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_stat_modifier"	"额外主属性:"
         "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_bonus_aspd"		"%额外攻速:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_radius_modifier"	"真视范围:"
+        "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_radius_modifier"	"真视视野范围:"
         "DOTA_Tooltip_Ability_jeanne_charisma_upgrade_duration"			"持续时间:"
-        //"DOTA_Tooltip_Ability_jeanne_charisma_upgrade_divine_base_damage"	"基础伤害:"
-        //"DOTA_Tooltip_Ability_jeanne_charisma_upgrade_divine_bonus_int"		"每点智力额外伤害:"
 
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade"		"<font color='#9FFFCC'>领袖气质</font> <font color='#FF9900'>(圣人)</font> "
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_Description"	"目标在持续时间内获得<font color='#FFFF28'>领袖气质</font> 同时<font color='#FFFF28'>驱散</font>负面效果. \n<font color='#FFFF28'>领袖气质</font>: 增加主属性，攻击速度，获得 <font color='#FFFF28'>真实视野</font>."
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_Lore"		"成为国家军队的领导人，便是无人怀疑贞德的16岁外表下领导才能的明证"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_stat_modifier"	"额外主属性:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_bonus_aspd"		"%额外攻速:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_radius_modifier"	"真视范围:"
-        "DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_duration"			"持续时间:"
-        //"DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_divine_base_damage"	"基础伤害:"
-        //"DOTA_Tooltip_Ability_jeanne_charisma_saint_upgrade_divine_bonus_int"		"每点智力额外伤害:"
-
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust"	"<font color='#58ACFA'>消除不公</font> "
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_Description"		"贞德使用神圣符号标记目标区域. \n 短暂延迟后，圣光击中目标区域，造成伤害并 <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> 敌人. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒 和 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust"				"<font color='#58ACFA'>清除不公</font> "
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_Description"	"贞德使用神圣符号标记目标区域. 
+        短暂延迟后，圣光击中目标区域, 造成伤害并对击中的敌人施加, <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> . 
+        <font color='#9FFFCC'>可升级属性: 天罚 和 天之啟示</font>.
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_Lore"		"By challenging the virtue of enemy with saint's will, Ruler can rend the minds of sinister ones."
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_delay"		"圣光延迟:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_damage"		"圣光伤害:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_radius"		"范围:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_silence_duration"		"沉默/缴械持续时间:"
 
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint"	"<font color='#58ACFA'>消除不公</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_Description"		"贞德使用神圣符号标记目标区域. \n 短暂延迟后，圣光击中目标区域，造成伤害并 <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> 敌人. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒 和 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_silence_duration"		"沉默/缴械持续时间:"
-
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1"	"<font color='#9FFFCC'>消除不公</font> "
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_Description"		"贞德使用神圣符号标记目标区域并施加 <font color='#FF3399'>消除不公减速</font> 给所有敌人. \n 短暂延迟后，圣光击中目标区域，使用法力值阻挡伤害 <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> 敌人. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_slow"		"%减速:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1"	"<font color='#9FFFCC'>清除不公</font> "
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_Description"		"贞德使用神圣符号标记目标区域.
+        短暂延迟后, 圣光击中目标区域, 造成伤害并对击中的敌人施加, <font color='#FF3399'>缴械, 沉默</font> 和 <font color='#FF3399'>清除不公减速</font> . 
+        <font color='#FF3399'>清除不公减速</font>: 降低目标的移动速度. 
+        <font color='#9FFFCC'>可升级属性: 天之啟示</font>.
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_Lore"		"By challenging the virtue of enemy with saint's will, Ruler can rend the minds of sinister ones."
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_delay"				"圣光延迟:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_damage"				"圣光伤害:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_radius"				"范围:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_silence_duration"	"沉默/缴械持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_slow"				"%减速:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_1_slow_duration"		"减速持续时间:"
 
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1"	"<font color='#9FFFCC'>消除不公</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_Description"		"贞德使用神圣符号标记目标区域并施加 <font color='#FF3399'>消除不公减速</font> 给所有敌人. \n 短暂延迟后，圣光击中目标区域，使用法力值阻挡伤害 <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> 敌人. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_slow"		"%减速:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_1_slow_duration"		"减速持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2"	"<font color='#9FFFCC'>清除不公</font> "
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_Description"		"贞德使用神圣符号标记目标区域. 
+        短暂延迟后, 圣光击中目标区域, 造成伤害并对击中的敌人施加, <font color='#FF3399'>缴械</font> 和 <font color='#FF3399'>沉默</font> 並且 <font color='#FFFF28'>治愈</font> 目标区域内的所有盟友. 
+        <font color='#9FFFCC'>可升级属性: 天罚</font>.
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_Lore"		"By challenging the virtue of enemy with saint's will, Ruler can rend the minds of sinister ones."
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_delay"				"圣光延迟:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_damage"				"圣光伤害:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_radius"				"范围:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_silence_duration"	"沉默/缴械持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_heal"				"治愈:"
 
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2"	"<font color='#9FFFCC'>消除不公</font> "
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_Description"		"贞德使用神圣符号标记目标区域. \n 短暂延迟后，圣光击中目标区域，造成伤害并 <font color='#FF3399'>缴械</font>, <font color='#FF3399'>沉默</font> 。同时施加 <font color='#FF3399'>天启</font>. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_2_reveal_duration"		"视野持续时间:"
-
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2"	"<font color='#9FFFCC'>消除不公</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_Description"		"贞德使用神圣符号标记目标区域. \n 短暂延迟后，圣光击中目标区域，造成伤害并 <font color='#FF3399'>缴械</font>, <font color='#FF3399'>沉默</font> 。同时施加 <font color='#FF3399'>天启</font>. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒</font>."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_2_reveal_duration"		"视野持续时间:"
-
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3"	"<font color='#9FFFCC'>消除不公</font> "
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_Description"		"贞德使用神圣符号标记目标区域并施加 <font color='#FF3399'>消除不公减速</font> 给所有敌人. \n 短暂延迟后，圣光击中目标区域，使用法力值阻挡伤害 <font color='#FF3399'>缴械</font>, <font color='#FF3399'>沉默</font> 。同时施加 <font color='#FF3399'>天启</font>. \n<font color='#FF3399'>消除不公减速</font>: 降低目标移动速度. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_slow"		"%减速:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3"	"<font color='#9FFFCC'>清除不公</font> "
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_Description"		"贞德使用神圣符号标记目标区域.
+        短暂延迟后, 圣光击中目标区域, 造成伤害并对击中的敌人施加, <font color='#FF3399'>缴械, 沉默</font> 和 <font color='#FF3399'>清除不公减速</font> 並且 <font color='#FFFF28'>治愈</font> 目标区域内的所有盟友. 
+        <font color='#FF3399'>清除不公减速</font>: 降低目标的移动速度. 
+        <font color='#FF9900'>圣人: 增加技能 <font color='#FFFFFF'>1</font> 等级.</font>"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_Lore"		"By challenging the virtue of enemy with saint's will, Ruler can rend the minds of sinister ones."
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_delay"				"圣光延迟:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_damage"				"圣光伤害:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_radius"				"范围:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_silence_duration"	"沉默/缴械持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_slow"				"%减速:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_slow_duration"		"减速持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_reveal_duration"		"视野持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_upgrade_3_heal"				"治愈:"
 
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3"	"<font color='#9FFFCC'>消除不公</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_Description"		"贞德使用神圣符号标记目标区域并施加 <font color='#FF3399'>消除不公减速</font> 给所有敌人. \n 短暂延迟后，圣光击中目标区域，使用法力值阻挡伤害 <font color='#FF3399'>缴械</font>, <font color='#FF3399'>沉默</font> 。同时施加 <font color='#FF3399'>天启</font>. \n<font color='#FF3399'>消除不公减速</font>: 降低目标移动速度. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野."
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_Lore"		"以圣人之意志检视敌人的美德，贞德以此撕裂罪孽深重的灵魂。"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_delay"		"圣光延迟:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_damage"		"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_radius"		"范围:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_silence_duration"		"沉默/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_slow"		"%减速:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_slow_duration"		"减速持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_saint_upgrade_3_reveal_duration"		"视野持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution"				"<font color='#58ACFA'>神明裁決</font> "
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_Description"	"贞德对神明祈祷然后获得 <font color='#FFFF28'>神明裁決</font>, 对附近的敌人造成伤害并 <font color='#FF3399'>减少</font> 区域内的敌人移动速度和攻击速度持续 %duration% 秒.
+        当贞德结束祈祷后, 贞德在一段时间內获得 <font color='#FFFF28'>神明裁決增益</font>.
+        <font color='#FFFF28'>神明裁決</font>: 贞德获得额外 %channel_def% 护甲和 %channel_def%%% 魔法抗性.
+        <font color='#FFFF28'>神明裁決增益</font>: 贞德的普通攻击造成额外 %bonus_hp_dmg%%% 贞德的最大生命值的魔法伤害.
+		<font color='#9FFFCC'>可升级属性: 天罚 和 神圣象征</font>. 
+		<font color='#FF9900'>圣人: <font color='#FF3399'>短暂眩晕</font> 敵人.</font>
+		当贞德祈祷时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到她祈祷完毕."
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_total_damage"				"总伤害:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_radius"					"范围:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_slow_amount"				"%减速:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_buff_duration"				"神明裁決增益持续时间:"
 
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution"		"<font color='#58ACFA'>神明裁决</font> "
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率根据目标当前的生命值造成额外的魔法伤害.\n<font color='#58ACFA'>主动:</font> 贞德获得<font color='#FFFF28'>神明裁决</font>，对附近敌人造成 <font color='#FF3399'>减速</font> 和伤害，敌人移动速度随时间变化. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒 和 神圣象征</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_armor_bonus"				"主动额外护甲:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1"					"<font color='#9FFFCC'>神明裁決</font> "
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_Description"	"贞德对神明祈祷然后获得 <font color='#FFFF28'>神明裁決</font>, 对附近的敌人造成伤害并 <font color='#FF3399'>减少</font> 区域内的敌人移动速度和攻击速度持续 %duration% 秒.
+        总共%total_pillar%道光柱将在贞德祈祷期间随机召唤, 造成 %pillar_dmg% 伤害,光柱会对 %pillar_radius% 范围目标施加 <font color='#FF3399'>禁咒</font> %pillar_revoke% 秒. 
+        当贞德结束祈祷后, 贞德在一段时间內获得 <font color='#FFFF28'>神明裁決增益</font>.
+        <font color='#FFFF28'>神明裁決</font>: 贞德获得额外 %channel_def% 护甲和 %channel_def%%% 魔法抗性.
+        <font color='#FFFF28'>神明裁決增益</font>: 贞德的普通攻击造成额外 %bonus_hp_dmg%%% 贞德的最大生命值的魔法伤害.
+		<font color='#9FFFCC'>可升级属性: 神圣象征</font>. 
+		<font color='#FF9900'>圣人: <font color='#FF3399'>短暂眩晕</font> 敵人.</font>
+		当贞德祈祷时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到她祈祷完毕."
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_total_damage"	"总伤害:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_radius"			"范围:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_slow_amount"		"%减速:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_buff_duration"	"神明裁決增益持续时间:"
 
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint"		"<font color='#58ACFA'>神明裁决</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率<font color='#FF3399'>禁咒</font>并根据目标当前的生命值造成额外的魔法伤害. \n<font color='#58ACFA'>主动:</font> 贞德获得<font color='#FFFF28'>神明裁决</font>，对附近敌人造成伤害并，<font color='#FF3399'>短暂眩晕</font> 和 <font color='#FF3399'>减速</font>，敌人移动速度随时间变化. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒 和 神圣象征</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_passive_revoke_duration"	"被动禁咒时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_armor_bonus"				"主动额外护甲:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2"					"<font color='#9FFFCC'>神明裁決</font> "
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_Description"	"贞德对神明祈祷然后获得 <font color='#FFFF28'>神明裁決</font>, 对附近的敌人造成伤害并 <font color='#FF3399'>减少</font> 区域内的敌人移动速度和攻击速度持续 %duration% 秒.
+        当贞德结束祈祷后, 贞德在一段时间內获得 <font color='#FFFF28'>神明裁決增益</font>.
+        <font color='#FFFF28'>神明裁決</font>: 贞德获得额外 %channel_def% 护甲和 %channel_def%%% 魔法抗性.
+        <font color='#FFFF28'>神明裁決增益</font>: 贞德获得额外生命回复, %bonus_def% 护甲, %bonus_def%%% 魔法抗性和 %bonus_ms%%% 移动速度並且贞德的普通攻击造成额外 %bonus_hp_dmg%%% 贞德的最大生命值的魔法伤害.
+		<font color='#9FFFCC'>可升级属性: 天罚</font>. 
+		<font color='#FF9900'>圣人: <font color='#FF3399'>短暂眩晕</font> 敵人.</font>
+		当贞德祈祷时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到她祈祷完毕."
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_total_damage"	"总伤害:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_radius"			"范围:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_slow_amount"		"%减速:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_buff_duration"	"神明裁決增益持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_bonus_hp_reg"	"神明裁決增益额外生命回复:"
 
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1"		"<font color='#9FFFCC'>神明裁决</font> "
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率根据目标的最大生命值造成额外的魔法伤害. \n<font color='#58ACFA'>主动:</font> 贞德获得<font color='#FFFF28'>神明裁决</font>，对附近敌人造成 <font color='#FF3399'>减速</font> 和伤害，敌人移动速度随时间变化. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_1_armor_bonus"				"主动额外护甲:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3"		"<font color='#9FFFCC'>神明裁決</font> "
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_Description"	"贞德对神明祈祷然后获得 <font color='#FFFF28'>神明裁決</font>, 对附近的敌人造成伤害并 <font color='#FF3399'>减少</font> 区域内的敌人移动速度和攻击速度持续 %duration% 秒.
+        总共%total_pillar% 道光柱将在贞德祈祷期间随机召唤, 造成 %pillar_dmg% 伤害,光柱会对 %pillar_radius% 范围目标施加 <font color='#FF3399'>禁咒</font> %pillar_revoke% 秒. 
+        当贞德结束祈祷后, 贞德在一段时间內获得 <font color='#FFFF28'>神明裁決增益</font>.
+        <font color='#FFFF28'>神明裁決</font>: 贞德获得额外 %channel_def% 护甲和 %channel_def%%% 魔法抗性.
+        <font color='#FFFF28'>神明裁決增益</font>: 贞德获得额外生命回复, %bonus_def% 护甲, %bonus_def%%% 魔法抗性和 %bonus_ms%%% 移动速度並且贞德的普通攻击造成额外 %bonus_hp_dmg%%% 贞德的最大生命值的魔法伤害.
+		<font color='#FF9900'>圣人: <font color='#FF3399'>短暂眩晕</font> 敵人.</font>
+		当贞德祈祷时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 直到她祈祷完毕."
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_total_damage"	"总伤害:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_radius"			"范围:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_slow_amount"		"%减速:" 
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_buff_duration"	"神明裁決增益持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_bonus_hp_reg"	"神明裁決增益额外生命回复:"
 
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1"		"<font color='#9FFFCC'>神明裁决</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率<font color='#FF3399'>禁咒</font> 并根据目标的最大生命值造成额外的魔法伤害.  \n<font color='#58ACFA'>主动:</font> 贞德获得<font color='#FFFF28'>神明裁决</font>，对附近敌人造成伤害并，<font color='#FF3399'>短暂眩晕</font> 和 <font color='#FF3399'>减速</font>，敌人移动速度随时间变化. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_passive_revoke_duration"	"被动禁咒时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_upgrade_1_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_upgrade_1_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_1_armor_bonus"				"主动额外护甲:"
-
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2"		"<font color='#9FFFCC'>神明裁决</font> "
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率根据目标当前的生命值造成额外的魔法伤害. \n<font color='#58ACFA'>主动:</font> 贞德获得 <font color='#FFFF28'>神明裁决</font> 对附近敌人造成 <font color='#FF3399'>减速</font> 和伤害，随时间减少攻速和移速，并随机召唤光柱. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_armor_bonus"				"主动额外护甲:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_pillar_dmg"			"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_2_pillar_radius"		"圣光范围:"
-
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2"		"<font color='#9FFFCC'>神明裁决</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率<font color='#FF3399'>禁咒</font>并根据目标当前的生命值造成额外的魔法伤害. \n<font color='#58ACFA'>主动:</font> 贞德获得 <font color='#FFFF28'>神明裁决</font> 对附近敌人造成 <font color='#FF3399'>短暂眩晕</font>, <font color='#FF3399'>减速</font> 和伤害，随时间减少攻速和移速，并随机召唤光柱. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n\n<font color='#9FFFCC'>可选属性升级: 惩戒</font>. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_passive_revoke_duration"	"被动禁咒时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_armor_bonus"				"主动额外护甲:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_pillar_dmg"			"圣光伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_2_pillar_radius"		"圣光范围:"
-
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3"		"<font color='#9FFFCC'>神明裁决</font> "
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率根据目标的最大生命值造成额外的魔法伤害.  \n<font color='#58ACFA'>主动:</font> 贞德获得 <font color='#FFFF28'>神明裁决</font> 对附近敌人造成 <font color='#FF3399'>减速</font> 和伤害，随时间减少攻速和移速，并随机召唤光柱. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_armor_bonus"				"主动额外护甲:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_pillar_dmg"			"光柱伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_upgrade_3_pillar_radius"		"光柱范围:"
-
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3"		"<font color='#9FFFCC'>神明裁决</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_Description"	"<font color='#58ACFA'>被动:</font> 贞德的攻击有概率<font color='#FF3399'>禁咒</font> 并根据目标的最大生命值造成额外的魔法伤害. \n<font color='#58ACFA'>主动:</font> 贞德获得 <font color='#FFFF28'>神明裁决</font> 对附近敌人造成 <font color='#FF3399'>短暂眩晕</font>, <font color='#FF3399'>减速</font> 和伤害，随时间减少攻速和移速，并随机召唤光柱. \n<font color='#FFFF28'>神明裁决</font>: 增加贞德护甲和魔抗. \n 技能释放完毕前都会<font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_Note0"		"贞德在释放此技能时将被<font color='#FF3399'>眩晕</font>并<font color='#FF3399'>禁用令咒</font>."
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_passive_damage_percentage"		"%被动生命值伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_passive_chance"			"%被动触发概率:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_passive_revoke_duration"	"被动禁咒时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_active_total_damage"		"主动总伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_active_duration"			"主动持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_radius"					"主动范围:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_slow_amount"				"%主动减速量:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_mr_bonus"					"%主动额外魔抗:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_armor_bonus"				"主动额外护甲:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_pillar_dmg"			"光柱伤害:"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_saint_upgrade_3_pillar_radius"		"光柱范围:"
-
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle"		"<font color='#58ACFA'>吾主在此</font> "
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Description"	"贞德向目标区域投掷旗帜. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征 和 天启</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle"					"<font color='#58ACFA'>吾主在此</font>"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Description"	"<font color='#58ACFA'>持续施法</font>: 贞德对着圣旗开始祈祷, 创造一个神圣的区域,並且对神圣区域内的所有盟友施加 <font color='#FFFF28'>辉煌圣光之复权</font>.
+        当贞德施法时持续为所有附近盟友 <font color='#FFFF28'>治疗</font> %heal_per_sec% 生命值.
+        贞德施法时间越久, <font color='#FFFF28'>辉煌圣光之复权</font>的增益就越强.
+        当贞德成功或中断技能, 贞德都会把圣旗插在地上, 给予 <font color='#FFFF28'>辉煌圣光之复权</font> 持续时间取决于她施法的时间.
+        贞德施法时,贞德持续 <font color='#FFFF28'>治疗</font> 神圣区域内的所有盟友.
+        一旦贞德离开神圣区域, <font color='#FFFF28'>辉煌圣光之复权</font> 将会馬上失效.
+        <font color='#FFFF28'>辉煌圣光之复权</font>: 减少目标受到的伤害.
+        <font color='#9FFFCC'>可升级属性: 神圣象征 和 天之啟示</font>.
+        <font color='#FF9900'>圣人: <font color='#FFFF28'>治疗</font> <font color='#FFFFFF'>%saint_heal_per_sec%</font> 生命值当贞德在施法.</font>
+        每次只能存在一个圣旗的 <font color='#58ACFA'>神圣区域</font> ."
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_channel_time"				"施法时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_base_radius"				"基础范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_bonus_radius_per_sec"		"每秒额外范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_base_duration"			"基础持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_bonus_duration_per_sec"	"每秒额外持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_base_dr"					"%基础减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_bonus_dr_per_sec"			"%每秒额外减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_success_heal"				"施法成功治愈:"
 
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint"		"<font color='#58ACFA'>吾主在此</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_Description"	"贞德向目标区域投掷旗帜, <font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font> 路径上所有敌人. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，短时间内<font color='#FF3399'>缠绕</font>, <font color='#FF3399'>缴械</font> 区域内敌人. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征 和 天启</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_cc_duration"		"缠绕/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1"		"<font color='#9FFFCC'>吾主在此</font> "
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Description"	"贞德向目标区域投掷旗帜. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1"				"<font color='#9FFFCC'>吾主在此</font> "
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Description"	"<font color='#58ACFA'>持续施法</font>: 贞德对着圣旗开始祈祷, 创造一个神圣的区域,並且对神圣区域内的所有盟友施加 <font color='#FFFF28'>辉煌圣光之复权</font>.
+        当贞德施法时持续为所有附近盟友 <font color='#FFFF28'>治疗</font> %heal_per_sec% 加贞德的 <font color='#00F7FF'>智力</font> x %bonus_heal_per_sec% 生命值. 
+        贞德施法时间越久,<font color='#FFFF28'>辉煌圣光之复权</font>的增益就越强.
+        当贞德成功或中断技能, 贞德都会把圣旗插在地上, 给予 <font color='#FFFF28'>辉煌圣光之复权</font>持续时间取决于她施法的时间.
+        当贞德完成施法, 贞德将会 <font color='#FFFF28'>治疗</font> 基于她的 <font color='#00F7FF'>智力</font> 并对神圣区域内的所有盟友减少可重置技能的剩余冷却时间 %cooldown_reduction% 秒.
+        一旦贞德离开神圣区域, <font color='#FFFF28'>辉煌圣光之复权</font> 将会馬上失效.
+        <font color='#FFFF28'>辉煌圣光之复权</font>: 减少目标受到的伤害.
+        <font color='#9FFFCC'>可升级属性: 天之啟示</font>.
+        <font color='#FF9900'>圣人: <font color='#FFFF28'>治疗</font> <font color='#FFFFFF'>%saint_heal_per_sec%</font> 生命值当贞德在施法.</font>
+        如果贞德拥有 <font color='#FFFF28'>神明裁決增益</font>, 贞德在施法期间会 <font color='#FFFF28'>免疫</font> 大部分的控制技能.
+        每次只能存在一个圣旗的 <font color='#58ACFA'>神圣区域</font>."
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_Note2"			"释放的<font color='#58ACFA'>领导才能</font> 可以和 <font color='#58ACFA'>吾之神明在此</font>的领导才能叠加."
-
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1"		"<font color='#9FFFCC'>吾主在此</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_Description"	"贞德向目标区域投掷旗帜, <font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font> 路径上所有敌人. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，短时间内<font color='#FF3399'>缠绕</font>, <font color='#FF3399'>缴械</font> 区域内敌人. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n\n<font color='#9FFFCC'>可选属性升级: 天启</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_cc_duration"		"缠绕/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_1_Note2"			"释放的<font color='#58ACFA'>领导才能</font> 可以和 <font color='#58ACFA'>吾之神明在此</font>的领导才能叠加."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_channel_time"			"施法时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_base_radius"			"基础范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_bonus_radius_per_sec"	"每秒额外范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_base_duration"			"基础持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_bonus_duration_per_sec"	"每秒额外持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_base_dr"				"%基础减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_bonus_dr_per_sec"		"%每秒额外减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_success_heal"			"施法成功治愈:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_1_bonus_heal"				"施法成功每点智力额外治愈:"
 
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2"		"<font color='#9FFFCC'>吾主在此</font> "
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_Description"	"贞德向目标区域投掷旗帜. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，对敌人施加<font color='#FF3399'>天启</font>. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_Description"	"<font color='#58ACFA'>持续施法</font>: 贞德对着圣旗开始祈祷, 创造一个神圣的区域,並且对神圣区域内的所有盟友施加 <font color='#FFFF28'>辉煌圣光之复权</font>.
+        当贞德施法时持续为所有附近盟友 <font color='#FFFF28'>治疗</font> %heal_per_sec% 生命值,并施加 <font color='#FFFF28'>领袖气质</font> 和 <font color='#FFFF28'>驱散</font> 区域内的所有盟友的负面效果. 如果一名友方英雄血量少于 %transfer_threshold%%% 生命值. 贞德将牺牲 %transfer_heal%%% 她的最大生命去 <font color='#FFFF28'>治疗</font> 目标.
+        贞德施法时间越久,<font color='#FFFF28'>辉煌圣光之复权</font>的增益就越强.
+        当贞德成功或中断技能, 贞德都会把圣旗插在地上, 给予 <font color='#FFFF28'>辉煌圣光之复权</font>持续时间取决于她施法的时间.
+        当贞德完成施法, 贞德将会 <font color='#FFFF28'>治疗</font> 和对神圣区域内的所有盟友施加 <font color='#FFFF28'>领袖气质</font>.
+        一旦贞德离开神圣区域, <font color='#FFFF28'>辉煌圣光之复权</font> 将会馬上失效.
+        <font color='#FFFF28'>辉煌圣光之复权</font>: 减少目标受到的伤害.
+        <font color='#9FFFCC'>可升级属性: 神圣象征</font>.
+        <font color='#FF9900'>圣人: <font color='#FFFF28'>治疗</font> <font color='#FFFFFF'>%saint_heal_per_sec%</font> 生命值当贞德在施法.</font>
+        每次只能存在一个圣旗的 <font color='#58ACFA'>神圣区域</font>."
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_reveal_duration"	"视野持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2"		"<font color='#9FFFCC'>吾主在此</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_Description"	"贞德向目标区域投掷旗帜, <font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font> 路径上所有敌人. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，短时间内<font color='#FF3399'>缠绕</font>, <font color='#FF3399'>缴械</font>, <font color='#FF3399'>天启</font> 区域内敌人. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n\n<font color='#9FFFCC'>可选属性升级: 神圣象征</font>. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_reveal_duration"	"视野持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_cc_duration"		"缠绕/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_2_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_channel_time"			"施法时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_base_radius"			"基础范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_bonus_radius_per_sec"	"每秒额外范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_base_duration"			"基础持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_bonus_duration_per_sec"	"每秒额外持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_base_dr"				"%基础减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_bonus_dr_per_sec"		"%每秒额外减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_2_success_heal"			"施法成功治愈:"
 
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3"		"<font color='#9FFFCC'>吾主在此</font> "
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Description"	"贞德向目标区域投掷旗帜. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，对敌人施加<font color='#FF3399'>天启</font>. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Description"	"<font color='#58ACFA'>持续施法</font>: 贞德对着圣旗开始祈祷, 创造一个神圣的区域, 並且对神圣区域内的所有盟友施加<font color='#FFFF28'>辉煌圣光之复权</font>.
+        当贞德施法时持续为所有附近盟友 <font color='#FFFF28'>治疗</font> %heal_per_sec% 加贞德的 <font color='#00F7FF'>智力</font> x %bonus_heal_per_sec% 生命值,并施加 <font color='#FFFF28'>领袖气质</font>. 如果一名友方英雄血量少于 %transfer_threshold%%% 生命值. 贞德将牺牲 %transfer_heal%%% 她的最大生命去 <font color='#FFFF28'>治疗</font> 目标.
+        贞德施法时间越久,<font color='#FFFF28'>辉煌圣光之复权</font>的增益就越强.
+        当贞德成功或中断技能, 贞德都会把圣旗插在地上, 给予 <font color='#FFFF28'>辉煌圣光之复权</font>持续时间取决于她施法的时间.
+        当贞德完成施法, 贞德将会 <font color='#FFFF28'>治疗</font> 基于她的 <font color='#00F7FF'>智力</font>, 并对神圣区域内的所有盟友减少可重置技能的剩余冷却时间 %cooldown_reduction% 秒, 并施加 <font color='#FFFF28'>领袖气质</font> 和 <font color='#FFFF28'>驱散</font> 区域内的所有盟友的负面效果.
+        一旦贞德离开神圣区域, <font color='#FFFF28'>辉煌圣光之复权</font> 将会馬上失效.
+        <font color='#FFFF28'>辉煌圣光之复权</font>: 减少目标受到的伤害.
+        <font color='#FF9900'>圣人: <font color='#FFFF28'>治疗</font> <font color='#FFFFFF'>%saint_heal_per_sec%</font> 生命值当贞德在施法.</font>
+        如果贞德拥有 <font color='#FFFF28'>神明裁決增益</font>, 贞德在施法期间会 <font color='#FFFF28'>免疫</font> 大部分的控制技能.
+        每次只能存在一个圣旗的 <font color='#58ACFA'>神圣区域</font>."
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_reveal_duration"	"视野持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_Note2"			"释放的<font color='#58ACFA'>领导才能</font> 可以和 <font color='#58ACFA'>吾之神明在此</font>的领导才能叠加."
-
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3"		"<font color='#9FFFCC'>吾主在此</font> <font color='#FF9900'>(圣人)</font>"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_Description"	"贞德向目标区域投掷旗帜, <font color='#FF3399'>缠绕</font> 和 <font color='#FF3399'>缴械</font> 路径上所有敌人. \n 旗帜插在地上形成一个区域，区域内的盟友都会获得<font color='#FFFF28'>吾主在此</font> 效果，短时间内<font color='#FF3399'>缠绕</font>, <font color='#FF3399'>缴械</font>, <font color='#FF3399'>天启</font> 区域内敌人. \n<font color='#FFFF28'>吾主在此</font>: 消耗一点旗帜生命减少受到伤害. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n 只能获得一个<font color='#58ACFA'>吾主在此</font>."
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_Lore"				""
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_delay"			"施法延迟:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_range"			"旗帜范围:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_reveal_duration"	"视野持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_damage_reduction"	"%伤害减少:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_flag_health"		"旗帜生命:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_cc_duration"		"缠绕/缴械持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_Note0"			"场上同时只能存在一面 <font color='#58ACFA'>吾之神明在此</font> 旗帜。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_Note1"			"新的旗帜会移除旧旗帜的群体控制效果。"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_saint_upgrade_3_Note2"			"释放的<font color='#58ACFA'>领导才能</font> 可以和 <font color='#58ACFA'>吾之神明在此</font>的领导才能叠加."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_channel_time"			"施法时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_base_radius"			"基础范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_bonus_radius_per_sec"	"每秒额外范围:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_base_duration"			"基础持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_bonus_duration_per_sec"	"每秒额外持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_base_dr"				"%基础减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_bonus_dr_per_sec"		"%每秒额外减伤:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_success_heal"			"施法成功治愈:"
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_upgrade_3_bonus_heal"				"施法成功每点智力额外治愈:"
 
         ///////////////////// Special Ability ////////////////////
 
         "DOTA_Tooltip_Ability_jeanne_identity_discernment" 	"<font color='#FFB266'>真名看破</font>"
-        "DOTA_Tooltip_Ability_jeanne_identity_discernment_Description"	"贞德短暂发现所有敌人位置. \n如果贞德队伍分数低于对方，增加视野持续时间. \n此技能一回合只能使用一次."
+        "DOTA_Tooltip_Ability_jeanne_identity_discernment_Description"	"贞德会标记所有敌人的位置,并短暂获得他们的视野. 
+        如果贞德队伍的胜利分数低于或等于对方的胜利分数,则增加视野持续时间. 
+        <font color='#FF9900'>注意: 此技能每回合只能使用一次.</font>"
         "DOTA_Tooltip_Ability_jeanne_identity_discernment_Lore"		""
         "DOTA_Tooltip_Ability_jeanne_identity_discernment_Note0"	"使用此技能则会全体通知."
         "DOTA_Tooltip_Ability_jeanne_identity_discernment_saint_vision_duration"	"发现持续时间:"
         "DOTA_Tooltip_Ability_jeanne_identity_discernment_saint_vision_duration_lose"	"分数低于对方视野持续时间:"
-        "identity_discernment_alert"			"<font color='#ff9900'>贞德使用他的权力看到了敌方所有从者!</font>"
+        "identity_discernment_alert"	"<font color='#ff9900'>贞德使用他的权力看到了敌方所有从者!</font>"
 
         ///////////////////// Combo /////////////////////
 
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle"				"<font color='#FF04EF'>连击技能: 红莲圣女</font> "
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle_Description"	"<font color='#FF04EF'>技能使用需求: 25全属性, 回合剩余 60 秒.</font>\n<font color='#FF04EF'>技能顺序: 4秒内Q - W -> E </font>\n短暂延迟后，贞德牺牲自己，对范围内所有敌人造成基于她生命值的纯粹伤害. \n 祈祷开始时，范围内敌人被 <font color='#FF3399'>减速</font>切禁用闪现. \n 如果贞德拥有<font color='#FF9900'>圣人</font>, 增加伤害. \n 施放完毕后，贞德死亡，回合结束. "
+        "DOTA_Tooltip_Ability_jeanne_la_pucelle"				"<font color='#FF04EF'>连击技能: 红莲圣女</font>"
+        "DOTA_Tooltip_Ability_jeanne_la_pucelle_Description"	"<font color='#FF04EF'>技能使用需求 : 25全属性</font>
+        <font color='#FF04EF'>技能顺序 : 4秒内Q - W -> E</font>
+        <font color='#FF9900'>注意: 贞德只能在低于1分钟的情况下使用.</font> 
+        贞德经过短暂的祈祷后,以自己的生命为代价,消灭一切存在 对半径范围内的所有敌人造成基于其最大生命值的纯粹伤害. 
+        当贞德祈祷时,范围内的所有敌人都会 <font color='#FF3399'>减速</font> 并且无法闪现. 
+        如果贞德拥有 <font color='#FF9900'>圣人</font>, 将此伤害提升到最大. 
+        释放完毕后,贞德会立即死亡并且回合结束. "
         "DOTA_Tooltip_Ability_jeanne_la_pucelle_delay"			"祈祷延迟:"
         "DOTA_Tooltip_Ability_jeanne_la_pucelle_damage_radius"	"范围:"
         //"DOTA_Tooltip_Ability_jeanne_la_pucelle_radius"			"Full Area of Effect:"
         "DOTA_Tooltip_Ability_jeanne_la_pucelle_slow"			"%减速:"
         "DOTA_Tooltip_Ability_jeanne_la_pucelle_life_damage"	"最大生命值伤害:"
         "DOTA_Tooltip_Ability_jeanne_la_pucelle_life_damage_saint"	"最大生命值伤害 <font color='#FF9900'>(圣人)</font>:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note0"	"释放过程中贞德处于 <font color='#FF3399'>眩晕</font> 和 <font color='#FF3399'>禁咒</font>状态."
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note1"	"无视无敌和魔法免疫。"
+        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note0"	"当贞德施法时将会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note1"	"无视无敌和魔法免疫."
+
         ///////////////////// Buff //////////////////////
 
-		"DOTA_Tooltip_modifier_magic_resistance_ex_shield"         "对魔力: EX"
-		"DOTA_Tooltip_modifier_magic_resistance_ex_shield_Description"  "每层提升 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔抗"
-
-		"DOTA_Tooltip_modifier_saint_buff"                        "圣人"
-		"DOTA_Tooltip_modifier_saint_buff_Description"            "强化贞德的技能"
+		"DOTA_Tooltip_modifier_jeanne_saint"                        "圣人"
+		"DOTA_Tooltip_modifier_jeanne_saint_Description"            "提升贞德的技能"
 	
+		"DOTA_Tooltip_modifier_jeanne_charisma_all_new"               "贞德领袖气质 (所有)"
+		"DOTA_Tooltip_modifier_jeanne_charisma_all_new_Description"   "+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% STR, +%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% AGI, +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% INT, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% ASPD"
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_str"               "领袖气质 (力量)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_str_Description"   "+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% 力量, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_charisma_str_new"               "贞德领袖气质 (力量)"
+		"DOTA_Tooltip_modifier_jeanne_charisma_str_new_Description"   "+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% STR, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% ASPD"
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_agi"              "领袖气质 (敏捷)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_agi_Description"  "+%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_charisma_agi_new"              "贞德领袖气质 (敏捷)"
+		"DOTA_Tooltip_modifier_jeanne_charisma_agi_new_Description"  "+%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% AGI, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% ASPD"
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_int"               "领袖气质 (智力)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_int_Description"   "+%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 智力, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_charisma_int_new"               "贞德领袖气质 (智力)"
+		"DOTA_Tooltip_modifier_jeanne_charisma_int_new_Description"   "+%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% INT, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% ASPD"
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_str_flag"               "领袖气质 (力量)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_str_flag_Description"   "+%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% 力量, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution"          	"神明裁決祈祷"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_Description"  "-%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_agi_flag"              "领袖气质 (敏捷)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_agi_flag_Description"  "+%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_buff"          	"神明裁決增益"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_buff_Description"  ""
 
-		"DOTA_Tooltip_modifier_jeanne_charisma_int_flag"               "领袖气质 (智力)"
-		"DOTA_Tooltip_modifier_jeanne_charisma_int_flag_Description"   "+%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 智力, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_channel"       		"辉煌圣光之复权正在施法"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_channel_Description"  ""
 
-		"DOTA_Tooltip_modifier_gods_resolution_active_buff"          "神明裁决增益"
-		"DOTA_Tooltip_modifier_gods_resolution_active_buff_Description"  "提升 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲 和 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔抗。"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_buff"     			"辉煌圣光之复权"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_buff_Description"  "减少 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
 
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura"       "吾主在此旗帜增益"
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura_Description"  ""
+		"DOTA_Tooltip_modifier_jeanne_luminosite_flag_buff"     			"辉煌圣光之复权"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_flag_buff_Description"  "减少 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
 
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura_buff"     "吾主在此旗帜增益"
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura_buff_Description"  "降低 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
-
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura"   "吾主在此旗帜增益"
+		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura"   "辉煌圣光之复权增強范圍"
 		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura_Description"       ""
 
-		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura_buff"              "吾主在此旗帜增益"
+		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura_buff"              "辉煌圣光之复权增強范圍"
 		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_improved_aura_buff_Description"  ""
 
 		"DOTA_Tooltip_modifier_jeanne_divine_symbol"					"神圣象征"
-		"DOTA_Tooltip_modifier_jeanne_divine_symbol_Description"		"攻击造成额外伤害"
+		"DOTA_Tooltip_modifier_jeanne_divine_symbol_Description"		"攻击时造成纯粹伤害"
 
-		"DOTA_Tooltip_modifier_jeanne_vision"							"天启"
-		"DOTA_Tooltip_modifier_jeanne_vision_Description"				"提供视野"
+		"DOTA_Tooltip_modifier_jeanne_vision"							"天之啟示"
+		"DOTA_Tooltip_modifier_jeanne_vision_Description"				"提供視野"
 
 
 		////////////////// Debuff /////////////////
 
 		"DOTA_Tooltip_modifier_saint_debuff"                        "圣人减益"
-		"DOTA_Tooltip_modifier_saint_debuff_Description"            "提升 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
+		"DOTA_Tooltip_modifier_saint_debuff_Description"            "增加 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
 
-		"DOTA_Tooltip_modifier_purge_the_unjust_slow"               "消除不公减速"
-		"DOTA_Tooltip_modifier_purge_the_unjust_slow_Description"   "降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度"
+		"DOTA_Tooltip_modifier_jeanne_purge_slow"               "清除不公缓慢"
+		"DOTA_Tooltip_modifier_jeanne_purge_slow_Description"   "减少 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度"
 
 		"DOTA_Tooltip_modifier_la_pucelle_slow"               "红莲圣女减速"
-		"DOTA_Tooltip_modifier_la_pucelle_slow_Description"   "无法使用跳跃卷轴"
+		"DOTA_Tooltip_modifier_la_pucelle_slow_Description"   "无法闪现"
 
-		"DOTA_Tooltip_modifier_gods_resolution_slow"                "神明裁决减速"
-		"DOTA_Tooltip_modifier_gods_resolution_slow_Description"    "降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度和 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow"                "神明裁決减速"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow_Description"    "减少 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度和 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% 攻击速度"
 
-		"DOTA_Tooltip_modifier_luminosite_eternelle_unjust_debuff"                        "吾之神明在此不公正debuff"
+		"DOTA_Tooltip_modifier_luminosite_eternelle_unjust_debuff"                        "辉煌圣光之复权不公减益"
 		"DOTA_Tooltip_modifier_luminosite_eternelle_unjust_debuff_Description"            ""
 
-		"DOTA_Tooltip_modifier_luminosite_eternelle_saint_debuff"    "吾之神明在此 旗帜光环debuff"
-		"DOTA_Tooltip_modifier_luminosite_eternelle_saint_debuff_Description"            "提升 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
+		"DOTA_Tooltip_modifier_luminosite_eternelle_saint_debuff"    "辉煌圣光之复权光环减益"
+		"DOTA_Tooltip_modifier_luminosite_eternelle_saint_debuff_Description"            "增加 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 受到的伤害"
 
 		////////////////// Cooldown ////////////////
 
-		"DOTA_Tooltip_modifier_la_pucelle_cooldown"                              "红莲圣女冷却"
+		"DOTA_Tooltip_modifier_la_pucelle_cooldown"                              "红莲圣女冷卻"
 		"DOTA_Tooltip_modifier_la_pucelle_cooldown_Description"                  ""	
-
 
         //////////////////// Attribute /////////////////
 
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment"		"<font color='#9FFFCC'>属性: 真名看破</font>"
-        "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_Description"		"激活 <font color='#FFB266'>真名看破</font>. \n<font color='#FFB266'>真名看破:</font>贞德短暂发现所有敌人位置. \n如果贞德队伍分数低于对方，增加视野持续时间. \n此技能一回合只能使用一次."
+        "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_Description"		"能够使用 <font color='#FFB266'>真名看破</font>. \n<font color='#FFB266'>真名看破:</font> 贞德会标记所有敌人的位置,并短暂获得他们的视野. \n增加持续时间,如果贞德队伍的胜利分数低于或等于对方的胜利分数. 
+        <font color='#FF9900'>注意: 此技能每回合只能使用一次.</font>"
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_vision_duration"	"发现持续时间:"
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_vision_duration_lose"	"分数低于对方视野持续时间:"
        
        	"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint"		"<font color='#9FFFCC'>属性: 强化圣人</font> "
-        "DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_Description"	"<font color='#FFFFFF'>圣人</font>: 贞德现在可以在队伍人数相等时获得<font color='#FF9900'>圣人</font>. \n<font color='#FF9900'>圣人</font>: 至少死亡一个英雄时，贞德获得<font color='#FFFF28'>魅力</font>. \n所有敌人获得 <font color='#FF3399'>圣人减益</font>. \n<font color='#FF3399'>圣人减益</font>: 目标受到额外伤害."
-        "DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_bonus_damage"	"%减益受到伤害增加:"		
+        "DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_Description"	"<font color='#FFFFFF'>圣人</font>: 贞德现在可以在队伍人数相等时获得 <font color='#FF9900'>圣人</font>. 
+        <font color='#FF9900'>圣人</font>: 当至少一个英雄死亡时贞德获得 <font color='#FFFF28'>领袖气质</font>."
 
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"<font color='#9FFFCC'>属性: 惩戒</font> "
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"<font color='#58ACFA'>消除不公</font>: 贞德标记区域并施加<font color='#FF3399'>消除不公减速</font>。造成的伤害无视魔法抗性. \n<font color='#FF3399'>消除不公减速</font>: 降低目标移动速度. \n<font color='#58ACFA'>神明裁决</font>: <font color='#58ACFA'>被动</font>: 根据目标的最大生命值造成伤害. \n<font color='#58ACFA'>主动</font>:增加持续时间."
-        //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_bonus_damage"	"%PURGE THE UNJUST EXTRA DAMAGE PER DEAD TEAMMATE:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_amount"	"%消除不公减速量:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_duration"	"减速持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_active_duration"	"神明裁决主动持续时间:"
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"<font color='#9FFFCC'>属性: 天罚</font> "
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"<font color='#58ACFA'>清除不公</font>: 贞德对目标区域内的所有敌人造成 <font color='#FF3399'>弱驱散</font> 和 <font color='#FF3399'>清除不公缓速</font> %w_slow_duration% 秒. 
+        <font color='#FF3399'>清除不公缓速</font>: 减少 %w_slow%%% 目标的移动速度. 
+        <font color='#58ACFA'>神明裁決</font>: 贞德祈祷期间随机召唤总共%e_total_pillar%道光柱, 造成 %e_pillar_dmg% 伤害,光柱会对%e_pillar_radius% 范围目标施加 <font color='#FF3399'>禁咒</font> %e_pillar_revoke% 秒."
 
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol"	"<font color='#9FFFCC'>属性: 神圣象征</font> "
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#58ACFA'>吾主在此</font>: 增加减伤，对区域内盟友施加<font color='#FFFF28'>领袖气质</font>. \n 主动使用的<font color='#58ACFA'>领袖气质</font> 可以和 <font color='#58ACFA'>吾主在此</font>的<font color='#FFFF28'>领袖气质</font>叠加. \n<font color='#58ACFA'>神明裁决</font>: 在身边随机召唤光柱, 造成魔法伤害."
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Note0"				"<font color='#58ACFA'>领导才能</font> 根据当前领导才能技能等级."
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_bonus_reduction"	"%吾主在此额外减伤:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_god_pillar_damage"	"神明裁决光柱伤害:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_god_pillar_radius"	"神明裁决光柱范围:"
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol"			"<font color='#9FFFCC'>属性: 神圣象征</font> "
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#58ACFA'>神明裁決</font>: <font color='#FFFF28'>神明裁決增益</font>: 贞德获得额外生命回复, %e_bonus_def% 护甲, %e_bonus_def%%% 魔法抗性和 %bonus_ms%%%移动速度.
+		<font color='#58ACFA'>吾主在此</font>: 现在贞德施法时持续为所有附近盟友 <font color='#FFFF28'>治疗</font> 基于她的 <font color='#00F7FF'>智力</font> x %r_bonus_heal_per_sec%生命值.
+		提高贞德成功施法时的 <font color='#FFFF28'>治疗</font> 并且基于她的 <font color='#00F7FF'>智力</font> x %r_bonus_heal% 生命值,同时减少可重置技能的剩余冷却时间 %r_cooldown_reduction% 秒.
+		如果贞德拥有 <font color='#FFFF28'>神明裁決增益</font>, 贞德在施法期间会 <font color='#FFFF28'>免疫</font> 大部分的控制技能."
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_e_bonus_hp_reg"	"神明裁決增益额外生命回复:"
 
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation"				"<font color='#9FFFCC'>属性: 天启</font> "
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Description"	"<font color='#58ACFA'>消除不公</font> 和<font color='#58ACFA'>吾主在此</font> 对敌人施加 <font color='#FF3399'>天启</font>. \n<font color='#FF3399'>天启</font>: 贞德获得目标视野. \n<font color='#58ACFA'>领袖气质 </font>:如果目标不是贞德，他将获得<font color='#FFFF28'>驱散</font>."
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Lore"			"It is said that Jeanne receives Revelations directly from God."
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_duration"		"消除不公视野持续时间:"
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_le_duration"	"吾主在此视野持续时间:"
-        //"DOTA_Tooltip_Ability_jeanne_attribute_revelation_base_damage"	"神圣象征基础伤害:"
-        //"DOTA_Tooltip_Ability_jeanne_attribute_revelation_bonus_int_ratio"			"神圣象征每点智力伤害:"
-
-        /////////////////// Unused ////////////////
-
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle"	"<font color='#FFFFFF'>La Pucelle</font> "
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Description"	"<font color='#58ACFA'>Combo Requirement : 25 all stats</font>\n<font color='#58ACFA'>Combo Sequence : None(triggered by death)</font>\nUpon death, Jeanne ascends to a spirit form, unable to cast spells and Command Seals but becoming invulnerable, gaining <font color='#ff9900'>Saint</font> buff and gaining bonus movement and attack speed. While in spirit form, divine flame spreads from her to set nearby enemies ablaze, dealing magic damage based on enemy's current health.\n\nWhen Jeanne faces eventual death, she counts as alive at the round timeout when comparing the number of survivors between two teams. La Pucelle does not activate if Ruler is executed or is the last standing hero."
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_delay"		"ASCENSION DELAY:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_duration"		"SPIRIT FORM DURATION:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_bonus_aspd"	"%BONUS ATTACK SPEED:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_bonus_ms"		"%BONUS MOVEMENT SPEED:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_flame_damage_per_sec"	"%FLAME DAMAGE PER SEC:"
-        "la_pucelle_alert_1"		"<font color='#FF9900'>Jeanne(Apocrypha) has ascended into spirit form!</font>"
-        "la_pucelle_alert_2"		"<font color='#FF9900'>Jeanne(Apocrypha) has fallen. She counts as alive member at the round timeout.</font>"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note0"	"Jeanne can still use items while ascended."
-
-        "DOTA_Tooltip_modifier_magic_resistance_ex"               "Magic Resistance Ex"
-		"DOTA_Tooltip_modifier_magic_resistance_ex_Description"   "Increased magic resistance"
-
-		"DOTA_Tooltip_modifier_saint_debuff_attr"                    "Saint Debuff Attr"
-		"DOTA_Tooltip_modifier_saint_debuff_attr_Description"        ""
-
-		"DOTA_Tooltip_modifier_la_pucelle_spirit_form"             "La Pucelle Spirit Form"
-		"DOTA_Tooltip_modifier_la_pucelle_spirit_form_Description"   ""
+        "DOTA_Tooltip_Ability_jeanne_attribute_revelation"				"<font color='#9FFFCC'>属性: 天之啟示</font> "
+        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Description"	"<font color='#58ACFA'>领袖气质</font>: 如果目标不是贞德, 目标将会 <font color='#FFFF28'>驱散</font> 负面效果.
+        <font color='#58ACFA'>清除不公</font>: <font color='#FFFF28'>治疗</font> %w_heal% 目标区域内的所有盟友.
+        <font color='#58ACFA'>吾主在此</font>: 贞德在施法期间会, 施加 <font color='#FFFF28'>领袖气质</font>. 当成功施法后, <font color='#FFFF28'>驱散</font> 所有盟友的负面效果, 如果一名友方英雄血量少于 %r_transfer_threshold%%% 生命值. 贞德将牺牲 %r_transfer_heal%%% 她的最大生命去 <font color='#FFFF28'>治疗</font> 目标."
 
         //====================================
         //      Rider of Black(Apocrypha)
@@ -12199,209 +12083,272 @@
 		"DOTA_Tooltip_Ability_zhuge_liang_attribute_discern_eye_bonus_radius"	"额外半径:"
 
 		//====================================
-        //      Mashu
+        //      玛修·基列莱特
         //====================================
-        "npc_dota_hero_dragon_knight"             "Mashu Kyrielight"
-        "npc_dota_hero_dragon_knight_summon"		"Servant <font color='#58ACFA'>Mashu Kyrielight</font> has been summoned."
-        "npc_dota_hero_dragon_knight_enable_combo"	"Enable Combo: Fortress of the Distant Utopia - Lord Camelot"
+        "npc_dota_hero_dragon_knight"             "玛修·基列莱特"
+        "npc_dota_hero_dragon_knight_1"             "[英雄] 无裝甲玛修"
+        "npc_dota_hero_dragon_knight_summon"		"从者 <font color='#58ACFA'>玛修·基列莱特</font> 已被召唤."
+        "npc_dota_hero_dragon_knight_enable_combo"	"激活 连击技能: 已然遥远的理想之城 -卡美洛"
 
         ////////////////// INNATE ///////////////////
 
-        "DOTA_Tooltip_Ability_mashu_bunker_bolt"			"<font color='#FFFFFF'>Bunker Bolt</font>"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_Description"		"向前冲锋，被敌方单位阻挡时立即停止。造成伤害 <font color='#FF3399'>stunning</font> 和 <font color='#FF3399'>slowing</font> 所有附近的敌人。 \n\n<font color='#9FFFCC'>可升级的属性: Black Barrel</font>."
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_Lore"    			"Big shield slap."
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_cast_delay"			"延时:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_range"			"范围:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_aoe"			"损伤半径:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_dash_duration"			"充电时间:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_damage"			"损坏:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_duration"			"缓慢的持续时间:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_amount"			"%缓慢:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_stun_duration"			"STUN时间:"
+        "DOTA_Tooltip_Ability_mashu_shield"			"<font color='#FFFFFF'>盾兵职阶</font>"
+        "DOTA_Tooltip_ability_mashu_shield_Description"		"<font color='#58ACFA'>被动:</font> 玛修获得 <font color='#FFFF28'>盾兵</font> 和持续回复 <font color='#99FF33'>保护之盾</font>. \n<font color='#FFFF28'>盾兵</font>: 增加玛修的护甲和魔法抗性. \n<font color='#99FF33'>保护之盾</font>: 当正在使用<font color='#58ACFA'>守护壁垒</font>将吸收一定量的技能伤害. \n 玛修不能回复 <font color='#FFFF28'>保护之盾</font> 当正在使用 <font color='#58ACFA'>守护壁垒</font>. \n 玛修将失去 <font color='#FFFF28'>盾兵</font> 当她正在使用 <font color='#FFFF28'>保护之盾</font>. \n\n<font color='#9FFFCC'>可升级属性: 魔力防御</font>. \n最大护盾值: %base_shield% + (LVL x %bonus_lvl_shield%)"
+        "DOTA_Tooltip_ability_mashu_shield_Lore"		""
+        //"DOTA_Tooltip_ability_mashu_shield_max_shield"			"最大护盾值:"
+        "DOTA_Tooltip_ability_mashu_shield_shield_amount_regen"	"护盾量回复:"
+        "DOTA_Tooltip_ability_mashu_shield_shield_regen_time"	"护盾回复时间:"
+        "DOTA_Tooltip_ability_mashu_shield_passive_def"			"被动护甲:"
+        "DOTA_Tooltip_ability_mashu_shield_passive_mr"			"%被动魔法抗性:"
 
-        "DOTA_Tooltip_Ability_mashu_bunker_bolt_upgrade"			"<font color='#9FFFCC'>Bunker Bolt</font>"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Description"		"向前冲锋，被敌方单位阻挡时立即停止。造成伤害根据她的<font color='#FF0000'>STR</font>, <font color='#FF3399'>stunning</font>, 降低魔法抵抗力和 <font color='#FF3399'>slowing</font> 附近的所有敌人."
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Lore"    			"Big shield slap."
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_cast_delay"			"延时:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_range"			"范围:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_aoe"			"损伤半径:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_dash_duration"			"充电时间:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage"			"损坏:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage_per_strength"			"每点的伤害STR:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_duration"			"缓慢的持续时间:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_amount"			"%缓慢:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_stun_duration"			"STUN时间:"
-        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_mr_penalty"			"%魔法抵抗力降低:"
+        "DOTA_Tooltip_Ability_mashu_shield_upgrade"			"<font color='#9FFFCC'>盾兵职阶</font>"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_Description"		"<font color='#58ACFA'>被动:</font> 玛修获得 <font color='#FFFF28'>盾兵</font> 和持续回复 <font color='#FFFF28'>保护之盾</font>. \n<font color='#FFFF28'>盾兵</font>: 增加玛修的护甲和魔法抗性. \n<font color='#FFFF28'>保护之盾</font>: 当正在使用 <font color='#58ACFA'>守护壁垒</font>将吸收一定量的技能伤害. \n 玛修不能回复 <font color='#FFFF28'>保护之盾</font> 当正在使用 <font color='#58ACFA'>守护壁垒</font> 和处于 <font color='#FF3399'>盾牌破碎</font>. \n 玛修将失去 <font color='#FFFF28'>盾兵</font> 当她正在使用 <font color='#FFFF28'>保护之盾</font>. \n最大护盾值: %base_shield% + (LVL x %bonus_lvl_shield%)"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_Lore"		""
+        //"DOTA_Tooltip_ability_mashu_shield_upgrade_max_shield"			"最大护盾值:"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_shield_amount_regen"	"护盾量回复:"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_shield_regen_time"	"护盾回复时间:"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_passive_def"			"被动护甲:"
+        "DOTA_Tooltip_ability_mashu_shield_upgrade_passive_mr"			"%被动魔法抗性:"
 
-        "DOTA_Tooltip_Ability_mashu_protect"			"<font color='#FFFFFF'>Protect / Parry</font>"
-        "DOTA_Tooltip_ability_mashu_protect_Description"		"Mashu 准备保护/抵挡攻击，大大减少接下来受到的伤害。当对盟友使用时，她将准备保护。当对自己使用时，她将准备抵挡。 在成功的保护/抵抗中，大大减少冷却时间，恢复一半的法力，并造成区域伤害。 如果受保护的盟友移动得太远，就会失去效果。 \n\n<font color='#9FFFCC'>可升级的属性: Shield of Faith</font>."
-        "DOTA_Tooltip_ability_mashu_protect_cast_range"			"铸造范围:"
-        "DOTA_Tooltip_ability_mashu_protect_damage_reduce"			"%所受伤害减少:"
-        "DOTA_Tooltip_ability_mashu_protect_max_range"			"最大射程:"
-        "DOTA_Tooltip_ability_mashu_protect_red_cooldown"			"减少成功抵制的冷却时间:"
-        "DOTA_Tooltip_ability_mashu_protect_damage"			"损坏:"
-        "DOTA_Tooltip_ability_mashu_protect_aoe"			"半径:"
-        "DOTA_Tooltip_ability_mashu_protect_parry_duration"			"抗击时间:"
-        "DOTA_Tooltip_ability_mashu_protect_protect_duration"			"保护时间:"
-
-        "DOTA_Tooltip_Ability_mashu_protect_upgrade"			"<font color='#9FFFCC'>Protect / Parry</font>"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_Description"		"Mashu准备保护/抵抗攻击，大大减少接下来受到的伤害。当对盟友使用时，她将准备保护。当对自己使用时，她将准备抵抗。在成功的保护/抵抗中，大大减少冷却时间，恢复一半的法力，并造成区域伤害，在一段时间内成为无敌状态。如果被保护的盟友移动得太远，该效果将消失。"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_cast_range"			"铸造范围:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage_reduce"			"%所受伤害减少:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_max_range"			"最大射程:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_red_cooldown"			"减少成功抵制的冷却时间:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_damage"			"损坏:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_aoe"			"半径:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_parry_duration"			"抗击时间:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_protect_duration"			"保护时间:"
-        "DOTA_Tooltip_ability_mashu_protect_upgrade_invul"			"无敌的时间:"
-
-        "DOTA_Tooltip_Ability_mashu_taunt"			"<font color='#FFFFFF'>Shield of Rousing Heroism</font>"
-        "DOTA_Tooltip_ability_mashu_taunt_Description"		"Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间，然后获得 <font color='#FFFF28'>Heroism</font> 并迫使附近所有敌人攻击她。 \n<font color='#FFFF28'>Heroism</font>: 获得抗损害能力. \n\n<font color='#9FFFCC'>可升级的属性: Obscurant Wall of Chalk</font>."
-        "DOTA_Tooltip_ability_mashu_taunt_cast_delay"			"延时:"
-        "DOTA_Tooltip_ability_mashu_taunt_channel_time"			"频道时间:"
-        "DOTA_Tooltip_ability_mashu_taunt_buff_duration"			"HEROISM 时间:"
-        "DOTA_Tooltip_ability_mashu_taunt_damage_reduction"			"%HEROISM 所受伤害减少:"
-        "DOTA_Tooltip_ability_mashu_taunt_radius"			"半径:"
-        "DOTA_Tooltip_ability_mashu_taunt_taunt_duration"			"强制攻击时间:"
-
-        "DOTA_Tooltip_Ability_mashu_taunt_upgrade"			"<font color='#9FFFCC'>Shield of Rousing Heroism</font>"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_Description"		"Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间，然后获得 <font color='#FFFF28'>Heroism</font>, 从她的最大生命值造成伤害，并迫使附近所有敌人攻击她。 \n<font color='#FFFF28'>Heroism</font>: 获得抗损害能力."
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_cast_delay"			"延时:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_channel_time"			"频道时间:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_buff_duration"			"HEROISM 时间:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_reduction"			"%HEROISM 所受伤害减少:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_from_max_health"			"来自最大健康的伤害:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_radius"			"半径:"
-        "DOTA_Tooltip_ability_mashu_taunt_upgrade_taunt_duration"			"强制攻击时间:"
-
-        "DOTA_Tooltip_Ability_mashu_snowflake"			"<font color='#FFFFFF'>Transient Wall of Snowflakes</font>"
-        "DOTA_Tooltip_ability_mashu_snowflake_Description"		"<font color='#58ACFA'>被动式</font>: Mashu 获得伤害减少和额外的健康再生. \n<font color='#58ACFA'>ACTIVE</font>: Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间, 然后给出 <font color='#FFFF28'>Transient Wall of Snowflakes</font> 并治疗附近所有的盟友. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: 获得护甲、魔法抵抗、健康再生和额外力量。 \n\n<font color='#9FFFCC'>可升级的属性: Obscurant Wall of Chalk</font>."
-        "DOTA_Tooltip_ability_mashu_snowflake_damage_reduction_passive"		"%被动的伤害减少:"
-        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_passive"	"被动的健康再生:"
-        "DOTA_Tooltip_ability_mashu_snowflake_channel_time"		"频道时间:"
-        "DOTA_Tooltip_ability_mashu_snowflake_cast_delay"		"延时:"
-        "DOTA_Tooltip_ability_mashu_snowflake_radius"		"半径:"
-        "DOTA_Tooltip_ability_mashu_snowflake_active_instant_heal"		"疗养:"
-        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_active"		"健康再生:"
-        "DOTA_Tooltip_ability_mashu_snowflake_active_magic_res"		"%魔法抵抗力:"
-        "DOTA_Tooltip_ability_mashu_snowflake_active_active_arm"		"额外装甲:"
-        "DOTA_Tooltip_ability_mashu_snowflake_active_bonus_strength"		"额外的 STR:"
-        "DOTA_Tooltip_ability_mashu_snowflake_buff_duration"	"时间:"
-
-        "DOTA_Tooltip_Ability_mashu_snowflake_upgrade"			"<font color='#9FFFCC'>Transient Wall of Snowflakes</font>"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_Description"		"<font color='#58ACFA'>被动式</font>: Mashu 获得伤害减少和额外的健康再生. \n<font color='#58ACFA'>ACTIVE</font>: Mashu 渠道，并采取防御姿态，成为<font color='#FF3399'>stunned</font>和<font color='#FF3399'>revoked</font>一段时间, 然后给出 <font color='#FFFF28'>Transient Wall of Snowflakes</font> 并治疗附近所有的盟友. \n<font color='#FFFF28'>Transient Wall of Snowflakes</font>: 获得护甲、魔法抵抗、健康再生和额外力量。"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_damage_reduction_passive"		"%被动的伤害减少:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_passive"	"被动的健康再生:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_channel_time"		"频道时间:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_cast_delay"		"延时:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_invul"		"无敌的时间:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_radius"		"半径:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_instant_heal"		"疗养:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_active"		"健康再生:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_magic_res"		"%魔法抵抗力:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_active_arm"		"额外装甲:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_bonus_strength"		"额外的 STR:"
-        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_buff_duration"	"时间:"
-
-        "DOTA_Tooltip_Ability_mashu_punishment"			"<font color='#FFFFFF'>EX : Punishment</font>"
-        "DOTA_Tooltip_ability_mashu_punishment_Description"		"Mashu 向目标方向投掷盾牌，当盾牌击中敌人时，她会跳到目标处造成伤害，同时<font color='#FF3399'>stunning</font>和<font color='#FF3399'>revoking</font>目标和自己一段时间。 \n\n<font color='#9FFFCC'>可升级的属性: Black Barrel</font>."
-        "DOTA_Tooltip_ability_mashu_punishment_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
-        "DOTA_Tooltip_ability_mashu_punishment_cast_delay"		"延时:"
+        "DOTA_Tooltip_Ability_mashu_punishment"			"<font color='#FFFFFF'>EX : 制裁</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_Description"		"玛修将盾牌扔向目标方向,造成伤害并且短暫 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 目标. \n\n<font color='#9FFFCC'>可升级属性: 悖论构造体</font>."
+        "DOTA_Tooltip_ability_mashu_punishment_Lore"		""
+        "DOTA_Tooltip_ability_mashu_punishment_cast_delay"			"施法延迟:"
         "DOTA_Tooltip_ability_mashu_punishment_throw_length"		"投掷范围:"
-        "DOTA_Tooltip_ability_mashu_punishment_projectile_speed"		"速度:"
-        "DOTA_Tooltip_ability_mashu_punishment_width"		"宽度:"
-        "DOTA_Tooltip_ability_mashu_punishment_damage"		"损坏:"
-        "DOTA_Tooltip_ability_mashu_punishment_stun_revoke"		"STUN REVOKE 时间:"
+        "DOTA_Tooltip_ability_mashu_punishment_projectile_speed"	"投掷速度:"
+        "DOTA_Tooltip_ability_mashu_punishment_width"				"盾牌宽度:"
+        "DOTA_Tooltip_ability_mashu_punishment_damage"				"伤害:"
+        "DOTA_Tooltip_ability_mashu_punishment_stun_revoke"			"暈眩和禁咒持续时间:"
 
-        "DOTA_Tooltip_Ability_mashu_punishment_upgrade"			"<font color='#9FFFCC'>EX : Punishment</font>"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Description"		"Mashu 向目标方向投掷一个盾牌，当盾牌击中敌人时，她跳到目标处，根据她的<font color='#FF0000'>STR</font>造成伤害，同时 <font color='#FF3399'>stunning</font>和<font color='#FF3399'>revoking</font>目标和自己一段时间。"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Lore"		"Shares level with <font color='#9FFFCC'>Transient Wall of Snowflakes</font>."
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_cast_delay"		"延时:"
+        "DOTA_Tooltip_Ability_mashu_punishment_upgrade"			"<font color='#9FFFCC'>EX : 制裁</font>"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Description"		"玛修将盾牌扔向目标方向, 造成伤害基于她的 <font color='#FF0000'>力量</font> 并且短暫 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font> 目标."
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_Lore"		""
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_cast_delay"			"施法延迟:"
         "DOTA_Tooltip_ability_mashu_punishment_upgrade_throw_length"		"投掷范围:"
-        "DOTA_Tooltip_ability_mashu_punishmen_upgrade_projectile_speed"		"速度:"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_width"		"宽度:"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage"		"损坏:"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage_per_strength"		"每点的额外伤害 STR:"
-        "DOTA_Tooltip_ability_mashu_punishment_upgrade_stun_revoke"		"STUN REVOKE 时间:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_projectile_speed"	"投掷速度:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_width"				"盾牌宽度:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage"				"伤害:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_damage_per_strength"	"每点力量额外伤害:"
+        "DOTA_Tooltip_ability_mashu_punishment_upgrade_stun_revoke"			"暈眩和禁咒持续时间:"
 
-        "DOTA_Tooltip_Ability_mashu_combo"			"<font color='#9FFFCC'>Fortress of the Distant Utopia - Lord Camelot</font>"
-        "DOTA_Tooltip_ability_mashu_combo_Description"		"<font color='#FF04EF'>技能释放条件 : 25 全属性</font>\n<font color='#FF04EF'>技能顺序 : 3秒内R -> R .</font>\nMashu 输送并采取防御姿态，在几秒钟内受到的伤害明显减少。传导后，游戏中的所有友方英雄将立即得到治疗并获得 <font color='#9FFFCC'>Lord Camelot Buff</font>. \n<font color='#9FFFCC'>Lord Camelot Buff</font>: 获得减少的伤害，获得健康再生，奖励最大健康和伤害屏障。"
-        "DOTA_Tooltip_ability_mashu_combo_Lore"		"全局技能，影响所有友方英雄。"
-        "DOTA_Tooltip_ability_mashu_combo_channel_time"		"频道时间:"
-        "DOTA_Tooltip_ability_mashu_combo_damage_reduction_chanting"		"%施法时的伤害减少:"
-        "DOTA_Tooltip_ability_mashu_combo_buff_duration"		"时间:"
-        "DOTA_Tooltip_ability_mashu_combo_damage_reduction"		"%抗损坏性:"
-        "DOTA_Tooltip_ability_mashu_combo_health_regen"		"健康再生:"
-        "DOTA_Tooltip_ability_mashu_combo_bonus_max_health"		"额外的最大健康:"
-        "DOTA_Tooltip_ability_mashu_combo_active_instant_heal"		"痊愈:"
-        "DOTA_Tooltip_ability_mashu_combo_barrier_amount"		"盾牌金额:"
+        ////////////////// BASIC //////////////////////
+
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt"					"<font color='#58ACFA'>掩体雷弹</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Description"		"向前冲刺, 当碰到敌方单位时立即停止. \n<font color='#FF3399'>晕眩</font> 碰到的敌人并造成伤害和 <font color='#FF3399'>缓速</font> 所有附近的敌人. \n\n<font color='#9FFFCC'>可升级属性: 悖论构造体</font>."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_range"				"冲刺距离:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_dash_duration"		"冲刺时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_damage"				"伤害:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_stun_duration"		"晕眩:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_aoe"				"范圍:"  
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_duration"		"缓速时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_slow_amount"		"%缓速:"
+        
+        "DOTA_Tooltip_Ability_mashu_bunker_bolt_upgrade"					"<font color='#9FFFCC'>掩体雷弹</font>"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Description"		"向前冲刺, 当碰到敌方单位时立即停止. \n<font color='#FF3399'>晕眩</font> 碰到的敌人并造成伤害基于她的 <font color='#FF0000'>力量</font> 并且 <font color='#FF3399'>缓速</font> 所有附近的敌人."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_Lore"    			"Big shield slap."
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_range"				"冲刺距离:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_dash_duration"		"冲刺时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage"				"伤害:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_damage_per_strength"			"每点力量额外伤害:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_stun_duration"		"晕眩:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_aoe"				"范圍:"  
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_duration"		"缓速时间:"
+        "DOTA_Tooltip_ability_mashu_bunker_bolt_upgrade_slow_amount"		"%缓速:"
+
+        "DOTA_Tooltip_Ability_mashu_w"					"<font color='#58ACFA'>守护壁垒</font>"
+        "DOTA_Tooltip_ability_mashu_w_Description"		"玛修冲向目标并举起盾牌创造一个区域来保护她的盟友. \n 玛修将会处于 <font color='#FFFF28'>守护壁垒</font>状态.并且可使用 <font color='#58ACFA'>守护壁垒: 停止</font> 玛修身后的所有友方英雄获得 <font color='#FFFF28'>保护盟友</font>. \n<font color='#FFFF28'>保护盟友</font>: 转移所受伤害到 <font color='#99FF33'>保护之盾</font>. \n<font color='#FFFF28'>守护壁垒</font>: 玛修将会 <font color='#FF3399'>禁固, 定身, 缴械</font> 和 <font color='#FFFF28'>免疫</font> 所有击退效果. \n 敌人无法进入 <font color='#99FF33'>保护之盾</font>所创造的区域. \n 每当 <font color='#99FF33'>保护之盾</font> 破碎, 玛修会处于 <font color='#FF3399'>盾牌破碎</font> 和失去 <font color='#FFFF28'>盾兵</font> 一段时间. 盾牌破碎时所有受到攻击的盟友将承受剩余的伤害. \n 玛修无法回复 <font color='#FFFF28'>保护之盾</font> 当正在使用 <font color='#58ACFA'>守护壁垒</font>. \n<font color='#FF3399'>盾牌破碎</font>: 玛修无法使用 <font color='#58ACFA'>守护壁垒</font> 并且无法回复 <font color='#99FF33'>保护之盾</font>. \n 使用 <font color='#58ACFA'>守护壁垒</font> 玛修将立即创造一个区域. \n\n<font color='#9FFFCC'>可升级属性: 信仰之盾</font>."
+        "DOTA_Tooltip_ability_mashu_w_Lore"    			""
+        "DOTA_Tooltip_ability_mashu_w_cast_range"			"冲刺距离:"
+        "DOTA_Tooltip_ability_mashu_w_speed"				"冲刺速度:"
+        "DOTA_Tooltip_ability_mashu_w_protect_radius"		"守护壁垒范圍:"
+        "DOTA_Tooltip_ability_mashu_w_shield_break_cd"		"盾牌破碎回复时间:"
+
+      	"DOTA_Tooltip_Ability_mashu_w_upgrade"					"<font color='#9FFFCC'>守护壁垒</font>"
+        "DOTA_Tooltip_ability_mashu_w_upgrade_Description"		"玛修冲向目标并举起盾牌创造一个区域来保护她的盟友. \n 玛修将会处于 <font color='#FFFF28'>守护壁垒</font>状态.并且可使用 <font color='#58ACFA'>守护壁垒: 停止</font> 玛修身后的所有友方英雄获得 <font color='#FFFF28'>保护盟友</font>. \n<font color='#FFFF28'>保护盟友</font>: 转移所受伤害到 <font color='#99FF33'>保护之盾</font>. \n<font color='#FFFF28'>守护壁垒</font>: 玛修将会 <font color='#FF3399'>禁固, 定身, 缴械</font> 和 <font color='#FFFF28'>免疫</font> 所有击退效果. \n 敌人无法进入 <font color='#99FF33'>保护之盾</font>所创造的区域. \n 每当 <font color='#99FF33'>保护之盾</font> 破碎, 玛修会处于 <font color='#FF3399'>盾牌破碎</font> 和失去 <font color='#FFFF28'>盾兵</font> 一段时间. 玛修将承担所有剩余的伤害. \n 如果剩余的伤害超过玛修所能承受, 剩余的伤害将由盟友承受. \n 玛修无法回复 <font color='#FFFF28'>保护之盾</font> 当正在使用 <font color='#58ACFA'>守护壁垒</font>. \n<font color='#FF3399'>盾牌破碎</font>: 玛修无法使用 <font color='#58ACFA'>守护壁垒</font> 并且无法回复 <font color='#99FF33'>保护之盾</font>. \n 使用 <font color='#58ACFA'>守护壁垒</font> 玛修将立即创造一个区域."
+        "DOTA_Tooltip_ability_mashu_w_upgrade_Lore"    			""
+        "DOTA_Tooltip_ability_mashu_w_upgrade_cast_range"			"冲刺距离:"
+        "DOTA_Tooltip_ability_mashu_w_upgrade_speed"				"冲刺速度:"
+        "DOTA_Tooltip_ability_mashu_w_upgrade_protect_radius"		"守护壁垒范圍:"
+        "DOTA_Tooltip_ability_mashu_w_upgrade_shield_break_cd"		"盾牌破碎回复时间:"
+
+        "DOTA_Tooltip_Ability_mashu_protect_stop"					"<font color='#58ACFA'>守护壁垒 停止</font>"
+        "DOTA_Tooltip_ability_mashu_protect_stop_Description"		"停止 守护壁垒"
+
+        "DOTA_Tooltip_Ability_mashu_taunt"			"<font color='#58ACFA'>决意奋起之盾</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_Description"		"玛修施法后获得 <font color='#FFFF28'>盾之勇气</font> 並且嘲讽所有附近的敌人. \n<font color='#FFFF28'>盾之勇气</font>: 减少受到的伤害. \n\n<font color='#9FFFCC'>可升级属性: 时为朦胧的白垩之壁</font>. \n 当玛修施法时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_ability_mashu_taunt_cast_time"			"施法延迟:"
+        "DOTA_Tooltip_ability_mashu_taunt_cast_delay"			"嘲讽前延迟:"
+        "DOTA_Tooltip_ability_mashu_taunt_channel_time"			"施法时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_buff_duration"		"盾之勇气持续时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_damage_reduction"		"%盾之勇气减少伤害:"
+        "DOTA_Tooltip_ability_mashu_taunt_radius"				"嘲讽范圍:"
+        "DOTA_Tooltip_ability_mashu_taunt_taunt_duration"		"嘲讽持续时间:"
+
+        "DOTA_Tooltip_Ability_mashu_taunt_upgrade"			"<font color='#9FFFCC'>决意奋起之盾</font>"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_Description"		"玛修施法后获得 <font color='#FFFF28'>盾之勇气</font>, 造成伤害基于她的最大生命并且嘲讽所有附近的敌人. \n<font color='#FFFF28'>盾之勇气</font>: 减少受到的伤害. \n 当玛修施法时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_cast_delay"			"施法延迟:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_channel_time"			"读条时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_buff_duration"			"盾之勇气持续时间:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_reduction"			"%盾之勇气减少伤害:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_damage_from_max_health"	"最大生命伤害:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_radius"			"嘲讽范圍:"
+        "DOTA_Tooltip_ability_mashu_taunt_upgrade_taunt_duration"			"嘲讽持续时间:"
+
+        "DOTA_Tooltip_Ability_mashu_snowflake"			"<font color='#58ACFA'>荣光坚毅的雪花之壁</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_Description"		"<font color='#58ACFA'>被动</font>: 玛修获得额外生命回复. \n<font color='#58ACFA'>主动</font>: 玛修施法后将会治疗并且对她自己附近所有的盟友施加 <font color='#FFFF28'>荣光坚毅的雪花之壁</font>. \n<font color='#FFFF28'>荣光坚毅的雪花之壁</font>: 获得护甲, 魔法抗性, 生命回复,和额外 <font color='#FF0000'>力量</font>. \n\n<font color='#9FFFCC'>可升级属性: 时为朦胧的白垩之壁</font>. \n 当玛修施法时自身会 <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_passive"		"被动生命回复:"
+        "DOTA_Tooltip_ability_mashu_snowflake_cast_time"		"施法时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_channel_time"		"读条时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_radius"			"主动范圍:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_instant_heal"		"即时治疗:"
+        "DOTA_Tooltip_ability_mashu_snowflake_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_health_regen_active"		"增益生命回复:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_magic_res"			"%增益魔法抗性:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_arm"				"增益额外护甲:"
+        "DOTA_Tooltip_ability_mashu_snowflake_active_bonus_strength"	"增益额外力量:"       
+
+        "DOTA_Tooltip_Ability_mashu_snowflake_upgrade"			"<font color='#9FFFCC'>荣光坚毅的雪花之壁</font>"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_Description"		"<font color='#58ACFA'>被动</font>: 减少玛修受到的伤害,并获得额外生命回复. \n<font color='#58ACFA'>主动</font>: 玛修施法后将会治疗并且对她自己附近所有的盟友施加 <font color='#FFFF28'>荣光坚毅的雪花之壁</font> , 玛修还会给自己和最近的盟友获得 <font color='#FFFF28'>无敌</font>. \n<font color='#FFFF28'>荣光坚毅的雪花之壁</font>: 获得护甲, 魔法抗性, 生命回复, 和额外 <font color='#FF0000'>力量</font>. \n 当玛修施法时自身会 <font color='#FFFF28'>无敌</font>, <font color='#FF3399'>暈眩</font> and <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_damage_reduction_passive"		"%被动减少受到伤害:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_passive"			"%被动生命回复:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_invul"					"玛修无敌时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_cast_delay"				"玛修的无敌所需延迟时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_channel_time"				"读条时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_radius"					"主动范圍:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_instant_heal"		"即时治疗:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_health_regen_active"		"增益生命回复:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_magic_res"			"%增益魔法抗性:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_arm"				"增益额外护甲:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_active_bonus_strength"	"增益额外力量:"
+        "DOTA_Tooltip_ability_mashu_snowflake_upgrade_ally_invul"				"盟友无敌时间:"
+
+        ////////////////// SA /////////////////////
+
+        "DOTA_Tooltip_Ability_mashu_smash"			"<font color='#FFB266'>盾牌猛击</font>"
+        "DOTA_Tooltip_ability_mashu_smash_Description"		"玛修跳到目标位置, 对范围内所有敌人造成魔法伤害基于她的护甲和<font color='#FFFF28'>保护之盾</font> 并且 <font color='#FF3399'>暈眩</font> 范围内所有敌人. \n 玛修跳起时获得 <font color='#FFFF28'>无敌</font> 和 <font color='#FFFF28'>无法选取</font>."
+        "DOTA_Tooltip_ability_mashu_smash_cast_range"			"施法范圍:"
+        "DOTA_Tooltip_ability_mashu_smash_cast_time"			"施法时间:"
+        "DOTA_Tooltip_ability_mashu_smash_radius"				"范圍:"
+        "DOTA_Tooltip_ability_mashu_smash_base_damage"			"基础伤害:"
+        "DOTA_Tooltip_ability_mashu_smash_bonus_def_dmg"		"每点护甲额外伤害:"
+        "DOTA_Tooltip_ability_mashu_smash_bonus_shield_dmg"		"每层保护之盾额外伤害:"
+        "DOTA_Tooltip_ability_mashu_smash_stun"					"晕眩时间:"
+
+        ///////////////// Combo ///////////////////////
+
+        "DOTA_Tooltip_Ability_mashu_combo"			"<font color='#FF04EF'>已然遥远的理想之城 -卡美洛</font>"
+        "DOTA_Tooltip_ability_mashu_combo_Description"		"<font color='#FF04EF'>技能释放条件: 25 全属性.</font>\n<font color='#FF04EF'>技能顺序: 5秒内 R -> R .</font>\n使用后玛修会持续施法. 当施法成功后地图上的所有友方英雄将会立即回复生命并获得 <font color='#FFFF28'>依然存在的梦想之城</font>. \n<font color='#FFFF28'>依然存在的梦想之城</font>: 减少受到伤害, 获得额外生命回复, 额外最大生命和伤害护盾. \n 玛修在施法时会减少受到伤害並且, <font color='#FF3399'>暈眩</font> 和 <font color='#FF3399'>禁咒</font>."
+        "DOTA_Tooltip_ability_mashu_combo_Lore"		"Global skill, affects all friendly hero."
+        "DOTA_Tooltip_ability_mashu_combo_channel_time"					"唱法所需时间:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction_chanting"	"%伤害减少当玛修施法:"
+        "DOTA_Tooltip_ability_mashu_combo_active_instant_heal"		"即时治疗:"
+        "DOTA_Tooltip_ability_mashu_combo_buff_duration"			"增益持续时间:"
+        "DOTA_Tooltip_ability_mashu_combo_damage_reduction"			"%增益减伤:"
+        "DOTA_Tooltip_ability_mashu_combo_health_regen"				"增益生命回复:"
+        "DOTA_Tooltip_ability_mashu_combo_bonus_max_health"			"增益额外最大生命:"
+        "DOTA_Tooltip_ability_mashu_combo_barrier_amount"			"增益伤害护盾数量:"
 
         ////////////////// ATTRIBUTE ///////////////////
       
-        "DOTA_Tooltip_Ability_mashu_attribute_barrel"			"<font color='#9FFFCC'>Attribute: Black Barrel</font>"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_Description"		"<font color='#58ACFA'>Bunker Bolt</font>: 额外的损害，基于 <font color='#FF0000'>STR</font>, 增加眩晕持续时间，现在降低敌人的魔法抗性。 \n<font color='#58ACFA'>EX : Punishment</font>: 增加基本伤害，额外伤害基于<font color='#FF0000'>STR</font>。"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_mr_penalty"			"%魔法抵抗力的惩罚:"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strengtho"			"BUNKER BOLT  额外的损害 基于STR:"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_stun"			"BUNKER BOLT 惊呆了:"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_damage"			"EX : PUNISHMENT 额外的基础伤害:"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strength"			"EX : PUNISHMENT 额外的损害 基于STR:"
-        "DOTA_Tooltip_ability_mashu_attribute_barrel_reduce_cast_delay"			"EX : PUNISHMENT 减少铸造时间:"
+        "DOTA_Tooltip_Ability_mashu_attribute_barrel"			"<font color='#9FFFCC'>属性: 悖论构造体</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_Description"		"<font color='#58ACFA'>掩体雷弹</font>: 增加伤害基于她的 <font color='#FF0000'>力量</font>. \n<font color='#58ACFA'>EX : 制裁</font>: 增加基础伤害,和增加伤害基于她的 <font color='#FF0000'>力量</font>."
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strengtho"			"掩体雷弹每点力量额外伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_bonus_damage"			"EX : 制裁额外伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_barrel_damage_per_strength"			"EX : 制裁每点力量额外伤害:"
 
-        "DOTA_Tooltip_Ability_mashu_attribute_shield"			"<font color='#9FFFCC'>Attribute: Shield of Faith</font>"
-        "DOTA_Tooltip_ability_mashu_attribute_shield_Description"		"<font color='#58ACFA'>Protect / Parry</font>: 额外奖励施法范围，持续时间，并获得无敌能力."
-        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_range"			"额外的铸造范围:"
-        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_protect_duration"		"额外保护时间:"
-        "DOTA_Tooltip_ability_mashu_attribute_shield_bonus_parry_duration"			"额外的抵抗时间:"
-        "DOTA_Tooltip_ability_mashu_attribute_shield_invul_duration"			"无敌时间:"
+        "DOTA_Tooltip_Ability_mashu_attribute_shield"			"<font color='#9FFFCC'>属性: 信仰之盾</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_Description"		"<font color='#58ACFA'>守护壁垒</font>: 增加玛修的冲刺速度並且减少盾牌破碎时间. \n当 <font color='#99FF33'>保护之盾</font>破碎, 玛修将承担所有剩余的伤害. \n 如果剩余的伤害超过玛修所能承受, 剩余的伤害将由盟友承受."
+        "DOTA_Tooltip_ability_mashu_attribute_shield_w_dash_speed"			"额外冲刺速度:"
+        "DOTA_Tooltip_ability_mashu_attribute_shield_shield_break_red"	"减少盾牌破碎时间:"
+        //"DOTA_Tooltip_ability_mashu_attribute_shield_w_behind_dmg_reduce"	"%在玛修背面额外伤害减少:"
+        //"DOTA_Tooltip_ability_mashu_attribute_shield_w_regen_ally"			"盟友额外生命值回复:"
+        //"DOTA_Tooltip_ability_mashu_attribute_shield_w_def_ally"			"盟友额外护甲:"
 
-        "DOTA_Tooltip_Ability_mashu_attribute_chalk"			"<font color='#9FFFCC'>Attribute: Obscurant Wall of Chalk</font>"
-        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"		"<font color='#58ACFA'>Transient Wall of Snowflakes</font>: 施放后获得无敌状态，并可在被固定或被击晕时施放."
-        "DOTA_Tooltip_ability_mashu_attribute_chalk_invul_duration"			"无敌时间:"
+        "DOTA_Tooltip_Ability_mashu_attribute_chalk"			"<font color='#9FFFCC'>属性: 时为朦胧的白垩之壁</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_Description"		"<font color='#58ACFA'>荣光坚毅的雪花之壁</font>: <font color='#58ACFA'>被动</font>: 玛修获得额外伤害减免和额外百分比生命回复. \n<font color='#58ACFA'>主动</font>: 减少施法时间, 並且玛修施法后获得 <font color='#FFFF28'>无敌</font>. 当玛修施法后最近的盟友同样获得 <font color='#FFFF28'>无敌</font> 一段时间. 玛修可以在晕眩时施放 <font color='#58ACFA'>荣光坚毅的雪花之壁</font>."
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_passive_dr"			"%被动伤害减免:"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_passive_hp_reg"		"%被动百分比生命回复:"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_cast_rdr"			"施法时间减少:"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_self_invul"			"玛修无敌时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_chalk_ally_invul"			"盟友无敌时间:"
 
-        "DOTA_Tooltip_Ability_mashu_attribute_amalgam"			"<font color='#9FFFCC'>Attribute: Amalgam Goad</font>"
-        "DOTA_Tooltip_ability_mashu_attribute_amalgam_Description"		"<font color='#58ACFA'>Shield of Rousing Heroism</font>: 获得额外的持续时间，现在也对附近的敌人造成基于施法者最大生命值的伤害。."
-        "DOTA_Tooltip_ability_mashu_attribute_amalgam_damage_from_max_health"			"伤害基于施法者的最大生命:"
-        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_buff_duration"			"奖励伤害减少的持续时间:"
-        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_taunt_duration"			"额外的强制攻击时间:"
+        "DOTA_Tooltip_Ability_mashu_attribute_amalgam"			"<font color='#9FFFCC'>属性: 软银替身</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_Description"		"<font color='#58ACFA'>决意奋起之盾</font>: 额外嘲讽持续时间和增益持续时间, 现在还会根据玛修的最大生命对敌人造成伤害."
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_damage_from_max_health"		"基于最大生命伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_buff_duration"			"额外增益持续时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_amalgam_bonus_taunt_duration"			"额外嘲讽持续时间:"
+
+        "DOTA_Tooltip_Ability_mashu_attribute_defense"			"<font color='#9FFFCC'>属性: 魔力防御</font>"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_Description"		"<font color='#58ACFA'>盾兵职阶</font>: 增加 <font color='#FFFF28'>魔力防御</font> 的护甲和魔法抗性. \n 增加 <font color='#FFFF28'>保护之盾</font> 恢复量. \n启用 <font color='#FFB266'>盾牌猛击</font> 当使用完 <font color='#FFFFFF'>EX : 制裁</font>. \n<font color='#FFB266'>盾牌猛击</font>: 玛修跳到目标位置, 对范围内所有敌人造成魔法伤害基于她的护甲和 <font color='#FFFF28'>保护之盾</font> 并且 <font color='#FF3399'>暈眩</font> 范围内所有敌人."
+        //"DOTA_Tooltip_ability_mashu_attribute_defense_d_bonus_shield"		"盾兵职阶额外最大护盾:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_d_bonus_regen"		"盾兵职阶额外保护之盾恢复量:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_d_bonus_def"			"盾兵职阶被动额外护甲:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_d_bonus_mr"			"%盾兵职阶被动额外魔法抗性:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_cast_range"			"盾牌猛击施法范圍:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_cast_time"			"盾牌猛击施法时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_radius"				"盾牌猛击范圍:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_base_damage"		"盾牌猛击基础伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_bonus_def_dmg"		"盾牌猛击每点护甲额外伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_bonus_shield_dmg"	"盾牌猛击每层保护之盾额外伤害:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_stun"				"盾牌猛击晕眩时间:"
+        "DOTA_Tooltip_ability_mashu_attribute_defense_f_cd"					"盾牌猛击冷却时间:"
 
         ////////////////// MODIFIERS ///////////////////
 
-		"DOTA_Tooltip_modifier_mashu_bunker_bolting"													"Bunker Bolt"
-		"DOTA_Tooltip_modifier_mashu_bunker_bolting_Description"										"Dashing forward."
+        "DOTA_Tooltip_modifier_mashu_shield_buff"								"盾兵"
+		"DOTA_Tooltip_modifier_mashu_shield_buff_Description"					"额外的护甲和魔法抗性"
 
-		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow"													"Bunker Bolt Debuff"
-		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow_Description"										"Taking bunker bolt debuffs."
+		"DOTA_Tooltip_modifier_mashu_passive_shield"							"保护之盾"
+		"DOTA_Tooltip_modifier_mashu_passive_shield_Description"				"护盾量"
 
-		"DOTA_Tooltip_modifier_mashu_protect"														"Protected"
-		"DOTA_Tooltip_modifier_mashu_protect_Description"											"Mashu is protecting this unit."
+		"DOTA_Tooltip_modifier_mashu_shield_stop"								"守护壁垒 停止"
+		"DOTA_Tooltip_modifier_mashu_shield_stop_Description"					"无法回復保护之盾"
 
-		"DOTA_Tooltip_modifier_mashu_parry"															"Parry"
-		"DOTA_Tooltip_modifier_mashu_parry_Description"												"Mashu is preparing to parry."
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting"							"掩体雷弹"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolting_Description"				"向前冲刺."
 
-		"DOTA_Tooltip_modifier_mashu_taunt"															"Taunted"
-		"DOTA_Tooltip_modifier_mashu_taunt_Description"												"This unit is being forced to attack Mashu."
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow"							"掩体雷弹减益"
+		"DOTA_Tooltip_modifier_mashu_bunker_bolt_slow_Description"				"受到掩体雷弹减益." 
 
-		"DOTA_Tooltip_modifier_mashu_dmg_reduc"															"Heroism"
-		"DOTA_Tooltip_modifier_mashu_dmg_reduc_Description"												"This unit is recieving reduced damage."
+		"DOTA_Tooltip_modifier_mashu_protect_ally"								"玛修保护盟友"
+		"DOTA_Tooltip_modifier_mashu_protect_ally_Description"					"将伤害转移到玛修身上"
 
-		"DOTA_Tooltip_modifier_mashu_snowflake"															"Transient Wall of Snowflakes"
-		"DOTA_Tooltip_modifier_mashu_snowflake_Description"												"Gaining bonus armor, magic resist, health regen, and bonus strength."
+		"DOTA_Tooltip_modifier_mashu_protect_self"								"玛修正在保護自己"
+		"DOTA_Tooltip_modifier_mashu_protect_self_Description"					"增加正面伤害减免"
 
-		"DOTA_Tooltip_modifier_mashu_snowflake_passive"															"Transient Wall of Snowflakes Passive"
-		"DOTA_Tooltip_modifier_mashu_snowflake_passive_Description"												"Gains passive damage reduction."
+		"DOTA_Tooltip_modifier_mashu_taunt"										"嘲讽"
+		"DOTA_Tooltip_modifier_mashu_taunt_Description"							"这单位正在被迫攻击玛修."
 
-		"DOTA_Tooltip_modifier_mashu_combo_chanting"															"Channeling Lord Camelot"
-		"DOTA_Tooltip_modifier_mashu_combo_chanting_Description"												"Recieving reduced damage."
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc"									"盾之勇气"
+		"DOTA_Tooltip_modifier_mashu_dmg_reduc_Description"						"该单位受到的伤害减少."
 
-		"DOTA_Tooltip_modifier_mashu_combo"															"Lord Camelot Buff"
-		"DOTA_Tooltip_modifier_mashu_combo_Description"												"Gaining multiple effects."
+		"DOTA_Tooltip_modifier_mashu_snowflake"									"荣光坚毅的雪花之壁"
+		"DOTA_Tooltip_modifier_mashu_snowflake_Description"						"获得额外的护甲、魔法抗性、生命值回复和额外的力量."
 
-		"DOTA_Tooltip_modifier_mashu_combo_barrier"															"Lord Camelot Barrier"
-		"DOTA_Tooltip_modifier_mashu_combo_barrier_Description"												"Blocking damage."
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive"							"荣光坚毅的雪花之壁被動"
+		"DOTA_Tooltip_modifier_mashu_snowflake_passive_Description"				"额外生命回复"
 
-		"DOTA_Tooltip_modifier_mashu_combo_cooldown"												"Lord Camelot Cooldown"
-		"DOTA_Tooltip_modifier_mashu_combo_cooldown_Description"											"Combo cooldown."
+		"DOTA_Tooltip_modifier_mashu_combo_chanting"							"正在施法已然遥远的理想之城 -卡美洛"
+		"DOTA_Tooltip_modifier_mashu_combo_chanting_Description"				"减少受到的伤害."
+
+		"DOTA_Tooltip_modifier_mashu_combo"										"依然存在的梦想之城"
+		"DOTA_Tooltip_modifier_mashu_combo_Description"							"获得多重效果."
+
+		"DOTA_Tooltip_modifier_mashu_combo_barrier"								"依然存在的梦想之城伤害护盾"
+		"DOTA_Tooltip_modifier_mashu_combo_barrier_Description"					"阻挡伤害."
+ 
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown"							"已然遥远的理想之城 -卡美洛冷却"
+		"DOTA_Tooltip_modifier_mashu_combo_cooldown_Description"				"已然遥远的理想之城 -卡美洛冷却冷却."
+
+		"DOTA_Tooltip_modifier_mashu_shield_break_cooldown"						"盾牌破碎冷却"
+		"DOTA_Tooltip_modifier_mashu_shield_break_cooldown_Description"			"失去盾兵效果"
+
+		"DOTA_Tooltip_modifier_mashu_smash_cooldown"							"盾牌猛击冷却"
+		"DOTA_Tooltip_modifier_mashu_smash_cooldown_Description"				""
 
 		//====================================
         //      Archer(Extra)

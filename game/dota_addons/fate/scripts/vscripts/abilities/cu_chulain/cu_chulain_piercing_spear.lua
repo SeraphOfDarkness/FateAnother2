@@ -239,8 +239,8 @@ function modifier_piercing_spear:DashHit(hTarget)
 	self.hit_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_caster.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
 	ParticleManager:SetParticleControlEnt(self.hit_fx, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetAbsOrigin() + Vector(0,0,50), false)
 
-	DoDamage(self.caster, hTarget, self.damage, DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
-	hTarget:AddNewModifier(self.caster, self.ability, "modifier_stunned", { Duration = 0.1})
+	DoDamage(self.caster, hTarget, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+	hTarget:AddNewModifier(self.caster, self.ability, "modifier_stunned", { Duration = 0.2})
 
 	if not hTarget:IsRealHero() then 
 		return  

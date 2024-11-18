@@ -59,7 +59,6 @@ function ereshkigal_r_wrapper(ability)
 		self.width = self:GetSpecialValueFor("width")
 		self.speed = self:GetSpecialValueFor("speed")
 		self.root = self:GetSpecialValueFor("root_dur")
-		self.hell_dur = self:GetSpecialValueFor("hell_dur")
 		self.heal_red = self:GetSpecialValueFor("heal_red")
 		self.origin = self.caster:GetAbsOrigin()
 		self.damage = self:GetSpecialValueFor("damage")
@@ -68,21 +67,34 @@ function ereshkigal_r_wrapper(ability)
 			local bonus_int = self:GetSpecialValueFor("bonus_int") * self.caster:GetIntellect()
 			self.damage = self.damage + bonus_int
 		end
-		if self.caster:HasModifier("modifier_ereshkigal_authority") then 
+		
+		EmitGlobalSound("Ereshkigal.R")
 
-		end
 		self.outer_dmg = self.damage * self:GetSpecialValueFor("outer_dmg")/100
 
 		if self:IsCastInsideMarble(self.target_loc) then
 			self.cast_time = self:GetSpecialValueFor("hell_cast")
+
 			self.caster:AddNewModifier(self.caster, self, "modifier_ereshkigal_anim_sfx", {Duration = self.cast_time})
 			StartAnimation(self.caster, {duration = self.cast_time, activity = ACT_DOTA_CAST_ABILITY_4, rate = 2})
 			self:GenerateSFX()
 			Timers:CreateTimer(self.cast_time * 0.8, function()
 				self:DestroySFX()
+				
+				local LightningPillarFX = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_kur_spike.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+				ParticleManager:SetParticleControl(LightningPillarFX, 0, self.target_loc)
+				ParticleManager:SetParticleControl(LightningPillarFX, 1, self.target_loc)
+				ParticleManager:SetParticleControl(LightningPillarFX, 3, Vector(self:GetSpecialValueFor("hell_aoe") - 150,self:GetSpecialValueFor("hell_aoe") - 150,-100))
+				ParticleManager:SetParticleControl(LightningPillarFX, 4, Vector(-self:GetSpecialValueFor("hell_aoe") + 150,-self:GetSpecialValueFor("hell_aoe") + 150,-100))
+
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(LightningPillarFX, true)
+					ParticleManager:ReleaseParticleIndex(LightningPillarFX)
+				end)
 			end)
 			Timers:CreateTimer(self.cast_time, function()
 				if self.caster:IsAlive() then
+					EmitGlobalSound("Ereshkigal.R_Launch")
 					self:HellPillar()	
 				end
 			end)
@@ -96,6 +108,7 @@ function ereshkigal_r_wrapper(ability)
 			Timers:CreateTimer(self.cast_time, function()
 				
 				if self.caster:IsAlive() then
+					EmitGlobalSound("Ereshkigal.R_Launch")
 					self.LightningSFX1 = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 					ParticleManager:SetParticleControl(self.LightningSFX1, 0, self.caster:GetAbsOrigin() + Vector(0,0,1500))
 					ParticleManager:SetParticleControl(self.LightningSFX1, 1, self.caster:GetAbsOrigin())
@@ -145,17 +158,19 @@ function ereshkigal_r_wrapper(ability)
 	function ability:OnProjectileHit_ExtraData(hTarget, vLocation, tExtra)
 		if hTarget == nil then return false end 
 
+		local root = tExtra.Root
+
 		DoDamage(self.caster, hTarget, tExtra.Damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
-		hTarget:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = tExtra.Root})
+		hTarget:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = root})
 
 		if not hTarget:IsRealHero() then return false end
 
 		local RockRootFX = ParticleManager:CreateParticle("particles/econ/items/earthshaker/deep_magma/deep_magma_cyan/deep_magma_cyan_fissure.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 		ParticleManager:SetParticleControl(RockRootFX, 0, hTarget:GetAbsOrigin())
 		ParticleManager:SetParticleControl(RockRootFX, 1, hTarget:GetAbsOrigin())
-		ParticleManager:SetParticleControl(RockRootFX, 2, Vector(tExtra.Root,0,0))
+		ParticleManager:SetParticleControl(RockRootFX, 2, Vector(root,0,0))
 
-		Timers:CreateTimer(tExtra.root, function()
+		Timers:CreateTimer(root, function()
 			ParticleManager:DestroyParticle(RockRootFX, true)
 			ParticleManager:ReleaseParticleIndex(RockRootFX)
 		end)
@@ -165,7 +180,7 @@ function ereshkigal_r_wrapper(ability)
 			if enemy ~= hTarget then
 				local distance = (vLocation - enemy:GetAbsOrigin()):Length2D()
 				if distance <= tExtra.InRadius then 
-					enemy:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = tExtra.Root})
+					enemy:AddNewModifier(self.caster, self, "modifier_rooted", {Duration = root})
 					DoDamage(self.caster, enemy, tExtra.Damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
 				else
 					DoDamage(self.caster, enemy, tExtra.OutDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
@@ -189,7 +204,7 @@ function ereshkigal_r_wrapper(ability)
 		ParticleManager:DestroyParticle(self.SpinFx, true)
 		ParticleManager:ReleaseParticleIndex(self.SpinFx)
 	end
-	function ability:HellPillar()
+	function ability:HellPillar() 
 
 		local tEnemies = FindUnitsInRadius(self.caster:GetTeam(), self.target_loc, nil, self:GetSpecialValueFor("hell_aoe"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,enemy in pairs (tEnemies) do
@@ -246,6 +261,9 @@ function ereshkigal_r_wrapper(ability)
 
 	function ability:CreatePseudoMarble(vLocation) 
 		self.caster = self:GetCaster()
+		self.hell_dur = self:GetSpecialValueFor("hell_dur")
+		self.radius = self:GetSpecialValueFor("radius")
+		self.heal_red = self:GetSpecialValueFor("heal_red")
 		local zone = CreateUnitByName("sight_dummy_unit", vLocation, true, self.caster, self.caster, self.caster:GetTeamNumber())
 		zone:AddNewModifier(self.caster, nil, "modifier_kill", {duration = self.hell_dur + 1})
 		self.marble_origin.zone = vLocation

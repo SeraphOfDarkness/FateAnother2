@@ -2,6 +2,7 @@ cu_chulain_gae_bolg_jump = class({})
 cu_chulain_gae_bolg_jump_upgrade = class({})
 modifier_self_disarm = class({})
 
+LinkLuaModifier("modifier_cu_wesen_sfx", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_self_disarm", "abilities/cu_chulain/cu_chulain_gae_bolg_jump", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_gae_effect", "abilities/cu_chulain/cu_chulain_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 
@@ -33,14 +34,14 @@ function cugaebolgjump_wrapper(abil)
 		self.caster = self:GetCaster()
 
 		self.caster:AddNewModifier(self.caster, self, "modifier_cu_gae_effect", {Duration = self:GetSpecialValueFor"cast_delay" + 1})
-		
+		self.caster:AddNewModifier(self.caster, self, "modifier_cu_wesen_sfx", { Duration = self:GetSpecialValueFor"cast_delay" + 1})
 		return true
 	end
 
 	function abil:OnAbilityPhaseInterrupted()
 		self.caster = self:GetCaster()
 		self.caster:RemoveModifierByName("modifier_cu_gae_effect")
-
+		self.caster:RemoveModifierByName("modifier_cu_wesen_sfx")
 		return true
 	end
 

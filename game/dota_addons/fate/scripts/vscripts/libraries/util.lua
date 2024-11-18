@@ -327,6 +327,7 @@ slowmodifier = {
     "modifier_roar_slow",
     "modifier_atalanta_jump_slow",
     "musashi_modifier_earth_debuff",
+    "modifier_ereshkigal_q_slow",
 }
 
 revokes = {
@@ -878,6 +879,7 @@ CannotReset = {
     "billy_combo",
     "saito_jce",
     "mhx_combo",
+    "ereshkigal_combo",
 }
 
 femaleservant = {
@@ -907,6 +909,7 @@ femaleservant = {
     "npc_dota_hero_void_spirit",
     "npc_dota_hero_nyx_assassin",
     "npc_dota_hero_slark",
+    "npc_dota_hero_lich",
 }
 
 tSpellBookHero = {
@@ -1217,6 +1220,7 @@ tDivineHeroes = {
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_oracle",
     "npc_dota_hero_nyx_assassin",
+    "npc_dota_hero_lich",
 }
 
 tArthurHeroes = {
@@ -1229,6 +1233,8 @@ tLivingHumanHeroes = {
     "npc_dota_hero_naga_siren",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_dragon_knight",
+    "npc_dota_hero_lich",
+    "npc_dota_hero_oracle",
 }
 
 tShinsengumi = {
@@ -1292,6 +1298,8 @@ tKnightClass = {
     "npc_dota_hero_antimage",
     "npc_dota_hero_muerta",
     "npc_dota_hero_terrorblade",
+    "npc_dota_hero_oracle",
+    "npc_dota_hero_lich",
 }
 
 tHorsemanClass = {
@@ -1313,6 +1321,7 @@ tHorsemanClass = {
     "npc_dota_hero_axe",
     "npc_dota_hero_disruptor",
     "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_slark",
 }
 
 tSaberClass = {
@@ -1334,6 +1343,7 @@ tArcherClass = {
     "npc_dota_hero_sniper",
     "npc_dota_hero_gyrocopter",
     "npc_dota_hero_muerta",
+    "npc_dota_hero_oracle",
 }
 
 tLancerClass = {
@@ -1344,6 +1354,7 @@ tLancerClass = {
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_death_prophet",
     "npc_dota_hero_void_spirit",
+    "npc_dota_hero_lich",
 }
 
 tRiderClass = {
@@ -3981,6 +3992,8 @@ local heroNames = {
     ["npc_dota_hero_nyx_assassin"] = "Melt",
     ["npc_dota_hero_muerta"] = "Billy",
     ["npc_dota_hero_terrorblade"] = "Saitō Hajime",
+    ["npc_dota_hero_slark"] = "Mysterious Heroine X",
+    ["npc_dota_hero_lich"] = "Ereshkigal",
 }
 
 

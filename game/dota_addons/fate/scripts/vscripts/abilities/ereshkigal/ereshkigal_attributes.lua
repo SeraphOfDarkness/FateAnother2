@@ -21,8 +21,8 @@ function ereshkigal_attribute_territory:OnSpellStart()
 			hero.RSkill = "ereshkigal_r_upgrade_1"
 		end
 		
-		hero:SwapAbilities("fate_empty1", "ereshkigal_f", false, true)
-		hero.FSkill = "ereshkigal_f"
+		--hero:SwapAbilities("fate_empty1", "ereshkigal_f", false, true)
+		--hero.FSkill = "ereshkigal_f"
 
 		NonResetAbility(hero)
 		-- Set master 1's mana 

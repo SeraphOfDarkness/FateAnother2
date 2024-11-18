@@ -22,6 +22,7 @@ function EreshkigalQWrapper(abil)
 		self.slow_dur = self:GetSpecialValueFor("slow_dur")
 		self.slow = self:GetSpecialValueFor("slow")
 		self.silence = 0
+		self.caster:EmitSound("Ereshkigal.Q")
 		if self.caster:HasModifier("modifier_ereshkigal_authority") then
 			self.silence = self:GetSpecialValueFor("silence")
 		end
@@ -70,7 +71,7 @@ function EreshkigalQWrapper(abil)
 	end
 
 	function abil:OnProjectileHit_ExtraData(hTarget, vLocation, tExtra)
-		if hTarget == nil then return false end 
+		if hTarget == nil then return nil end 
 
 		if not IsImmuneToCC(hTarget) and not IsImmuneToSlow(hTarget) then
 			hTarget:AddNewModifier(self.caster, self, "modifier_ereshkigal_q_slow", {Duration = tExtra.SlowDuration, Slow = tExtra.Slow})

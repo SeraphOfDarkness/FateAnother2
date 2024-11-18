@@ -1209,7 +1209,7 @@ Cu Chulainn cannot be <font color='#FFFF28'>revived</font> while <font color='#F
 
 		"DOTA_Tooltip_Ability_cu_chulain_battle_continuation_upgrade_2"		"<font color='#9FFFCC'>Battle Continuation</font>"
 		"DOTA_Tooltip_ability_cu_chulain_battle_continuation_upgrade_2_Description"	"
-<font color='#58ACFA'>PASSIVE</font>: when Cu Chulainn recieve a fatal damage below %max_damage%, Cu Chulainn will be <font color='#FFFF28'>revived</font>, gains <font color='#FFFF28'>Battle Continuation</font> for %active_dur% seconds and <font color='#FFFF28'>Ath Ngabla</font> for %ath_duration% seconds while the killer applied with <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
+<font color='#58ACFA'>PASSIVE</font>: when Cu Chulainn recieve a fatal damage below %max_damage%, Cu Chulainn will be <font color='#FFFF28'>revived</font>, gains <font color='#FFFF28'>Battle Continuation</font> for %active_dur% seconds, <font color='#FFFF28'>Ath Ngabla</font> for %ath_duration% seconds and instant refresh his resettable abilities while the killer applied with <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
 <font color='#FFFF28'>Battle Continuation</font>: Cu Chulainn's HP will be fixed at %revive_health%, cannot be healed or damaged. At the end of duration, Cu Chulainn place a trap on the ground, which detonates when an enemy steps on it, dealing %rune_fire_dmg% damage and <font color='#FF3399'>stunning</font> for %rune_fire_stun% seconds.
 <font color='#FFFF28'>Ath Ngabla</font>: Cu Chulainn can not use <font color='#58ACFA'>Disengagement</font> while gaining bonus attackspeed, attack and movespeed. His skills also dealing bonus %ath_self%%% damage.
 <font color='#FF3399'>Ath Ngabla Enemy</font>: Enemy will take bonus %ath_enemy%%% damage from Cu Chulainn.
@@ -1220,7 +1220,7 @@ Cu Chulainn cannot be <font color='#FFFF28'>revived</font> while <font color='#F
 
 		"DOTA_Tooltip_Ability_cu_chulain_battle_continuation_upgrade_3"		"<font color='#9FFFCC'>Battle Continuation</font>"
 		"DOTA_Tooltip_ability_cu_chulain_battle_continuation_upgrade_3_Description"	"
-<font color='#58ACFA'>PASSIVE</font>: when Cu Chulainn recieve a fatal damage below %max_damage%, Cu Chulainn will be <font color='#FFFF28'>revived</font>, gains <font color='#FFFF28'>Battle Continuation</font> for %active_dur% seconds and <font color='#FFFF28'>Ath Ngabla</font> for %ath_duration% seconds while the killer applied with <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
+<font color='#58ACFA'>PASSIVE</font>: when Cu Chulainn recieve a fatal damage below %max_damage%, Cu Chulainn will be <font color='#FFFF28'>revived</font>, gains <font color='#FFFF28'>Battle Continuation</font> for %active_dur% seconds, <font color='#FFFF28'>Ath Ngabla</font> for %ath_duration% seconds and instant refresh his resettable abilities while the killer applied with <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
 <font color='#FFFF28'>Battle Continuation</font>: Cu Chulainn's HP will be fixed at %revive_health%, cannot be healed or damaged. At the end of duration, Cu Chulainn place a trap on the ground, which detonates when an enemy steps on it, dealing %rune_fire_dmg% damage and <font color='#FF3399'>stunning</font> for %rune_fire_stun% seconds.
 <font color='#FFFF28'>Ath Ngabla</font>: Cu Chulainn can not use <font color='#58ACFA'>Disengagement</font> while gaining bonus attackspeed, attack and movespeed. His skills also dealing bonus %ath_self%%% damage.
 <font color='#FF3399'>Ath Ngabla Enemy</font>: Enemy will take bonus %ath_enemy%%% damage from Cu Chulainn.
@@ -1442,11 +1442,11 @@ Cu Chulainn is <font color='#FF3399'>stunned</font> and <font color='#FF3399'>re
 
 		"DOTA_Tooltip_Ability_cu_attribute_celtic_runes"				"<font color='#9FFFCC'>Attribute: Celtic Runes</font>"
 		"DOTA_Tooltip_ability_cu_attribute_celtic_runes_Description"	"
-<font color='#FFFFFF'>Battle Continuation</font>: Cu Chulainn gains <font color='#FFFF28'>Ath Ngabla</font> while killer gains <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
+<font color='#FFFFFF'>Battle Continuation</font>: Cu Chulainn refresh his resettable abilities and gains <font color='#FFFF28'>Ath Ngabla</font> while killer gains <font color='#FF3399'>Ath Ngabla Enemy</font> for %ath_duration% seconds. 
 At the end of <font color='#FFFF28'>Battle Continuation</font>, Cu Chulainn place a trap on the ground, which detonates when an enemy steps on it, dealing %rune_fire_dmg% damage and <font color='#FF3399'>stunning</font> for %rune_fire_stun% seconds.
 <font color='#FFFF28'>Ath Ngabla</font>: Cu Chulainn can not use <font color='#58ACFA'>Disengagement</font> while gaining bonus attackspeed, attack and movespeed. His skills also dealing bonus %ath_self%%% damage.
 <font color='#FF3399'>Ath Ngabla Enemy</font>: Enemy will take bonus %ath_enemy%%% damage from Cu Chulainn.
-<font color='#58ACFA'>Disengagement</font>: Cu Chulainn gains <font color='#FFFF28'>Rune of Heal</font>.
+<font color='#58ACFA'>Disengagement</font>: Cu Chulainn gains <font color='#FFFF28'>Rune of Heal</font>. Cu can use <font color='#58ACFA'>Disengagement</font> while being <font color='#FF3399'>stunned</font>.
 <font color='#58ACFA'>Piercing Spear</font>: Cu Chulainn gains <font color='#FFFF28'>Rune of Acceleration</font>.
 <font color='#FFFF28'>Rune of Acceleration</font>: Increase Movespeed.
 <font color='#58ACFA'>Relentless Spear</font>: Cu Chulainn gains <font color='#FFFF28'>Rune of Ferocity</font>.

@@ -34,6 +34,8 @@ function EreshkigalEWrapper(abil)
 			self.damage = self.damage + (bonus_int * self.caster:GetIntellect())
 		end
 
+		--self.caster:EmitSound("Ereshkigal.E")
+		EmitSoundOnLocationWithCaster(self.target_loc, "Ereshkigal.E", self.caster)
 		--self:UseSoul() 
 
 		local CageDropFx = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_cage.vpcf", PATTACH_WORLDORIGIN, self.caster)
@@ -64,7 +66,8 @@ function EreshkigalEWrapper(abil)
 							end
 
 							v:SetAbsOrigin(self.target_loc)
-
+							self.caster:EmitSound("Ereshkigal.E_Success")
+							v:EmitSound("Ereshkigal.E_Success")
 							local CageFx = ParticleManager:CreateParticle("particles/custom/ereshkigal/ereshkigal_cage.vpcf", PATTACH_WORLDORIGIN, self.caster)
 							ParticleManager:SetParticleControl(CageFx, 0, self.target_loc) 
 							ParticleManager:SetParticleControl(CageFx, 1, self.target_loc) 

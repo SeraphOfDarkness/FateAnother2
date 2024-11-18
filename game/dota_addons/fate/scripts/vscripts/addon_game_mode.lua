@@ -98,7 +98,7 @@ BLESSING_PERIOD = 480
 BLESSING_MANA_REWARD = 15
 DRAW_CHEST_DROP_PERIOD = 600
 --SPAWN_POSITION_RADIANT_DM = Vector(-5400, 762, 376) old
-SPAWN_POSITION_RADIANT_DM = Vector(-4668, 2250, 256) --new
+SPAWN_POSITION_RADIANT_DM = Vector(-4750, 2250, 256) --new
 SPAWN_POSITION_DIRE_DM = Vector(7200, 4250, 755)
 SPAWN_POSITION_T1_TRIO = Vector(-796,7032,512)
 SPAWN_POSITION_T2_TRIO = Vector(5676,6800,512)
@@ -312,6 +312,7 @@ function Precache( context , pc)
     PrecacheResource("soundfile", "soundevents/hero_scathach.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_bathory.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_kiyohime.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_ereshkigal.vsndevts", context)
                        --============ Caster ==============--      
     PrecacheResource("soundfile", "soundevents/hero_caster.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_zc.vsndevts", context)
@@ -377,6 +378,7 @@ function Precache( context , pc)
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_monkey_king.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_death_prophet.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_void_spirit.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_lich.vsndevts", context )
 
                         --============ Caster ==============--    
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_crystalmaiden.vsndevts", context )
@@ -2308,7 +2310,7 @@ function FateGameMode:OnHeroInGame(hero)
 
     if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" then
         if self.nCurrentRound == 0 and _G.CurrentGameState == "FATE_PRE_GAME" then
-            giveUnitDataDrivenModifier(hero, hero, "round_pause", 120)
+            giveUnitDataDrivenModifier(hero, hero, "round_pause", 140)
         else
             giveUnitDataDrivenModifier(hero, hero, "round_pause", 10)
         end

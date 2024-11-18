@@ -33,6 +33,8 @@ function EreshkigalWWrapper(abil)
 			self.cast_delay = self:GetSpecialValueFor("hell_delay")
 			self.IsHell = true
 		end
+		--self.caster:EmitSound("Ereshkigal.W")
+		EmitSoundOnLocationWithCaster(self.target_loc, "Ereshkigal.W", self.caster)
 		self.aoe = self:GetAOERadius()
 		self.damage = self:GetSpecialValueFor("damage")
 		if self.caster.IsManaBurstAcquired then 

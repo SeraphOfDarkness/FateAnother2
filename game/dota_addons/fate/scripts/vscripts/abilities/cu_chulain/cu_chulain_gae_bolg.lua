@@ -3,6 +3,7 @@ cu_chulain_gae_bolg_upgrade = class({})
 modifier_cu_gae_effect = class({})
 modifier_cu_gae_anim = class({})
 
+LinkLuaModifier("modifier_cu_wesen_sfx", "abilities/cu_chulain/cu_chulain_gae_bolg_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_gae_effect", "abilities/cu_chulain/cu_chulain_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_gae_anim", "abilities/cu_chulain/cu_chulain_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 
@@ -48,6 +49,7 @@ function gaebolgwrapper(abil)
 		self.caster = self:GetCaster()
 
 		self.caster:AddNewModifier(self.caster, self, "modifier_cu_gae_effect", {Duration = 1.5})
+		self.caster:AddNewModifier(self.caster, self, "modifier_cu_wesen_sfx", { Duration = 1.5})
 
 		if self.caster:HasModifier("modifier_alternate_02") or self.caster:HasModifier("modifier_alternate_03") then 
 			EmitGlobalSound("Rin-Lancer.Gae")
@@ -63,6 +65,7 @@ function gaebolgwrapper(abil)
 	function abil:OnAbilityPhaseInterrupted()
 		self.caster = self:GetCaster()
 		self.caster:RemoveModifierByName("modifier_cu_gae_effect")
+		self.caster:RemoveModifierByName("modifier_cu_wesen_sfx")
 		if self.caster:HasModifier("modifier_alternate_02") or self.caster:HasModifier("modifier_alternate_03") then 
 			StopGlobalSound("Rin-Lancer.Gae")
 		elseif self.caster:HasModifier("modifier_alternate_04") or self.caster:HasModifier("modifier_alternate_05") then 
